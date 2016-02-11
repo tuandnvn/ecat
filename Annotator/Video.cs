@@ -12,20 +12,17 @@ namespace Annotator
     public class Video
     {
         //constructor
-        public Video(String fileName)
+        public Video(Session session, String fileName)
         {
             objects     = new List<Object>();
-            annotations = new List<Annotation>();
+            
             this.fileName = fileName;
             capture = new Capture(fileName);
             this.aspectRatio = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth) / capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
+            this.session = session;
             //MessageBox.Show(scale + "");
         }
-        //Return list of annotations
-        public List<Annotation> getAnnotations()
-        {
-            return annotations;
-        }
+
         //Get specific frame
         public Mat GetFrame(double frameNum)
         {
@@ -33,8 +30,8 @@ namespace Annotator
             return capture.QueryFrame();
         }
         //get number of frames in video
-        public double getFramesNumber(){
-            return capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
+        public int getFramesNumber(){
+            return (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
         }
         //Get video full path
         public String getFileName()
@@ -46,6 +43,7 @@ namespace Annotator
         {
             return aspectRatio;
         }
+
         //Add object
         public void addObject(Object o)
         {
@@ -53,7 +51,7 @@ namespace Annotator
             bool exists = false;
             foreach (Object obj in objects)
             {
-                if (obj.getID() == o.getID())
+                if (obj.id == o.id)
                 {
                     exists = true;
                     break;
@@ -61,27 +59,10 @@ namespace Annotator
             }
             if (!exists)
                 objects.Add(o);
-            o.setID(++objectID);
+            if (o.id == "") { o.id = "o" + ++objectID; }
+            
         }
-        //Add annotation
-        public void addAnnotation(Annotation a)
-        {
-            //1)Check if object exists in objects list
-            bool exists = false;
-            foreach (Annotation annotation in annotations)
-            {
-                if (annotation.getID() == a.getID())
-                {
-                    exists = true;
-                    break;
-                }
-            }
-            if (!exists)
-            {
-                annotations.Add(a);
-                a.setID(++annotationID);
-            }
-        }
+
         //Get frame width
         public double getFrameWidth()
         {
@@ -99,10 +80,9 @@ namespace Annotator
         }
         private Capture capture;       //capture object from EmguCV library to manage video frames
         private String fileName;       // full video path
-        private double aspectRatio;    // scale: frame width/frame height
+        private double aspectRatio ;    // scale: frame width/frame height
         private List<Object> objects;  // list of objects in videos
-        private List<Annotation> annotations;
-        private int objectID;          // video objects IDs
-        private int annotationID;      // annotation ID
+        public Session session { get; }
+        private int objectID = 0;          // video objects IDs
     }
 }

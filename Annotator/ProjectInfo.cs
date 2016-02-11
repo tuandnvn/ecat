@@ -12,14 +12,14 @@ namespace Annotator
 {
     public partial class ProjectInfo : Form
     {
-        public ProjectInfo(Form1 frm1)
+        public ProjectInfo(Main frm1)
         {
             InitializeComponent();
             this.frm1 = frm1;
             this.ActiveControl = this.textBox1;
         }
 
-        private Form1 frm1 = null;
+        private Main frm1 = null;
 
         private void button2_Click(object sender, EventArgs e)
         {

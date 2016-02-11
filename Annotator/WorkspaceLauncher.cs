@@ -15,12 +15,12 @@ namespace Annotator
     public partial class WorkspaceLauncher : Form
     {
         
-        public WorkspaceLauncher(Form1 frm1)
+        public WorkspaceLauncher(Main frm1)
         {
             InitializeComponent();
             this.frm1 = frm1;
         }
-        private Form1 frm1;
+        private Main frm1;
         private void WorkspaceLauncher_Load(object sender, EventArgs e)
         {
             try

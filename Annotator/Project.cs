@@ -72,7 +72,6 @@ namespace Annotator
         public void saveProjectFile(String sessionName)
         {
             String projectFileName = locationFolder + "\\" + projectName + "\\" + projectName + ".project";
-            try{
                 if(!File.Exists(projectFileName)){   
                     TextWriter tw = new StreamWriter(projectFileName);
                     foreach (Session s in sessions)
@@ -105,10 +104,6 @@ namespace Annotator
                     }
                     
                 }
-            }
-            catch(Exception exc){
-                MessageBox.Show(exc.Message);
-            }
         }
         //Remove session from project:
         public void removeSession(String sessionName)

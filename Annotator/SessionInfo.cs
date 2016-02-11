@@ -13,7 +13,7 @@ namespace Annotator
 {
     public partial class SessionInfo : Form
     {
-        public SessionInfo(Form1 frm1, String projectName)
+        public SessionInfo(Main frm1, String projectName)
         {
             InitializeComponent();
             this.frm1 = frm1;
@@ -41,7 +41,7 @@ namespace Annotator
 
 
         private String projectName = "";
-        private Form1 frm1 = null;
+        private Main frm1 = null;
 
         private void button3_Click(object sender, EventArgs e)
         {

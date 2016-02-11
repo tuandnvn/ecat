@@ -56,17 +56,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Main.ObjectnInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjectTrack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ObjectTrack.Designer.cs">
+      <DependentUpon>ObjectTrack.cs</DependentUpon>
+    </Compile>
     <Compile Include="Annotation.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Annotation.Designer.cs">
       <DependentUpon>Annotation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Main.Drawing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Object.cs" />
     <Compile Include="Program.cs" />
@@ -98,11 +111,14 @@
     <Compile Include="WorkspaceLauncher.Designer.cs">
       <DependentUpon>WorkspaceLauncher.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ObjectTrack.resx">
+      <DependentUpon>ObjectTrack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Annotation.resx">
       <DependentUpon>Annotation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectInfo.resx">
       <DependentUpon>ProjectInfo.cs</DependentUpon>
@@ -136,6 +152,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1453485939_video.ico" />
+    <None Include="Resources\cursor-3-xxl.png" />
+    <None Include="Resources\33807.png" />
+    <None Include="Resources\imagetools-rectangle-icon.png" />
+    <None Include="bin\Debug\images\design_048-rectangle-graphic-outline-tool-shape-draw-128.png" />
+    <None Include="Resources\rectangle.bmp" />
     <None Include="bin\Debug\images\BoxIcon1.png" />
     <None Include="bin\Debug\images\backgroundImg.png" />
     <None Include="bin\Debug\images\videoreel.png" />

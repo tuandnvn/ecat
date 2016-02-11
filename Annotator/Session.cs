@@ -8,101 +8,135 @@ using Emgu.CV.Structure;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
+using System.Xml;
+
 namespace Annotator
 {
     //Session class
     public class Session
     {
         //Constructor
-        public Session(String sessionName, String projectOwner, String locationFolder, Form1 frm1)
+        public Session(String sessionName, String projectOwner, String locationFolder, Main frm1)
         {
-            
+
             this.sessionName = sessionName;
             this.filesList = new List<String>();
-            this.edited     = false;
+            this.edited = false;
             this.videos = new List<Video>();
+            this.objectTracks = new List<ObjectTrack>();
+            this.objectToObjectTracks = new Dictionary<Object, ObjectTrack>();
+            this.annotations = new List<Annotation>();
             this.project = projectOwner;
             this.locationFolder = locationFolder;
-            this.frm1 = frm1;
+            this.mainGUI = frm1;
             //If session file list exist load files list            
-            paramFile = locationFolder + "\\" + project + "\\" + sessionName + "\\files.param";
-            loadFilesList();
+            metadataFile = locationFolder + "\\" + project + "\\" + sessionName + "\\files.param";
+            loadSession();
         }
         //Add file to session filesList
         public void addFile(String fileName)
         {
-            try
+            //1)check if file already exists in session files list
+            bool exists = false;
+            foreach (String file in filesList)
             {
-                //1)check if file already exists in session files list
-                bool exists = false;
-                foreach (String file in filesList)
+                if (file.Contains(fileName))
                 {
-                    if(file.Contains(fileName)){
-                        exists = true;
-                        break;
-                    }
+                    exists = true;
+                    break;
                 }
+            }
 
-                if(!exists && !fileName.Contains("files.param"))
-                    filesList.Add(fileName);
-                if (fileName.Contains(".avi"))
-                    AddVideo(fileName);
-                //MessageBox.Show(filesList.Count + "");
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            if (!exists && !fileName.Contains("files.param"))
+                filesList.Add(fileName);
+            if (fileName.Contains(".avi"))
+                addVideo(fileName);
+            //MessageBox.Show(filesList.Count + "");
         }
         //Get session name
         public String getSessionName()
         {
             return sessionName;
         }
+
+        private const string FILES = "files";
+        private const string FILE = "file";
+        private const string OBJECTS = "objects";
+        private const string ANNOTATIONS = "annotations";
+        private const string SESSION = "session";
+
         //Save session
         public void saveSession()
         {
-           try
+            if (File.Exists(metadataFile))
             {
-               if(File.Exists(paramFile)){
-                   FileInfo myFile1 = new FileInfo(paramFile);
-                    myFile1.Attributes &= ~FileAttributes.Hidden;
-               }
-               TextWriter tw = new StreamWriter(paramFile);
-               //1)Save files in filesList
-               foreach (String file in filesList)
-               {
-                   tw.WriteLine(file);
-                   //MessageBox.Show(file);
-               }
-               //2)Save videos and objects connected to this videos:
-               foreach (Video v in videos)
-               {
-                   foreach (Object o in v.getObjects())
-                   {
-                       String line = "OBJECT: " + v.getFileName() + "|" + o.getID() + "|" + o.getColor().ToString() + "|" + o.getType() + "|" + o.getBoundingBox().X + "|" + o.getBoundingBox().Y + "|" + o.getBoundingBox().Width + "|" + o.getBoundingBox().Height + "|" + o.getBorderSize() + "|" + o.getStartFrame() + "|" + o.getEndFrame() + "|" + o.getScale();
-                       tw.WriteLine(line);
-                   }
-                   foreach (Annotation a in v.getAnnotations())
-                   {
-                       String line = "ANNOTATION: " + a.getID() + "|" + a.getStartFrame() + "|" + a.getEndFrame() + "|" + a.getText() + "|" + a.getVideoName();
-                       tw.WriteLine(line);
-                       foreach (String reference in a.getReferences())
-                       {
-                           tw.WriteLine("ANNOTATION REFERENCE: " + reference);
-                       }
-                   }
-                   
-               }
-               tw.Close();
-               FileInfo myFile = new FileInfo(paramFile);
-               myFile.Attributes = FileAttributes.Hidden;
+                FileInfo myFile1 = new FileInfo(metadataFile);
+                myFile1.Attributes &= ~FileAttributes.Hidden;
             }
-            catch (Exception exc)
+
+            XmlWriterSettings ws = new XmlWriterSettings();
+            ws.Indent = true;
+
+            using (XmlWriter writer = XmlWriter.Create(metadataFile, ws))
             {
-                MessageBox.Show(exc.Message);
+                writer.WriteStartDocument();
+                writer.WriteStartElement(SESSION);
+                writer.WriteAttributeString("name", sessionName);
+                writer.WriteAttributeString("length", "" + sessionLength);
+                {
+                    // Write files
+                    writer.WriteStartElement(FILES);
+                    foreach (String file in filesList)
+                    {
+                        writer.WriteElementString(FILE, file);
+                    }
+                    writer.WriteEndElement();
+                }
+
+                {
+                    foreach (Video v in videos)
+                    {
+                        writer.WriteStartElement(OBJECTS);
+                        foreach (Object o in v.getObjects())
+                        {
+                            o.writeToXml(writer);
+                        }
+                        writer.WriteEndElement();
+                    }
+                }
+
+                {
+                    writer.WriteStartElement(ANNOTATIONS);
+                    foreach (Annotation a in annotations)
+                    {
+                        a.writeToXml(writer);
+                    }
+                    writer.WriteEndElement();
+                }
+
+                writer.WriteEndElement();
+
+                writer.WriteEndDocument();
             }
+
+            FileInfo myFile = new FileInfo(metadataFile);
+            myFile.Attributes = FileAttributes.Hidden;
         }
+
+        internal void removeObject(Object o)
+        {
+        }
+
+        internal void generate3dforObject(Object o)
+        {
+            
+        }
+
+        internal void selectObject(Object o)
+        {
+            mainGUI.selectObject(o);
+        }
+
         //Get edited
         public bool getEdited()
         {
@@ -113,142 +147,66 @@ namespace Annotator
         {
             this.edited = edited;
         }
+
         //Load files list
-        public void loadFilesList(){
-            
-            //MessageBox.Show(fileName);
-            //Check if file exists
-            if(File.Exists(paramFile)){
+        public void loadSession()
+        {
+            if (File.Exists(metadataFile))
+            {
                 //Set file as hidden                
-                FileInfo myFile = new FileInfo(paramFile);
+                FileInfo myFile = new FileInfo(metadataFile);
                 // Remove the hidden attribute of the file
                 myFile.Attributes &= ~FileAttributes.Hidden;
 
-                //Read file line by line
-                
-                string line;
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load(metadataFile);
 
-                // Read the file and display it line by line.
-                System.IO.StreamReader file =
-                   new System.IO.StreamReader(paramFile);
-                while ((line = file.ReadLine()) != null)
+                sessionLength = int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value);
+
+                XmlNode files = xmlDocument.DocumentElement.SelectSingleNode(FILES);
+
+                foreach (XmlNode node in files.SelectNodes(FILE))
                 {
-                    if (line.Contains("OBJECT:") == false && line.Contains("ANNOTATION:") == false && line.Contains("ANNOTATION REFERENCE:") == false)
+                    string filename = node.InnerText;
+                    filesList.Add(node.InnerText);
+                    if (filename.Contains(".avi"))
                     {
-                        //MessageBox.Show(line + ", " + line.Contains("ANNOTATION REFERENCE:"));
-                        filesList.Add(line);
-                        if (line.Contains(".avi"))
-                            videos.Add(new Video(line));
-                    }
-                    else if (line.Contains("OBJECT:"))
-                    {
-                        //Add object to video:
-                        String[] parameters = line.Substring(7).TrimStart().Split('|');
-                        String videoName = parameters[0];
-                        int objectID  = Convert.ToInt32(parameters[1]);                        
-                        String color = parameters[2];
-                        Color cBuild;
-                        if (!color.Contains("="))
-                        {
-                            color = color.Substring(6).Replace('[', ' ').Replace(']', ' ').TrimStart().TrimEnd();
-                            //MessageBox.Show("c=" + color);
-                            cBuild = Color.FromName(color);
-                        }
-                        else
-                        {
-                            color = color.Substring(6).Replace('[', ' ').Replace(']', ' ').TrimStart().TrimEnd();
-                            String[] argb = color.Split(',');
-                            int a, r, g, b;                            
-                            a = Convert.ToInt32(argb[0].Substring(2));                            
-                            r = Convert.ToInt32(argb[1].Substring(3));                     
-                            g = Convert.ToInt32(argb[2].Substring(3));
-                            b = Convert.ToInt32(argb[3].Substring(3));
-                            //MessageBox.Show(a + " " + r + " " + g + " " + b);
-                            cBuild = Color.FromArgb(a, r, g, b);
-                        }
-                        
-                        String type = parameters[3];
-                        int x = Convert.ToInt32(parameters[4]);
-                        int y = Convert.ToInt32(parameters[5]);
-                        int w = Convert.ToInt32(parameters[6]);
-                        int h = Convert.ToInt32(parameters[7]);
-                        int s = Convert.ToInt32(parameters[8]);
-                        int startFrame = Convert.ToInt32(parameters[9]);
-                        int endFrame = Convert.ToInt32(parameters[10]);
-                        double scale = Convert.ToDouble(parameters[11]);
-                        Video v = null;
-                        foreach (Video video in videos)
-                        {
-                            if (video.getFileName().Contains(videoName))
-                            {
-                                v = video;
-                                break;
-                            }
-                        }
-                        if (v != null)
-                        {
-                            v.addObject(new Object(objectID, cBuild, type, (startFrame - 1), (endFrame - 1), new Rectangle(x, y, w, h), s, scale));
-                        }
-                    }
-                    else if (line.Contains("ANNOTATION:") && !(line.Contains("ANNOTATION REFERENCE:")))
-                    {
-                        
-                        String[] parameters = line.Substring(11).TrimStart().Split('|');
-                        //MessageBox.Show(parameters[0]);
-                        int aID = Convert.ToInt32(parameters[0]);
-                        int startFrame = Convert.ToInt32(parameters[1]);
-                        int endFrame = Convert.ToInt32(parameters[2]);
-                        String text = parameters[3];
-                        String videoName = parameters[4];
-                        Video v = null;
-                        
-                        foreach (Video video in videos)
-                        {
-                            if (video.getFileName().Contains(videoName))
-                            {
-                                v = video;
-                                break;
-                            }
-                        } 
-                        if (v != null)
-                        {                            
-                            v.addAnnotation(new Annotation(startFrame, endFrame, text, this.frm1, aID, videoName));                            
-                        }
-                    }
-                    if (line.Contains("ANNOTATION REFERENCE:") && !(line.Contains("OBJECT:")))
-                    {
-                        String[] parameters = line.Substring(21).TrimStart().Split('|');                  
-                        int id = Convert.ToInt32(parameters[0]);
-                        String videoName = parameters[6];                        
-                        Video v = null;
-                        foreach (Video video in videos)
-                        {
-                            if (video.getFileName().Contains(videoName))
-                            {
-                                v = video;
-                                break;
-                            }
-                        }
-                        if (v != null)
-                        {
-                            //MessageBox.Show("OK");
-                            foreach (Annotation a in v.getAnnotations())
-                            {
-                                if (a.getID() == id)
-                                {
-                                    a.addReference(line.Substring(21));
-                                }
-                            }
-                        }
+                        addVideo(filename);
                     }
                 }
-                
-                file.Close();
+
+                XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
+                List<Object> objects = Object.readFromXml(objectsNode);
+                foreach (Object o in objects)
+                {
+                    String videoName = o.videoFile;
+                    Video v = null;
+
+                    foreach (Video video in videos)
+                    {
+                        if (video.getFileName().Contains(videoName))
+                        {
+                            v = video;
+                            break;
+                        }
+                    }
+                    if (v != null)
+                    {
+                        v.addObject(o);
+                        Console.WriteLine("Add object " + o.id);
+                        var t = new ObjectTrack(o, this);
+                        objectTracks.Add(t);
+                        objectToObjectTracks[o] = t;
+                    }
+                }
+
+                XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
+                annotations = Annotation.readFromXml(mainGUI, this, annotationsNode);
+
                 myFile.Attributes |= FileAttributes.Hidden;
-                
             }
-           
         }
+
         //Get video by index
         public Video getVideo(int index)
         {
@@ -261,8 +219,9 @@ namespace Annotator
         {
             return videos.Count;
         }
+
         //Add video to session
-        public void AddVideo(String fileName)
+        public void addVideo(String fileName)
         {
             bool exists = false;
             foreach (Video v in videos)
@@ -274,7 +233,11 @@ namespace Annotator
                 }
             }
             if (!exists)
-                videos.Add(new Video(fileName));
+            {
+                Video v = new Video(this, fileName);
+                videos.Add(v);
+                sessionLength = v.getFramesNumber();
+            }
         }
         //Get session's project
         public String getProject()
@@ -295,22 +258,72 @@ namespace Annotator
         //Get views
         public String[] getViews()
         {
-            List<String> viewsL =  new List<String>();
+            List<String> viewsL = new List<String>();
             //MessageBox.Show(filesList.Count + "");
-            foreach(String file in filesList){
+            foreach (String file in filesList)
+            {
                 //MessageBox.Show(file);
-            if(file.Contains(".avi"))
-                viewsL.Add(file.Split('\\')[file.Split('\\').Length-1]);
+                if (file.Contains(".avi"))
+                    viewsL.Add(file.Split('\\')[file.Split('\\').Length - 1]);
             }
             return viewsL.ToArray();
         }
+
+        //Add annotation
+        public void addAnnotation(Annotation a)
+        {
+            //1)Check if object exists in objects list
+            bool exists = false;
+            foreach (Annotation annotation in annotations)
+            {
+                if (annotation.id == a.id)
+                {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists)
+            {
+                annotations.Add(a);
+                a.id = "a" + ++annotationID;
+            }
+        }
+
+        public List<ObjectTrack> objectTracks { get; set; }
+        public Dictionary<Object, ObjectTrack> objectToObjectTracks { get; }
+        public List<Annotation> annotations { get; set; }
         private String sessionName;     //session name
         private String project;         //session's project 
         private String locationFolder;  //session location folder
         private bool edited;            //true if session is currently edited
         private List<Video> videos;
         private List<String> filesList;
-        private String paramFile;      //parameters file name
-        private Form1 frm1;
+        private String metadataFile;      //parameters file name
+        public Main mainGUI { get; }
+        private int annotationID;      // annotation ID
+        public int? _sessionLength;
+        public int sessionLength
+        {
+            get
+            {
+                if (_sessionLength.HasValue)
+                    return _sessionLength.Value;
+                throw new Exception("No session length");
+            }
+            set
+            {
+                if (_sessionLength.HasValue)
+                {
+                    if (_sessionLength.Value != value)
+                    {
+                        throw new Exception("Session length inconsistence");
+                    }
+                }
+                else
+                {
+                    _sessionLength = value;
+                }
+            }
+        }
     }
 }
