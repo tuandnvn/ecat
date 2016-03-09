@@ -34,5 +34,18 @@ namespace Annotator
             };
             return selectBoxes;
         }
+
+        public static void DrawRig(this Graphics graphics, Pen p, Rig rig, int frame)
+        {
+            var rigBones = rig.getRigBones(frame);
+            foreach (int rigIndex in rigBones.Keys)
+            {
+                var rigBoneForOneRig = rigBones[rigIndex];
+                foreach ( var bone in rigBoneForOneRig)
+                {
+                    graphics.DrawLine(p, bone.Item1, bone.Item2);
+                }
+            }
+        }
     }
 }

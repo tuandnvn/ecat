@@ -41,6 +41,8 @@ namespace Annotator
             drawingButtonSelected[cursorDrawing] = drawingButtonSelected[rectangleDrawing] = drawingButtonSelected[polygonDrawing] = false;
         }
 
+        
+
         //Project workspace 
         private Workspace workspace = null;
         private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
@@ -56,6 +58,12 @@ namespace Annotator
 
         List<Button> drawingButtonGroup = new List<Button>();
         Dictionary<Button, bool> drawingButtonSelected = new Dictionary<Button, bool>();
+
+        // Increment each time user move frameTrackBar to new Location
+        // Keep track of how many bitmaps has not been garbage collected
+        // Will use for garbage collection
+        private int goToFrameCount = 0;
+        private const int GARBAGE_COLLECT_BITMAP_COUNT = 20;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -101,6 +109,7 @@ namespace Annotator
             //Load workspace treeView:
             initworkspaceTreeView();
         }
+
         private void loadParameters()
         {
 
@@ -140,10 +149,7 @@ namespace Annotator
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+       
         //Load workspace treeView:
         private void initworkspaceTreeView()
         {
@@ -291,21 +297,21 @@ namespace Annotator
                 {
                     selectToolStripMenuItem.Enabled = false;
                     closeToolStripMenuItem.Enabled = true;
-                    toolStripMenuItem1.Enabled = true;
+                    newSessionToolStripMenuItem.Enabled = true;
                 }
                 else if (selectedProject != null && !(treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName())))
                 {
                     selectToolStripMenuItem.Enabled = true;
                     closeToolStripMenuItem.Enabled = false;
-                    toolStripMenuItem1.Enabled = false;
+                    newSessionToolStripMenuItem.Enabled = false;
                 }
                 if (selectedProject == null)
                 {
                     selectToolStripMenuItem.Enabled = true;
                     closeToolStripMenuItem.Enabled = false;
-                    toolStripMenuItem1.Enabled = false;
+                    newSessionToolStripMenuItem.Enabled = false;
                 }
-                cm1.Show(location);
+                projectRightClickPanel.Show(location);
             }
             else if (treeView.SelectedNode.Level == 1 && e.Button == MouseButtons.Right)
             {
@@ -316,10 +322,10 @@ namespace Annotator
                 if (selectedNode != null && selectedProject != null && selectedNode.Parent.ToString().Contains(selectedProject.getProjectName()))
                 {
                     //MessageBox.Show("OK");
-                    toolStripMenuItem2.Enabled = true;
-                    toolStripMenuItem3.Enabled = true;
-                    toolStripMenuItem4.Enabled = true;
-                    toolStripMenuItem5.Enabled = true;
+                    editSessionMenuItem.Enabled = true;
+                    saveSessionMenuItem.Enabled = true;
+                    deleteSessionMenuItem.Enabled = true;
+                    addSessionMenuItem.Enabled = true;
                     //Check if session is editing:
                     choosedSession = selectedProject.getSession(selectedNode.ToString().Substring(10));
                     if (choosedSession == null)
@@ -327,22 +333,22 @@ namespace Annotator
                     if (choosedSession != null && choosedSession.getEdited())
                     {
                         //MessageBox.Show("OK1");
-                        toolStripMenuItem2.Enabled = false;
+                        editSessionMenuItem.Enabled = false;
                     }
                     else if (choosedSession != null && !choosedSession.getEdited())
                     {
-                        toolStripMenuItem2.Enabled = true;
-                        toolStripMenuItem3.Enabled = false;
-                        toolStripMenuItem5.Enabled = false;
+                        editSessionMenuItem.Enabled = true;
+                        saveSessionMenuItem.Enabled = false;
+                        addSessionMenuItem.Enabled = false;
                         //MessageBox.Show("OK2");
                     }
                 }
                 else
                 {
-                    toolStripMenuItem2.Enabled = false;
-                    toolStripMenuItem3.Enabled = false;
-                    toolStripMenuItem4.Enabled = false;
-                    toolStripMenuItem5.Enabled = false;
+                    editSessionMenuItem.Enabled = false;
+                    saveSessionMenuItem.Enabled = false;
+                    deleteSessionMenuItem.Enabled = false;
+                    addSessionMenuItem.Enabled = false;
                 }
                 Point location = this.Location;
                 location.X += e.Location.X;
@@ -351,16 +357,12 @@ namespace Annotator
                 location.Y += leftMostPanel.Location.Y;
                 location.Y += 80;
                 location.X += 15;
-                cm2.Show(location);
+                sessionRightClickPanel.Show(location);
             }
         }
-        public void clearRightBottomPanel()
-        {
-            annoRefView.Rows.Clear();
-        }
-
+        
         //Add annotation 
-        public void addAnnotation(Annotation annotation)
+        internal void addAnnotation(Annotation annotation)
         {
             currentSession.addAnnotation(annotation);
             annotation.Location = lastAnnotation;
@@ -368,12 +370,27 @@ namespace Annotator
             lastAnnotation.Y += annotation.Height + 5;
         }
 
-        // Add objectr tracking
+        internal void removeAnnotation(Annotation annotation)
+        {
+            currentSession.removeAnnotation(annotation);
+            middleBottomPanel.Controls.Remove(annotation);
+            lastAnnotation.Y -= annotation.Height + 5;
+            this.Invalidate();
+        }
+
+        // Add object tracking
         public void addObjectTracking(ObjectTrack objectTrack)
         {
             objectTrack.Location = lastObjectTrack;
             middleCenterPanel.Controls.Add(objectTrack);
-            lastObjectTrack.Y = objectTrack.Height + 5;
+            lastObjectTrack.Y = lastObjectTrack.Y + objectTrack.Height + 5;
+            middleCenterPanel.Invalidate();
+        }
+
+        public void removeObjectTracking(ObjectTrack objectTrack)
+        {
+            middleCenterPanel.Controls.Remove(objectTrack);
+            lastObjectTrack.Y = lastObjectTrack.Y - objectTrack.Height - 5;
             middleCenterPanel.Invalidate();
         }
 
@@ -409,6 +426,7 @@ namespace Annotator
             sessionInfo.Location = new Point(this.Location.X + (int)(sessionInfo.Width / 2.5), this.Location.Y + sessionInfo.Height / 2);
             sessionInfo.Show();
         }
+
         //Add new session to workspace
         public void addNewSessionToWorkspace(String projectName, String sessionName)
         {
@@ -481,20 +499,6 @@ namespace Annotator
             frameTrackBar.Value = value;
         }
 
-        private void cm1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            ToolStripItem item = e.ClickedItem;
-            //Add new session for project:
-            if (item.Text.Contains("New session"))
-            {
-                //MessageBox.Show(selectedProjectName);
-                if (!newSession)
-                {
-                    addNewSession();
-                }
-            }
-        }
-
         public void setNewSession(bool option)
         {
             this.newSession = option;
@@ -510,305 +514,21 @@ namespace Annotator
             //ToolStripItem item = e.ClickedItem;
         }
 
-        //Add video to session
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            // Show the dialog and get result.
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-                //Add file to session:
-                Session checkSession = null;
-                foreach (TreeNode projectNode in treeView.Nodes)
-                {
-                    if (projectNode.ToString().Contains(selectedProject.getProjectName()))
-                    {
-                        //MessageBox.Show(projectNode.ToString());
-                        foreach (TreeNode sessionNode in projectNode.Nodes)
-                        {
-                            String nodeName = sessionNode.ToString().Substring(10);
-                            if (nodeName.Contains("*"))
-                            {
-                                nodeName = nodeName.Substring(1);
-                                checkSession = selectedProject.getSession(nodeName);
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                String fileName = openFileDialog1.FileName.Split('\\')[openFileDialog1.FileName.Split('\\').Length - 1];
-                //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-                String dstFileName = selectedProject.getLocation() + "\\" + selectedProject.getProjectName() + "\\" + checkSession.getSessionName() + "\\" + fileName;
-                //MessageBox.Show("outputFile = " + dstFileName);
-                //If file doesnt exist in session folder add file to session folder
-                if (!File.Exists(dstFileName))
-                    File.Copy(openFileDialog1.FileName, dstFileName);
-                //Check if file contains video stream:
-
-                //MessageBox.Show("*.avi file loaded! :" + fileName);
-                if (!checkSession.checkFileInSession(fileName) && !fileName.Contains("files.param"))
-                {
-                    checkSession.addFile(dstFileName);
-                    //If file didnt exist in treeView update treeView
-                    treeView.BeginUpdate();
-                    TreeNode fileNode = new TreeNode(fileName);
-                    fileNode.ImageIndex = 2;
-                    fileNode.SelectedImageIndex = fileNode.ImageIndex;
-                    treeView.SelectedNode.Nodes.Add(fileNode);
-                    treeView.EndUpdate();
-
-                    //Add view to comboBox1:
-                    comboBox1.Items.Add(fileName);
-
-                }
-            }
-        }
-        //"Delete" option for choosed session item
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show(item.ToString());     
-            TreeNode sessionToDeleteName = treeView.SelectedNode;
-            String sName = sessionToDeleteName.ToString().Substring(10);
-            TreeNode projectNode = sessionToDeleteName.Parent;
-            Project project = workspace.getProject(projectNode.ToString().Substring(10));
-            if (MessageBox.Show("Confirm session removal(exclude from project): " + sName + " from " + project.getProjectName(), "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                //1)Remove session from project:
-                project.removeSession(sName);
-                //2)Remove session from treeView:
-                treeView.BeginUpdate();
-                TreeNodeCollection nodes = getTreeViewNodes();
-                foreach (TreeNode currentProject in nodes)
-                {
-                    if (currentProject.ToString().Contains(project.getProjectName()))
-                    {
-                        foreach (TreeNode currentSessionNode in currentProject.Nodes)
-                        {
-                            if (currentSessionNode.ToString().Contains(sName))
-                            {
-                                //MessageBox.Show("Removing " + sName + " from" + project.getProjectName());
-                                currentProject.Nodes.Remove(currentSessionNode);
-                                break;
-                            }
-                        }
-                    }
-                }
-                treeView.EndUpdate();
-            }
-
-            //Disable button2:
-            button2.Enabled = false;
-            newObjectContextPanel.Visible = false;
-            clearComboBox1();
-            clearRightBottomPanel();
-            pictureBoard.Image = null;
-            startPoint = endPoint;
-            currentVideo = null;
-        }
+        
         public void setAnnotationText(String txt)
         {
             annotationText.Text = txt;
         }
-        //Save option choosed
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            TreeNode nodeS = treeView.SelectedNode;
-            currentSession = null;
-            for (int i = 0; i < selectedProject.getSessionN(); i++)
-            {
-                currentSession = selectedProject.getSession(i);
-                //MessageBox.Show(selectedProject.getSessionN() + "");
-                if (currentSession.getEdited())
-                {
-                    //MessageBox.Show(currentSession.getSessionName());
-                    //Save
-                    currentSession.saveSession();
-                    //Enable Edit
-                    TreeNode t = treeView.SelectedNode;
-                    if (t.Text.Contains("*"))
-                        t.Text = t.Text.Substring(1);
-                    currentSession.setEdited(false);
-                    this.Text = "Project " + selectedProject.getProjectName() + " selected";
-                    clearComboBox1();
-                    pictureBoard.Image = null;
-                    clearMidleBottomPanel();
-                    clearRightBottomPanel();
-                    startPoint = endPoint;
-                    newObjectContextPanel.Visible = false;
-                    currentVideo = null;
-                    button2.Enabled = false;
-                }
-            }
-        }
-        //Clear middle-bottom panel
-        public void clearMidleBottomPanel()
-        {
-            middleBottomPanel.Controls.Clear();
-            middleBottomPanel.Controls.Add(button2);
-            lastAnnotation = new Point(94, 0);
-        }
-
-        //Select project from available projects in workspace
-        private void selectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Check if there is editing session:
-            foreach (TreeNode projectNode in treeView.Nodes)
-            {
-                String sessionName = "";
-                foreach (TreeNode sessionNode in projectNode.Nodes)
-                {
-                    sessionName = sessionNode.ToString().Substring(10);
-                    if (sessionName.Contains("*"))
-                        sessionName = sessionName.Substring(1);
-                    Project project = workspace.getProject(projectNode.ToString().Substring(10));
-                    Session session = project.getSession(sessionName);
-                    if (session.getEdited())
-                    {
-                        MessageBox.Show("Cannot select project, session " + sessionName + " in project " + project.getProjectName() + " is editing");
-                        return;
-                    }
-                }
-            }
-            ///////////////////////////////////
-            //Get selected node from treeView:
-            String prjName = treeView.SelectedNode.ToString().Substring(10);
-            treeView.BeginUpdate();
-            foreach (TreeNode node in treeView.Nodes)
-            {
-                node.BackColor = Color.White;
-            }
-            treeView.SelectedNode.BackColor = Color.Silver;
-            //treeView.SelectedNode = null;
-            treeView.EndUpdate();
-            selectedProject = workspace.getProject(prjName);
-            selectedProject.setSelected(true);
-            //MessageBox.Show(selectedProject.getProjectName());
-            this.Text = "Project " + selectedProject.getProjectName() + " selected";
-            foreach (TreeNode node in treeView.Nodes)
-            {
-                if (node.ToString().Substring(10) != prjName)
-                {
-                    node.Collapse();
-                }
-                if (node.ToString().Substring(10).Contains(prjName))
-                    node.Expand();
-            }
-        }
+        
+        
         private void clearComboBox1()
         {
             comboBox1.Items.Clear();
             comboBox1.Enabled = false;
             frameTrackBar.Enabled = false;
         }
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            //Check selected node:
-            //MessageBox.Show(treeView.SelectedNode.ToString());
-            Session choosedSession = selectedProject.getSession(treeView.SelectedNode.ToString().Substring(10));
 
-
-            //if (comboBox1.Items.Count > 0)
-            //    comboBox1.SelectedIndex = 0;
-            //MessageBox.Show(choosedSession.getSessionName() + ", getEdited == " + choosedSession.getEdited());
-            //Check all sessions inside selected project   
-            Session checkSession = null;
-            foreach (TreeNode projectNode in treeView.Nodes)
-            {
-                if (projectNode.ToString().Contains(selectedProject.getProjectName()))
-                {
-                    //MessageBox.Show(projectNode.ToString());
-                    foreach (TreeNode sessionNode in projectNode.Nodes)
-                    {
-                        String nodeName = sessionNode.ToString().Substring(10);
-                        if (!nodeName.Contains(choosedSession.getSessionName()) && nodeName.Contains("*"))
-                            nodeName = nodeName.Substring(1);
-                        checkSession = selectedProject.getSession(nodeName);
-                        if (checkSession.getSessionName() != choosedSession.getSessionName())
-                        {
-                            if (checkSession.getEdited())
-                            {
-                                //MessageBox.Show(checkSession.getSessionName() + checkSession.getEdited());
-                                checkSession.setEdited(false);
-                                treeView.BeginUpdate();
-                                sessionNode.Text = sessionNode.Text.Substring(1);
-                                treeView.EndUpdate();
-                                if (MessageBox.Show(("Session " + checkSession.getSessionName() + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                {
-                                    checkSession.saveSession();
-                                }
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (checkSession != null)
-            {
-
-            }
-            if (choosedSession != null && !choosedSession.getEdited())
-            {
-                choosedSession.setEdited(true);
-                TreeNode n = treeView.SelectedNode;
-                n.Text = "*" + n.Text;
-                this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + choosedSession.getSessionName();
-            }
-
-
-            //Set comboBox:
-            String[] viewsList = choosedSession.getViews();
-            //MessageBox.Show(viewsList.Length + "");
-            for (int i = 0; i < viewsList.Length; i++)
-            {
-                comboBox1.Items.Add(viewsList[i]);
-            }
-            if (comboBox1.Items.Count > 0)
-            {
-                comboBox1.SelectedIndex = 0;
-                comboBox1.Enabled = true;
-                frameTrackBar.Enabled = true;
-                button2.Enabled = true;
-                //pictureBox1.BackgroundImage = null;
-            }
-        }
-        //Close project if selected
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName()))
-            {
-                //Check if project session is editing:
-                //Check if there is editing session:
-                foreach (TreeNode projectNode in treeView.Nodes)
-                {
-                    String sessionName = "";
-                    foreach (TreeNode sessionNode in projectNode.Nodes)
-                    {
-                        sessionName = sessionNode.ToString().Substring(10);
-                        if (sessionName.Contains("*"))
-                            sessionName = sessionName.Substring(1);
-                        Project project = workspace.getProject(projectNode.ToString().Substring(10));
-                        Session session = project.getSession(sessionName);
-                        if (session.getEdited())
-                        {
-                            MessageBox.Show("Cannot close project, session " + sessionName + " is editing");
-                            return;
-                        }
-                    }
-                }
-
-                treeView.SelectedNode.BackColor = Color.White;
-                selectedProject.setSelected(false);
-                selectedProject = null;
-                this.Text = "No project selected";
-            }
-        }
-
-        private void toolStripMenuItem5_CheckStateChanged(object sender, EventArgs e)
-        {
-
-        }
+        
         private void loadVideo(String fileName)
         {
             Application.DoEvents();
@@ -845,8 +565,7 @@ namespace Annotator
             {
                 endPoint = startPoint;
                 label3.Text = "Frame: " + frameTrackBar.Value;
-                Mat frame = currentVideo.GetFrame(frameTrackBar.Value - 1);
-                pictureBoard.Image = new Bitmap(frame.Bitmap);
+                pictureBoard.Image = currentVideo.GetFrame(frameTrackBar.Value - 1).Bitmap;
                 setLeftTopPanel();
             }
         }
@@ -938,25 +657,19 @@ namespace Annotator
             }
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            label3.Text = "Frame: " + frameTrackBar.Value;
-            //if(trackBar1.Value >= trackBar1.Minimum && trackBar1.Value < trackBar1.
-            if (currentVideo != null)
-            {
-                Mat frame = currentVideo.GetFrame(frameTrackBar.Value - 1);
-                pictureBoard.Image = new Bitmap(frame.Bitmap);
-            }
-        }
-
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             label3.Text = "Frame: " + frameTrackBar.Value;
             //if(trackBar1.Value >= trackBar1.Minimum && trackBar1.Value < trackBar1.
             if (currentVideo != null)
             {
-                Mat frame = currentVideo.GetFrame(frameTrackBar.Value - 1);
-                pictureBoard.Image = new Bitmap(frame.Bitmap);
+                pictureBoard.Image = currentVideo.GetFrame(frameTrackBar.Value - 1).Bitmap;
+                goToFrameCount++;
+                if (goToFrameCount == GARBAGE_COLLECT_BITMAP_COUNT)
+                {
+                    System.GC.Collect();
+                    goToFrameCount = 0;
+                }
             }
         }
 
@@ -992,6 +705,11 @@ namespace Annotator
         {
             annoRefView.Rows[e.RowIndex].Selected = true;
             annoRefView.Invalidate();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

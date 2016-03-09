@@ -45,7 +45,7 @@ namespace Annotator
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.axis});
-            this.shapeContainer1.Size = new System.Drawing.Size(800, 50);
+            this.shapeContainer1.Size = new System.Drawing.Size(800, 54);
             this.shapeContainer1.TabIndex = 1;
             this.shapeContainer1.TabStop = false;
             // 
@@ -89,7 +89,7 @@ namespace Annotator
             // 
             // generate3d
             // 
-            this.generate3d.Location = new System.Drawing.Point(551, 29);
+            this.generate3d.Location = new System.Drawing.Point(554, 28);
             this.generate3d.Name = "generate3d";
             this.generate3d.Size = new System.Drawing.Size(75, 21);
             this.generate3d.TabIndex = 6;
@@ -101,7 +101,7 @@ namespace Annotator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.generate3d);
             this.Controls.Add(this.info);
             this.Controls.Add(this.remove);
@@ -109,7 +109,7 @@ namespace Annotator
             this.Controls.Add(this.shapeContainer1);
             this.DoubleBuffered = true;
             this.Name = "ObjectTrack";
-            this.Size = new System.Drawing.Size(800, 50);
+            this.Size = new System.Drawing.Size(800, 54);
             this.ResumeLayout(false);
             this.PerformLayout();
 

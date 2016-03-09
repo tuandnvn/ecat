@@ -16,6 +16,11 @@ namespace Annotator
         private const string SEMANTIC_TYPE = "Semantic type";
         private string[] defaultRows = { ID, NAME, OBJECT_TYPE, SEMANTIC_TYPE };
 
+        internal void clearInformation()
+        {
+            objectProperties.Rows.Clear();
+        }
+
         internal void showInformation(Object o)
         {
             objectProperties.Rows.Clear();
@@ -64,11 +69,6 @@ namespace Annotator
             {
                 selectedObject.semanticType = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
             }
-        }
-
-        internal void removeObject(Object o)
-        {
-            throw new NotImplementedException();
         }
     }
 }

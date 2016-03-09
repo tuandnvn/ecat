@@ -125,6 +125,29 @@ namespace Annotator
 
         internal void removeObject(Object o)
         {
+            DialogResult result = MessageBox.Show("Are you sure you want to remove this object?",
+                "Remove",
+                MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Console.WriteLine("Remove object " + o.id);
+                mainGUI.removeObject(o);
+                ObjectTrack ot = this.objectToObjectTracks[o];
+                if (ot != null)
+                {
+                    this.objectToObjectTracks.Remove(o);
+                    this.objectTracks.Remove(ot);
+                }
+
+                foreach (ObjectTrack other in objectTracks)
+                {
+                    if (other.Location.Y > ot.Location.Y)
+                    {
+                        other.Location = new Point(other.Location.X, other.Location.Y - ot.Height - 5);
+                    }
+                }
+                mainGUI.removeObjectTracking(ot);
+            }
         }
 
         internal void generate3dforObject(Object o)
@@ -134,7 +157,20 @@ namespace Annotator
 
         internal void selectObject(Object o)
         {
+            //Remove any decoration of other objects
+            foreach (Object other in objectToObjectTracks.Keys)
+            {
+                objectToObjectTracks[other].deselectDeco();
+            }
             mainGUI.selectObject(o);
+        }
+
+        internal void deselectObject(Object o)
+        {
+            if (objectToObjectTracks[o] != null)
+            {
+                objectToObjectTracks[o].deselectDeco();
+            }
         }
 
         //Get edited
@@ -270,7 +306,7 @@ namespace Annotator
         }
 
         //Add annotation
-        public void addAnnotation(Annotation a)
+        internal void addAnnotation(Annotation a)
         {
             //1)Check if object exists in objects list
             bool exists = false;
@@ -286,6 +322,19 @@ namespace Annotator
             {
                 annotations.Add(a);
                 a.id = "a" + ++annotationID;
+            }
+        }
+
+        internal void removeAnnotation(Annotation a)
+        {
+
+            annotations.Remove(a);
+            foreach (Annotation other in annotations)
+            {
+                if ( other.Location.Y > a.Location.Y )
+                {
+                    other.Location = new Point(other.Location.X, other.Location.Y - a.Height - 5);
+                }
             }
         }
 

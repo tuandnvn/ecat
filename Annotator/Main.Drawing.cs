@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Annotator
 {
-    partial class Main
+    public partial class Main
     {
         int boxSize = 5;
 
@@ -211,6 +211,34 @@ namespace Annotator
                     pictureBoard.Invalidate();
                 }
             }
+
+            if (drawingButtonSelected[cursorDrawing])
+            {
+                foreach (Object o in currentVideo.getObjects())
+                {
+                    object obj = selectedObject.getCurrentBounding(frameTrackBar.Value);
+                    if (obj != null)
+                    {
+                        switch (selectedObject.borderType)
+                        {
+                            case Object.BorderType.Rectangle:
+                                boundingBox = (Rectangle)obj;
+                                startPoint = new Point(boundingBox.X, boundingBox.Y);
+                                endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
+                                break;
+                            case Object.BorderType.Polygon:
+                                polygonPoints = (List<Point>)obj;
+                                List<Rectangle> listOfSelectBox = new List<Rectangle>();
+                                foreach (Point p in polygonPoints)
+                                {
+                                    listOfSelectBox.Add(new Rectangle(p.X - (boxSize - 1) / 2, p.Y - (boxSize - 1) / 2, boxSize, boxSize));
+                                }
+                                selectBoxes = listOfSelectBox.ToArray();
+                                break;
+                        }
+                    }
+                }
+            }
         }
 
         private void pictureBoard_MouseUp(object sender, MouseEventArgs e)
@@ -305,13 +333,20 @@ namespace Annotator
                 }
             }
 
+            Pen pen = null;
+            if (selectedObject == null)
+            {
+                pen = new Pen(boundingColor, (float)boundingBorder);
+            }
+            else
+            {
+                pen = new Pen(selectedObject.color, selectedObject.borderSize);
+            }
+            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
             // Currently drawing
             if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
             {
-                Pen pen = new Pen(boundingColor, (float)boundingBorder);
-                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-
                 if (endPoint.HasValue && startPoint.HasValue && currentVideo != null)
                 {
                     int lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
@@ -335,9 +370,6 @@ namespace Annotator
 
             if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
             {
-                Pen pen = new Pen(boundingColor, (float)boundingBorder);
-                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-
                 if (drawingNewPolygon)
                 {
                     if (temporaryPoint.HasValue && polygonPoints.Count != 0)
@@ -366,8 +398,6 @@ namespace Annotator
                     e.Graphics.Save();
                 }
             }
-
-            
         }
 
         internal void selectObject(Object o)
@@ -544,14 +574,28 @@ namespace Annotator
             {
                 doneEditPolygon();
             }
+            selectedObject = null;
 
             this.Invalidate();
         }
 
         private void cancelSelectObjBtn_Click(object sender, EventArgs e)
         {
+            cancelSelectObject();
+        }
+
+        private void cancelSelectObject()
+        {
+            Console.WriteLine("cancelSelectObject");
             editingAtAFrame = false;
+            selectObjContextPanel.Visible = false;
             editObjectContextPanel.Visible = false;
+
+            if (selectedObject != null)
+            {
+                currentSession.deselectObject(selectedObject);
+            }
+
             if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
             {
                 doneEditRectangle();
@@ -561,7 +605,10 @@ namespace Annotator
             {
                 doneEditPolygon();
             }
+            selectBoxes = new Rectangle[0] { };
 
+            clearInformation();
+            selectedObject = null;
             this.Invalidate();
         }
 
@@ -570,19 +617,18 @@ namespace Annotator
             startPoint = null;
             endPoint = null;
             drawingNewRectangle = false;
-            selectedObject = null;
         }
 
         private void doneEditPolygon()
         {
             polygonPoints = new List<Point>();
             drawingNewPolygon = editingPolygon = false;
-            selectedObject = null;
         }
 
         private void cursorDrawing_MouseDown(object sender, MouseEventArgs e)
         {
             selectButtonDrawing(cursorDrawing, drawingButtonGroup, !drawingButtonSelected[cursorDrawing]);
+            cancelSelectObject();
         }
 
         private void rectangleDrawing_MouseDown(object sender, MouseEventArgs e)
@@ -617,6 +663,19 @@ namespace Annotator
                 b.BackColor = Color.Transparent;
                 b.FlatAppearance.BorderColor = Color.White;
             }
+        }
+
+        internal void removeObject(Object o)
+        {
+            currentVideo.removeObject(o);
+            selectedObject = null;
+            newObjectContextPanel.Visible = false;
+            selectObjContextPanel.Visible = false;
+
+            this.clearInformation();
+
+            selectBoxes = new Rectangle[] { };
+            pictureBoard.Invalidate();
         }
     }
 }

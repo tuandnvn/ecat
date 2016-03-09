@@ -59,6 +59,12 @@
     <Compile Include="Main.ObjectnInfo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Main.Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Session.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ObjectTrack.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +102,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RecordPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rig.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="SessionInfo.cs">
       <SubType>Form</SubType>
@@ -103,6 +113,7 @@
     <Compile Include="SessionInfo.Designer.cs">
       <DependentUpon>SessionInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="Video.cs" />
     <Compile Include="Workspace.cs" />
     <Compile Include="WorkspaceLauncher.cs">
@@ -128,6 +139,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecordPanel.resx">
+      <DependentUpon>RecordPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SessionInfo.resx">
       <DependentUpon>SessionInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +166,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1453485939_video.ico" />
+    <Content Include="Resources\1457434070_player_record.png" />
+    <Content Include="Resources\1457434097_player_stop.png" />
+    <Content Include="Resources\1457434100_player_play.png" />
+    <Content Include="Resources\1457435491_player_pause.png" />
     <None Include="Resources\cursor-3-xxl.png" />
     <None Include="Resources\33807.png" />
     <None Include="Resources\imagetools-rectangle-icon.png" />

@@ -29,6 +29,21 @@ namespace Annotator
         private const string SEMANTIC_TYPE = "semanticType";
         int minLeftPosition;
         int maxLeftPosition;
+        private bool selected = false;
+        private int startFrame = 0;
+        private int endFrame = 100;
+        private int start;   //minimum value for left slider
+        private int end;   //maximum value for right slider
+        private bool slider1Move; //true if slider1 can change position
+        private bool slider2Move; //true if slider1 can change position
+        private double frameStepX;
+        public String id { get; set; } //anottation ID
+        Brush rBrush = new SolidBrush(Color.FromArgb(128, Color.Yellow));
+        private Main mainGUI;
+        private List<Reference> references = new List<Reference>();
+        private List<Event> events = new List<Event>();
+        private int rectangleYPos = 8;
+        private int rectangleSize = 12;
 
         public class Reference
         {
@@ -82,9 +97,10 @@ namespace Annotator
 
             frameStepX = (double)(maxLeftPosition - minLeftPosition) / ( session.sessionLength - 1 );
 
-            lineShape2.X1 = lineShape2.X2 = (int)(minLeftPosition + frameStepX * ( start - 1 ));
-            lineShape3.X1 = lineShape3.X2 = (int)(minLeftPosition + frameStepX * ( end - 1 ));
-            this.rectangleShape1.Bounds = new Rectangle(lineShape2.X1, 9, lineShape3.X1 - lineShape2.X1, 10);
+            leftMarker.X1 = leftMarker.X2 = (int)(minLeftPosition + frameStepX * ( start - 1 ));
+            rightMarker.X1 = rightMarker.X2 = (int)(minLeftPosition + frameStepX * ( end - 1 ));
+            this.rectangleShape1.Bounds = new Rectangle(leftMarker.X1 + (leftMarker.BorderWidth - 1), rectangleYPos, 
+                rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
 
             //MessageBox.Show("minimum = " + minimum + ", maximum = " + maximum + " stepX = " + frameStepX);
             label1.Text = "Start Frame: " + start + ", StopFrame: " + end;
@@ -136,43 +152,18 @@ namespace Annotator
             this.selected = option;
         }
 
-        private bool selected = false;
-        private int startFrame = 0;
-        private int endFrame   = 100;
-        private int start;   //minimum value for left slider
-        private int end;   //maximum value for right slider
-        private bool slider1Move; //true if slider1 can change position
-        private bool slider2Move; //true if slider1 can change position
-        private double frameStepX;
-        public String id { get; set; } //anottation ID
-        Brush rBrush = new SolidBrush(Color.FromArgb(128, Color.Yellow));
-        private Main mainGUI;
-        private Session session;
-        private List<Reference> references = new List<Reference>();
-        private List<Event> events = new List<Event>();
-
-        private void lineShape2_MouseDown(object sender, MouseEventArgs e)
-        {
-            slider1Move = true;
-        }
-
-        private void lineShape2_MouseUp(object sender, MouseEventArgs e)
-        {
-            slider1Move = false;
-            MessageBox.Show("false");
-        }
-
         private void Annotation_MouseMove(object sender, MouseEventArgs e)
         {
             if (slider1Move)
             {
                 int newX = (e.Location.X < minLeftPosition) ? minLeftPosition : (e.Location.X > maxLeftPosition) ? maxLeftPosition :  e.Location.X;
 
-                if (newX < lineShape3.X1)
+                if (newX < rightMarker.X1)
                 {
-                    lineShape2.X1 = newX;
-                    lineShape2.X2 = newX;
-                    this.rectangleShape1.Location = new Point(lineShape2.X1, 9);
+                    leftMarker.X1 = newX;
+                    leftMarker.X2 = newX;
+                    this.rectangleShape1.Location = new Point(leftMarker.X1 + leftMarker.BorderWidth - 1, rectangleYPos);
+                    this.rectangleShape1.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
                     this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + 1);
                 }
             }
@@ -180,11 +171,11 @@ namespace Annotator
             {
                 int newX = (e.Location.X < minLeftPosition) ? minLeftPosition : (e.Location.X > maxLeftPosition) ? maxLeftPosition : e.Location.X;
 
-                if (lineShape2.X1 < newX)
+                if (leftMarker.X1 < newX)
                 {
-                    lineShape3.X1 = newX;
-                    lineShape3.X2 = newX;
-                    this.rectangleShape1.Size = new Size(lineShape3.X1 - lineShape2.X1, 10);
+                    rightMarker.X1 = newX;
+                    rightMarker.X2 = newX;
+                    this.rectangleShape1.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2) , rectangleSize);
                     this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + 1);
                 }
             }
@@ -198,7 +189,8 @@ namespace Annotator
 
         private void Annotation_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Location.X >= lineShape2.X1 - 2 && e.Location.X <= lineShape2.X2 + 2)
+            Console.WriteLine(e.Location.X + " " + leftMarker.X1 + " " + rightMarker.X2);
+            if (e.Location.X >= leftMarker.X1 - leftMarker.BorderWidth && e.Location.X <= leftMarker.X1 + leftMarker.BorderWidth)
             {
                 slider1Move = true;
             } else
@@ -206,7 +198,7 @@ namespace Annotator
                 slider1Move = false;
             }
 
-            if (e.Location.X >= lineShape3.X1 - 2 && e.Location.X <= lineShape3.X2 + 2)
+            if (e.Location.X >= rightMarker.X1 - rightMarker.BorderWidth && e.Location.X <= rightMarker.X1 + rightMarker.BorderWidth)
             {
                 slider2Move = true;
             }
@@ -215,7 +207,7 @@ namespace Annotator
                 slider2Move = false;
             }
 
-            // Allow only one slider move at one time
+            // Allow only one slider moves at one time
             if (slider1Move && slider2Move)
             {
                 slider2Move = false;
@@ -224,22 +216,21 @@ namespace Annotator
 
         private void lineShape2_Move(object sender, EventArgs e)
         {
-            startFrame = (int)((lineShape2.X1 - minLeftPosition) / frameStepX) + 1;
+            startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + 1;
             label1.Text = "Start Frame: " + startFrame + ", StopFrame: " + endFrame;
-            this.Invalidate();
+            mainGUI.Invalidate();
         }
 
         private void lineShape3_Move(object sender, EventArgs e)
         {
-            endFrame = (int)((lineShape3.X1 - minLeftPosition) / frameStepX) + 1;
+            endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + 1;
             label1.Text = "Start Frame: " + startFrame + ", StopFrame: " + endFrame;
-            this.Invalidate();
+            mainGUI.Invalidate();
         }
 
         private void lineShape1_Paint(object sender, PaintEventArgs e)
         {
-            //e.Graphics.Clear(this.BackColor);
-            
+            axis.BringToFront();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -302,14 +293,20 @@ namespace Annotator
             
             foreach (Reference reference in references)
             {
-                //MessageBox.Show(line + "");
-                int id = 0;
                 int start = reference.start;
                 int end = reference.end;
-                Console.WriteLine(start + " " + end);
                 String refID = reference.refObjectId;
                 String text = this.getText().Substring(start, end - start);
                 mainGUI.addRightBottomTableReference(start, end, text, refID);
+            }
+
+            foreach (Event ev in events)
+            {
+                int start = ev.start;
+                int end = ev.end;
+                String semanticType = ev.semanticType;
+                String text = this.getText().Substring(start, end - start);
+                mainGUI.addRightBottomTableReference(start, end, text, semanticType);
             }
         }
 
@@ -399,6 +396,22 @@ namespace Annotator
                 annotations.Add(a);
             }
             return annotations;
+        }
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to remove this annotation?",
+                "Remove",
+                MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                mainGUI.removeAnnotation(this);
+            }
+        }
+
+        private void Annotation_Paint(object sender, PaintEventArgs e)
+        {
+            Console.WriteLine("Repaint annotation");
         }
     }
 }

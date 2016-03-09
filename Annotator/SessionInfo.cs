@@ -19,8 +19,6 @@ namespace Annotator
             this.frm1 = frm1;
             this.ActiveControl = this.textBox1;
             this.projectName = projectName.Substring(10);//"cut-off TreeNode: "
-            
-            this.label2.Text = "Create new session for project: " + this.projectName;
         }
 
         private void button2_Click(object sender, EventArgs e)

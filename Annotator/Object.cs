@@ -45,7 +45,7 @@ namespace Annotator
             }
         }
 
-        public enum BorderType { Rectangle, Polygon }
+        public enum BorderType { Rig, Rectangle, Polygon }
 
         
         //Constructor

@@ -60,7 +60,11 @@ namespace Annotator
             if (!exists)
                 objects.Add(o);
             if (o.id == "") { o.id = "o" + ++objectID; }
-            
+        }
+
+        internal void removeObject(Object o)
+        {
+            objects.Remove(o);
         }
 
         //Get frame width
@@ -84,5 +88,7 @@ namespace Annotator
         private List<Object> objects;  // list of objects in videos
         public Session session { get; }
         private int objectID = 0;          // video objects IDs
+
+        
     }
 }
