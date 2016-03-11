@@ -528,7 +528,6 @@ namespace Annotator
             frameTrackBar.Enabled = false;
         }
 
-        
         private void loadVideo(String fileName)
         {
             Application.DoEvents();
@@ -557,6 +556,7 @@ namespace Annotator
             if (currentVideo != null)
                 frameTrackBar.Maximum = (int)currentVideo.getFramesNumber();
         }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadVideo(comboBox1.SelectedItem.ToString());
@@ -710,6 +710,19 @@ namespace Annotator
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void tabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabs.SelectedIndex == 0)
+            {
+                recordPanel.releaseKinectViewers();
+            }
+
+            if (tabs.SelectedIndex == 1)
+            {
+                recordPanel.initiateKinectViewers();
+            }
         }
     }
 }
