@@ -1,4 +1,4 @@
-﻿using AForge.Video.FFMPEG;
+﻿//using AForge.Video.FFMPEG;
 using Emgu.CV;
 using Microsoft.Kinect;
 using System;
@@ -69,7 +69,7 @@ namespace Annotator
         String tempRigFileName = "rig_temp.json";
         String tempConfigFileName = "config_tempo.json";
 
-        VideoFileWriter writer = new VideoFileWriter();
+        //VideoFileWriter writer = new VideoFileWriter();
 
 
         Mat matBuffer;
@@ -284,40 +284,40 @@ namespace Annotator
                         
                         rgbBitmap2.UnlockBits(bmapdata2);
 
-                        if (toolbarButtonSelected[recordButton] && this.writer != null)
-                        {
-                            Console.WriteLine("Write with AForge writer " + counter);
+                        //if (toolbarButtonSelected[recordButton] && this.writer != null)
+                        //{
+                        //    Console.WriteLine("Write with AForge writer " + counter);
 
-                            Bitmap rgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
-                            BitmapData bmapdata = rgbBitmap.LockBits(
-                             new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
-                             ImageLockMode.WriteOnly,
-                             rgbBitmap.PixelFormat);
+                        //    Bitmap rgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
+                        //    BitmapData bmapdata = rgbBitmap.LockBits(
+                        //     new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
+                        //     ImageLockMode.WriteOnly,
+                        //     rgbBitmap.PixelFormat);
 
-                            IntPtr ptr = bmapdata.Scan0;
-                            Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
-                            rgbBitmap.UnlockBits(bmapdata);
+                        //    IntPtr ptr = bmapdata.Scan0;
+                        //    Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
+                        //    rgbBitmap.UnlockBits(bmapdata);
 
-                            //Thread t = new Thread(ResizeAndWriteImage);
-                            //t.Start();
-                            bufferedImages.Add(rgbBitmap);
-                            //ResizeAndWriteImage(rgbBitmap);
+                        //    //Thread t = new Thread(ResizeAndWriteImage);
+                        //    //t.Start();
+                        //    bufferedImages.Add(rgbBitmap);
+                        //    //ResizeAndWriteImage(rgbBitmap);
 
-                            //Bitmap resizedBitmap = new Bitmap(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
+                        //    //Bitmap resizedBitmap = new Bitmap(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
 
-                            //ResizeImage(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
-                            //writer.WriteVideoFrame(resizedBitmap);
-                            //writer.WriteVideoFrame((Bitmap)this.rgbBoard.Image);
+                        //    //ResizeImage(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
+                        //    //writer.WriteVideoFrame(resizedBitmap);
+                        //    //writer.WriteVideoFrame((Bitmap)this.rgbBoard.Image);
 
-                            //bufferedImages.Add(rgbBitmap);
-                            counter++;
+                        //    //bufferedImages.Add(rgbBitmap);
+                        //    counter++;
 
-                            if (counter % 50 == 0)
-                            {
-                                System.GC.Collect();
-                                System.GC.WaitForPendingFinalizers();
-                            }
-                        }
+                        //    if (counter % 50 == 0)
+                        //    {
+                        //        System.GC.Collect();
+                        //        System.GC.WaitForPendingFinalizers();
+                        //    }
+                        //}
 
                         this.widthAspect = (float)this.rgbBoard.Width / colorFrameDescription.Width;
                         this.heightAspect = (float)this.rgbBoard.Height / colorFrameDescription.Height;
@@ -330,28 +330,28 @@ namespace Annotator
 
         public void ResizeAndWriteImage(Bitmap rgbBitmap)
         {
-            try
-            {
-                if (writer != null && rgbBitmap != null)
-                {
-                    Console.WriteLine("Write bitmap " + rgbBitmap.PixelFormat);
-                    if (scaleVideo == 1)
-                    {
-                        writer.WriteVideoFrame(rgbBitmap);
-                        Console.WriteLine("Done writing");
-                    }
-                    else
-                    {
-                        Bitmap tempo = new Bitmap(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
-                        writer.WriteVideoFrame(tempo);
-                        tempo.Dispose();
-                        tempo = null;
-                    }
-                }
-            } catch (System.AccessViolationException e)
-            {
+            //try
+            //{
+            //    if (writer != null && rgbBitmap != null)
+            //    {
+            //        Console.WriteLine("Write bitmap " + rgbBitmap.PixelFormat);
+            //        if (scaleVideo == 1)
+            //        {
+            //            writer.WriteVideoFrame(rgbBitmap);
+            //            Console.WriteLine("Done writing");
+            //        }
+            //        else
+            //        {
+            //            Bitmap tempo = new Bitmap(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
+            //            writer.WriteVideoFrame(tempo);
+            //            tempo.Dispose();
+            //            tempo = null;
+            //        }
+            //    }
+            //} catch (System.AccessViolationException e)
+            //{
 
-            }
+            //}
             
         }
 
@@ -545,8 +545,8 @@ namespace Annotator
                     //rgbWriter = new VideoWriter(tempRgbFileName, -1, FRAME_PER_SECOND, new Size(colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo), true);
                     //Console.WriteLine("Finish create writer");
 
-                    writer = new VideoFileWriter();
-                    writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, FRAME_PER_SECOND, VideoCodec.MPEG4, 3000000);
+                    //writer = new VideoFileWriter();
+                    //writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, FRAME_PER_SECOND, VideoCodec.MPEG4, 3000000);
                 } catch (Exception e)
                 {
                     Console.WriteLine(e);
@@ -592,11 +592,11 @@ namespace Annotator
                 bufferedMats.Add(null);
             }
 
-            if (writer != null)
-            {
-                writer.Dispose();
-                writer = null;
-            }
+            //if (writer != null)
+            //{
+            //    writer.Dispose();
+            //    writer = null;
+            //}
         }
 
         private void handlePlayButtonOn()
