@@ -32,14 +32,7 @@ namespace Annotator
 
         }
 
-        protected void InitializeAuxilliaryComponent()
-        {
-            drawingButtonGroup.Add(cursorDrawing);
-            drawingButtonGroup.Add(rectangleDrawing);
-            drawingButtonGroup.Add(polygonDrawing);
-
-            drawingButtonSelected[cursorDrawing] = drawingButtonSelected[rectangleDrawing] = drawingButtonSelected[polygonDrawing] = false;
-        }
+        
 
         
 
@@ -724,5 +717,7 @@ namespace Annotator
                 recordPanel.initiateKinectViewers();
             }
         }
+
+        
     }
 }

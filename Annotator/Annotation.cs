@@ -189,7 +189,6 @@ namespace Annotator
 
         private void Annotation_MouseDown(object sender, MouseEventArgs e)
         {
-            Console.WriteLine(e.Location.X + " " + leftMarker.X1 + " " + rightMarker.X2);
             if (e.Location.X >= leftMarker.X1 - leftMarker.BorderWidth && e.Location.X <= leftMarker.X1 + leftMarker.BorderWidth)
             {
                 slider1Move = true;
@@ -407,11 +406,6 @@ namespace Annotator
             {
                 mainGUI.removeAnnotation(this);
             }
-        }
-
-        private void Annotation_Paint(object sender, PaintEventArgs e)
-        {
-            Console.WriteLine("Repaint annotation");
         }
     }
 }

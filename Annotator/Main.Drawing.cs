@@ -35,6 +35,19 @@ namespace Annotator
         // Editing bounding at a certain frame
         private bool editingAtAFrame = false;
 
+        protected void InitializeAuxilliaryComponent()
+        {
+            drawingButtonGroup.Add(cursorDrawing);
+            drawingButtonGroup.Add(rectangleDrawing);
+            drawingButtonGroup.Add(polygonDrawing);
+
+            drawingButtonSelected[cursorDrawing] = drawingButtonSelected[rectangleDrawing] = drawingButtonSelected[polygonDrawing] = false;
+
+            InitializeEditPanel();
+        }
+
+        
+
         //Start drawing selection rectangle
         private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
         {
@@ -486,72 +499,7 @@ namespace Annotator
             }
         }
 
-        private void addLocationBtn_Click(object sender, EventArgs e)
-        {
-            if (editingAtAFrame)
-            {
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
-                {
-                    selectedObject.setBounding(frameTrackBar.Value, boundingBox);
-                }
-
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
-                {
-                    selectedObject.setBounding(frameTrackBar.Value, polygonPoints);
-                }
-
-                if (currentSession.objectToObjectTracks.ContainsKey(selectedObject))
-                {
-                    Console.WriteLine("Redraw object mark ");
-                    currentSession.objectToObjectTracks[selectedObject].drawObjectMarks();
-                    currentSession.objectToObjectTracks[selectedObject].Invalidate();
-                }
-            }
-        }
-
-        private void delAtFrameBtn_Click(object sender, EventArgs e)
-        {
-            if (editingAtAFrame)
-            {
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
-                {
-                    selectedObject.delete(frameTrackBar.Value);
-                }
-
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
-                {
-                    selectedObject.delete(frameTrackBar.Value);
-                }
-
-                if (currentSession.objectToObjectTracks.ContainsKey(selectedObject))
-                {
-                    Console.WriteLine("Redraw object mark ");
-                    currentSession.objectToObjectTracks[selectedObject].drawObjectMarks();
-                    currentSession.objectToObjectTracks[selectedObject].Invalidate();
-                }
-            }
-        }
-
-        private void cancelEditObjBtn_Click(object sender, EventArgs e)
-        {
-            if (editingAtAFrame)
-            {
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-
-                draggingSelectBoxes = false;
-                selectBoxes = new Rectangle[] { };
-                pictureBoard.Invalidate();
-            }
-        }
+        
 
         private void editObjBtn_Click(object sender, EventArgs e)
         {
@@ -677,5 +625,7 @@ namespace Annotator
             selectBoxes = new Rectangle[] { };
             pictureBoard.Invalidate();
         }
+
+        
     }
 }

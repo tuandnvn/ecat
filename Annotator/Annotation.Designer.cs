@@ -160,7 +160,6 @@ namespace Annotator
             this.DoubleBuffered = true;
             this.Name = "Annotation";
             this.Size = new System.Drawing.Size(800, 50);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Annotation_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseUp);

@@ -1,12 +1,16 @@
-﻿using Emgu.CV;
+﻿using AForge.Video.FFMPEG;
+using Emgu.CV;
 using Microsoft.Kinect;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,7 +42,7 @@ namespace Annotator
         private KinectSensor kinectSensor = null;
         private ColorFrameReader colorFrameReader = null;
         private DepthFrameReader depthFrameReader = null;
-        private Bitmap rgbBitmap;
+        //private Bitmap rgbBitmap;
         private Bitmap depthBitmap;
         private FrameDescription colorFrameDescription = null;
         private FrameDescription depthFrameDescription = null;
@@ -51,7 +55,7 @@ namespace Annotator
 
         private CoordinateMapper coordinateMapper = null;
         private const float JointThickness = 1;
-        private const int FRAME_PER_SECOND = 30;
+        private const int FRAME_PER_SECOND = 20;
         private BodyFrameReader bodyFrameReader = null;
         private Body[] bodies = null;
         private List<Tuple<JointType, JointType>> bones;
@@ -65,10 +69,21 @@ namespace Annotator
         String tempRigFileName = "rig_temp.json";
         String tempConfigFileName = "config_tempo.json";
 
+        VideoFileWriter writer = new VideoFileWriter();
+
+
+        Mat matBuffer;
+        
+        int scaleVideo = 1;
+        BlockingCollection<Mat> bufferedMats;
+        BlockingCollection<Bitmap> bufferedImages;
+
+        Bitmap rgbBitmap2;
+
         public void initiateKinectViewers()
         {
-            
-
+            bufferedMats = new BlockingCollection<Mat>();
+            bufferedImages = new BlockingCollection<Bitmap>();
 
             // a bone defined as a line between two joints
             this.bones = new List<Tuple<JointType, JointType>>();
@@ -130,13 +145,17 @@ namespace Annotator
             colorFrameDescription = this.kinectSensor.ColorFrameSource.CreateFrameDescription(ColorImageFormat.Bgra);
             depthFrameDescription = this.kinectSensor.DepthFrameSource.FrameDescription;
 
+            matBuffer = new Mat(colorFrameDescription.Height, colorFrameDescription.Width, Emgu.CV.CvEnum.DepthType.Cv8U, 4);
+            
+
             rgbValues = new byte[colorFrameDescription.Width * colorFrameDescription.Height * 4];
-            rgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
+            //rgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
 
             depthValues = new ushort[depthFrameDescription.Width * depthFrameDescription.Height];
             depthValuesToByte = new byte[depthFrameDescription.Width * depthFrameDescription.Height * 4];
             depthBitmap = new Bitmap(depthFrameDescription.Width, depthFrameDescription.Height, PixelFormat.Format32bppRgb);
 
+            rgbBitmap2 = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
             // set IsAvailableChanged event notifier
             this.kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
 
@@ -150,12 +169,18 @@ namespace Annotator
             //CameraSpacePoint t = new CameraSpacePoint { X = -0.04383623f, Y = -0.4300487f, Z = 0.4517497f };
             //ColorSpacePoint x = this.coordinateMapper.MapCameraPointToColorSpace(t);
 
-            
+
             //Console.WriteLine(x.X + " " + x.Y);
 
             //t = new CameraSpacePoint { X = -0.04383623f, Y = -0.1300487f, Z = 0.4517497f };
             //x = this.coordinateMapper.MapCameraPointToColorSpace(t);
             //Console.WriteLine(x.X + " " + x.Y);
+
+            //String line = Console.ReadLine();
+            //if (line == "abc")
+            //{
+            //    handleRecordButtonOff();
+            //}
         }
 
         private void Reader_BodyFrameArrived(object sender, BodyFrameArrivedEventArgs e)
@@ -221,10 +246,11 @@ namespace Annotator
                                                             : Properties.Resources.NoSensorStatusText;
         }
 
+        int counter = 0;
         
-
         private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
         {
+            
             // ColorFrame is IDisposable
             using (ColorFrame colorFrame = e.FrameReference.AcquireFrame())
             {
@@ -234,29 +260,99 @@ namespace Annotator
                     {
                         colorFrame.CopyConvertedFrameDataToArray(rgbValues, ColorImageFormat.Bgra);
 
-                        BitmapData bmapdata = rgbBitmap.LockBits(
+                        
+
+                        BitmapData bmapdata2 = rgbBitmap2.LockBits(
+                             new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
+                             ImageLockMode.WriteOnly,
+                             rgbBitmap2.PixelFormat);
+                        IntPtr ptr2 = bmapdata2.Scan0;
+                        Marshal.Copy(rgbValues, 0, ptr2, colorFrameDescription.Width * colorFrameDescription.Height * 4);
+
+                        Mat matBufferOutput = new Mat(colorFrameDescription.Height / scaleVideo, colorFrameDescription.Width / scaleVideo, Emgu.CV.CvEnum.DepthType.Cv8U, 4);
+
+                        //if ( toolbarButtonSelected[recordButton] && this.rgbWriter != null)
+                        //{
+                        //    //this.rgbWriter.Write(new Mat(colorFrameDescription.Height, colorFrameDescription.Width, Emgu.CV.CvEnum.DepthType.Cv8U, 4, ptr, colorFrameDescription.Width * 4));
+                        //    Marshal.Copy(rgbValues, 0, matBuffer.DataPointer, colorFrameDescription.Width * colorFrameDescription.Height * 4);
+                        //    Emgu.CV.CvInvoke.Resize(matBuffer, matBufferOutput, new Size(matBufferOutput.Width, matBufferOutput.Height));
+
+                        //    rgbWriter.Write(matBufferOutput);
+                        //    //bufferedMats.Add(matBufferOutput);
+                        //}
+
+                        
+                        rgbBitmap2.UnlockBits(bmapdata2);
+
+                        if (toolbarButtonSelected[recordButton] && this.writer != null)
+                        {
+                            Console.WriteLine("Write with AForge writer " + counter);
+
+                            Bitmap rgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
+                            BitmapData bmapdata = rgbBitmap.LockBits(
                              new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
                              ImageLockMode.WriteOnly,
                              rgbBitmap.PixelFormat);
 
-                        IntPtr ptr = bmapdata.Scan0;
-                        Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
-                        
+                            IntPtr ptr = bmapdata.Scan0;
+                            Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
+                            rgbBitmap.UnlockBits(bmapdata);
 
-                        if ( toolbarButtonSelected[recordButton] && this.rgbWriter != null)
-                        {
-                            Console.WriteLine("Write");
-                            this.rgbWriter.Write(new Mat(colorFrameDescription.Height, colorFrameDescription.Width,Emgu.CV.CvEnum.DepthType.Cv8U, 4, ptr, colorFrameDescription.Width * 4));
+                            //Thread t = new Thread(ResizeAndWriteImage);
+                            //t.Start();
+                            bufferedImages.Add(rgbBitmap);
+                            //ResizeAndWriteImage(rgbBitmap);
+
+                            //Bitmap resizedBitmap = new Bitmap(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
+
+                            //ResizeImage(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
+                            //writer.WriteVideoFrame(resizedBitmap);
+                            //writer.WriteVideoFrame((Bitmap)this.rgbBoard.Image);
+
+                            //bufferedImages.Add(rgbBitmap);
+                            counter++;
+
+                            if (counter % 50 == 0)
+                            {
+                                System.GC.Collect();
+                                System.GC.WaitForPendingFinalizers();
+                            }
                         }
-
-                        rgbBitmap.UnlockBits(bmapdata);
 
                         this.widthAspect = (float)this.rgbBoard.Width / colorFrameDescription.Width;
                         this.heightAspect = (float)this.rgbBoard.Height / colorFrameDescription.Height;
-                        this.rgbBoard.Image = rgbBitmap;
+                        this.rgbBoard.Image = rgbBitmap2;
                     }
                 }
             }
+        }
+
+
+        public void ResizeAndWriteImage(Bitmap rgbBitmap)
+        {
+            try
+            {
+                if (writer != null && rgbBitmap != null)
+                {
+                    Console.WriteLine("Write bitmap " + rgbBitmap.PixelFormat);
+                    if (scaleVideo == 1)
+                    {
+                        writer.WriteVideoFrame(rgbBitmap);
+                        Console.WriteLine("Done writing");
+                    }
+                    else
+                    {
+                        Bitmap tempo = new Bitmap(rgbBitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
+                        writer.WriteVideoFrame(tempo);
+                        tempo.Dispose();
+                        tempo = null;
+                    }
+                }
+            } catch (System.AccessViolationException e)
+            {
+
+            }
+            
         }
 
         private void Reader_DepthFrameArrived(object sender, DepthFrameArrivedEventArgs e)
@@ -380,8 +476,6 @@ namespace Annotator
 
                     Dictionary<JointType, Point> jointPoints = new Dictionary<JointType, Point>();
 
-                    
-
                     foreach (JointType jointType in joints.Keys)
                     {
                         CameraSpacePoint position = joints[jointType].Position;
@@ -441,18 +535,49 @@ namespace Annotator
         {
             recordButton.ImageIndex = 1;
 
+            Thread thread = new Thread(new ThreadStart(RecordingFunction));
+            thread.Start();
+
             if (colorFrameDescription != null)
             {
                 try
                 {
-                    rgbWriter = new VideoWriter(tempRgbFileName, -1, FRAME_PER_SECOND, new Size(colorFrameDescription.Width, colorFrameDescription.Height), true);
-                    Console.WriteLine("Finish create writer");
+                    //rgbWriter = new VideoWriter(tempRgbFileName, -1, FRAME_PER_SECOND, new Size(colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo), true);
+                    //Console.WriteLine("Finish create writer");
+
+                    writer = new VideoFileWriter();
+                    writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, FRAME_PER_SECOND, VideoCodec.MPEG4, 3000000);
                 } catch (Exception e)
                 {
                     Console.WriteLine(e);
                 }
-                
             }
+        }
+
+        private void RecordingFunction()
+        {
+            Console.WriteLine("Begin writing");
+            //Mat result = null;
+            //// Wait for 10s 
+            //while (bufferedMats.TryTake(out result, 10000) && result != null)
+            //{
+            //    try
+            //    {
+            //        rgbWriter.Write(result);
+            //    } catch (System.AccessViolationException e)
+            //    {
+            //        // DO NOTHING
+            //    }
+            //}
+
+            Bitmap result = null;
+            // Wait for 10s 
+            while (bufferedImages.TryTake(out result, 10000) && result != null)
+            {
+                ResizeAndWriteImage(result);
+            }
+
+            Console.WriteLine("Finish writing");
         }
 
         private void handleRecordButtonOff()
@@ -463,6 +588,14 @@ namespace Annotator
             {
                 rgbWriter.Dispose();
                 rgbWriter = null;
+
+                bufferedMats.Add(null);
+            }
+
+            if (writer != null)
+            {
+                writer.Dispose();
+                writer = null;
             }
         }
 

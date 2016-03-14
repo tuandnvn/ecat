@@ -11,42 +11,128 @@ namespace Annotator
     // 2d object
     public class Object
     {
+        private const string OBJECT = "object";
+        private const string ID = "id";
+        private const string NAME = "name";
+        private const string FILENAME = "filename";
+        private const string OBJECT_TYPE = "objectType";
+        private const string GENERATE = "generate";
+        private const string SEMANTIC_TYPE = "semanticType";
+        private const string MARKER = "marker";
+        private const string TYPE = "type";
+        private const string FRAME = "frame";
+        private const string SHAPE = "shape";
+        private const string BORDER_SIZE = "borderSize";
+        private const string COLOR = "color";
+        private const string SCALE = "scale";
+        private const string SPATIAL_LINK = "spatialLink";
+        private const string QUALIFIED = "q";
+        private const string LINKTO = "linkTo";
+
+        public string videoFile { get; }
+        public SortedList<int, LocationMark> objectMarks
+        {
+            get; set;
+        }
+
+        public SortedList<int, SpatialLinkMark> spatialLinkMarks
+        {
+            get; set;
+        }
+
+        BorderType? _borderType;
+        public string id { get; set; }                //Object's ID
+        public string name { get; set; }           // Object's name
+        public Color color { get; set; }           //Object's boudnign box color
+        public string semanticType { get; set; }           //Object's type
+        public int borderSize { get; set; }        //Object bounding box border size
+        public double scale { get; set; }          //Object scale
+        public BorderType? borderType { get { return _borderType; } }
+        public Dictionary<string, string> otherProperties { get; }
+
         public class ObjectMark
         {
-            public enum MarkType{
+            public int frameNo { get; }
+            public ObjectMark(int frameNo)
+            {
+                this.frameNo = frameNo;
+            }
+        }
+
+        public class SpatialLinkMark : ObjectMark
+        {
+            public enum SpatialLinkType
+            {
+                ON,
+                IN,
+                ATTACH_TO,
+                NEXT_TO
+            };
+
+            // A set of link to other objects at a certain frame
+            // Each link is of < objectID , qualified, spatialLink >
+            public SortedSet<Tuple<string, bool, SpatialLinkType>> spatialLinks { get; } // By default, there is no spatial configuration attached to an object location
+
+            public SpatialLinkMark(int frameNo) : base(frameNo)
+            {
+                spatialLinks = new SortedSet<Tuple<string, bool, SpatialLinkType>>();
+            }
+
+            public void addLinkToObject(string objectId, bool qualified, SpatialLinkType linkType)
+            {
+                spatialLinks.Add(new Tuple<string, bool, SpatialLinkType>(objectId, qualified, linkType));
+            }
+
+            override public String ToString()
+            {
+                return String.Join(",", spatialLinks.Select( u => getLiteralForm(u) ));
+            }
+
+            private static String getLiteralForm(Tuple<string, bool, SpatialLinkType> t)
+            {
+                String q = t.Item3 + "( " + t.Item1 + " )";
+                if (!t.Item2)
+                {
+                    q = "NOT( " + q + " )";
+                }
+                return q;
+            }
+        }
+
+        public class LocationMark : ObjectMark
+        {
+            public enum LocationMarkType
+            {
                 Location, // Set the location of the object manually
                           // For automatic detected object, there would be location for the first time the object is detected
 
                 Delete    // The position where the object disappears out of the view
             };
-            public int frameNo { get; }
-            public MarkType markType { get; }
+
+            public LocationMarkType markType { get; }
             public Rectangle boundingBox { get; }              //Object bounding box;
             public List<Point> boundingPolygon { get; }         // Object bounding polygon, if the tool to draw object is polygon tool
 
-            public ObjectMark(int frameNo, MarkType markType, Rectangle boundingBox) {
-                this.frameNo = frameNo;
+            public LocationMark(int frameNo, LocationMarkType markType, Rectangle boundingBox) : base(frameNo)
+            {
                 this.markType = markType;
                 this.boundingBox = boundingBox;
             }
 
-            public ObjectMark(int frameNo, MarkType markType, List<Point> boundingPolygon)
+            public LocationMark(int frameNo, LocationMarkType markType, List<Point> boundingPolygon) : base(frameNo)
             {
-                this.frameNo = frameNo;
                 this.markType = markType;
                 this.boundingPolygon = boundingPolygon;
             }
 
             // Delete object mark
-            public ObjectMark(int frameNo)
+            public LocationMark(int frameNo) : base(frameNo)
             {
-                this.frameNo = frameNo;
-                this.markType = MarkType.Delete;
+                this.markType = LocationMarkType.Delete;
             }
         }
 
         public enum BorderType { Rig, Rectangle, Polygon }
-
         
         //Constructor
         public Object(String id, Color color, int borderSize, double scale, string videoFile, int frameNo, Rectangle boundingBox) :
@@ -69,11 +155,12 @@ namespace Annotator
             this.scale = scale;
             this.videoFile = videoFile;
             otherProperties = new Dictionary<string, string>();
-            objectMarks = new SortedList<int,ObjectMark>();
+            objectMarks = new SortedList<int, LocationMark>();
+            spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
         }
 
         public void setBounding(int frameNumber, Rectangle boundingBox) {
-            ObjectMark ob = new ObjectMark(frameNumber, ObjectMark.MarkType.Location, boundingBox);
+            LocationMark ob = new LocationMark(frameNumber, LocationMark.LocationMarkType.Location, boundingBox);
             if (this._borderType == null) // First time appear
             {
                 this._borderType = BorderType.Rectangle;
@@ -88,7 +175,7 @@ namespace Annotator
 
         public void setBounding(int frameNumber, List<Point> boundingPolygon)
         {
-            ObjectMark ob = new ObjectMark(frameNumber, ObjectMark.MarkType.Location, boundingPolygon);
+            LocationMark ob = new LocationMark(frameNumber, LocationMark.LocationMarkType.Location, boundingPolygon);
             if (this._borderType == null) // First time appear
             {
                 this._borderType = BorderType.Polygon;
@@ -103,15 +190,25 @@ namespace Annotator
 
         public void delete(int frameNumber)
         {
-            ObjectMark ob = new ObjectMark(frameNumber);
+            LocationMark ob = new LocationMark(frameNumber);
             objectMarks[frameNumber] = ob;
     
             // Delete the next Delete marker
             int first = objectMarks.Keys.FirstOrDefault(x => x > frameNumber);
-            if ( first > 0 && objectMarks[first].markType == ObjectMark.MarkType.Delete)
+            if ( first > 0 && objectMarks[first].markType == LocationMark.LocationMarkType.Delete)
             {
                 objectMarks.Remove(first);
             }
+        }
+
+        public void setSpatialLink(int frameNumber, string objectId, bool qualified, SpatialLinkMark.SpatialLinkType linkType)
+        {
+            if (!spatialLinkMarks.ContainsKey(frameNumber))
+            {
+                spatialLinkMarks[frameNumber] = new SpatialLinkMark(frameNumber);
+            } 
+
+            spatialLinkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
         }
 
         public object getCurrentBounding(int frameNo)
@@ -123,7 +220,7 @@ namespace Annotator
             }
             if (_borderType != null)
             {
-                if (objectMarks[first].markType == ObjectMark.MarkType.Location)
+                if (objectMarks[first].markType == LocationMark.LocationMarkType.Location)
                 {
                     switch (_borderType)
                     {
@@ -142,20 +239,7 @@ namespace Annotator
             otherProperties[propertyKey] = propertyValue;
         }
 
-        private const string OBJECT = "object";
-        private const string ID = "id";
-        private const string NAME = "name";
-        private const string FILENAME = "filename";
-        private const string OBJECT_TYPE = "objectType";
-        private const string GENERATE = "generate";
-        private const string SEMANTIC_TYPE = "semanticType";
-        private const string MARKER = "marker";
-        private const string TYPE = "type";
-        private const string FRAME = "frame";
-        private const string SHAPE = "shape";
-        private const string BORDER_SIZE = "borderSize";
-        private const string COLOR = "color";
-        private const string SCALE = "scale";
+        
 
         //<object refid = "o3" name="Apple 1" objectType="2D" generate="manual" semanticType="apple" filename="a.avi">
         //	<marker type = "Location" frame="1" shape="Rectangle"> 50, 50, 10, 10 </marker>
@@ -186,7 +270,7 @@ namespace Annotator
                 xmlWriter.WriteStartElement(MARKER);
                 xmlWriter.WriteAttributeString(TYPE, objectMarks[frame].markType.ToString());
                 xmlWriter.WriteAttributeString(FRAME, "" + frame);
-                if (objectMarks[frame].markType == ObjectMark.MarkType.Location)
+                if (objectMarks[frame].markType == LocationMark.LocationMarkType.Location)
                 {
                     xmlWriter.WriteAttributeString(SHAPE, _borderType.ToString());
                     switch(_borderType)
@@ -202,6 +286,22 @@ namespace Annotator
                 }
                 xmlWriter.WriteEndElement();
             }
+
+            foreach (int frame in spatialLinkMarks.Keys)
+            {
+                xmlWriter.WriteStartElement(SPATIAL_LINK);
+                xmlWriter.WriteAttributeString(FRAME, "" + frame);
+                foreach (Tuple<string, bool, SpatialLinkMark.SpatialLinkType> spatialLink in spatialLinkMarks[frame].spatialLinks)
+                {
+                    xmlWriter.WriteStartElement(LINKTO);
+                    xmlWriter.WriteAttributeString(ID, spatialLink.Item1);
+                    xmlWriter.WriteAttributeString(QUALIFIED, "" + spatialLink.Item2);
+                    xmlWriter.WriteAttributeString(TYPE, spatialLink.Item3.ToString());
+                    xmlWriter.WriteEndElement();
+                }
+                xmlWriter.WriteEndElement();
+            }
+
             xmlWriter.WriteEndElement();
         }
 
@@ -234,11 +334,11 @@ namespace Annotator
                 foreach (XmlNode markerNode in objectNode.SelectNodes(MARKER))
                 {
                     int frame = int.Parse(markerNode.Attributes[FRAME].Value);
-                    ObjectMark.MarkType markType = (ObjectMark.MarkType)Enum.Parse(typeof(ObjectMark.MarkType), markerNode.Attributes[TYPE].Value, true);
+                    LocationMark.LocationMarkType markType = (LocationMark.LocationMarkType)Enum.Parse(typeof(LocationMark.LocationMarkType), markerNode.Attributes[TYPE].Value, true);
 
                     switch (markType)
                     {
-                        case ObjectMark.MarkType.Location:
+                        case LocationMark.LocationMarkType.Location:
                             string shape = markerNode.Attributes[SHAPE].Value;
 
                             if (shape == "Rectangle")
@@ -271,14 +371,26 @@ namespace Annotator
                                 o.setBounding(frame, points);
                             }
                             break;
-                        case ObjectMark.MarkType.Delete:
+                        case LocationMark.LocationMarkType.Delete:
                             o.delete(frame);
                             break;
                     }
                 }
 
-                // only handle 2d object
-                if ( objectType == "2D" && generate == "manual")
+                foreach (XmlNode markerNode in objectNode.SelectNodes(SPATIAL_LINK))
+                {
+                    int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                    foreach (XmlNode linkto in markerNode.SelectNodes(LINKTO))
+                    {
+                        String linkToObjectId = linkto.Attributes[ID].Value;
+                        bool qualified = bool.Parse(linkto.Attributes[QUALIFIED].Value);
+                        SpatialLinkMark.SpatialLinkType markType = (SpatialLinkMark.SpatialLinkType)Enum.Parse(typeof(SpatialLinkMark.SpatialLinkType), linkto.Attributes[TYPE].Value, true);
+                        o.setSpatialLink(frame, linkToObjectId, qualified, markType);
+                    }
+                }
+
+                    // only handle 2d object
+                    if ( objectType == "2D" && generate == "manual")
                 {
                     objects.Add(o);
                 }
@@ -286,19 +398,13 @@ namespace Annotator
             return objects;
         }
 
-        public string videoFile { get; }
-        public SortedList<int, ObjectMark> objectMarks
+        public String queryTooltip ( int frameNo)
         {
-            get; set;
+            if (spatialLinkMarks.ContainsKey(frameNo))
+            {
+                return spatialLinkMarks[frameNo].ToString();
+            }
+            return "";
         }
-        BorderType? _borderType;
-        public string id { get; set; }                //Object's ID
-        public string name { get; set; }           // Object's name
-        public Color color { get; set; }           //Object's boudnign box color
-        public string semanticType { get; set; }           //Object's type
-        public int borderSize { get; set; }        //Object bounding box border size
-        public double scale { get; set; }          //Object scale
-        public BorderType? borderType { get { return _borderType;}  }
-        public Dictionary<string, string> otherProperties { get; }
     }
 }

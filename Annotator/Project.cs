@@ -10,16 +10,18 @@ namespace Annotator
     public class Project
     {
         //constructor
-        public Project(String locationFolder, String projectName, List<Session> sessions){
+        public Project(String locationFolder, String projectName, List<Session> sessions)
+        {
             this.locationFolder = locationFolder;
             this.sessions = sessions;
             this.projectName = projectName;
-            if(this.sessions == null)
+            if (this.sessions == null)
                 this.sessions = new List<Session>();
             this.selected = false;
         }
         //Get project session at given index
-        public Session getSession(int index){
+        public Session getSession(int index)
+        {
             if (sessions.Count > 0 && index >= 0 && index < sessions.Count)
             {
                 return sessions[index];
@@ -30,14 +32,16 @@ namespace Annotator
             }
         }
         //Add session to sessions list
-        public void addSession(Session session){
-            if(session != null){
+        public void addSession(Session session)
+        {
+            if (session != null)
+            {
                 sessions.Add(session);
                 //MessageBox.Show(session.getSessionName());
                 //Update project file
                 saveProjectFile(session.getSessionName());
             }
-            else{
+            else {
 
             }
         }
@@ -50,7 +54,7 @@ namespace Annotator
             {
                 StreamReader file = new StreamReader(projectFileName);
                 String line = "";
-                while (( line = file.ReadLine()) != null)
+                while ((line = file.ReadLine()) != null)
                 {
                     if (line.Contains(sessionName))
                     {
@@ -72,38 +76,39 @@ namespace Annotator
         public void saveProjectFile(String sessionName)
         {
             String projectFileName = locationFolder + "\\" + projectName + "\\" + projectName + ".project";
-                if(!File.Exists(projectFileName)){   
-                    TextWriter tw = new StreamWriter(projectFileName);
-                    foreach (Session s in sessions)
+            if (!File.Exists(projectFileName))
+            {
+                TextWriter tw = new StreamWriter(projectFileName);
+                foreach (Session s in sessions)
+                {
+                    tw.WriteLine(s.getSessionName());
+                }
+                tw.Close();
+            }
+            else if (File.Exists(projectFileName))
+            {
+                //1)Check if session already exists in project file:
+                bool exists = false;
+                StreamReader file = new StreamReader(projectFileName);
+                String line = "";
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line.Contains(sessionName))
                     {
-                        tw.WriteLine(s.getSessionName());
+                        file.Close();
+                        exists = true;
+                        break;
                     }
+                }
+                file.Close();
+                if (!exists)
+                {
+                    TextWriter tw = new StreamWriter(projectFileName, true);
+                    tw.WriteLine(sessionName);
                     tw.Close();
                 }
-                else if (File.Exists(projectFileName))
-                {
-                    //1)Check if session already exists in project file:
-                    bool exists = false;
-                    StreamReader file = new StreamReader(projectFileName);
-                    String line = "";
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        if (line.Contains(sessionName))
-                        {
-                            file.Close();
-                            exists = true;
-                            break;
-                        }
-                    }
-                    file.Close();
-                    if (!exists)
-                    {
-                        TextWriter tw = new StreamWriter(projectFileName, true);
-                        tw.WriteLine(sessionName);
-                        tw.Close();
-                    }
-                    
-                }
+
+            }
         }
         //Remove session from project:
         public void removeSession(String sessionName)
@@ -111,7 +116,8 @@ namespace Annotator
             //1)Remove session from sessions list
             foreach (Session s in sessions)
             {
-                if(s.getSessionName().Contains(sessionName)){
+                if (s.getSessionName().Contains(sessionName))
+                {
                     sessions.Remove(s);
                     break;
                 }
