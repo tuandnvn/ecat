@@ -41,7 +41,7 @@ namespace Annotator
         {
             Project project = new Project(locationFolder, projectName, null);
             //Create new project folder:
-            Directory.CreateDirectory(locationFolder + "\\" + projectName);
+            Directory.CreateDirectory(locationFolder + Path.DirectorySeparatorChar + projectName);
             projects.Add(project);
         }
         

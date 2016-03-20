@@ -24,7 +24,6 @@ namespace Annotator
         private const string SHAPE = "shape";
         private const string BORDER_SIZE = "borderSize";
         private const string COLOR = "color";
-        private const string SCALE = "scale";
         private const string SPATIAL_LINK = "spatialLink";
         private const string QUALIFIED = "q";
         private const string LINKTO = "linkTo";
@@ -40,6 +39,19 @@ namespace Annotator
             get; set;
         }
 
+        public enum ObjectType
+        {
+            _2D,
+            _3D
+        }
+
+        public enum GenType
+        {
+            MANUAL,
+            PROVIDED,
+            TRACKED
+        }
+
         BorderType? _borderType;
         public string id { get; set; }                //Object's ID
         public string name { get; set; }           // Object's name
@@ -49,6 +61,8 @@ namespace Annotator
         public double scale { get; set; }          //Object scale
         public BorderType? borderType { get { return _borderType; } }
         public Dictionary<string, string> otherProperties { get; }
+        public GenType genType { get; set; }
+        public ObjectType objectType { get; set; }
 
         public class ObjectMark
         {
@@ -110,19 +124,10 @@ namespace Annotator
             };
 
             public LocationMarkType markType { get; }
-            public Rectangle boundingBox { get; }              //Object bounding box;
-            public List<Point> boundingPolygon { get; }         // Object bounding polygon, if the tool to draw object is polygon tool
 
-            public LocationMark(int frameNo, LocationMarkType markType, Rectangle boundingBox) : base(frameNo)
+            public LocationMark(int frameNo, LocationMarkType markType) : base(frameNo)
             {
                 this.markType = markType;
-                this.boundingBox = boundingBox;
-            }
-
-            public LocationMark(int frameNo, LocationMarkType markType, List<Point> boundingPolygon) : base(frameNo)
-            {
-                this.markType = markType;
-                this.boundingPolygon = boundingPolygon;
             }
 
             // Delete object mark
@@ -132,35 +137,64 @@ namespace Annotator
             }
         }
 
+        public class BoundingLocationMark : LocationMark
+        {
+            public Rectangle boundingBox { get; }              //Object bounding box;
+
+            public BoundingLocationMark(int frameNo, LocationMarkType markType, Rectangle boundingBox) : base(frameNo, markType)
+            {
+                this.boundingBox = boundingBox;
+            }
+        }
+
+        public class PolygonLocationMark : LocationMark
+        {
+            public List<Point> boundingPolygon { get; }         // Object bounding polygon, if the tool to draw object is polygon tool
+
+            public PolygonLocationMark(int frameNo, LocationMarkType markType, List<Point> boundingPolygon) : base(frameNo, markType)
+            {
+                this.boundingPolygon = boundingPolygon;
+            }
+        }
+
+        public class RigLocationMark : LocationMark
+        {
+            public RigFigure<Point> rigFigure { get; }
+            public RigLocationMark(int frameNo, LocationMarkType markType, RigFigure<Point> rigFigure) : base(frameNo, markType)
+            {
+                this.rigFigure = rigFigure;
+            }
+        }
+
         public enum BorderType { Rig, Rectangle, Polygon }
         
         //Constructor
-        public Object(String id, Color color, int borderSize, double scale, string videoFile, int frameNo, Rectangle boundingBox) :
-            this(id, color, borderSize, scale, videoFile)
+        public Object(String id, Color color, int borderSize, string videoFile, double scale, Point translation, int frameNo, Rectangle boundingBox) :
+            this(id, color, borderSize, videoFile)
         {
-            setBounding(frameNo, boundingBox);
+            setBounding(frameNo, boundingBox, scale, translation);
         }
 
-        public Object(String id, Color color, int borderSize, double scale, string videoFile, int frameNo, List<Point> boundingPolygon) : 
-            this(id,color,borderSize,scale,videoFile)
+        public Object(String id, Color color, int borderSize, string videoFile, double scale, Point translation, int frameNo, List<Point> boundingPolygon) : 
+            this(id, color, borderSize, videoFile)
         {
-            setBounding(frameNo, boundingPolygon);
+            setBounding(frameNo, boundingPolygon, scale, translation);
         }
 
-        private Object(String id, Color color, int borderSize, double scale, string videoFile)
+        public Object(String id, Color color, int borderSize, string videoFile)
         {
             this.id = id;
             this.color = color;
             this.borderSize = borderSize;
-            this.scale = scale;
             this.videoFile = videoFile;
             otherProperties = new Dictionary<string, string>();
             objectMarks = new SortedList<int, LocationMark>();
             spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
         }
 
-        public void setBounding(int frameNumber, Rectangle boundingBox) {
-            LocationMark ob = new LocationMark(frameNumber, LocationMark.LocationMarkType.Location, boundingBox);
+        public void setBounding(int frameNumber, Rectangle boundingBox, double scale, Point translation) {
+            Rectangle inverseScaleBoundingBox = scaleRectangle(boundingBox, 1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
+            LocationMark ob = new BoundingLocationMark(frameNumber, LocationMark.LocationMarkType.Location, inverseScaleBoundingBox);
             if (this._borderType == null) // First time appear
             {
                 this._borderType = BorderType.Rectangle;
@@ -173,9 +207,10 @@ namespace Annotator
             objectMarks[frameNumber] = ob;
         }
 
-        public void setBounding(int frameNumber, List<Point> boundingPolygon)
+        public void setBounding(int frameNumber, List<Point> boundingPolygon, double scale, Point translation)
         {
-            LocationMark ob = new LocationMark(frameNumber, LocationMark.LocationMarkType.Location, boundingPolygon);
+            List<Point> inverseScaleBoundingPolygon = scaleListPoint(boundingPolygon, 1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
+            LocationMark ob = new PolygonLocationMark(frameNumber, LocationMark.LocationMarkType.Location, inverseScaleBoundingPolygon);
             if (this._borderType == null) // First time appear
             {
                 this._borderType = BorderType.Polygon;
@@ -183,6 +218,22 @@ namespace Annotator
             else
             {
                 if (this._borderType != BorderType.Polygon)
+                    throw new Exception("Border type not match");
+            }
+            objectMarks[frameNumber] = ob;
+        }
+
+        public void setBounding(int frameNumber, RigFigure<Point> boundingRig, double scale, Point translation)
+        {
+            RigFigure<Point> inverseScaleBoundingRig =  scaleRig(boundingRig, 1 / scale , new Point((int)(-translation.X/scale), (int)(-translation.Y / scale)) );
+            LocationMark ob = new RigLocationMark(frameNumber, LocationMark.LocationMarkType.Location, inverseScaleBoundingRig);
+            if (this._borderType == null) // First time appear
+            {
+                this._borderType = BorderType.Rig;
+            }
+            else
+            {
+                if (this._borderType != BorderType.Rig)
                     throw new Exception("Border type not match");
             }
             objectMarks[frameNumber] = ob;
@@ -211,7 +262,20 @@ namespace Annotator
             spatialLinkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
         }
 
-        public object getCurrentBounding(int frameNo)
+        /// <summary>
+        /// Linear transformation of bounding to draw into paintBoard.
+        /// 
+        /// </summary>
+        /// <param name="frameNo"> Frame number </param>
+        /// <param name="scale"> 
+        ///       Scale of paintBoardSize / videoSize
+        ///       Aspect ratio remains the same
+        /// </param>
+        /// <param name="translation">
+        ///       Offset between the resized frame and the paintBoard
+        /// </param>
+        /// <returns></returns>
+        public object getCurrentBounding(int frameNo , double scale, Point translation)
         {
             int first = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
             if ( first == 0 )
@@ -225,13 +289,48 @@ namespace Annotator
                     switch (_borderType)
                     {
                         case BorderType.Rectangle:
-                            return objectMarks[first].boundingBox;
+                            {
+                                var casted = (BoundingLocationMark)objectMarks[first];
+                                return scaleRectangle(casted.boundingBox, scale, translation);
+                            }
                         case BorderType.Polygon:
-                            return objectMarks[first].boundingPolygon;
+                            {
+                                var casted = (PolygonLocationMark)objectMarks[first];
+                                return scaleListPoint(casted.boundingPolygon, scale, translation);
+                            }
+                        case BorderType.Rig:
+                            {
+                                var casted = (RigLocationMark)objectMarks[first];
+                                return scaleRig(casted.rigFigure, scale, translation);
+                            }
                     }
                 }
             }
             return null;
+        }
+
+        private static Rectangle scaleRectangle(Rectangle original, double scale, Point translation)
+        {
+            return new Rectangle((int)(original.X * scale + translation.X),
+                (int)(original.Y * scale + translation.Y),
+                (int)(original.Width * scale),
+                (int)(original.Height * scale));
+        }
+
+        private static Point scalePoint ( Point original , double scale, Point translation)
+        {
+            return new Point((int)(original.X * scale + translation.X), (int)(original.Y * scale + translation.Y));
+        }
+
+        private static List<Point> scaleListPoint(List<Point> original, double scale, Point translation)
+        {
+            return original.Select(p => scalePoint( p, scale, translation) ).ToList(); 
+        }
+
+        private static RigFigure<Point> scaleRig(RigFigure<Point> original, double scale, Point translation)
+        {
+            return new RigFigure<Point>(original.rigJoints.ToDictionary(k => k.Key, k => scalePoint(k.Value, scale, translation) ),
+                original.rigBones.Select(t => new Tuple<Point, Point>(scalePoint(t.Item1, scale, translation), scalePoint(t.Item2, scale, translation))).ToList() );
         }
 
         public void addProperty(string propertyKey, string propertyValue)
@@ -254,37 +353,46 @@ namespace Annotator
             xmlWriter.WriteAttributeString(ID, "" + id);
             xmlWriter.WriteAttributeString(NAME,  name);
             xmlWriter.WriteAttributeString(FILENAME, videoFile);
-            xmlWriter.WriteAttributeString(OBJECT_TYPE, "2D");
-            xmlWriter.WriteAttributeString(GENERATE, "manual");
+            xmlWriter.WriteAttributeString(OBJECT_TYPE, objectType.ToString().Substring(1) );
+            xmlWriter.WriteAttributeString(GENERATE, genType.ToString());
             xmlWriter.WriteAttributeString(COLOR, "" + color.ToArgb());
             xmlWriter.WriteAttributeString(BORDER_SIZE, "" + borderSize);
-            xmlWriter.WriteAttributeString(SCALE, "" + scale);
             xmlWriter.WriteAttributeString(SEMANTIC_TYPE, semanticType);
+            xmlWriter.WriteAttributeString(SHAPE, _borderType.ToString());
             foreach (String key in otherProperties.Keys)
             {
                 xmlWriter.WriteAttributeString(key, otherProperties[key]);
             }
             
-            foreach (int frame in objectMarks.Keys)
+            if ( genType == GenType.MANUAL )
             {
-                xmlWriter.WriteStartElement(MARKER);
-                xmlWriter.WriteAttributeString(TYPE, objectMarks[frame].markType.ToString());
-                xmlWriter.WriteAttributeString(FRAME, "" + frame);
-                if (objectMarks[frame].markType == LocationMark.LocationMarkType.Location)
+                foreach (int frame in objectMarks.Keys)
                 {
-                    xmlWriter.WriteAttributeString(SHAPE, _borderType.ToString());
-                    switch(_borderType)
+                    xmlWriter.WriteStartElement(MARKER);
+                    xmlWriter.WriteAttributeString(TYPE, objectMarks[frame].markType.ToString());
+                    xmlWriter.WriteAttributeString(FRAME, "" + frame);
+                    if (objectMarks[frame].markType == LocationMark.LocationMarkType.Location)
                     {
-                        case BorderType.Rectangle:
-                            xmlWriter.WriteString(objectMarks[frame].boundingBox.X + "," + objectMarks[frame].boundingBox.Y + "," +
-                                objectMarks[frame].boundingBox.Width + "," + objectMarks[frame].boundingBox.Height);
-                            break;
-                        case BorderType.Polygon:
-                            xmlWriter.WriteString(string.Join(",", objectMarks[frame].boundingPolygon.ConvertAll(p => p.X + "," + p.Y)));
-                            break;
+
+                        switch (_borderType)
+                        {
+                            case BorderType.Rectangle:
+                                {
+                                    var casted = (BoundingLocationMark)objectMarks[frame];
+                                    xmlWriter.WriteString(casted.boundingBox.X + "," + casted.boundingBox.Y + "," +
+                                        casted.boundingBox.Width + "," + casted.boundingBox.Height);
+                                    break;
+                                }
+                            case BorderType.Polygon:
+                                {
+                                    var casted = (PolygonLocationMark)objectMarks[frame];
+                                    xmlWriter.WriteString(string.Join(",", casted.boundingPolygon.ConvertAll(p => p.X + "," + p.Y)));
+                                    break;
+                                }
+                        }
                     }
+                    xmlWriter.WriteEndElement();
                 }
-                xmlWriter.WriteEndElement();
             }
 
             foreach (int frame in spatialLinkMarks.Keys)
@@ -317,63 +425,91 @@ namespace Annotator
                 string generate = objectNode.Attributes[GENERATE].Value;
                 int borderSize = Int32.Parse(objectNode.Attributes[BORDER_SIZE].Value);
                 Color color = Color.FromArgb(Int32.Parse(objectNode.Attributes[COLOR].Value));
-                double scale = Double.Parse(objectNode.Attributes[SCALE].Value);
+                string shape = objectNode.Attributes[SHAPE].Value;
                 String semanticType = objectNode.Attributes[SEMANTIC_TYPE].Value;
+                var borderType = (Object.BorderType) Enum.Parse(typeof(Object.BorderType), shape);
 
-                Object o = new Object(id, color, borderSize, scale, videoFile);
+                Object o = new Object(id, color, borderSize, videoFile);
                 o.name = name;
                 o.semanticType = semanticType;
+                o.genType = (GenType) Enum.Parse( typeof(GenType), generate.ToUpper());
+                o.objectType = (ObjectType) Enum.Parse(typeof(ObjectType), "_" + objectType.ToUpper());
 
                 foreach (XmlAttribute attr in objectNode.Attributes)
                 {
-                    if (! (new List<String>{ ID, NAME, FILENAME, OBJECT_TYPE, GENERATE, BORDER_SIZE, COLOR, SCALE, SEMANTIC_TYPE }).Contains(attr.Name)) {
+                    if (! (new List<String>{ ID, NAME, FILENAME, OBJECT_TYPE, GENERATE, BORDER_SIZE, COLOR, SEMANTIC_TYPE, SHAPE }).Contains(attr.Name)) {
                         o.addProperty(attr.Name, attr.Value);
                     }
                 }
 
-                foreach (XmlNode markerNode in objectNode.SelectNodes(MARKER))
+                switch (borderType)
                 {
-                    int frame = int.Parse(markerNode.Attributes[FRAME].Value);
-                    LocationMark.LocationMarkType markType = (LocationMark.LocationMarkType)Enum.Parse(typeof(LocationMark.LocationMarkType), markerNode.Attributes[TYPE].Value, true);
-
-                    switch (markType)
+                    case BorderType.Rectangle:
                     {
-                        case LocationMark.LocationMarkType.Location:
-                            string shape = markerNode.Attributes[SHAPE].Value;
+                        foreach (XmlNode markerNode in objectNode.SelectNodes(MARKER))
+                        {
+                            int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                            LocationMark.LocationMarkType markType = (LocationMark.LocationMarkType)Enum.Parse(typeof(LocationMark.LocationMarkType), markerNode.Attributes[TYPE].Value, true);
 
-                            if (shape == "Rectangle")
+                            switch (markType)
                             {
-                                String parameters = markerNode.InnerText;
-                                String[] parts = parameters.Split(',');
-                                if (parts.Length == 4)
-                                {
-                                    int x = int.Parse(parts[0].Trim());
-                                    int y = int.Parse(parts[1].Trim());
-                                    int width = int.Parse(parts[2].Trim());
-                                    int height = int.Parse(parts[3].Trim());
-                                    Rectangle r = new Rectangle(x, y, width, height);
-                                    o.setBounding(frame, r);
-                                }
-                            }
-                            else if (shape == "Polygon")
-                            {
-                                String parameters = markerNode.InnerText;
-                                String[] parts = parameters.Split(',');
-                                List<Point> points = new List<Point>();
-                                if (parts.Length % 2 == 0)
-                                {
-                                    for (int i = 0; i < parts.Length / 2; i++)
+                                case LocationMark.LocationMarkType.Location:
+                                    String parameters = markerNode.InnerText;
+                                    String[] parts = parameters.Split(',');
+                                    if (parts.Length == 4)
                                     {
-                                        Point p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
-                                        points.Add(p);
+                                        int x = int.Parse(parts[0].Trim());
+                                        int y = int.Parse(parts[1].Trim());
+                                        int width = int.Parse(parts[2].Trim());
+                                        int height = int.Parse(parts[3].Trim());
+                                        Rectangle r = new Rectangle(x, y, width, height);
+                                        o.setBounding(frame, r, 1, new Point());
                                     }
+                                    break;
+                                case LocationMark.LocationMarkType.Delete:
+                                    o.delete(frame);
+                                    break;
+                            }
+                        }
+                        break;
+                    }
+                    case BorderType.Polygon:
+                    {
+                            foreach (XmlNode markerNode in objectNode.SelectNodes(MARKER))
+                            {
+                                int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                                LocationMark.LocationMarkType markType = (LocationMark.LocationMarkType)Enum.Parse(typeof(LocationMark.LocationMarkType), markerNode.Attributes[TYPE].Value, true);
+
+                                switch (markType)
+                                {
+                                    case LocationMark.LocationMarkType.Location:
+                                        String parameters = markerNode.InnerText;
+                                        String[] parts = parameters.Split(',');
+                                        List<Point> points = new List<Point>();
+                                        if (parts.Length % 2 == 0)
+                                        {
+                                            for (int i = 0; i < parts.Length / 2; i++)
+                                            {
+                                                Point p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
+                                                points.Add(p);
+                                            }
+                                        }
+                                        o.setBounding(frame, points, 1, new Point());
+                                        break;
+                                    case LocationMark.LocationMarkType.Delete:
+                                        o.delete(frame);
+                                        break;
                                 }
-                                o.setBounding(frame, points);
                             }
                             break;
-                        case LocationMark.LocationMarkType.Delete:
-                            o.delete(frame);
-                            break;
+                    }
+                    case BorderType.Rig:
+                    {
+                        string sourceScheme = o.otherProperties["sourceScheme"];
+                        string source = o.otherProperties["source"];
+                        int rigIndex = int.Parse(o.otherProperties["rigIndex"]);
+                        Rigs<Point>.loadDataForRig(source, sourceScheme, rigIndex, o);
+                        break;
                     }
                 }
 
@@ -389,8 +525,8 @@ namespace Annotator
                     }
                 }
 
-                    // only handle 2d object
-                    if ( objectType == "2D" && generate == "manual")
+                // only handle 2d object
+                if ( objectType == "2D" )
                 {
                     objects.Add(o);
                 }

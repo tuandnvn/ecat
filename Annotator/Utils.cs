@@ -9,14 +9,14 @@ namespace Annotator
 {
     public class Utils
     {
-        public static float Score(Rig rig, int frame, int rigIndex, Point testPoint)
+        public static float Score(RigFigure<Point> rig, Point testPoint)
         {
             float score = 0;
 
-            var rigJoint = rig.getRigJoints(frame, rigIndex);
-            if (rigJoint.Count != 0)
+            var rigJoints = rig.rigJoints.Values.ToList();
+            if (rigJoints.Count != 0)
             {
-                var convexHull = getConvexHull(rigJoint);
+                var convexHull = getConvexHull(rigJoints);
                 return Score(convexHull, testPoint);
             }
             return score;

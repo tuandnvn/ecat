@@ -79,7 +79,7 @@ namespace Annotator
                 comboBox1.SelectedIndex = 0;
                 comboBox1.Enabled = true;
                 frameTrackBar.Enabled = true;
-                button2.Enabled = true;
+                addEventAnnotationBtn.Enabled = true;
                 //pictureBox1.BackgroundImage = null;
             }
         }
@@ -114,7 +114,7 @@ namespace Annotator
                     startPoint = endPoint;
                     newObjectContextPanel.Visible = false;
                     currentVideo = null;
-                    button2.Enabled = false;
+                    addEventAnnotationBtn.Enabled = false;
                 }
             }
         }
@@ -128,8 +128,25 @@ namespace Annotator
         public void clearMidleBottomPanel()
         {
             middleBottomPanel.Controls.Clear();
-            middleBottomPanel.Controls.Add(button2);
+            middleBottomPanel.Controls.Add(addEventAnnotationBtn);
             lastAnnotation = new Point(94, 0);
+        }
+
+        public void populateMiddleCenterPanel()
+        {
+            foreach (ObjectAnnotation o in currentSession.objectTracks)
+            {
+                addObjectTracking(o);
+            }
+        }
+
+        public void populateMiddleBottomPanel()
+        {
+            foreach (Event ev in currentSession.events)
+            {
+                //a.setID(0);
+                addAnnotation(ev);
+            }
         }
 
         public void clearRightBottomPanel()
@@ -171,7 +188,7 @@ namespace Annotator
             }
 
             //Disable button2:
-            button2.Enabled = false;
+            addEventAnnotationBtn.Enabled = false;
             newObjectContextPanel.Visible = false;
             clearComboBox1();
             clearRightBottomPanel();
@@ -207,9 +224,9 @@ namespace Annotator
                     }
                 }
 
-                String fileName = openFileDialog1.FileName.Split('\\')[openFileDialog1.FileName.Split('\\').Length - 1];
+                String fileName = openFileDialog1.FileName.Split(Path.DirectorySeparatorChar)[openFileDialog1.FileName.Split(Path.DirectorySeparatorChar).Length - 1];
                 //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-                String dstFileName = selectedProject.getLocation() + "\\" + selectedProject.getProjectName() + "\\" + checkSession.getSessionName() + "\\" + fileName;
+                String dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + checkSession.getSessionName() + Path.DirectorySeparatorChar + fileName;
                 //MessageBox.Show("outputFile = " + dstFileName);
                 //If file doesnt exist in session folder add file to session folder
                 if (!File.Exists(dstFileName))

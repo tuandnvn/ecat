@@ -12,7 +12,7 @@ using Microsoft.VisualBasic.PowerPacks;
 
 namespace Annotator
 {
-    public partial class ObjectTrack : UserControl
+    public partial class ObjectAnnotation : UserControl
     {
         private const int TOOLTIP_TIME = 3000;
         int minLeftPosition;
@@ -23,7 +23,7 @@ namespace Annotator
         public Object o { get; }
         int borderWidth = 2;
 
-        public ObjectTrack(Object o, Session session)
+        public ObjectAnnotation(Object o, Session session)
         {
             InitializeComponent();
 
@@ -43,7 +43,7 @@ namespace Annotator
 
             drawObjectMarks();
 
-            this.info.Text = "Id=" + o.id + ";Name=" + o.name;
+            this.info.Text = "Id=" + o.id + "; Name=" + o.name;
         }
 
         public void drawObjectMarks()

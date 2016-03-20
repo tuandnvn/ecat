@@ -20,7 +20,8 @@ namespace Annotator
         {
             InitializeComponent();
 
-            InitializeAuxilliaryComponent();
+            InitDrawingComponent();
+            InitEventAnnoComponent();
             //Iinitialize workspace object
             workspace = new Workspace();
             //Load images to imageList
@@ -29,10 +30,7 @@ namespace Annotator
             //comboBox1.SelectedIndex = 0;
             //Just for sample GUI test
             frameTrackBar.Maximum = 100;
-
         }
-
-        
 
         
 
@@ -105,15 +103,12 @@ namespace Annotator
 
         private void loadParameters()
         {
-
             //1)Check if file exists
             if (!File.Exists(parametersFileName))
             {
-
             }
             else//File already exists:
             {
-
                 //Set file as hidden                
                 FileInfo myFile = new FileInfo(parametersFileName);
                 // Remove the hidden attribute of the file
@@ -153,7 +148,7 @@ namespace Annotator
             TreeNode treeNode;
             foreach (String projectName in projects)
             {
-                String prjName = projectName.Split('\\')[projectName.Split('\\').Length - 1];
+                String prjName = projectName.Split(Path.DirectorySeparatorChar)[projectName.Split(Path.DirectorySeparatorChar).Length - 1];
                 List<TreeNode> array = new List<TreeNode>();
                 String[] sessions = Directory.GetDirectories(projectName);
                 //Add project to workspace///////////////////////////////////////////////////////
@@ -166,15 +161,15 @@ namespace Annotator
                     String[] files = Directory.GetFiles(sessions[i]);
                     if (files.Length > 0)
                     {
-
                         TreeNode[] arrayFiles = new TreeNode[files.Length];
                         for (int j = 0; j < arrayFiles.Length; j++)
                         {
-                            arrayFiles[j] = new TreeNode(files[j].Split('\\')[files[j].Split('\\').Length - 1]);
+                            Console.WriteLine(files[j]);
+                            arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
                             arrayFiles[j].ImageIndex = 2;
                             arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
                         }
-                        TreeNode currentSessionNode = new TreeNode(sessions[i].Split('\\')[sessions[i].Split('\\').Length - 1], arrayFiles);
+                        TreeNode currentSessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
 
                         currentSessionNode.ImageIndex = 1;
                         currentSessionNode.SelectedImageIndex = currentSessionNode.ImageIndex;
@@ -197,7 +192,6 @@ namespace Annotator
                                     //MessageBox.Show(currentSessionNode.Nodes[ii].ToString().Substring(10));
                                     currentSessionNode.Nodes[ii].Remove();
                                 }
-
                             }
                             array.Add(currentSessionNode);
                         }
@@ -205,8 +199,7 @@ namespace Annotator
                     }
                     else if (files.Length == 0)
                     {
-
-                        TreeNode currentSessionNode = new TreeNode(sessions[i].Split('\\')[sessions[i].Split('\\').Length - 1]);
+                        TreeNode currentSessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
                         currentSessionNode.ImageIndex = 1;
                         currentSessionNode.SelectedImageIndex = currentSessionNode.ImageIndex;
                         //Add session to workspace
@@ -218,7 +211,6 @@ namespace Annotator
                             project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation(), this));
                             array.Add(currentSessionNode);
                         }
-
                     }
                 }
                 if (array.Count > 0)
@@ -259,7 +251,7 @@ namespace Annotator
             List<char> r = p.ToList();
             r.RemoveAll(c => c == '*');
             p = new string(r.ToArray());
-            String fileName = workspace.getLocationFolder() + "\\" + p;
+            String fileName = workspace.getLocationFolder() + Path.DirectorySeparatorChar + p;
             //MessageBox.Show(p); 
             //MessageBox.Show(fileName + " nested level = " + treeView.SelectedNode.Level);
             if (treeView.SelectedNode.Level == 2)
@@ -354,25 +346,8 @@ namespace Annotator
             }
         }
         
-        //Add annotation 
-        internal void addAnnotation(Annotation annotation)
-        {
-            currentSession.addAnnotation(annotation);
-            annotation.Location = lastAnnotation;
-            middleBottomPanel.Controls.Add(annotation);
-            lastAnnotation.Y += annotation.Height + 5;
-        }
-
-        internal void removeAnnotation(Annotation annotation)
-        {
-            currentSession.removeAnnotation(annotation);
-            middleBottomPanel.Controls.Remove(annotation);
-            lastAnnotation.Y -= annotation.Height + 5;
-            this.Invalidate();
-        }
-
         // Add object tracking
-        public void addObjectTracking(ObjectTrack objectTrack)
+        public void addObjectTracking(ObjectAnnotation objectTrack)
         {
             objectTrack.Location = lastObjectTrack;
             middleCenterPanel.Controls.Add(objectTrack);
@@ -380,7 +355,7 @@ namespace Annotator
             middleCenterPanel.Invalidate();
         }
 
-        public void removeObjectTracking(ObjectTrack objectTrack)
+        public void removeObjectTracking(ObjectAnnotation objectTrack)
         {
             middleCenterPanel.Controls.Remove(objectTrack);
             lastObjectTrack.Y = lastObjectTrack.Y - objectTrack.Height - 5;
@@ -501,17 +476,6 @@ namespace Annotator
         {
             return treeView.Nodes;
         }
-
-        private void cm2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            //ToolStripItem item = e.ClickedItem;
-        }
-
-        
-        public void setAnnotationText(String txt)
-        {
-            annotationText.Text = txt;
-        }
         
         
         private void clearComboBox1()
@@ -569,7 +533,7 @@ namespace Annotator
             {
                 clearRightBottomPanel();
                 //MessageBox.Show(currentVideo.getObjects().Count + "");
-                foreach (Object o in currentVideo.getObjects())
+                foreach (Object o in currentSession.getObjects())
                 {
                     String c = o.color.ToString().Substring(7).Replace(']', ' ');
                     if (c.Contains("="))
@@ -580,73 +544,10 @@ namespace Annotator
                     //addObjectToList(o.getID().ToString(), c, o.getType(), o.getBoundingBox().X, o.getBoundingBox().Y, o.getBoundingBox().Width, o.getBoundingBox().Height); 
                 }
 
+                clearMiddleCenterPanel();
                 clearMidleBottomPanel();
-
-                foreach (ObjectTrack o in currentSession.objectTracks)
-                {
-                    addObjectTracking(o);
-                }
-
-                foreach (Annotation a in currentSession.annotations)
-                {
-                    //a.setID(0);
-                    addAnnotation(a);
-                }
-            }
-        }
-        //Add reference label for right-bottom panel
-        public void addReferenceLabel()
-        {
-
-        }
-        //Add annotation button
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Annotation annotation = new Annotation(null, frameTrackBar.Minimum, frameTrackBar.Maximum, "", this, currentSession);
-            addAnnotation(annotation);
-        }
-
-        private void toolStripMenuItem6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void addRightBottomTableReference(int start, int end, String text, String refID)
-        {
-            annoRefView.Rows.Add(start, end, text, refID);
-        }
-        //Unselect all annotations
-        public void unselectAnnotations()
-        {
-            if (currentVideo != null)
-            {
-                foreach (Annotation a in currentSession.annotations)
-                {
-                    a.setSelected(false);
-                }
-            }
-        }
-        private void toolStripMenuItem6_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            //addReferenceLabel();
-            String refID = e.ClickedItem.ToString();
-            int start = annotationText.SelectionStart;
-            int end = annotationText.SelectionStart + annotationText.SelectionLength;
-            String txt = annotationText.SelectedText;
-            //MessageBox.Show(start + "," + end + "," + txt);
-            Annotation annotation = null;
-            foreach (Annotation a in currentSession.annotations)
-            {
-                if (a.getSelected())
-                {
-                    annotation = a;
-                    break;
-                }
-            }
-            if (annotation != null)
-            {
-                annotation.addReference(start, end, refID);
-                addRightBottomTableReference(start, end, txt, refID);
+                populateMiddleCenterPanel();
+                populateMiddleBottomPanel();
             }
         }
 
@@ -664,45 +565,6 @@ namespace Annotator
                     goToFrameCount = 0;
                 }
             }
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void annotationText_MouseDown(object sender, MouseEventArgs e)
-        {
-            addObjRefToolStripMenuItem.DropDownItems.Clear();
-            foreach (Object o in currentVideo.getObjects())
-            {
-                addObjRefToolStripMenuItem.DropDownItems.Add(o.id);
-            }
-
-            if (e.Button == MouseButtons.Right)
-            {
-                if (annotationText.Text != null && annotationText.Text.Length > 0)
-                {
-                    Console.WriteLine("Activate right panel");
-                    addObjRefToolStripMenuItem.Enabled = true;
-                }
-
-                else if (annotationText.Text != null && annotationText.Text.Length > 0)
-                {
-                    addObjRefToolStripMenuItem.Enabled = false;
-                }
-            }
-        }
-
-        private void annoRefView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            annoRefView.Rows[e.RowIndex].Selected = true;
-            annoRefView.Invalidate();
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void tabs_SelectedIndexChanged(object sender, EventArgs e)

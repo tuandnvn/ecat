@@ -134,6 +134,7 @@
             this.ClientSize = new System.Drawing.Size(321, 108);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SpatialLinkForm";
+            this.Text = "Link to";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

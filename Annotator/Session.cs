@@ -15,22 +15,67 @@ namespace Annotator
     //Session class
     public class Session
     {
+
+        private const string FILES = "files";
+        private const string FILE = "file";
+        private const string OBJECTS = "objects";
+        private const string ANNOTATIONS = "annotations";
+        private const string SESSION = "session";
+        public List<ObjectAnnotation> objectTracks { get; set; }
+        public Dictionary<Object, ObjectAnnotation> objectToObjectTracks { get; }
+        public List<Event> events { get; set; }
+        private String sessionName;     //session name
+        private String project;         //session's project 
+        private String locationFolder;  //session location folder
+        private bool edited;            //true if session is currently edited
+        private List<Video> videos;
+        private List<String> filesList;
+        private String metadataFile;      //parameters file name
+        public Main mainGUI { get; }
+        private int annotationID;      // annotation ID
+        public int? _sessionLength;
+        public int sessionLength
+        {
+            get
+            {
+                if (_sessionLength.HasValue)
+                    return _sessionLength.Value;
+                throw new Exception("No session length");
+            }
+            set
+            {
+                if (_sessionLength.HasValue)
+                {
+                    if (_sessionLength.Value != value)
+                    {
+                        throw new Exception("Session length inconsistence");
+                    }
+                }
+                else
+                {
+                    _sessionLength = value;
+                }
+            }
+        }
+        public int objectCount { get; set; } = 0;          // video objects IDs
+        private Dictionary<string, Object> objects;  // list of objects in videos
+
         //Constructor
         public Session(String sessionName, String projectOwner, String locationFolder, Main frm1)
         {
-
             this.sessionName = sessionName;
             this.filesList = new List<String>();
             this.edited = false;
             this.videos = new List<Video>();
-            this.objectTracks = new List<ObjectTrack>();
-            this.objectToObjectTracks = new Dictionary<Object, ObjectTrack>();
-            this.annotations = new List<Annotation>();
+            this.objectTracks = new List<ObjectAnnotation>();
+            this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
+            this.events = new List<Event>();
             this.project = projectOwner;
             this.locationFolder = locationFolder;
             this.mainGUI = frm1;
+            objects = new Dictionary<string, Object>();
             //If session file list exist load files list            
-            metadataFile = locationFolder + "\\" + project + "\\" + sessionName + "\\files.param";
+            metadataFile = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + "files.param";
             loadSession();
         }
         //Add file to session filesList
@@ -59,11 +104,24 @@ namespace Annotator
             return sessionName;
         }
 
-        private const string FILES = "files";
-        private const string FILE = "file";
-        private const string OBJECTS = "objects";
-        private const string ANNOTATIONS = "annotations";
-        private const string SESSION = "session";
+        //Add object
+        public void addObject(Object o)
+        {
+            //1)Check if object exists in objects list
+            bool exists = false;
+            if (o.id != null && objects.ContainsKey(o.id))
+            {
+                return;
+            }
+            if (o.id == "" || o.id == null) { o.id = "o" + ++objectCount; }
+            objects[o.id] = o;
+        }
+
+        //Get objects list
+        public List<Object> getObjects()
+        {
+            return objects.Values.ToList();
+        }
 
         //Save session
         public void saveSession()
@@ -94,20 +152,18 @@ namespace Annotator
                 }
 
                 {
-                    foreach (Video v in videos)
+                    writer.WriteStartElement(OBJECTS);
+                    writer.WriteAttributeString("no", objectCount + "");
+                    foreach (Object o in objects.Values)
                     {
-                        writer.WriteStartElement(OBJECTS);
-                        foreach (Object o in v.getObjects())
-                        {
-                            o.writeToXml(writer);
-                        }
-                        writer.WriteEndElement();
+                        o.writeToXml(writer);
                     }
+                    writer.WriteEndElement();
                 }
 
                 {
                     writer.WriteStartElement(ANNOTATIONS);
-                    foreach (Annotation a in annotations)
+                    foreach (Event a in events)
                     {
                         a.writeToXml(writer);
                     }
@@ -132,14 +188,15 @@ namespace Annotator
             {
                 Console.WriteLine("Remove object " + o.id);
                 mainGUI.removeObject(o);
-                ObjectTrack ot = this.objectToObjectTracks[o];
+                objects.Remove(o.id);
+                ObjectAnnotation ot = this.objectToObjectTracks[o];
                 if (ot != null)
                 {
                     this.objectToObjectTracks.Remove(o);
                     this.objectTracks.Remove(ot);
                 }
 
-                foreach (ObjectTrack other in objectTracks)
+                foreach (ObjectAnnotation other in objectTracks)
                 {
                     if (other.Location.Y > ot.Location.Y)
                     {
@@ -212,6 +269,7 @@ namespace Annotator
                 }
 
                 XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
+                objectCount = int.Parse(objectsNode.Attributes["no"].Value);
                 List<Object> objects = Object.readFromXml(objectsNode);
                 foreach (Object o in objects)
                 {
@@ -226,21 +284,22 @@ namespace Annotator
                             break;
                         }
                     }
-                    if (v != null)
-                    {
-                        v.addObject(o);
-                        Console.WriteLine("Add object " + o.id);
-                        var t = new ObjectTrack(o, this);
-                        objectTracks.Add(t);
-                        objectToObjectTracks[o] = t;
-                    }
+                    addObject(o);
+                    addObjectAnnotation(o);
                 }
 
                 XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
-                annotations = Annotation.readFromXml(mainGUI, this, annotationsNode);
+                events = Event.readFromXml(mainGUI, this, annotationsNode);
 
                 myFile.Attributes |= FileAttributes.Hidden;
             }
+        }
+
+        public void addObjectAnnotation(Object o)
+        {
+            var t = new ObjectAnnotation(o, this);
+            objectTracks.Add(t);
+            objectToObjectTracks[o] = t;
         }
 
         //Get video by index
@@ -300,19 +359,18 @@ namespace Annotator
             {
                 //MessageBox.Show(file);
                 if (file.Contains(".avi"))
-                    viewsL.Add(file.Split('\\')[file.Split('\\').Length - 1]);
+                    viewsL.Add(file.Split(Path.DirectorySeparatorChar)[file.Split(Path.DirectorySeparatorChar).Length - 1]);
             }
             return viewsL.ToArray();
         }
 
         //Add annotation
-        internal void addAnnotation(Annotation a)
+        internal void addEvent(Event a)
         {
-            //1)Check if object exists in objects list
             bool exists = false;
-            foreach (Annotation annotation in annotations)
+            foreach (Event ev in events)
             {
-                if (annotation.id == a.id)
+                if (ev.id == a.id)
                 {
                     exists = true;
                     break;
@@ -320,59 +378,14 @@ namespace Annotator
             }
             if (!exists)
             {
-                annotations.Add(a);
+                events.Add(a);
                 a.id = "a" + ++annotationID;
             }
         }
 
-        internal void removeAnnotation(Annotation a)
+        internal void removeEvent(Event a)
         {
-
-            annotations.Remove(a);
-            foreach (Annotation other in annotations)
-            {
-                if ( other.Location.Y > a.Location.Y )
-                {
-                    other.Location = new Point(other.Location.X, other.Location.Y - a.Height - 5);
-                }
-            }
-        }
-
-        public List<ObjectTrack> objectTracks { get; set; }
-        public Dictionary<Object, ObjectTrack> objectToObjectTracks { get; }
-        public List<Annotation> annotations { get; set; }
-        private String sessionName;     //session name
-        private String project;         //session's project 
-        private String locationFolder;  //session location folder
-        private bool edited;            //true if session is currently edited
-        private List<Video> videos;
-        private List<String> filesList;
-        private String metadataFile;      //parameters file name
-        public Main mainGUI { get; }
-        private int annotationID;      // annotation ID
-        public int? _sessionLength;
-        public int sessionLength
-        {
-            get
-            {
-                if (_sessionLength.HasValue)
-                    return _sessionLength.Value;
-                throw new Exception("No session length");
-            }
-            set
-            {
-                if (_sessionLength.HasValue)
-                {
-                    if (_sessionLength.Value != value)
-                    {
-                        throw new Exception("Session length inconsistence");
-                    }
-                }
-                else
-                {
-                    _sessionLength = value;
-                }
-            }
+            events.Remove(a);
         }
     }
 }

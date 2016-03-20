@@ -49,7 +49,7 @@ namespace Annotator
         public bool checkSessionInProject(String sessionName)
         {
             //Check if project file exists:
-            String projectFileName = locationFolder + "\\" + projectName + "\\" + projectName + ".project";
+            String projectFileName = locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + projectName + ".project";
             if (File.Exists(projectFileName))
             {
                 StreamReader file = new StreamReader(projectFileName);
@@ -75,7 +75,7 @@ namespace Annotator
         //Save project parameters file
         public void saveProjectFile(String sessionName)
         {
-            String projectFileName = locationFolder + "\\" + projectName + "\\" + projectName + ".project";
+            String projectFileName = locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + projectName + ".project";
             if (!File.Exists(projectFileName))
             {
                 TextWriter tw = new StreamWriter(projectFileName);
@@ -123,7 +123,7 @@ namespace Annotator
                 }
             }
             //2)Update .project file
-            String projectFileName = locationFolder + "\\" + projectName + "\\" + projectName + ".project";
+            String projectFileName = locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + projectName + ".project";
             try
             {
                 TextWriter tw = new StreamWriter(projectFileName);

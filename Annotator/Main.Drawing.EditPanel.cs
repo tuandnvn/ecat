@@ -23,18 +23,20 @@ namespace Annotator
         {
             if (editingAtAFrame)
             {
+                var linear = getLinearTransform();
+                
                 editingAtAFrame = false;
                 this.frameTrackBar.Enabled = true;
                 editObjectContextPanel.Visible = false;
 
                 if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
                 {
-                    selectedObject.setBounding(frameTrackBar.Value, boundingBox);
+                    selectedObject.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
                 }
 
                 if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
                 {
-                    selectedObject.setBounding(frameTrackBar.Value, polygonPoints);
+                    selectedObject.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
                 }
 
                 redrawObjectMarks();
@@ -70,9 +72,9 @@ namespace Annotator
                 this.frameTrackBar.Enabled = true;
                 editObjectContextPanel.Visible = false;
 
-                if (currentVideo != null && selectedObject != null)
+                if (currentSession != null && selectedObject != null)
                 {
-                    spatialLinkForm = new SpatialLinkForm(this, currentVideo, selectedObject, frameTrackBar.Value);
+                    spatialLinkForm = new SpatialLinkForm(this, currentSession, selectedObject, frameTrackBar.Value);
                     spatialLinkForm.Show();
                 }
             }

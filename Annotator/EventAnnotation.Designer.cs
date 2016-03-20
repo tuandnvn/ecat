@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Annotator
 {
-    partial class Annotation
+    partial class EventAnnotation
     {
         /// <summary> 
         /// Required designer variable.
@@ -145,6 +145,7 @@ namespace Annotator
             this.subEventLink.TabIndex = 6;
             this.subEventLink.Text = "Link to";
             this.subEventLink.UseVisualStyleBackColor = true;
+            this.subEventLink.Click += new System.EventHandler(this.subEventLink_Click);
             // 
             // Annotation
             // 

@@ -46,7 +46,7 @@ namespace Annotator
             if (label3.Visible == false ||(label3.ForeColor == Color.Green))
             {
                 Project project = frm1.getProjectFromWorkspace(projectName);
-                String sessionLocation = project.getLocation() + "\\" + projectName + "\\" + textBox1.Text;
+                String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + textBox1.Text;
                 if (!Directory.Exists(sessionLocation))
                     Directory.CreateDirectory(sessionLocation);
 
@@ -74,7 +74,7 @@ namespace Annotator
             }
             //Check if there is already a directory named the same as the new session                
             Project project = frm1.getProjectFromWorkspace(projectName);
-            String sessionLocation = project.getLocation() + "\\" + projectName + "\\" + textBox1.Text;
+            String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + textBox1.Text;
             //MessageBox.Show(sessionLocation + Directory.Exists(sessionLocation));
 
             bool exists = false;
@@ -106,7 +106,7 @@ namespace Annotator
             }
             if (Directory.Exists(sessionLocation) && !exists)
             {
-                //Directory.CreateDirectory(workspace.getLocationFolder() + "\\" + project.getProjectName() + "\\" + sessionName);
+                //Directory.CreateDirectory(workspace.getLocationFolder() + Path.DirectorySeparatorChar + project.getProjectName() + Path.DirectorySeparatorChar + sessionName);
                 label3.Text = "Session folder already exists";
                 label3.Visible = true;
                 label3.ForeColor = Color.Green;

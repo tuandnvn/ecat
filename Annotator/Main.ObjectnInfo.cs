@@ -23,26 +23,29 @@ namespace Annotator
 
         internal void showInformation(Object o)
         {
-            objectProperties.Rows.Clear();
-            objectProperties.Rows.Add(ID, o.id);
-            objectProperties.Rows.Add(NAME, o.name);
-            objectProperties.Rows.Add(OBJECT_TYPE, "2D");
-            objectProperties.Rows.Add(SEMANTIC_TYPE, o.semanticType);
-
-            // No change to id 
-            objectProperties.Rows[0].Cells[objectProperties.Columns[0].Name].ReadOnly = true; 
-            objectProperties.Rows[0].Cells[objectProperties.Columns[1].Name].ReadOnly = true;
-
-            objectProperties.Rows[1].Cells[objectProperties.Columns[0].Name].ReadOnly = true;
-
-            objectProperties.Rows[2].Cells[objectProperties.Columns[0].Name].ReadOnly = true;
-            objectProperties.Rows[2].Cells[objectProperties.Columns[1].Name].ReadOnly = true;
-
-            objectProperties.Rows[3].Cells[objectProperties.Columns[0].Name].ReadOnly = true;
-
-            foreach (var entry in o.otherProperties)
+            lock (this)
             {
-                objectProperties.Rows.Add(entry.Key, entry.Value);
+                objectProperties.Rows.Clear();
+                objectProperties.Rows.Add(ID, o.id);
+                objectProperties.Rows.Add(NAME, o.name);
+                objectProperties.Rows.Add(OBJECT_TYPE, "2D");
+                objectProperties.Rows.Add(SEMANTIC_TYPE, o.semanticType);
+
+                // No change to id 
+                objectProperties.Rows[0].Cells[objectProperties.Columns[0].Name].ReadOnly = true;
+                objectProperties.Rows[0].Cells[objectProperties.Columns[1].Name].ReadOnly = true;
+
+                objectProperties.Rows[1].Cells[objectProperties.Columns[0].Name].ReadOnly = true;
+
+                objectProperties.Rows[2].Cells[objectProperties.Columns[0].Name].ReadOnly = true;
+                objectProperties.Rows[2].Cells[objectProperties.Columns[1].Name].ReadOnly = true;
+
+                objectProperties.Rows[3].Cells[objectProperties.Columns[0].Name].ReadOnly = true;
+
+                foreach (var entry in o.otherProperties)
+                {
+                    objectProperties.Rows.Add(entry.Key, entry.Value);
+                }
             }
         }
 
@@ -70,5 +73,6 @@ namespace Annotator
                 selectedObject.semanticType = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
             }
         }
+
     }
 }

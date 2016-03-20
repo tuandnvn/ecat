@@ -59,6 +59,8 @@ namespace Annotator
             this.recordButton = new System.Windows.Forms.Button();
             this.calibrateButton = new System.Windows.Forms.Button();
             this.recordedBox = new System.Windows.Forms.GroupBox();
+            this.recordTimeLbl = new System.Windows.Forms.Label();
+            this.videoNameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.startTimeLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -80,8 +82,6 @@ namespace Annotator
             this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cameraStatusLabel = new System.Windows.Forms.Label();
-            this.videoNameLabel = new System.Windows.Forms.Label();
-            this.recordTimeLbl = new System.Windows.Forms.Label();
             this.recordingButtonGroup.SuspendLayout();
             this.recordedBox.SuspendLayout();
             this.detectBox.SuspendLayout();
@@ -172,6 +172,25 @@ namespace Annotator
             this.recordedBox.TabIndex = 8;
             this.recordedBox.TabStop = false;
             this.recordedBox.Text = "Recorded";
+            // 
+            // recordTimeLbl
+            // 
+            this.recordTimeLbl.AutoSize = true;
+            this.recordTimeLbl.Location = new System.Drawing.Point(892, 16);
+            this.recordTimeLbl.Name = "recordTimeLbl";
+            this.recordTimeLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.recordTimeLbl.Size = new System.Drawing.Size(79, 13);
+            this.recordTimeLbl.TabIndex = 8;
+            this.recordTimeLbl.Text = "Recorded time:";
+            this.recordTimeLbl.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // videoNameLabel
+            // 
+            this.videoNameLabel.AutoSize = true;
+            this.videoNameLabel.Location = new System.Drawing.Point(1096, 16);
+            this.videoNameLabel.Name = "videoNameLabel";
+            this.videoNameLabel.Size = new System.Drawing.Size(0, 13);
+            this.videoNameLabel.TabIndex = 7;
             // 
             // label3
             // 
@@ -368,25 +387,6 @@ namespace Annotator
             this.cameraStatusLabel.TabIndex = 11;
             this.cameraStatusLabel.Text = "Camera Status";
             // 
-            // videoNameLabel
-            // 
-            this.videoNameLabel.AutoSize = true;
-            this.videoNameLabel.Location = new System.Drawing.Point(1096, 16);
-            this.videoNameLabel.Name = "videoNameLabel";
-            this.videoNameLabel.Size = new System.Drawing.Size(0, 13);
-            this.videoNameLabel.TabIndex = 7;
-            // 
-            // recordTimeLbl
-            // 
-            this.recordTimeLbl.AutoSize = true;
-            this.recordTimeLbl.Location = new System.Drawing.Point(892, 16);
-            this.recordTimeLbl.Name = "recordTimeLbl";
-            this.recordTimeLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.recordTimeLbl.Size = new System.Drawing.Size(79, 13);
-            this.recordTimeLbl.TabIndex = 8;
-            this.recordTimeLbl.Text = "Recorded time:";
-            this.recordTimeLbl.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // RecordPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,6 +417,5 @@ namespace Annotator
             this.PerformLayout();
 
         }
-
     }
 }

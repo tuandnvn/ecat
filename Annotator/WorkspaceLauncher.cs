@@ -26,9 +26,12 @@ namespace Annotator
             try
             {
                 //Load default workspace location:
-                String defaultLocation = "C:\\Users\\";
-                defaultLocation += WindowsIdentity.GetCurrent().Name.Split('\\')[WindowsIdentity.GetCurrent().Name.Split('\\').Length - 1];
-                defaultLocation += "\\AnnotatorWorkspace";
+                String defaultLocation = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+                if (Environment.OSVersion.Version.Major >= 6)
+                {
+                    defaultLocation = Directory.GetParent(defaultLocation).ToString();
+                }
+                defaultLocation += Path.DirectorySeparatorChar + "AnnotatorWorkspace";
                 //Create AnnotatorWorkspace folder in default location if it doesn't exists:
                 if(!Directory.Exists(defaultLocation)){
                     Directory.CreateDirectory(defaultLocation);

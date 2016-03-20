@@ -35,16 +35,19 @@ namespace Annotator
             return selectBoxes;
         }
 
-        public static void DrawRig(this Graphics graphics, Pen p, Rig rig, int frame)
+        public static void DrawRig(this Graphics graphics, Pen p, RigFigure<Point> rigFigure)
         {
-            var rigBones = rig.getRigBones(frame);
-            foreach (int rigIndex in rigBones.Keys)
+            // Draw joints
+            Console.WriteLine(rigFigure.rigJoints[0] );
+            foreach ( var joint in rigFigure.rigJoints.Values )
             {
-                var rigBoneForOneRig = rigBones[rigIndex];
-                foreach ( var bone in rigBoneForOneRig)
-                {
-                    graphics.DrawLine(p, bone.Item1, bone.Item2);
-                }
+                graphics.DrawEllipse(p, joint.X - p.Width, joint.Y - p.Width, p.Width * 2, p.Width * 2);
+            }
+
+            // Draw bones
+            foreach ( var bone in rigFigure.rigBones )
+            {
+                graphics.DrawLine(p, bone.Item1, bone.Item2);
             }
         }
     }

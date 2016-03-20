@@ -84,7 +84,7 @@
             this.addObjRefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.middleBottomPanel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addEventAnnotationBtn = new System.Windows.Forms.Button();
             this.recordTab = new System.Windows.Forms.TabPage();
             this.projectRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,6 +99,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.recordPanel = new Annotator.RecordPanel();
             this.leftMostPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.projectExplorer.SuspendLayout();
@@ -121,6 +122,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).BeginInit();
             this.cm3.SuspendLayout();
             this.middleBottomPanel.SuspendLayout();
+            this.recordTab.SuspendLayout();
             this.projectRightClickPanel.SuspendLayout();
             this.sessionRightClickPanel.SuspendLayout();
             this.SuspendLayout();
@@ -184,7 +186,6 @@
             this.menu.Size = new System.Drawing.Size(1449, 24);
             this.menu.TabIndex = 3;
             this.menu.Text = "File";
-            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -712,25 +713,26 @@
             // 
             this.middleBottomPanel.AutoScroll = true;
             this.middleBottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.middleBottomPanel.Controls.Add(this.button2);
+            this.middleBottomPanel.Controls.Add(this.addEventAnnotationBtn);
             this.middleBottomPanel.Location = new System.Drawing.Point(178, 750);
             this.middleBottomPanel.Name = "middleBottomPanel";
             this.middleBottomPanel.Size = new System.Drawing.Size(921, 117);
             this.middleBottomPanel.TabIndex = 2;
             // 
-            // button2
+            // addEventAnnotationBtn
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Add+";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.addEventAnnotationBtn.Enabled = false;
+            this.addEventAnnotationBtn.Location = new System.Drawing.Point(3, 3);
+            this.addEventAnnotationBtn.Name = "addEventAnnotationBtn";
+            this.addEventAnnotationBtn.Size = new System.Drawing.Size(75, 23);
+            this.addEventAnnotationBtn.TabIndex = 0;
+            this.addEventAnnotationBtn.Text = "Add+";
+            this.addEventAnnotationBtn.UseVisualStyleBackColor = true;
+            this.addEventAnnotationBtn.Click += new System.EventHandler(this.button2_Click);
             // 
             // recordTab
             // 
+            this.recordTab.Controls.Add(this.recordPanel);
             this.recordTab.Location = new System.Drawing.Point(4, 22);
             this.recordTab.Name = "recordTab";
             this.recordTab.Padding = new System.Windows.Forms.Padding(3);
@@ -788,7 +790,6 @@
             this.addSessionMenuItem});
             this.sessionRightClickPanel.Name = "cm2";
             this.sessionRightClickPanel.Size = new System.Drawing.Size(108, 92);
-            this.sessionRightClickPanel.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cm2_ItemClicked);
             // 
             // editSessionMenuItem
             // 
@@ -825,6 +826,13 @@
             // colorDialog1
             // 
             this.colorDialog1.Color = System.Drawing.Color.Red;
+            // 
+            // recordPanel1
+            // 
+            this.recordPanel.Location = new System.Drawing.Point(0, 0);
+            this.recordPanel.Name = "recordPanel1";
+            this.recordPanel.Size = new System.Drawing.Size(1420, 860);
+            this.recordPanel.TabIndex = 0;
             // 
             // Main
             // 
@@ -866,6 +874,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).EndInit();
             this.cm3.ResumeLayout(false);
             this.middleBottomPanel.ResumeLayout(false);
+            this.recordTab.ResumeLayout(false);
             this.projectRightClickPanel.ResumeLayout(false);
             this.sessionRightClickPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -895,7 +904,7 @@
         private System.Windows.Forms.Panel videoPanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar frameTrackBar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addEventAnnotationBtn;
         private System.Windows.Forms.ToolStripMenuItem addSessionMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
@@ -942,8 +951,8 @@
         private System.Windows.Forms.TabPage recordTab;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage projectExplorer;
-        private RecordPanel recordPanel;
         private System.Windows.Forms.Button addSpatialBtn;
+        private RecordPanel recordPanel;
     }
 }
 

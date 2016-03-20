@@ -11,11 +11,16 @@ namespace Annotator
     //Video class
     public class Video
     {
+        private Capture capture;       //capture object from EmguCV library to manage video frames
+        private String fileName;       // full video path
+        private double aspectRatio;    // scale: frame width/frame height
+        
+        public Session session { get; }
+        
+
         //constructor
         public Video(Session session, String fileName)
         {
-            objects     = new List<Object>();
-            
             this.fileName = fileName;
             capture = new Capture(fileName);
             this.aspectRatio = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth) / capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
@@ -44,29 +49,6 @@ namespace Annotator
             return aspectRatio;
         }
 
-        //Add object
-        public void addObject(Object o)
-        {
-            //1)Check if object exists in objects list
-            bool exists = false;
-            foreach (Object obj in objects)
-            {
-                if (obj.id == o.id)
-                {
-                    exists = true;
-                    break;
-                }
-            }
-            if (!exists)
-                objects.Add(o);
-            if (o.id == "") { o.id = "o" + ++objectID; }
-        }
-
-        internal void removeObject(Object o)
-        {
-            objects.Remove(o);
-        }
-
         //Get frame width
         public double getFrameWidth()
         {
@@ -77,18 +59,5 @@ namespace Annotator
         {
             return capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
         }
-        //Get objects list
-        public List<Object> getObjects()
-        {
-            return objects;
-        }
-        private Capture capture;       //capture object from EmguCV library to manage video frames
-        private String fileName;       // full video path
-        private double aspectRatio ;    // scale: frame width/frame height
-        private List<Object> objects;  // list of objects in videos
-        public Session session { get; }
-        private int objectID = 0;          // video objects IDs
-
-        
     }
 }

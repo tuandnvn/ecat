@@ -2,7 +2,7 @@
 
 namespace Annotator
 {
-    partial class ObjectTrack
+    partial class ObjectAnnotation
     {
         /// <summary> 
         /// Required designer variable.

@@ -12,21 +12,21 @@ namespace Annotator
 {
     public partial class SpatialLinkForm : Form
     {
-        Video video;
+        Session session;
         Object obj;
         int frameNo;
         Main mainFrame;
 
-        public SpatialLinkForm(Main mainFrame, Video video, Object obj, int frameNo)
+        public SpatialLinkForm(Main mainFrame, Session session, Object obj, int frameNo)
         {
             InitializeComponent();
 
             this.mainFrame = mainFrame;
             this.obj = obj;
             this.frameNo = frameNo;
-            this.video = video;
+            this.session = session;
 
-            this.objectSelectComboBox.Items.AddRange( video.getObjects().Select( o => o.id ).ToArray() );
+            this.objectSelectComboBox.Items.AddRange(session.getObjects().Select( o => o.id ).ToArray() );
             this.qualifiedSelectComboBox.Items.AddRange(new object[] { true, false });
             this.spatialLinkComboBox.Items.AddRange(Enum.GetValues(typeof(Object.SpatialLinkMark.SpatialLinkType)).Cast<object>().ToArray());
         }
