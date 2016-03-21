@@ -38,7 +38,6 @@ namespace Annotator
         public static void DrawRig(this Graphics graphics, Pen p, RigFigure<Point> rigFigure)
         {
             // Draw joints
-            Console.WriteLine(rigFigure.rigJoints[0] );
             foreach ( var joint in rigFigure.rigJoints.Values )
             {
                 graphics.DrawEllipse(p, joint.X - p.Width, joint.Y - p.Width, p.Width * 2, p.Width * 2);

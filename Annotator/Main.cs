@@ -40,7 +40,9 @@ namespace Annotator
         private bool newProject = false;//true if new project is creating
         private bool newSession = false;//true if new session is creating     
         private Project selectedProject = null; //currently selected project
+        private TreeNode selectedProjectNode = null;
         private Session currentSession = null;
+        private TreeNode currentSessionNode = null;
         private Video currentVideo = null;      //currently edited video
 
         private Font myFont = new Font("Microsoft Sans Serif", 5.75f);//font to write not-string colors
@@ -134,7 +136,6 @@ namespace Annotator
                 file.Close();
                 myFile.Attributes |= FileAttributes.Hidden;
             }
-
         }
 
        
@@ -169,12 +170,12 @@ namespace Annotator
                             arrayFiles[j].ImageIndex = 2;
                             arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
                         }
-                        TreeNode currentSessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
+                        TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
 
-                        currentSessionNode.ImageIndex = 1;
-                        currentSessionNode.SelectedImageIndex = currentSessionNode.ImageIndex;
+                        sessionNode.ImageIndex = 1;
+                        sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
                         //Add session to workspace 
-                        String sessionName = currentSessionNode.ToString().Substring(10);
+                        String sessionName = sessionNode.ToString().Substring(10);
                         Project project = workspace.getProject(prjName);
 
                         if (project.checkSessionInProject(sessionName))
@@ -185,31 +186,31 @@ namespace Annotator
 
                             Session session = project.getSession(sessionName);
 
-                            for (int ii = 0; ii < currentSessionNode.Nodes.Count; ii++)
+                            for (int ii = 0; ii < sessionNode.Nodes.Count; ii++)
                             {
-                                if (!session.checkFileInSession(currentSessionNode.Nodes[ii].ToString().Substring(10)))
+                                if (!session.checkFileInSession(sessionNode.Nodes[ii].ToString().Substring(10)))
                                 {
                                     //MessageBox.Show(currentSessionNode.Nodes[ii].ToString().Substring(10));
-                                    currentSessionNode.Nodes[ii].Remove();
+                                    sessionNode.Nodes[ii].Remove();
                                 }
                             }
-                            array.Add(currentSessionNode);
+                            array.Add(sessionNode);
                         }
 
                     }
                     else if (files.Length == 0)
                     {
-                        TreeNode currentSessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
-                        currentSessionNode.ImageIndex = 1;
-                        currentSessionNode.SelectedImageIndex = currentSessionNode.ImageIndex;
+                        TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
+                        sessionNode.ImageIndex = 1;
+                        sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
                         //Add session to workspace
-                        String sessionName = currentSessionNode.ToString().Substring(10);
+                        String sessionName = sessionNode.ToString().Substring(10);
                         //MessageBox.Show(sessionName);
                         Project project = workspace.getProject(prjName);
                         if (project.checkSessionInProject(sessionName))
                         {
                             project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation(), this));
-                            array.Add(currentSessionNode);
+                            array.Add(sessionNode);
                         }
                     }
                 }
@@ -245,6 +246,11 @@ namespace Annotator
             }
         }
 
+        /// <summary>
+        /// Double click on a file open it in a native 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void treeView_DoubleClick(object sender, EventArgs e)
         {
             String p = treeView.SelectedNode.FullPath;
@@ -261,7 +267,6 @@ namespace Annotator
                 myProcess.StartInfo.FileName = fileName;
                 myProcess.Start();
             }
-
         }
 
         private void treeView_MouseUp(object sender, MouseEventArgs e)
@@ -271,81 +276,96 @@ namespace Annotator
                 return;
             if (treeView.SelectedNode.Level == 0 && e.Button == MouseButtons.Right)
             {
-                Point location = this.Location;
-                location.X += e.Location.X;
-                location.Y += e.Location.Y;
-                location.X += leftMostPanel.Location.X;
-                location.Y += leftMostPanel.Location.Y;
-                location.Y += 80;
-                location.X += 15;
-                if (selectedProject != null && treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName()))
-                {
-                    selectToolStripMenuItem.Enabled = false;
-                    closeToolStripMenuItem.Enabled = true;
-                    newSessionToolStripMenuItem.Enabled = true;
-                }
-                else if (selectedProject != null && !(treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName())))
-                {
-                    selectToolStripMenuItem.Enabled = true;
-                    closeToolStripMenuItem.Enabled = false;
-                    newSessionToolStripMenuItem.Enabled = false;
-                }
-                if (selectedProject == null)
-                {
-                    selectToolStripMenuItem.Enabled = true;
-                    closeToolStripMenuItem.Enabled = false;
-                    newSessionToolStripMenuItem.Enabled = false;
-                }
-                projectRightClickPanel.Show(location);
+                rightClickOnProjectTreeNode(e);
             }
             else if (treeView.SelectedNode.Level == 1 && e.Button == MouseButtons.Right)
             {
-
-                TreeNode selectedNode = treeView.SelectedNode;
-                //MessageBox.Show(selectedNode.ToString() + ", selectedProject = " +  selectedProject.getProjectName());
-                Session choosedSession = null;
-                if (selectedNode != null && selectedProject != null && selectedNode.Parent.ToString().Contains(selectedProject.getProjectName()))
-                {
-                    //MessageBox.Show("OK");
-                    editSessionMenuItem.Enabled = true;
-                    saveSessionMenuItem.Enabled = true;
-                    deleteSessionMenuItem.Enabled = true;
-                    addSessionMenuItem.Enabled = true;
-                    //Check if session is editing:
-                    choosedSession = selectedProject.getSession(selectedNode.ToString().Substring(10));
-                    if (choosedSession == null)
-                        choosedSession = selectedProject.getSession(selectedNode.ToString().Substring(11));
-                    if (choosedSession != null && choosedSession.getEdited())
-                    {
-                        //MessageBox.Show("OK1");
-                        editSessionMenuItem.Enabled = false;
-                    }
-                    else if (choosedSession != null && !choosedSession.getEdited())
-                    {
-                        editSessionMenuItem.Enabled = true;
-                        saveSessionMenuItem.Enabled = false;
-                        addSessionMenuItem.Enabled = false;
-                        //MessageBox.Show("OK2");
-                    }
-                }
-                else
-                {
-                    editSessionMenuItem.Enabled = false;
-                    saveSessionMenuItem.Enabled = false;
-                    deleteSessionMenuItem.Enabled = false;
-                    addSessionMenuItem.Enabled = false;
-                }
-                Point location = this.Location;
-                location.X += e.Location.X;
-                location.Y += e.Location.Y;
-                location.X += leftMostPanel.Location.X;
-                location.Y += leftMostPanel.Location.Y;
-                location.Y += 80;
-                location.X += 15;
-                sessionRightClickPanel.Show(location);
+                rightClickOnSessionTreeNode(e);
+            }
+            else if (treeView.SelectedNode.Level == 2 && e.Button == MouseButtons.Right)
+            {
+                rightClickOnFileTreeNode(e);
             }
         }
-        
+
+        private void rightClickOnFileTreeNode(MouseEventArgs e)
+        {
+            TreeNode selectedNode = treeView.SelectedNode;
+            Point location = this.Location;
+            location.X += e.Location.X + leftMostPanel.Location.X + 15;
+            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
+            fileRightClickPanel.Show(location);
+        }
+
+        private void rightClickOnSessionTreeNode(MouseEventArgs e)
+        {
+            TreeNode selectedNode = treeView.SelectedNode;
+            //MessageBox.Show(selectedNode.ToString() + ", selectedProject = " +  selectedProject.getProjectName());
+            Session choosedSession = null;
+            if (selectedNode != null && selectedProject != null && selectedNode.Parent.ToString().Contains(selectedProject.getProjectName()))
+            {
+                //MessageBox.Show("OK");
+                editSessionMenuItem.Enabled = true;
+                saveSessionMenuItem.Enabled = true;
+                deleteSessionMenuItem.Enabled = true;
+                addSessionMenuItem.Enabled = true;
+                //Check if session is editing:
+                choosedSession = selectedProject.getSession(selectedNode.ToString().Substring(10));
+                if (choosedSession == null)
+                    choosedSession = selectedProject.getSession(selectedNode.ToString().Substring(11));
+                if (choosedSession != null && choosedSession.getEdited())
+                {
+                    //MessageBox.Show("OK1");
+                    editSessionMenuItem.Enabled = false;
+                }
+                else if (choosedSession != null && !choosedSession.getEdited())
+                {
+                    editSessionMenuItem.Enabled = true;
+                    saveSessionMenuItem.Enabled = false;
+                    addSessionMenuItem.Enabled = false;
+                    //MessageBox.Show("OK2");
+                }
+            }
+            else
+            {
+                editSessionMenuItem.Enabled = false;
+                saveSessionMenuItem.Enabled = false;
+                deleteSessionMenuItem.Enabled = false;
+                addSessionMenuItem.Enabled = false;
+            }
+            Point location = this.Location;
+            location.X += e.Location.X + leftMostPanel.Location.X + 15;
+            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
+            sessionRightClickPanel.Show(location);
+        }
+
+        private void rightClickOnProjectTreeNode(MouseEventArgs e)
+        {
+            
+            if (selectedProject != null && treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName()))
+            {
+                selectToolStripMenuItem.Enabled = false;
+                closeToolStripMenuItem.Enabled = true;
+                newSessionToolStripMenuItem.Enabled = true;
+            }
+            else if (selectedProject != null && !(treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName())))
+            {
+                selectToolStripMenuItem.Enabled = true;
+                closeToolStripMenuItem.Enabled = false;
+                newSessionToolStripMenuItem.Enabled = false;
+            }
+            if (selectedProject == null)
+            {
+                selectToolStripMenuItem.Enabled = true;
+                closeToolStripMenuItem.Enabled = false;
+                newSessionToolStripMenuItem.Enabled = false;
+            }
+            Point location = this.Location;
+            location.X += e.Location.X + leftMostPanel.Location.X + 15;
+            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
+            projectRightClickPanel.Show(location);
+        }
+
         // Add object tracking
         public void addObjectTracking(ObjectAnnotation objectTrack)
         {
@@ -580,6 +600,16 @@ namespace Annotator
             }
         }
 
-        
+        private void addRigsFromFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string relVideoFileName = treeView.SelectedNode.ToString().Substring(10);
+            AddRigFileForm addRigForm = new AddRigFileForm(this, currentSession, relVideoFileName);
+            addRigForm.Show();
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

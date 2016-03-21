@@ -43,7 +43,7 @@ namespace Annotator
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (label3.Visible == false ||(label3.ForeColor == Color.Green))
+            if (label3.Visible == false || (label3.ForeColor == Color.Green))
             {
                 Project project = frm1.getProjectFromWorkspace(projectName);
                 String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + textBox1.Text;
@@ -80,8 +80,9 @@ namespace Annotator
             bool exists = false;
             TreeNodeCollection nodes = frm1.getTreeViewNodes();
             foreach (TreeNode currentProject in nodes)
-            {                    
-                if(currentProject.ToString().Contains(projectName)){
+            {
+                if (currentProject.ToString().Contains(projectName))
+                {
                     foreach (TreeNode currentSession in currentProject.Nodes)
                     {
                         //MessageBox.Show(currentSession.ToString());
@@ -98,7 +99,7 @@ namespace Annotator
             {
                 label3.Text = "Session " + textBox1.Text + " already exists in project " + projectName;
                 button3.Visible = false;
-                label3.Visible = true;                    
+                label3.Visible = true;
             }
             else
             {

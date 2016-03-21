@@ -32,12 +32,16 @@ namespace Annotator
     {
         public RigScheme rigScheme { get; }
         private Dictionary<int, RigFrame<T>> frameToRig;
+        public string rigFile { get; }
+        public string rigSchemeFile { get; }
         private static Dictionary<Tuple<string, string>, Rigs<T>> sourceFileToRig = new Dictionary<Tuple<string, string>, Rigs<T>>();
 
-        public Rigs(Dictionary<int, RigFrame<T> > frameToRig, RigScheme rigScheme)
+        public Rigs(Dictionary<int, RigFrame<T> > frameToRig, RigScheme rigScheme, string rigFile, string rigSchemeFile)
         {
             this.rigScheme = rigScheme;
             this.frameToRig = frameToRig;
+            this.rigFile = rigFile;
+            this.rigSchemeFile = rigSchemeFile;
         }
 
         public static Rigs<T> getRigFromSource(String rigFile, String rigSchemeFile)
@@ -111,8 +115,27 @@ namespace Annotator
                     break;
             }
 
+            // Problem with using recorded session from CwC apparatus
+            // You might need to deflate the frameToRig dictionary 
+            // so that frameNo are consecutive numbers
+            frameToRig = deflat(frameToRig);
+
             var specificRigType = typeof(Rigs<>).MakeGenericType(typeof(T));
-            return (Rigs<T>) Activator.CreateInstance(specificRigType, new object[] { frameToRig, rc });
+            return (Rigs<T>) Activator.CreateInstance(specificRigType, new object[] { frameToRig, rc, rigFile, rigSchemeFile });
+        }
+
+        private static Dictionary<int, RigFrame<T>> deflat(Dictionary<int, RigFrame<T>> frameToRig)
+        {
+            Dictionary<int, RigFrame<T>> deflated = new Dictionary<int, RigFrame<T>>();
+
+            SortedList<int, RigFrame<T>> frameNoRigList = new SortedList<int, RigFrame<T>>(frameToRig);
+
+            int count = 0;
+            foreach (var frameNoRig in frameNoRigList)
+            {
+                deflated[++count] = frameNoRig.Value;
+            }
+            return deflated;
         }
 
         public List<int> getRigIndices(int frame)
@@ -170,7 +193,12 @@ namespace Annotator
                 {
                     if ( !rigObjects.ContainsKey(rigIndex)      )
                     {
-                        rigObjects [rigIndex] = new Object("", Color.Black, 1, videoFile);
+                        rigObjects [rigIndex] = new Object("", Color.Green, 1, videoFile);
+                        rigObjects[rigIndex].otherProperties["rigIndex"] = "" + rigIndex;
+                        rigObjects[rigIndex].genType = Object.GenType.PROVIDED;
+                        rigObjects[rigIndex].semanticType = "bodyRig";
+                        rigObjects[rigIndex].otherProperties["source"] = rigFile;
+                        rigObjects[rigIndex].otherProperties["sourceScheme"] = rigSchemeFile;
                     }
 
                     if (typeof(T) == typeof(Point))

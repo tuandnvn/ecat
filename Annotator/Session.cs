@@ -40,7 +40,7 @@ namespace Annotator
             {
                 if (_sessionLength.HasValue)
                     return _sessionLength.Value;
-                throw new Exception("No session length");
+                return 0;
             }
             set
             {
@@ -115,6 +115,7 @@ namespace Annotator
             }
             if (o.id == "" || o.id == null) { o.id = "o" + ++objectCount; }
             objects[o.id] = o;
+            addObjectAnnotation(o);
         }
 
         //Get objects list
@@ -285,7 +286,6 @@ namespace Annotator
                         }
                     }
                     addObject(o);
-                    addObjectAnnotation(o);
                 }
 
                 XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
@@ -295,7 +295,7 @@ namespace Annotator
             }
         }
 
-        public void addObjectAnnotation(Object o)
+        private void addObjectAnnotation(Object o)
         {
             var t = new ObjectAnnotation(o, this);
             objectTracks.Add(t);

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.leftMostPanel = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.projectExplorer = new System.Windows.Forms.TabPage();
@@ -86,6 +86,7 @@
             this.middleBottomPanel = new System.Windows.Forms.Panel();
             this.addEventAnnotationBtn = new System.Windows.Forms.Button();
             this.recordTab = new System.Windows.Forms.TabPage();
+            this.recordPanel = new Annotator.RecordPanel();
             this.projectRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,10 +97,13 @@
             this.saveSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.recordPanel = new Annotator.RecordPanel();
+            this.fileRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRigsFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leftMostPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.projectExplorer.SuspendLayout();
@@ -125,6 +129,7 @@
             this.recordTab.SuspendLayout();
             this.projectRightClickPanel.SuspendLayout();
             this.sessionRightClickPanel.SuspendLayout();
+            this.fileRightClickPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftMostPanel
@@ -630,14 +635,14 @@
             this.EndAnno,
             this.TextAnno,
             this.NoteAnno});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.annoRefView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.annoRefView.DefaultCellStyle = dataGridViewCellStyle3;
             this.annoRefView.Location = new System.Drawing.Point(3, 130);
             this.annoRefView.Margin = new System.Windows.Forms.Padding(1);
             this.annoRefView.Name = "annoRefView";
@@ -741,6 +746,13 @@
             this.recordTab.Text = "Record";
             this.recordTab.UseVisualStyleBackColor = true;
             // 
+            // recordPanel
+            // 
+            this.recordPanel.Location = new System.Drawing.Point(0, 0);
+            this.recordPanel.Name = "recordPanel";
+            this.recordPanel.Size = new System.Drawing.Size(1420, 860);
+            this.recordPanel.TabIndex = 0;
+            // 
             // projectRightClickPanel
             // 
             this.projectRightClickPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -827,12 +839,36 @@
             // 
             this.colorDialog1.Color = System.Drawing.Color.Red;
             // 
-            // recordPanel1
+            // fileRightClickPanel
             // 
-            this.recordPanel.Location = new System.Drawing.Point(0, 0);
-            this.recordPanel.Name = "recordPanel1";
-            this.recordPanel.Size = new System.Drawing.Size(1420, 860);
-            this.recordPanel.TabIndex = 0;
+            this.fileRightClickPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addObjectToolStripMenuItem,
+            this.removeToolStripMenuItem});
+            this.fileRightClickPanel.Name = "cm1";
+            this.fileRightClickPanel.Size = new System.Drawing.Size(153, 70);
+            // 
+            // addObjectToolStripMenuItem
+            // 
+            this.addObjectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRigsFromFileToolStripMenuItem});
+            this.addObjectToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addObjectToolStripMenuItem.Name = "addObjectToolStripMenuItem";
+            this.addObjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addObjectToolStripMenuItem.Text = "Add objects";
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
+            // addRigsFromFileToolStripMenuItem
+            // 
+            this.addRigsFromFileToolStripMenuItem.Name = "addRigsFromFileToolStripMenuItem";
+            this.addRigsFromFileToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.addRigsFromFileToolStripMenuItem.Text = "Add rigs from file";
+            this.addRigsFromFileToolStripMenuItem.Click += new System.EventHandler(this.addRigsFromFileToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -877,6 +913,7 @@
             this.recordTab.ResumeLayout(false);
             this.projectRightClickPanel.ResumeLayout(false);
             this.sessionRightClickPanel.ResumeLayout(false);
+            this.fileRightClickPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -906,7 +943,7 @@
         private System.Windows.Forms.TrackBar frameTrackBar;
         private System.Windows.Forms.Button addEventAnnotationBtn;
         private System.Windows.Forms.ToolStripMenuItem addSessionMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBoard;
@@ -953,6 +990,10 @@
         private System.Windows.Forms.TabPage projectExplorer;
         private System.Windows.Forms.Button addSpatialBtn;
         private RecordPanel recordPanel;
+        private System.Windows.Forms.ContextMenuStrip fileRightClickPanel;
+        private System.Windows.Forms.ToolStripMenuItem addObjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addRigsFromFileToolStripMenuItem;
     }
 }
 

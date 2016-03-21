@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRigFileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRigFileForm.Designer.cs">
+      <DependentUpon>AddRigFileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Event.cs" />
     <Compile Include="LinkEventForm.cs">
       <SubType>Form</SubType>
@@ -68,10 +74,13 @@
     <Compile Include="Main.Drawing.EditPanel.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Main.Drawing.SelectPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.Event.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.ObjectnInfo.cs">
+    <Compile Include="Main.ObjectInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Project.cs">
@@ -149,6 +158,9 @@
     <Compile Include="WorkspaceLauncher.Designer.cs">
       <DependentUpon>WorkspaceLauncher.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddRigFileForm.resx">
+      <DependentUpon>AddRigFileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ObjectAnnotation.resx">
       <DependentUpon>ObjectAnnotation.cs</DependentUpon>
     </EmbeddedResource>

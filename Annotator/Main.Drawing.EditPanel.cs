@@ -91,7 +91,7 @@ namespace Annotator
 
                 draggingSelectBoxes = false;
                 selectBoxes = new Rectangle[] { };
-                pictureBoard.Invalidate();
+                invalidatePictureBoard();
             }
         }
 

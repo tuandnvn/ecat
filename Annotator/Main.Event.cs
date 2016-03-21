@@ -116,7 +116,6 @@ namespace Annotator
             {
                 if (annotationText.Text != null && annotationText.Text.Length > 0)
                 {
-                    Console.WriteLine("Activate right panel");
                     addObjRefToolStripMenuItem.Enabled = true;
                 }
 

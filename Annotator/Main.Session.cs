@@ -15,60 +15,36 @@ namespace Annotator
         {
             //Check selected node:
             //MessageBox.Show(treeView.SelectedNode.ToString());
-            Session choosedSession = selectedProject.getSession(treeView.SelectedNode.ToString().Substring(10));
+            Session chosenSession = selectedProject.getSession(treeView.SelectedNode.ToString().Substring(10));
 
-
-            //if (comboBox1.Items.Count > 0)
-            //    comboBox1.SelectedIndex = 0;
-            //MessageBox.Show(choosedSession.getSessionName() + ", getEdited == " + choosedSession.getEdited());
-            //Check all sessions inside selected project   
-            Session checkSession = null;
-            foreach (TreeNode projectNode in treeView.Nodes)
+            if (currentSession != null && currentSession.getSessionName() != chosenSession.getSessionName())
             {
-                if (projectNode.ToString().Contains(selectedProject.getProjectName()))
+                if (currentSession.getEdited())
                 {
-                    //MessageBox.Show(projectNode.ToString());
-                    foreach (TreeNode sessionNode in projectNode.Nodes)
+                    //MessageBox.Show(checkSession.getSessionName() + checkSession.getEdited());
+                    currentSession.setEdited(false);
+                    treeView.BeginUpdate();
+                    currentSessionNode.Text = currentSessionNode.Text.Substring(1);
+                    treeView.EndUpdate();
+                    if (MessageBox.Show(("Session " + currentSession.getSessionName() + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        String nodeName = sessionNode.ToString().Substring(10);
-                        if (!nodeName.Contains(choosedSession.getSessionName()) && nodeName.Contains("*"))
-                            nodeName = nodeName.Substring(1);
-                        checkSession = selectedProject.getSession(nodeName);
-                        if (checkSession.getSessionName() != choosedSession.getSessionName())
-                        {
-                            if (checkSession.getEdited())
-                            {
-                                //MessageBox.Show(checkSession.getSessionName() + checkSession.getEdited());
-                                checkSession.setEdited(false);
-                                treeView.BeginUpdate();
-                                sessionNode.Text = sessionNode.Text.Substring(1);
-                                treeView.EndUpdate();
-                                if (MessageBox.Show(("Session " + checkSession.getSessionName() + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                {
-                                    checkSession.saveSession();
-                                }
-                                break;
-                            }
-                        }
+                        currentSession.saveSession();
                     }
                 }
             }
 
-            if (checkSession != null)
+            if (chosenSession != null && !chosenSession.getEdited())
             {
-
-            }
-            if (choosedSession != null && !choosedSession.getEdited())
-            {
-                choosedSession.setEdited(true);
-                TreeNode n = treeView.SelectedNode;
-                n.Text = "*" + n.Text;
-                this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + choosedSession.getSessionName();
+                chosenSession.setEdited(true);
+                currentSessionNode = treeView.SelectedNode;
+                currentSession = chosenSession;
+                currentSessionNode.Text = "*" + currentSessionNode.Text;
+                this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + chosenSession.getSessionName();
             }
 
 
             //Set comboBox:
-            String[] viewsList = choosedSession.getViews();
+            String[] viewsList = chosenSession.getViews();
             //MessageBox.Show(viewsList.Length + "");
             for (int i = 0; i < viewsList.Length; i++)
             {
@@ -84,27 +60,25 @@ namespace Annotator
             }
         }
 
-        
-
         //Save option choosed
         private void saveSessionMenuItem_Click(object sender, EventArgs e)
         {
             TreeNode nodeS = treeView.SelectedNode;
-            currentSession = null;
+            Session s = null;
             for (int i = 0; i < selectedProject.getSessionN(); i++)
             {
-                currentSession = selectedProject.getSession(i);
+                s = selectedProject.getSession(i);
                 //MessageBox.Show(selectedProject.getSessionN() + "");
-                if (currentSession.getEdited())
+                if (s.getEdited())
                 {
                     //MessageBox.Show(currentSession.getSessionName());
                     //Save
-                    currentSession.saveSession();
+                    s.saveSession();
                     //Enable Edit
                     TreeNode t = treeView.SelectedNode;
                     if (t.Text.Contains("*"))
                         t.Text = t.Text.Substring(1);
-                    currentSession.setEdited(false);
+                    s.setEdited(false);
                     this.Text = "Project " + selectedProject.getProjectName() + " selected";
                     clearComboBox1();
                     pictureBoard.Image = null;
@@ -201,55 +175,51 @@ namespace Annotator
         private void addSessionMenuItem_Click(object sender, EventArgs e)
         {
             // Show the dialog and get result.
-            DialogResult result = openFileDialog1.ShowDialog();
+            DialogResult result = openFileDialog.ShowDialog();
             if (result == DialogResult.OK) // Test result.
             {
-                //Add file to session:
-                Session checkSession = null;
-                foreach (TreeNode projectNode in treeView.Nodes)
+                if ( currentSession != null )
                 {
-                    if (projectNode.ToString().Contains(selectedProject.getProjectName()))
-                    {
-                        //MessageBox.Show(projectNode.ToString());
-                        foreach (TreeNode sessionNode in projectNode.Nodes)
-                        {
-                            String nodeName = sessionNode.ToString().Substring(10);
-                            if (nodeName.Contains("*"))
-                            {
-                                nodeName = nodeName.Substring(1);
-                                checkSession = selectedProject.getSession(nodeName);
-                                break;
-                            }
-                        }
-                    }
-                }
+                    String fullFileName = openFileDialog.FileName;
+                    copyFileIntoLocalSession(fullFileName);
 
-                String fileName = openFileDialog1.FileName.Split(Path.DirectorySeparatorChar)[openFileDialog1.FileName.Split(Path.DirectorySeparatorChar).Length - 1];
-                //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-                String dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + checkSession.getSessionName() + Path.DirectorySeparatorChar + fileName;
-                //MessageBox.Show("outputFile = " + dstFileName);
-                //If file doesnt exist in session folder add file to session folder
-                if (!File.Exists(dstFileName))
-                    File.Copy(openFileDialog1.FileName, dstFileName);
-                //Check if file contains video stream:
-
-                //MessageBox.Show("*.avi file loaded! :" + fileName);
-                if (!checkSession.checkFileInSession(fileName) && !fileName.Contains("files.param"))
-                {
-                    checkSession.addFile(dstFileName);
-                    //If file didnt exist in treeView update treeView
-                    treeView.BeginUpdate();
-                    TreeNode fileNode = new TreeNode(fileName);
-                    fileNode.ImageIndex = 2;
-                    fileNode.SelectedImageIndex = fileNode.ImageIndex;
-                    treeView.SelectedNode.Nodes.Add(fileNode);
-                    treeView.EndUpdate();
-
-                    //Add view to comboBox1:
-                    comboBox1.Items.Add(fileName);
-
+                    
                 }
             }
+        }
+
+        /// <summary>
+        /// Copy a file into the current session
+        /// </summary>
+        /// <param name="fileName">Original full path of file</param>
+        /// <returns>The full path of copied file in the current session</returns>
+        internal string copyFileIntoLocalSession(string fileName)
+        {
+            string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
+            //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
+            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.getSessionName() + Path.DirectorySeparatorChar + relFileName;
+            //MessageBox.Show("outputFile = " + dstFileName);
+            //If file doesnt exist in session folder add file to session folder
+            if (!File.Exists(dstFileName))
+                File.Copy(fileName, dstFileName);
+            //Check if file contains video stream:
+
+            //MessageBox.Show("*.avi file loaded! :" + fileName);
+            if (!currentSession.checkFileInSession(relFileName) && !relFileName.Contains("files.param"))
+            {
+                currentSession.addFile(dstFileName);
+                //If file didnt exist in treeView update treeView
+                treeView.BeginUpdate();
+                TreeNode fileNode = new TreeNode(relFileName);
+                fileNode.ImageIndex = 2;
+                fileNode.SelectedImageIndex = fileNode.ImageIndex;
+                currentSessionNode.Nodes.Add(fileNode);
+                treeView.EndUpdate();
+
+                //Add view to comboBox1:
+                comboBox1.Items.Add(relFileName);
+            }
+            return dstFileName;
         }
     }
 }

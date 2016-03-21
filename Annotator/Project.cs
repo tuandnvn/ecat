@@ -19,6 +19,7 @@ namespace Annotator
                 this.sessions = new List<Session>();
             this.selected = false;
         }
+
         //Get project session at given index
         public Session getSession(int index)
         {
@@ -31,6 +32,7 @@ namespace Annotator
                 return null;
             }
         }
+
         //Add session to sessions list
         public void addSession(Session session)
         {

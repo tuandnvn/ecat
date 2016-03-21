@@ -181,12 +181,21 @@ namespace Annotator
             setBounding(frameNo, boundingPolygon, scale, translation);
         }
 
+        /// <summary>
+        /// Create an object that is manually drawn on the paintBoard
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="color"></param>
+        /// <param name="borderSize"></param>
+        /// <param name="videoFile"></param>
         public Object(String id, Color color, int borderSize, string videoFile)
         {
             this.id = id;
             this.color = color;
             this.borderSize = borderSize;
             this.videoFile = videoFile;
+            this.genType = GenType.MANUAL;
+            this.objectType = ObjectType._2D;
             otherProperties = new Dictionary<string, string>();
             objectMarks = new SortedList<int, LocationMark>();
             spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
@@ -335,7 +344,8 @@ namespace Annotator
 
         public void addProperty(string propertyKey, string propertyValue)
         {
-            otherProperties[propertyKey] = propertyValue;
+            if (propertyKey != null && propertyValue != null)
+                otherProperties[propertyKey] = propertyValue;
         }
 
         

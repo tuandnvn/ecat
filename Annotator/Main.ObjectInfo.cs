@@ -14,11 +14,15 @@ namespace Annotator
         private const string NAME = "Name";
         private const string OBJECT_TYPE = "Object type";
         private const string SEMANTIC_TYPE = "Semantic type";
+        private const string GEN_TYPE = "Generate type";
         private string[] defaultRows = { ID, NAME, OBJECT_TYPE, SEMANTIC_TYPE };
 
         internal void clearInformation()
         {
-            objectProperties.Rows.Clear();
+            lock (this)
+            {
+                objectProperties.Rows.Clear();
+            }
         }
 
         internal void showInformation(Object o)
@@ -28,7 +32,8 @@ namespace Annotator
                 objectProperties.Rows.Clear();
                 objectProperties.Rows.Add(ID, o.id);
                 objectProperties.Rows.Add(NAME, o.name);
-                objectProperties.Rows.Add(OBJECT_TYPE, "2D");
+                objectProperties.Rows.Add(GEN_TYPE, o.genType);
+                objectProperties.Rows.Add(OBJECT_TYPE, o.objectType);
                 objectProperties.Rows.Add(SEMANTIC_TYPE, o.semanticType);
 
                 // No change to id 
@@ -73,6 +78,5 @@ namespace Annotator
                 selectedObject.semanticType = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
             }
         }
-
     }
 }
