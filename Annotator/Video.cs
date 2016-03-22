@@ -11,19 +11,24 @@ namespace Annotator
     //Video class
     public class Video
     {
-        private Capture capture;       //capture object from EmguCV library to manage video frames
-        private String fileName;       // full video path
+        
+        public String fileName { get; }       // full video path
         private double aspectRatio;    // scale: frame width/frame height
-        
+        public int frameNumber { get; set;  }
         public Session session { get; }
-        
+        public double frameWidth { get; set; }
+        public double frameHeight { get; set; }
 
         //constructor
         public Video(Session session, String fileName)
         {
             this.fileName = fileName;
-            capture = new Capture(fileName);
+            Capture capture = new Capture(fileName);
+            frameNumber = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
+            frameWidth = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth); 
+            frameHeight = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
             this.aspectRatio = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth) / capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
+            capture.Dispose();
             this.session = session;
             //MessageBox.Show(scale + "");
         }
@@ -31,13 +36,19 @@ namespace Annotator
         //Get specific frame
         public Mat GetFrame(double frameNum)
         {
-            capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameNum);
-            return capture.QueryFrame();
+            Capture capture = null;
+            try
+            {
+                capture = new Capture(fileName);
+                capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameNum);
+                return capture.QueryFrame();
+            } finally
+            {
+                if ( capture != null )
+                    capture.Dispose();
+            }
         }
-        //get number of frames in video
-        public int getFramesNumber(){
-            return (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
-        }
+
         //Get video full path
         public String getFileName()
         {
@@ -47,17 +58,6 @@ namespace Annotator
         public double getAspectRatio()
         {
             return aspectRatio;
-        }
-
-        //Get frame width
-        public double getFrameWidth()
-        {
-            return capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth);
-        }
-        //Get frame height
-        public double getFrameHeight()
-        {
-            return capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
         }
     }
 }

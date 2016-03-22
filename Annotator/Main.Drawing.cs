@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emgu.CV;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -27,13 +28,15 @@ namespace Annotator
         private List<Point> polygonPoints = new List<Point>();
         private bool drawingNewPolygon = false;
         private bool editingPolygon = false;            // (drawingNewPolygon, editingPolygon) = ( true, false ) when you're keep drawing the polygon;
-                                                           // = (false, true)  when you're done drawing, editing the location of the newly created polygon
+                                                        // = (false, true)  when you're done drawing, editing the location of the newly created polygon
         private Point? temporaryPoint; // When the mouse is moving, temporary point hold the current location of cursor, to suggest the shape of the polygon
 
         Rectangle[] selectBoxes;
 
         // Editing bounding at a certain frame
         private bool editingAtAFrame = false;
+
+        object selectedObjectLock = new object();
 
         protected void InitDrawingComponent()
         {
@@ -132,7 +135,7 @@ namespace Annotator
 
         private void pictureBoard_MouseMove(object sender, MouseEventArgs e)
         {
-            lock ( this)
+            lock (this)
             {
                 if (drawingButtonSelected[rectangleDrawing])
                 {
@@ -287,43 +290,62 @@ namespace Annotator
             }
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            //if (capture == null && currentVideo != null)
+            //{
+            //    capture = new Capture(currentVideo.fileName);
+            //}
+
+            //if (capture != null)
+            //{
+            //    capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameTrackBar.Value - 1);
+            //    pictureBoard.Image = capture.QueryFrame().Bitmap;
+            //    runGCForImage();
+            //}
+        }
+            
+
         private void pictureBoard_Paint(object sender, PaintEventArgs e)
         {
-            lock (this)
+            Console.WriteLine("pictureBoard_Paint");
+            // Has been drawn before
+            if (currentVideo != null)
             {
-                // Has been drawn before
-                if (currentVideo != null)
+                var linear = getLinearTransform();
+
+                foreach (Object o in currentSession.getObjects())
                 {
-                    var linear = getLinearTransform();
-
-                    foreach (Object o in currentSession.getObjects())
+                    if (o != selectedObject)
                     {
-                        if (o != selectedObject)
+                        Pen p = new Pen(o.color, o.borderSize);
+                        p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+                        object r = o.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        if (r != null)
                         {
-                            Pen p = new Pen(o.color, o.borderSize);
-                            p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-                            object r = o.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
-                            if (r != null)
-                            {
 
-                                switch (o.borderType)
-                                {
-                                    case Object.BorderType.Rectangle:
-                                        e.Graphics.DrawRectangle(p, (Rectangle)r);
-                                        break;
-                                    case Object.BorderType.Polygon:
-                                        e.Graphics.DrawPolygon(p, ((List<Point>)r).ToArray());
-                                        break;
-                                    case Object.BorderType.Rig:
-                                        e.Graphics.DrawRig(p, (RigFigure<Point>)r);
-                                        break;
-                                }
+                            switch (o.borderType)
+                            {
+                                case Object.BorderType.Rectangle:
+                                    e.Graphics.DrawRectangle(p, (Rectangle)r);
+                                    break;
+                                case Object.BorderType.Polygon:
+                                    e.Graphics.DrawPolygon(p, ((List<Point>)r).ToArray());
+                                    break;
+                                case Object.BorderType.Rig:
+                                    e.Graphics.DrawRig(p, (RigFigure<Point>)r);
+                                    break;
                             }
                         }
                     }
+                }
 
 
-                    if (selectedObject != null && !editingAtAFrame)
+                if (selectedObject != null && !editingAtAFrame)
+                {
+                    lock (selectedObjectLock)
                     {
                         object obj = selectedObject.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
                         if (obj != null)
@@ -362,20 +384,23 @@ namespace Annotator
                             }
                         }
                     }
+                }
 
-                    Pen pen = null;
-                    if (selectedObject == null)
-                    {
-                        pen = new Pen(boundingColor, (float)boundingBorder);
-                    }
-                    else
-                    {
-                        pen = new Pen(selectedObject.color, selectedObject.borderSize);
-                    }
-                    pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+                Pen pen = null;
+                if (selectedObject == null)
+                {
+                    pen = new Pen(boundingColor, (float)boundingBorder);
+                }
+                else
+                {
+                    pen = new Pen(selectedObject.color, selectedObject.borderSize);
+                }
+                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-                    // Currently drawing
-                    if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+                // Currently drawing
+                if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+                {
+                    lock (selectedObjectLock)
                     {
                         if (endPoint.HasValue && startPoint.HasValue && currentVideo != null)
                         {
@@ -397,8 +422,11 @@ namespace Annotator
                             e.Graphics.Save();
                         }
                     }
+                }
 
-                    if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+                if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+                {
+                    lock (selectedObjectLock)
                     {
                         if (drawingNewPolygon)
                         {
@@ -426,7 +454,6 @@ namespace Annotator
                                 }
                                 else { e.Graphics.FillRectangle(new SolidBrush(Color.White), r); }
                             }
-                            e.Graphics.Save();
                         }
                     }
                 }
@@ -435,14 +462,17 @@ namespace Annotator
 
         internal void selectObject(Object o)
         {
-            this.selectedObject = o;
-
-            if (selectedObject != null)
+            lock (selectedObjectLock)
             {
-                selectObjContextPanel.Visible = true;
-            }
+                this.selectedObject = o;
+            
+                if (selectedObject != null)
+                {
+                    selectObjContextPanel.Visible = true;
+                }
 
-            this.showInformation(o);
+                this.showInformation(o);
+            }
             invalidatePictureBoard();
         }
 
@@ -461,7 +491,7 @@ namespace Annotator
                 endPoint = null;
                 drawingNewRectangle = false;
             }
-              
+
             if (drawingButtonSelected[polygonDrawing])
             {
                 polygonPoints = new List<Point>();
@@ -524,8 +554,8 @@ namespace Annotator
 
         private Tuple<double, Point> getLinearTransform()
         {
-            double scale = Math.Min(pictureBoard.Width / currentVideo.getFrameWidth(), pictureBoard.Height / currentVideo.getFrameHeight());
-            Point translation = new Point ( (int)(pictureBoard.Width - currentVideo.getFrameWidth() * scale )/2, (int)(pictureBoard.Height - currentVideo.getFrameHeight()  * scale ) /2 );
+            double scale = Math.Min(pictureBoard.Width / currentVideo.frameWidth, pictureBoard.Height / currentVideo.frameHeight);
+            Point translation = new Point((int)(pictureBoard.Width - currentVideo.frameWidth * scale) / 2, (int)(pictureBoard.Height - currentVideo.frameHeight * scale) / 2);
             return new Tuple<double, Point>(scale, translation);
         }
 

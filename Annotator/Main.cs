@@ -75,6 +75,10 @@ namespace Annotator
                 setWorkspace(workspace.getLocationFolder(), workspace.getDefaultOption());
             }
 
+            //capture = new Capture("kinect_local_rgb_raw_synced.avi");
+            //pictureBoard.capture = capture;
+            //pictureBoard.mat = capture.QueryFrame();
+            //pictureBoard.Image = capture.QueryFrame().Bitmap;
         }
 
         //Set workspace option: folder and default option
@@ -531,8 +535,13 @@ namespace Annotator
             }
             //2)Load video:
             if (currentVideo != null)
-                frameTrackBar.Maximum = (int)currentVideo.getFramesNumber();
+            {
+                frameTrackBar.Maximum = currentVideo.frameNumber;
+            }
+                
         }
+
+        Capture capture = null;
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -542,7 +551,12 @@ namespace Annotator
             {
                 endPoint = startPoint;
                 label3.Text = "Frame: " + frameTrackBar.Value;
-                pictureBoard.Image = currentVideo.GetFrame(frameTrackBar.Value - 1).Bitmap;
+                if (capture == null)
+                {
+                    capture = new Capture(currentVideo.fileName);
+                }
+                pictureBoard.mat = capture.QueryFrame();
+                pictureBoard.Image = pictureBoard.mat.Bitmap;
                 setLeftTopPanel();
             }
         }
@@ -575,15 +589,28 @@ namespace Annotator
         {
             label3.Text = "Frame: " + frameTrackBar.Value;
             //if(trackBar1.Value >= trackBar1.Minimum && trackBar1.Value < trackBar1.
-            if (currentVideo != null)
+            if (currentVideo != null )
             {
-                pictureBoard.Image = currentVideo.GetFrame(frameTrackBar.Value - 1).Bitmap;
-                goToFrameCount++;
-                if (goToFrameCount == GARBAGE_COLLECT_BITMAP_COUNT)
+                if (capture == null)
                 {
-                    System.GC.Collect();
-                    goToFrameCount = 0;
+                    capture = new Capture(currentVideo.fileName);
                 }
+                capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameTrackBar.Value - 1);
+                pictureBoard.mat = capture.QueryFrame();
+                pictureBoard.Image = pictureBoard.mat.Bitmap;
+            }
+        }
+
+        /// <summary>
+        /// Dirty clean
+        /// </summary>
+        private void runGCForImage()
+        {
+            goToFrameCount++;
+            if (goToFrameCount == GARBAGE_COLLECT_BITMAP_COUNT)
+            {
+                System.GC.Collect();
+                goToFrameCount = 0;
             }
         }
 

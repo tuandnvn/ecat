@@ -331,7 +331,7 @@ namespace Annotator
             {
                 Video v = new Video(this, fileName);
                 videos.Add(v);
-                sessionLength = v.getFramesNumber();
+                sessionLength = v.frameNumber;
             }
         }
         //Get session's project

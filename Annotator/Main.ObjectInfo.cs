@@ -56,6 +56,7 @@ namespace Annotator
 
         private void objectProperties_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            Console.WriteLine("objectProperties_CellValueChanged");
             int rowIndex = e.RowIndex;
 
             if ( rowIndex >= defaultRows.Count() )

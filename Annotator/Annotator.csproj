@@ -18,7 +18,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -36,17 +36,43 @@
   <PropertyGroup>
     <ApplicationIcon>1453485939_video.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Emgu.CV">
-      <HintPath>C:\Emgu\emgucv-windows-universal 3.0.0.2157\bin\Emgu.CV.dll</HintPath>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\..\..\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.Util">
-      <HintPath>C:\Emgu\emgucv-windows-universal 3.0.0.2157\bin\Emgu.Util.dll</HintPath>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\..\..\..\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.World.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Kinect, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Design, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Design, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.VisualBasic.PowerPacks.Design.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -88,6 +114,9 @@
     </Compile>
     <Compile Include="Main.Session.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyPictureBox.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ObjectAnnotation.cs">
       <SubType>UserControl</SubType>
@@ -211,6 +240,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1453485939_video.ico" />
+    <Content Include="cvextern.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emgu.CV.UI.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emgu.CV.World.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Microsoft.Kinect.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Microsoft.VisualBasic.PowerPacks.Design.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Microsoft.VisualBasic.PowerPacks.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcp120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcr120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_ffmpeg310.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\1457434070_player_record.png" />
     <Content Include="Resources\1457434097_player_stop.png" />
     <Content Include="Resources\1457434100_player_play.png" />
@@ -228,6 +284,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

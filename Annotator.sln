@@ -7,20 +7,40 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Annotator", "Annotator\Anno
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnotatorTests", "AnnotatorTests\AnnotatorTests.csproj", "{79461813-B791-479F-9051-297099BB36A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalTest", "MinimalTest\MinimalTest.csproj", "{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Debug|x86.ActiveCfg = Debug|x86
+		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Debug|x86.Build.0 = Debug|x86
 		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Release|x86.ActiveCfg = Release|x86
+		{D9AA9F6E-1DCE-4FF5-9ABB-6C70B12AB180}.Release|x86.Build.0 = Release|x86
 		{79461813-B791-479F-9051-297099BB36A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79461813-B791-479F-9051-297099BB36A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79461813-B791-479F-9051-297099BB36A9}.Debug|x86.ActiveCfg = Debug|x86
+		{79461813-B791-479F-9051-297099BB36A9}.Debug|x86.Build.0 = Debug|x86
 		{79461813-B791-479F-9051-297099BB36A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79461813-B791-479F-9051-297099BB36A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79461813-B791-479F-9051-297099BB36A9}.Release|x86.ActiveCfg = Release|x86
+		{79461813-B791-479F-9051-297099BB36A9}.Release|x86.Build.0 = Release|x86
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Debug|x86.Build.0 = Debug|Any CPU
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{EB702709-3C38-4D47-AF99-BF62A9AAF6D9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
