@@ -6,35 +6,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace Annotator.Tests
 {
     [TestClass()]
     public class UtilsTests
     {
-        [TestMethod()]
-        public void ScoreTest()
-        {
-            Assert.Fail();
-        }
+        
 
         [TestMethod()]
         public void getConvexHullTest()
         {
-            Assert.Fail();
+
+
+            Point[] polygons = new Point[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
+                                                new Point(2,0), new Point(1,1) };
+            List<Point> convexHull = Utils.getConvexHull(polygons.ToList());
+            List<Point> trueConvexHull = new Point[] {new Point(0,0), new Point(0, 2), new Point(2, 2),
+                                                new Point(2,0)}.ToList();
+            Assert.AreEqual(trueConvexHull.Except(convexHull).Count(), 0);
+            Assert.AreEqual(convexHull.Except(trueConvexHull).Count(), 0);
+
+            polygons = new Point[] { new Point(0,0), new Point(0, 4), new Point(1, 3), new Point(2, 2), new Point(4, 5),
+                                                new Point(4,1), new Point(5,0) };
+            convexHull = Utils.getConvexHull(polygons.ToList());
+            trueConvexHull = new Point[] {new Point(0,0), new Point(0, 4), new Point(4, 5),
+                                                new Point(5,0) }.ToList();
+
+            Assert.AreEqual(trueConvexHull.Except(convexHull).Count(), 0);
+            Assert.AreEqual(convexHull.Except(trueConvexHull).Count(), 0);
+        }
+
+        public int compare(Point p1, Point p2)
+        {
+            if (p1.X < p2.X)
+                return -1;
+            if (p1.X > p2.X)
+                return 1;
+            if (p1.Y < p2.Y)
+                return -1;
+            if (p1.Y > p2.Y)
+                return 1;
+            return 0;
         }
 
         [TestMethod()]
-        public void ScoreTest1()
+        public void ScoreTestRectangle()
         {
-            Assert.Fail();
+            Console.WriteLine(Utils.Score(new Rectangle(0, 0, 2, 2), new Point(1, 1)));
         }
 
         [TestMethod()]
-        public void ScoreTest2()
+        public void ScoreTestPolygon()
         {
-            Assert.Fail();
+            Console.WriteLine(Utils.Score(new Point[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
+                                                new Point(2,0) }.ToList(), new Point(1, 1)));
         }
+
+        //[TestMethod()]
+        //public void ScoreTestRig()
+        //{
+        //    Assert.Fail();
+        //}
 
         [TestMethod()]
         public void IsPointInPolygonTest()

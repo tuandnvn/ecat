@@ -631,12 +631,18 @@ namespace Annotator
         {
             string relVideoFileName = treeView.SelectedNode.ToString().Substring(10);
             AddRigFileForm addRigForm = new AddRigFileForm(this, currentSession, relVideoFileName);
-            addRigForm.Show();
+            addRigForm.Show(this);
+            addRigForm.Location = new Point()
+            {
+                X = Math.Max(this.Location.X, this.Location.X + (this.Width - addRigForm.Width) / 2),
+                Y = Math.Max(this.Location.Y, this.Location.Y + (this.Height - addRigForm.Height) / 2)
+            };
         }
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

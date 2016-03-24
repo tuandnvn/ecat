@@ -10,6 +10,7 @@ namespace Annotator
 {
     public partial class Main
     {
+        internal Event selectedEvent = null;
         private Dictionary<Event, EventAnnotation> mapFromEventToEventAnnotations;
 
         private void InitEventAnnoComponent()
@@ -68,12 +69,16 @@ namespace Annotator
         //Unselect all annotations
         public void unselectAnnotations()
         {
-            if (currentVideo != null)
+            clearRightBottomPanel();
+            if (currentSession != null)
             {
                 foreach (Event ev in currentSession.events)
                 {
                     if (mapFromEventToEventAnnotations.ContainsKey(ev))
+                    {
                         mapFromEventToEventAnnotations[ev].setSelected(false);
+                        mapFromEventToEventAnnotations[ev].deselectDeco();
+                    }
                 }
             }
         }
@@ -86,20 +91,25 @@ namespace Annotator
             int end = annotationText.SelectionStart + annotationText.SelectionLength;
             String txt = annotationText.SelectedText;
             //MessageBox.Show(start + "," + end + "," + txt);
-            Event ev = null;
-            foreach (Event currentEvent in currentSession.events)
-            {
-                if (mapFromEventToEventAnnotations.ContainsKey(currentEvent) && mapFromEventToEventAnnotations[currentEvent].getSelected())
-                {
-                    ev = currentEvent;
-                    break;
-                }
-            }
 
-            if (ev != null)
+            if (selectedEvent != null)
             {
-                ev.addReference(start, end, refID);
+                selectedEvent.addReference(start, end, refID);
                 addRightBottomTableReference(start, end, txt, refID);
+            }
+        }
+
+
+        private void addEventToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int start = annotationText.SelectionStart;
+            int end = annotationText.SelectionStart + annotationText.SelectionLength;
+            String txt = annotationText.SelectedText;
+
+            if (selectedEvent != null)
+            {
+                selectedEvent.addAction(start, end, txt);
+                addRightBottomTableReference(start, end, txt, txt);
             }
         }
 
@@ -136,7 +146,12 @@ namespace Annotator
         {
             LinkEventForm linkEventForm = new LinkEventForm();
             linkEventForm.populate(ev, currentSession.events);
-            linkEventForm.Show();
+            linkEventForm.Show(this);
+            linkEventForm.Location = new Point()
+            {
+                X = Math.Max(this.Location.X, this.Location.X + (this.Width - linkEventForm.Width) / 2),
+                Y = Math.Max(this.Location.Y, this.Location.Y + (this.Height - linkEventForm.Height) / 2)
+            };
         }
     }
 }

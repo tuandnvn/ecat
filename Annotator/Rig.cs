@@ -17,10 +17,10 @@ namespace Annotator
 
     public class RigFigure<T>
     {
-        public Dictionary<int, T> rigJoints { get; }
+        public Dictionary<string, T> rigJoints { get; }
         public List<Tuple<T, T>> rigBones { get; }
 
-        public RigFigure(Dictionary<int, T> rigJoints, List<Tuple<T, T>> rigBones)
+        public RigFigure(Dictionary<string, T> rigJoints, List<Tuple<T, T>> rigBones)
         {
             this.rigBones = rigBones;
             this.rigJoints = rigJoints;
@@ -83,23 +83,24 @@ namespace Annotator
                         
                         XmlNode jointPoints = dataFrame.SelectSingleNode(rc.rigPointsPath);
 
-                        var joints = new Dictionary<int, T>();
+                        var joints = new Dictionary<string, T>();
                         switch ( rc.rigPointFormatType)
                         {
                             case "flat":
                                 string[] components = jointPoints.InnerText.Split(new string[] { rc.rigPointFormatSeparated }, System.StringSplitOptions.RemoveEmptyEntries);
                                 foreach (int jointIndex in rc.jointToJointName.Keys)
                                 {
+                                    string jointName = rc.jointToJointName[jointIndex].Item1;
                                     switch (typeof(T).ToString())
                                     {
                                         case "System.Drawing.Point":
-                                            joints[jointIndex] = (T) Activator.CreateInstance(typeof(T), new object[] { (int)float.Parse(components[2 * jointIndex]), (int) float.Parse(components[2 * jointIndex + 1]) });
+                                            joints[jointName] = (T) Activator.CreateInstance(typeof(T), new object[] { (int)float.Parse(components[2 * jointIndex]), (int) float.Parse(components[2 * jointIndex + 1]) });
                                             break;
                                         case "System.Drawing.PointF":
-                                            joints[jointIndex] = (T) Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[3 * jointIndex]), float.Parse(components[3 * jointIndex + 1]), float.Parse(components[3 * jointIndex + 2]) });
+                                            joints[jointName] = (T) Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[3 * jointIndex]), float.Parse(components[3 * jointIndex + 1]), float.Parse(components[3 * jointIndex + 2]) });
                                             break;
                                         case "Annotator.Point3F":
-                                            joints[jointIndex] = (T)Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[2 * jointIndex]), float.Parse(components[2 * jointIndex + 1]) });
+                                            joints[jointName] = (T)Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[2 * jointIndex]), float.Parse(components[2 * jointIndex + 1]) });
                                             break;
                                     }
                                 }
@@ -149,14 +150,14 @@ namespace Annotator
             return new List<int>();
         }
 
-        public Dictionary<int, T> getRigJoints(int frame, int rigIndex)
+        public Dictionary<string, T> getRigJoints(int frame, int rigIndex)
         {
             RigFrame<T> rigFrame = frameToRig[frame];
             if (rigFrame != null && rigFrame.joints[rigIndex] != null)
             {
                 return rigFrame.joints[rigIndex];
             }
-            return new Dictionary<int, T>();
+            return new Dictionary<string, T>();
         }
 
         public List<Tuple<T, T>> getRigBones(int frame, int rigIndex)
@@ -168,7 +169,8 @@ namespace Annotator
                 var bones = new List<Tuple<T, T>>();
                 foreach (Point boneScheme in rigScheme.bones)
                 {
-                    var bone = new Tuple<T, T>(joints[boneScheme.X], joints[boneScheme.Y]);
+                    var bone = new Tuple<T, T>(joints[rigScheme.jointToJointName[boneScheme.X].Item1] , 
+                        joints[rigScheme.jointToJointName[boneScheme.Y].Item1 ]);
                     bones.Add(bone);
                 }
 
@@ -402,17 +404,17 @@ namespace Annotator
         /// <summary>
         /// Rigs(s) for each frame. 
         /// There might be multiple rigs, the first integer key is rig index (as tracked by Kinect API)
-        /// The second integer key is joint id
+        /// The string key is joint name
         /// T is the location of joint (could be 2d or 3d)
         /// </summary>
-        public Dictionary<int, Dictionary<int , T> > joints { get; }
+        public Dictionary<int, Dictionary<string , T> > joints { get; }
 
         public RigFrame ()
         {
-            joints = new Dictionary<int, Dictionary<int, T>>();
+            joints = new Dictionary<int, Dictionary<string, T>>();
         }
 
-        public void addRigFrame(int rigIndex, Dictionary<int, T> rig)
+        public void addRigFrame(int rigIndex, Dictionary<string, T> rig)
         {
             joints[rigIndex] = rig;
         }

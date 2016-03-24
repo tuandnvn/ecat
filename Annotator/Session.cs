@@ -220,6 +220,7 @@ namespace Annotator
             {
                 objectToObjectTracks[other].deselectDeco();
             }
+            objectToObjectTracks[o].selectDeco();
             mainGUI.selectObject(o);
         }
 

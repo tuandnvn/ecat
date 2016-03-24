@@ -76,6 +76,11 @@ namespace Annotator
                 {
                     spatialLinkForm = new SpatialLinkForm(this, currentSession, selectedObject, frameTrackBar.Value);
                     spatialLinkForm.Show();
+                    spatialLinkForm.Location = new Point()
+                    {
+                        X = Math.Max(this.Location.X, this.Location.X + (this.Width - spatialLinkForm.Width) / 2),
+                        Y = Math.Max(this.Location.Y, this.Location.Y + (this.Height - spatialLinkForm.Height) / 2)
+                    };
                 }
             }
         }

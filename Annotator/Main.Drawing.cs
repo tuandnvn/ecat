@@ -29,6 +29,7 @@ namespace Annotator
         private bool drawingNewPolygon = false;
         private bool editingPolygon = false;            // (drawingNewPolygon, editingPolygon) = ( true, false ) when you're keep drawing the polygon;
                                                         // = (false, true)  when you're done drawing, editing the location of the newly created polygon
+
         private Point? temporaryPoint; // When the mouse is moving, temporary point hold the current location of cursor, to suggest the shape of the polygon
 
         Rectangle[] selectBoxes;
@@ -129,6 +130,12 @@ namespace Annotator
                         selectBoxes = listOfSelectBox.ToArray();
                         invalidatePictureBoard();
                     }
+                }
+
+
+                if (drawingButtonSelected[cursorDrawing])
+                {
+                    whenCursorButtonAndMouseDown(e);
                 }
             }
         }
@@ -232,34 +239,49 @@ namespace Annotator
                     }
                 }
 
-                if (drawingButtonSelected[cursorDrawing])
+            }
+        }
+
+        private void whenCursorButtonAndMouseDown(MouseEventArgs e)
+        {
+            var objectWithScore = new List<Tuple<float, Object>>();
+            var linear = getLinearTransform();
+            foreach (Object o in currentSession.getObjects())
+            {
+                object obj = o.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
+                if (obj != null)
                 {
-                    foreach (Object o in currentSession.getObjects())
+                    switch (o.borderType)
                     {
-                        var linear = getLinearTransform();
-                        object obj = selectedObject.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
-                        if (obj != null)
-                        {
-                            switch (selectedObject.borderType)
-                            {
-                                case Object.BorderType.Rectangle:
-                                    boundingBox = (Rectangle)obj;
-                                    startPoint = new Point(boundingBox.X, boundingBox.Y);
-                                    endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
-                                    break;
-                                case Object.BorderType.Polygon:
-                                    polygonPoints = (List<Point>)obj;
-                                    List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                                    foreach (Point p in polygonPoints)
-                                    {
-                                        listOfSelectBox.Add(new Rectangle(p.X - (boxSize - 1) / 2, p.Y - (boxSize - 1) / 2, boxSize, boxSize));
-                                    }
-                                    selectBoxes = listOfSelectBox.ToArray();
-                                    break;
-                            }
-                        }
+                        case Object.BorderType.Rectangle:
+                            objectWithScore.Add(new Tuple<float, Object>(Utils.Score((Rectangle)obj, e.Location), o));
+                            break;
+                        case Object.BorderType.Polygon:
+                            objectWithScore.Add(new Tuple<float, Object>(Utils.Score((List<Point>)obj, e.Location), o));
+                            break;
+                        case Object.BorderType.Rig:
+                            objectWithScore.Add(new Tuple<float, Object>(Utils.Score((RigFigure<Point>)obj, e.Location), o));
+                            break;
                     }
                 }
+            }
+
+            Console.WriteLine(string.Join(",", objectWithScore.Select(x => x.Item1).ToArray()));
+            objectWithScore.Sort(delegate (Tuple<float, Object> p1, Tuple<float, Object> p2)
+            {
+                if (p1.Item1 < p2.Item1) return -1;
+                if (p1.Item1 > p2.Item1) return 1;
+                return 0;
+            }
+            );
+
+            double bestScore = objectWithScore.Last().Item1;
+            if (bestScore > 0)
+            {
+                Console.WriteLine("bestScore " + bestScore);
+                Object o = objectWithScore.Last().Item2;
+
+                currentSession.selectObject(o);
             }
         }
 
@@ -306,7 +328,7 @@ namespace Annotator
             //    runGCForImage();
             //}
         }
-            
+
 
         private void pictureBoard_Paint(object sender, PaintEventArgs e)
         {
@@ -318,7 +340,7 @@ namespace Annotator
 
                 foreach (Object o in currentSession.getObjects())
                 {
-                    if (o != selectedObject)
+                    if (o != selectedObject || o.genType != Object.GenType.MANUAL)
                     {
                         Pen p = new Pen(o.color, o.borderSize);
                         p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
@@ -397,7 +419,7 @@ namespace Annotator
                 }
                 pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-                // Currently drawing
+                // Currently drawing or selecting a rectangle object
                 if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
                 {
                     lock (selectedObjectLock)
@@ -424,6 +446,27 @@ namespace Annotator
                     }
                 }
 
+                // Selecting a rig object
+                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rig)
+                {
+                    lock (selectedObjectLock)
+                    {
+                        var rigFigure = (RigFigure<Point>) selectedObject.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
+
+                        selectBoxes = rigFigure.getCornerSelectBoxes(boxSize);
+
+                        e.Graphics.DrawRectangle(pen, boundingBox);
+
+                        foreach (Rectangle r in selectBoxes)
+                        {
+                            e.Graphics.DrawRectangle(new Pen(Color.Black), r);
+                            e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
+                        }
+                        e.Graphics.Save();
+                    }
+                }
+
+                // Currently drawing or selecting a polygon object
                 if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
                 {
                     lock (selectedObjectLock)
@@ -465,10 +508,15 @@ namespace Annotator
             lock (selectedObjectLock)
             {
                 this.selectedObject = o;
-            
+
                 if (selectedObject != null)
                 {
                     selectObjContextPanel.Visible = true;
+                }
+
+                foreach (Button b in drawingButtonGroup)
+                {
+                    selectButtonDrawing(b, drawingButtonGroup, false);
                 }
 
                 this.showInformation(o);

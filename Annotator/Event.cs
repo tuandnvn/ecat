@@ -15,6 +15,7 @@ namespace Annotator
         private const string END_FRAME = "endFrame";
         private const string TEXT = "text";
         private const string ID = "id";
+        private const string TYPE = "type";
         private const string REFS = "refs";
         private const string REF = "ref";
         private const string START = "start";
@@ -23,6 +24,8 @@ namespace Annotator
         private const string EVENTS = "events";
         private const string EVENT = "event";
         private const string SEMANTIC_TYPE = "semanticType";
+        private const string LINK = "link";
+        private const string LINKTO = "linkTo";
 
         public enum EventLinkType
         {
@@ -31,8 +34,8 @@ namespace Annotator
         }
 
         public List<Reference> references { get; }
-        public List<Action> events { get; }
-        public HashSet<Tuple<EventLinkType, Event>> linkToEvents { get; }
+        public List<Action> actions { get; }
+        public HashSet<Tuple<EventLinkType, string>> linkToEvents { get; }
         public String id { get; set; } //anottation ID
         public int startFrame { get; set; }
         public int endFrame { get; set; }
@@ -45,8 +48,8 @@ namespace Annotator
             this.endFrame = endFrame;
             this.text = text;
             references = new List<Reference>();
-            events = new List<Action>();
-            linkToEvents = new HashSet<Tuple<EventLinkType, Event>>();
+            actions = new List<Action>();
+            linkToEvents = new HashSet<Tuple<EventLinkType, string>>();
         }
 
         public class Reference
@@ -81,9 +84,9 @@ namespace Annotator
             }
         }
 
-        public void addLinkTo(Event ev, EventLinkType type)
+        public void addLinkTo(string evId, EventLinkType type)
         {
-            linkToEvents.Add(new Tuple<EventLinkType, Event>(type, ev));
+            linkToEvents.Add(new Tuple<EventLinkType, string>(type, evId));
         }
 
         public void addReference(Reference reference)
@@ -97,15 +100,15 @@ namespace Annotator
             references.Add(new Reference(this, refObjectId, start, end));
         }
 
-        public void addEvent(Action _event)
+        public void addAction(Action action)
         {
-            events.Add(_event);
+            actions.Add(action);
         }
 
-        public void addEvent(int start, int end, String semanticType)
+        public void addAction(int start, int end, String semanticType)
         {
             Action e = new Action(this, semanticType, start, end);
-            events.Add(e);
+            actions.Add(e);
         }
 
         /**
@@ -122,6 +125,10 @@ namespace Annotator
 			<events>
 				<event start="9" end="16" semanticType="pick"/>
 			</events>
+
+            <links>
+                <linkTo id="a2" type="SUBEVENT"/>
+            </links>
 		</annotation>
 	    </annotations>
         */
@@ -147,12 +154,22 @@ namespace Annotator
             xmlWriter.WriteEndElement();
 
             xmlWriter.WriteStartElement(EVENTS);
-            foreach (Action _event in events)
+            foreach (Action _event in actions)
             {
                 xmlWriter.WriteStartElement(EVENT);
                 xmlWriter.WriteAttributeString(START, "" + _event.start);
                 xmlWriter.WriteAttributeString(END, "" + _event.end);
                 xmlWriter.WriteAttributeString(SEMANTIC_TYPE, "" + _event.semanticType);
+                xmlWriter.WriteEndElement();
+            }
+            xmlWriter.WriteEndElement();
+
+            xmlWriter.WriteStartElement(LINK);
+            foreach (var item in linkToEvents)
+            {
+                xmlWriter.WriteStartElement(LINKTO);
+                xmlWriter.WriteAttributeString(ID, "" + item.Item2);
+                xmlWriter.WriteAttributeString(TYPE, "" + item.Item1);
                 xmlWriter.WriteEndElement();
             }
             xmlWriter.WriteEndElement();
@@ -190,8 +207,18 @@ namespace Annotator
                     String semType = _event.Attributes[SEMANTIC_TYPE].Value;
 
                     Action e = new Action(a, semType, eventStart, eventEnd);
-                    a.addEvent(e);
+                    a.addAction(e);
                 }
+
+                XmlNode links = node.SelectSingleNode(LINK);
+                foreach (XmlNode link in events.SelectNodes(LINKTO))
+                {
+                    string linkId = link.Attributes[ID].Value;
+                    var linkType = (EventLinkType) Enum.Parse( typeof(EventLinkType), link.Attributes[TYPE].Value);
+
+                    a.addLinkTo(linkId, linkType);
+                }
+
                 annotations.Add(a);
             }
             return annotations;

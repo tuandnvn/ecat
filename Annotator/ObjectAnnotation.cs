@@ -141,7 +141,6 @@ namespace Annotator
         private void select_Click(object sender, EventArgs e)
         {
             session.selectObject(o);
-            selectDeco();
         }
 
         internal void selectDeco()

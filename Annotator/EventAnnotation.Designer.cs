@@ -31,27 +31,27 @@ namespace Annotator
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textAnnotation = new System.Windows.Forms.TextBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.axis = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.rightMarker = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.leftMarker = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label1 = new System.Windows.Forms.Label();
+            this.rectangleShape = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.intervalLbl = new System.Windows.Forms.Label();
             this.selectBtn = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
             this.subEventLink = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textAnnotation
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 29);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(384, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.textAnnotation.Location = new System.Drawing.Point(164, 29);
+            this.textAnnotation.Multiline = true;
+            this.textAnnotation.Name = "textAnnotation";
+            this.textAnnotation.Size = new System.Drawing.Size(384, 20);
+            this.textAnnotation.TabIndex = 0;
+            this.textAnnotation.DoubleClick += new System.EventHandler(this.textAnnotation_DoubleClick);
+            this.textAnnotation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAnnotation_KeyPress);
             // 
             // shapeContainer1
             // 
@@ -62,8 +62,8 @@ namespace Annotator
             this.axis,
             this.rightMarker,
             this.leftMarker,
-            this.rectangleShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(800, 50);
+            this.rectangleShape});
+            this.shapeContainer1.Size = new System.Drawing.Size(800, 54);
             this.shapeContainer1.TabIndex = 1;
             this.shapeContainer1.TabStop = false;
             // 
@@ -100,22 +100,22 @@ namespace Annotator
             // 
             // rectangleShape1
             // 
-            this.rectangleShape1.BackColor = System.Drawing.Color.Yellow;
-            this.rectangleShape1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.rectangleShape1.FillGradientColor = System.Drawing.Color.Yellow;
-            this.rectangleShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent80;
-            this.rectangleShape1.Location = new System.Drawing.Point(14, 3);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(775, 23);
+            this.rectangleShape.BackColor = System.Drawing.Color.Yellow;
+            this.rectangleShape.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rectangleShape.FillGradientColor = System.Drawing.Color.Yellow;
+            this.rectangleShape.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent80;
+            this.rectangleShape.Location = new System.Drawing.Point(14, 3);
+            this.rectangleShape.Name = "rectangleShape1";
+            this.rectangleShape.Size = new System.Drawing.Size(775, 23);
             // 
-            // label1
+            // intervalLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Start Frame: , StopFrame: ";
+            this.intervalLbl.AutoSize = true;
+            this.intervalLbl.Location = new System.Drawing.Point(12, 32);
+            this.intervalLbl.Name = "intervalLbl";
+            this.intervalLbl.Size = new System.Drawing.Size(69, 13);
+            this.intervalLbl.TabIndex = 2;
+            this.intervalLbl.Text = "Start: , Stop: ";
             // 
             // selectBtn
             // 
@@ -125,7 +125,7 @@ namespace Annotator
             this.selectBtn.TabIndex = 3;
             this.selectBtn.Text = "Select";
             this.selectBtn.UseVisualStyleBackColor = true;
-            this.selectBtn.Click += new System.EventHandler(this.button1_Click);
+            this.selectBtn.Click += new System.EventHandler(this.selectBtn_Click);
             // 
             // remove
             // 
@@ -147,7 +147,7 @@ namespace Annotator
             this.subEventLink.UseVisualStyleBackColor = true;
             this.subEventLink.Click += new System.EventHandler(this.subEventLink_Click);
             // 
-            // Annotation
+            // EventAnnotation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,12 +155,12 @@ namespace Annotator
             this.Controls.Add(this.subEventLink);
             this.Controls.Add(this.remove);
             this.Controls.Add(this.selectBtn);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.intervalLbl);
+            this.Controls.Add(this.textAnnotation);
             this.Controls.Add(this.shapeContainer1);
             this.DoubleBuffered = true;
-            this.Name = "Annotation";
-            this.Size = new System.Drawing.Size(800, 50);
+            this.Name = "EventAnnotation";
+            this.Size = new System.Drawing.Size(800, 54);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseUp);
@@ -171,14 +171,14 @@ namespace Annotator
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textAnnotation;
         private ShapeContainer shapeContainer1;
         private LineShape axis;
         private LineShape leftMarker;
         private LineShape rightMarker;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label intervalLbl;
         private System.Windows.Forms.Button selectBtn;
-        private RectangleShape rectangleShape1;
+        private RectangleShape rectangleShape;
         private System.Windows.Forms.Button remove;
         private System.Windows.Forms.Button subEventLink;
     }

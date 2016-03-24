@@ -22,10 +22,12 @@ namespace Annotator
 
         public void populate(Event ev, List<Event> allEvents)
         {
+            this.ev = ev;
+            this.allEvents = allEvents;
             eventId.Text = ev.id;
             eventTxt.Text = ev.text;
             linkEventTypeComboBox.Items.AddRange(Enum.GetValues(typeof(Event.EventLinkType)).Cast<object>().ToArray());
-            linkToEventIdComboBox.Items.AddRange(allEvents.Skip(allEvents.FindIndex(x => x.id == ev.id)).Select(e => e.id).ToArray());
+            linkToEventIdComboBox.Items.AddRange(allEvents.FindAll(x => x.id != ev.id).Select(e => e.id).ToArray());
         }
 
         private void linkToEventIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,8 +39,12 @@ namespace Annotator
         private void addLinkEventBtn_Click(object sender, EventArgs e)
         {
             Event selectedEvent = allEvents.Find(x => x.id == (string)linkToEventIdComboBox.SelectedItem);
-            var selectedLinkType = (Event.EventLinkType)linkEventTypeComboBox.SelectedItem;
-            ev.addLinkTo(selectedEvent, selectedLinkType);
+            var selectedLinkType = linkEventTypeComboBox.SelectedItem;
+            if (selectedEvent != null && linkEventTypeComboBox.SelectedItem != null)
+            {
+                ev.addLinkTo(selectedEvent.id, (Event.EventLinkType)selectedLinkType);
+                this.Dispose();
+            }
         }
     }
 }

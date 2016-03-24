@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Annotator
 {
-    public class Utils
+    public static class Utils
     {
         public static float Score(RigFigure<Point> rig, Point testPoint)
         {
@@ -17,65 +18,87 @@ namespace Annotator
             if (rigJoints.Count != 0)
             {
                 var convexHull = getConvexHull(rigJoints);
+                Console.WriteLine("convexHull " + string.Join(",", convexHull));
                 return Score(convexHull, testPoint);
             }
+
+
             return score;
         }
 
         public static List<Point> getConvexHull(List<Point> points)
         {
             // Select points that has lowest X, than select point that has lowest Y -> must be one on the convex hull's 
-            Point leftMost = points.Where(point => point.X == points.Min(p => p.X)).Where(point => point.Y == points.Min(p => p.Y)).First();
+            IEnumerable<Point> smallestXs = points.Where(point => point.X == points.Min(p => p.X));
+            Point leftMost = smallestXs.Where(point => point.Y == smallestXs.Min(p => p.Y)).First();
 
-            points.Sort(delegate (Point p1, Point p2)
-            {
+            var tempo = points.FindAll(t => !t.Equals(leftMost));
+
+            tempo.Sort(delegate (Point p1, Point p2)
+           {
                 // Compare the sin(alpha)
                 // Point that make with leftmost and x-axis larger sin(alpha) will be considered first
-                if ((p1.Y - leftMost.Y)*(p2.X-leftMost.X) != (p1.X - leftMost.X)*( p2.Y - leftMost.Y) )
-                {
-                    return  (p1.X - leftMost.X) * (p2.Y - leftMost.Y) - (p1.Y - leftMost.Y) * (p2.X - leftMost.X);
-                }
+                if (cotWithX(leftMost, p1) < cotWithX(leftMost, p2))
+                   return -1;
+               if (cotWithX(leftMost, p1) > cotWithX(leftMost, p2))
+                   return 1;
 
                 // If alphas are equals, compare the distance between leftmost and p1, p2
                 // We want the point that has better chance to be on convex hull to go first
 
-                return  ((p2.X - leftMost.X)^2 + (p2.Y - leftMost.Y)^2 ) - ((p1.X - leftMost.X) ^ 2 + (p1.Y - leftMost.Y) ^ 2);
-            });
+                return (int)(Math.Pow(p2.X - leftMost.X, 2) + Math.Pow(p2.Y - leftMost.Y, 2) - (Math.Pow(p1.X - leftMost.X, 2) + Math.Pow(p1.Y - leftMost.Y, 2)))
+                ;
+           });
 
             Stack<Point> convexHulls = new Stack<Point>();
             convexHulls.Push(leftMost);
 
-            // Last point in points now should also be leftmost
-            foreach (Point p in points.Skip(points.Count - 1))
+            foreach (Point p in tempo)
             {
-                if (convexHulls.Count >= 3)
-                {
-                    FixConvexHull(leftMost, convexHulls, p);
+                FixConvexHull(leftMost, convexHulls, p);
 
+                if (cotWithX(leftMost, convexHulls.First()) != cotWithX(leftMost, p))
+                {
+                    convexHulls.Push(p);
                 }
-                convexHulls.Push(p);
+
             };
             return convexHulls.ToList();
         }
 
+        /// <summary>
+        /// Cotang of angle between line p, p1 and horizontal line
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="p1"></param>
+        /// <returns></returns>
+        static float cotWithX(Point p, Point p1)
+        {
+            return (float)(p1.X - p.X) / (p1.Y - p.Y);
+        }
+
         private static void FixConvexHull(Point leftMost, Stack<Point> convexHulls, Point p)
         {
-            Point lastPoint = convexHulls.Pop();
-            Point nearLastPoint = convexHulls.Pop();
-
-            // Check if we should remove the last point from the convex hull
-            // We remove it if it is inside (or on the edge) of the triangle ( leftMost, nearLastPoint, p)
-
-            if (IsPointInPolygon(new PointF[] { leftMost, nearLastPoint, p }, lastPoint))
+            if (convexHulls.Count >= 3)
             {
-                convexHulls.Push(nearLastPoint);
-                FixConvexHull(leftMost, convexHulls, p);
+                Point lastPoint = convexHulls.Pop();
+                Point nearLastPoint = convexHulls.Pop();
+
+                // Check if we should remove the last point from the convex hull
+                // We remove it if it is inside (or on the edge) of the triangle ( leftMost, nearLastPoint, p)
+
+                if (IsPointInPolygon(new PointF[] { leftMost, nearLastPoint, p }, lastPoint))
+                {
+                    convexHulls.Push(nearLastPoint);
+                    FixConvexHull(leftMost, convexHulls, p);
+                }
+                else
+                {
+                    convexHulls.Push(nearLastPoint);
+                    convexHulls.Push(lastPoint);
+                }
             }
-            else
-            {
-                convexHulls.Push(nearLastPoint);
-                convexHulls.Push(lastPoint);
-            }
+
         }
 
         public static float Score(List<Point> polygon, Point testPoint)
@@ -89,7 +112,7 @@ namespace Annotator
             // Average of reveresed distance to polygon points
             foreach (Point p in polygon)
             {
-                score += (float)(1f / Math.Sqrt((p.X - testPoint.X) ^ 2 + (p.Y - testPoint.Y) ^ 2));
+                score += (float)(1f / Math.Sqrt( Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
             }
             score /= polygon.Count;
             return score;
@@ -102,7 +125,7 @@ namespace Annotator
             float score = 0;
             foreach (Point p in new Point[] { new Point(r.Top, r.Left), new Point(r.Top, r.Right), new Point(r.Bottom, r.Left), new Point(r.Bottom, r.Right) })
             {
-                score += (float)(1f / Math.Sqrt((p.X - testPoint.X) ^ 2 + (p.Y - testPoint.Y) ^ 2));
+                score += (float)(1f / Math.Sqrt(Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
             }
             score /= 4;
             return score;
@@ -113,6 +136,13 @@ namespace Annotator
             return IsPointInPolygon(Array.ConvertAll(polygon.ToArray(), p => (PointF)p), testPoint);
         }
 
+        /// <summary>
+        /// 
+        /// Ray casting using horizontal axis
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <param name="testPoint"></param>
+        /// <returns></returns>
         public static bool IsPointInPolygon(PointF[] polygon, PointF testPoint)
         {
             bool result = false;
@@ -121,7 +151,7 @@ namespace Annotator
             {
                 if (polygon[i].Y < testPoint.Y && polygon[j].Y >= testPoint.Y || polygon[j].Y < testPoint.Y && polygon[i].Y >= testPoint.Y)
                 {
-                    if ( (testPoint.Y - polygon[i].Y)  * (polygon[j].X - polygon[i].X) < (testPoint.X - polygon[i].X) * (polygon[j].Y - polygon[i].Y))
+                    if ((testPoint.Y - polygon[i].Y) * (polygon[j].X - polygon[i].X) / (polygon[j].Y - polygon[i].Y) < (testPoint.X - polygon[i].X))
                     {
                         result = !result;
                     }
