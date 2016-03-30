@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace Annotator
 {
-    public partial class RecordPanel : UserControl
+    partial class RecordPanel : UserControl
     {
         private Panel recordingButtonGroup;
         private Button playButton;
         private Button recordButton;
         private GroupBox recordedBox;
         private GroupBox helpBox;
-        private RichTextBox richTextBox1;
+        private RichTextBox helperTextBox;
         private Panel viewPanel;
         private GroupBox viewBox;
         private ImageList imageList2;
@@ -70,7 +70,7 @@ namespace Annotator
             this.playBar = new System.Windows.Forms.TrackBar();
             this.saveRecordedSession = new System.Windows.Forms.Button();
             this.helpBox = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.helperTextBox = new System.Windows.Forms.RichTextBox();
             this.viewPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.rgbLabel = new System.Windows.Forms.Label();
@@ -114,7 +114,7 @@ namespace Annotator
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(108, 37);
             this.playButton.TabIndex = 2;
-            this.playButton.Text = "Play";
+            this.playButton.Text = "Play back";
             this.playButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.playButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.playButton.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@ namespace Annotator
             // 
             // helpBox
             // 
-            this.helpBox.Controls.Add(this.richTextBox1);
+            this.helpBox.Controls.Add(this.helperTextBox);
             this.helpBox.Location = new System.Drawing.Point(0, 49);
             this.helpBox.Name = "helpBox";
             this.helpBox.Size = new System.Drawing.Size(263, 408);
@@ -272,13 +272,13 @@ namespace Annotator
             this.helpBox.TabStop = false;
             this.helpBox.Text = "Help";
             // 
-            // richTextBox1
+            // helperTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(251, 381);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.helperTextBox.Location = new System.Drawing.Point(6, 19);
+            this.helperTextBox.Name = "helperTextBox";
+            this.helperTextBox.Size = new System.Drawing.Size(251, 381);
+            this.helperTextBox.TabIndex = 2;
+            this.helperTextBox.Text = "";
             // 
             // viewPanel
             // 
@@ -386,6 +386,7 @@ namespace Annotator
             this.cameraStatusLabel.Size = new System.Drawing.Size(76, 13);
             this.cameraStatusLabel.TabIndex = 11;
             this.cameraStatusLabel.Text = "Camera Status";
+
             // 
             // RecordPanel
             // 

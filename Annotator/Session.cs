@@ -210,7 +210,6 @@ namespace Annotator
 
         internal void generate3dforObject(Object o)
         {
-            
         }
 
         internal void selectObject(Object o)
