@@ -595,9 +595,16 @@ namespace Annotator
                 {
                     capture = new Capture(currentVideo.fileName);
                 }
-                capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameTrackBar.Value - 1);
-                pictureBoard.mat = capture.QueryFrame();
-                pictureBoard.Image = pictureBoard.mat.Bitmap;
+
+                try
+                {
+                    capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameTrackBar.Value - 1);
+                    pictureBoard.mat = capture.QueryFrame();
+                    pictureBoard.Image = pictureBoard.mat.Bitmap;
+                } catch (NullReferenceException ec)
+                {
+                    Console.WriteLine( " Get frame failed : " + frameTrackBar.Value);
+                }
             }
         }
 

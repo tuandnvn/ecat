@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,6 +15,28 @@ namespace Annotator
 {
     partial class RecordPanel
     {
+        BinaryWriter depthWriter;
+        List<TimeSpan> timePoints;
+
+        private void startRecordDepth()
+        {
+            if (depthFrameDescription != null)
+            {
+                try
+                {
+                    depthWriter = new BinaryWriter(File.Open(tempDepthFileName, FileMode.Create));
+                    depthWriter.Write((short)depthFrameDescription.Width);
+                    depthWriter.Write((short)depthFrameDescription.Height);
+
+                    timePoints = new List<TimeSpan>();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+        }
+
         private void Reader_DepthFrameArrived(object sender, DepthFrameArrivedEventArgs e)
         {
             if (recordMode != RecordMode.Playingback)
@@ -78,8 +101,19 @@ namespace Annotator
 
                                 this.depthBoard.Image = depthBitmap;
                                 //this.depthBoard.Image = depthImage.Bitmap;
+                                if (recordMode == RecordMode.Recording && this.depthWriter != null)
+                                {
+                                    if (tmspStartRecording.HasValue)
+                                    {
+                                        var currentTime = DateTime.Now.TimeOfDay;
+                                        TimeSpan elapse = currentTime - tmspStartRecording.Value;
 
-                                WriteDepthIntoFile();
+                                        timePoints.Add(elapse);
+
+                                        WriteDepthIntoFileAsync();
+                                    }
+                                }
+
                             }
                         }
                         catch (Exception ex)
@@ -91,25 +125,27 @@ namespace Annotator
             }
         }
 
-        private async Task WriteDepthIntoFile()
+        private async Task WriteDepthIntoFileAsync()
         {
-            await Task.Run(() => WriteDepthIntoFileTask());
+            await Task.Run(() => WriteDepthIntoFile());
         }
 
-        private void WriteDepthIntoFileTask()
+        private void WriteDepthIntoFile()
         {
-            if (recordMode == RecordMode.Recording && this.depthWriter != null)
+            try
             {
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
                 lock (writeDepthLock)
                 {
                     for (int i = 0; i < depthFrameDescription.Width * depthFrameDescription.Height; i++)
                         depthWriter.Write((UInt16)depthValues[i]);
-                    Interlocked.Increment(ref depthFrame);
                 }
-                sw.Stop();
+                Interlocked.Increment(ref depthFrame);
             }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(depthFrameDescription.Width  + " " + depthFrameDescription.Height + " " + depthValues.Count() + " "+ e);
+            }
+
         }
 
         private void finishWriteDepth()
@@ -118,8 +154,18 @@ namespace Annotator
             {
                 if (depthWriter != null)
                 {
+                    // Write metadata
+                    foreach (TimeSpan elapse in timePoints)
+                    {
+                        int miliseconds = (int)elapse.TotalMilliseconds;
+                        depthWriter.Write((UInt32)miliseconds);
+                    }
+                    depthWriter.Write((UInt32)depthFrame);
+
+                    // Close file
                     depthWriter.Dispose();
                     depthWriter = null;
+                    finishRecording.Signal();
                 }
             }
         }

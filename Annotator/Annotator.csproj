@@ -115,6 +115,12 @@
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Event.cs" />
+    <Compile Include="Range.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Range.Designer.cs">
+      <DependentUpon>Range.cs</DependentUpon>
+    </Compile>
     <Compile Include="LinkEventForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     <Compile Include="RecordPanel.Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="RecordPanel.Control.Playback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="RecordPanel.Control.RecordDepth.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +231,9 @@
     </Compile>
     <EmbeddedResource Include="AddRigFileForm.resx">
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Range.resx">
+      <DependentUpon>Range.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ObjectAnnotation.resx">
       <DependentUpon>ObjectAnnotation.cs</DependentUpon>

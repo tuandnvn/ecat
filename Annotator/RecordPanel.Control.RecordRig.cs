@@ -9,12 +9,11 @@ namespace Annotator
 {
     partial class RecordPanel
     {
-
         /**
         <BodyDataSequence>
         <Body_Data>
 	        <Subject id="003" name="Trainee"/>
-	        <Timestamp time="2016-03-20T03:41:21.385519Z" frame="0" />
+	        <Timestamp time="2016-03-20T03:41:21.385519Z" timeFromBegin="513" frame="0" />
 	        <Skeleton_Joint_Locations>
 		        <Pts unit="m" ref="KC" format="SeqXYZ" schema="MIBA_SJ_v2.0">0.51399,0.163888,1.20627,0.494376,0.362051,1.19127,0.471949,0.557904,1.16773,0.429241,0.67668,1.15982,0.341345,0.492503,1.26928,0.263866,0.307297,1.31598,0.186578,0.146819,1.3238,0.149664,0.0832369,1.32295,0.561353,0.481381,1.11162,0.629317,0.310103,1.06671,0.631272,0.145862,1.03625,0.613708,0.105818,1.00281,0.461851,0.166738,1.22468,0.472659,0.0518708,1.15809,0.400671,0.038645,1.20482,0.350149,0.00618321,1.12578,0.550396,0.178427,1.15067,0.588908,0.0670342,1.08235,0.600085,0.0299289,0.950631,0.565235,0.0235135,0.868779,0.478074,0.509249,1.17511,0.10114,0.0282999,1.30987,0.157374,0.034974,1.32726,0.603486,0.0407229,0.99145,0.604288,0.0912648,0.963943</Pts>
 	        </Skeleton_Joint_Locations>
@@ -31,44 +30,53 @@ namespace Annotator
         **/
         private void Reader_BodyFrameArrived(object sender, BodyFrameArrivedEventArgs e)
         {
-            bool dataReceived = false;
-
-            using (BodyFrame bodyFrame = e.FrameReference.AcquireFrame())
+            if (recordMode != RecordMode.Playingback)
             {
-                if (bodyFrame != null)
+                bool dataReceived = false;
+
+                using (BodyFrame bodyFrame = e.FrameReference.AcquireFrame())
                 {
-                    if (this.bodies == null)
+                    if (bodyFrame != null)
                     {
-                        this.bodies = new Body[bodyFrame.BodyCount];
+                        if (this.bodies == null)
+                        {
+                            this.bodies = new Body[bodyFrame.BodyCount];
+                        }
+
+                        // The first time GetAndRefreshBodyData is called, Kinect will allocate each Body in the array.
+                        // As long as those body objects are not disposed and not set to null in the array,
+                        // those body objects will be re-used.
+                        bodyFrame.GetAndRefreshBodyData(this.bodies);
+                        dataReceived = true;
                     }
-
-                    // The first time GetAndRefreshBodyData is called, Kinect will allocate each Body in the array.
-                    // As long as those body objects are not disposed and not set to null in the array,
-                    // those body objects will be re-used.
-                    bodyFrame.GetAndRefreshBodyData(this.bodies);
-                    dataReceived = true;
                 }
-            }
 
-            if (dataReceived)
-            {
-                if (this.bodies.Count() > 0)
+                if (dataReceived)
                 {
-                    rgbBoard.Invalidate();
-                }
-                if (recordMode == RecordMode.Recording && this.rigWriter != null)
-                {
-                    WriteRigAsync();
+                    if (this.bodies.Count() > 0)
+                    {
+                        rgbBoard.Invalidate();
+                    }
+                    if (recordMode == RecordMode.Recording && this.rigWriter != null)
+                    {
+                        if (tmspStartRecording.HasValue)
+                        {
+                            var currentTime = DateTime.Now.TimeOfDay;
+                            TimeSpan elapse = currentTime - tmspStartRecording.Value;
+                            WriteRigAsync(elapse);
+                        }
+                    }
                 }
             }
         }
 
-        private async void WriteRigAsync()
+
+        private async void WriteRigAsync(TimeSpan elapse)
         {
-            await Task.Run(() => WriteRig());
+            await Task.Run(() => WriteRig(elapse));
         }
 
-        private void WriteRig()
+        private void WriteRig(TimeSpan elapse)
         {
             lock (rigLock)
             {
@@ -87,6 +95,7 @@ namespace Annotator
                         // Timestamp
                         rigWriter.WriteStartElement("Timestamp");
                         rigWriter.WriteAttributeString("time", DateTime.Now.ToString(@"yyyy-MM-dd HH:mm:ssss"));
+                        rigWriter.WriteAttributeString("timeFromBegin", "" + (int) elapse.TotalMilliseconds);
                         rigWriter.WriteAttributeString("frame", "" + rgbStreamedFrame);
                         rigWriter.WriteEndElement();
 
@@ -178,6 +187,23 @@ namespace Annotator
 
                         rigWriter.WriteEndElement();
                     }
+                }
+            }
+        }
+
+
+        private void finishWriteRig()
+        {
+            lock (rigLock)
+            {
+                if (rigWriter != null)
+                {
+                    rigWriter.WriteEndElement();
+                    rigWriter.WriteEndDocument();
+                    rigWriter.Dispose();
+                    rigWriter = null;
+
+                    finishRecording.Signal();
                 }
             }
         }

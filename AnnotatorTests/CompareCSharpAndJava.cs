@@ -132,5 +132,11 @@ namespace AnnotatorTests
 
             System.Reflection.Assembly info = typeof(System.Int32).Assembly;
         }
+
+        [TestMethod]
+        public void TestRandom()
+        {
+
+        }
     }
 }

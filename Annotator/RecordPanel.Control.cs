@@ -31,17 +31,28 @@ namespace Annotator
         }
 
         private RecordMode recordMode = RecordMode.None;
+        private CountdownEvent finishRecording = null;
 
-        public void OptionsTable()
+        public void InitializeOptionsTable()
         {
-            optionsTable.Rows.Add("RGB video file ext", "AVI");
-            optionsTable.Rows.Add("RGB video file size", "Large");
-            optionsTable.Rows.Add("RGB video file name", "rgb_[Size]_[DateTime]");
-            optionsTable.Rows.Add("Depth file ext", "AVI");
+            optionsTable.Rows.Add("Temporary file path", ".");
+            optionsTable.Rows.Add("RGB video file ext", "avi");
+            optionsTable.Rows.Add("RGB Fps", "25");
+            optionsTable.Rows.Add("RGB bitrate", "3000000");
+            optionsTable.Rows.Add("RGB video file name", "rgb_[DateTime]");
+            optionsTable.Rows.Add("Depth file ext", "dat");
             optionsTable.Rows.Add("Depth file name", "depth_[DateTime]");
             optionsTable.Rows.Add("Show rigs", "True");
             optionsTable.Rows.Add("Record rigs", "True");
-            optionsTable.Rows.Add("Detect blocks", "False");
+            //optionsTable.Rows.Add("Detect blocks", "False");
+
+            List<bool> bools = new List<bool>() { true, false };
+            DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
+            c.DataSource = bools;
+            c.Value = true;
+
+            optionsTable.Rows[7].Cells[1] = c;
+            //optionsTable.Rows[8].Cells[1] = c;
         }
 
         protected void InitializeButtons()
@@ -69,7 +80,7 @@ namespace Annotator
 
         private CoordinateMapper coordinateMapper = null;
         private const float JointThickness = 1;
-        private const int FRAME_PER_SECOND = 30;
+        
         private BodyFrameReader bodyFrameReader = null;
         private Body[] bodies = null;
         private List<Tuple<JointType, JointType>> bones;
@@ -84,22 +95,13 @@ namespace Annotator
         String tempConfigFileName = "config_temp.json";
         
         int depthFrame = 0;
-
-
-        VideoFileWriter writer = new VideoFileWriter();
-        BinaryWriter depthWriter;
         XmlWriter rigWriter;
-
         Mat matBuffer;
-
-        
-        BlockingCollection<Bitmap> bufferedImages;
-
         Bitmap rgbBitmap;
 
         public void initiateKinectViewers()
         {
-            bufferedImages = new BlockingCollection<Bitmap>();
+            bufferedImages = new BlockingCollection<Tuple<Bitmap, TimeSpan>>();
 
             // a bone defined as a line between two joints
             this.bones = new List<Tuple<JointType, JointType>>();
@@ -396,6 +398,7 @@ namespace Annotator
             recordButton.ImageIndex = 1;
             recordMode = RecordMode.Recording;
 
+            finishRecording = new CountdownEvent(3);
             startRecordRgb();
             startRecordDepth();
             startRecordRig();
@@ -418,20 +421,6 @@ namespace Annotator
             }
         }
 
-        private void startRecordDepth()
-        {
-            if (depthFrameDescription != null)
-            {
-                try
-                {
-                    depthWriter = new BinaryWriter(File.Open(tempDepthFileName, FileMode.Create));
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-            }
-        }
 
         
         object writeDepthLock = new object();
@@ -444,35 +433,10 @@ namespace Annotator
             recordMode = RecordMode.Playingback;
             finishWriteRgb();
             finishWriteDepth();
-
-            lock (rigLock)
-            {
-                if (rigWriter != null)
-                {
-                    rigWriter.WriteEndElement();
-                    rigWriter.WriteEndDocument();
-                    rigWriter.Dispose();
-                    rigWriter = null;
-                }
-            }
+            finishWriteRig();
 
             playButton_MouseDown(null, null);
-
-            helperTextBox.Text = "Temporary rgb file has " + rgbStreamedFrame + " frames \n"
-                + "Temporary depth file has " + depthFrame + " frames \n";
-            helperTextBox.Invalidate();
         }
-
-        private void handlePlayButtonOn()
-        {
-            playButton.ImageIndex = 3;
-        }
-
-        private void handlePlayButtonOff()
-        {
-            playButton.ImageIndex = 2;
-        }
-
     }
 }
 

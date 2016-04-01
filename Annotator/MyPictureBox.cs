@@ -12,11 +12,10 @@ namespace Annotator
     {
         public Capture capture { set; get; }
         public Mat mat { set; get; }
+        public object playbackLock;
 
         protected override void OnPaint(PaintEventArgs pe)
         {
-            Console.WriteLine("Before On_Paint");
-
             //if (mat != null)
             //{
             //    Image = mat.Bitmap;
@@ -26,9 +25,16 @@ namespace Annotator
             //    capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, 0);
             //    Image = capture.QueryFrame().Bitmap;
             //}
-            base.OnPaint(pe);
-
-            Console.WriteLine("After On_Paint");
+            if (playbackLock != null)
+            {
+                lock (playbackLock)
+                {
+                    base.OnPaint(pe);
+                }
+            } else
+            {
+                base.OnPaint(pe);
+            }
         }
     }
 }

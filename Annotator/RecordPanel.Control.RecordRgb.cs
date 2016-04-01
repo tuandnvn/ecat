@@ -1,6 +1,7 @@
 ﻿using AForge.Video.FFMPEG;
 using Microsoft.Kinect;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -14,12 +15,17 @@ namespace Annotator
 {
     partial class RecordPanel
     {
-        int scaleVideo = 2;
+        VideoFileWriter writer = new VideoFileWriter();
+        BlockingCollection<Tuple<Bitmap, TimeSpan>> bufferedImages;
+        int scaleVideo = 1;
         int rgbStreamedFrame = 0;
         int rgbWritenFrame = 0;
         Bitmap tempo = null;
-        Bitmap bitMapTakenFromBuffer = null;
+        Tuple<Bitmap, TimeSpan> bitMapTakenFromBuffer = null;
         object writeRgbLock = new object();
+        private const int FRAME_PER_SECOND = 25;
+        
+
 
         private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
         {
@@ -32,6 +38,7 @@ namespace Annotator
                     {
                         using (KinectBuffer colorBuffer = colorFrame.LockRawImageBuffer())
                         {
+                            // Write the data from colorFrame into rgbBitmap
                             colorFrame.CopyConvertedFrameDataToArray(rgbValues, ColorImageFormat.Bgra);
 
                             BitmapData bmapdata = rgbBitmap.LockBits(
@@ -44,11 +51,19 @@ namespace Annotator
 
                             this.widthAspect = (float)this.rgbBoard.Width / colorFrameDescription.Width;
                             this.heightAspect = (float)this.rgbBoard.Height / colorFrameDescription.Height;
+
+                            // Show rgbBitmap into rgbBoard
                             this.rgbBoard.Image = rgbBitmap;
+
 
                             if (recordMode == RecordMode.Recording && this.writer != null)
                             {
-                                WriteImageIntoBufferAsync();
+                                tmspStartRecording = tmspStartRecording ?? DateTime.Now.TimeOfDay;
+                                var currentTime = DateTime.Now.TimeOfDay;
+                                TimeSpan elapse = currentTime - tmspStartRecording.Value;
+
+                                //ResizeAndWriteImageAsync();
+                                WriteImageIntoBufferAsync(elapse);
                             }
                         }
                     }
@@ -56,8 +71,11 @@ namespace Annotator
             }
         }
 
+        TimeSpan? tmspStartRecording = null;
+
         private void startRecordRgb()
         {
+
             if (colorFrameDescription != null)
             {
                 Thread thread = new Thread(new ThreadStart(ColorRecordingFunction));
@@ -69,7 +87,8 @@ namespace Annotator
                     //Console.WriteLine("Finish create writer");
 
                     writer = new VideoFileWriter();
-                    writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, FRAME_PER_SECOND, VideoCodec.MPEG4, 20000000);
+                    writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, FRAME_PER_SECOND, VideoCodec.MPEG4, 2000000);
+                    //writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
                 }
                 catch (Exception e)
                 {
@@ -79,25 +98,25 @@ namespace Annotator
         }
 
 
-        private async Task WriteImageIntoBufferAsync()
+        private async Task WriteImageIntoBufferAsync(TimeSpan timePoint)
         {
-            await Task.Run(() => WriteImageIntoBuffer());
+            await Task.Run(() => WriteImageIntoBuffer(timePoint));
         }
 
-        private async void WriteImageIntoBuffer()
+        private async void WriteImageIntoBuffer(TimeSpan timePoint)
         {
             Interlocked.Increment(ref rgbStreamedFrame);
-            Bitmap rgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
-            BitmapData bmapdata = rgbBitmap.LockBits(
+            Bitmap cloneRgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
+            BitmapData bmapdata = cloneRgbBitmap.LockBits(
              new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
              ImageLockMode.WriteOnly,
-             rgbBitmap.PixelFormat);
+             cloneRgbBitmap.PixelFormat);
 
             IntPtr ptr = bmapdata.Scan0;
             Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
-            rgbBitmap.UnlockBits(bmapdata);
+            cloneRgbBitmap.UnlockBits(bmapdata);
 
-            bufferedImages.Add(rgbBitmap);
+            bufferedImages.Add(new Tuple<Bitmap, TimeSpan>(cloneRgbBitmap, timePoint));
 
             if (rgbStreamedFrame % 50 == 0)
             {
@@ -106,48 +125,110 @@ namespace Annotator
             }
         }
 
+        TimeSpan lastWrittenRgbTime = default(TimeSpan);
         private void ColorRecordingFunction()
         {
             Console.WriteLine("Begin writing");
 
             // Wait for 10s 
-            while (bufferedImages.TryTake(out bitMapTakenFromBuffer, 2000) && bitMapTakenFromBuffer != null)
+            try
             {
-                ResizeAndWriteImage();
+                while (bufferedImages.TryTake(out bitMapTakenFromBuffer, 2000) && bitMapTakenFromBuffer != null)
+                {
+                    //Console.WriteLine("No of frames in buffer " + bufferedImages.Count);
+                    ResizeAndWriteImage(bitMapTakenFromBuffer.Item1, bitMapTakenFromBuffer.Item2);
+                    lastWrittenRgbTime = bitMapTakenFromBuffer.Item2;
+                }
             }
+            finally
+            {
+                if (writer != null)
+                {
+                    Console.WriteLine("Finish writing");
+                    writer.Dispose();
+                    writer = null;
 
-            Console.WriteLine("Finish writing");
+                    finishRecording.Signal();
+                }
+            }
         }
 
-        public void ResizeAndWriteImage()
+        public async void ResizeAndWriteImageAsync()
         {
-            if (writer != null && bitMapTakenFromBuffer != null)
+            Bitmap cloneRgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
+            BitmapData bmapdata = cloneRgbBitmap.LockBits(
+             new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
+             ImageLockMode.WriteOnly,
+             cloneRgbBitmap.PixelFormat);
+
+            IntPtr ptr = bmapdata.Scan0;
+            Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
+            cloneRgbBitmap.UnlockBits(bmapdata);
+            await Task.Run(() => ResizeAndWriteImage(cloneRgbBitmap));
+        }
+
+        public void ResizeAndWriteImage(Bitmap bitmap, TimeSpan elapse = default(TimeSpan))
+        {
+            lock (writeRgbLock)
             {
-                lock (writeRgbLock)
+                try
                 {
-                    if (scaleVideo == 1)
+                    if (writer != null && bitmap != null)
                     {
-                        writer.WriteVideoFrame(bitMapTakenFromBuffer);
+                        if (scaleVideo == 1)
+                        {
+                            try
+                            {
+                                //writer.WriteVideoFrame(bitMapTakenFromBuffer);
+                                if (elapse == default(TimeSpan))
+                                {
+                                    writer.WriteVideoFrame(bitmap);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("After elapse " + elapse);
+                                    writer.WriteVideoFrame(bitmap, elapse);
+                                }
+
+                            }
+                            catch (System.IO.IOException e)
+                            {
+                                System.Windows.Forms.MessageBox.Show("IO Exception " + e);
+                            }
+
+                        }
+                        else
+                        {
+                            tempo = new Bitmap(bitmap, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
+                            if (elapse == default(TimeSpan))
+                            {
+                                writer.WriteVideoFrame(bitmap);
+                            }
+                            else
+                            {
+                                Console.WriteLine("After elapse " + elapse);
+                                writer.WriteVideoFrame(bitmap, elapse);
+                            }
+                        }
                     }
-                    else
-                    {
-                        tempo = new Bitmap(bitMapTakenFromBuffer, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
-                        writer.WriteVideoFrame(tempo);
-                    }
+                }
+                finally
+                {
+                    bitmap.Dispose();
                 }
             }
         }
 
         private void finishWriteRgb()
         {
-            lock (writeRgbLock)
-            {
-                if (writer != null)
-                {
-                    writer.Dispose();
-                    writer = null;
-                }
-            }
+            //lock (writeRgbLock)
+            //{
+            //    if (writer != null)
+            //    {
+            //        writer.Dispose();
+            //        writer = null;
+            //    }
+            //}
         }
     }
 }
