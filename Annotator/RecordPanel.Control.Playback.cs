@@ -71,6 +71,7 @@ namespace Annotator
             playBar.Enabled = true;
             playBar.Minimum = 1;
             playBar.Maximum = rgbPlaybackFrameNo;
+            playBar.Value = 1;
 
             helperTextBox.Text = "Temporary rgb file has written " + rgbStreamedFrame + " frames \n"
                 + "Temporary depth file has written " + depthFrame + " frames \n"
@@ -127,11 +128,6 @@ namespace Annotator
                     }
                 }
 
-                Console.WriteLine("lastWrittenRgbTime " + lastWrittenRgbTime.TotalMilliseconds);
-                Console.WriteLine("playBar.Value " + playBar.Value);
-                Console.WriteLine("recordedTimeForRgbFrame " + recordedTimeForRgbFrame);
-                Console.WriteLine("appropriateDepthFrame " + appropriateDepthFrame);
-                Console.WriteLine("recordedTimeForDepthFrame " + depthFrameTimePoints[appropriateDepthFrame]);
                 // Plus 4 for depth frame, depth width , each two bytes
                 int beginOffset = 4;
 
@@ -172,7 +168,30 @@ namespace Annotator
 
         private void updateRigWithFrame()
         {
+            int recordedTimeForRgbFrame = (int)(lastWrittenRgbTime.TotalMilliseconds * (playBar.Value - 1) / (rgbPlaybackFrameNo - 1));
+            int appropriateRigFrame = recordedRigTimePoints.BinarySearch(recordedTimeForRgbFrame);
 
+            // bitwise complement if it is not found
+            if (appropriateRigFrame < 0)
+            {
+                appropriateRigFrame = ~appropriateRigFrame;
+
+                if (appropriateRigFrame == depthFrameTimePoints.Count)
+                {
+                    appropriateRigFrame = depthFrameTimePoints.Count - 1;
+                }
+                else if (appropriateRigFrame > 0)
+                {
+                    // Smaller timepoint is closer
+                    if ((recordedTimeForRgbFrame - depthFrameTimePoints[appropriateRigFrame - 1]) < depthFrameTimePoints[appropriateRigFrame] - recordedTimeForRgbFrame)
+                    {
+                        appropriateRigFrame--;
+                    }
+                }
+            }
+
+            this.bodies = recordedRigs[appropriateRigFrame];
+            Invalidate();
         }
 
         internal void setTrackbarLocation(int value)

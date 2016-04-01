@@ -115,7 +115,7 @@ namespace Annotator
             this.DoubleBuffered = true;
             this.Name = "Range";
             this.Size = new System.Drawing.Size(800, 53);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Range_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Range_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Range_MouseUp);
             this.ResumeLayout(false);

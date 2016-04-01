@@ -33,13 +33,11 @@ namespace Annotator
 
         private int rectangleYPos = 8;
         private int rectangleSize = 12;
-        public int startFrame { get; private set; }
-        public int endFrame { get; private set; }
 
         private int _axisRight;
         private int _axisLeft;
-        public int axisRight { get { return _axisRight; } set { this._axisRight = value; Invalidate(); } }
-        public int axisLeft { get { return _axisLeft; } set { this._axisLeft = value; Invalidate(); } }
+        public int axisRight { get { return _axisRight; } set { this._axisRight = value; ResetLeftRight(); } }
+        public int axisLeft { get { return _axisLeft; } set { this._axisLeft = value; ResetLeftRight(); } }
 
 
         internal Range() : this(null, 0)
@@ -82,10 +80,10 @@ namespace Annotator
 
                 if (newX < rightMarker.X1)
                 {
-                    resetLeftWrite(newX, rightMarker.X1);
-                    //leftMarker.X1 = leftMarker.X2 = newX;
-                    //this.rectangleShape.Location = new Point(leftMarker.X1 + leftMarker.BorderWidth - 1, rectangleYPos);
-                    //this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
+                    //resetLeftWrite(newX, rightMarker.X1);
+                    leftMarker.X1 = leftMarker.X2 = newX;
+                    this.rectangleShape.Location = new Point(leftMarker.X1 + leftMarker.BorderWidth - 1, rectangleYPos);
+                    this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
                     this.recordPanel.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + 1);
                 }
             }
@@ -95,9 +93,9 @@ namespace Annotator
 
                 if (leftMarker.X1 < newX)
                 {
-                    resetLeftWrite(leftMarker.X1, newX);
-                    //rightMarker.X1 = rightMarker.X2 = newX;
-                    //this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
+                    //resetLeftWrite(leftMarker.X1, newX);
+                    rightMarker.X1 = rightMarker.X2 = newX;
+                    this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
                     this.recordPanel.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + 1);
                 }
             }
@@ -109,7 +107,7 @@ namespace Annotator
             slider2Move = false;
         }
 
-        private void Annotation_MouseDown(object sender, MouseEventArgs e)
+        private void Range_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Location.X >= leftMarker.X1 - leftMarker.BorderWidth && e.Location.X <= leftMarker.X1 + leftMarker.BorderWidth)
             {
@@ -138,15 +136,15 @@ namespace Annotator
 
         private void lineShape2_Move(object sender, EventArgs e)
         {
-            startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + 1;
-            intervalLbl.Text = "Start: " + startFrame + ", Stop: " + endFrame;
+            _start = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + 1;
+            intervalLbl.Text = "Start: " + _start + ", Stop: " + _end;
             //recordPanel.Invalidate();
         }
 
         private void lineShape3_Move(object sender, EventArgs e)
         {
-            endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + 1;
-            intervalLbl.Text = "Start: " + startFrame + ", Stop: " + endFrame;
+            _end = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + 1;
+            intervalLbl.Text = "Start: " + _start + ", Stop: " + _end;
             //recordPanel.Invalidate();
         }
 
@@ -155,9 +153,8 @@ namespace Annotator
             axis.BringToFront();
         }
 
-        protected override void OnPaint(PaintEventArgs pe)
+        protected void ResetLeftRight()
         {
-            base.OnPaint(pe);
             this.axis.X1 = axisLeft;
             this.axis.X2 = axisRight;
 
@@ -166,8 +163,7 @@ namespace Annotator
             recalFrameStep();
 
             resetLeftWrite(this.axis.X1, this.axis.X2);
-
-
+            Invalidate();
         }
 
         private void resetLeftWrite(int x, int y)

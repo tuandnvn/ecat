@@ -1,6 +1,7 @@
 ﻿using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,10 @@ namespace Annotator
 	        </Skeleton_Joint_Confidences>
         </Body_Data>
         **/
+        List<Body[]> recordedRigs = new List<Body[]>();
+        List<int> recordedRigTimePoints = new List<int>();
+        IReadOnlyDictionary<JointType, Joint> currentJoints;
+
         private void Reader_BodyFrameArrived(object sender, BodyFrameArrivedEventArgs e)
         {
             if (recordMode != RecordMode.Playingback)
@@ -53,16 +58,20 @@ namespace Annotator
 
                 if (dataReceived)
                 {
-                    if (this.bodies.Count() > 0)
-                    {
-                        rgbBoard.Invalidate();
-                    }
+                    rgbBoard.Invalidate();
                     if (recordMode == RecordMode.Recording && this.rigWriter != null)
                     {
                         if (tmspStartRecording.HasValue)
                         {
+
+                            // Save a copy of rig for later replay
+                            List<Body> tempBodies = new List<Body>();
+                            recordedRigs.Add(this.bodies.Where(body => body.IsTracked).ToArray());
+
                             var currentTime = DateTime.Now.TimeOfDay;
                             TimeSpan elapse = currentTime - tmspStartRecording.Value;
+                            recordedRigTimePoints.Add((int)elapse.TotalMilliseconds);
+
                             WriteRigAsync(elapse);
                         }
                     }
@@ -95,7 +104,7 @@ namespace Annotator
                         // Timestamp
                         rigWriter.WriteStartElement("Timestamp");
                         rigWriter.WriteAttributeString("time", DateTime.Now.ToString(@"yyyy-MM-dd HH:mm:ssss"));
-                        rigWriter.WriteAttributeString("timeFromBegin", "" + (int) elapse.TotalMilliseconds);
+                        rigWriter.WriteAttributeString("timeFromBegin", "" + (int)elapse.TotalMilliseconds);
                         rigWriter.WriteAttributeString("frame", "" + rgbStreamedFrame);
                         rigWriter.WriteEndElement();
 

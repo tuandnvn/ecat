@@ -45,14 +45,18 @@ namespace Annotator
             optionsTable.Rows.Add("Show rigs", "True");
             optionsTable.Rows.Add("Record rigs", "True");
             //optionsTable.Rows.Add("Detect blocks", "False");
+            changeRowToTrueFall(optionsTable, 7, 1);
+            changeRowToTrueFall(optionsTable, 8, 1);
+        }
 
+        private void changeRowToTrueFall(DataGridView optionsTable, int row, int col)
+        {
             List<bool> bools = new List<bool>() { true, false };
             DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
             c.DataSource = bools;
             c.Value = true;
 
-            optionsTable.Rows[7].Cells[1] = c;
-            //optionsTable.Rows[8].Cells[1] = c;
+            optionsTable.Rows[row].Cells[col] = c;
         }
 
         protected void InitializeButtons()

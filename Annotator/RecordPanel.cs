@@ -418,6 +418,7 @@ namespace Annotator
         {
             updateRgbBoardWithFrame();
             updateDepthBoardWithFrame();
+            updateRigWithFrame();
         }
 
     }
