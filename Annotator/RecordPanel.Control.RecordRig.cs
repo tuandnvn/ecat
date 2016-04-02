@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Annotator
 {
@@ -31,27 +32,53 @@ namespace Annotator
         **/
         List<Body[]> recordedRigs = new List<Body[]>();
         List<int> recordedRigTimePoints = new List<int>();
-        IReadOnlyDictionary<JointType, Joint> currentJoints;
+        
+
+        private void startRecordRig()
+        {
+            recordedRigs = new List<Body[]>();
+            recordedRigTimePoints = new List<int>();
+
+            try
+            {
+                XmlWriterSettings ws = new XmlWriterSettings();
+                ws.Indent = true;
+
+                rigWriter = XmlWriter.Create(tempRigFileName, ws);
+                rigWriter.WriteStartDocument();
+                rigWriter.WriteStartElement("BodyDataSequence");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
 
         private void Reader_BodyFrameArrived(object sender, BodyFrameArrivedEventArgs e)
         {
             if (recordMode != RecordMode.Playingback)
             {
                 bool dataReceived = false;
+                Body[] tempo = null;
 
                 using (BodyFrame bodyFrame = e.FrameReference.AcquireFrame())
                 {
                     if (bodyFrame != null)
                     {
-                        if (this.bodies == null)
+                        Console.WriteLine("body frame count " + bodyFrame.BodyCount);
+                        if (this.recordingBodies == null)
                         {
-                            this.bodies = new Body[bodyFrame.BodyCount];
+                            this.recordingBodies = new Body[bodyFrame.BodyCount];
                         }
+                        tempo = new Body[bodyFrame.BodyCount];
 
                         // The first time GetAndRefreshBodyData is called, Kinect will allocate each Body in the array.
                         // As long as those body objects are not disposed and not set to null in the array,
                         // those body objects will be re-used.
-                        bodyFrame.GetAndRefreshBodyData(this.bodies);
+                        bodyFrame.GetAndRefreshBodyData(this.recordingBodies);
+                        bodyFrame.GetAndRefreshBodyData(tempo);
+
                         dataReceived = true;
                     }
                 }
@@ -63,10 +90,9 @@ namespace Annotator
                     {
                         if (tmspStartRecording.HasValue)
                         {
-
                             // Save a copy of rig for later replay
-                            List<Body> tempBodies = new List<Body>();
-                            recordedRigs.Add(this.bodies.Where(body => body.IsTracked).ToArray());
+                            
+                            recordedRigs.Add(tempo.Where(body => body.IsTracked).ToArray());
 
                             var currentTime = DateTime.Now.TimeOfDay;
                             TimeSpan elapse = currentTime - tmspStartRecording.Value;
@@ -87,11 +113,11 @@ namespace Annotator
 
         private void WriteRig(TimeSpan elapse)
         {
-            lock (rigLock)
+            lock (writeRigLock)
             {
-                for (int bodyIndex = 0; bodyIndex < this.bodies.Count(); bodyIndex++)
+                for (int bodyIndex = 0; bodyIndex < this.recordingBodies.Count(); bodyIndex++)
                 {
-                    Body body = this.bodies[bodyIndex];
+                    Body body = this.recordingBodies[bodyIndex];
                     if (body.IsTracked)
                     {
                         rigWriter.WriteStartElement("Body_Data");
@@ -203,7 +229,7 @@ namespace Annotator
 
         private void finishWriteRig()
         {
-            lock (rigLock)
+            lock (writeRigLock)
             {
                 if (rigWriter != null)
                 {

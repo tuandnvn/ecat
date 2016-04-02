@@ -37,8 +37,9 @@ namespace Annotator
         private Label videoNameLabel;
         private Label recordTimeLbl;
         private Label endTimeLabel;
-        private Range range1;
+        private Range cropBar;
         private Button calibrateButton;
+        internal Main main;
 
         public RecordPanel()
         {
@@ -82,7 +83,6 @@ namespace Annotator
             this.recordingButtonGroup.SuspendLayout();
             this.recordedBox.SuspendLayout();
             this.cropBox.SuspendLayout();
-            this.range1 = new Range();
             ((System.ComponentModel.ISupportInitialize)(this.playBar)).BeginInit();
             this.helpBox.SuspendLayout();
             this.viewPanel.SuspendLayout();
@@ -106,6 +106,7 @@ namespace Annotator
             // 
             // playButton
             // 
+            this.playButton.Enabled = false;
             this.playButton.ImageIndex = 2;
             this.playButton.ImageList = this.imageList2;
             this.playButton.Location = new System.Drawing.Point(232, 2);
@@ -145,6 +146,7 @@ namespace Annotator
             // 
             // calibrateButton
             // 
+            this.calibrateButton.Enabled = false;
             this.calibrateButton.Location = new System.Drawing.Point(4, 2);
             this.calibrateButton.Name = "calibrateButton";
             this.calibrateButton.Size = new System.Drawing.Size(108, 37);
@@ -205,7 +207,7 @@ namespace Annotator
             // 
             // cropBox
             // 
-            this.cropBox.Controls.Add(this.range1);
+            this.cropBox.Controls.Add(this.cropBar);
             this.cropBox.Location = new System.Drawing.Point(23, 104);
             this.cropBox.Name = "cropBox";
             this.cropBox.Size = new System.Drawing.Size(1110, 84);
@@ -213,15 +215,16 @@ namespace Annotator
             this.cropBox.TabStop = false;
             this.cropBox.Text = "Crop";
             // 
-            // range1
+            // cropBar
             // 
-            this.range1.axisLeft = 6;
-            this.range1.axisRight = 1088;
-            this.range1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.range1.Location = new System.Drawing.Point(9, 25);
-            this.range1.Name = "range1";
-            this.range1.Size = new System.Drawing.Size(1092, 53);
-            this.range1.TabIndex = 0;
+            this.cropBar.axisLeft = 6;
+            this.cropBar.axisRight = 1088;
+            this.cropBar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cropBar.Location = new System.Drawing.Point(9, 25);
+            this.cropBar.Name = "cropBar";
+            this.cropBar.Size = new System.Drawing.Size(1092, 53);
+            this.cropBar.TabIndex = 0;
+            this.cropBar.Visible = false;
             // 
             // playBar
             // 
@@ -241,6 +244,7 @@ namespace Annotator
             this.saveRecordedSession.TabIndex = 0;
             this.saveRecordedSession.Text = "Save";
             this.saveRecordedSession.UseVisualStyleBackColor = true;
+            this.saveRecordedSession.Click += new System.EventHandler(this.saveRecordedSession_Click);
             // 
             // recordTimeLbl
             // 
@@ -421,5 +425,14 @@ namespace Annotator
             updateRigWithFrame();
         }
 
+        private void rgbBoard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void saveRecordedSession_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

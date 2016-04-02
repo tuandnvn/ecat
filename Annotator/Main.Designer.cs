@@ -867,6 +867,7 @@
             // 
             // recordPanel
             // 
+            this.recordPanel.main = this;
             this.recordPanel.Location = new System.Drawing.Point(0, 0);
             this.recordPanel.Name = "recordPanel";
             this.recordPanel.Size = new System.Drawing.Size(1420, 860);

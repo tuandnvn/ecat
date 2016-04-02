@@ -24,8 +24,8 @@ namespace Annotator
         Tuple<Bitmap, TimeSpan> bitMapTakenFromBuffer = null;
         object writeRgbLock = new object();
         private const int FRAME_PER_SECOND = 25;
-        
-
+        TimeSpan lastWrittenRgbTime = default(TimeSpan);
+        TimeSpan? tmspStartRecording = null;
 
         private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
         {
@@ -71,13 +71,15 @@ namespace Annotator
             }
         }
 
-        TimeSpan? tmspStartRecording = null;
+        
 
         private void startRecordRgb()
         {
-
             if (colorFrameDescription != null)
             {
+                rgbStreamedFrame = 0;
+                rgbWritenFrame = 0;
+
                 Thread thread = new Thread(new ThreadStart(ColorRecordingFunction));
                 thread.Start();
 
@@ -125,7 +127,7 @@ namespace Annotator
             }
         }
 
-        TimeSpan lastWrittenRgbTime = default(TimeSpan);
+        
         private void ColorRecordingFunction()
         {
             Console.WriteLine("Begin writing");
@@ -192,6 +194,9 @@ namespace Annotator
 
                             }
                             catch (System.IO.IOException e)
+                            {
+                                System.Windows.Forms.MessageBox.Show("IO Exception " + e);
+                            }catch (AForge.Video.VideoException e)
                             {
                                 System.Windows.Forms.MessageBox.Show("IO Exception " + e);
                             }

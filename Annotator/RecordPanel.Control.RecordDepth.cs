@@ -17,6 +17,7 @@ namespace Annotator
     {
         BinaryWriter depthWriter;
         List<TimeSpan> timePoints;
+        int depthFrame = 0;
 
         private void startRecordDepth()
         {
@@ -24,6 +25,8 @@ namespace Annotator
             {
                 try
                 {
+                    depthFrame = 0;
+
                     depthWriter = new BinaryWriter(File.Open(tempDepthFileName, FileMode.Create));
                     depthWriter.Write((short)depthFrameDescription.Width);
                     depthWriter.Write((short)depthFrameDescription.Height);

@@ -1,4 +1,5 @@
 ﻿using Emgu.CV;
+using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,12 +22,15 @@ namespace Annotator
         int depthPlaybackFrameNo;
         List<Int32> depthFrameTimePoints;
         int rgbPlaybackFrameNo;
+        private Body[] playbackBodies = null;
 
         private void handlePlayButtonOn()
         {
             finishRecording.Wait();
-            playButton.ImageIndex = 3;
+            recordMode = RecordMode.Playingback;
 
+            playButton.ImageIndex = 3;
+            
             playBackRgbLock = new object();
             rgbBoard.playbackLock = playBackRgbLock;
 
@@ -40,9 +44,10 @@ namespace Annotator
             int frameHeight = (int)rgbCapture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
 
             // Add a range selector
-            range1.recordPanel = this;
-            range1.start = 1;
-            range1.end = rgbPlaybackFrameNo;
+            cropBar.recordPanel = this;
+            cropBar.start = 1;
+            cropBar.end = rgbPlaybackFrameNo;
+            cropBar.Visible = true;
 
             depthReader = new BinaryReader(File.Open(tempDepthFileName, FileMode.Open));
             depthWidth = depthReader.ReadInt16();
@@ -79,7 +84,7 @@ namespace Annotator
                 + "Temporary depth file has " + depthFrame + " frames of size = ( " + depthWidth + " , " + depthHeight + " ) \n"
                 + "RecordingTime " + lastWrittenRgbTime;
 
-            this.Invalidate();
+            main.Invalidate();
         }
 
         private void updateRgbBoardWithFrame()
@@ -176,9 +181,9 @@ namespace Annotator
             {
                 appropriateRigFrame = ~appropriateRigFrame;
 
-                if (appropriateRigFrame == depthFrameTimePoints.Count)
+                if (appropriateRigFrame == recordedRigTimePoints.Count)
                 {
-                    appropriateRigFrame = depthFrameTimePoints.Count - 1;
+                    appropriateRigFrame = recordedRigTimePoints.Count - 1;
                 }
                 else if (appropriateRigFrame > 0)
                 {
@@ -190,7 +195,7 @@ namespace Annotator
                 }
             }
 
-            this.bodies = recordedRigs[appropriateRigFrame];
+            this.playbackBodies = recordedRigs[appropriateRigFrame];
             Invalidate();
         }
 
@@ -202,7 +207,27 @@ namespace Annotator
         private void handlePlayButtonOff()
         {
             playButton.ImageIndex = 2;
-        }
 
+            recordMode = RecordMode.None;
+            cropBar.Visible = false;
+            tmspStartRecording = null;
+
+            helperTextBox.Text = "";
+
+            if (rgbCapture != null)
+            {
+                rgbCapture.Dispose();
+                rgbCapture = null;
+            }
+
+            if (depthReader != null)
+            {
+                depthReader.Dispose();
+                depthReader = null;
+            }
+            endTimeLabel.Text = "00:00.000";
+
+            main.Invalidate();
+        }
     }
 }

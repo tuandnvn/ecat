@@ -86,7 +86,7 @@ namespace Annotator
         private const float JointThickness = 1;
         
         private BodyFrameReader bodyFrameReader = null;
-        private Body[] bodies = null;
+        private Body[] recordingBodies = null;
         private List<Tuple<JointType, JointType>> bones;
         private List<Pen> bodyColors;
         private readonly Brush trackedJointBrush = new SolidBrush(Color.FromArgb(255, 68, 192, 68));
@@ -98,10 +98,12 @@ namespace Annotator
         String tempRigFileName = "rig_temp.json";
         String tempConfigFileName = "config_temp.json";
         
-        int depthFrame = 0;
+        
         XmlWriter rigWriter;
         Mat matBuffer;
         Bitmap rgbBitmap;
+        object writeDepthLock = new object();
+        object writeRigLock = new object();
 
         public void initiateKinectViewers()
         {
@@ -329,11 +331,34 @@ namespace Annotator
 
         private void rgbBoard_Paint(object sender, PaintEventArgs e)
         {
-            if (this.bodies == null) return;
+            if (this.recordingBodies == null) return;
 
             int penIndex = 0;
 
-            foreach (Body body in this.bodies)
+            Body[] showBodies = null;
+
+            switch (recordMode)
+            {
+                case RecordMode.None:
+                    showBodies = this.recordingBodies;
+                    break;
+                case RecordMode.Recording:
+                    showBodies = this.recordingBodies;
+                    break;
+                case RecordMode.Playingback:
+                    showBodies = this.playbackBodies;
+                    break;
+                case RecordMode.Calibrating:
+                    showBodies = new Body[0];
+                    break;
+                default:
+                    showBodies = new Body[0];
+                    break;
+            }
+
+            if (showBodies == null) return;
+
+            foreach (Body body in showBodies)
             {
                 Pen drawPen = this.bodyColors[penIndex++];
 
@@ -408,33 +433,12 @@ namespace Annotator
             startRecordRig();
         }
 
-        private void startRecordRig()
-        {
-            try
-            {
-                XmlWriterSettings ws = new XmlWriterSettings();
-                ws.Indent = true;
-
-                rigWriter = XmlWriter.Create(tempRigFileName, ws);
-                rigWriter.WriteStartDocument();
-                rigWriter.WriteStartElement("BodyDataSequence");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
-
-
-        
-        object writeDepthLock = new object();
-        object rigLock = new object();
         
 
         private void handleRecordButtonOff()
         {
             recordButton.ImageIndex = 0;
-            recordMode = RecordMode.Playingback;
+            
             finishWriteRgb();
             finishWriteDepth();
             finishWriteRig();
