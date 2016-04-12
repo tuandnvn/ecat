@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,10 +59,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accord, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Accord.3.0.2\lib\net45\Accord.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Accord.Video, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>..\packages\Accord.Video.3.0.2\lib\net45\Accord.Video.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +69,22 @@
     </Reference>
     <Reference Include="Accord.Video.FFMPEG, Version=3.0.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=x86">
       <HintPath>..\packages\Accord.Video.FFMPEG.3.0.2\lib\net45\Accord.Video.FFMPEG.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge, Version=2.2.4.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.4\lib\AForge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.4.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.4\lib\AForge.Imaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.4.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.4\lib\AForge.Math.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.4.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.4\lib\AForge.Video.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Emgu.CV.UI">
@@ -106,7 +119,21 @@
     <Compile Include="AddRigFileForm.Designer.cs">
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="depth\BaseDepthReader.cs" />
+    <Compile Include="depth\BaseDepthWriter.cs" />
+    <Compile Include="depth\IDepthReader.cs" />
+    <Compile Include="depth\IDepthWriter.cs" />
+    <Compile Include="DrawMatches.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="KinectUtils.cs" />
+    <Compile Include="MappingUtils.cs" />
+    <Compile Include="ObjectRecognitionAlgorithm\GlyphBoxObjectRecognition.cs" />
+    <Compile Include="ObjectRecognitionAlgorithm\IObjectRecogAlgo.cs" />
+    <Compile Include="ObjectRecognitionAlgorithm\PatternMatchingObjectRecognition.cs" />
+    <Compile Include="object\LocationMark.cs" />
+    <Compile Include="object\ObjectMark.cs" />
+    <Compile Include="object\RigObject.cs" />
+    <Compile Include="object\SpatialLinkMark.cs" />
     <Compile Include="Range.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,7 +189,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Object.cs" />
+    <Compile Include="object\Object.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectInfo.cs">
@@ -198,7 +225,7 @@
     <Compile Include="RectangleShapeWithFrame.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Rig.cs" />
+    <Compile Include="object\Rig.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="SessionInfo.cs">
       <SubType>Form</SubType>
@@ -212,8 +239,9 @@
     <Compile Include="SpatialLinkForm.Designer.cs">
       <DependentUpon>SpatialLinkForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObjectRecognitionAlgorithm\SquareBinaryGlyphRecognizer.cs" />
     <Compile Include="Utils.cs" />
-    <Compile Include="Video.cs" />
+    <Compile Include="VideoReader.cs" />
     <Compile Include="Workspace.cs" />
     <Compile Include="WorkspaceLauncher.cs">
       <SubType>Form</SubType>
@@ -346,7 +374,11 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GestureRecognitionAlgorithm\" />
+    <Folder Include="pattern\" />
+    <Folder Include="TrackingAlgorithm\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.0.2\build\Accord.targets" Condition="Exists('..\packages\Accord.3.0.2\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

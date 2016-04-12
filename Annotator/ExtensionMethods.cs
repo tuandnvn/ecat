@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Kinect;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -35,23 +36,6 @@ namespace Annotator
             return selectBoxes;
         }
 
-        public static Rectangle[] getCornerSelectBoxes(this RigFigure<Point> rigFigure, int boxSize)
-        {
-            List<string> markedJointNames = new List<string>() { "head", "hand" };
-            List<Rectangle> selectBoxes = new List<Rectangle>();
-            foreach ( String jointName in rigFigure.rigJoints.Keys )
-            {
-                foreach ( string s in markedJointNames )
-                    if ( jointName.ToLower().Contains(s) )
-                    {
-                        selectBoxes.Add(new Rectangle(rigFigure.rigJoints[jointName].X - (boxSize - 1) / 2, 
-                            rigFigure.rigJoints[jointName].Y - (boxSize - 1) / 2, boxSize, boxSize));
-                        break;
-                    }
-            }
-            return selectBoxes.ToArray();
-        }
-
         public static void DrawRig(this Graphics graphics, Pen p, RigFigure<Point> rigFigure)
         {
             // Draw joints
@@ -65,6 +49,21 @@ namespace Annotator
             {
                 graphics.DrawLine(p, bone.Item1, bone.Item2);
             }
+        }
+
+        public static string ToSString(this ColorSpacePoint scp)
+        {
+            return "( " + scp.X + ", " + scp.Y + " )"; 
+        }
+
+        public static string ToSString(this DepthSpacePoint dsp)
+        {
+            return "( " + dsp.X + ", " + dsp.Y + " )";
+        }
+
+        public static string ToSString(this CameraSpacePoint csp)
+        {
+            return "( " + csp.X + ", " + csp.Y + ", " + csp.Z + " )";
         }
     }
 }

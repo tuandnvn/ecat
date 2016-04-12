@@ -1,4 +1,5 @@
-﻿using Emgu.CV;
+﻿using Annotator.depth;
+using Emgu.CV;
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,13 @@ namespace Annotator
 {
     partial class RecordPanel
     {
-        Capture rgbCapture = null;
-        BinaryReader depthReader = null;
-        int depthWidth;
-        int depthHeight;
+        VideoReader playBackVideo;
+        IDepthReader depthReader;
         object playBackRgbLock;
         int depthPlaybackFrameNo;
-        List<Int32> depthFrameTimePoints;
+        int depthFrame;
+        int depthWidth;
+        int depthHeight;
         int rgbPlaybackFrameNo;
         private Body[] playbackBodies = null;
 
@@ -35,13 +36,14 @@ namespace Annotator
             rgbBoard.playbackLock = playBackRgbLock;
 
             // Reread rgb file
-            rgbCapture = new Capture(tempRgbFileName);
-            rgbBoard.mat = rgbCapture.QueryFrame();
+
+            playBackVideo = new VideoReader(tempRgbFileName, (int) lastWrittenRgbTime.TotalMilliseconds);
+            rgbBoard.mat = playBackVideo.getFrame(0);
             rgbBoard.Image = rgbBoard.mat.Bitmap;
 
-             rgbPlaybackFrameNo = (int)rgbCapture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
-            int frameWidth = (int)rgbCapture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth);
-            int frameHeight = (int)rgbCapture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
+            rgbPlaybackFrameNo = playBackVideo.frameCount;
+            int frameWidth = playBackVideo.frameWidth;
+            int frameHeight = playBackVideo.frameHeight;
 
             // Add a range selector
             cropBar.recordPanel = this;
@@ -49,24 +51,10 @@ namespace Annotator
             cropBar.end = rgbPlaybackFrameNo;
             cropBar.Visible = true;
 
-            depthReader = new BinaryReader(File.Open(tempDepthFileName, FileMode.Open));
-            depthWidth = depthReader.ReadInt16();
-            depthHeight = depthReader.ReadInt16();
-
-            //Read metadata
-            depthReader.BaseStream.Seek(-4, SeekOrigin.End);
-            depthPlaybackFrameNo = depthReader.ReadInt32();
-
-            depthReader.BaseStream.Seek(-4 * (depthPlaybackFrameNo + 1), SeekOrigin.End);
-            byte[] vals = depthReader.ReadBytes(4 * depthPlaybackFrameNo);
-
-            depthFrameTimePoints = new List<Int32>();
-            for (int i = 0; i < depthPlaybackFrameNo; i++)
-            {
-                //Console.WriteLine("depthFrameTimePoint " + BitConverter.ToInt32(vals, 4 * i));
-                depthFrameTimePoints.Add(BitConverter.ToInt32(vals, 4 * i));
-            }
-
+            depthReader = new BaseDepthReader(tempDepthFileName);
+            depthFrame = depthReader.getFrameCount();
+            depthWidth = depthReader.getWidth();
+            depthHeight = depthReader.getHeight();
             depthBitmap = new Bitmap(depthWidth, depthHeight, PixelFormat.Format32bppRgb);
             depthValuesToByte = new byte[depthWidth * depthHeight * 4];
 
@@ -79,9 +67,8 @@ namespace Annotator
             playBar.Value = 1;
 
             helperTextBox.Text = "Temporary rgb file has written " + rgbStreamedFrame + " frames \n"
-                + "Temporary depth file has written " + depthFrame + " frames \n"
                 + "Temporary rgb file has " + rgbPlaybackFrameNo + " frames of size = ( " + frameWidth + " , " + frameHeight + " ) \n"
-                + "Temporary depth file has " + depthFrame + " frames of size = ( " + depthWidth + " , " + depthHeight + " ) \n"
+                + "Temporary depth file has " + depthPlaybackFrameNo + " frames of size = ( " + depthWidth + " , " + depthHeight + " ) \n"
                 + "RecordingTime " + lastWrittenRgbTime;
 
             main.Invalidate();
@@ -89,17 +76,14 @@ namespace Annotator
 
         private void updateRgbBoardWithFrame()
         {
-            if (rgbCapture == null)
+            if (playBackVideo == null)
             {
                 return;
             }
 
             lock (playBackRgbLock)
             {
-                Console.WriteLine("updateRgbBoardWithFrame " + (playBar.Value - 1));
-                rgbCapture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, playBar.Value - 1);
-
-                Mat m = rgbCapture.QueryFrame();
+                Mat m = playBackVideo.getFrame(playBar.Value - 1);
                 if (m != null)
                 {
                     rgbBoard.mat = m;
@@ -113,35 +97,8 @@ namespace Annotator
             try
             {
                 int recordedTimeForRgbFrame = (int)(lastWrittenRgbTime.TotalMilliseconds * (playBar.Value - 1) / (rgbPlaybackFrameNo - 1));
-                int appropriateDepthFrame = depthFrameTimePoints.BinarySearch(recordedTimeForRgbFrame);
 
-                // bitwise complement if it is not found
-                if (appropriateDepthFrame < 0)
-                {
-                    appropriateDepthFrame = ~appropriateDepthFrame;
-
-                    if (appropriateDepthFrame == depthFrameTimePoints.Count)
-                    {
-                        appropriateDepthFrame = depthFrameTimePoints.Count - 1;
-                    } else if (appropriateDepthFrame > 0)
-                    {
-                        // Smaller timepoint is closer
-                        if ((recordedTimeForRgbFrame - depthFrameTimePoints[appropriateDepthFrame - 1]) < depthFrameTimePoints[appropriateDepthFrame] - recordedTimeForRgbFrame)
-                        {
-                            appropriateDepthFrame--;
-                        }
-                    }
-                }
-
-                // Plus 4 for depth frame, depth width , each two bytes
-                int beginOffset = 4;
-
-                int frameSize = sizeof(short) * depthWidth * depthHeight;
-                int offset = appropriateDepthFrame * frameSize + beginOffset;
-                depthReader.BaseStream.Seek(offset, SeekOrigin.Begin);
-                
-
-                byte[] vals = depthReader.ReadBytes(frameSize);
+                ushort[] vals = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
 
                 BitmapData bmapdata = depthBitmap.LockBits(
                                          new Rectangle(0, 0, depthWidth, depthHeight),
@@ -153,7 +110,7 @@ namespace Annotator
                 for (int i = 0; i < depthWidth * depthHeight; i++)
                 {
                     //Console.WriteLine((byte)(((int)vals[2 * i] << 8 + vals[2 * i + 1]) / scale));
-                    depthValuesToByte[4 * i] = depthValuesToByte[4 * i + 1] = depthValuesToByte[4 * i + 2] = (byte)(BitConverter.ToUInt16(vals, 2 * i) / scale);
+                    depthValuesToByte[4 * i] = depthValuesToByte[4 * i + 1] = depthValuesToByte[4 * i + 2] = (byte)(vals[i] / scale);
                 }
 
                 Marshal.Copy(depthValuesToByte, 0, ptr, depthWidth * depthHeight * 4);
@@ -188,7 +145,7 @@ namespace Annotator
                 else if (appropriateRigFrame > 0)
                 {
                     // Smaller timepoint is closer
-                    if ((recordedTimeForRgbFrame - depthFrameTimePoints[appropriateRigFrame - 1]) < depthFrameTimePoints[appropriateRigFrame] - recordedTimeForRgbFrame)
+                    if ((recordedTimeForRgbFrame - recordedRigTimePoints[appropriateRigFrame - 1]) < recordedRigTimePoints[appropriateRigFrame] - recordedTimeForRgbFrame)
                     {
                         appropriateRigFrame--;
                     }
@@ -214,10 +171,10 @@ namespace Annotator
 
             helperTextBox.Text = "";
 
-            if (rgbCapture != null)
+            if (playBackVideo != null)
             {
-                rgbCapture.Dispose();
-                rgbCapture = null;
+                playBackVideo.Dispose();
+                playBackVideo = null;
             }
 
             if (depthReader != null)

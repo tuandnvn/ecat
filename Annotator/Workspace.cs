@@ -35,14 +35,19 @@ namespace Annotator
         {
             return locationFolder;
         }
-
-        //Add new project to workspace
-        public void addProject(String projectName)
+        
+        /// <summary>
+        /// Add a project into the work space
+        /// </summary>
+        /// <param name="projectName"> Name of project </param>
+        /// <returns> Return the created project </returns>
+        public Project addProject(String projectName)
         {
             Project project = new Project(locationFolder, projectName, null);
             //Create new project folder:
             Directory.CreateDirectory(locationFolder + Path.DirectorySeparatorChar + projectName);
             projects.Add(project);
+            return project;
         }
         
         //Return project name at given index

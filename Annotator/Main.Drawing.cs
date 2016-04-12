@@ -247,21 +247,10 @@ namespace Annotator
             var linear = getLinearTransform();
             foreach (Object o in currentSession.getObjects())
             {
-                object obj = o.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
-                if (obj != null)
+                LocationMark lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                if (lm != null)
                 {
-                    switch (o.borderType)
-                    {
-                        case Object.BorderType.Rectangle:
-                            objectWithScore.Add(new Tuple<float, Object>(Utils.Score((Rectangle)obj, e.Location), o));
-                            break;
-                        case Object.BorderType.Polygon:
-                            objectWithScore.Add(new Tuple<float, Object>(Utils.Score((List<Point>)obj, e.Location), o));
-                            break;
-                        case Object.BorderType.Rig:
-                            objectWithScore.Add(new Tuple<float, Object>(Utils.Score((RigFigure<Point>)obj, e.Location), o));
-                            break;
-                    }
+                    objectWithScore.Add(new Tuple<float, Object>(lm.Score(e.Location), o));
                 }
             }
 
@@ -277,10 +266,9 @@ namespace Annotator
             double bestScore = objectWithScore.Last().Item1;
             if (bestScore > 0)
             {
-                Console.WriteLine("bestScore " + bestScore);
                 Object o = objectWithScore.Last().Item2;
 
-                currentSession.selectObject(o);
+                selectObject(o);
             }
         }
 
@@ -331,7 +319,6 @@ namespace Annotator
 
         private void pictureBoard_Paint(object sender, PaintEventArgs e)
         {
-            Console.WriteLine("pictureBoard_Paint");
             // Has been drawn before
             if (currentVideo != null)
             {
@@ -341,24 +328,13 @@ namespace Annotator
                 {
                     if (o != selectedObject || o.genType != Object.GenType.MANUAL)
                     {
+                        
                         Pen p = new Pen(o.color, o.borderSize);
                         p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-                        object r = o.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        LocationMark r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                         if (r != null)
                         {
-
-                            switch (o.borderType)
-                            {
-                                case Object.BorderType.Rectangle:
-                                    e.Graphics.DrawRectangle(p, (Rectangle)r);
-                                    break;
-                                case Object.BorderType.Polygon:
-                                    e.Graphics.DrawPolygon(p, ((List<Point>)r).ToArray());
-                                    break;
-                                case Object.BorderType.Rig:
-                                    e.Graphics.DrawRig(p, (RigFigure<Point>)r);
-                                    break;
-                            }
+                            r.drawOnGraphics(e.Graphics, p);
                         }
                     }
                 }
@@ -368,18 +344,18 @@ namespace Annotator
                 {
                     lock (selectedObjectLock)
                     {
-                        object obj = selectedObject.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
-                        if (obj != null)
+                        LocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        if (lm != null)
                         {
                             switch (selectedObject.borderType)
                             {
                                 case Object.BorderType.Rectangle:
-                                    boundingBox = (Rectangle)obj;
+                                    boundingBox = ((Object.RectangleLocationMark)lm).boundingBox;
                                     startPoint = new Point(boundingBox.X, boundingBox.Y);
                                     endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
                                     break;
                                 case Object.BorderType.Polygon:
-                                    polygonPoints = (List<Point>)obj;
+                                    polygonPoints = ((Object.PolygonLocationMark)lm).boundingPolygon;
                                     List<Rectangle> listOfSelectBox = new List<Rectangle>();
                                     foreach (Point p in polygonPoints)
                                     {
@@ -440,28 +416,7 @@ namespace Annotator
                                 e.Graphics.DrawRectangle(new Pen(Color.Black), r);
                                 e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
                             }
-                            e.Graphics.Save();
                         }
-                    }
-                }
-
-                // Selecting a rig object
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rig)
-                {
-                    lock (selectedObjectLock)
-                    {
-                        var rigFigure = (RigFigure<Point>) selectedObject.getCurrentBounding(frameTrackBar.Value, linear.Item1, linear.Item2);
-
-                        selectBoxes = rigFigure.getCornerSelectBoxes(boxSize);
-
-                        e.Graphics.DrawRectangle(pen, boundingBox);
-
-                        foreach (Rectangle r in selectBoxes)
-                        {
-                            e.Graphics.DrawRectangle(new Pen(Color.Black), r);
-                            e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
-                        }
-                        e.Graphics.Save();
                     }
                 }
 
@@ -499,28 +454,25 @@ namespace Annotator
                         }
                     }
                 }
-            }
-        }
 
-        internal void selectObject(Object o)
-        {
-            lock (selectedObjectLock)
-            {
-                this.selectedObject = o;
 
-                if (selectedObject != null)
+                // Selecting a rig object
+                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Others)
                 {
-                    selectObjContextPanel.Visible = true;
-                }
+                    lock (selectedObjectLock)
+                    {
+                        LocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
 
-                foreach (Button b in drawingButtonGroup)
-                {
-                    selectButtonDrawing(b, drawingButtonGroup, false);
-                }
+                        selectBoxes = lm.getCornerSelectBoxes(boxSize);
 
-                this.showInformation(o);
+                        foreach (Rectangle r in selectBoxes)
+                        {
+                            e.Graphics.DrawRectangle(new Pen(Color.Black), r);
+                            e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
+                        }
+                    }
+                }
             }
-            invalidatePictureBoard();
         }
 
 
@@ -576,14 +528,16 @@ namespace Annotator
             Object objectToAdd = null;
             if (drawingButtonSelected[rectangleDrawing])
             {
-                objectToAdd = new Object(null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.getFileName(), linear.Item1, linear.Item2, frameTrackBar.Value, boundingBox);
+                objectToAdd = new Object(null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.fileName);
+                objectToAdd.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
                 startPoint = null;
                 endPoint = null;
             }
 
             if (drawingButtonSelected[polygonDrawing])
             {
-                objectToAdd = new Object(null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.getFileName(), linear.Item1, linear.Item2, frameTrackBar.Value, polygonPoints);
+                objectToAdd = new Object(null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.fileName);
+                objectToAdd.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
                 polygonPoints = new List<Point>();
             }
 
@@ -601,7 +555,7 @@ namespace Annotator
 
         private Tuple<double, Point> getLinearTransform()
         {
-            double scale = Math.Min(pictureBoard.Width / currentVideo.frameWidth, pictureBoard.Height / currentVideo.frameHeight);
+            double scale = Math.Min((double)pictureBoard.Width / currentVideo.frameWidth, (double)pictureBoard.Height / currentVideo.frameHeight);
             Point translation = new Point((int)(pictureBoard.Width - currentVideo.frameWidth * scale) / 2, (int)(pictureBoard.Height - currentVideo.frameHeight * scale) / 2);
             return new Tuple<double, Point>(scale, translation);
         }
@@ -646,7 +600,7 @@ namespace Annotator
             }
         }
 
-        internal void removeObject(Object o)
+        internal void removeDrawingObject(Object o)
         {
             selectedObject = null;
             newObjectContextPanel.Visible = false;

@@ -15,6 +15,7 @@ namespace Annotator
 {
     partial class RecordPanel
     {
+        private int quality = 2000000;
         VideoFileWriter writer = new VideoFileWriter();
         BlockingCollection<Tuple<Bitmap, TimeSpan>> bufferedImages;
         int scaleVideo = 1;
@@ -23,12 +24,19 @@ namespace Annotator
         Bitmap tempo = null;
         Tuple<Bitmap, TimeSpan> bitMapTakenFromBuffer = null;
         object writeRgbLock = new object();
-        private const int FRAME_PER_SECOND = 25;
+        private int fps = 25;
         TimeSpan lastWrittenRgbTime = default(TimeSpan);
         TimeSpan? tmspStartRecording = null;
 
         private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
         {
+            if (!hasColorArrived)
+            {
+                hasArrived.Signal();
+                Console.WriteLine("Signal at color");
+                hasColorArrived = true;
+            }
+
             if (recordMode != RecordMode.Playingback)
             {
                 // ColorFrame is IDisposable
@@ -54,7 +62,6 @@ namespace Annotator
 
                             // Show rgbBitmap into rgbBoard
                             this.rgbBoard.Image = rgbBitmap;
-
 
                             if (recordMode == RecordMode.Recording && this.writer != null)
                             {
@@ -89,7 +96,7 @@ namespace Annotator
                     //Console.WriteLine("Finish create writer");
 
                     writer = new VideoFileWriter();
-                    writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, FRAME_PER_SECOND, VideoCodec.MPEG4, 2000000);
+                    writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, fps, VideoCodec.MPEG4, quality);
                     //writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
                 }
                 catch (Exception e)
@@ -193,14 +200,10 @@ namespace Annotator
                                 }
 
                             }
-                            catch (System.IO.IOException e)
-                            {
-                                System.Windows.Forms.MessageBox.Show("IO Exception " + e);
-                            }catch (AForge.Video.VideoException e)
+                            catch (Exception e)
                             {
                                 System.Windows.Forms.MessageBox.Show("IO Exception " + e);
                             }
-
                         }
                         else
                         {

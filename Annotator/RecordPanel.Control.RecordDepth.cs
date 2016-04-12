@@ -1,4 +1,5 @@
-﻿using Microsoft.Kinect;
+﻿using Annotator.depth;
+using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,33 +16,26 @@ namespace Annotator
 {
     partial class RecordPanel
     {
-        BinaryWriter depthWriter;
-        List<TimeSpan> timePoints;
-        int depthFrame = 0;
+        IDepthWriter depthWriter;
 
         private void startRecordDepth()
         {
             if (depthFrameDescription != null)
             {
-                try
-                {
-                    depthFrame = 0;
-
-                    depthWriter = new BinaryWriter(File.Open(tempDepthFileName, FileMode.Create));
-                    depthWriter.Write((short)depthFrameDescription.Width);
-                    depthWriter.Write((short)depthFrameDescription.Height);
-
-                    timePoints = new List<TimeSpan>();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
+                depthWriter = new BaseDepthWriter(tempDepthFileName, depthFrameDescription.Width, depthFrameDescription.Height);
+                
             }
         }
 
         private void Reader_DepthFrameArrived(object sender, DepthFrameArrivedEventArgs e)
         {
+            if (!hasDepthArrived)
+            {
+                hasArrived.Signal();
+                Console.WriteLine("Signal at depth");
+                hasDepthArrived = true;
+            }
+
             if (recordMode != RecordMode.Playingback)
             {
                 using (DepthFrame depthFrame = e.FrameReference.AcquireFrame())
@@ -106,17 +100,16 @@ namespace Annotator
                                 //this.depthBoard.Image = depthImage.Bitmap;
                                 if (recordMode == RecordMode.Recording && this.depthWriter != null)
                                 {
+                                    
                                     if (tmspStartRecording.HasValue)
                                     {
                                         var currentTime = DateTime.Now.TimeOfDay;
                                         TimeSpan elapse = currentTime - tmspStartRecording.Value;
 
-                                        timePoints.Add(elapse);
-
-                                        WriteDepthIntoFileAsync();
+                                        WriteDepthIntoFileAsync(elapse);
                                     }
-                                }
 
+                                }
                             }
                         }
                         catch (Exception ex)
@@ -128,49 +121,20 @@ namespace Annotator
             }
         }
 
-        private async Task WriteDepthIntoFileAsync()
+        private async Task WriteDepthIntoFileAsync(TimeSpan elapse)
         {
-            await Task.Run(() => WriteDepthIntoFile());
+            await Task.Run(() => WriteDepthIntoFile(elapse));
         }
 
-        private void WriteDepthIntoFile()
+        private void WriteDepthIntoFile(TimeSpan elapse)
         {
-            try
-            {
-                lock (writeDepthLock)
-                {
-                    for (int i = 0; i < depthFrameDescription.Width * depthFrameDescription.Height; i++)
-                        depthWriter.Write((UInt16)depthValues[i]);
-                }
-                Interlocked.Increment(ref depthFrame);
-            }
-            catch (IndexOutOfRangeException e)
-            {
-                Console.WriteLine(depthFrameDescription.Width  + " " + depthFrameDescription.Height + " " + depthValues.Count() + " "+ e);
-            }
-
+            depthWriter.writeFrame((int) elapse.TotalMilliseconds, depthValues);
         }
 
         private void finishWriteDepth()
         {
-            lock (writeDepthLock)
-            {
-                if (depthWriter != null)
-                {
-                    // Write metadata
-                    foreach (TimeSpan elapse in timePoints)
-                    {
-                        int miliseconds = (int)elapse.TotalMilliseconds;
-                        depthWriter.Write((UInt32)miliseconds);
-                    }
-                    depthWriter.Write((UInt32)depthFrame);
-
-                    // Close file
-                    depthWriter.Dispose();
-                    depthWriter = null;
-                    finishRecording.Signal();
-                }
-            }
+            depthWriter.Dispose();
+            finishRecording.Signal();
         }
     }
 }

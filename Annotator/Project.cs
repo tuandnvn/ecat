@@ -9,6 +9,11 @@ namespace Annotator
 {
     public class Project
     {
+        private List<Session> sessions;//project sessions
+        private String locationFolder; //project location folder == workspace folder
+        private String projectName;    //project name
+        private bool selected = false;  //true if project selected
+
         //constructor
         public Project(String locationFolder, String projectName, List<Session> sessions)
         {
@@ -31,6 +36,20 @@ namespace Annotator
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Create a session inside project
+        /// </summary>
+        /// <param name="sessionName"> Session name </param>
+        /// <returns> Created session </returns>
+        public Session addSession(string sessionName)
+        {
+            Session newSession = new Session(sessionName, getProjectName(), getLocation());
+            sessions.Add(newSession);
+            saveProjectFile(newSession.getSessionName());
+
+            return newSession;
         }
 
         //Add session to sessions list
@@ -180,9 +199,5 @@ namespace Annotator
         {
             return selected;
         }
-        private List<Session> sessions;//project sessions
-        private String locationFolder; //project location folder == workspace folder
-        private String projectName;    //project name
-        private bool selected = false;  //true if project selected
     }
 }

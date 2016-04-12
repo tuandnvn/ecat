@@ -30,23 +30,106 @@ namespace Annotator
             Calibrating,
         }
 
-        private RecordMode recordMode = RecordMode.None;
+        internal RecordMode recordMode = RecordMode.None;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private CountdownEvent finishRecording = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private CountdownEvent hasArrived = null;
+        private bool hasDepthArrived = false;
+        private bool hasColorArrived = false;
+
+        private const float InferredZPositionClamp = 0.1f;
+        private KinectSensor kinectSensor = null;
+        private ColorFrameReader colorFrameReader = null;
+        private DepthFrameReader depthFrameReader = null;
+        //private Bitmap rgbBitmap;
+        private Bitmap depthBitmap;
+        private FrameDescription colorFrameDescription = null;
+        private FrameDescription depthFrameDescription = null;
+        private byte[] rgbValues;
+        private ushort[] depthValues;
+        private byte[] depthValuesToByte;
+        private float scale = 8000 / 256;
+        private float widthAspect = 1;
+        private float heightAspect = 1;
+
+        private CoordinateMapper coordinateMapper = null;
+        private const float JointThickness = 1;
+
+        private BodyFrameReader bodyFrameReader = null;
+        private Body[] recordingBodies = null;
+        private List<Tuple<JointType, JointType>> bones;
+        private List<Pen> bodyColors;
+        private readonly Brush trackedJointBrush = new SolidBrush(Color.FromArgb(255, 68, 192, 68));
+        private readonly Brush inferredJointBrush = Brushes.Yellow;
+
+        //VideoWriter rgbWriter;
+        String tempRgbFileName = "rgb_temp.avi";
+        String tempDepthFileName = "depth_temp.dat";
+        String tempRigFileName = "rig_temp.json";
+        String tempConfigFileName = "config_temp.json";
+        Dictionary<string, string> mapFileName;
+
+        XmlWriter rigWriter;
+        Mat matBuffer;
+        Bitmap rgbBitmap;
+        
+        object writeRigLock = new object();
 
         public void InitializeOptionsTable()
         {
             optionsTable.Rows.Add("Temporary file path", ".");
             optionsTable.Rows.Add("RGB video file ext", "avi");
-            optionsTable.Rows.Add("RGB Fps", "25");
-            optionsTable.Rows.Add("RGB bitrate", "3000000");
+            optionsTable.Rows.Add("RGB Fps", fps + "");
+            optionsTable.Rows.Add("RGB bitrate", quality + "");
             optionsTable.Rows.Add("RGB video file name", "rgb_[DateTime]");
             optionsTable.Rows.Add("Depth file ext", "dat");
             optionsTable.Rows.Add("Depth file name", "depth_[DateTime]");
             optionsTable.Rows.Add("Show rigs", "True");
             optionsTable.Rows.Add("Record rigs", "True");
+            optionsTable.Rows.Add("Rig file name", "rig_[DateTime]");
             //optionsTable.Rows.Add("Detect blocks", "False");
+            mapFileName = new Dictionary<string, string>();
+
+            // No change to RGB video file name
+            optionsTable.Rows[4].Cells[1].ReadOnly = true;
+            optionsTable.Rows[5].Cells[1].ReadOnly = true;
+            optionsTable.Rows[6].Cells[1].ReadOnly = true;
+
             changeRowToTrueFall(optionsTable, 7, 1);
             changeRowToTrueFall(optionsTable, 8, 1);
+        }
+
+
+        private void optionsTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // Handle RGB FPs
+            if (e.RowIndex == 2 && e.ColumnIndex == 1)
+            {
+                try
+                {
+                    fps = int.Parse((string)optionsTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                } catch
+                {
+                }
+            }
+
+            if (e.RowIndex == 3 && e.ColumnIndex == 1)
+            {
+                try
+                {
+                    quality = int.Parse((string)optionsTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                }
+                catch
+                {
+                }
+            }
         }
 
         private void changeRowToTrueFall(DataGridView optionsTable, int row, int col)
@@ -67,43 +150,6 @@ namespace Annotator
 
             toolbarButtonSelected[calibrateButton] = toolbarButtonSelected[recordButton] = toolbarButtonSelected[playButton] = false;
         }
-        private const float InferredZPositionClamp = 0.1f;
-        private KinectSensor kinectSensor = null;
-        private ColorFrameReader colorFrameReader = null;
-        private DepthFrameReader depthFrameReader = null;
-        //private Bitmap rgbBitmap;
-        private Bitmap depthBitmap;
-        private FrameDescription colorFrameDescription = null;
-        private FrameDescription depthFrameDescription = null;
-        private byte[] rgbValues;
-        private ushort[] depthValues;
-        private byte[] depthValuesToByte;
-        private float scale = 8000 / 256;
-        private float widthAspect = 1;
-        private float heightAspect = 1;
-
-        private CoordinateMapper coordinateMapper = null;
-        private const float JointThickness = 1;
-        
-        private BodyFrameReader bodyFrameReader = null;
-        private Body[] recordingBodies = null;
-        private List<Tuple<JointType, JointType>> bones;
-        private List<Pen> bodyColors;
-        private readonly Brush trackedJointBrush = new SolidBrush(Color.FromArgb(255, 68, 192, 68));
-        private readonly Brush inferredJointBrush = Brushes.Yellow;
-
-        //VideoWriter rgbWriter;
-        String tempRgbFileName = "rgb_temp.avi";
-        String tempDepthFileName = "depth_temp.dat";
-        String tempRigFileName = "rig_temp.json";
-        String tempConfigFileName = "config_temp.json";
-        
-        
-        XmlWriter rigWriter;
-        Mat matBuffer;
-        Bitmap rgbBitmap;
-        object writeDepthLock = new object();
-        object writeRigLock = new object();
 
         public void initiateKinectViewers()
         {
@@ -161,6 +207,7 @@ namespace Annotator
             // Can't map correctly right after initiated
             // Can only work after first frame arrives
             this.coordinateMapper = this.kinectSensor.CoordinateMapper;
+
             this.bodyFrameReader = this.kinectSensor.BodyFrameSource.OpenReader();
             this.colorFrameReader = this.kinectSensor.ColorFrameSource.OpenReader();
             this.depthFrameReader = this.kinectSensor.DepthFrameSource.OpenReader();
@@ -191,39 +238,25 @@ namespace Annotator
             this.cameraStatusLabel.Text = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
                                                             : Properties.Resources.NoSensorStatusText;
 
+            hasArrived = new CountdownEvent(2);
+
+            Task.Run(() => calculateProjections());
+
             //depthImage = new Image<Hsv, byte>(depthFrameDescription.Width, depthFrameDescription.Height);
         }
 
-        bool hasTest = false;
-        private void testMapping()
+        public void calculateProjections()
         {
-            CameraSpacePoint[] csps = new CameraSpacePoint[8];
-            // Skeleton_Joint_Locations
-            //-0.426651,-0.11075,1.68441,-0.404479,0.103393,1.64627
-            csps[0] = new CameraSpacePoint { X = -0.426651f, Y = -0.11075f, Z = 1.68441f };
-            csps[1] = new CameraSpacePoint { X = -0.404479f, Y = 0.103393f, Z = 1.64627f };
-            // Skeleton_Joint_Locations_Orig
-            //-0.456807,-0.213856,1.96254,-0.428633,-0.0252217,1.85457
-            csps[2] = new CameraSpacePoint { X = -0.456807f, Y = -0.213856f, Z = 1.96254f };
-            csps[3] = new CameraSpacePoint { X = -0.428633f, Y = -0.0252217f, Z = 1.85457f };
-
-            // Capture using aruco 
-            // 0.00749806 -0.236892 1.49116 0.00622179 0.0498621 1.52369
-            csps[4] = new CameraSpacePoint { X = 0.00749806f, Y = -0.236892f, Z = 1.49116f };
-            csps[5] = new CameraSpacePoint { X = 0.00622179f, Y = 0.0498621f, Z = 1.52369f };
-
-            // Capture using this software
-            // -0.1901667 -0.5125275 1.233261 -0.1030212 -0.2572153 1.247053
-            csps[6] = new CameraSpacePoint { X = -0.1901667f, Y = -0.5125275f, Z = 1.233261f };
-            csps[7] = new CameraSpacePoint { X = -0.1030212f, Y = -0.2572153f, Z = 1.247053f };
-
-            foreach (CameraSpacePoint csp in csps)
-            {
-                ColorSpacePoint c = this.coordinateMapper.MapCameraPointToColorSpace(csp);
-                Trace.WriteLine(c.X + " " + c.Y);
-            }
+            hasArrived.Wait();
+            KinectUtils.calculateProject(this.coordinateMapper, "out.txt");
         }
 
+
+        //public Point3F getDepth(Point rgbCoordinate, ushort[] depthValues, int depthWidth, int depthHeight)
+        //{
+        //    rgbCoordinate.X;
+
+        //}
 
 
         public void releaseKinectViewers()
@@ -258,8 +291,6 @@ namespace Annotator
             this.cameraStatusLabel.Text = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
                                                             : Properties.Resources.NoSensorStatusText;
         }
-
-        
 
         List<Button> toolbarButtonGroup = new List<Button>();
         Dictionary<Button, bool> toolbarButtonSelected = new Dictionary<Button, bool>();
@@ -331,8 +362,6 @@ namespace Annotator
 
         private void rgbBoard_Paint(object sender, PaintEventArgs e)
         {
-            if (this.recordingBodies == null) return;
-
             int penIndex = 0;
 
             Body[] showBodies = null;
@@ -428,22 +457,81 @@ namespace Annotator
             recordMode = RecordMode.Recording;
 
             finishRecording = new CountdownEvent(3);
+
+            // Disable changing to options table
+            optionsTable.Enabled = false;
+
+            mapFileName[tempRgbFileName] = ((string)optionsTable.Rows[4].Cells[1].Value).Replace("DateTime", DateTime.Now.ToShortTimeString());
+            mapFileName[tempDepthFileName] = ((string)optionsTable.Rows[6].Cells[1].Value).Replace("DateTime", DateTime.Now.ToShortTimeString());
+            mapFileName[tempRigFileName] = ((string)optionsTable.Rows[9].Cells[1].Value).Replace("DateTime", DateTime.Now.ToShortTimeString());
+
             startRecordRgb();
             startRecordDepth();
             startRecordRig();
         }
 
-        
-
         private void handleRecordButtonOff()
         {
             recordButton.ImageIndex = 0;
-            
+
+            optionsTable.Enabled = true;
             finishWriteRgb();
             finishWriteDepth();
             finishWriteRig();
 
             playButton_MouseDown(null, null);
+        }
+
+
+        private void saveRecordedSession_Click(object sender, EventArgs e)
+        {
+            Project currentProject = main.selectedProject;
+
+            var result = MessageBox.Show(main, "Do you want to add captured session into project " + currentProject.getProjectName() +
+                "?. Yes if you do, no if you want to save it into a separate folder", "Save session", MessageBoxButtons.YesNoCancel);
+
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    SessionInfo sessionInfo = new SessionInfo(main, currentProject.getProjectName());
+                    sessionInfo.Location = new Point(this.Location.X + (int)(sessionInfo.Width / 2.5), this.Location.Y + sessionInfo.Height / 2);
+                    sessionInfo.okButton.Click += new System.EventHandler(this.addSessionOkClick);
+                    sessionInfo.Show();
+                    break;
+                case DialogResult.No:
+                    FolderBrowserDialog fbd = new FolderBrowserDialog();
+                    DialogResult folderResult= fbd.ShowDialog(main);
+                    if (folderResult == DialogResult.OK)
+                    {
+                        string pathToFolder = fbd.SelectedPath;
+
+                        foreach (String fileName in new []{ tempRgbFileName , tempDepthFileName, tempConfigFileName }){
+                            string dstFileName = pathToFolder + Path.DirectorySeparatorChar + mapFileName[fileName];
+                            if (!File.Exists(dstFileName))
+                                File.Copy(fileName, dstFileName);
+                        }
+                    }
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+
+            // Back to annotating
+            main.tabs.SelectedIndex = 0;
+        }
+
+        private void addSessionOkClick(object sender, EventArgs e)
+        {
+            Console.WriteLine("addSessionOkClick" );
+            if (main.currentSession != null)
+            {
+                foreach (String fileName in new[] { tempRgbFileName, tempDepthFileName, tempConfigFileName })
+                {
+                    main.copyFileIntoLocalSession(fileName, mapFileName[fileName]);
+                }
+            }
         }
     }
 }

@@ -946,7 +946,7 @@
         private System.Windows.Forms.TrackBar frameTrackBar;
         private System.Windows.Forms.Button addEventAnnotationBtn;
         private System.Windows.Forms.ToolStripMenuItem addSessionMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        internal System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private MyPictureBox pictureBoard;
@@ -986,7 +986,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PropertyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PropertyValue;
         private System.Windows.Forms.ToolStripMenuItem recordSessionToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabs;
+        internal System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage annotateTab;
         private System.Windows.Forms.TabPage recordTab;
         private System.Windows.Forms.TabControl tabControl1;

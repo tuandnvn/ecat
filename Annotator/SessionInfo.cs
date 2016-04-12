@@ -13,23 +13,27 @@ namespace Annotator
 {
     public partial class SessionInfo : Form
     {
+        private Main main = null;
+        private String projectName = "";
+        internal bool sessionNameAcceptable = false;
+
         public SessionInfo(Main frm1, String projectName)
         {
             InitializeComponent();
-            this.frm1 = frm1;
-            this.ActiveControl = this.textBox1;
-            this.projectName = projectName.Substring(10);//"cut-off TreeNode: "
+            this.main = frm1;
+            this.ActiveControl = this.sessionNameTxtBox;
+            this.projectName = projectName;//"cut-off TreeNode: "
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frm1.setNewSession(false);
+            main.setNewSession(false);
             this.Close();
         }
         //Parse session name:
         private bool parseSessionName()
         {
-            if (label3.Visible)
+            if (warningTxt.Visible)
             {
                 return false;
             }
@@ -37,91 +41,80 @@ namespace Annotator
             return true;
         }
 
-
-        private String projectName = "";
-        private Main frm1 = null;
-
-        private void button3_Click(object sender, EventArgs e)
+        private void ok_Click(object sender, EventArgs e)
         {
-            if (label3.Visible == false || (label3.ForeColor == Color.Green))
+            if (warningTxt.Visible == false || (warningTxt.ForeColor == Color.Green))
             {
-                Project project = frm1.getProjectFromWorkspace(projectName);
-                String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + textBox1.Text;
+                Project project = main.getProjectFromWorkspace(projectName);
+                String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + sessionNameTxtBox.Text;
                 if (!Directory.Exists(sessionLocation))
                     Directory.CreateDirectory(sessionLocation);
 
-                frm1.addNewSessionToWorkspace(projectName, textBox1.Text);
-                frm1.setNewSession(false);
+                main.addNewSessionToWorkspace(projectName, sessionNameTxtBox.Text);
+                main.setNewSession(false);
                 this.Close();
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void sessionNameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text != null && textBox1.Text.Trim().Length >= 3)
+            if (sessionNameTxtBox.Text != null && sessionNameTxtBox.Text.Trim().Length >= 3)
             {
-                label3.Visible = false;
-                button3.Visible = true;
+                warningTxt.Visible = false;
+                okButton.Visible = true;
             }
             else
             {
-                label3.Text = "Incorrect project name(at least three letters)";
-                label3.ForeColor = Color.Red;
-                label3.Visible = true;
-                button3.Text = "OK";
-                button3.Visible = false;
+                warningTxt.Text = "Incorrect session name (at least three letters)";
+                warningTxt.ForeColor = Color.Red;
+                warningTxt.Visible = true;
+                okButton.Text = "OK";
+                okButton.Visible = false;
                 return;
             }
             //Check if there is already a directory named the same as the new session                
-            Project project = frm1.getProjectFromWorkspace(projectName);
-            String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + textBox1.Text;
+            Project project = main.getProjectFromWorkspace(projectName);
+            String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + sessionNameTxtBox.Text;
             //MessageBox.Show(sessionLocation + Directory.Exists(sessionLocation));
 
-            bool exists = false;
-            TreeNodeCollection nodes = frm1.getTreeViewNodes();
-            foreach (TreeNode currentProject in nodes)
+            bool existSession = false;
+            TreeNodeCollection nodes = main.getTreeViewNodes();
+            foreach (TreeNode sessionNode in main.selectedProjectNode.Nodes)
             {
-                if (currentProject.ToString().Contains(projectName))
+                if (sessionNode.ToString().Contains(sessionNameTxtBox.Text))
                 {
-                    foreach (TreeNode currentSession in currentProject.Nodes)
-                    {
-                        //MessageBox.Show(currentSession.ToString());
-                        if (currentSession.ToString().Contains(textBox1.Text))
-                        {
-                            exists = true;
-                            break;
-                        }
-                    }
+                    existSession = true;
+                    break;
                 }
             }
 
-            if (exists)
+            if (existSession)
             {
-                label3.Text = "Session " + textBox1.Text + " already exists in project " + projectName;
-                button3.Visible = false;
-                label3.Visible = true;
+                warningTxt.Text = "Session " + sessionNameTxtBox.Text + " already exists in project " + projectName;
+                okButton.Visible = false;
+                warningTxt.Visible = true;
             }
             else
             {
-                label3.Visible = false;
+                warningTxt.Visible = false;
             }
-            if (Directory.Exists(sessionLocation) && !exists)
+            if (Directory.Exists(sessionLocation) && !existSession)
             {
                 //Directory.CreateDirectory(workspace.getLocationFolder() + Path.DirectorySeparatorChar + project.getProjectName() + Path.DirectorySeparatorChar + sessionName);
-                label3.Text = "Session folder already exists";
-                label3.Visible = true;
-                label3.ForeColor = Color.Green;
-                button3.Text = "Use existing directory as new session";
+                warningTxt.Text = "Session folder already exists";
+                warningTxt.Visible = true;
+                warningTxt.ForeColor = Color.Green;
+                okButton.Text = "Use existing directory as new session";
             }
             else
             {
-                button3.Text = "OK";
+                okButton.Text = "OK";
             }
         }
 
         private void SessionInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frm1.setNewSession(false);
+            main.setNewSession(false);
         }
 
     }

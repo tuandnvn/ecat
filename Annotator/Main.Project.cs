@@ -12,7 +12,7 @@ namespace Annotator
     {
         private void recordSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            tabs.SelectedIndex = 1;
         }
 
         private void newSessionToolStripMenuItem_Click(object sender, EventArgs e)

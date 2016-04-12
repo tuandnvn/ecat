@@ -18,12 +18,12 @@ namespace Annotator
         int minLeftPosition;
         int maxLeftPosition;
         private double frameStepX;
-        private Main mainGUI;
-        private Session session;
+        private Main main;
         public Object o { get; }
-        int borderWidth = 2;
+        private int borderWidth = 2;
+        private int sessionLength;
 
-        public ObjectAnnotation(Object o, Session session)
+        public ObjectAnnotation(Object o, Main main, int sessionLength)
         {
             InitializeComponent();
 
@@ -32,14 +32,14 @@ namespace Annotator
             tt.ReshowDelay = 500;
             tt.ShowAlways = true;
 
-            this.mainGUI = session.mainGUI;
-            this.session = session;
+            this.main = main;
             minLeftPosition = axis.X1;
             maxLeftPosition = axis.X2;
 
             this.o = o;
+            this.sessionLength = sessionLength;
 
-            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (session.sessionLength - 1);
+            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (sessionLength - 1);
 
             drawObjectMarks();
 
@@ -50,13 +50,13 @@ namespace Annotator
         {
             this.shapeContainer1.Shapes.Clear();
             int start = 1;
-            int end = this.session.sessionLength;
+            int end = sessionLength;
             bool finishOneRectangle = true; // Has just finish drawing one rectangle, or haven't started drawing any rectangle
 
             foreach (var entry in o.objectMarks)
             {
                 int frameNo = entry.Key;
-                Object.LocationMark objectMark = entry.Value;
+                LocationMark objectMark = entry.Value;
 
                 RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
                 mark.FillColor = System.Drawing.Color.Black;
@@ -70,13 +70,13 @@ namespace Annotator
                 mark.MouseClick += Mark_MouseClick;
                 mark.Click += Mark_Click;
 
-                if (objectMark.markType == Object.LocationMark.LocationMarkType.Location && finishOneRectangle)
+                if (objectMark.markType == LocationMark.LocationMarkType.Location && finishOneRectangle)
                 {
                     start = objectMark.frameNo;
                     finishOneRectangle = false;
                 }
 
-                if (objectMark.markType == Object.LocationMark.LocationMarkType.Delete)
+                if (objectMark.markType == LocationMark.LocationMarkType.Delete)
                 {
                     end = objectMark.frameNo;
                     drawLifeSpan(start, end);
@@ -87,7 +87,7 @@ namespace Annotator
             foreach (var entry in o.spatialLinkMarks)
             {
                 int frameNo = entry.Key;
-                Object.SpatialLinkMark objectMark = entry.Value;
+                SpatialLinkMark objectMark = entry.Value;
 
                 RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
                 mark.BorderColor = System.Drawing.Color.Green;
@@ -104,7 +104,7 @@ namespace Annotator
 
             if (!finishOneRectangle)
             {
-                drawLifeSpan(start, this.session.sessionLength);
+                drawLifeSpan(start, sessionLength);
             }
         }
 
@@ -140,7 +140,7 @@ namespace Annotator
 
         private void select_Click(object sender, EventArgs e)
         {
-            session.selectObject(o);
+            main.selectObject(o);
         }
 
         internal void selectDeco()
@@ -155,12 +155,19 @@ namespace Annotator
 
         private void generate3d_Click(object sender, EventArgs e)
         {
-            session.generate3dforObject(o);
+            main.generate3dforObject(o);
         }
 
         private void remove_Click(object sender, EventArgs e)
         {
-            session.removeObject(o);
+            DialogResult result = MessageBox.Show("Are you sure you want to remove this object?",
+                "Remove",
+                MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Console.WriteLine("Remove object " + o.id);
+                main.removeObject(o);
+            }
         }
 
         ToolTip tt = new ToolTip();
@@ -172,7 +179,7 @@ namespace Annotator
         {
             if (o.spatialLinkMarks.ContainsKey(frameNo))
             {
-                Object.SpatialLinkMark objectMark = o.spatialLinkMarks[frameNo];
+                SpatialLinkMark objectMark = o.spatialLinkMarks[frameNo];
 
                 int X1 = (int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1));
                 int ms = (int)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
@@ -188,7 +195,7 @@ namespace Annotator
             }
             else if (o.objectMarks.ContainsKey(frameNo))
             {
-                Object.LocationMark objectMark = o.objectMarks[frameNo];
+                LocationMark objectMark = o.objectMarks[frameNo];
 
                 int X1 = (int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1));
                 int ms = (int)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);

@@ -102,10 +102,10 @@ namespace Annotator
 
         public void redrawObjectMarks()
         {
-            if (currentSession.objectToObjectTracks.ContainsKey(selectedObject))
+            if (objectToObjectTracks.ContainsKey(selectedObject))
             {
-                currentSession.objectToObjectTracks[selectedObject].drawObjectMarks();
-                currentSession.objectToObjectTracks[selectedObject].Invalidate();
+                objectToObjectTracks[selectedObject].drawObjectMarks();
+                objectToObjectTracks[selectedObject].Invalidate();
             }
         }
     }

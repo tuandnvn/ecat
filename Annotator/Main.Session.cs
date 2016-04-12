@@ -108,9 +108,9 @@ namespace Annotator
 
         public void populateMiddleCenterPanel()
         {
-            foreach (ObjectAnnotation o in currentSession.objectTracks)
+            foreach (Object o in currentSession.getObjects())
             {
-                addObjectTracking(o);
+                addObjectAnnotation(o);
             }
         }
 
@@ -204,7 +204,6 @@ namespace Annotator
                 File.Copy(fileName, dstFileName);
             //Check if file contains video stream:
 
-            //MessageBox.Show("*.avi file loaded! :" + fileName);
             if (!currentSession.checkFileInSession(relFileName) && !relFileName.Contains("files.param"))
             {
                 currentSession.addFile(dstFileName);
@@ -218,6 +217,39 @@ namespace Annotator
 
                 //Add view to comboBox1:
                 comboBox1.Items.Add(relFileName);
+            }
+            return dstFileName;
+        }
+
+        /// <summary>
+        /// Copy a file into the current session with a new name
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="newRelFileName"></param>
+        /// <returns></returns>
+        internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
+        {
+            //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
+            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.getSessionName() + Path.DirectorySeparatorChar + newRelFileName;
+            //MessageBox.Show("outputFile = " + dstFileName);
+            //If file doesnt exist in session folder add file to session folder
+            if (!File.Exists(dstFileName))
+                File.Copy(fileName, dstFileName);
+            //Check if file contains video stream:
+
+            if (!currentSession.checkFileInSession(newRelFileName) && !newRelFileName.Contains("files.param"))
+            {
+                currentSession.addFile(dstFileName);
+                //If file didnt exist in treeView update treeView
+                treeView.BeginUpdate();
+                TreeNode fileNode = new TreeNode(newRelFileName);
+                fileNode.ImageIndex = 2;
+                fileNode.SelectedImageIndex = fileNode.ImageIndex;
+                currentSessionNode.Nodes.Add(fileNode);
+                treeView.EndUpdate();
+
+                //Add view to comboBox1:
+                comboBox1.Items.Add(newRelFileName);
             }
             return dstFileName;
         }

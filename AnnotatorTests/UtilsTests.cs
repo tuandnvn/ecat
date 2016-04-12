@@ -54,14 +54,14 @@ namespace Annotator.Tests
         [TestMethod()]
         public void ScoreTestRectangle()
         {
-            Console.WriteLine(Utils.Score(new Rectangle(0, 0, 2, 2), new Point(1, 1)));
+            Console.WriteLine(new Object.RectangleLocationMark(0, LocationMark.LocationMarkType.Location, new Rectangle(0, 0, 2, 2)).Score(new Point(1, 1)));
         }
 
         [TestMethod()]
         public void ScoreTestPolygon()
         {
-            Console.WriteLine(Utils.Score(new Point[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
-                                                new Point(2,0) }.ToList(), new Point(1, 1)));
+            Console.WriteLine(new Object.PolygonLocationMark(0, LocationMark.LocationMarkType.Location, new Point[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
+                                                new Point(2,0) }.ToList()).Score(new Point(1, 1)));
         }
 
         //[TestMethod()]

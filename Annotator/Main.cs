@@ -32,23 +32,22 @@ namespace Annotator
             frameTrackBar.Maximum = 100;
         }
 
-        
-
         //Project workspace 
         private Workspace workspace = null;
         private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
         private bool newProject = false;//true if new project is creating
         private bool newSession = false;//true if new session is creating     
-        private Project selectedProject = null; //currently selected project
-        private TreeNode selectedProjectNode = null;
-        private Session currentSession = null;
-        private TreeNode currentSessionNode = null;
-        private Video currentVideo = null;      //currently edited video
+        internal Project selectedProject = null; //currently selected project
+        internal TreeNode selectedProjectNode = null;
+        internal Session currentSession = null;
+        internal TreeNode currentSessionNode = null;
+        private VideoReader currentVideo = null;      //currently edited video
 
         private Font myFont = new Font("Microsoft Sans Serif", 5.75f);//font to write not-string colors
         private Point lastAnnotation = new Point(94, 0);              // last annotation location for middle-bottom panel
         private Point lastObjectTrack = new Point(94, 0);
-
+        internal List<ObjectAnnotation> objectAnnotations { get; set; }
+        internal Dictionary<Object, ObjectAnnotation> objectToObjectTracks { get; set; }
         List<Button> drawingButtonGroup = new List<Button>();
         Dictionary<Button, bool> drawingButtonSelected = new Dictionary<Button, bool>();
 
@@ -75,10 +74,8 @@ namespace Annotator
                 setWorkspace(workspace.getLocationFolder(), workspace.getDefaultOption());
             }
 
-            //capture = new Capture("kinect_local_rgb_raw_synced.avi");
-            //pictureBoard.capture = capture;
-            //pictureBoard.mat = capture.QueryFrame();
-            //pictureBoard.Image = capture.QueryFrame().Bitmap;
+            this.objectAnnotations = new List<ObjectAnnotation>();
+            this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
         }
 
         //Set workspace option: folder and default option
@@ -142,7 +139,7 @@ namespace Annotator
             }
         }
 
-       
+
         //Load workspace treeView:
         private void initworkspaceTreeView()
         {
@@ -185,7 +182,7 @@ namespace Annotator
                         if (project.checkSessionInProject(sessionName))
                         {
                             //MessageBox.Show("OK");
-                            project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation(), this));
+                            project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation()));
                             //Add to threeview session list only files which exists in session filesList
 
                             Session session = project.getSession(sessionName);
@@ -194,7 +191,6 @@ namespace Annotator
                             {
                                 if (!session.checkFileInSession(sessionNode.Nodes[ii].ToString().Substring(10)))
                                 {
-                                    //MessageBox.Show(currentSessionNode.Nodes[ii].ToString().Substring(10));
                                     sessionNode.Nodes[ii].Remove();
                                 }
                             }
@@ -213,7 +209,7 @@ namespace Annotator
                         Project project = workspace.getProject(prjName);
                         if (project.checkSessionInProject(sessionName))
                         {
-                            project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation(), this));
+                            project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation()));
                             array.Add(sessionNode);
                         }
                     }
@@ -345,24 +341,27 @@ namespace Annotator
 
         private void rightClickOnProjectTreeNode(MouseEventArgs e)
         {
-            
+
             if (selectedProject != null && treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName()))
             {
                 selectToolStripMenuItem.Enabled = false;
                 closeToolStripMenuItem.Enabled = true;
                 newSessionToolStripMenuItem.Enabled = true;
+                recordSessionToolStripMenuItem.Enabled = true;
             }
             else if (selectedProject != null && !(treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName())))
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
+                recordSessionToolStripMenuItem.Enabled = false;
             }
             if (selectedProject == null)
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
+                recordSessionToolStripMenuItem.Enabled = false;
             }
             Point location = this.Location;
             location.X += e.Location.X + leftMostPanel.Location.X + 15;
@@ -370,16 +369,7 @@ namespace Annotator
             projectRightClickPanel.Show(location);
         }
 
-        // Add object tracking
-        public void addObjectTracking(ObjectAnnotation objectTrack)
-        {
-            objectTrack.Location = lastObjectTrack;
-            middleCenterPanel.Controls.Add(objectTrack);
-            lastObjectTrack.Y = lastObjectTrack.Y + objectTrack.Height + 5;
-            middleCenterPanel.Invalidate();
-        }
-
-        public void removeObjectTracking(ObjectAnnotation objectTrack)
+        public void removeObjectAnnotation(ObjectAnnotation objectTrack)
         {
             middleCenterPanel.Controls.Remove(objectTrack);
             lastObjectTrack.Y = lastObjectTrack.Y - objectTrack.Height - 5;
@@ -414,36 +404,42 @@ namespace Annotator
             //1)Set new session state
             newSession = true;
             //2)Show popup for session name
-            SessionInfo sessionInfo = new SessionInfo(this, treeView.SelectedNode.ToString());
+            SessionInfo sessionInfo = new SessionInfo(this, treeView.SelectedNode.ToString().Substring(10));
             sessionInfo.Location = new Point(this.Location.X + (int)(sessionInfo.Width / 2.5), this.Location.Y + sessionInfo.Height / 2);
             sessionInfo.Show();
         }
 
-        //Add new session to workspace
-        public void addNewSessionToWorkspace(String projectName, String sessionName)
+        /// <summary>
+        /// Add new session to workspace
+        /// </summary>
+        /// <param name="projectName"></param>
+        /// <param name="sessionName"></param>
+        /// <returns></returns>
+        public Session addNewSessionToWorkspace(String projectName, String sessionName)
         {
             treeView.BeginUpdate();
             TreeNodeCollection nodes = getTreeViewNodes();
-            foreach (TreeNode currentProject in nodes)
-            {
-                if (currentProject.ToString().Contains(projectName))
-                {
-                    //MessageBox.Show(projectName);
-                    TreeNode newSession = new TreeNode(sessionName);
-                    newSession.ImageIndex = 1;
-                    newSession.SelectedImageIndex = newSession.ImageIndex;
-                    newSession.Name = sessionName;
-                    //1)Update workspace project by adding new session
-                    Project project = workspace.getProject(projectName);
-                    project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation(), this));
-                    //2)Update treeView
-                    currentProject.Nodes.Add(newSession);
-                    currentProject.Expand();
-                    break;
-                }
-            }
+            //MessageBox.Show(projectName);
+
+            TreeNode newSessionNode = new TreeNode(sessionName);
+            newSessionNode.ImageIndex = 1;
+            newSessionNode.SelectedImageIndex = newSessionNode.ImageIndex;
+            newSessionNode.Name = sessionName;
+
+            //1) Update workspace project by adding new session
+            Project project = workspace.getProject(projectName);
+            Session newSession = new Session(sessionName, project.getProjectName(), project.getLocation());
+
+            project.addSession(newSession);
+
+            //2) Update treeView
+            selectedProjectNode.Nodes.Add(newSessionNode);
+            selectedProjectNode.Expand();
             treeView.EndUpdate();
+
+            return newSession;
         }
+
         //Add new project - open popup window:
         private void addNewProject()
         {
@@ -455,16 +451,18 @@ namespace Annotator
             projectInfo.Show();
 
         }
+
         //Add new project to workspace
-        public void addNewProjectToWorkspace(String projectName)
+        public Project addNewProjectToWorkspace(String projectName)
         {
             //MessageBox.Show(projectName);
             //1)Add new project to tree view:
             TreeNode projectNode = new TreeNode(projectName);
             treeView.Nodes.Add(projectNode);
             //2)Add new project to the workspace:
-            workspace.addProject(projectName);
+            return workspace.addProject(projectName);
         }
+
         //Set new project as false(not/creating new project currently)
         public void setNewProject(bool option)
         {
@@ -500,8 +498,8 @@ namespace Annotator
         {
             return treeView.Nodes;
         }
-        
-        
+
+
         private void clearComboBox1()
         {
             comboBox1.Items.Clear();
@@ -509,54 +507,37 @@ namespace Annotator
             frameTrackBar.Enabled = false;
         }
 
-        private void loadVideo(String fileName)
+        private void loadVideo(int videoIndex)
         {
             Application.DoEvents();
-            currentSession = null;
-            //MessageBox.Show(selectedProject.getSessionN() + "");
-            for (int i = 0; i < selectedProject.getSessionN(); i++)
-            {
-                //MessageBox.Show(selectedProject.getProjectName() + ", " + selectedProject.getSession(i).getSessionName() + ", " + selectedProject.getSession(i).getEdited());
-                if (selectedProject.getSession(i).getEdited())
-                {
-                    currentSession = selectedProject.getSession(i);
-                    break;
-                }
-            }
+            currentVideo = currentSession.getVideo(videoIndex);
 
-            //MessageBox.Show(currentSession.getVideosN() + "");            
-            for (int i = 0; i < currentSession.getVideosN(); i++)
-            {
-                if (currentSession.getVideo(i).getFileName().Contains(comboBox1.SelectedItem.ToString()))
-                {
-                    currentVideo = currentSession.getVideo(i);
-                    break;
-                }
-            }
-            //2)Load video:
             if (currentVideo != null)
             {
-                frameTrackBar.Maximum = currentVideo.frameNumber;
+                frameTrackBar.Maximum = currentVideo.frameCount;
             }
-                
+
         }
 
-        Capture capture = null;
+        
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadVideo(comboBox1.SelectedItem.ToString());
+            int videoIndex = comboBox1.SelectedIndex;
+            loadVideo(videoIndex);
 
             if (currentVideo != null)
             {
                 endPoint = startPoint;
                 label3.Text = "Frame: " + frameTrackBar.Value;
-                if (capture == null)
+
+                Mat m = currentVideo.getFrame(0);
+                if ( m != null)
                 {
-                    capture = new Capture(currentVideo.fileName);
+                    pictureBoard.mat = m;
+                    pictureBoard.Image = pictureBoard.mat.Bitmap;
                 }
-                pictureBoard.mat = capture.QueryFrame();
-                pictureBoard.Image = pictureBoard.mat.Bitmap;
+                
                 setLeftTopPanel();
             }
         }
@@ -589,21 +570,13 @@ namespace Annotator
         {
             label3.Text = "Frame: " + frameTrackBar.Value;
             //if(trackBar1.Value >= trackBar1.Minimum && trackBar1.Value < trackBar1.
-            if (currentVideo != null )
+            if (currentVideo != null)
             {
-                if (capture == null)
+                Mat m = currentVideo.getFrame(frameTrackBar.Value);
+                if (m != null)
                 {
-                    capture = new Capture(currentVideo.fileName);
-                }
-
-                try
-                {
-                    capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameTrackBar.Value - 1);
-                    pictureBoard.mat = capture.QueryFrame();
+                    pictureBoard.mat = m;
                     pictureBoard.Image = pictureBoard.mat.Bitmap;
-                } catch (NullReferenceException ec)
-                {
-                    Console.WriteLine( " Get frame failed : " + frameTrackBar.Value);
                 }
             }
         }
@@ -651,5 +624,84 @@ namespace Annotator
 
         }
 
+
+        internal void removeObject(Object o)
+        {
+            removeDrawingObject(o);
+            currentSession.removeObject(o.id);
+
+            // Remove the annotation corresponding to this object
+            // and rearrage all object annotations
+            ObjectAnnotation ot = this.objectToObjectTracks[o];
+            if (ot != null)
+            {
+                this.objectToObjectTracks.Remove(o);
+                this.objectAnnotations.Remove(ot);
+            }
+
+            foreach (ObjectAnnotation other in objectAnnotations)
+            {
+                if (other.Location.Y > ot.Location.Y)
+                {
+                    other.Location = new Point(other.Location.X, other.Location.Y - ot.Height - 5);
+                }
+            }
+            removeObjectAnnotation(ot);
+        }
+
+
+        internal void addObjectAnnotation(Object o)
+        {
+            var objectAnnotation = new ObjectAnnotation(o, this, currentSession.sessionLength);
+            objectAnnotations.Add(objectAnnotation);
+            objectToObjectTracks[o] = objectAnnotation;
+
+            objectAnnotation.Location = lastObjectTrack;
+            middleCenterPanel.Controls.Add(objectAnnotation);
+            lastObjectTrack.Y = lastObjectTrack.Y + objectAnnotation.Height + 5;
+            middleCenterPanel.Invalidate();
+        }
+
+        internal void selectObject(Object o)
+        {
+            //Remove any decoration of other objects
+            foreach (Object other in objectToObjectTracks.Keys)
+            {
+                objectToObjectTracks[other].deselectDeco();
+            }
+            objectToObjectTracks[o].selectDeco();
+
+            lock (selectedObjectLock)
+            {
+                this.selectedObject = o;
+
+                if (selectedObject != null)
+                {
+                    selectObjContextPanel.Visible = true;
+                }
+
+                foreach (Button b in drawingButtonGroup)
+                {
+                    selectButtonDrawing(b, drawingButtonGroup, false);
+                }
+
+                this.showInformation(o);
+            }
+            invalidatePictureBoard();
+        }
+
+
+        internal void generate3dforObject(Object o)
+        {
+        }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("KeyDown " + e.KeyCode);
+            if (e.KeyCode == Keys.D && recordPanel.recordMode != RecordPanel.RecordMode.Playingback)
+            {
+                recordPanel.rgbBoard.Image.Save("temp.png");
+            }
+        }
     }
 }

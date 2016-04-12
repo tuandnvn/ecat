@@ -10,9 +10,14 @@ namespace Annotator
 {
     public struct Point3F
     {
-        float X;
-        float Y;
-        float Z;
+        public float X;
+        public float Y;
+        public float Z;
+
+        public override string ToString()
+        {
+            return X + ", " + Y + ", " + Z;
+        }
     }
 
     public class RigFigure<T>
@@ -184,9 +189,9 @@ namespace Annotator
             return new RigFigure<T>(getRigJoints(frame, rigIndex), getRigBones(frame, rigIndex));
         }
 
-        public Dictionary<int, Object> generateObjects ( String videoFile )
+        public Dictionary<int, RigObject> generateObjects ( String videoFile )
         {
-            var rigObjects = new Dictionary<int, Object>();
+            var rigObjects = new Dictionary<int, RigObject>();
 
             foreach ( int frame in frameToRig.Keys)
             {
@@ -195,7 +200,7 @@ namespace Annotator
                 {
                     if ( !rigObjects.ContainsKey(rigIndex)      )
                     {
-                        rigObjects [rigIndex] = new Object("", Color.Green, 1, videoFile);
+                        rigObjects [rigIndex] = new RigObject("", Color.Green, 1, videoFile);
                         rigObjects[rigIndex].otherProperties["rigIndex"] = "" + rigIndex;
                         rigObjects[rigIndex].genType = Object.GenType.PROVIDED;
                         rigObjects[rigIndex].semanticType = "bodyRig";
@@ -213,7 +218,7 @@ namespace Annotator
             return rigObjects;
         }
 
-        public static void loadDataForRig(String rigFile, String rigSchemeFile, int rigIndex, Object o)
+        public static void loadDataForRig(String rigFile, String rigSchemeFile, int rigIndex, RigObject o)
         {
             var rigs = Rigs<Point>.getRigFromSource(rigFile, rigSchemeFile);
 

@@ -22,7 +22,7 @@ namespace Annotator
         private System.ComponentModel.IContainer components;
         private Button saveRecordedSession;
         private MyPictureBox depthBoard;
-        private MyPictureBox rgbBoard;
+        internal MyPictureBox rgbBoard;
         private TrackBar playBar;
         private GroupBox cropBox;
         private GroupBox optionBox;
@@ -47,7 +47,6 @@ namespace Annotator
             InitializeOptionsTable();
             InitializeButtons();
         }
-
 
         private void InitializeComponent()
         {
@@ -80,6 +79,7 @@ namespace Annotator
             this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cameraStatusLabel = new System.Windows.Forms.Label();
+            this.cropBar = new Range();
             this.recordingButtonGroup.SuspendLayout();
             this.recordedBox.SuspendLayout();
             this.cropBox.SuspendLayout();
@@ -364,6 +364,7 @@ namespace Annotator
             this.optionsTable.RowHeadersVisible = false;
             this.optionsTable.Size = new System.Drawing.Size(251, 369);
             this.optionsTable.TabIndex = 0;
+            this.optionsTable.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.optionsTable_CellValueChanged);
             // 
             // PropertyName
             // 
@@ -400,6 +401,8 @@ namespace Annotator
             this.DoubleBuffered = true;
             this.Name = "RecordPanel";
             this.Size = new System.Drawing.Size(1420, 860);
+            //main.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecordPanel_KeyPress);
+            //main.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RecordPanel_KeyDown);
             this.recordingButtonGroup.ResumeLayout(false);
             this.recordedBox.ResumeLayout(false);
             this.recordedBox.PerformLayout();
@@ -418,6 +421,15 @@ namespace Annotator
 
         }
 
+        private void RecordPanel_KeyDown(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("KeyDown " + e.KeyCode);
+            if (e.KeyCode == Keys.D && recordMode != RecordMode.Playingback)
+            {
+                rgbBoard.Image.Save("temp.png");
+            }
+        }
+
         private void playBar_ValueChanged(object sender, EventArgs e)
         {
             updateRgbBoardWithFrame();
@@ -425,14 +437,13 @@ namespace Annotator
             updateRigWithFrame();
         }
 
-        private void rgbBoard_Paint(object sender, PaintEventArgs e)
+        private void RecordPanel_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void saveRecordedSession_Click(object sender, EventArgs e)
-        {
-
+            Console.WriteLine("KeyPress " + e.KeyChar);
+            if (e.KeyChar == 'd' && recordMode != RecordMode.Playingback)
+            {
+                rgbBoard.Image.Save("temp.png");
+            }
         }
     }
 }

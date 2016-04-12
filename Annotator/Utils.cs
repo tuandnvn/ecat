@@ -10,22 +10,8 @@ namespace Annotator
 {
     public static class Utils
     {
-        public static float Score(RigFigure<Point> rig, Point testPoint)
-        {
-            float score = 0;
-
-            var rigJoints = rig.rigJoints.Values.ToList();
-            if (rigJoints.Count != 0)
-            {
-                var convexHull = getConvexHull(rigJoints);
-                Console.WriteLine("convexHull " + string.Join(",", convexHull));
-                return Score(convexHull, testPoint);
-            }
-
-
-            return score;
-        }
-
+        
+        
         public static List<Point> getConvexHull(List<Point> points)
         {
             // Select points that has lowest X, than select point that has lowest Y -> must be one on the convex hull's 
@@ -98,37 +84,6 @@ namespace Annotator
                     convexHulls.Push(lastPoint);
                 }
             }
-
-        }
-
-        public static float Score(List<Point> polygon, Point testPoint)
-        {
-            if (!IsPointInPolygonL(polygon, testPoint))
-            {
-                return 0;
-            }
-
-            float score = 0;
-            // Average of reveresed distance to polygon points
-            foreach (Point p in polygon)
-            {
-                score += (float)(1f / Math.Sqrt( Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
-            }
-            score /= polygon.Count;
-            return score;
-        }
-
-        public static float Score(Rectangle r, Point testPoint)
-        {
-            if (!r.Contains(testPoint))
-                return 0;
-            float score = 0;
-            foreach (Point p in new Point[] { new Point(r.Top, r.Left), new Point(r.Top, r.Right), new Point(r.Bottom, r.Left), new Point(r.Bottom, r.Right) })
-            {
-                score += (float)(1f / Math.Sqrt(Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
-            }
-            score /= 4;
-            return score;
         }
 
         public static bool IsPointInPolygonL(List<Point> polygon, Point testPoint)

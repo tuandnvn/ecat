@@ -48,7 +48,10 @@ namespace Annotator
 
             if (selectedObject != null)
             {
-                currentSession.deselectObject(selectedObject);
+                if (objectToObjectTracks[selectedObject] != null)
+                {
+                    objectToObjectTracks[selectedObject].deselectDeco();
+                }
             }
 
             if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)

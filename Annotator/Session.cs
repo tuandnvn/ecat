@@ -21,19 +21,20 @@ namespace Annotator
         private const string OBJECTS = "objects";
         private const string ANNOTATIONS = "annotations";
         private const string SESSION = "session";
-        public List<ObjectAnnotation> objectTracks { get; set; }
-        public Dictionary<Object, ObjectAnnotation> objectToObjectTracks { get; }
-        public List<Event> events { get; set; }
+        
+        public List<Event> events { get; private set; }
+        public int objectCount { get; set; } = 0;          // video objects IDs
+        private Dictionary<string, Object> objects;  // list of objects in videos
         private String sessionName;     //session name
         private String project;         //session's project 
         private String locationFolder;  //session location folder
         private bool edited;            //true if session is currently edited
-        private List<Video> videos;
+        private List<VideoReader> videos;
         private List<String> filesList;
         private String metadataFile;      //parameters file name
         public Main mainGUI { get; }
         private int annotationID;      // annotation ID
-        public int? _sessionLength;
+        private int? _sessionLength;
         public int sessionLength
         {
             get
@@ -57,22 +58,19 @@ namespace Annotator
                 }
             }
         }
-        public int objectCount { get; set; } = 0;          // video objects IDs
-        private Dictionary<string, Object> objects;  // list of objects in videos
+        
 
         //Constructor
-        public Session(String sessionName, String projectOwner, String locationFolder, Main frm1)
+        public Session(String sessionName, String projectOwner, String locationFolder)
         {
             this.sessionName = sessionName;
             this.filesList = new List<String>();
             this.edited = false;
-            this.videos = new List<Video>();
-            this.objectTracks = new List<ObjectAnnotation>();
-            this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
+            this.videos = new List<VideoReader>();
+            
             this.events = new List<Event>();
             this.project = projectOwner;
             this.locationFolder = locationFolder;
-            this.mainGUI = frm1;
             objects = new Dictionary<string, Object>();
             //If session file list exist load files list            
             metadataFile = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + "files.param";
@@ -107,6 +105,7 @@ namespace Annotator
         //Add object
         public void addObject(Object o)
         {
+            
             //1)Check if object exists in objects list
             bool exists = false;
             if (o.id != null && objects.ContainsKey(o.id))
@@ -114,8 +113,8 @@ namespace Annotator
                 return;
             }
             if (o.id == "" || o.id == null) { o.id = "o" + ++objectCount; }
+            Console.WriteLine("Add object into session " + o.id);
             objects[o.id] = o;
-            addObjectAnnotation(o);
         }
 
         //Get objects list
@@ -180,55 +179,9 @@ namespace Annotator
             myFile.Attributes = FileAttributes.Hidden;
         }
 
-        internal void removeObject(Object o)
+        internal void removeObject(string objectId)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to remove this object?",
-                "Remove",
-                MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                Console.WriteLine("Remove object " + o.id);
-                mainGUI.removeObject(o);
-                objects.Remove(o.id);
-                ObjectAnnotation ot = this.objectToObjectTracks[o];
-                if (ot != null)
-                {
-                    this.objectToObjectTracks.Remove(o);
-                    this.objectTracks.Remove(ot);
-                }
-
-                foreach (ObjectAnnotation other in objectTracks)
-                {
-                    if (other.Location.Y > ot.Location.Y)
-                    {
-                        other.Location = new Point(other.Location.X, other.Location.Y - ot.Height - 5);
-                    }
-                }
-                mainGUI.removeObjectTracking(ot);
-            }
-        }
-
-        internal void generate3dforObject(Object o)
-        {
-        }
-
-        internal void selectObject(Object o)
-        {
-            //Remove any decoration of other objects
-            foreach (Object other in objectToObjectTracks.Keys)
-            {
-                objectToObjectTracks[other].deselectDeco();
-            }
-            objectToObjectTracks[o].selectDeco();
-            mainGUI.selectObject(o);
-        }
-
-        internal void deselectObject(Object o)
-        {
-            if (objectToObjectTracks[o] != null)
-            {
-                objectToObjectTracks[o].deselectDeco();
-            }
+            objects.Remove(objectId);
         }
 
         //Get edited
@@ -274,17 +227,6 @@ namespace Annotator
                 List<Object> objects = Object.readFromXml(objectsNode);
                 foreach (Object o in objects)
                 {
-                    String videoName = o.videoFile;
-                    Video v = null;
-
-                    foreach (Video video in videos)
-                    {
-                        if (video.getFileName().Contains(videoName))
-                        {
-                            v = video;
-                            break;
-                        }
-                    }
                     addObject(o);
                 }
 
@@ -295,22 +237,15 @@ namespace Annotator
             }
         }
 
-        private void addObjectAnnotation(Object o)
-        {
-            var t = new ObjectAnnotation(o, this);
-            objectTracks.Add(t);
-            objectToObjectTracks[o] = t;
-        }
-
         //Get video by index
-        public Video getVideo(int index)
+        public VideoReader getVideo(int index)
         {
             if (index < 0 || index > videos.Count)
                 return null;
             return videos[index];
         }
         //Get video numbers
-        public int getVideosN()
+        public int videoCount()
         {
             return videos.Count;
         }
@@ -319,9 +254,9 @@ namespace Annotator
         public void addVideo(String fileName)
         {
             bool exists = false;
-            foreach (Video v in videos)
+            foreach (VideoReader v in videos)
             {
-                if (v.getFileName().Contains(fileName))
+                if (v.fileName.Contains(fileName))
                 {
                     exists = true;
                     break;
@@ -329,9 +264,9 @@ namespace Annotator
             }
             if (!exists)
             {
-                Video v = new Video(this, fileName);
+                VideoReader v = new VideoReader(fileName, 0);
                 videos.Add(v);
-                sessionLength = v.frameNumber;
+                sessionLength = v.frameCount;
             }
         }
         //Get session's project

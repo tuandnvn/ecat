@@ -79,5 +79,6 @@ namespace Annotator
                 selectedObject.semanticType = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
             }
         }
+
     }
 }

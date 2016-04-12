@@ -28,14 +28,14 @@ namespace Annotator
 
             this.objectSelectComboBox.Items.AddRange(session.getObjects().Select( o => o.id ).ToArray() );
             this.qualifiedSelectComboBox.Items.AddRange(new object[] { true, false });
-            this.spatialLinkComboBox.Items.AddRange(Enum.GetValues(typeof(Object.SpatialLinkMark.SpatialLinkType)).Cast<object>().ToArray());
+            this.spatialLinkComboBox.Items.AddRange(Enum.GetValues(typeof(SpatialLinkMark.SpatialLinkType)).Cast<object>().ToArray());
         }
 
         private void addLinkBtn_Click(object sender, EventArgs e)
         {
             var oid = (string) this.objectSelectComboBox.SelectedItem;
             var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
-            var spatialLink = (Object.SpatialLinkMark.SpatialLinkType)this.spatialLinkComboBox.SelectedItem;
+            var spatialLink = (SpatialLinkMark.SpatialLinkType)this.spatialLinkComboBox.SelectedItem;
 
             obj.setSpatialLink(frameNo, oid, qualified, spatialLink);
 

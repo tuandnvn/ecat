@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.sessionNameTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.okButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.warningTxt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 20);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.sessionNameTxtBox.Location = new System.Drawing.Point(112, 23);
+            this.sessionNameTxtBox.Name = "textBox1";
+            this.sessionNameTxtBox.Size = new System.Drawing.Size(211, 20);
+            this.sessionNameTxtBox.TabIndex = 16;
+            this.sessionNameTxtBox.TextChanged += new System.EventHandler(this.sessionNameTxtBox_TextChanged);
             // 
             // label1
             // 
@@ -54,45 +54,45 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(143, 69);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "OK";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.okButton.Location = new System.Drawing.Point(143, 69);
+            this.okButton.Name = "ok";
+            this.okButton.Size = new System.Drawing.Size(87, 23);
+            this.okButton.TabIndex = 14;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Visible = false;
+            this.okButton.Click += new System.EventHandler(this.ok_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(236, 69);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cancelButton.Location = new System.Drawing.Point(236, 69);
+            this.cancelButton.Name = "cancel";
+            this.cancelButton.Size = new System.Drawing.Size(87, 23);
+            this.cancelButton.TabIndex = 13;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(112, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(211, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Incorrect project name(at least three letters)";
+            this.warningTxt.AutoSize = true;
+            this.warningTxt.ForeColor = System.Drawing.Color.Red;
+            this.warningTxt.Location = new System.Drawing.Point(112, 46);
+            this.warningTxt.Name = "label3";
+            this.warningTxt.Size = new System.Drawing.Size(211, 13);
+            this.warningTxt.TabIndex = 18;
+            this.warningTxt.Text = "Incorrect project name(at least three letters)";
             // 
             // SessionInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 97);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.warningTxt);
+            this.Controls.Add(this.sessionNameTxtBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.cancelButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SessionInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -106,10 +106,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox sessionNameTxtBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.Button okButton;
+        internal System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label warningTxt;
     }
 }

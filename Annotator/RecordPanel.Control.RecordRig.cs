@@ -32,7 +32,7 @@ namespace Annotator
         **/
         List<Body[]> recordedRigs = new List<Body[]>();
         List<int> recordedRigTimePoints = new List<int>();
-        
+
 
         private void startRecordRig()
         {
@@ -66,7 +66,6 @@ namespace Annotator
                 {
                     if (bodyFrame != null)
                     {
-                        Console.WriteLine("body frame count " + bodyFrame.BodyCount);
                         if (this.recordingBodies == null)
                         {
                             this.recordingBodies = new Body[bodyFrame.BodyCount];

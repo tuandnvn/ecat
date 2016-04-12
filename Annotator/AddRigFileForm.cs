@@ -60,6 +60,7 @@ namespace Annotator
             var objects = rigs.generateObjects(videoFile).Values.ToList();
             foreach ( var o in objects ) {
                 currentSession.addObject(o);
+                main.addObjectAnnotation(o);
             }
 
             this.Dispose();
