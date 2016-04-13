@@ -132,6 +132,9 @@
     <Compile Include="ObjectRecognitionAlgorithm\PatternMatchingObjectRecognition.cs" />
     <Compile Include="object\LocationMark.cs" />
     <Compile Include="object\ObjectMark.cs" />
+    <Compile Include="object\PolygonLocationMark.cs" />
+    <Compile Include="object\RectangleLocationMark.cs" />
+    <Compile Include="object\RigLocationMark.cs" />
     <Compile Include="object\RigObject.cs" />
     <Compile Include="object\SpatialLinkMark.cs" />
     <Compile Include="Range.cs">

@@ -24,7 +24,7 @@ namespace Annotator
         private int draggingSelectBoxIndex;
 
         // Polygon new drawing
-        private List<Point> polygonPoints = new List<Point>();
+        private List<PointF> polygonPoints = new List<PointF>();
         private bool drawingNewPolygon = false;
         private bool editingPolygon = false;            // (drawingNewPolygon, editingPolygon) = ( true, false ) when you're keep drawing the polygon;
                                                         // = (false, true)  when you're done drawing, editing the location of the newly created polygon
@@ -122,9 +122,9 @@ namespace Annotator
                         temporaryPoint = null;
                         newObjectContextPanel.Visible = true;
                         List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                        foreach (Point p in polygonPoints)
+                        foreach (PointF p in polygonPoints)
                         {
-                            listOfSelectBox.Add(new Rectangle(p.X - (boxSize - 1) / 2, p.Y - (boxSize - 1) / 2, boxSize, boxSize));
+                            listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
                         }
                         selectBoxes = listOfSelectBox.ToArray();
                         invalidatePictureBoard();
@@ -350,16 +350,16 @@ namespace Annotator
                             switch (selectedObject.borderType)
                             {
                                 case Object.BorderType.Rectangle:
-                                    boundingBox = ((Object.RectangleLocationMark)lm).boundingBox;
+                                    boundingBox = ((RectangleLocationMark)lm).boundingBox;
                                     startPoint = new Point(boundingBox.X, boundingBox.Y);
                                     endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
                                     break;
                                 case Object.BorderType.Polygon:
-                                    polygonPoints = ((Object.PolygonLocationMark)lm).boundingPolygon;
+                                    polygonPoints = ((PolygonLocationMark)lm).boundingPolygon;
                                     List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                                    foreach (Point p in polygonPoints)
+                                    foreach (PointF p in polygonPoints)
                                     {
-                                        listOfSelectBox.Add(new Rectangle(p.X - (boxSize - 1) / 2, p.Y - (boxSize - 1) / 2, boxSize, boxSize));
+                                        listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
                                     }
                                     selectBoxes = listOfSelectBox.ToArray();
                                     break;
@@ -430,7 +430,7 @@ namespace Annotator
                             if (temporaryPoint.HasValue && polygonPoints.Count != 0)
                             {
                                 polygonPoints.Add(temporaryPoint.Value);
-                                e.Graphics.DrawPolygon(pen, ((List<Point>)polygonPoints).ToArray());
+                                e.Graphics.DrawPolygon(pen, ((List<PointF>)polygonPoints).ToArray());
                                 polygonPoints.Remove(temporaryPoint.Value);
                             }
                         }
@@ -438,7 +438,7 @@ namespace Annotator
                         {
                             if (polygonPoints.Count != 0)
                             {
-                                e.Graphics.DrawPolygon(pen, ((List<Point>)polygonPoints).ToArray());
+                                e.Graphics.DrawPolygon(pen, ((List<PointF>)polygonPoints).ToArray());
                             }
 
                             for (int index = 0; index < selectBoxes.Count(); index++)
@@ -493,7 +493,7 @@ namespace Annotator
 
             if (drawingButtonSelected[polygonDrawing])
             {
-                polygonPoints = new List<Point>();
+                polygonPoints = new List<PointF>();
                 drawingNewPolygon = editingPolygon = false;
             }
             draggingSelectBoxes = false;
@@ -538,7 +538,7 @@ namespace Annotator
             {
                 objectToAdd = new Object(null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.fileName);
                 objectToAdd.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
-                polygonPoints = new List<Point>();
+                polygonPoints = new List<PointF>();
             }
 
             if (objectToAdd != null)

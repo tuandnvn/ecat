@@ -102,10 +102,10 @@ namespace Annotator
                                             joints[jointName] = (T) Activator.CreateInstance(typeof(T), new object[] { (int)float.Parse(components[2 * jointIndex]), (int) float.Parse(components[2 * jointIndex + 1]) });
                                             break;
                                         case "System.Drawing.PointF":
-                                            joints[jointName] = (T) Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[3 * jointIndex]), float.Parse(components[3 * jointIndex + 1]), float.Parse(components[3 * jointIndex + 2]) });
+                                            joints[jointName] = (T) Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[2 * jointIndex]), float.Parse(components[2 * jointIndex + 1]) }); 
                                             break;
                                         case "Annotator.Point3F":
-                                            joints[jointName] = (T)Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[2 * jointIndex]), float.Parse(components[2 * jointIndex + 1]) });
+                                            joints[jointName] = (T)Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[3 * jointIndex]), float.Parse(components[3 * jointIndex + 1]), float.Parse(components[3 * jointIndex + 2]) });
                                             break;
                                     }
                                 }
@@ -298,9 +298,14 @@ namespace Annotator
         public string frameRoot { get; set; } = "";
 
         ///<summary>
-        ///The relative Xpath to all rig points
+        ///The relative Xpath to all 2-dimensional rig points (projected on RGB field)
         ///</summary>
         public string rigPointsPath { get; set; } = "";
+
+        ///<summary>
+        ///The relative Xpath to all 3-dimensional rig points (camera space)
+        ///</summary>
+        public string rigPoint3DsPath { get; set; } = "";
 
         ///<summary>
         ///The relative Xpath to get the frame number
@@ -355,6 +360,7 @@ namespace Annotator
                 string sequenceRoot = rigPointInput.SelectNodes("sequenceRoot").Item(0).InnerText;
                 string frameRoot = rigPointInput.SelectNodes("frameRoot").Item(0).InnerText;
                 string rigPointsPath = rigPointInput.SelectNodes("rigPointsPath").Item(0).InnerText;
+                string rigPoint3DsPath = rigPointInput.SelectNodes("rigPoint3DsPath").Item(0).InnerText;
                 string frameNoPath = rigPointInput.SelectNodes("frameNoPath").Item(0).InnerText;
                 string rigNoPath = rigPointInput.SelectNodes("rigNoPath").Item(0).InnerText;
                 string rigPointFormatType = rigPointInput.SelectNodes("rigPointFormat").Item(0).Attributes["type"].Value;
@@ -389,6 +395,7 @@ namespace Annotator
                     sequenceRoot = sequenceRoot,
                     frameRoot = frameRoot,
                     rigPointsPath = rigPointsPath,
+                    rigPoint3DsPath = rigPoint3DsPath,
                     frameNoPath = frameNoPath,
                     rigNoPath = rigNoPath,
                     rigPointFormatType = rigPointFormatType,

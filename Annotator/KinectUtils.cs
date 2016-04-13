@@ -16,7 +16,15 @@ namespace Annotator
                 new CameraSpacePoint (){ X = 0.0f, Y = -0.3f, Z = 1.0f },
                 new CameraSpacePoint (){ X = 0.7f, Y = 0.0f, Z = 1.0f },
                 new CameraSpacePoint { X = 0.0f, Y = 0.3f, Z = 1.0f },
-                new CameraSpacePoint { X = 0.0f, Y = 0.0f, Z = 1.0f }};
+                new CameraSpacePoint { X = 0.0f, Y = 0.0f, Z = 1.0f },
+
+                //Skeleton_Joint_Locations 0.51399,0.163888,1.20627,0.494376,0.362051,1.19127
+                new CameraSpacePoint { X = 0.51399f, Y = 0.163888f, Z = 1.20627f },
+                new CameraSpacePoint { X = 0.494376f, Y = 0.362051f, Z = 1.19127f },
+
+                //Skeleton_Joint_Locations_Orig 0.534418,-0.159339,1.38631,0.523629,0.0243074,1.30818 
+                new CameraSpacePoint { X = 0.534418f, Y = -0.159339f, Z = 1.38631f },
+                new CameraSpacePoint { X = 0.523629f, Y = 0.0243074f, Z = 1.30818f }, };
 
             DepthSpacePoint[] spaceBasicToDepth = new DepthSpacePoint[spacePointBasics.Count()];
 

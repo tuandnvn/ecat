@@ -36,18 +36,23 @@ namespace Annotator
             return selectBoxes;
         }
 
-        public static void DrawRig(this Graphics graphics, Pen p, RigFigure<Point> rigFigure)
+        public static void DrawRig<T>(this Graphics graphics, Pen p, RigFigure<T> rigFigure)
         {
+            if (typeof(T) != typeof(Point) && typeof(T) != typeof(System.Drawing.PointF)) return;
+
             // Draw joints
             foreach ( var joint in rigFigure.rigJoints.Values )
             {
-                graphics.DrawEllipse(p, joint.X - 2 * p.Width, joint.Y - 2 * p.Width, p.Width * 4, p.Width * 4);
+                System.Drawing.PointF jointPoint = (System.Drawing.Point)(object)joint;
+                graphics.DrawEllipse(p, jointPoint.X - 2 * p.Width, jointPoint.Y - 2 * p.Width, p.Width * 4, p.Width * 4);
             }
 
             // Draw bones
             foreach ( var bone in rigFigure.rigBones )
             {
-                graphics.DrawLine(p, bone.Item1, bone.Item2);
+                System.Drawing.PointF from = (System.Drawing.Point)(object)bone.Item1;
+                System.Drawing.PointF to = (System.Drawing.Point)(object)bone.Item2;
+                graphics.DrawLine(p, from, to);
             }
         }
 

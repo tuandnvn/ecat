@@ -80,7 +80,7 @@ namespace Annotator
 
         private void doneEditPolygon()
         {
-            polygonPoints = new List<Point>();
+            polygonPoints = new List<PointF>();
             drawingNewPolygon = editingPolygon = false;
         }
     }

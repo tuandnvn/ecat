@@ -10,17 +10,15 @@ namespace Annotator
 {
     public static class Utils
     {
-        
-        
-        public static List<Point> getConvexHull(List<Point> points)
+        public static List<PointF> getConvexHull(List<PointF> points)
         {
             // Select points that has lowest X, than select point that has lowest Y -> must be one on the convex hull's 
-            IEnumerable<Point> smallestXs = points.Where(point => point.X == points.Min(p => p.X));
-            Point leftMost = smallestXs.Where(point => point.Y == smallestXs.Min(p => p.Y)).First();
+            IEnumerable<PointF> smallestXs = points.Where(point => point.X == points.Min(p => p.X));
+            PointF leftMost = smallestXs.Where(point => point.Y == smallestXs.Min(p => p.Y)).First();
 
             var tempo = points.FindAll(t => !t.Equals(leftMost));
 
-            tempo.Sort(delegate (Point p1, Point p2)
+            tempo.Sort(delegate (PointF p1, PointF p2)
            {
                 // Compare the sin(alpha)
                 // Point that make with leftmost and x-axis larger sin(alpha) will be considered first
@@ -36,10 +34,10 @@ namespace Annotator
                 ;
            });
 
-            Stack<Point> convexHulls = new Stack<Point>();
+            Stack<PointF> convexHulls = new Stack<PointF>();
             convexHulls.Push(leftMost);
 
-            foreach (Point p in tempo)
+            foreach (PointF p in tempo)
             {
                 FixConvexHull(leftMost, convexHulls, p);
 
@@ -58,17 +56,17 @@ namespace Annotator
         /// <param name="p"></param>
         /// <param name="p1"></param>
         /// <returns></returns>
-        static float cotWithX(Point p, Point p1)
+        static float cotWithX(PointF p, PointF p1)
         {
             return (float)(p1.X - p.X) / (p1.Y - p.Y);
         }
 
-        private static void FixConvexHull(Point leftMost, Stack<Point> convexHulls, Point p)
+        private static void FixConvexHull(PointF leftMost, Stack<PointF> convexHulls, PointF p)
         {
             if (convexHulls.Count >= 3)
             {
-                Point lastPoint = convexHulls.Pop();
-                Point nearLastPoint = convexHulls.Pop();
+                PointF lastPoint = convexHulls.Pop();
+                PointF nearLastPoint = convexHulls.Pop();
 
                 // Check if we should remove the last point from the convex hull
                 // We remove it if it is inside (or on the edge) of the triangle ( leftMost, nearLastPoint, p)
@@ -86,9 +84,9 @@ namespace Annotator
             }
         }
 
-        public static bool IsPointInPolygonL(List<Point> polygon, Point testPoint)
+        public static bool IsPointInPolygonL(List<PointF> polygon, Point testPoint)
         {
-            return IsPointInPolygon(Array.ConvertAll(polygon.ToArray(), p => (PointF)p), testPoint);
+            return IsPointInPolygon(polygon.ToArray(), testPoint);
         }
 
         /// <summary>

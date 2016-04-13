@@ -16,7 +16,7 @@ namespace Annotator
         public void setBounding(int frameNumber, RigFigure<Point> boundingRig, double scale, Point translation)
         {
             RigFigure<Point> inverseScaleBoundingRig = scaleBound(boundingRig, 1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
-            LocationMark ob = new RigLocationMark(frameNumber, LocationMark.LocationMarkType.Location, inverseScaleBoundingRig);
+            LocationMark ob = new RigLocationMark<Point>(frameNumber, LocationMark.LocationMarkType.Location, inverseScaleBoundingRig);
             if (this._borderType == null) // First time appear
             {
                 this._borderType = BorderType.Others;
@@ -37,8 +37,8 @@ namespace Annotator
 
         protected override LocationMark getScaledLocationMark(LocationMark locationMark, double scale, Point translation)
         {
-            var casted = (RigLocationMark)locationMark;
-            return new RigLocationMark(locationMark.frameNo, locationMark.markType, scaleBound(casted.rigFigure, scale, translation));
+            var casted = (RigLocationMark<Point>)locationMark;
+            return new RigLocationMark<Point>(locationMark.frameNo, locationMark.markType, scaleBound(casted.rigFigure, scale, translation));
         }
 
         protected override void loadObjectAdditionalFromXml()

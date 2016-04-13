@@ -29,14 +29,20 @@ namespace Annotator
         private const string LINKTO = "linkTo";
 
         public string videoFile { get; }
+
         public SortedList<int, LocationMark> objectMarks
         {
-            get; set;
+            get; private set;
+        }
+
+        public SortedList<int, LocationMark> object3DMarks
+        {
+            get; private set;
         }
 
         public SortedList<int, SpatialLinkMark> spatialLinkMarks
         {
-            get; set;
+            get; private set;
         }
 
         public enum ObjectType
@@ -64,114 +70,7 @@ namespace Annotator
         public GenType genType { get; set; }
         public ObjectType objectType { get; set; }
 
-        public class RectangleLocationMark : LocationMark
-        {
-            public Rectangle boundingBox { get; }              //Object bounding box;
-
-            public RectangleLocationMark(int frameNo, LocationMarkType markType, Rectangle boundingBox) : base(frameNo, markType)
-            {
-                this.boundingBox = boundingBox;
-            }
-
-            public override float Score(Point testPoint)
-            {
-                if (!boundingBox.Contains(testPoint))
-                    return 0;
-                float score = 0;
-                foreach (Point p in new Point[] { new Point(boundingBox.Top, boundingBox.Left), new Point(boundingBox.Top, boundingBox.Right),
-                    new Point(boundingBox.Bottom, boundingBox.Left), new Point(boundingBox.Bottom, boundingBox.Right) })
-                {
-                    score += (float)(1f / Math.Sqrt(Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
-                }
-                score /= 4;
-                return score;
-            }
-
-            public override void drawOnGraphics(Graphics g, Pen p)
-            {
-                g.DrawRectangle(p, boundingBox);
-            }
-
-        }
-
-        public class PolygonLocationMark : LocationMark
-        {
-            public List<Point> boundingPolygon { get; }         // Object bounding polygon, if the tool to draw object is polygon tool
-
-            public PolygonLocationMark(int frameNo, LocationMarkType markType, List<Point> boundingPolygon) : base(frameNo, markType)
-            {
-                this.boundingPolygon = boundingPolygon;
-            }
-
-            public override float Score(Point testPoint)
-            {
-                if (!Utils.IsPointInPolygonL(boundingPolygon, testPoint))
-                {
-                    return 0;
-                }
-
-                float score = 0;
-                // Average of reveresed distance to polygon points
-                foreach (Point p in boundingPolygon)
-                {
-                    score += (float)(1f / Math.Sqrt(Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
-                }
-                score /= boundingPolygon.Count;
-                return score;
-            }
-
-            public override void drawOnGraphics(Graphics g, Pen p)
-            {
-                g.DrawPolygon(p, boundingPolygon.ToArray());
-            }
-        }
-
-        public class RigLocationMark : LocationMark
-        {
-            public RigFigure<Point> rigFigure { get; }
-            public RigLocationMark(int frameNo, LocationMarkType markType, RigFigure<Point> rigFigure) : base(frameNo, markType)
-            {
-                this.rigFigure = rigFigure;
-            }
-
-            public override float Score(Point testPoint)
-            {
-                float score = 0;
-
-                var rigJoints = rigFigure.rigJoints.Values.ToList();
-                if (rigJoints.Count != 0)
-                {
-                    var convexHull = Utils.getConvexHull(rigJoints);
-                    PolygonLocationMark temp = new PolygonLocationMark(frameNo, markType, convexHull);
-                    return temp.Score(testPoint);
-                }
-
-                return score;
-            }
-
-            public override void drawOnGraphics(Graphics g, Pen p)
-            {
-                g.DrawRig(p, rigFigure);
-            }
-
-            public override Rectangle[] getCornerSelectBoxes(int boxSize)
-            {
-                List<string> markedJointNames = new List<string>() { "head", "hand" };
-                List<Rectangle> selectBoxes = new List<Rectangle>();
-                foreach (String jointName in rigFigure.rigJoints.Keys)
-                {
-                    foreach (string s in markedJointNames)
-                        if (jointName.ToLower().Contains(s))
-                        {
-                            selectBoxes.Add(new Rectangle(rigFigure.rigJoints[jointName].X - (boxSize - 1) / 2,
-                                rigFigure.rigJoints[jointName].Y - (boxSize - 1) / 2, boxSize, boxSize));
-                            break;
-                        }
-                }
-                return selectBoxes.ToArray();
-            }
-        }
-
+        
         public enum BorderType { Rectangle, Polygon, Others }
 
         /// <summary>
@@ -189,9 +88,10 @@ namespace Annotator
             this.videoFile = videoFile;
             this.genType = GenType.MANUAL;
             this.objectType = ObjectType._2D;
-            otherProperties = new Dictionary<string, string>();
-            objectMarks = new SortedList<int, LocationMark>();
-            spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
+            this.otherProperties = new Dictionary<string, string>();
+            this.objectMarks = new SortedList<int, LocationMark>();
+            this.object3DMarks = null;
+            this.spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
         }
 
         public void setBounding(int frameNumber, Rectangle boundingBox, double scale, Point translation)
@@ -210,9 +110,9 @@ namespace Annotator
             objectMarks[frameNumber] = ob;
         }
 
-        public void setBounding(int frameNumber, List<Point> boundingPolygon, double scale, Point translation)
+        public void setBounding(int frameNumber, List<PointF> boundingPolygon, double scale, Point translation)
         {
-            List<Point> inverseScaleBoundingPolygon = scaleBound(boundingPolygon, 1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
+            List<PointF> inverseScaleBoundingPolygon = scaleBound(boundingPolygon, 1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
             LocationMark ob = new PolygonLocationMark(frameNumber, LocationMark.LocationMarkType.Location, inverseScaleBoundingPolygon);
             if (this._borderType == null) // First time appear
             {
@@ -314,7 +214,12 @@ namespace Annotator
             return new Point((int)(original.X * scale + translation.X), (int)(original.Y * scale + translation.Y));
         }
 
-        private static List<Point> scaleBound(List<Point> original, double scale, Point translation)
+        protected static PointF scalePoint(PointF original, double scale, Point translation)
+        {
+            return new PointF((float)(original.X * scale + translation.X), (float)(original.Y * scale + translation.Y));
+        }
+
+        private static List<PointF> scaleBound(List<PointF> original, double scale, Point translation)
         {
             return original.Select(p => scalePoint(p, scale, translation)).ToList();
         }
@@ -343,7 +248,14 @@ namespace Annotator
             xmlWriter.WriteAttributeString(COLOR, "" + color.ToArgb());
             xmlWriter.WriteAttributeString(BORDER_SIZE, "" + borderSize);
             xmlWriter.WriteAttributeString(SEMANTIC_TYPE, semanticType);
-            xmlWriter.WriteAttributeString(SHAPE, _borderType.ToString());
+            if (_borderType == BorderType.Others)
+            {
+                xmlWriter.WriteAttributeString(SHAPE, this.GetType().ToString());
+            } else
+            {
+                xmlWriter.WriteAttributeString(SHAPE, _borderType.ToString());
+            }
+            
             foreach (String key in otherProperties.Keys)
             {
                 xmlWriter.WriteAttributeString(key, otherProperties[key]);
@@ -412,9 +324,29 @@ namespace Annotator
                 Color color = Color.FromArgb(Int32.Parse(objectNode.Attributes[COLOR].Value));
                 string shape = objectNode.Attributes[SHAPE].Value;
                 String semanticType = objectNode.Attributes[SEMANTIC_TYPE].Value;
-                var borderType = (Object.BorderType)Enum.Parse(typeof(Object.BorderType), shape);
 
-                Object o = new Object(id, color, borderSize, videoFile);
+                Object o = null;
+
+                Object.BorderType borderType = BorderType.Others;
+                try
+                {
+                    borderType = (Object.BorderType)Enum.Parse(typeof(Object.BorderType), shape);
+                    o = new Object(id, color, borderSize, videoFile);
+                } catch (ArgumentException e)
+                {
+                    Type t = Type.GetType(shape);
+                    if (t.IsSubclassOf(typeof(Object)))
+                    {
+                        o = (Object) Activator.CreateInstance(t, id, color, borderSize, videoFile);
+                    }
+                    else
+                    {
+                        Console.WriteLine("One object could not be parsed. Id = " + id);
+                        continue;
+                    }
+                }
+                
+
                 o.name = name;
                 o.semanticType = semanticType;
                 o.genType = (GenType)Enum.Parse(typeof(GenType), generate.ToUpper());
@@ -427,6 +359,7 @@ namespace Annotator
                         o.addProperty(attr.Name, attr.Value);
                     }
                 }
+
 
                 switch (borderType)
                 {
@@ -471,12 +404,12 @@ namespace Annotator
                                     case LocationMark.LocationMarkType.Location:
                                         String parameters = markerNode.InnerText;
                                         String[] parts = parameters.Split(',');
-                                        List<Point> points = new List<Point>();
+                                        List<PointF> points = new List<PointF>();
                                         if (parts.Length % 2 == 0)
                                         {
                                             for (int i = 0; i < parts.Length / 2; i++)
                                             {
-                                                Point p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
+                                                PointF p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
                                                 points.Add(p);
                                             }
                                         }
