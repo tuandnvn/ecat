@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -32,12 +33,13 @@ namespace Annotator
         **/
         List<Body[]> recordedRigs = new List<Body[]>();
         List<int> recordedRigTimePoints = new List<int>();
-
+        private AtomicBoolean rigDetected = new AtomicBoolean(false);
 
         private void startRecordRig()
         {
             recordedRigs = new List<Body[]>();
             recordedRigTimePoints = new List<int>();
+            rigDetected = new AtomicBoolean(false);
 
             try
             {
@@ -97,7 +99,7 @@ namespace Annotator
                             TimeSpan elapse = currentTime - tmspStartRecording.Value;
                             recordedRigTimePoints.Add((int)elapse.TotalMilliseconds);
 
-                            WriteRigAsync(elapse);
+                            WriteRig(elapse);
                         }
                     }
                 }
@@ -119,6 +121,7 @@ namespace Annotator
                     Body body = this.recordingBodies[bodyIndex];
                     if (body.IsTracked)
                     {
+                        rigDetected.FalseToTrue();
                         rigWriter.WriteStartElement("Body_Data");
 
                         // Subject
@@ -128,7 +131,7 @@ namespace Annotator
 
                         // Timestamp
                         rigWriter.WriteStartElement("Timestamp");
-                        rigWriter.WriteAttributeString("time", DateTime.Now.ToString(@"yyyy-MM-dd HH:mm:ssss"));
+                        rigWriter.WriteAttributeString("time", DateTime.Now.ToString(@"yyyy-MM-ddTHH:mm:ssss.ffffffZ"));
                         rigWriter.WriteAttributeString("timeFromBegin", "" + (int)elapse.TotalMilliseconds);
                         rigWriter.WriteAttributeString("frame", "" + rgbStreamedFrame);
                         rigWriter.WriteEndElement();
@@ -164,11 +167,10 @@ namespace Annotator
                                     confidences[jointType] = 0.0f;
                                     break;
                             }
-
                         }
 
                         // Skeleton_Joint_Locations
-                        rigWriter.WriteStartElement("Skeleton_Joint_Locations");
+                        rigWriter.WriteStartElement("Skeleton_Joint_Locations_Orig");
                         rigWriter.WriteStartElement("Pts");
                         rigWriter.WriteAttributeString("unit", "m");
 

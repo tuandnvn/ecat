@@ -21,7 +21,7 @@ namespace Annotator
         private ImageList imageList2;
         private System.ComponentModel.IContainer components;
         private Button saveRecordedSession;
-        private MyPictureBox depthBoard;
+        internal MyPictureBox depthBoard;
         internal MyPictureBox rgbBoard;
         private TrackBar playBar;
         private GroupBox cropBox;
@@ -40,6 +40,7 @@ namespace Annotator
         private Range cropBar;
         private Button calibrateButton;
         internal Main main;
+
 
         public RecordPanel()
         {
@@ -238,7 +239,7 @@ namespace Annotator
             // 
             // saveRecordedSession
             // 
-            this.saveRecordedSession.Location = new System.Drawing.Point(984, 365);
+            this.saveRecordedSession.Location = new System.Drawing.Point(975, 365);
             this.saveRecordedSession.Name = "saveRecordedSession";
             this.saveRecordedSession.Size = new System.Drawing.Size(158, 23);
             this.saveRecordedSession.TabIndex = 0;
@@ -401,8 +402,6 @@ namespace Annotator
             this.DoubleBuffered = true;
             this.Name = "RecordPanel";
             this.Size = new System.Drawing.Size(1420, 860);
-            //main.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecordPanel_KeyPress);
-            //main.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RecordPanel_KeyDown);
             this.recordingButtonGroup.ResumeLayout(false);
             this.recordedBox.ResumeLayout(false);
             this.recordedBox.PerformLayout();

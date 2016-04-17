@@ -15,7 +15,7 @@ namespace Annotator
 {
     partial class RecordPanel
     {
-        private int quality = 2000000;
+        private int quality = 5000000;
         VideoFileWriter writer = new VideoFileWriter();
         BlockingCollection<Tuple<Bitmap, TimeSpan>> bufferedImages;
         int scaleVideo = 1;
@@ -24,7 +24,8 @@ namespace Annotator
         Bitmap tempo = null;
         Tuple<Bitmap, TimeSpan> bitMapTakenFromBuffer = null;
         object writeRgbLock = new object();
-        private int fps = 25;
+        private int fps = 30;
+        DateTime? startRecordingRgb;
         TimeSpan lastWrittenRgbTime = default(TimeSpan);
         TimeSpan? tmspStartRecording = null;
 
@@ -65,8 +66,13 @@ namespace Annotator
 
                             if (recordMode == RecordMode.Recording && this.writer != null)
                             {
+                                
                                 tmspStartRecording = tmspStartRecording ?? DateTime.Now.TimeOfDay;
                                 var currentTime = DateTime.Now.TimeOfDay;
+                                if (!startRecordingRgb.HasValue)
+                                {
+                                    startRecordingRgb = DateTime.Now;
+                                }
                                 TimeSpan elapse = currentTime - tmspStartRecording.Value;
 
                                 //ResizeAndWriteImageAsync();
@@ -82,6 +88,7 @@ namespace Annotator
 
         private void startRecordRgb()
         {
+            startRecordingRgb = null;
             if (colorFrameDescription != null)
             {
                 rgbStreamedFrame = 0;
@@ -137,8 +144,6 @@ namespace Annotator
         
         private void ColorRecordingFunction()
         {
-            Console.WriteLine("Begin writing");
-
             // Wait for 10s 
             try
             {
@@ -153,7 +158,7 @@ namespace Annotator
             {
                 if (writer != null)
                 {
-                    Console.WriteLine("Finish writing");
+                    Console.WriteLine("Finish writing RGB");
                     writer.Dispose();
                     writer = null;
 

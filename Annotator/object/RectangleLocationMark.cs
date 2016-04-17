@@ -4,14 +4,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Annotator
 {
-    public class RectangleLocationMark : LocationMark
+    public class RectangleLocationMark : LocationMark2D
     {
-        public Rectangle boundingBox { get; }              //Object bounding box;
+        public Rectangle boundingBox { get; private set;  }              //Object bounding box;
 
-        public RectangleLocationMark(int frameNo, LocationMarkType markType, Rectangle boundingBox) : base(frameNo, markType)
+        public RectangleLocationMark(int frameNo, Rectangle boundingBox) : base(frameNo)
         {
             this.boundingBox = boundingBox;
         }
@@ -33,6 +34,31 @@ namespace Annotator
         public override void drawOnGraphics(Graphics g, Pen p)
         {
             g.DrawRectangle(p, boundingBox);
+        }
+
+        public override LocationMark2D getScaledLocationMark(double scale, Point translation)
+        {
+            return new RectangleLocationMark(frameNo, boundingBox.scaleBound(scale, translation));
+        }
+
+        public override void writeToXml(XmlWriter xmlWriter)
+        {
+            xmlWriter.WriteString(this.boundingBox.X + "," + this.boundingBox.Y + "," +
+                                       this.boundingBox.Width + "," + this.boundingBox.Height);
+        }
+
+        public override void readFromXml(XmlNode xmlNode)
+        {
+            String parameters = xmlNode.InnerText;
+            String[] parts = parameters.Split(',');
+            if (parts.Length == 4)
+            {
+                int x = int.Parse(parts[0].Trim());
+                int y = int.Parse(parts[1].Trim());
+                int width = int.Parse(parts[2].Trim());
+                int height = int.Parse(parts[3].Trim());
+                boundingBox = new Rectangle(x, y, width, height);
+            }
         }
     }
 }

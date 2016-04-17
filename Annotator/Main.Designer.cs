@@ -85,6 +85,8 @@
             this.middleBottomPanel = new System.Windows.Forms.Panel();
             this.addEventAnnotationBtn = new System.Windows.Forms.Button();
             this.recordTab = new System.Windows.Forms.TabPage();
+            this.trainTestTab = new System.Windows.Forms.TabPage();
+            this.trainingPanel1 = new Annotator.TrainingPanel();
             this.projectRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,6 +113,7 @@
             this.middleTopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.frameTrackBar)).BeginInit();
             this.videoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).BeginInit();
             this.tabs.SuspendLayout();
             this.annotateTab.SuspendLayout();
             this.rightCenterPanel.SuspendLayout();
@@ -126,10 +129,10 @@
             this.cm3.SuspendLayout();
             this.middleBottomPanel.SuspendLayout();
             this.recordTab.SuspendLayout();
+            this.trainTestTab.SuspendLayout();
             this.projectRightClickPanel.SuspendLayout();
             this.sessionRightClickPanel.SuspendLayout();
             this.fileRightClickPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // leftMostPanel
@@ -265,6 +268,22 @@
             this.videoPanel.Size = new System.Drawing.Size(820, 560);
             this.videoPanel.TabIndex = 1;
             // 
+            // pictureBoard
+            // 
+            this.pictureBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoard.capture = null;
+            this.pictureBoard.Location = new System.Drawing.Point(0, 3);
+            this.pictureBoard.mat = null;
+            this.pictureBoard.Name = "pictureBoard";
+            this.pictureBoard.Size = new System.Drawing.Size(820, 557);
+            this.pictureBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoard.TabIndex = 0;
+            this.pictureBoard.TabStop = false;
+            this.pictureBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoard_Paint);
+            this.pictureBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseDown);
+            this.pictureBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseMove);
+            this.pictureBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseUp);
+            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -280,6 +299,7 @@
             // 
             this.tabs.Controls.Add(this.annotateTab);
             this.tabs.Controls.Add(this.recordTab);
+            this.tabs.Controls.Add(this.trainTestTab);
             this.tabs.Location = new System.Drawing.Point(0, 25);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
@@ -683,7 +703,7 @@
             this.addObjRefToolStripMenuItem,
             this.addEventToolStripMenuItem});
             this.cm3.Name = "cm2";
-            this.cm3.Size = new System.Drawing.Size(185, 70);
+            this.cm3.Size = new System.Drawing.Size(185, 48);
             // 
             // addObjRefToolStripMenuItem
             // 
@@ -731,6 +751,23 @@
             this.recordTab.TabIndex = 1;
             this.recordTab.Text = "Record";
             this.recordTab.UseVisualStyleBackColor = true;
+            // 
+            // trainTestTab
+            // 
+            this.trainTestTab.Controls.Add(this.trainingPanel1);
+            this.trainTestTab.Location = new System.Drawing.Point(4, 22);
+            this.trainTestTab.Name = "trainTestTab";
+            this.trainTestTab.Size = new System.Drawing.Size(1435, 872);
+            this.trainTestTab.TabIndex = 2;
+            this.trainTestTab.Text = "Train/Test";
+            this.trainTestTab.UseVisualStyleBackColor = true;
+            // 
+            // trainingPanel1
+            // 
+            this.trainingPanel1.Location = new System.Drawing.Point(6, 6);
+            this.trainingPanel1.Name = "trainingPanel1";
+            this.trainingPanel1.Size = new System.Drawing.Size(1420, 860);
+            this.trainingPanel1.TabIndex = 0;
             // 
             // projectRightClickPanel
             // 
@@ -849,22 +886,6 @@
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
-            // pictureBoard
-            // 
-            this.pictureBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoard.capture = null;
-            this.pictureBoard.Location = new System.Drawing.Point(0, 3);
-            this.pictureBoard.mat = null;
-            this.pictureBoard.Name = "pictureBoard";
-            this.pictureBoard.Size = new System.Drawing.Size(820, 557);
-            this.pictureBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoard.TabIndex = 0;
-            this.pictureBoard.TabStop = false;
-            this.pictureBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoard_Paint);
-            this.pictureBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseDown);
-            this.pictureBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseMove);
-            this.pictureBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseUp);
-            // 
             // recordPanel
             // 
             this.recordPanel.main = this;
@@ -897,6 +918,7 @@
             this.middleTopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.frameTrackBar)).EndInit();
             this.videoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).EndInit();
             this.tabs.ResumeLayout(false);
             this.annotateTab.ResumeLayout(false);
             this.rightCenterPanel.ResumeLayout(false);
@@ -913,6 +935,7 @@
             this.cm3.ResumeLayout(false);
             this.middleBottomPanel.ResumeLayout(false);
             this.recordTab.ResumeLayout(false);
+            this.trainTestTab.ResumeLayout(false);
             this.projectRightClickPanel.ResumeLayout(false);
             this.sessionRightClickPanel.ResumeLayout(false);
             this.fileRightClickPanel.ResumeLayout(false);
@@ -997,6 +1020,8 @@
         private System.Windows.Forms.ToolStripMenuItem addObjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addRigsFromFileToolStripMenuItem;
+        private System.Windows.Forms.TabPage trainTestTab;
+        private TrainingPanel trainingPanel1;
     }
 }
 

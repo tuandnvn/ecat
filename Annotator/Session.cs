@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 using System.Xml;
+using System.Globalization;
 
 namespace Annotator
 {
@@ -58,7 +59,8 @@ namespace Annotator
                 }
             }
         }
-        
+        public DateTime? startWriteRGB { get; set; }
+        public long duration { get; set; }
 
         //Constructor
         public Session(String sessionName, String projectOwner, String locationFolder)
@@ -94,8 +96,8 @@ namespace Annotator
                 filesList.Add(fileName);
             if (fileName.Contains(".avi"))
                 addVideo(fileName);
-            //MessageBox.Show(filesList.Count + "");
         }
+
         //Get session name
         public String getSessionName()
         {
@@ -141,6 +143,16 @@ namespace Annotator
                 writer.WriteStartElement(SESSION);
                 writer.WriteAttributeString("name", sessionName);
                 writer.WriteAttributeString("length", "" + sessionLength);
+                if (duration != 0)
+                {
+                    writer.WriteAttributeString("duration", "" + duration);
+                }
+
+                if (startWriteRGB.HasValue)
+                {
+                    writer.WriteAttributeString("startWriteRGB", startWriteRGB.Value.ToString(@"yyyy-MM-ddTHH:mm:ssss.ffffffZ"));
+                }
+
                 {
                     // Write files
                     writer.WriteStartElement(FILES);
@@ -198,6 +210,7 @@ namespace Annotator
         //Load files list
         public void loadSession()
         {
+            CultureInfo provider = CultureInfo.InvariantCulture;
             if (File.Exists(metadataFile))
             {
                 //Set file as hidden                
@@ -209,6 +222,23 @@ namespace Annotator
                 xmlDocument.Load(metadataFile);
 
                 sessionLength = int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value);
+
+                try
+                {
+                    duration = int.Parse(xmlDocument.DocumentElement.Attributes["duration"].Value);
+                }
+                catch (Exception e) {
+                    duration = 0;
+                }
+
+                try
+                {
+                    startWriteRGB = DateTime.ParseExact(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value, @"yyyy-MM-ddTHH:mm:ssss.ffffffZ", provider);
+                }
+                catch (Exception e)
+                {
+                    startWriteRGB = null;
+                }
 
                 XmlNode files = xmlDocument.DocumentElement.SelectSingleNode(FILES);
 
@@ -224,7 +254,7 @@ namespace Annotator
 
                 XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
                 objectCount = int.Parse(objectsNode.Attributes["no"].Value);
-                List<Object> objects = Object.readFromXml(objectsNode);
+                List<Object> objects = Object.readFromXml(this, objectsNode);
                 foreach (Object o in objects)
                 {
                     addObject(o);
@@ -240,7 +270,7 @@ namespace Annotator
         //Get video by index
         public VideoReader getVideo(int index)
         {
-            if (index < 0 || index > videos.Count)
+            if (index < 0 || index >= videos.Count)
                 return null;
             return videos[index];
         }
@@ -266,6 +296,7 @@ namespace Annotator
             {
                 VideoReader v = new VideoReader(fileName, 0);
                 videos.Add(v);
+                Console.WriteLine(sessionLength + " " + fileName + " " + v.frameCount);
                 sessionLength = v.frameCount;
             }
         }

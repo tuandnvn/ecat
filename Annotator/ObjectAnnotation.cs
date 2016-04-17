@@ -70,13 +70,13 @@ namespace Annotator
                 mark.MouseClick += Mark_MouseClick;
                 mark.Click += Mark_Click;
 
-                if (objectMark.markType == LocationMark.LocationMarkType.Location && finishOneRectangle)
+                if ( objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
                 {
                     start = objectMark.frameNo;
                     finishOneRectangle = false;
                 }
 
-                if (objectMark.markType == LocationMark.LocationMarkType.Delete)
+                if (objectMark.GetType() == typeof(DeleteLocationMark))
                 {
                     end = objectMark.frameNo;
                     drawLifeSpan(start, end);

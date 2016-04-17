@@ -4,14 +4,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Annotator
 {
-    public class PolygonLocationMark : LocationMark
+    public class PolygonLocationMark : LocationMark2D
     {
-        public List<PointF> boundingPolygon { get; }         // Object bounding polygon, if the tool to draw object is polygon tool
+        public List<PointF> boundingPolygon { get; private set; }         // Object bounding polygon, if the tool to draw object is polygon tool
 
-        public PolygonLocationMark(int frameNo, LocationMarkType markType, List<PointF> boundingPolygon) : base(frameNo, markType)
+        public PolygonLocationMark(int frameNo, List<PointF> boundingPolygon) : base(frameNo)
         {
             this.boundingPolygon = boundingPolygon;
         }
@@ -36,6 +37,33 @@ namespace Annotator
         public override void drawOnGraphics(Graphics g, Pen p)
         {
             g.DrawPolygon(p, boundingPolygon.ToArray());
+        }
+
+        public override LocationMark2D getScaledLocationMark(double scale, Point translation)
+        {
+            return new PolygonLocationMark(frameNo, boundingPolygon.scaleBound(scale, translation));
+        }
+
+        public override void writeToXml(XmlWriter xmlWriter)
+        {
+            xmlWriter.WriteString(string.Join(",", this.boundingPolygon.ConvertAll(p => p.X + "," + p.Y)));
+        }
+
+        public override void readFromXml(XmlNode xmlNode)
+        {
+            String parameters = xmlNode.InnerText;
+            String[] parts = parameters.Split(',');
+            List<PointF> points = new List<PointF>();
+            if (parts.Length % 2 == 0)
+            {
+                for (int i = 0; i < parts.Length / 2; i++)
+                {
+                    PointF p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
+                    points.Add(p);
+                }
+            }
+
+            boundingPolygon = points;
         }
     }
 }

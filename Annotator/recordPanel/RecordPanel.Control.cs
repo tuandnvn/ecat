@@ -89,7 +89,7 @@ namespace Annotator
             optionsTable.Rows.Add("RGB Fps", fps + "");
             optionsTable.Rows.Add("RGB bitrate", quality + "");
             optionsTable.Rows.Add("RGB video file name", "rgb_[DateTime]");
-            optionsTable.Rows.Add("Depth file ext", "dat");
+            optionsTable.Rows.Add("Depth file ext", "dep");
             optionsTable.Rows.Add("Depth file name", "depth_[DateTime]");
             optionsTable.Rows.Add("Show rigs", "True");
             optionsTable.Rows.Add("Record rigs", "True");
@@ -461,9 +461,12 @@ namespace Annotator
             // Disable changing to options table
             optionsTable.Enabled = false;
 
-            mapFileName[tempRgbFileName] = ((string)optionsTable.Rows[4].Cells[1].Value).Replace("DateTime", DateTime.Now.ToShortTimeString());
-            mapFileName[tempDepthFileName] = ((string)optionsTable.Rows[6].Cells[1].Value).Replace("DateTime", DateTime.Now.ToShortTimeString());
-            mapFileName[tempRigFileName] = ((string)optionsTable.Rows[9].Cells[1].Value).Replace("DateTime", DateTime.Now.ToShortTimeString());
+            string timeStr = (DateTime.Now.ToShortDateString() + "_" + DateTime.Now.ToLongTimeString()).Replace("/", "_").Replace(":", "_").Replace(" ", "");
+
+
+            mapFileName[tempRgbFileName] = ((string)optionsTable.Rows[4].Cells[1].Value).Replace("[DateTime]", timeStr) + "." + ((string)optionsTable.Rows[1].Cells[1].Value);
+            mapFileName[tempDepthFileName] = ((string)optionsTable.Rows[6].Cells[1].Value).Replace("[DateTime]", timeStr) + "." + ((string)optionsTable.Rows[5].Cells[1].Value);
+            mapFileName[tempRigFileName] = ((string)optionsTable.Rows[9].Cells[1].Value).Replace("[DateTime]", timeStr) + ".xml" ;
 
             startRecordRgb();
             startRecordDepth();
@@ -482,57 +485,6 @@ namespace Annotator
             playButton_MouseDown(null, null);
         }
 
-
-        private void saveRecordedSession_Click(object sender, EventArgs e)
-        {
-            Project currentProject = main.selectedProject;
-
-            var result = MessageBox.Show(main, "Do you want to add captured session into project " + currentProject.getProjectName() +
-                "?. Yes if you do, no if you want to save it into a separate folder", "Save session", MessageBoxButtons.YesNoCancel);
-
-            switch (result)
-            {
-                case DialogResult.Yes:
-                    SessionInfo sessionInfo = new SessionInfo(main, currentProject.getProjectName());
-                    sessionInfo.Location = new Point(this.Location.X + (int)(sessionInfo.Width / 2.5), this.Location.Y + sessionInfo.Height / 2);
-                    sessionInfo.okButton.Click += new System.EventHandler(this.addSessionOkClick);
-                    sessionInfo.Show();
-                    break;
-                case DialogResult.No:
-                    FolderBrowserDialog fbd = new FolderBrowserDialog();
-                    DialogResult folderResult= fbd.ShowDialog(main);
-                    if (folderResult == DialogResult.OK)
-                    {
-                        string pathToFolder = fbd.SelectedPath;
-
-                        foreach (String fileName in new []{ tempRgbFileName , tempDepthFileName, tempConfigFileName }){
-                            string dstFileName = pathToFolder + Path.DirectorySeparatorChar + mapFileName[fileName];
-                            if (!File.Exists(dstFileName))
-                                File.Copy(fileName, dstFileName);
-                        }
-                    }
-                    break;
-                case DialogResult.Cancel:
-                    break;
-                default:
-                    break;
-            }
-
-            // Back to annotating
-            main.tabs.SelectedIndex = 0;
-        }
-
-        private void addSessionOkClick(object sender, EventArgs e)
-        {
-            Console.WriteLine("addSessionOkClick" );
-            if (main.currentSession != null)
-            {
-                foreach (String fileName in new[] { tempRgbFileName, tempDepthFileName, tempConfigFileName })
-                {
-                    main.copyFileIntoLocalSession(fileName, mapFileName[fileName]);
-                }
-            }
-        }
     }
 }
 

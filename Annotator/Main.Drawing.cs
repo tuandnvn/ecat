@@ -247,7 +247,7 @@ namespace Annotator
             var linear = getLinearTransform();
             foreach (Object o in currentSession.getObjects())
             {
-                LocationMark lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                LocationMark2D lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                 if (lm != null)
                 {
                     objectWithScore.Add(new Tuple<float, Object>(lm.Score(e.Location), o));
@@ -331,7 +331,9 @@ namespace Annotator
                         
                         Pen p = new Pen(o.color, o.borderSize);
                         p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-                        LocationMark r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        LocationMark2D r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+
+                        Console.WriteLine(o.id + " " + r);
                         if (r != null)
                         {
                             r.drawOnGraphics(e.Graphics, p);
@@ -461,7 +463,7 @@ namespace Annotator
                 {
                     lock (selectedObjectLock)
                     {
-                        LocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        LocationMark2D lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
 
                         selectBoxes = lm.getCornerSelectBoxes(boxSize);
 
@@ -528,7 +530,7 @@ namespace Annotator
             Object objectToAdd = null;
             if (drawingButtonSelected[rectangleDrawing])
             {
-                objectToAdd = new Object(null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.fileName);
+                objectToAdd = new Object(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.fileName);
                 objectToAdd.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
                 startPoint = null;
                 endPoint = null;
@@ -536,7 +538,7 @@ namespace Annotator
 
             if (drawingButtonSelected[polygonDrawing])
             {
-                objectToAdd = new Object(null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.fileName);
+                objectToAdd = new Object(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, currentVideo.fileName);
                 objectToAdd.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
                 polygonPoints = new List<PointF>();
             }

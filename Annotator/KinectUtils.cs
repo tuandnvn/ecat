@@ -1,4 +1,6 @@
-﻿using Microsoft.Kinect;
+﻿//using Accord.Math;
+using Accord.Math;
+using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,35 +114,35 @@ namespace Annotator
 
 
             // Let's get a random space point with a depth
-            Point3F[] PointAs = new Point3F[] { new Point3F { X = 300f, Y = 300f, Z = 500 },
-                                                new Point3F { X = 400f, Y = 400f, Z = 500 },
-                                                new Point3F { X = 300f, Y = 300f, Z = 1000 },
-                                                new Point3F { X = 400f, Y = 400f, Z = 1000 },
-                                                new Point3F { X = 300f, Y = 300f, Z = 2000 },
-                                                new Point3F { X = 400f, Y = 400f, Z = 2000 },
-                                                new Point3F { X = 100f, Y = 100f, Z = 1000 },
-                                                new Point3F { X = 100f, Y = 100f, Z = 2000 },
-                                                new Point3F { X = 0f, Y = 100f, Z = 1000 },
-                                                new Point3F { X = 0f, Y = 100f, Z = 2000 },
-                                                new Point3F { X = 50f, Y = 100f, Z = 1000 },
-                                                new Point3F { X = 50f, Y = 100f, Z = 2000 },
-                                                new Point3F { X = 50f, Y = 50f, Z = 1000 },
-                                                new Point3F { X = 50f, Y = 50f, Z = 2000 },
-                                                new Point3F { X = 500f, Y = 50f, Z = 1000 },
-                                                new Point3F { X = 500f, Y = 50f, Z = 2000 },
-                                                new Point3F { X = 10f, Y = 10f, Z = 1000 },
-                                                new Point3F { X = 10f, Y = 10f, Z = 2000 },
-                                                new Point3F { X = 500f, Y = 200f, Z = 1000 },
-                                                new Point3F { X = 500f, Y = 200f, Z = 2000 },
-                                                new Point3F { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 2000 },
-                                                new Point3F { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 1000 },
-                                                new Point3F { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 4000 },
-                                                new Point3F { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 500 },
-                                                new Point3F { X = spaceBasicToDepth[2].X, Y = spaceBasicToDepth[2].Y, Z = 1000 },
-                                                new Point3F { X = spaceBasicToDepth[2].X, Y = spaceBasicToDepth[2].Y, Z = 2000 },
+            Point3[] PointAs = new Point3[] { new Point3 { X = 300f, Y = 300f, Z = 500 },
+                                                new Point3 { X = 400f, Y = 400f, Z = 500 },
+                                                new Point3 { X = 300f, Y = 300f, Z = 1000 },
+                                                new Point3 { X = 400f, Y = 400f, Z = 1000 },
+                                                new Point3 { X = 300f, Y = 300f, Z = 2000 },
+                                                new Point3 { X = 400f, Y = 400f, Z = 2000 },
+                                                new Point3 { X = 100f, Y = 100f, Z = 1000 },
+                                                new Point3 { X = 100f, Y = 100f, Z = 2000 },
+                                                new Point3 { X = 0f, Y = 100f, Z = 1000 },
+                                                new Point3 { X = 0f, Y = 100f, Z = 2000 },
+                                                new Point3 { X = 50f, Y = 100f, Z = 1000 },
+                                                new Point3 { X = 50f, Y = 100f, Z = 2000 },
+                                                new Point3 { X = 50f, Y = 50f, Z = 1000 },
+                                                new Point3 { X = 50f, Y = 50f, Z = 2000 },
+                                                new Point3 { X = 500f, Y = 50f, Z = 1000 },
+                                                new Point3 { X = 500f, Y = 50f, Z = 2000 },
+                                                new Point3 { X = 10f, Y = 10f, Z = 1000 },
+                                                new Point3 { X = 10f, Y = 10f, Z = 2000 },
+                                                new Point3 { X = 500f, Y = 200f, Z = 1000 },
+                                                new Point3 { X = 500f, Y = 200f, Z = 2000 },
+                                                new Point3 { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 2000 },
+                                                new Point3 { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 1000 },
+                                                new Point3 { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 4000 },
+                                                new Point3 { X = depthBasics[4].X, Y = depthBasics[4].Y, Z = 500 },
+                                                new Point3 { X = spaceBasicToDepth[2].X, Y = spaceBasicToDepth[2].Y, Z = 1000 },
+                                                new Point3 { X = spaceBasicToDepth[2].X, Y = spaceBasicToDepth[2].Y, Z = 2000 },
             };
 
-            foreach (Point3F PointA in PointAs)
+            foreach (Point3 PointA in PointAs)
             {
                 // Project randomDepthPoint using ray from IR camera on the 1-z plane
                 // It still has X_ir = 300, y_ir = 300 

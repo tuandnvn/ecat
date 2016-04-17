@@ -15,7 +15,7 @@ namespace Annotator
         {
             //Check selected node:
             //MessageBox.Show(treeView.SelectedNode.ToString());
-            Session chosenSession = selectedProject.getSession(treeView.SelectedNode.ToString().Substring(10));
+            Session chosenSession = selectedProject.getSession(treeView.SelectedNode.Text);
 
             if (currentSession != null && currentSession.getSessionName() != chosenSession.getSessionName())
             {
@@ -133,29 +133,22 @@ namespace Annotator
         {
             //MessageBox.Show(item.ToString());     
             TreeNode sessionToDeleteName = treeView.SelectedNode;
-            String sName = sessionToDeleteName.ToString().Substring(10);
+            String sName = sessionToDeleteName.Text;
             TreeNode projectNode = sessionToDeleteName.Parent;
-            Project project = workspace.getProject(projectNode.ToString().Substring(10));
-            if (MessageBox.Show("Confirm session removal(exclude from project): " + sName + " from " + project.getProjectName(), "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            Project project = workspace.getProject(projectNode.Text);
+            if (MessageBox.Show("Confirm session removal (exclude from project): " + sName + " from " + project.getProjectName(), "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //1)Remove session from project:
                 project.removeSession(sName);
                 //2)Remove session from treeView:
                 treeView.BeginUpdate();
-                TreeNodeCollection nodes = getTreeViewNodes();
-                foreach (TreeNode currentProject in nodes)
+                foreach (TreeNode currentSessionNode in selectedProjectNode.Nodes)
                 {
-                    if (currentProject.ToString().Contains(project.getProjectName()))
+                    if (currentSessionNode.Text.Equals(sName))
                     {
-                        foreach (TreeNode currentSessionNode in currentProject.Nodes)
-                        {
-                            if (currentSessionNode.ToString().Contains(sName))
-                            {
-                                //MessageBox.Show("Removing " + sName + " from" + project.getProjectName());
-                                currentProject.Nodes.Remove(currentSessionNode);
-                                break;
-                            }
-                        }
+                        //MessageBox.Show("Removing " + sName + " from" + project.getProjectName());
+                        selectedProjectNode.Nodes.Remove(currentSessionNode);
+                        break;
                     }
                 }
                 treeView.EndUpdate();
@@ -178,12 +171,10 @@ namespace Annotator
             DialogResult result = openFileDialog.ShowDialog();
             if (result == DialogResult.OK) // Test result.
             {
-                if ( currentSession != null )
+                if (currentSession != null)
                 {
                     String fullFileName = openFileDialog.FileName;
                     copyFileIntoLocalSession(fullFileName);
-
-                    
                 }
             }
         }

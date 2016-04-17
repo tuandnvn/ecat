@@ -68,7 +68,7 @@ namespace Annotator
         {
             for (int i = 0; i < projects.Count; i++)
             {
-                if (projects[i].getProjectName().Contains(projectName))
+                if (projects[i].getProjectName().Equals(projectName))
                     return projects[i];
             }
 

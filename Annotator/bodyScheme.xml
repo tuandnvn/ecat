@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rigFormat>
+	<rigPointInput>
+		<inputType>xml</inputType>
+		<sequenceRoot>BodyDataSequence</sequenceRoot>
+		<frameRoot>Body_Data</frameRoot>
+		<rigPointsPath>Skeleton_ImgPlane_Joint_Locations/Pts</rigPointsPath>
+    <rigPoint3DsPath>Skeleton_Joint_Locations_Orig/Pts</rigPoint3DsPath>
+		<frameNoPath> 
+			Timestamp/@frame <!-- Get frame number -->
+		</frameNoPath>
+    <frameTimePath> 
+			Timestamp/@time  <!-- Get time capture the rig -->
+		</frameTimePath>
+		<rigNoPath>Subject/@id</rigNoPath>   
+		<rigPointFormat type = "flat" separated="," /> // All rig points are laid out as either comma separated or space separated values
+        <rigPoints>  
+			<rigPoint name="AnkleLeft" id="14" description="Left ankle"/>
+			<rigPoint name="AnkleRight" id="18" description="Right ankle"/>
+			<rigPoint name="ElbowLeft" id="5" description="Left elbow"/>
+			<rigPoint name="ElbowRight" id="9" description="Right elbow"/>
+			<rigPoint name="FootLeft" id="15" description="Left foot"/>
+			<rigPoint name="FootRight" id="19" description="Right foot"/>
+			<rigPoint name="HandLeft" id="7" description="Left hand"/>
+			<rigPoint name="HandRight" id="11" description="Right hand"/>
+			<rigPoint name="HandTipLeft" id="21" description="Tip of the left hand"/>
+			<rigPoint name="HandTipRight" id="23" description="Tip of the right hand"/>
+			<rigPoint name="Head" id="3" description="Head"/>
+			<rigPoint name="HipLeft" id="12" description="Left hip"/>
+			<rigPoint name="HipRight" id="16" description="Right hip"/>
+			<rigPoint name="KneeLeft" id="13" description="Left knee"/>
+			<rigPoint name="KneeRight" id="17" description="Right knee"/>
+			<rigPoint name="Neck" id="2" description="Neck"/>
+			<rigPoint name="ShoulderLeft" id="4" description="Left shoulder"/>
+			<rigPoint name="ShoulderRight" id="8" description="Right shoulder"/>
+			<rigPoint name="SpineBase" id="0" description="Base of the spine"/>
+			<rigPoint name="SpineMid" id="1" description="Middle of the spine"/>
+			<rigPoint name="SpineShoulder" id="20" description="Spine at the shoulder"/>
+			<rigPoint name="ThumbLeft" id="22" description="Left thumb"/>
+			<rigPoint name="ThumbRight" id="24" description="Right thumb"/>
+			<rigPoint name="WristLeft" id="6" description="Left wrist"/>
+			<rigPoint name="WristRight" id="10" description="Right wrist"/>
+		</rigPoints>
+	</rigPointInput>
+	<rigBoneFormat>
+		<rigBone id="0" from="0" to="1"/>
+		<rigBone id="1" from="1" to="20"/>
+		<rigBone id="2" from="20" to="2"/>
+		<rigBone id="3" from="2" to="3"/>
+		<rigBone id="4" from="20" to="4"/>
+		<rigBone id="5" from="4" to="5"/>
+		<rigBone id="6" from="5" to="6"/>
+		<rigBone id="7" from="6" to="7"/>
+		<rigBone id="8" from="7" to="21"/>
+		<rigBone id="9" from="7" to="22"/>
+		<rigBone id="10" from="20" to="8"/>
+		<rigBone id="11" from="8" to="9"/>
+		<rigBone id="12" from="9" to="10"/>
+		<rigBone id="13" from="10" to="11"/>
+		<rigBone id="14" from="11" to="23"/>
+		<rigBone id="15" from="11" to="24"/>
+		<rigBone id="16" from="0" to="12"/>
+		<rigBone id="17" from="12" to="13"/>
+		<rigBone id="18" from="13" to="14"/>
+		<rigBone id="19" from="14" to="15"/>
+		<rigBone id="20" from="0" to="16"/>
+		<rigBone id="21" from="16" to="17"/>
+		<rigBone id="22" from="17" to="18"/>
+		<rigBone id="23" from="18" to="19"/>
+	</rigBoneFormat>
+</rigFormat>

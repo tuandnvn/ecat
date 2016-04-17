@@ -4,19 +4,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Annotator
 {
     public class RigObject : Object
     {
-        public RigObject(String id, Color color, int borderSize, string videoFile) : base(id, color, borderSize, videoFile)
+        public RigObject(Session currentSession, String id, Color color, int borderSize, string videoFile) : base(currentSession, id, color, borderSize, videoFile)
         {
+            _borderType = BorderType.Others;
         }
 
-        public void setBounding(int frameNumber, RigFigure<Point> boundingRig, double scale, Point translation)
+        public void setBounding(int frameNumber, RigFigure<PointF> boundingRig, double scale, Point translation)
         {
-            RigFigure<Point> inverseScaleBoundingRig = scaleBound(boundingRig, 1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
-            LocationMark ob = new RigLocationMark<Point>(frameNumber, LocationMark.LocationMarkType.Location, inverseScaleBoundingRig);
+            RigFigure<PointF> inverseScaleBoundingRig = boundingRig.scaleBound( 1 / scale, new PointF((float)(-translation.X / scale), (float)(-translation.Y / scale)));
+            var ob = new RigLocationMark<PointF>(frameNumber, inverseScaleBoundingRig);
             if (this._borderType == null) // First time appear
             {
                 this._borderType = BorderType.Others;
@@ -29,24 +31,18 @@ namespace Annotator
             objectMarks[frameNumber] = ob;
         }
 
-        protected static RigFigure<Point> scaleBound(RigFigure<Point> original, double scale, Point translation)
+        protected override void writeLocationMark(XmlWriter xmlWriter)
         {
-            return new RigFigure<Point>(original.rigJoints.ToDictionary(k => k.Key, k => scalePoint(k.Value, scale, translation)),
-                original.rigBones.Select(t => new Tuple<Point, Point>(scalePoint(t.Item1, scale, translation), scalePoint(t.Item2, scale, translation))).ToList());
+            // No need to write location mark for rig object
         }
 
-        protected override LocationMark getScaledLocationMark(LocationMark locationMark, double scale, Point translation)
+        protected override void loadObjectAdditionalFromXml(XmlNode objectNode)
         {
-            var casted = (RigLocationMark<Point>)locationMark;
-            return new RigLocationMark<Point>(locationMark.frameNo, locationMark.markType, scaleBound(casted.rigFigure, scale, translation));
-        }
-
-        protected override void loadObjectAdditionalFromXml()
-        {
+            Console.WriteLine("loadObjectAdditionalFromXml for RigObject");
             string sourceScheme = this.otherProperties["sourceScheme"];
             string source = this.otherProperties["source"];
             int rigIndex = int.Parse(this.otherProperties["rigIndex"]);
-            Rigs<Point>.loadDataForRig(source, sourceScheme, rigIndex, this);
+            Rigs.loadDataForRig(source, sourceScheme, rigIndex, this);
         }
     }
 }

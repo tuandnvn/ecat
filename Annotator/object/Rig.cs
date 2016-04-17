@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Accord.Math;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,51 +10,30 @@ using System.Xml;
 
 namespace Annotator
 {
-    public struct Point3F
-    {
-        public float X;
-        public float Y;
-        public float Z;
-
-        public override string ToString()
-        {
-            return X + ", " + Y + ", " + Z;
-        }
-    }
-
-    public class RigFigure<T>
-    {
-        public Dictionary<string, T> rigJoints { get; }
-        public List<Tuple<T, T>> rigBones { get; }
-
-        public RigFigure(Dictionary<string, T> rigJoints, List<Tuple<T, T>> rigBones)
-        {
-            this.rigBones = rigBones;
-            this.rigJoints = rigJoints;
-        }
-    }
-
     // Rigs over multiple frames
-    public class Rigs <T>
+    public class Rigs
     {
         public RigScheme rigScheme { get; }
-        private Dictionary<int, RigFrame<T>> frameToRig;
+        private Dictionary<int, RigFrame<PointF>> frameToRig;
+        private Dictionary<int, RigFrame<Point3>> frameTo3DRig;
         public string rigFile { get; }
         public string rigSchemeFile { get; }
-        private static Dictionary<Tuple<string, string>, Rigs<T>> sourceFileToRig = new Dictionary<Tuple<string, string>, Rigs<T>>();
+        private static Dictionary<Tuple<string, string>, Rigs> sourceFileToRig = new Dictionary<Tuple<string, string>, Rigs>();
 
-        public Rigs(Dictionary<int, RigFrame<T> > frameToRig, RigScheme rigScheme, string rigFile, string rigSchemeFile)
+        public Rigs(Dictionary<int, RigFrame<PointF>> frameToRig, Dictionary<int, RigFrame<Point3>> frameTo3DRig, RigScheme rigScheme, string rigFile, string rigSchemeFile)
         {
             this.rigScheme = rigScheme;
             this.frameToRig = frameToRig;
+            this.frameTo3DRig = frameTo3DRig;
             this.rigFile = rigFile;
             this.rigSchemeFile = rigSchemeFile;
         }
 
-        public static Rigs<T> getRigFromSource(String rigFile, String rigSchemeFile)
+        public static Rigs getRigFromSource(String rigFile, String rigSchemeFile)
         {
             var key = new Tuple<string, string>(rigFile, rigSchemeFile);
-            if (sourceFileToRig.ContainsKey(key)) {
+            if (sourceFileToRig.ContainsKey(key))
+            {
                 return sourceFileToRig[key];
             }
 
@@ -60,11 +41,11 @@ namespace Annotator
             return sourceFileToRig[key];
         }
 
-        private static Rigs<T> readFromXml(String rigFile, String rigSchemeFile)
+        private static Rigs readFromXml(String rigFile, String rigSchemeFile)
         {
-            if (typeof(T) != typeof(Point) && typeof(T) != typeof(PointF) && typeof(T) != typeof(Point3F))
-                return null;
-            var frameToRig = new Dictionary<int, RigFrame<T>>();
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            var frameToRig = new Dictionary<int, RigFrame<PointF>>();
+            var frameTo3DRig = new Dictionary<int, RigFrame<Point3>>();
             XmlDocument rigSchemeDoc = new XmlDocument();
             rigSchemeDoc.Load(rigSchemeFile);
             RigScheme rc = RigScheme.readFromXml(rigSchemeDoc);
@@ -78,59 +59,68 @@ namespace Annotator
                     foreach (XmlNode dataFrame in dataSequence.SelectNodes(rc.frameRoot))
                     {
                         int frameNo = int.Parse(dataFrame.SelectSingleNode(rc.frameNoPath).Value);
+                        string frameStr = dataFrame.SelectSingleNode(rc.frameTimePath).Value;
 
-                        if ( !frameToRig.ContainsKey(frameNo) )
+                        DateTime dt = DateTime.ParseExact(frameStr, @"yyyy-MM-ddTHH:mm:ssss.ffffffZ", provider);
+
+                        if (!frameToRig.ContainsKey(frameNo))
                         {
-                            frameToRig[frameNo] = new RigFrame<T>();
+                            frameToRig[frameNo] = new RigFrame<PointF>(dt);
+                        }
+
+                        if (!frameTo3DRig.ContainsKey(frameNo))
+                        {
+                            frameTo3DRig[frameNo] = new RigFrame<Point3>(dt);
                         }
 
                         int rigId = int.Parse(dataFrame.SelectSingleNode(rc.rigNoPath).Value);
-                        
+
                         XmlNode jointPoints = dataFrame.SelectSingleNode(rc.rigPointsPath);
 
-                        var joints = new Dictionary<string, T>();
-                        switch ( rc.rigPointFormatType)
+                        var joints = new Dictionary<string, PointF>();
+                        switch (rc.rigPointFormatType)
                         {
                             case "flat":
                                 string[] components = jointPoints.InnerText.Split(new string[] { rc.rigPointFormatSeparated }, System.StringSplitOptions.RemoveEmptyEntries);
                                 foreach (int jointIndex in rc.jointToJointName.Keys)
                                 {
                                     string jointName = rc.jointToJointName[jointIndex].Item1;
-                                    switch (typeof(T).ToString())
-                                    {
-                                        case "System.Drawing.Point":
-                                            joints[jointName] = (T) Activator.CreateInstance(typeof(T), new object[] { (int)float.Parse(components[2 * jointIndex]), (int) float.Parse(components[2 * jointIndex + 1]) });
-                                            break;
-                                        case "System.Drawing.PointF":
-                                            joints[jointName] = (T) Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[2 * jointIndex]), float.Parse(components[2 * jointIndex + 1]) }); 
-                                            break;
-                                        case "Annotator.Point3F":
-                                            joints[jointName] = (T)Activator.CreateInstance(typeof(T), new object[] { float.Parse(components[3 * jointIndex]), float.Parse(components[3 * jointIndex + 1]), float.Parse(components[3 * jointIndex + 2]) });
-                                            break;
-                                    }
+                                    joints[jointName] = new PointF(float.Parse(components[2 * jointIndex]), float.Parse(components[2 * jointIndex + 1]));
+                                }
+                                break;
+                            case "node":
+                                break;
+                        }
+                        frameToRig[frameNo].addRigFrame(rigId, joints);
+
+                        XmlNode joint3DPoints = dataFrame.SelectSingleNode(rc.rigPoint3DsPath);
+                        var joint3Ds = new Dictionary<string, Point3>();
+                        switch (rc.rigPointFormatType)
+                        {
+                            case "flat":
+                                string[] components = joint3DPoints.InnerText.Split(new string[] { rc.rigPointFormatSeparated }, System.StringSplitOptions.RemoveEmptyEntries);
+                                foreach (int jointIndex in rc.jointToJointName.Keys)
+                                {
+                                    string jointName = rc.jointToJointName[jointIndex].Item1;
+                                    joint3Ds[jointName] = new Point3(float.Parse(components[3 * jointIndex]), float.Parse(components[3 * jointIndex + 1]), float.Parse(components[3 * jointIndex + 2]));
                                 }
                                 break;
                             case "node":
                                 break;
                         }
 
-                        frameToRig[frameNo].addRigFrame(rigId, joints);
+                        frameTo3DRig[frameNo].addRigFrame(rigId, joint3Ds);
                     }
                     break;
                 case "json":
                     break;
             }
 
-            // Problem with using recorded session from CwC apparatus
-            // You might need to deflate the frameToRig dictionary 
-            // so that frameNo are consecutive numbers
-            frameToRig = deflat(frameToRig);
 
-            var specificRigType = typeof(Rigs<>).MakeGenericType(typeof(T));
-            return (Rigs<T>) Activator.CreateInstance(specificRigType, new object[] { frameToRig, rc, rigFile, rigSchemeFile });
+            return new Rigs(frameToRig, frameTo3DRig, rc, rigFile, rigSchemeFile);
         }
 
-        private static Dictionary<int, RigFrame<T>> deflat(Dictionary<int, RigFrame<T>> frameToRig)
+        private static Dictionary<int, RigFrame<T>> deflat<T>(Dictionary<int, RigFrame<T>> frameToRig)
         {
             Dictionary<int, RigFrame<T>> deflated = new Dictionary<int, RigFrame<T>>();
 
@@ -146,7 +136,7 @@ namespace Annotator
 
         public List<int> getRigIndices(int frame)
         {
-            RigFrame<T> rigFrame = frameToRig[frame];
+            RigFrame<PointF> rigFrame = frameToRig[frame];
             if (rigFrame != null)
             {
                 return rigFrame.joints.Keys.ToList();
@@ -155,52 +145,94 @@ namespace Annotator
             return new List<int>();
         }
 
-        public Dictionary<string, T> getRigJoints(int frame, int rigIndex)
+        public Dictionary<string, PointF> getRigJoints(int frame, int rigIndex)
         {
-            RigFrame<T> rigFrame = frameToRig[frame];
+            RigFrame<PointF> rigFrame = frameToRig[frame];
             if (rigFrame != null && rigFrame.joints[rigIndex] != null)
             {
                 return rigFrame.joints[rigIndex];
             }
-            return new Dictionary<string, T>();
+            return new Dictionary<string, PointF>();
         }
 
-        public List<Tuple<T, T>> getRigBones(int frame, int rigIndex)
+        public Dictionary<string, Point3> getRigJoints3D(int frame, int rigIndex)
         {
-            RigFrame<T> rigFrame = frameToRig[frame];
+            RigFrame<Point3> rigFrame = frameTo3DRig[frame];
+            if (rigFrame != null && rigFrame.joints[rigIndex] != null)
+            {
+                return rigFrame.joints[rigIndex];
+            }
+            return new Dictionary<string, Point3>();
+        }
+
+        public List<Tuple<PointF, PointF>> getRigBones(int frame, int rigIndex)
+        {
+            RigFrame<PointF> rigFrame = frameToRig[frame];
             if (rigFrame != null && rigFrame.joints[rigIndex] != null)
             {
                 var joints = rigFrame.joints[rigIndex];
-                var bones = new List<Tuple<T, T>>();
+                var bones = new List<Tuple<PointF, PointF>>();
                 foreach (Point boneScheme in rigScheme.bones)
                 {
-                    var bone = new Tuple<T, T>(joints[rigScheme.jointToJointName[boneScheme.X].Item1] , 
-                        joints[rigScheme.jointToJointName[boneScheme.Y].Item1 ]);
+                    var bone = new Tuple<PointF, PointF>(joints[rigScheme.jointToJointName[boneScheme.X].Item1],
+                        joints[rigScheme.jointToJointName[boneScheme.Y].Item1]);
                     bones.Add(bone);
                 }
 
                 return bones;
             }
-            return new List<Tuple<T, T>>();
+            return new List<Tuple<PointF, PointF>>();
         }
 
-        public RigFigure<T> getRigFigure ( int frame, int rigIndex)
+        public List<Tuple<Point3, Point3>> getRigBones3D(int frame, int rigIndex)
         {
-            return new RigFigure<T>(getRigJoints(frame, rigIndex), getRigBones(frame, rigIndex));
+            RigFrame<Point3> rigFrame = frameTo3DRig[frame];
+            if (rigFrame != null && rigFrame.joints[rigIndex] != null)
+            {
+                var joints = rigFrame.joints[rigIndex];
+                var bones = new List<Tuple<Point3, Point3>>();
+                foreach (Point boneScheme in rigScheme.bones)
+                {
+                    var bone = new Tuple<Point3, Point3>(joints[rigScheme.jointToJointName[boneScheme.X].Item1],
+                        joints[rigScheme.jointToJointName[boneScheme.Y].Item1]);
+                    bones.Add(bone);
+                }
+
+                return bones;
+            }
+            return new List<Tuple<Point3, Point3>>();
         }
 
-        public Dictionary<int, RigObject> generateObjects ( String videoFile )
+        public RigFigure<PointF> getRigFigure(int frame, int rigIndex)
         {
+            return new RigFigure<PointF>(getRigJoints(frame, rigIndex), getRigBones(frame, rigIndex));
+        }
+
+        public RigFigure<Point3> getRigFigure3d(int frame, int rigIndex)
+        {
+            return new RigFigure<Point3>(getRigJoints3D(frame, rigIndex), getRigBones3D(frame, rigIndex));
+        }
+
+        /// <summary>
+        /// Create objects from rig file
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="videoFile"></param>
+        /// <returns></returns>
+        public Dictionary<int, RigObject> generateObjects(Session session, String videoFile)
+        {
+            normalizeFrames(session);
+
             var rigObjects = new Dictionary<int, RigObject>();
 
-            foreach ( int frame in frameToRig.Keys)
+            foreach (int frame in frameToRig.Keys)
             {
-                RigFrame<T> rf = frameToRig[frame];
-                foreach ( int rigIndex in rf.joints.Keys)
+                RigFrame<PointF> rf = frameToRig[frame];
+                foreach (int rigIndex in rf.joints.Keys)
                 {
-                    if ( !rigObjects.ContainsKey(rigIndex)      )
+                    if (!rigObjects.ContainsKey(rigIndex))
                     {
-                        rigObjects [rigIndex] = new RigObject("", Color.Green, 1, videoFile);
+                        rigObjects[rigIndex] = new RigObject(session, "", Color.Green, 1, videoFile);
                         rigObjects[rigIndex].otherProperties["rigIndex"] = "" + rigIndex;
                         rigObjects[rigIndex].genType = Object.GenType.PROVIDED;
                         rigObjects[rigIndex].semanticType = "bodyRig";
@@ -208,210 +240,85 @@ namespace Annotator
                         rigObjects[rigIndex].otherProperties["sourceScheme"] = rigSchemeFile;
                     }
 
-                    if (typeof(T) == typeof(Point))
-                    {
-                        rigObjects[rigIndex].setBounding(frame, (RigFigure<Point>) (object) getRigFigure(frame, rigIndex), 1, new Point());
-                    }
+                    rigObjects[rigIndex].setBounding(frame, getRigFigure(frame, rigIndex), 1, new Point());
+                    rigObjects[rigIndex].set3DBounding(frame, new RigLocationMark<Point3>(frame, getRigFigure3d(frame, rigIndex)));
                 }
             }
 
             return rigObjects;
         }
 
+
+        /// <summary>
+        /// After reading params file, you already has created rigObject
+        /// Use loadDataForRig to load rig data
+        /// </summary>
+        /// <param name="rigFile"></param>
+        /// <param name="rigSchemeFile"></param>
+        /// <param name="rigIndex"></param>
+        /// <param name="o"></param>
         public static void loadDataForRig(String rigFile, String rigSchemeFile, int rigIndex, RigObject o)
         {
-            var rigs = Rigs<Point>.getRigFromSource(rigFile, rigSchemeFile);
+            var rigs = getRigFromSource(rigFile, rigSchemeFile);
+
+            rigs.normalizeFrames(o.session);
 
             foreach (int frame in rigs.frameToRig.Keys)
             {
-                RigFrame <Point> rf = rigs.frameToRig[frame];
+                RigFrame<PointF> rf = rigs.frameToRig[frame];
 
-                if (rf.joints.ContainsKey(rigIndex) )
+                if (rf.joints.ContainsKey(rigIndex))
                 {
-                    o.setBounding(frame, (RigFigure<Point>)(object)rigs.getRigFigure(frame, rigIndex), 1, new Point());
+                    o.setBounding(frame, rigs.getRigFigure(frame, rigIndex), 1, new Point());
+                    o.set3DBounding(frame, new RigLocationMark<Point3>(frame, rigs.getRigFigure3d(frame, rigIndex)));
                 }
+            }
+        }
+
+        private void normalizeFrames(Session session)
+        {
+            if (session.duration != 0 && session.startWriteRGB.HasValue)
+            {
+                Console.WriteLine(session.duration);
+                Console.WriteLine(session.startWriteRGB.Value);
+                // If you have information about the recorded time of the video
+                // It means you recorded using Ecat
+                // Projecting from recorded frame to playback frame
+                int sessionLength = session.sessionLength;
+                DateTime startWriteRGB = session.startWriteRGB.Value;
+
+                var tempoFrameToRig = new Dictionary<int, RigFrame<PointF>>();
+                var tempoFrameTo3DRig = new Dictionary<int, RigFrame<Point3>>();
+
+                foreach (int frame in frameToRig.Keys)
+                {
+                    Console.WriteLine(frame);
+                    DateTime dt = frameToRig[frame].dt;
+                    long timeFromStart = (long)dt.Subtract(startWriteRGB).TotalMilliseconds;
+
+                    long timeStepForFrame = session.duration / sessionLength;
+                    int rgbFrame = (int) (timeFromStart / timeStepForFrame);
+
+                    Console.WriteLine(rgbFrame);
+                    tempoFrameToRig[rgbFrame] = frameToRig[frame];
+                    tempoFrameTo3DRig[rgbFrame] = frameTo3DRig[frame];
+                }
+                frameToRig = tempoFrameToRig;
+                frameTo3DRig = tempoFrameTo3DRig;
+            }
+            else
+            {
+                // It means you used CwC recorder
+                //// Problem with using recorded session from CwC apparatus
+                //// You might need to deflate the frameToRig dictionary 
+                //// so that frameNo are consecutive numbers
+                frameToRig = deflat(frameToRig);
+                frameTo3DRig = deflat(frameTo3DRig);
             }
         }
     }
 
-    public class RigScheme
-    {
-        // From numeric joint to name and meaning
-        public Dictionary<int, Tuple< String, String> > jointToJointName
-        {
-            get; set;
-        }
-
-        // Which joint link to which
-        public List<Point> bones { get; set; }
-
-        public static Dictionary<int, Tuple<String, String>> kinectV2jointToJointName = new Dictionary<int, Tuple<String, String>> {
-                { 0, new Tuple<string, string>("SpineBase", "Base of the spine") },
-                { 1, new Tuple<string, string>("SpineMid", "Middle of the spine") },
-                { 2, new Tuple<string, string>("Neck", "Neck") },
-                { 3, new Tuple<string, string>("Head", "Head") },
-                { 4, new Tuple<string, string>("ShoulderLeft", "Left shoulder") },
-                { 5, new Tuple<string, string>("ElbowLeft", "Left elbow") },
-                { 6, new Tuple<string, string>("WristLeft", "Left wrist") },
-                { 7, new Tuple<string, string>("HandLeft", "Left hand") },
-                { 8, new Tuple<string, string>("ShoulderRight", "Right shoulder") },
-                { 9, new Tuple<string, string>("ElbowRight", "Right elbow") },
-                { 10, new Tuple<string, string>("WristRight", "Right wrist") },
-                { 11, new Tuple<string, string>("HandRight", "Right hand") },
-                { 12, new Tuple<string, string>("HipLeft", "Left hip") },
-                { 13, new Tuple<string, string>("KneeLeft", "Left knee") },
-                { 14, new Tuple<string, string>("AnkleLeft", "Left ankle") },
-                { 15, new Tuple<string, string>("FootLeft", "Left foot") },
-                { 16, new Tuple<string, string>("HipRight", "Right hip") },
-                { 17, new Tuple<string, string>("KneeRight", "Right knee") },
-                { 18, new Tuple<string, string>("AnkleRight", "Right ankle") },
-                { 19, new Tuple<string, string>("FootRight", "Right foot") },
-                { 20, new Tuple<string, string>("SpineShoulder", "Spine at the shoulder") },
-                { 21, new Tuple<string, string>("HandTipLeft", "Tip of the left hand") },
-                { 22, new Tuple<string, string>("ThumbLeft", "Left thumb") },
-                { 23, new Tuple<string, string>("HandTipRight", "Tip of the right hand") },
-                { 24, new Tuple<string, string>("ThumbRight", "Right thumb") }
-            };
-
-        public static List<Point> kinectv2bones = new List<Point> {
-                new Point(0, 1), new Point(1,20), new Point(20, 2), new Point(2,3),  // Torso
-                new Point(20, 4),new Point(4,5),new Point(5,6),new Point(6,7),new Point(7,21),new Point(7,22), // Left hand
-                new Point(20, 8),new Point(8,9),new Point(9,10),new Point(10,11),new Point(11,23),new Point(11,24), // Right hand
-                new Point(0, 12),new Point(12, 13),new Point(13, 14),new Point(14, 15), // Left leg
-                new Point(0, 16),new Point(16, 17),new Point(17, 18),new Point(18, 19), // Right leg
-            };
-
-        ///<summary>
-        ///Input type of body data stream, currently the only 
-        ///supported format is xml, but it would be extended to json
-        ///</summary>
-        public string inputType { get; set; } = "";
-
-        ///<summary>
-        ///Xml tag name that cover the whole sequence of frames
-        ///</summary>
-        public string sequenceRoot { get; set; } = "";
-
-        ///<summary>
-        ///For each frame, all frame infomation is stored inside this node
-        ///</summary>
-        public string frameRoot { get; set; } = "";
-
-        ///<summary>
-        ///The relative Xpath to all 2-dimensional rig points (projected on RGB field)
-        ///</summary>
-        public string rigPointsPath { get; set; } = "";
-
-        ///<summary>
-        ///The relative Xpath to all 3-dimensional rig points (camera space)
-        ///</summary>
-        public string rigPoint3DsPath { get; set; } = "";
-
-        ///<summary>
-        ///The relative Xpath to get the frame number
-        ///</summary>
-        public string frameNoPath { get; set; } = "";
-
-        /// <summary>
-        ///The relative Xpath to get rig index
-        /// </summary>
-        public string rigNoPath { get; set; } = "";
-
-        ///<summary>
-        ///Format of rigType could be xml or flat
-        ///If it is flat, all rig points will be laid out as values separated by 'rigPointFormatSeparated' at rigPointsPath
-        ///If it is node, each rig point is inside its own tag that has tagName = 'rigPointTag'
-        ///</summary>
-        public string rigPointFormatType { get; set; } = "";
-
-        /// <summary>
-        /// rigPointFormatSeparated accompanying rigPointFormatType='flat'
-        /// </summary>
-        public string rigPointFormatSeparated { get; set; } = "";
-
-        /// <summary>
-        /// rigPointFormatSeparated accompanying rigPointFormatType='node'
-        /// </summary>
-        public string rigPointPath { get; set; } = "";
-
-        /*
-        <rigPointInput>
-		    <inputType>xml</inputType>
-		    <sequenceRoot>BodyDataSequence</sequenceRoot>
-		    <frameRoot>Body_Data</frameRoot>
-		    <rigPointsPath>Skeleton_ImgPlane_Joint_Locations/Pts</rigPointsPath>
-		    <frameNoPath> 
-			    Timestamp@frame
-		    </frameNoPath>
-		    <rigNoPath>Subject@id</rigNoPath>      
-		    <rigPointFormat type = "flat" separated=","/> // All rig points are laid out as either comma separated or space separated values
-            <rigPoints>    
-                <rigPoint name="WristRight" id="10" description="Right wrist"/>
-                    ...
-		    </rigPoints>
-	    </rigPointInput>
-        */
-        public static RigScheme readFromXml(XmlNode xmlNode)
-        {
-            try
-            {
-                XmlNode rigPointInput = xmlNode.SelectSingleNode(".//rigPointInput");
-                string inputType = rigPointInput.SelectNodes("inputType").Item(0).InnerText;
-                string sequenceRoot = rigPointInput.SelectNodes("sequenceRoot").Item(0).InnerText;
-                string frameRoot = rigPointInput.SelectNodes("frameRoot").Item(0).InnerText;
-                string rigPointsPath = rigPointInput.SelectNodes("rigPointsPath").Item(0).InnerText;
-                string rigPoint3DsPath = rigPointInput.SelectNodes("rigPoint3DsPath").Item(0).InnerText;
-                string frameNoPath = rigPointInput.SelectNodes("frameNoPath").Item(0).InnerText;
-                string rigNoPath = rigPointInput.SelectNodes("rigNoPath").Item(0).InnerText;
-                string rigPointFormatType = rigPointInput.SelectNodes("rigPointFormat").Item(0).Attributes["type"].Value;
-                string rigPointFormatSeparated = "";
-                if (rigPointFormatType == "flat")
-                    rigPointFormatSeparated = rigPointInput.SelectNodes("rigPointFormat").Item(0).Attributes["separated"].Value;
-
-                string rigPointPath = "";
-                if (rigPointFormatType == "node")
-                    rigPointPath = rigPointInput.SelectNodes("rigPointFormat").Item(0).Attributes["path"].Value;
-
-                var jointToJointName = new Dictionary<int, Tuple<String, String>>();
-                foreach (XmlNode rigPoint in rigPointInput.SelectNodes(".//rigPoint"))
-                {
-                    string name = rigPoint.Attributes["name"].Value;
-                    string id = rigPoint.Attributes["id"].Value;
-                    string description = rigPoint.Attributes["description"].Value;
-                    jointToJointName[int.Parse(id)] = new Tuple<string, string>(name, description);
-                }
-
-                var bones = new List<Point>();
-                foreach (XmlNode rigBone in xmlNode.SelectNodes(".//rigBone"))
-                {
-                    bones.Add(new Point(int.Parse(rigBone.Attributes["from"].Value), int.Parse(rigBone.Attributes["to"].Value)));
-                }
-
-                return new RigScheme()
-                {
-                    jointToJointName = jointToJointName,
-                    bones = bones,
-                    inputType = inputType,
-                    sequenceRoot = sequenceRoot,
-                    frameRoot = frameRoot,
-                    rigPointsPath = rigPointsPath,
-                    rigPoint3DsPath = rigPoint3DsPath,
-                    frameNoPath = frameNoPath,
-                    rigNoPath = rigNoPath,
-                    rigPointFormatType = rigPointFormatType,
-                    rigPointFormatSeparated = rigPointFormatSeparated,
-                    rigPointPath = rigPointPath
-                };
-            }
-            catch (NullReferenceException e)
-            {
-                System.Windows.Forms.MessageBox.Show("Input rig scheme file has problem " + e);
-            }
-            return null;
-        }
-    }
-
-    public class RigFrame <T>
+    public class RigFrame<T>
     {
         /// <summary>
         /// Rigs(s) for each frame. 
@@ -419,12 +326,20 @@ namespace Annotator
         /// The string key is joint name
         /// T is the location of joint (could be 2d or 3d)
         /// </summary>
-        public Dictionary<int, Dictionary<string , T> > joints { get; }
+        public Dictionary<int, Dictionary<string, T>> joints { get; }
+        public DateTime dt { get; }
 
-        public RigFrame ()
+        public RigFrame(DateTime dt)
         {
+            this.dt = dt;
             joints = new Dictionary<int, Dictionary<string, T>>();
         }
+
+        //public RigFrame()
+        //{
+        //    this.timeFromBegin = 0;
+        //    joints = new Dictionary<int, Dictionary<string, T>>();
+        //}
 
         public void addRigFrame(int rigIndex, Dictionary<string, T> rig)
         {

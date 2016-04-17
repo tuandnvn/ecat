@@ -23,7 +23,8 @@ namespace Annotator.depth
             try
             {
                 depthWriter = new BinaryWriter(File.Open(fileName, FileMode.Create));
-
+                this.depthWidth = depthWidth;
+                this.depthHeight = depthHeight;
                 depthWriter.Write((short)depthWidth);
                 depthWriter.Write((short)depthHeight);
 
@@ -39,6 +40,7 @@ namespace Annotator.depth
         {
             try
             {
+                timePoints.Add(milisecondFromStart);
                 lock (writeDepthLock)
                 {
                     for (int i = 0; i < depthWidth * depthHeight; i++)
@@ -54,9 +56,11 @@ namespace Annotator.depth
 
         public void Dispose()
         {
+            Console.WriteLine("Base depth writer dispose");
             if (depthWriter != null)
             {
                 writeMetadataAtEnd();
+                Console.WriteLine("Dispose depth writer");
                 depthWriter.Dispose();
                 depthWriter = null;
             }
@@ -78,16 +82,15 @@ namespace Annotator.depth
             {
                 if (depthWriter != null)
                 {
+                    Console.WriteLine(  "Write metadata at end depth ");
                     // Write metadata
                     foreach (int elapse in timePoints)
                     {
+                        Console.WriteLine(elapse);
                         depthWriter.Write((UInt32)elapse);
                     }
-                    depthWriter.Write((UInt32)depthFrame);
-
-                    // Close file
-                    depthWriter.Dispose();
-                    depthWriter = null;
+                    Console.WriteLine(_depthFrame);
+                    depthWriter.Write((UInt32)_depthFrame);
                 }
             }
         }

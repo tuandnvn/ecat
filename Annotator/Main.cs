@@ -30,6 +30,11 @@ namespace Annotator
             //comboBox1.SelectedIndex = 0;
             //Just for sample GUI test
             frameTrackBar.Maximum = 100;
+
+            Console.WriteLine(DateTime.Now.ToLongDateString());
+            Console.WriteLine(DateTime.Now.ToShortDateString());
+            Console.WriteLine(DateTime.Now.ToLongTimeString());
+            Console.WriteLine(DateTime.Now.ToShortTimeString());
         }
 
         //Project workspace 
@@ -176,7 +181,7 @@ namespace Annotator
                         sessionNode.ImageIndex = 1;
                         sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
                         //Add session to workspace 
-                        String sessionName = sessionNode.ToString().Substring(10);
+                        String sessionName = sessionNode.Text;
                         Project project = workspace.getProject(prjName);
 
                         if (project.checkSessionInProject(sessionName))
@@ -189,7 +194,7 @@ namespace Annotator
 
                             for (int ii = 0; ii < sessionNode.Nodes.Count; ii++)
                             {
-                                if (!session.checkFileInSession(sessionNode.Nodes[ii].ToString().Substring(10)))
+                                if (!session.checkFileInSession(sessionNode.Nodes[ii].Text))
                                 {
                                     sessionNode.Nodes[ii].Remove();
                                 }
@@ -204,7 +209,7 @@ namespace Annotator
                         sessionNode.ImageIndex = 1;
                         sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
                         //Add session to workspace
-                        String sessionName = sessionNode.ToString().Substring(10);
+                        String sessionName = sessionNode.Text;
                         //MessageBox.Show(sessionName);
                         Project project = workspace.getProject(prjName);
                         if (project.checkSessionInProject(sessionName))
@@ -300,9 +305,8 @@ namespace Annotator
         private void rightClickOnSessionTreeNode(MouseEventArgs e)
         {
             TreeNode selectedNode = treeView.SelectedNode;
-            //MessageBox.Show(selectedNode.ToString() + ", selectedProject = " +  selectedProject.getProjectName());
             Session choosedSession = null;
-            if (selectedNode != null && selectedProject != null && selectedNode.Parent.ToString().Contains(selectedProject.getProjectName()))
+            if (selectedNode != null && selectedProject != null && selectedNode.Parent.Text.Equals(selectedProject.getProjectName()))
             {
                 //MessageBox.Show("OK");
                 editSessionMenuItem.Enabled = true;
@@ -310,9 +314,9 @@ namespace Annotator
                 deleteSessionMenuItem.Enabled = true;
                 addSessionMenuItem.Enabled = true;
                 //Check if session is editing:
-                choosedSession = selectedProject.getSession(selectedNode.ToString().Substring(10));
+                choosedSession = selectedProject.getSession(selectedNode.Text);
                 if (choosedSession == null)
-                    choosedSession = selectedProject.getSession(selectedNode.ToString().Substring(11));
+                    choosedSession = selectedProject.getSession(selectedNode.Text);
                 if (choosedSession != null && choosedSession.getEdited())
                 {
                     //MessageBox.Show("OK1");
@@ -341,15 +345,14 @@ namespace Annotator
 
         private void rightClickOnProjectTreeNode(MouseEventArgs e)
         {
-
-            if (selectedProject != null && treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName()))
+            if (selectedProject != null && treeView.SelectedNode.Text.Equals(selectedProject.getProjectName()))
             {
                 selectToolStripMenuItem.Enabled = false;
                 closeToolStripMenuItem.Enabled = true;
                 newSessionToolStripMenuItem.Enabled = true;
                 recordSessionToolStripMenuItem.Enabled = true;
             }
-            else if (selectedProject != null && !(treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName())))
+            else if (selectedProject != null && !(treeView.SelectedNode.Text.Equals(selectedProject.getProjectName())))
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
@@ -404,7 +407,7 @@ namespace Annotator
             //1)Set new session state
             newSession = true;
             //2)Show popup for session name
-            SessionInfo sessionInfo = new SessionInfo(this, treeView.SelectedNode.ToString().Substring(10));
+            SessionInfo sessionInfo = new SessionInfo(this, treeView.SelectedNode.Text);
             sessionInfo.Location = new Point(this.Location.X + (int)(sessionInfo.Width / 2.5), this.Location.Y + sessionInfo.Height / 2);
             sessionInfo.Show();
         }
@@ -431,6 +434,10 @@ namespace Annotator
             Session newSession = new Session(sessionName, project.getProjectName(), project.getLocation());
 
             project.addSession(newSession);
+
+            this.currentSession = newSession;
+            this.currentSessionNode = newSessionNode;
+            this.treeView.SelectedNode = this.currentSessionNode;
 
             //2) Update treeView
             selectedProjectNode.Nodes.Add(newSessionNode);
@@ -499,7 +506,6 @@ namespace Annotator
             return treeView.Nodes;
         }
 
-
         private void clearComboBox1()
         {
             comboBox1.Items.Clear();
@@ -516,10 +522,7 @@ namespace Annotator
             {
                 frameTrackBar.Maximum = currentVideo.frameCount;
             }
-
         }
-
-        
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -609,7 +612,7 @@ namespace Annotator
 
         private void addRigsFromFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string relVideoFileName = treeView.SelectedNode.ToString().Substring(10);
+            string relVideoFileName = treeView.SelectedNode.Text;
             AddRigFileForm addRigForm = new AddRigFileForm(this, currentSession, relVideoFileName);
             addRigForm.Show(this);
             addRigForm.Location = new Point()

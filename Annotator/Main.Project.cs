@@ -33,10 +33,10 @@ namespace Annotator
                 String sessionName = "";
                 foreach (TreeNode sessionNode in projectNode.Nodes)
                 {
-                    sessionName = sessionNode.ToString().Substring(10);
+                    sessionName = sessionNode.Text;
                     if (sessionName.Contains("*"))
                         sessionName = sessionName.Substring(1);
-                    Project project = workspace.getProject(projectNode.ToString().Substring(10));
+                    Project project = workspace.getProject(projectNode.Text);
                     Session session = project.getSession(sessionName);
                     if (session.getEdited())
                     {
@@ -47,26 +47,27 @@ namespace Annotator
             }
             ///////////////////////////////////
             //Get selected node from treeView:
-            String prjName = treeView.SelectedNode.ToString().Substring(10);
+            selectedProjectNode = treeView.SelectedNode;
+            String prjName = selectedProjectNode.Text;
             treeView.BeginUpdate();
             foreach (TreeNode node in treeView.Nodes)
             {
                 node.BackColor = Color.White;
             }
-            treeView.SelectedNode.BackColor = Color.Silver;
-            //treeView.SelectedNode = null;
+            
+            
+            selectedProjectNode.BackColor = Color.Silver;
             treeView.EndUpdate();
             selectedProject = workspace.getProject(prjName);
             selectedProject.setSelected(true);
-            //MessageBox.Show(selectedProject.getProjectName());
             this.Text = "Project " + selectedProject.getProjectName() + " selected";
             foreach (TreeNode node in treeView.Nodes)
             {
-                if (node.ToString().Substring(10) != prjName)
+                if (node.Text != prjName)
                 {
                     node.Collapse();
                 }
-                if (node.ToString().Substring(10).Contains(prjName))
+                if (node.Text.Contains(prjName))
                     node.Expand();
             }
         }
@@ -74,7 +75,7 @@ namespace Annotator
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (treeView.SelectedNode.ToString().Contains(selectedProject.getProjectName()))
+            if (treeView.SelectedNode.Text.Equals(selectedProject.getProjectName()))
             {
                 //Check if project session is editing:
                 //Check if there is editing session:
@@ -83,10 +84,10 @@ namespace Annotator
                     String sessionName = "";
                     foreach (TreeNode sessionNode in projectNode.Nodes)
                     {
-                        sessionName = sessionNode.ToString().Substring(10);
+                        sessionName = sessionNode.Text;
                         if (sessionName.Contains("*"))
                             sessionName = sessionName.Substring(1);
-                        Project project = workspace.getProject(projectNode.ToString().Substring(10));
+                        Project project = workspace.getProject(projectNode.Text);
                         Session session = project.getSession(sessionName);
                         if (session.getEdited())
                         {

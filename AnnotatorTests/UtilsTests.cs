@@ -20,18 +20,18 @@ namespace Annotator.Tests
         {
 
 
-            Point[] polygons = new Point[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
+            PointF[] polygons = new PointF[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
                                                 new Point(2,0), new Point(1,1) };
-            List<Point> convexHull = Utils.getConvexHull(polygons.ToList());
-            List<Point> trueConvexHull = new Point[] {new Point(0,0), new Point(0, 2), new Point(2, 2),
+            List<PointF> convexHull = Utils.getConvexHull(polygons.ToList());
+            List<PointF> trueConvexHull = new PointF[] {new Point(0,0), new Point(0, 2), new Point(2, 2),
                                                 new Point(2,0)}.ToList();
             Assert.AreEqual(trueConvexHull.Except(convexHull).Count(), 0);
             Assert.AreEqual(convexHull.Except(trueConvexHull).Count(), 0);
 
-            polygons = new Point[] { new Point(0,0), new Point(0, 4), new Point(1, 3), new Point(2, 2), new Point(4, 5),
+            polygons = new PointF[] { new Point(0,0), new Point(0, 4), new Point(1, 3), new Point(2, 2), new Point(4, 5),
                                                 new Point(4,1), new Point(5,0) };
             convexHull = Utils.getConvexHull(polygons.ToList());
-            trueConvexHull = new Point[] {new Point(0,0), new Point(0, 4), new Point(4, 5),
+            trueConvexHull = new PointF[] {new Point(0,0), new Point(0, 4), new Point(4, 5),
                                                 new Point(5,0) }.ToList();
 
             Assert.AreEqual(trueConvexHull.Except(convexHull).Count(), 0);
@@ -54,13 +54,13 @@ namespace Annotator.Tests
         [TestMethod()]
         public void ScoreTestRectangle()
         {
-            Console.WriteLine(new Object.RectangleLocationMark(0, LocationMark.LocationMarkType.Location, new Rectangle(0, 0, 2, 2)).Score(new Point(1, 1)));
+            Console.WriteLine(new RectangleLocationMark(0, new Rectangle(0, 0, 2, 2)).Score(new Point(1, 1)));
         }
 
         [TestMethod()]
         public void ScoreTestPolygon()
         {
-            Console.WriteLine(new Object.PolygonLocationMark(0, LocationMark.LocationMarkType.Location, new Point[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
+            Console.WriteLine(new PolygonLocationMark(0, new PointF[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
                                                 new Point(2,0) }.ToList()).Score(new Point(1, 1)));
         }
 

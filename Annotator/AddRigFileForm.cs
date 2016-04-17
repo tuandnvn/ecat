@@ -56,8 +56,8 @@ namespace Annotator
                 schemeFilePath = main.copyFileIntoLocalSession(schemeFilePath);
             }
 
-            Rigs<Point> rigs = Rigs<Point>.getRigFromSource(srcFilePath, schemeFilePath);
-            var objects = rigs.generateObjects(videoFile).Values.ToList();
+            Rigs rigs = Rigs.getRigFromSource(srcFilePath, schemeFilePath);
+            var objects = rigs.generateObjects(currentSession, videoFile).Values.ToList();
             foreach ( var o in objects ) {
                 currentSession.addObject(o);
                 main.addObjectAnnotation(o);

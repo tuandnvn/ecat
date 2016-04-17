@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Annotator
 {
-    public class RigLocationMark<T> : LocationMark
+    public class RigLocationMark<T> : LocationMark2D
     {
         public RigFigure<T> rigFigure { get; }
-        public RigLocationMark(int frameNo, LocationMarkType markType, RigFigure<T> rigFigure) : base(frameNo, markType)
+        public RigLocationMark(int frameNo, RigFigure<T> rigFigure) : base(frameNo)
         {
             this.rigFigure = rigFigure;
         }
@@ -25,7 +25,7 @@ namespace Annotator
             if (rigJoints.Count != 0)
             {
                 var convexHull = Utils.getConvexHull(rigJoints);
-                PolygonLocationMark temp = new PolygonLocationMark(frameNo, markType, convexHull);
+                PolygonLocationMark temp = new PolygonLocationMark(frameNo, convexHull);
                 return temp.Score(testPoint);
             }
 
@@ -34,8 +34,6 @@ namespace Annotator
 
         public override void drawOnGraphics(Graphics g, Pen p)
         {
-            if (typeof(T) != typeof(Point) && typeof(T) != typeof(PointF)) return;
-
             g.DrawRig(p, rigFigure);
         }
 
@@ -50,13 +48,20 @@ namespace Annotator
                 foreach (string s in markedJointNames)
                     if (jointName.ToLower().Contains(s))
                     {
-                        PointF joint = (PointF) (object) rigFigure.rigJoints[jointName];
+                        PointF joint = (PointF)(object)rigFigure.rigJoints[jointName];
                         selectBoxes.Add(new Rectangle((int)(joint.X - (boxSize - 1) / 2),
                             (int)(joint.Y - (boxSize - 1) / 2), boxSize, boxSize));
                         break;
                     }
             }
             return selectBoxes.ToArray();
+        }
+
+        public override LocationMark2D getScaledLocationMark(double scale, Point translation)
+        {
+            if (typeof(T) != typeof(Point) && typeof(T) != typeof(PointF)) return null;
+
+            return new RigLocationMark<PointF>(frameNo, ((RigFigure<PointF>)(object)rigFigure).scaleBound(scale, translation));
         }
     }
 

@@ -72,16 +72,15 @@ namespace Annotator
                 okButton.Visible = false;
                 return;
             }
-            //Check if there is already a directory named the same as the new session                
+
             Project project = main.getProjectFromWorkspace(projectName);
             String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + sessionNameTxtBox.Text;
             //MessageBox.Show(sessionLocation + Directory.Exists(sessionLocation));
 
             bool existSession = false;
-            TreeNodeCollection nodes = main.getTreeViewNodes();
             foreach (TreeNode sessionNode in main.selectedProjectNode.Nodes)
             {
-                if (sessionNode.ToString().Contains(sessionNameTxtBox.Text))
+                if (sessionNode.Text.Equals(sessionNameTxtBox.Text))
                 {
                     existSession = true;
                     break;

@@ -81,6 +81,11 @@ namespace Annotator.depth
 
         public void Dispose()
         {
+            if (depthReader != null)
+            {
+                depthReader.Dispose();
+                depthReader = null;
+            }
         }
 
         public int getFrameCount()

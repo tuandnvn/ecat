@@ -59,6 +59,12 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accord, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL" />
+    <Reference Include="Accord.Imaging, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL" />
+    <Reference Include="Accord.Math, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.0.2\lib\net45\Accord.Math.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Accord.Video, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>..\packages\Accord.Video.3.0.2\lib\net45\Accord.Video.dll</HintPath>
       <Private>True</Private>
@@ -69,22 +75,6 @@
     </Reference>
     <Reference Include="Accord.Video.FFMPEG, Version=3.0.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=x86">
       <HintPath>..\packages\Accord.Video.FFMPEG.3.0.2\lib\net45\Accord.Video.FFMPEG.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AForge, Version=2.2.4.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
-      <HintPath>..\packages\AForge.2.2.4\lib\AForge.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AForge.Imaging, Version=2.2.4.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
-      <HintPath>..\packages\AForge.Imaging.2.2.4\lib\AForge.Imaging.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AForge.Math, Version=2.2.4.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
-      <HintPath>..\packages\AForge.Math.2.2.4\lib\AForge.Math.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AForge.Video, Version=2.2.4.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
-      <HintPath>..\packages\AForge.Video.2.2.4\lib\AForge.Video.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Emgu.CV.UI">
@@ -104,6 +94,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -125,17 +116,25 @@
     <Compile Include="depth\IDepthWriter.cs" />
     <Compile Include="DrawMatches.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="GestureRecognitionAlgorithm\HMMAlgorithm.cs" />
     <Compile Include="KinectUtils.cs" />
     <Compile Include="MappingUtils.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\GlyphBoxObjectRecognition.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\IObjectRecogAlgo.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\PatternMatchingObjectRecognition.cs" />
+    <Compile Include="object\CubeLocationMark.cs" />
+    <Compile Include="object\GlyphBoxObject.cs" />
+    <Compile Include="object\GlyphBoxPrototype.cs" />
     <Compile Include="object\LocationMark.cs" />
+    <Compile Include="object\GlyphBox2DLocationMark.cs" />
+    <Compile Include="object\LocationMark2D.cs" />
     <Compile Include="object\ObjectMark.cs" />
     <Compile Include="object\PolygonLocationMark.cs" />
     <Compile Include="object\RectangleLocationMark.cs" />
+    <Compile Include="object\RigFigure.cs" />
     <Compile Include="object\RigLocationMark.cs" />
     <Compile Include="object\RigObject.cs" />
+    <Compile Include="object\RigScheme.cs" />
     <Compile Include="object\SpatialLinkMark.cs" />
     <Compile Include="Range.cs">
       <SubType>UserControl</SubType>
@@ -207,22 +206,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RecordPanel.Control.cs">
+    <Compile Include="recordPanel\RecordPanel.Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RecordPanel.Control.Playback.cs">
+    <Compile Include="recordPanel\RecordPanel.Control.Playback.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RecordPanel.Control.RecordDepth.cs">
+    <Compile Include="recordPanel\RecordPanel.Control.RecordDepth.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RecordPanel.Control.RecordRgb.cs">
+    <Compile Include="recordPanel\RecordPanel.Control.RecordRgb.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RecordPanel.Control.RecordRig.cs">
+    <Compile Include="recordPanel\RecordPanel.Control.RecordRig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RecordPanel.cs">
+    <Compile Include="recordPanel\RecordPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RectangleShapeWithFrame.cs">
@@ -243,7 +242,14 @@
       <DependentUpon>SpatialLinkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ObjectRecognitionAlgorithm\SquareBinaryGlyphRecognizer.cs" />
+    <Compile Include="TrainingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TrainingPanel.Designer.cs">
+      <DependentUpon>TrainingPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="utils\AtomicBoolean.cs" />
     <Compile Include="VideoReader.cs" />
     <Compile Include="Workspace.cs" />
     <Compile Include="WorkspaceLauncher.cs">
@@ -275,7 +281,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecordPanel.resx">
+    <EmbeddedResource Include="recordPanel\RecordPanel.resx">
       <DependentUpon>RecordPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SessionInfo.resx">
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LinkEventForm.resx">
       <DependentUpon>LinkEventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingPanel.resx">
+      <DependentUpon>TrainingPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkspaceLauncher.resx">
       <DependentUpon>WorkspaceLauncher.cs</DependentUpon>
@@ -322,6 +331,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="avutil-51.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bodyScheme.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="cvextern.dll">
@@ -378,7 +390,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GestureRecognitionAlgorithm\" />
     <Folder Include="pattern\" />
     <Folder Include="TrackingAlgorithm\" />
   </ItemGroup>
