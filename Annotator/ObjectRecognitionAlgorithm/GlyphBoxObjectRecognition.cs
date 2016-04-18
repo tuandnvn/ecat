@@ -43,26 +43,35 @@ namespace Annotator.ObjectRecognitionAlgorithm
             ///              -    A glyphface instance
             var recognizedGlyphs = new Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace>>>();
 
+            Bitmap image = null;
+            Mat m = null;
+            Bitmap grayImage = null;
+            Bitmap edges = null;
+            UnmanagedImage grayUI = null;
+            Bitmap transformed = null;
+            Bitmap transformedOtsu = null;
+
             for (int frameNo = 0; frameNo < videoReader.frameCount; frameNo++)
             {
-                if (videoReader.getFrame(frameNo) == null)
+                m = videoReader.getFrame(frameNo);
+                if (m == null)
                 {
                     Console.WriteLine("no frame at " + frameNo);
                     break;
                 }
 
                 Console.WriteLine("Try detect at frame " + frameNo);
-                Bitmap image = videoReader.getFrame(frameNo).Bitmap;
+                image = m.Bitmap;
 
                 /// Adapt from Glyph Recognition Prototyping
                 /// Copyright © Andrew Kirillov, 2009-2010
                 /// 
                 // 1 - Grayscale
-                Bitmap grayImage = Grayscale.CommonAlgorithms.BT709.Apply(image);
+                grayImage = Grayscale.CommonAlgorithms.BT709.Apply(image);
 
                 // 2 - Edge detection
                 DifferenceEdgeDetector edgeDetector = new DifferenceEdgeDetector();
-                Bitmap edges = edgeDetector.Apply(grayImage);
+                edges = edgeDetector.Apply(grayImage);
 
                 // 3 - Threshold edges
                 Threshold thresholdFilter = new Threshold(20);
@@ -82,7 +91,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 //UnmanagedImage imageData = UnmanagedImage.FromManagedImage(image);
 
                 // Get unmanaged copy of grayscale image, so we could access it's pixel values
-                UnmanagedImage grayUI = UnmanagedImage.FromManagedImage(grayImage);
+                grayUI = UnmanagedImage.FromManagedImage(grayImage);
 
                 // list of found dark/black quadrilaterals surrounded by white area
                 List<List<IntPoint>> foundObjects = new List<List<IntPoint>>();
@@ -137,11 +146,11 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     QuadrilateralTransformation quadrilateralTransformation =
                         new QuadrilateralTransformation(corners, 250, 250);
 
-                    Bitmap transformed = quadrilateralTransformation.Apply(grayImage);
+                    transformed = quadrilateralTransformation.Apply(grayImage);
 
                     // 7 - otsu thresholding
                     OtsuThreshold otsuThresholdFilter = new OtsuThreshold();
-                    Bitmap transformedOtsu = otsuThresholdFilter.Apply(transformed);
+                    transformedOtsu = otsuThresholdFilter.Apply(transformed);
 
                     // +2 for offset
                     int glyphSize = boxPrototype.glyphSize + 2;
@@ -160,7 +169,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
 
                     GlyphFace face = new GlyphFace(resizedGlyphValues, boxPrototype.glyphSize);
 
-                    foreach (int faceIndex in boxPrototype.indexToGlyphFaces.Keys )
+                    foreach (int faceIndex in boxPrototype.indexToGlyphFaces.Keys)
                     {
                         if (face.Equals(boxPrototype.indexToGlyphFaces[faceIndex]))
                         {
@@ -176,10 +185,13 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     }
                 }
 
-                edges.Dispose();
-                image.Dispose();
-                grayImage.Dispose();
-                grayUI.Dispose();
+                foreach (IDisposable o in new IDisposable[] { image , m , grayImage , edges, grayUI, transformed, transformedOtsu })
+                {
+                    if ( o != null)
+                    {
+                        o.Dispose();
+                    }
+                }
             }
 
             if (recognizedGlyphs.Keys.Count != 0){
