@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Emgu.CV.UI">
-      <HintPath>..\..\..\..\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.UI.dll</HintPath>
+    <Reference Include="Emgu.CV">
+      <HintPath>..\packages\EmguCV.3.0.0\lib\net451\Emgu.CV.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.World">
-      <HintPath>..\..\..\..\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.World.dll</HintPath>
+    <Reference Include="Emgu.Util">
+      <HintPath>..\packages\EmguCV.3.0.0\lib\net451\Emgu.Util.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
