@@ -39,7 +39,6 @@ namespace Annotator
                 Mat m = capture.QueryFrame();
 
                 int mili = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosMsec);
-                Console.WriteLine("Frame no = " + frameNum + "; Frame time = " + mili);
 
                 return m;
             }

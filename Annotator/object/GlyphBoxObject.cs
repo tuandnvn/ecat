@@ -8,17 +8,16 @@ using System.Xml;
 
 namespace Annotator
 {
-    class GlyphBoxObject : Object
+    public class GlyphBoxObject : Object
     {
-        protected GlyphBoxPrototype boxPrototype;
+        public GlyphBoxPrototype boxPrototype;
 
-        public GlyphBoxObject(Session currentSession, String id, Color color, int borderSize, string videoFile, GlyphBoxPrototype boxPrototype) : base(currentSession, id, color, borderSize, videoFile)
+        public GlyphBoxObject(Session currentSession, String id, Color color, int borderSize, string videoFile) : base(currentSession, id, color, borderSize, videoFile)
         {
             _borderType = BorderType.Others;
-            this.boxPrototype = boxPrototype;
         }
 
-        public void setBounding(int frameNumber, int glyphSize, List<List<PointF>> glyphBounds, List<GlyphFace> faces, double scale, Point translation)
+        public void setBounding(int frameNumber, int glyphSize, List<List<PointF>> glyphBounds, List<GlyphFace> faces, double scale = 1, Point translation = new Point())
         {
             List<List<PointF>> inversedScaledGlyphBounds = glyphBounds.Select(glyphBound => glyphBound.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)))).ToList();
             LocationMark2D ob = new GlyphBox2DLocationMark(frameNumber, glyphSize, inversedScaledGlyphBounds, faces);
@@ -28,32 +27,35 @@ namespace Annotator
         protected override void loadObjectAdditionalFromXml(XmlNode objectNode)
         {
             XmlNode markersNode = objectNode.SelectSingleNode(MARKERS);
-            foreach (XmlNode markerNode in markersNode.SelectNodes(MARKER))
-            {
-                int frame = int.Parse(markerNode.Attributes[FRAME].Value);
-                String markType = markerNode.Attributes[TYPE].Value;
-
-                switch (markType)
+            if (markersNode != null)
+                foreach (XmlNode markerNode in markersNode.SelectNodes(MARKER))
                 {
-                    case "LOCATION":
-                        var lm = new GlyphBox2DLocationMark(frame);
-                        lm.readFromXml(markerNode);
-                        setBounding(frame, lm);
-                        break;
-                    case "DELETE":
-                        delete(frame);
-                        break;
+                    int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                    String markType = markerNode.Attributes[TYPE].Value;
+
+                    switch (markType)
+                    {
+                        case "LOCATION":
+                            var lm = new GlyphBox2DLocationMark(frame);
+                            lm.readFromXml(markerNode);
+                            setBounding(frame, lm);
+                            break;
+                        case "DELETE":
+                            delete(frame);
+                            break;
+                    }
                 }
-            }
 
             XmlNode markers3DNodes = objectNode.SelectSingleNode(MARKERS3D);
-            foreach (XmlNode markerNode in markers3DNodes.SelectNodes(MARKER))
-            {
-                int frame = int.Parse(markerNode.Attributes[FRAME].Value);
-                var lm = new CubeLocationMark(frame);
-                lm.readFromXml(markerNode);
-                set3DBounding(frame, lm);
-            }
+
+            if (markers3DNodes != null)
+                foreach (XmlNode markerNode in markers3DNodes.SelectNodes(MARKER))
+                {
+                    int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                    var lm = new CubeLocationMark(frame);
+                    lm.readFromXml(markerNode);
+                    set3DBounding(frame, lm);
+                }
         }
     }
 }

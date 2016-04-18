@@ -45,6 +45,7 @@ namespace Annotator
         public RecordPanel()
         {
             InitializeComponent();
+            InitializeObjectRecognizers();
             InitializeOptionsTable();
             InitializeButtons();
         }

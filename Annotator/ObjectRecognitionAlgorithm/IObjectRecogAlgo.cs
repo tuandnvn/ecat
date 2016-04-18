@@ -16,6 +16,8 @@ namespace Annotator.ObjectRecognitionAlgorithm
     /// </summary>
     public interface IObjectRecogAlgo
     {
+        string getName();
+
         List<Object> findObjects( VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction);
     }
 }

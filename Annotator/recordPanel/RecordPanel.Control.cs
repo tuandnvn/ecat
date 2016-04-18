@@ -94,7 +94,7 @@ namespace Annotator
             optionsTable.Rows.Add("Show rigs", "True");
             optionsTable.Rows.Add("Record rigs", "True");
             optionsTable.Rows.Add("Rig file name", "rig_[DateTime]");
-            //optionsTable.Rows.Add("Detect blocks", "False");
+            
             mapFileName = new Dictionary<string, string>();
 
             // No change to RGB video file name
@@ -104,6 +104,8 @@ namespace Annotator
 
             changeRowToTrueFall(optionsTable, 7, 1);
             changeRowToTrueFall(optionsTable, 8, 1);
+
+            InitializeOptionsTableDetection();
         }
 
 

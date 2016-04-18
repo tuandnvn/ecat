@@ -224,6 +224,9 @@
     <Compile Include="recordPanel\RecordPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="recordPanel\RecordPanel.ObjectDetection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="RectangleShapeWithFrame.cs">
       <SubType>Component</SubType>
     </Compile>

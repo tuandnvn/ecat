@@ -22,7 +22,6 @@ namespace Annotator.ObjectRecognitionAlgorithm
         /// Recognize one box only
         /// </summary>
         protected GlyphBoxPrototype boxPrototype;
-
         protected Session currentSession;
 
         public GlyphBoxObjectRecognition(Session currentSession, GlyphBoxPrototype boxPrototype)
@@ -46,6 +45,13 @@ namespace Annotator.ObjectRecognitionAlgorithm
 
             for (int frameNo = 0; frameNo < videoReader.frameCount; frameNo++)
             {
+                if (videoReader.getFrame(frameNo) == null)
+                {
+                    Console.WriteLine("no frame at " + frameNo);
+                    break;
+                }
+
+                Console.WriteLine("Try detect at frame " + frameNo);
                 Bitmap image = videoReader.getFrame(frameNo).Bitmap;
 
                 /// Adapt from Glyph Recognition Prototyping
@@ -72,8 +78,8 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 blobCounter.ProcessImage(edges);
                 Blob[] blobs = blobCounter.GetObjectsInformation();
 
-                // create unmanaged copy of source image, so we could draw on it
-                UnmanagedImage imageData = UnmanagedImage.FromManagedImage(image);
+                //// create unmanaged copy of source image, so we could draw on it
+                //UnmanagedImage imageData = UnmanagedImage.FromManagedImage(image);
 
                 // Get unmanaged copy of grayscale image, so we could access it's pixel values
                 UnmanagedImage grayUI = UnmanagedImage.FromManagedImage(grayImage);
@@ -107,7 +113,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                             // check average difference, which tells how much outside is lighter than inside on the average
                             if (diff > 20)
                             {
-                                Drawing.Polygon(imageData, corners, Color.FromArgb(255, 255, 0, 0));
+                                //Drawing.Polygon(imageData, corners, Color.FromArgb(255, 255, 0, 0));
                                 // add the object to the list of interesting objects for further processing
                                 foundObjects.Add(corners);
                             }
@@ -115,12 +121,13 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     }
                 }
 
+
                 int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
                 ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
 
-                CameraSpacePoint[] csps = new CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
+                //CameraSpacePoint[] csps = new CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
 
-                mappingFunction(depthValues, csps);
+                //mappingFunction(depthValues, csps);
 
 
                 // further processing of each potential glyph
@@ -151,7 +158,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                             resizedGlyphValues[i, j] = glyphValues[i + 1, j + 1];
                         }
 
-                    GlyphFace face = new GlyphFace(resizedGlyphValues, glyphSize);
+                    GlyphFace face = new GlyphFace(resizedGlyphValues, boxPrototype.glyphSize);
 
                     foreach (int faceIndex in boxPrototype.indexToGlyphFaces.Keys )
                     {
@@ -159,6 +166,8 @@ namespace Annotator.ObjectRecognitionAlgorithm
                         {
                             if (!recognizedGlyphs.ContainsKey(frameNo))
                             {
+                                Console.WriteLine("Detect glyph at frame " + frameNo);
+
                                 recognizedGlyphs[frameNo] = new Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace>>();
                             }
                             recognizedGlyphs[frameNo][faceIndex] = new Tuple<List<System.Drawing.PointF>, GlyphFace>(corners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(), face);
@@ -166,10 +175,16 @@ namespace Annotator.ObjectRecognitionAlgorithm
                         }
                     }
                 }
+
+                edges.Dispose();
+                image.Dispose();
+                grayImage.Dispose();
+                grayUI.Dispose();
             }
 
             if (recognizedGlyphs.Keys.Count != 0){
-                oneBox = new GlyphBoxObject(currentSession, "", Color.Black, 1, videoReader.fileName, this.boxPrototype);
+                oneBox = new GlyphBoxObject(currentSession, "", Color.Black, 1, videoReader.fileName);
+                oneBox.boxPrototype = this.boxPrototype;
                 foreach (int frameNo in recognizedGlyphs.Keys)
                 {
                     var glyphs = recognizedGlyphs[frameNo];
@@ -183,7 +198,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                         faces.Add(glyph.Value.Item2);
                     }
 
-                    oneBox.setBounding(frameNo, boxPrototype.glyphSize, glyphBounds, faces, 0, new System.Drawing.Point());
+                    oneBox.setBounding(frameNo, boxPrototype.glyphSize, glyphBounds, faces);
 
                     Point3 center = new Point3();
                     Quaternions quaternions = new Quaternions();
@@ -251,6 +266,11 @@ namespace Annotator.ObjectRecognitionAlgorithm
             }
 
             return diff / pixelCount;
+        }
+
+        public string getName()
+        {
+            return "Detect glyph block";
         }
     }
 }

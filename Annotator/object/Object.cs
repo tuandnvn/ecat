@@ -72,7 +72,7 @@ namespace Annotator
         public Dictionary<string, string> otherProperties { get; }
         public GenType genType { get; set; }
         public ObjectType objectType { get; set; }
-        public Session session { get; private set; }
+        public Session session { get; set; }
 
         public enum BorderType { Rectangle, Polygon, Others }
 

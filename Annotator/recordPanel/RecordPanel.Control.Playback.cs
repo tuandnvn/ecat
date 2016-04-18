@@ -77,15 +77,19 @@ namespace Annotator
             sb.Append("Temporary rgb file has written " + rgbStreamedFrame + " frames \n");
             sb.Append("Temporary rgb file has " + rgbPlaybackFrameNo + " frames of size = ( " + frameWidth + " , " + frameHeight + " ) \n");
             sb.Append("Temporary depth file has " + depthFrame + " frames of size = ( " + depthWidth + " , " + depthHeight + " ) \n");
-            sb.Append("RecordingTime " + lastWrittenRgbTime);
+            sb.Append("RecordingTime " + lastWrittenRgbTime + "\n");
 
             if (rigDetected.Value)
             {
-                sb.Append("Rig(s) is detected.");
+                sb.Append("Rig(s) is detected.\n");
             } else
             {
-                sb.Append("No rig is detected.");
+                sb.Append("No rig is detected.\n");
             }
+
+            DetectObjects();
+
+            sb.Append(detectedObjects.Count + " objects is detected.\n");
 
             helperTextBox.Text = sb.ToString();
 
@@ -310,7 +314,6 @@ namespace Annotator
                 {
                     main.currentSession.startWriteRGB = startRecordingRgb.Value;
                 }
-                
 
                 // Write rig into file as a new object                
                 if (rigDetected.Value)
@@ -327,6 +330,13 @@ namespace Annotator
                         main.currentSession.addObject(o);
                         main.addObjectAnnotation(o);
                     }
+                }
+
+                // Add objects into current session
+                foreach (var o in detectedObjects)
+                {
+                    o.session = main.currentSession;
+                    main.currentSession.addObject(o);
                 }
 
                 main.currentSession.saveSession();

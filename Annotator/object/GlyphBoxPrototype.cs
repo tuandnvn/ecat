@@ -34,13 +34,14 @@ namespace Annotator
 
             bool[,] otherGlyphValues = other.glyphValues;
 
+            if (glyphSize != other.glyphSize) return false;
             bool same = true;
 
             // exactly the same
             for (int i = 0; i < glyphSize; i++)
                 for (int j = 0; j < glyphSize; j++)
                 {
-                    if ( this.glyphValues[i,j] != otherGlyphValues[i,j] )
+                    if (this.glyphValues[i, j] != otherGlyphValues[i, j])
                     {
                         same = false;
                         break;
@@ -128,14 +129,15 @@ namespace Annotator
                 }
 
 
-            return ( new int[] { hashCode1, hashCode2, hashCode3, hashCode4 } ).Min();
+            return (new int[] { hashCode1, hashCode2, hashCode3, hashCode4 }).Min();
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             StringBuilder sb = new StringBuilder("");
             for (int i = 0; i < glyphSize; i++)
             {
-                for (int j = 0; j < glyphSize - 1; j++)
+                for (int j = 0; j < glyphSize; j++)
                 {
                     sb.Append((glyphValues[i, j]) ? "1 " : "0 ");
                     sb.Append(",");
@@ -168,6 +170,33 @@ namespace Annotator
         {
             this.indexToGlyphFaces = indexToGlyphFaces;
             this.glyphSize = glyphSize;
+        }
+
+        public static GlyphBoxPrototype prototype1;
+
+        static GlyphBoxPrototype(){
+            var indexToGlyphFaces = new Dictionary<int, GlyphFace>();
+            indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { true, true,  true},
+                                                                { true, false, false },
+                                                                { false,true,  false } }, 3);
+            indexToGlyphFaces[1] = new GlyphFace(new bool[,] {  { false, true, false},
+                                                                { true,  true, true },
+                                                                { true,  false,true } }, 3);
+            indexToGlyphFaces[2] = new GlyphFace(new bool[,] {  { false, true,  true},
+                                                                { true,  false, true },
+                                                                { false, true,  true } }, 3);
+            indexToGlyphFaces[3] = new GlyphFace(new bool[,] {  { true, false, false},
+                                                                { true, true,  true },
+                                                                { true, true,  false } }, 3);
+            indexToGlyphFaces[4] = new GlyphFace(new bool[,] {  { false, true,  true},
+                                                                { true,  true,  true },
+                                                                { false, true,  true } }, 3);
+            indexToGlyphFaces[5] = new GlyphFace(new bool[,] {  { true, false, false},
+                                                                { false,true,  true },
+                                                                { true, true,  false } }, 3);
+
+
+            prototype1 = new GlyphBoxPrototype(indexToGlyphFaces, 3);
         }
     }
 }

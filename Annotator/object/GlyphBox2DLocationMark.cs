@@ -54,8 +54,10 @@ namespace Annotator
 
         public override void drawOnGraphics(Graphics g, Pen p)
         {
+            Console.WriteLine("Draw on Graphics of GlyphBox2DLocationMark");
             foreach (var boundingPolygon in boundingPolygons)
             {
+                Console.WriteLine(string.Join(",", boundingPolygon));
                 g.DrawPolygon(p, boundingPolygon.ToArray());
             }
         }
@@ -114,7 +116,7 @@ namespace Annotator
                     for (int i = 0; i < glyphSize; i++)
                         for (int j = 0; j < glyphSize; j++)
                         {
-                            glyphValues[i, j] = Convert.ToBoolean(parts[i * glyphSize + j]);
+                            glyphValues[i, j] = int.Parse(parts[i * glyphSize + j].Trim()) == 1;
                         }
                 }
                 GlyphFace gf = new GlyphFace(glyphValues, glyphSize);

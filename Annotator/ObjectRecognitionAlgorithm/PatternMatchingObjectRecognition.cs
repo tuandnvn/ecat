@@ -95,5 +95,11 @@ namespace Annotator.ObjectRecognitionAlgorithm
         //{
 
         //}
+
+
+        public string getName()
+        {
+            return "Detect CwC block";
+        }
     }
 }
