@@ -14,11 +14,8 @@ namespace Annotator
 
         public void InitializeObjectRecognizers()
         {
-            detectedObjects = new List<Object>();
-            
-
             objectRecognizers = new List<IObjectRecogAlgo>();
-            objectRecognizers.Add(new GlyphBoxObjectRecognition(null, GlyphBoxPrototype.prototype1));
+            objectRecognizers.Add(new GlyphBoxObjectRecognition(null, GlyphBoxPrototype.prototype2));
         }
 
         public void InitializeOptionsTableDetection()
@@ -35,6 +32,7 @@ namespace Annotator
 
         public void DetectObjects()
         {
+            detectedObjects = new List<Object>();
             foreach (var objectRecognizer in objectRecognizers)
             {
                 if (videoReader != null && depthReader != null)

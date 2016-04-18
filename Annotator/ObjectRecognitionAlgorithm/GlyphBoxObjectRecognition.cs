@@ -41,7 +41,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
             /// Store A tuple of 
             ///              -    A list of bounding points for recognized glyph
             ///              -    A glyphface instance
-            var recognizedGlyphs = new Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace>>>();
+            var recognizedGlyphs = new Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>();
 
             Bitmap image = null;
             Mat m = null;
@@ -134,9 +134,9 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
                 ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
 
-                //CameraSpacePoint[] csps = new CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
+                CameraSpacePoint[] csps = new CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
 
-                //mappingFunction(depthValues, csps);
+                mappingFunction(depthValues, csps);
 
 
                 // further processing of each potential glyph
@@ -177,9 +177,16 @@ namespace Annotator.ObjectRecognitionAlgorithm
                             {
                                 Console.WriteLine("Detect glyph at frame " + frameNo);
 
-                                recognizedGlyphs[frameNo] = new Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace>>();
+                                recognizedGlyphs[frameNo] = new Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>();
                             }
-                            recognizedGlyphs[frameNo][faceIndex] = new Tuple<List<System.Drawing.PointF>, GlyphFace>(corners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(), face);
+                            recognizedGlyphs[frameNo][faceIndex] = new Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>(
+                                corners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(), 
+                                face,
+                                corners.Select( p => p.X * videoReader.frameWidth + p.Y >=0 && p.X * videoReader.frameWidth + p.Y < videoReader.frameWidth * videoReader.frameHeight?
+                                                                new Point3(csps[p.X * videoReader.frameWidth + p.Y].X,
+                                                                csps[p.X * videoReader.frameWidth + p.Y].Y,
+                                                                csps[p.X * videoReader.frameWidth + p.Y].Z) : new Point3()).ToList()
+                                );
                             break;
                         }
                     }
@@ -202,15 +209,17 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     var glyphs = recognizedGlyphs[frameNo];
 
                     var glyphBounds = new List<List<System.Drawing.PointF>>();
+                    var glyph3DBounds = new List<List<Point3>>();
                     var faces = new List<GlyphFace>();
 
                     foreach (var glyph in glyphs)
                     {
                         glyphBounds.Add(glyph.Value.Item1);
                         faces.Add(glyph.Value.Item2);
+                        glyph3DBounds.Add(glyph.Value.Item3);
                     }
 
-                    oneBox.setBounding(frameNo, boxPrototype.glyphSize, glyphBounds, faces);
+                    oneBox.setBounding(frameNo, boxPrototype.glyphSize, glyphBounds, faces, glyph3DBounds);
 
                     Point3 center = new Point3();
                     Quaternions quaternions = new Quaternions();

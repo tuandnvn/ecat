@@ -173,6 +173,7 @@ namespace Annotator
         }
 
         public static GlyphBoxPrototype prototype1;
+        public static GlyphBoxPrototype prototype2;
 
         static GlyphBoxPrototype(){
             var indexToGlyphFaces = new Dictionary<int, GlyphFace>();
@@ -197,6 +198,41 @@ namespace Annotator
 
 
             prototype1 = new GlyphBoxPrototype(indexToGlyphFaces, 3);
+
+            indexToGlyphFaces = new Dictionary<int, GlyphFace>();
+            indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { false, false, false, false, true},
+                                                                { false, false, false, false, true},
+                                                                { false, false, false, false, true},
+                                                                { true, true, true, false, true},
+                                                                { true, true, true, false, true}, }, 5);
+            indexToGlyphFaces[1] = new GlyphFace(new bool[,] {  { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, true, true, true},
+                                                                { true, false, true, true, true}, }, 5);
+            indexToGlyphFaces[2] = new GlyphFace(new bool[,] {  { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, true, true, true},
+                                                                { true, false, true, true, true}, }, 5);
+            indexToGlyphFaces[3] = new GlyphFace(new bool[,] {  { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, true, true, true},
+                                                                { true, false, true, true, true}, }, 5);
+            indexToGlyphFaces[4] = new GlyphFace(new bool[,] {  { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, true, true, true},
+                                                                { true, false, true, true, true}, }, 5);
+            indexToGlyphFaces[5] = new GlyphFace(new bool[,] {  { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, false, false, false},
+                                                                { true, false, true, true, true},
+                                                                { true, false, true, true, true}, }, 5);
+
+
+            prototype2 = new GlyphBoxPrototype(indexToGlyphFaces, 5);
         }
     }
 }

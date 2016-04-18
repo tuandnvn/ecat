@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accord.Math;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,23 +13,27 @@ namespace Annotator
     {
         private const string FACE = "face";
         private const string BOUNDING = "bounding";
+        private const string BOUNDING3D = "bounding3d";
         private const string CODE = "code";
         private const string GLYPH_SIZE = "glyphSize";
 
         public List<List<PointF>> boundingPolygons { get; private set; }
+        public List<List<Point3>> bounding3DPolygons { get; private set; }
         public List<GlyphFace> faces { get; private set; }
         public int glyphSize { get; private set; }
 
         public GlyphBox2DLocationMark(int frameNo) : base(frameNo)
         {
             this.boundingPolygons = new List<List<PointF>>();
+            bounding3DPolygons = new List<List<Point3>>();
             this.faces = new List<GlyphFace>();
             this.glyphSize = 0;
         }
 
-        public GlyphBox2DLocationMark(int frameNo, int glyphSize, List<List<PointF>> boundingPolygons, List<GlyphFace> faces) : base(frameNo)
+        public GlyphBox2DLocationMark(int frameNo, int glyphSize, List<List<PointF>> boundingPolygons, List<GlyphFace> faces, List<List<Point3>> bounding3DPolygons) : base(frameNo)
         {
             this.boundingPolygons = boundingPolygons;
+            this.bounding3DPolygons = bounding3DPolygons;
             this.faces = faces;
             this.glyphSize = glyphSize;
         }
@@ -66,7 +71,7 @@ namespace Annotator
         {
             List<List<PointF>> scaledBoundingPolygons = boundingPolygons.Select(boundingPolygon => boundingPolygon.scaleBound(scale, translation)).ToList();
 
-            return new GlyphBox2DLocationMark(frameNo, this.glyphSize, scaledBoundingPolygons, faces);
+            return new GlyphBox2DLocationMark(frameNo, this.glyphSize, scaledBoundingPolygons, faces, this.bounding3DPolygons);
         }
 
         public override void writeToXml(XmlWriter xmlWriter)
@@ -78,6 +83,10 @@ namespace Annotator
 
                 xmlWriter.WriteStartElement(BOUNDING);
                 xmlWriter.WriteString(string.Join(",", boundingPolygons[i].ConvertAll(p => p.X + "," + p.Y)));
+                xmlWriter.WriteEndElement();
+
+                xmlWriter.WriteStartElement(BOUNDING3D);
+                xmlWriter.WriteString(string.Join(",", bounding3DPolygons[i].ConvertAll(p => p.X + "," + p.Y + "," + p.Z)));
                 xmlWriter.WriteEndElement();
 
                 xmlWriter.WriteStartElement(CODE);
@@ -93,9 +102,8 @@ namespace Annotator
             int glyphSize = int.Parse(xmlNode.Attributes[GLYPH_SIZE].Value);
             foreach (XmlNode faceNode in xmlNode.SelectNodes(FACE))
             {
+                // Get boundings
                 var boundingNode = faceNode.SelectSingleNode(BOUNDING);
-                var glyphNode = faceNode.SelectSingleNode(CODE);
-
                 String[] parts = boundingNode.InnerText.Split(',');
                 List<PointF> points = new List<PointF>();
                 if (parts.Length % 2 == 0)
@@ -109,6 +117,23 @@ namespace Annotator
 
                 boundingPolygons.Add(points);
 
+                // Get bounding 3d
+                var boundingNode3d = faceNode.SelectSingleNode(BOUNDING3D);
+                parts = boundingNode3d.InnerText.Split(',');
+                var point3ds = new List<Point3>();
+                if (parts.Length % 3 == 0)
+                {
+                    for (int i = 0; i < parts.Length / 3; i++)
+                    {
+                        Point3 p = new Point3(float.Parse(parts[3 * i].Trim()), float.Parse(parts[3 * i + 1].Trim()), float.Parse(parts[3 * i + 2].Trim()));
+                        point3ds.Add(p);
+                    }
+                }
+
+                bounding3DPolygons.Add(point3ds);
+
+                // Get face
+                var glyphNode = faceNode.SelectSingleNode(CODE);
                 parts = glyphNode.InnerText.Split(',');
                 bool[,] glyphValues = new bool[glyphSize, glyphSize];
                 if (parts.Length == glyphSize * glyphSize)

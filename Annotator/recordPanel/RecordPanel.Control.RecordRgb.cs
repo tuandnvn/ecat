@@ -140,7 +140,6 @@ namespace Annotator
                 System.GC.WaitForPendingFinalizers();
             }
         }
-
         
         private void ColorRecordingFunction()
         {
