@@ -15,7 +15,7 @@ namespace Annotator
         public void InitializeObjectRecognizers()
         {
             objectRecognizers = new List<IObjectRecogAlgo>();
-            objectRecognizers.Add(new GlyphBoxObjectRecognition(null, GlyphBoxPrototype.prototype2));
+            objectRecognizers.Add(new GlyphBoxObjectRecognition(null, new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3 }, 5));
         }
 
         public void InitializeOptionsTableDetection()

@@ -121,23 +121,33 @@ namespace Annotator
 
         private async void WriteImageIntoBuffer(TimeSpan timePoint)
         {
-            Interlocked.Increment(ref rgbStreamedFrame);
-            Bitmap cloneRgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
-            BitmapData bmapdata = cloneRgbBitmap.LockBits(
-             new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
-             ImageLockMode.WriteOnly,
-             cloneRgbBitmap.PixelFormat);
-
-            IntPtr ptr = bmapdata.Scan0;
-            Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
-            cloneRgbBitmap.UnlockBits(bmapdata);
-
-            bufferedImages.Add(new Tuple<Bitmap, TimeSpan>(cloneRgbBitmap, timePoint));
-
-            if (rgbStreamedFrame % 50 == 0)
+            try
             {
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
+                Interlocked.Increment(ref rgbStreamedFrame);
+
+                Bitmap cloneRgbBitmap = new Bitmap(colorFrameDescription.Width, colorFrameDescription.Height, PixelFormat.Format32bppRgb);
+                BitmapData bmapdata = cloneRgbBitmap.LockBits(
+                 new Rectangle(0, 0, colorFrameDescription.Width, colorFrameDescription.Height),
+                 ImageLockMode.WriteOnly,
+                 cloneRgbBitmap.PixelFormat);
+
+                IntPtr ptr = bmapdata.Scan0;
+                Marshal.Copy(rgbValues, 0, ptr, colorFrameDescription.Width * colorFrameDescription.Height * 4);
+                cloneRgbBitmap.UnlockBits(bmapdata);
+
+                bufferedImages.Add(new Tuple<Bitmap, TimeSpan>(cloneRgbBitmap, timePoint));
+
+                if (rgbStreamedFrame % 50 == 0)
+                {
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                }
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine(colorFrameDescription.Width);
+                Console.WriteLine(colorFrameDescription.Height);
             }
         }
         
@@ -206,7 +216,7 @@ namespace Annotator
                             }
                             catch (Exception e)
                             {
-                                System.Windows.Forms.MessageBox.Show("IO Exception " + e);
+                                Console.WriteLine("IO Exception " + e);
                             }
                         }
                         else
