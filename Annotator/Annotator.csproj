@@ -152,7 +152,7 @@
     <Compile Include="depth\IDepthWriter.cs" />
     <Compile Include="DrawMatches.cs" />
     <Compile Include="Event.cs" />
-    <Compile Include="GestureRecognitionAlgorithm\HMMAlgorithm.cs" />
+    <Compile Include="GestureRecognition\HMMAlgorithm.cs" />
     <Compile Include="KinectUtils.cs" />
     <Compile Include="MappingUtils.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\GlyphBoxObjectRecognition.cs" />

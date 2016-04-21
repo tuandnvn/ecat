@@ -86,7 +86,11 @@ namespace Annotator
                 xmlWriter.WriteEndElement();
 
                 xmlWriter.WriteStartElement(BOUNDING3D);
-                xmlWriter.WriteString(string.Join(",", bounding3DPolygons[i].ConvertAll(p => p.X + "," + p.Y + "," + p.Z)));
+                if (bounding3DPolygons[i] != null)
+                {
+                    xmlWriter.WriteString(string.Join(",", bounding3DPolygons[i].ConvertAll(p => p.X + "," + p.Y + "," + p.Z)));
+                }
+                
                 xmlWriter.WriteEndElement();
 
                 xmlWriter.WriteStartElement(CODE);
@@ -104,49 +108,59 @@ namespace Annotator
             {
                 // Get boundings
                 var boundingNode = faceNode.SelectSingleNode(BOUNDING);
-                String[] parts = boundingNode.InnerText.Split(',');
-                List<PointF> points = new List<PointF>();
-                if (parts.Length % 2 == 0)
+                if (boundingNode != null)
                 {
-                    for (int i = 0; i < parts.Length / 2; i++)
+                    String[] parts = boundingNode.InnerText.Split(',');
+                    List<PointF> points = new List<PointF>();
+                    if (parts.Length % 2 == 0)
                     {
-                        PointF p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
-                        points.Add(p);
+                        for (int i = 0; i < parts.Length / 2; i++)
+                        {
+                            PointF p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
+                            points.Add(p);
+                        }
                     }
-                }
 
-                boundingPolygons.Add(points);
+                    boundingPolygons.Add(points);
+                }
 
                 // Get bounding 3d
                 var boundingNode3d = faceNode.SelectSingleNode(BOUNDING3D);
-                parts = boundingNode3d.InnerText.Split(',');
-                var point3ds = new List<Point3>();
-                if (parts.Length % 3 == 0)
+                if (boundingNode3d != null)
                 {
-                    for (int i = 0; i < parts.Length / 3; i++)
+                    var parts = boundingNode3d.InnerText.Split(',');
+                    var point3ds = new List<Point3>();
+                    if (parts.Length % 3 == 0)
                     {
-                        Point3 p = new Point3(float.Parse(parts[3 * i].Trim()), float.Parse(parts[3 * i + 1].Trim()), float.Parse(parts[3 * i + 2].Trim()));
-                        point3ds.Add(p);
+                        for (int i = 0; i < parts.Length / 3; i++)
+                        {
+                            Point3 p = new Point3(float.Parse(parts[3 * i].Trim()), float.Parse(parts[3 * i + 1].Trim()), float.Parse(parts[3 * i + 2].Trim()));
+                            point3ds.Add(p);
+                        }
                     }
-                }
 
-                bounding3DPolygons.Add(point3ds);
+                    bounding3DPolygons.Add(point3ds);
+                }
+                
 
                 // Get face
                 var glyphNode = faceNode.SelectSingleNode(CODE);
-                parts = glyphNode.InnerText.Split(',');
-                bool[,] glyphValues = new bool[glyphSize, glyphSize];
-                if (parts.Length == glyphSize * glyphSize)
+                if (glyphNode != null)
                 {
-                    for (int i = 0; i < glyphSize; i++)
-                        for (int j = 0; j < glyphSize; j++)
-                        {
-                            glyphValues[i, j] = int.Parse(parts[i * glyphSize + j].Trim()) == 1;
-                        }
-                }
-                GlyphFace gf = new GlyphFace(glyphValues, glyphSize);
+                    var parts = glyphNode.InnerText.Split(',');
+                    bool[,] glyphValues = new bool[glyphSize, glyphSize];
+                    if (parts.Length == glyphSize * glyphSize)
+                    {
+                        for (int i = 0; i < glyphSize; i++)
+                            for (int j = 0; j < glyphSize; j++)
+                            {
+                                glyphValues[i, j] = int.Parse(parts[i * glyphSize + j].Trim()) == 1;
+                            }
+                    }
+                    GlyphFace gf = new GlyphFace(glyphValues, glyphSize);
 
-                faces.Add(gf);
+                    faces.Add(gf);
+                }
             }
         }
     }

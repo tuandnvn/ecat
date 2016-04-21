@@ -44,7 +44,7 @@
             this.frameTrackBar = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.videoPanel = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.videoBox = new System.Windows.Forms.ComboBox();
             this.tabs = new System.Windows.Forms.TabControl();
             this.annotateTab = new System.Windows.Forms.TabPage();
             this.rightCenterPanel = new System.Windows.Forms.Panel();
@@ -226,7 +226,7 @@
             this.middleTopPanel.Controls.Add(this.frameTrackBar);
             this.middleTopPanel.Controls.Add(this.label3);
             this.middleTopPanel.Controls.Add(this.videoPanel);
-            this.middleTopPanel.Controls.Add(this.comboBox1);
+            this.middleTopPanel.Controls.Add(this.videoBox);
             this.middleTopPanel.Location = new System.Drawing.Point(178, 5);
             this.middleTopPanel.Name = "middleTopPanel";
             this.middleTopPanel.Size = new System.Drawing.Size(921, 612);
@@ -286,14 +286,14 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(88, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.videoBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.videoBox.Enabled = false;
+            this.videoBox.FormattingEnabled = true;
+            this.videoBox.Location = new System.Drawing.Point(3, 0);
+            this.videoBox.Name = "comboBox1";
+            this.videoBox.Size = new System.Drawing.Size(88, 21);
+            this.videoBox.TabIndex = 0;
+            this.videoBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tabs
             // 
@@ -963,7 +963,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox videoBox;
         private System.Windows.Forms.Panel videoPanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar frameTrackBar;

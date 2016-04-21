@@ -33,6 +33,7 @@ namespace Annotator
         private List<VideoReader> videos;
         private List<String> filesList;
         private String metadataFile;      //parameters file name
+        private String tempMetadataFile;
         public Main mainGUI { get; }
         private int annotationID;      // annotation ID
         private int? _sessionLength;
@@ -76,6 +77,7 @@ namespace Annotator
             objects = new Dictionary<string, Object>();
             //If session file list exist load files list            
             metadataFile = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + "files.param";
+            tempMetadataFile = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + "~files.param";
             loadSession();
         }
         //Add file to session filesList
@@ -128,67 +130,71 @@ namespace Annotator
         //Save session
         public void saveSession()
         {
-            if (File.Exists(metadataFile))
+            try
             {
-                FileInfo myFile1 = new FileInfo(metadataFile);
-                myFile1.Attributes &= ~FileAttributes.Hidden;
-            }
+                XmlWriterSettings ws = new XmlWriterSettings();
+                ws.Indent = true;
 
-            XmlWriterSettings ws = new XmlWriterSettings();
-            ws.Indent = true;
+                using (XmlWriter writer = XmlWriter.Create(tempMetadataFile, ws))
+                {
+                    writer.WriteStartDocument();
+                    writer.WriteStartElement(SESSION);
+                    writer.WriteAttributeString("name", sessionName);
+                    writer.WriteAttributeString("length", "" + sessionLength);
+                    if (duration != 0)
+                    {
+                        writer.WriteAttributeString("duration", "" + duration);
+                    }
 
-            using (XmlWriter writer = XmlWriter.Create(metadataFile, ws))
+                    if (startWriteRGB.HasValue)
+                    {
+                        writer.WriteAttributeString("startWriteRGB", startWriteRGB.Value.ToString(@"yyyy-MM-ddTHH:mm:ssss.ffffffZ"));
+                    }
+
+                    {
+                        // Write files
+                        writer.WriteStartElement(FILES);
+                        foreach (String file in filesList)
+                        {
+                            writer.WriteElementString(FILE, file);
+                        }
+                        writer.WriteEndElement();
+                    }
+
+                    {
+                        writer.WriteStartElement(OBJECTS);
+                        writer.WriteAttributeString("no", objectCount + "");
+                        foreach (Object o in objects.Values)
+                        {
+                            o.writeToXml(writer);
+                        }
+                        writer.WriteEndElement();
+                    }
+
+                    {
+                        writer.WriteStartElement(ANNOTATIONS);
+                        foreach (Event a in events)
+                        {
+                            a.writeToXml(writer);
+                        }
+                        writer.WriteEndElement();
+                    }
+
+                    writer.WriteEndElement();
+
+                    writer.WriteEndDocument();
+                }
+
+                File.Copy(tempMetadataFile, metadataFile, true);
+
+                File.Delete(tempMetadataFile);
+
+                FileInfo myFile = new FileInfo(metadataFile);
+                myFile.Attributes = FileAttributes.Hidden;
+            } catch (Exception e)
             {
-                writer.WriteStartDocument();
-                writer.WriteStartElement(SESSION);
-                writer.WriteAttributeString("name", sessionName);
-                writer.WriteAttributeString("length", "" + sessionLength);
-                if (duration != 0)
-                {
-                    writer.WriteAttributeString("duration", "" + duration);
-                }
-
-                if (startWriteRGB.HasValue)
-                {
-                    writer.WriteAttributeString("startWriteRGB", startWriteRGB.Value.ToString(@"yyyy-MM-ddTHH:mm:ssss.ffffffZ"));
-                }
-
-                {
-                    // Write files
-                    writer.WriteStartElement(FILES);
-                    foreach (String file in filesList)
-                    {
-                        writer.WriteElementString(FILE, file);
-                    }
-                    writer.WriteEndElement();
-                }
-
-                {
-                    writer.WriteStartElement(OBJECTS);
-                    writer.WriteAttributeString("no", objectCount + "");
-                    foreach (Object o in objects.Values)
-                    {
-                        o.writeToXml(writer);
-                    }
-                    writer.WriteEndElement();
-                }
-
-                {
-                    writer.WriteStartElement(ANNOTATIONS);
-                    foreach (Event a in events)
-                    {
-                        a.writeToXml(writer);
-                    }
-                    writer.WriteEndElement();
-                }
-
-                writer.WriteEndElement();
-
-                writer.WriteEndDocument();
+                Console.WriteLine(e);
             }
-
-            FileInfo myFile = new FileInfo(metadataFile);
-            myFile.Attributes = FileAttributes.Hidden;
         }
 
         internal void removeObject(string objectId)
@@ -210,7 +216,7 @@ namespace Annotator
         //Load files list
         public void loadSession()
         {
-            CultureInfo provider = CultureInfo.InvariantCulture;
+            CultureInfo provider = CultureInfo.CurrentCulture;
             if (File.Exists(metadataFile))
             {
                 //Set file as hidden                
@@ -233,7 +239,9 @@ namespace Annotator
 
                 try
                 {
+                    Console.WriteLine(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value);
                     startWriteRGB = DateTime.ParseExact(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value, @"yyyy-MM-ddTHH:mm:ssss.ffffffZ", provider);
+                    Console.WriteLine(startWriteRGB);
                 }
                 catch (Exception e)
                 {
@@ -296,6 +304,8 @@ namespace Annotator
             {
                 VideoReader v = new VideoReader(fileName, 0);
                 videos.Add(v);
+                Console.WriteLine(v.frameWidth);
+                Console.WriteLine(v.frameHeight);
                 Console.WriteLine(sessionLength + " " + fileName + " " + v.frameCount);
                 sessionLength = v.frameCount;
             }

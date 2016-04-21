@@ -14,10 +14,17 @@ namespace Annotator
         private void editSessionMenuItem_Click(object sender, EventArgs e)
         {
             //Check selected node:
-            //MessageBox.Show(treeView.SelectedNode.ToString());
-            Session chosenSession = selectedProject.getSession(treeView.SelectedNode.Text);
+            Session chosenSession = null;
+            if (treeView.SelectedNode.Text[0] == '*')
+            {
+                chosenSession = selectedProject.getSession(treeView.SelectedNode.Text.Substring(1));
+            } else
+            {
+                chosenSession = selectedProject.getSession(treeView.SelectedNode.Text);
+            }
+            
 
-            if (currentSession != null && currentSession.getSessionName() != chosenSession.getSessionName())
+            if (currentSession != null && chosenSession != null && currentSession.getSessionName() != chosenSession.getSessionName())
             {
                 if (currentSession.getEdited())
                 {
@@ -29,6 +36,9 @@ namespace Annotator
                     if (MessageBox.Show(("Session " + currentSession.getSessionName() + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         currentSession.saveSession();
+                    } else
+                    {
+
                     }
                 }
             }
@@ -48,12 +58,13 @@ namespace Annotator
             //MessageBox.Show(viewsList.Length + "");
             for (int i = 0; i < viewsList.Length; i++)
             {
-                comboBox1.Items.Add(viewsList[i]);
+                videoBox.Items.Add(viewsList[i]);
             }
-            if (comboBox1.Items.Count > 0)
+
+            if (videoBox.Items.Count > 0)
             {
-                comboBox1.SelectedIndex = 0;
-                comboBox1.Enabled = true;
+                videoBox.SelectedIndex = 0;
+                videoBox.Enabled = true;
                 frameTrackBar.Enabled = true;
                 addEventAnnotationBtn.Enabled = true;
                 //pictureBox1.BackgroundImage = null;
@@ -207,7 +218,7 @@ namespace Annotator
                 treeView.EndUpdate();
 
                 //Add view to comboBox1:
-                comboBox1.Items.Add(relFileName);
+                videoBox.Items.Add(relFileName);
             }
             return dstFileName;
         }
@@ -240,7 +251,7 @@ namespace Annotator
                 treeView.EndUpdate();
 
                 //Add view to comboBox1:
-                comboBox1.Items.Add(newRelFileName);
+                videoBox.Items.Add(newRelFileName);
             }
             return dstFileName;
         }

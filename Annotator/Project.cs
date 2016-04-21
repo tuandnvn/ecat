@@ -131,6 +131,7 @@ namespace Annotator
 
             }
         }
+
         //Remove session from project:
         public void removeSession(String sessionName)
         {
@@ -159,6 +160,7 @@ namespace Annotator
                 MessageBox.Show(exc.Message);
             }
         }
+
         //Set project name
         public void setProjectName(String projectName)
         {
@@ -177,13 +179,9 @@ namespace Annotator
         //Get session by name
         public Session getSession(String sessionName)
         {
-            foreach (Session s in sessions)
-            {
-                if (s.getSessionName().Contains(sessionName))
-                    return s;
-            }
-            return null;
+            return sessions.Find(t => t.getSessionName().Equals(sessionName));
         }
+
         //Get number of sessions in project
         public int getSessionN()
         {

@@ -508,8 +508,8 @@ namespace Annotator
 
         private void clearComboBox1()
         {
-            comboBox1.Items.Clear();
-            comboBox1.Enabled = false;
+            videoBox.Items.Clear();
+            videoBox.Enabled = false;
             frameTrackBar.Enabled = false;
         }
 
@@ -526,7 +526,7 @@ namespace Annotator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int videoIndex = comboBox1.SelectedIndex;
+            int videoIndex = videoBox.SelectedIndex;
             loadVideo(videoIndex);
 
             if (currentVideo != null)
