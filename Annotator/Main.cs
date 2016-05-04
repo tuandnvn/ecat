@@ -30,11 +30,6 @@ namespace Annotator
             //comboBox1.SelectedIndex = 0;
             //Just for sample GUI test
             frameTrackBar.Maximum = 100;
-
-            Console.WriteLine(DateTime.Now.ToLongDateString());
-            Console.WriteLine(DateTime.Now.ToShortDateString());
-            Console.WriteLine(DateTime.Now.ToLongTimeString());
-            Console.WriteLine(DateTime.Now.ToShortTimeString());
         }
 
         //Project workspace 
@@ -152,16 +147,16 @@ namespace Annotator
             String workspaceFolder = workspace.getLocationFolder();
             String[] projects = Directory.GetDirectories(workspaceFolder);
 
-            TreeNode treeNode;
             foreach (String projectName in projects)
             {
+                TreeNode projectNode;
+
                 String prjName = projectName.Split(Path.DirectorySeparatorChar)[projectName.Split(Path.DirectorySeparatorChar).Length - 1];
                 List<TreeNode> array = new List<TreeNode>();
                 String[] sessions = Directory.GetDirectories(projectName);
-                //Add project to workspace///////////////////////////////////////////////////////
-                workspace.addProject(prjName);///////////////////////////////////////////////////
-                                              /////////////////////////////////////////////////////////////////////////////////
+                workspace.addProject(prjName);
 
+                // Initiate sessions in project
                 for (int i = 0; i < Directory.GetDirectories(projectName).Length; i++)
                 {
                     //Check files in current Session folder
@@ -171,7 +166,6 @@ namespace Annotator
                         TreeNode[] arrayFiles = new TreeNode[files.Length];
                         for (int j = 0; j < arrayFiles.Length; j++)
                         {
-                            Console.WriteLine(files[j]);
                             arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
                             arrayFiles[j].ImageIndex = 2;
                             arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
@@ -186,9 +180,8 @@ namespace Annotator
 
                         if (project.checkSessionInProject(sessionName))
                         {
-                            //MessageBox.Show("OK");
                             project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation()));
-                            //Add to threeview session list only files which exists in session filesList
+                            //Add to treeview session list only files which exists in session filesList
 
                             Session session = project.getSession(sessionName);
 
@@ -219,23 +212,24 @@ namespace Annotator
                         }
                     }
                 }
+
+                // If there are sessions in the project
                 if (array.Count > 0)
                 {
-                    treeNode = new TreeNode(prjName, array.ToArray());
-                    treeNode.ImageIndex = 0;
-                    treeNode.SelectedImageIndex = treeNode.ImageIndex;
-                    treeView.Nodes.Add(treeNode);
-                    //workspace.addProject(prjName);
-                }
-                else if (array.Count == 0)
-                {
-                    treeNode = new TreeNode(prjName);
-                    treeNode.ImageIndex = 0;
-                    treeNode.SelectedImageIndex = treeNode.ImageIndex;
-                    treeView.Nodes.Add(treeNode);
-                    //workspace.addProject(prjName);
+                    projectNode = new TreeNode(prjName, array.ToArray());
+                    projectNode.ImageIndex = 0;
+                    projectNode.SelectedImageIndex = projectNode.ImageIndex;
+                    treeView.Nodes.Add(projectNode);
                 }
 
+                // If the project is empty
+                else if (array.Count == 0)
+                {
+                    projectNode = new TreeNode(prjName);
+                    projectNode.ImageIndex = 0;
+                    projectNode.SelectedImageIndex = projectNode.ImageIndex;
+                    treeView.Nodes.Add(projectNode);
+                }
             }
         }
 
@@ -265,6 +259,8 @@ namespace Annotator
             String fileName = workspace.getLocationFolder() + Path.DirectorySeparatorChar + p;
             //MessageBox.Show(p); 
             //MessageBox.Show(fileName + " nested level = " + treeView.SelectedNode.Level);
+
+            Console.WriteLine(treeView.SelectedNode.Text);
             if (treeView.SelectedNode.Level == 2)
             {
                 //Open file only if this inside session folder
@@ -436,6 +432,7 @@ namespace Annotator
             project.addSession(newSession);
 
             this.currentSession = newSession;
+            //this.currentSession.loadIfNotLoaded();
             this.currentSessionNode = newSessionNode;
             this.treeView.SelectedNode = this.currentSessionNode;
 
@@ -535,12 +532,12 @@ namespace Annotator
                 label3.Text = "Frame: " + frameTrackBar.Value;
 
                 Mat m = currentVideo.getFrame(0);
-                if ( m != null)
+                if (m != null)
                 {
                     pictureBoard.mat = m;
                     pictureBoard.Image = pictureBoard.mat.Bitmap;
                 }
-                
+
                 setLeftTopPanel();
             }
         }

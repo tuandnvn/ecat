@@ -103,7 +103,7 @@ namespace Annotator
 
         public override void readFromXml(XmlNode xmlNode)
         {
-            int glyphSize = int.Parse(xmlNode.Attributes[GLYPH_SIZE].Value);
+            glyphSize = int.Parse(xmlNode.Attributes[GLYPH_SIZE].Value);
             foreach (XmlNode faceNode in xmlNode.SelectNodes(FACE))
             {
                 // Get boundings

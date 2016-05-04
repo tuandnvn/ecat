@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Annotator
 {
@@ -47,9 +48,10 @@ namespace Annotator
             //Create new project folder:
             Directory.CreateDirectory(locationFolder + Path.DirectorySeparatorChar + projectName);
             projects.Add(project);
+            projectNameToProject[projectName] = project;
             return project;
         }
-        
+
         //Return project name at given index
         public String getProjectName(int index)
         {
@@ -57,6 +59,7 @@ namespace Annotator
                 return null;
             return projects[index].getProjectName();
         }
+
         //Return number of project in workspace
         public int getProjectsSize()
         {
@@ -66,15 +69,11 @@ namespace Annotator
         //Get project by name
         public Project getProject(String projectName)
         {
-            for (int i = 0; i < projects.Count; i++)
-            {
-                if (projects[i].getProjectName().Equals(projectName))
-                    return projects[i];
-            }
-
-            return null;
+            return projectNameToProject[projectName];
         }
+        
         private List<Project> projects = new List<Project>();
+        private Dictionary<string, Project> projectNameToProject = new Dictionary<string, Project>();
         private String locationFolder;//workspace folder
         private bool   defaultOption ;//default workspace folder option
     }

@@ -36,10 +36,7 @@ namespace Annotator
                     if (MessageBox.Show(("Session " + currentSession.getSessionName() + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         currentSession.saveSession();
-                    } else
-                    {
-
-                    }
+                    } 
                 }
             }
 
@@ -51,7 +48,6 @@ namespace Annotator
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
                 this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + chosenSession.getSessionName();
             }
-
 
             //Set comboBox:
             String[] viewsList = chosenSession.getViews();

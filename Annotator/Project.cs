@@ -9,7 +9,7 @@ namespace Annotator
 {
     public class Project
     {
-        private List<Session> sessions;//project sessions
+        internal List<Session> sessions;//project sessions
         private String locationFolder; //project location folder == workspace folder
         private String projectName;    //project name
         private bool selected = false;  //true if project selected
@@ -179,7 +179,9 @@ namespace Annotator
         //Get session by name
         public Session getSession(String sessionName)
         {
-            return sessions.Find(t => t.getSessionName().Equals(sessionName));
+            Session s = sessions.Find(t => t.getSessionName().Equals(sessionName));
+            
+            return s;
         }
 
         //Get number of sessions in project

@@ -62,6 +62,7 @@ namespace Annotator
         }
         public DateTime? startWriteRGB { get; set; }
         public long duration { get; set; }
+        private bool loaded = false;
 
         //Constructor
         public Session(String sessionName, String projectOwner, String locationFolder)
@@ -80,6 +81,15 @@ namespace Annotator
             tempMetadataFile = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + "~files.param";
             loadSession();
         }
+
+        internal void loadIfNotLoaded()
+        {
+            if (!loaded) {
+                loadSession();
+                loaded = true;
+            }
+        }
+
         //Add file to session filesList
         public void addFile(String fileName)
         {
@@ -117,7 +127,6 @@ namespace Annotator
                 return;
             }
             if (o.id == "" || o.id == null) { o.id = "o" + ++objectCount; }
-            Console.WriteLine("Add object into session " + o.id);
             objects[o.id] = o;
         }
 
@@ -239,9 +248,7 @@ namespace Annotator
 
                 try
                 {
-                    Console.WriteLine(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value);
                     startWriteRGB = DateTime.ParseExact(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value, @"yyyy-MM-ddTHH:mm:ssss.ffffffZ", provider);
-                    Console.WriteLine(startWriteRGB);
                 }
                 catch (Exception e)
                 {
@@ -302,11 +309,15 @@ namespace Annotator
             }
             if (!exists)
             {
-                VideoReader v = new VideoReader(fileName, 0);
+                VideoReader v = null;
+                if (fileName.Contains(Path.DirectorySeparatorChar)) {
+                    v = new VideoReader(fileName, 0);
+                } else
+                {
+                    // Try resolve it by adding the session location
+                    v = new VideoReader(locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + fileName, 0);
+                }
                 videos.Add(v);
-                Console.WriteLine(v.frameWidth);
-                Console.WriteLine(v.frameHeight);
-                Console.WriteLine(sessionLength + " " + fileName + " " + v.frameCount);
                 sessionLength = v.frameCount;
             }
         }
