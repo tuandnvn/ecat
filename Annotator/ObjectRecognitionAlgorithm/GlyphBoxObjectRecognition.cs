@@ -15,33 +15,44 @@ using Accord.Math;
 
 namespace Annotator.ObjectRecognitionAlgorithm
 {
-
     public class GlyphBoxObjectRecognition : IObjectRecogAlgo
     {
         /// <summary>
-        /// Recognize one box only
+        /// Recognize multiple box only
+        /// Boxes should have different faces but share the same glyphSize
         /// </summary>
-        protected GlyphBoxPrototype boxPrototype;
+        protected List<GlyphBoxPrototype> boxPrototypes;
+        protected int glyphSize;
         protected Session currentSession;
 
-        public GlyphBoxObjectRecognition(Session currentSession, GlyphBoxPrototype boxPrototype)
+
+        public GlyphBoxObjectRecognition(Session currentSession, List<GlyphBoxPrototype> boxPrototypes, int glyphSize)
         {
             this.currentSession = currentSession;
-            this.boxPrototype = boxPrototype;
+            this.boxPrototypes = boxPrototypes;
+            this.glyphSize = glyphSize;
+
+            foreach ( var boxPrototype in boxPrototypes)
+            {
+                if (boxPrototype.glyphSize != glyphSize)
+                {
+                    throw new ArgumentException("Glyph size of all box prototype should be the same as 'glyphSize' ");
+                }
+            }
         }
 
         public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction)
         {
             List<Object> objects = new List<Object>();
 
-            GlyphBoxObject oneBox = null;
+            
 
             /// For each frame (int frameNo)
             /// For each recognized glyph in frame (int faceIndex)
             /// Store A tuple of 
             ///              -    A list of bounding points for recognized glyph
             ///              -    A glyphface instance
-            var recognizedGlyphs = new Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>();
+            var recognizedGlyphs = new Dictionary<int, Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>>();
 
             Bitmap image = null;
             Mat m = null;
@@ -142,6 +153,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 // further processing of each potential glyph
                 foreach (List<IntPoint> corners in foundObjects)
                 {
+                    Console.WriteLine("found some corner");
                     // 6 - do quadrilateral transformation
                     QuadrilateralTransformation quadrilateralTransformation =
                         new QuadrilateralTransformation(corners, 250, 250);
@@ -153,41 +165,52 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     transformedOtsu = otsuThresholdFilter.Apply(transformed);
 
                     // +2 for offset
-                    int glyphSize = boxPrototype.glyphSize + 2;
-                    SquareBinaryGlyphRecognizer gr = new SquareBinaryGlyphRecognizer(glyphSize);
+                    int glyphSizeWithBoundary = glyphSize + 2;
+                    SquareBinaryGlyphRecognizer gr = new SquareBinaryGlyphRecognizer(glyphSizeWithBoundary);
 
                     bool[,] glyphValues = gr.Recognize(ref transformedOtsu,
                         new Rectangle(0, 0, 250, 250));
 
-                    bool[,] resizedGlyphValues = new bool[boxPrototype.glyphSize, boxPrototype.glyphSize];
+                    bool[,] resizedGlyphValues = new bool[glyphSize, glyphSize];
 
-                    for (int i = 0; i < boxPrototype.glyphSize; i++)
-                        for (int j = 0; j < boxPrototype.glyphSize; j++)
+                    for (int i = 0; i < glyphSize; i++)
+                        for (int j = 0; j < glyphSize; j++)
                         {
                             resizedGlyphValues[i, j] = glyphValues[i + 1, j + 1];
                         }
 
-                    GlyphFace face = new GlyphFace(resizedGlyphValues, boxPrototype.glyphSize);
+                    GlyphFace face = new GlyphFace(resizedGlyphValues, glyphSize);
 
-                    foreach (int faceIndex in boxPrototype.indexToGlyphFaces.Keys)
+                    for ( int boxPrototypeIndex = 0; boxPrototypeIndex < boxPrototypes.Count; boxPrototypeIndex ++ )
                     {
-                        if (face.Equals(boxPrototype.indexToGlyphFaces[faceIndex]))
+                        var boxPrototype = boxPrototypes[boxPrototypeIndex];
+                        foreach (int faceIndex in boxPrototype.indexToGlyphFaces.Keys)
                         {
-                            if (!recognizedGlyphs.ContainsKey(frameNo))
+                            if (face.Equals(boxPrototype.indexToGlyphFaces[faceIndex]))
                             {
-                                Console.WriteLine("Detect glyph at frame " + frameNo);
+                                if (!recognizedGlyphs.ContainsKey(boxPrototypeIndex))
+                                {
+                                    Console.WriteLine("Detect glyph for prototype " + boxPrototypeIndex);
 
-                                recognizedGlyphs[frameNo] = new Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>();
+                                    recognizedGlyphs[boxPrototypeIndex] = new Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>();
+                                }
+
+                                if (!recognizedGlyphs[boxPrototypeIndex].ContainsKey(frameNo))
+                                {
+                                    Console.WriteLine("Detect glyph at frame " + frameNo + " for prototype " + boxPrototypeIndex);
+
+                                    recognizedGlyphs[boxPrototypeIndex][frameNo] = new Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>();
+                                }
+                                recognizedGlyphs[boxPrototypeIndex][frameNo][faceIndex] = new Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>(
+                                    corners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(),
+                                    face,
+                                    corners.Select(p => p.X * videoReader.frameWidth + p.Y >= 0 && p.X * videoReader.frameWidth + p.Y < videoReader.frameWidth * videoReader.frameHeight ?
+                                                                   new Point3(csps[p.X * videoReader.frameWidth + p.Y].X,
+                                                                   csps[p.X * videoReader.frameWidth + p.Y].Y,
+                                                                   csps[p.X * videoReader.frameWidth + p.Y].Z) : new Point3()).ToList()
+                                    );
+                                break;
                             }
-                            recognizedGlyphs[frameNo][faceIndex] = new Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>(
-                                corners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(), 
-                                face,
-                                corners.Select( p => p.X * videoReader.frameWidth + p.Y >=0 && p.X * videoReader.frameWidth + p.Y < videoReader.frameWidth * videoReader.frameHeight?
-                                                                new Point3(csps[p.X * videoReader.frameWidth + p.Y].X,
-                                                                csps[p.X * videoReader.frameWidth + p.Y].Y,
-                                                                csps[p.X * videoReader.frameWidth + p.Y].Z) : new Point3()).ToList()
-                                );
-                            break;
                         }
                     }
                 }
@@ -202,32 +225,37 @@ namespace Annotator.ObjectRecognitionAlgorithm
             }
 
             if (recognizedGlyphs.Keys.Count != 0){
-                oneBox = new GlyphBoxObject(currentSession, "", Color.Black, 1, videoReader.fileName);
-                oneBox.boxPrototype = this.boxPrototype;
-                foreach (int frameNo in recognizedGlyphs.Keys)
+                foreach (int boxPrototypeIndex in recognizedGlyphs.Keys)
                 {
-                    var glyphs = recognizedGlyphs[frameNo];
-
-                    var glyphBounds = new List<List<System.Drawing.PointF>>();
-                    var glyph3DBounds = new List<List<Point3>>();
-                    var faces = new List<GlyphFace>();
-
-                    foreach (var glyph in glyphs)
+                    GlyphBoxObject oneBox = null;
+                    var boxPrototype = boxPrototypes[boxPrototypeIndex];
+                    oneBox = new GlyphBoxObject(currentSession, "", Color.Black, 1, videoReader.fileName);
+                    oneBox.boxPrototype = boxPrototype;
+                    foreach (int frameNo in recognizedGlyphs[boxPrototypeIndex].Keys)
                     {
-                        glyphBounds.Add(glyph.Value.Item1);
-                        faces.Add(glyph.Value.Item2);
-                        glyph3DBounds.Add(glyph.Value.Item3);
+                        var glyphs = recognizedGlyphs[boxPrototypeIndex][frameNo];
+
+                        var glyphBounds = new List<List<System.Drawing.PointF>>();
+                        var glyph3DBounds = new List<List<Point3>>();
+                        var faces = new List<GlyphFace>();
+
+                        foreach (var glyph in glyphs)
+                        {
+                            glyphBounds.Add(glyph.Value.Item1);
+                            faces.Add(glyph.Value.Item2);
+                            glyph3DBounds.Add(glyph.Value.Item3);
+                        }
+
+                        oneBox.setBounding(frameNo, glyphSize, glyphBounds, faces, glyph3DBounds);
+
+                        Point3 center = new Point3();
+                        Quaternions quaternions = new Quaternions();
+
+                        oneBox.set3DBounding(frameNo, new CubeLocationMark(frameNo, center, quaternions));
                     }
 
-                    oneBox.setBounding(frameNo, boxPrototype.glyphSize, glyphBounds, faces, glyph3DBounds);
-
-                    Point3 center = new Point3();
-                    Quaternions quaternions = new Quaternions();
-
-                    oneBox.set3DBounding(frameNo, new CubeLocationMark(frameNo, center, quaternions));
+                    objects.Add(oneBox);
                 }
-
-                objects.Add(oneBox);
             }
 
             return objects;

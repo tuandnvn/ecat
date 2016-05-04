@@ -30,7 +30,7 @@ namespace Annotator
         internal const string SPATIAL_LINK = "spatialLink";
         internal const string QUALIFIED = "q";
         internal const string LINKTO = "linkTo";
-
+        
         public string videoFile { get; }
 
         public SortedList<int, LocationMark2D> objectMarks
