@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Annotator
 {
-    public class PolygonLocationMark : LocationMark2D
+    public class PolygonLocationMark : DrawableLocationMark
     {
         public List<PointF> boundingPolygon { get; private set; }         // Object bounding polygon, if the tool to draw object is polygon tool
 
@@ -39,7 +39,7 @@ namespace Annotator
             g.DrawPolygon(p, boundingPolygon.ToArray());
         }
 
-        public override LocationMark2D getScaledLocationMark(double scale, Point translation)
+        public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
         {
             return new PolygonLocationMark(frameNo, boundingPolygon.scaleBound(scale, translation));
         }
@@ -58,7 +58,7 @@ namespace Annotator
             {
                 for (int i = 0; i < parts.Length / 2; i++)
                 {
-                    PointF p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
+                    PointF p = new PointF(float.Parse(parts[2 * i].Trim()), float.Parse(parts[2 * i + 1].Trim()));
                     points.Add(p);
                 }
             }

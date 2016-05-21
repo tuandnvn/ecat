@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace Annotator
 {
-    class GlyphBox2DLocationMark : LocationMark2D
+    class GlyphBoxLocationMark : DrawableLocationMark
     {
         private const string FACE = "face";
         private const string BOUNDING = "bounding";
@@ -22,7 +22,7 @@ namespace Annotator
         public List<GlyphFace> faces { get; private set; }
         public int glyphSize { get; private set; }
 
-        public GlyphBox2DLocationMark(int frameNo) : base(frameNo)
+        public GlyphBoxLocationMark(int frameNo) : base(frameNo)
         {
             this.boundingPolygons = new List<List<PointF>>();
             bounding3DPolygons = new List<List<Point3>>();
@@ -30,7 +30,7 @@ namespace Annotator
             this.glyphSize = 0;
         }
 
-        public GlyphBox2DLocationMark(int frameNo, int glyphSize, List<List<PointF>> boundingPolygons, List<GlyphFace> faces, List<List<Point3>> bounding3DPolygons) : base(frameNo)
+        public GlyphBoxLocationMark(int frameNo, int glyphSize, List<List<PointF>> boundingPolygons, List<GlyphFace> faces, List<List<Point3>> bounding3DPolygons) : base(frameNo)
         {
             this.boundingPolygons = boundingPolygons;
             this.bounding3DPolygons = bounding3DPolygons;
@@ -59,19 +59,17 @@ namespace Annotator
 
         public override void drawOnGraphics(Graphics g, Pen p)
         {
-            Console.WriteLine("Draw on Graphics of GlyphBox2DLocationMark");
             foreach (var boundingPolygon in boundingPolygons)
             {
-                Console.WriteLine(string.Join(",", boundingPolygon));
                 g.DrawPolygon(p, boundingPolygon.ToArray());
             }
         }
 
-        public override LocationMark2D getScaledLocationMark(double scale, Point translation)
+        public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
         {
             List<List<PointF>> scaledBoundingPolygons = boundingPolygons.Select(boundingPolygon => boundingPolygon.scaleBound(scale, translation)).ToList();
 
-            return new GlyphBox2DLocationMark(frameNo, this.glyphSize, scaledBoundingPolygons, faces, this.bounding3DPolygons);
+            return new GlyphBoxLocationMark(frameNo, this.glyphSize, scaledBoundingPolygons, faces, this.bounding3DPolygons);
         }
 
         public override void writeToXml(XmlWriter xmlWriter)

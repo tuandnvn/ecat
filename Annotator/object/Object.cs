@@ -30,10 +30,10 @@ namespace Annotator
         internal const string SPATIAL_LINK = "spatialLink";
         internal const string QUALIFIED = "q";
         internal const string LINKTO = "linkTo";
-        
+
         public string videoFile { get; }
 
-        public SortedList<int, LocationMark2D> objectMarks
+        public SortedList<int, DrawableLocationMark> objectMarks
         {
             get; private set;
         }
@@ -93,12 +93,12 @@ namespace Annotator
             this.genType = GenType.MANUAL;
             this.objectType = ObjectType._2D;
             this.otherProperties = new Dictionary<string, string>();
-            this.objectMarks = new SortedList<int, LocationMark2D>();
+            this.objectMarks = new SortedList<int, DrawableLocationMark>();
             this.object3DMarks = null;
             this.spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
         }
 
-        public void setBounding(int frameNumber, LocationMark2D locationMark)
+        public void setBounding(int frameNumber, DrawableLocationMark locationMark)
         {
             objectMarks[frameNumber] = locationMark;
         }
@@ -180,17 +180,17 @@ namespace Annotator
         ///       Offset between the resized frame and the paintBoard
         /// </param>
         /// <returns></returns>
-        public LocationMark2D getScaledLocationMark(int frameNo, double scale, Point translation)
+        public DrawableLocationMark getScaledLocationMark(int frameNo, double scale, Point translation)
         {
             int first = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
-            
+
             if (first == 0)
             {
                 return null;
             }
             if (_borderType != null)
             {
-                if (objectMarks[first].GetType().IsSubclassOf(typeof(LocationMark2D)))
+                if (objectMarks[first].GetType().IsSubclassOf(typeof(DrawableLocationMark)))
                 {
                     Console.WriteLine(objectMarks[first].GetType());
                     return objectMarks[first].getScaledLocationMark(scale, translation);
@@ -271,7 +271,7 @@ namespace Annotator
             xmlWriter.WriteEndElement();
         }
 
-        protected void write3DLocationMark(XmlWriter xmlWriter)
+        protected virtual void write3DLocationMark(XmlWriter xmlWriter)
         {
             // It's not 3d object
             if (object3DMarks == null) return;
@@ -368,11 +368,7 @@ namespace Annotator
                 readMarkers(objectNode, o, borderType);
                 readLinks(objectNode, o);
 
-                // only handle 2d object
-                if (objectType == "2D")
-                {
-                    objects.Add(o);
-                }
+                objects.Add(o);
             }
             return objects;
         }
@@ -436,6 +432,54 @@ namespace Annotator
             }
         }
 
+        internal virtual void generate3d(BaseDepthReader depthReader)
+        {
+            switch (this.genType)
+            {
+                case GenType.MANUAL:
+                    var voxMLReader = VoxMLReader.getDefaultVoxMLReader();
+
+                    var voxMLType = voxMLReader.getVoxMLType(this.semanticType);
+
+                    string inform = "";
+                    if (voxMLType.HasValue)
+                    {
+                        inform = "Object 3d will be generated based on VoxML semantic type " + voxMLType.Value.pred;
+                    } else
+                    {
+                        inform = "There is no corresponding VoxML semantic type. The boundary of objects will be projected directly onto 3d. Do you want to continue?";
+                    }
+
+                    var result = System.Windows.Forms.MessageBox.Show(inform, "Generate 3D", System.Windows.Forms.MessageBoxButtons.YesNo);
+
+                    if (result == System.Windows.Forms.DialogResult.Yes )
+                    {
+                        foreach (var entry in objectMarks)
+                        {
+                            int frameNo = entry.Key;
+                            LocationMark objectMark = entry.Value;
+
+                            List<PointF> boundary = new List<PointF>();
+                            switch (borderType)
+                            {
+                                // Rectangle will just be considered as a polygon
+                                case BorderType.Rectangle:
+                                    boundary.AddRange(((RectangleLocationMark)objectMark).boundingPolygon);
+                                    break;
+                                case BorderType.Polygon:
+                                    boundary.AddRange(((PolygonLocationMark)objectMark).boundingPolygon);
+                                    break;
+                                default:
+                                    return;
+                            }
+                        }
+                    }
+
+                    break;
+                default:
+                    return;
+            }
+        }
 
         private static void readLinks(XmlNode objectNode, Object o)
         {

@@ -3,6 +3,7 @@ using Accord.Math;
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,15 @@ namespace Annotator
 {
     class KinectUtils
     {
+        private const string COORDINATE_MAPPING = "coordinateMapping.dat";
+
         public static void calculateProject( CoordinateMapper coordinateMapper, String outputFilename)
         {
             CameraSpacePoint[] spacePointBasics = new CameraSpacePoint[] {
-                new CameraSpacePoint (){ X = -0.7f, Y = 0.0f, Z = 1.0f },
-                new CameraSpacePoint (){ X = 0.0f, Y = -0.3f, Z = 1.0f },
-                new CameraSpacePoint (){ X = 0.7f, Y = 0.0f, Z = 1.0f },
+                new CameraSpacePoint { X = -0.7f, Y = 0.0f, Z = 1.0f },
+                new CameraSpacePoint { X = 0.0f, Y = -0.3f, Z = 1.0f },
+                new CameraSpacePoint { X = 0.7f, Y = 0.0f, Z = 1.0f },
+                new CameraSpacePoint { X = 0.35f, Y = 0.0f, Z = 1.0f },
                 new CameraSpacePoint { X = 0.0f, Y = 0.3f, Z = 1.0f },
                 new CameraSpacePoint { X = 0.0f, Y = 0.0f, Z = 1.0f },
 
@@ -69,6 +73,8 @@ namespace Annotator
             ColorSpacePoint[] depthBasicToColor = new ColorSpacePoint[noOfPoints];
             CameraSpacePoint[] depthBasicToCamera = new CameraSpacePoint[noOfPoints];
 
+            // Depth used for depth field are the same as z-axis
+            // Not the distance from IR sensor to the point
             ushort[] distances = new ushort[] { 1, 10, 100, 1000, 2000, 40000 };
             foreach (var distance in distances)
             {
@@ -112,6 +118,29 @@ namespace Annotator
             float ratioX = (spaceBasicToDepth[2].X - centerDepthField_ir.X) / (spaceBasicToColor[2].X - centerDepthField_rgb.X);
             float ratioY = (spaceBasicToDepth[3].Y - centerDepthField_ir.Y) / (spaceBasicToColor[3].Y - centerDepthField_rgb.Y);
 
+            ColorSpacePoint[,] shortRange = new ColorSpacePoint[512, 424];
+            ColorSpacePoint[,] longRange = new ColorSpacePoint[512, 424];
+
+            for ( int X = 0; X < 511; X ++ )
+                for ( int Y = 0; Y < 423; Y ++ )
+                {
+                    Point3 p1 = new Point3 { X = X, Y = Y, Z = 500 };
+                    Point3 p2 = new Point3 { X = X, Y = Y, Z = 8000 };
+
+                    var p1Projected = coordinateMapper.MapDepthPointToColorSpace(new DepthSpacePoint { X = p1.X, Y = p1.Y }, (ushort)p1.Z);
+                    var p2Projected = coordinateMapper.MapDepthPointToColorSpace(new DepthSpacePoint { X = p2.X, Y = p2.Y }, (ushort)p2.Z);
+
+                    shortRange[X, Y] = p1Projected;
+                    longRange[X, Y] = p2Projected;
+                }
+            
+            // Write these projected points into a file
+            if ( !File.Exists(COORDINATE_MAPPING) )
+            {
+                var coordinateWriter = new DepthCoordinateMappingWriter(COORDINATE_MAPPING);
+
+                coordinateWriter.write(512, 424, 500, 8000, shortRange, longRange);
+            }
 
             // Let's get a random space point with a depth
             Point3[] PointAs = new Point3[] { new Point3 { X = 300f, Y = 300f, Z = 500 },
@@ -155,10 +184,42 @@ namespace Annotator
 
                 // Test
                 Console.WriteLine("======Test=====");
-                Console.WriteLine(PointA);
+                Console.WriteLine(PointA.X + ", " + PointA.Y + ", " + PointA.Z);
+                Console.WriteLine(projectedPoint(shortRange, longRange, 500, 8000, PointA));
                 Console.WriteLine(projectedA_rgb);
                 Console.WriteLine(coordinateMapper.MapDepthPointToColorSpace(new DepthSpacePoint { X = PointA.X, Y = PointA.Y }, (ushort)PointA.Z).ToSString());
             }
+        }
+
+        public static System.Drawing.PointF projectedPoint(ColorSpacePoint[,] shortRange , ColorSpacePoint[,] longRange, int short_range, int long_range, Point3 p )
+        {
+            int x = (int)p.X;
+            int y = (int)p.Y;
+
+            if (x < 0 || x >= 512) return new System.Drawing.PointF();
+
+            if (y < 0 || y >= 424) return new System.Drawing.PointF();
+
+            var shortP = shortRange[x, y];
+            var longP = longRange[x, y];
+
+            float shortP_X = shortP.X;
+            float longP_X = longP.X;
+
+            var b = ( longP_X * long_range - shortP_X * short_range) / ( long_range - short_range );
+            var a = (shortP_X - b) * short_range ;
+
+            var p_x = a / p.Z + b;
+
+            float shortP_Y = shortP.Y;
+            float longP_Y = longP.Y;
+
+            b = (longP_Y * long_range - shortP_Y * short_range) / (long_range - short_range);
+            a = (shortP_Y - b) * short_range;
+
+            var p_y = a / p.Z + b;
+
+            return new System.Drawing.PointF(p_x, p_y);
         }
 
         public static ushort[,] MapDepthPointsToColorSpace(Func<DepthSpacePoint, ushort, ColorSpacePoint> mappingFunction, ushort[] depthValues, int depthWidth, int depthHeight, int colorWidth, int colorHeight)

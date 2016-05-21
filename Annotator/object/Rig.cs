@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,18 @@ namespace Annotator
                 return sourceFileToRig[key];
             }
 
+            if ( !File.Exists(rigFile) )
+            {
+                Console.WriteLine("Rig file " + rigFile + " could not be found!");
+                return null;
+            }
+
+            if (!File.Exists(rigSchemeFile))
+            {
+                Console.WriteLine("Rig schema file " + rigSchemeFile + " could not be found!");
+                return null;
+            }
+
             sourceFileToRig[key] = readFromXml(rigFile, rigSchemeFile);
             return sourceFileToRig[key];
         }
@@ -61,7 +74,7 @@ namespace Annotator
                         int frameNo = int.Parse(dataFrame.SelectSingleNode(rc.frameNoPath).Value);
                         string frameStr = dataFrame.SelectSingleNode(rc.frameTimePath).Value;
 
-                        DateTime dt = DateTime.ParseExact(frameStr, @"yyyy-MM-ddTHH:mm:ssss.ffffffZ", provider);
+                        DateTime dt = DateTime.ParseExact(frameStr.Substring(0, frameStr.Length - 1), @"yyyy-MM-ddTHH:mm:ssss.ffffff", provider);
 
                         if (!frameToRig.ContainsKey(frameNo))
                         {
@@ -261,6 +274,8 @@ namespace Annotator
         {
             var rigs = getRigFromSource(rigFile, rigSchemeFile);
 
+            if (rigs == null) return;
+
             rigs.normalizeFrames(o.session);
 
             foreach (int frame in rigs.frameToRig.Keys)
@@ -279,8 +294,6 @@ namespace Annotator
         {
             if (session.duration != 0 && session.startWriteRGB.HasValue)
             {
-                Console.WriteLine(session.duration);
-                Console.WriteLine(session.startWriteRGB.Value);
                 // If you have information about the recorded time of the video
                 // It means you recorded using Ecat
                 // Projecting from recorded frame to playback frame
@@ -292,14 +305,12 @@ namespace Annotator
 
                 foreach (int frame in frameToRig.Keys)
                 {
-                    Console.WriteLine(frame);
                     DateTime dt = frameToRig[frame].dt;
                     long timeFromStart = (long)dt.Subtract(startWriteRGB).TotalMilliseconds;
 
                     long timeStepForFrame = session.duration / sessionLength;
-                    int rgbFrame = (int) (timeFromStart / timeStepForFrame);
+                    int rgbFrame = (int) (timeFromStart / timeStepForFrame) + 1;
 
-                    Console.WriteLine(rgbFrame);
                     tempoFrameToRig[rgbFrame] = frameToRig[frame];
                     tempoFrameTo3DRig[rgbFrame] = frameTo3DRig[frame];
                 }

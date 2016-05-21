@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Annotator
 {
-    public class RigLocationMark<T> : LocationMark2D
+    public class RigLocationMark<T> : DrawableLocationMark
     {
         public RigFigure<T> rigFigure { get; }
         public RigLocationMark(int frameNo, RigFigure<T> rigFigure) : base(frameNo)
@@ -57,7 +57,7 @@ namespace Annotator
             return selectBoxes.ToArray();
         }
 
-        public override LocationMark2D getScaledLocationMark(double scale, Point translation)
+        public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
         {
             if (typeof(T) != typeof(Point) && typeof(T) != typeof(PointF)) return null;
 

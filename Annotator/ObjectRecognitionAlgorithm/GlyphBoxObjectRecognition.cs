@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Annotator.depth;
 using Microsoft.Kinect;
 using Emgu.CV;
 using System.Drawing;
@@ -43,9 +42,8 @@ namespace Annotator.ObjectRecognitionAlgorithm
 
         public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction)
         {
+            Console.WriteLine("Find glyph box");
             List<Object> objects = new List<Object>();
-
-            
 
             /// For each frame (int frameNo)
             /// For each recognized glyph in frame (int faceIndex)
@@ -67,11 +65,9 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 m = videoReader.getFrame(frameNo);
                 if (m == null)
                 {
-                    Console.WriteLine("no frame at " + frameNo);
                     break;
                 }
 
-                Console.WriteLine("Try detect at frame " + frameNo);
                 image = m.Bitmap;
 
                 /// Adapt from Glyph Recognition Prototyping

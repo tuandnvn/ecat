@@ -24,7 +24,18 @@ namespace Annotator
             this.fileName = fileName;
             this.totalMiliTime = totalMiliTime;
             capture = new Capture(fileName);
+
+            // This framecount is just an estimation
             frameCount = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
+
+            int countBack;
+            for ( countBack = 0; countBack < 50; countBack ++ )
+            {
+                Mat m = getFrame(frameCount - countBack);
+                if (m != null) break;
+            }
+            frameCount -= countBack - 1;
+
             frameWidth = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth);
             frameHeight = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
             this.aspectRatio = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth) / capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
@@ -38,12 +49,17 @@ namespace Annotator
                 capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameNum);
                 Mat m = capture.QueryFrame();
 
-                int mili = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosMsec);
-
                 return m;
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine("Exception for frame " + frameNum);
+                Console.WriteLine(e);
+
+                Console.WriteLine("Try reopen the video file");
+                // Try reopen the video file
+                capture = new Capture(fileName);
+
                 return null;
             }
         }

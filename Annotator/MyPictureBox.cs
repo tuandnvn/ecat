@@ -16,15 +16,6 @@ namespace Annotator
 
         protected override void OnPaint(PaintEventArgs pe)
         {
-            //if (mat != null)
-            //{
-            //    Image = mat.Bitmap;
-            //}
-            //else if (capture != null)
-            //{
-            //    capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, 0);
-            //    Image = capture.QueryFrame().Bitmap;
-            //}
             if (playbackLock != null)
             {
                 lock (playbackLock)

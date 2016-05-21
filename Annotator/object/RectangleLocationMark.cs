@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Annotator
 {
-    public class RectangleLocationMark : LocationMark2D
+    public class RectangleLocationMark : DrawableLocationMark
     {
         public Rectangle boundingBox { get; private set;  }              //Object bounding box;
 
@@ -36,7 +36,7 @@ namespace Annotator
             g.DrawRectangle(p, boundingBox);
         }
 
-        public override LocationMark2D getScaledLocationMark(double scale, Point translation)
+        public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
         {
             return new RectangleLocationMark(frameNo, boundingBox.scaleBound(scale, translation));
         }

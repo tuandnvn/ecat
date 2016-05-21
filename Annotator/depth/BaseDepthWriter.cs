@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Annotator.depth
+namespace Annotator
 {
     class BaseDepthWriter : IDepthWriter, IDisposable
     {

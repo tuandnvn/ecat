@@ -1,4 +1,5 @@
-﻿using Microsoft.Kinect;
+﻿using Accord.Math;
+using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -103,12 +104,12 @@ namespace Annotator
                     graphics.DrawLine(p, from, to);
                 }
             }
-            
+
         }
 
         public static string ToSString(this ColorSpacePoint scp)
         {
-            return "( " + scp.X + ", " + scp.Y + " )"; 
+            return "( " + scp.X + ", " + scp.Y + " )";
         }
 
         public static string ToSString(this DepthSpacePoint dsp)
@@ -119,6 +120,15 @@ namespace Annotator
         public static string ToSString(this CameraSpacePoint csp)
         {
             return "( " + csp.X + ", " + csp.Y + ", " + csp.Z + " )";
+        }
+
+        public static Point3 Add(this Point3 x, Point3 y) {
+            return new Point3(x.X + y.X, x.Y + y.Y, x.Z + y.Z);
+        }
+
+        public static Point3 Multiple(this Point3 x, float y)
+        {
+            return new Point3(x.X * y, x.Y * y, x.Z * y);
         }
     }
 }

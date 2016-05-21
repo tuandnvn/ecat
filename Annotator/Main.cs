@@ -12,6 +12,7 @@ using System.IO;
 using System.Diagnostics;
 using Emgu.CV;
 using Emgu.CV.Structure;
+
 namespace Annotator
 {
     public partial class Main : Form
@@ -161,6 +162,7 @@ namespace Annotator
                 {
                     //Check files in current Session folder
                     String[] files = Directory.GetFiles(sessions[i]);
+
                     if (files.Length > 0)
                     {
                         TreeNode[] arrayFiles = new TreeNode[files.Length];
@@ -170,6 +172,7 @@ namespace Annotator
                             arrayFiles[j].ImageIndex = 2;
                             arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
                         }
+
                         TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
 
                         sessionNode.ImageIndex = 1;
@@ -185,13 +188,6 @@ namespace Annotator
 
                             Session session = project.getSession(sessionName);
 
-                            for (int ii = 0; ii < sessionNode.Nodes.Count; ii++)
-                            {
-                                if (!session.checkFileInSession(sessionNode.Nodes[ii].Text))
-                                {
-                                    sessionNode.Nodes[ii].Remove();
-                                }
-                            }
                             array.Add(sessionNode);
                         }
 
@@ -201,9 +197,7 @@ namespace Annotator
                         TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
                         sessionNode.ImageIndex = 1;
                         sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
-                        //Add session to workspace
                         String sessionName = sessionNode.Text;
-                        //MessageBox.Show(sessionName);
                         Project project = workspace.getProject(prjName);
                         if (project.checkSessionInProject(sessionName))
                         {
@@ -252,6 +246,10 @@ namespace Annotator
         /// <param name="e"></param>
         private void treeView_DoubleClick(object sender, EventArgs e)
         {
+            // Click no nothing
+            if (treeView.SelectedNode == null)
+                return;
+
             String p = treeView.SelectedNode.FullPath;
             List<char> r = p.ToList();
             r.RemoveAll(c => c == '*');
@@ -275,6 +273,7 @@ namespace Annotator
             //Right-click on project(nested level is 0)
             if (treeView.SelectedNode == null)
                 return;
+
             if (treeView.SelectedNode.Level == 0 && e.Button == MouseButtons.Right)
             {
                 rightClickOnProjectTreeNode(e);
@@ -291,6 +290,9 @@ namespace Annotator
 
         private void rightClickOnFileTreeNode(MouseEventArgs e)
         {
+            if (treeView.SelectedNode == null)
+                return;
+
             TreeNode selectedNode = treeView.SelectedNode;
             Point location = this.Location;
             location.X += e.Location.X + leftMostPanel.Location.X + 15;
@@ -300,6 +302,9 @@ namespace Annotator
 
         private void rightClickOnSessionTreeNode(MouseEventArgs e)
         {
+            if (treeView.SelectedNode == null)
+                return;
+
             TreeNode selectedNode = treeView.SelectedNode;
             Session choosedSession = null;
             if (selectedNode != null && selectedProject != null && selectedNode.Parent.Text.Equals(selectedProject.getProjectName()))
@@ -341,6 +346,9 @@ namespace Annotator
 
         private void rightClickOnProjectTreeNode(MouseEventArgs e)
         {
+            if (treeView.SelectedNode == null)
+                return;
+
             if (selectedProject != null && treeView.SelectedNode.Text.Equals(selectedProject.getProjectName()))
             {
                 selectToolStripMenuItem.Enabled = false;
@@ -394,6 +402,22 @@ namespace Annotator
             if (newProject == false)
             {
                 addNewProject();
+            }
+        }
+
+        private void simpleEventDataCreateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (selectedProject != null)
+            {
+                SimpleLearningDataGenerator g = new SimpleLearningDataGenerator();
+
+                System.Windows.Forms.SaveFileDialog saveFileDialog = new SaveFileDialog();
+                DialogResult result = saveFileDialog.ShowDialog();
+                if (result == DialogResult.OK) // Test result.
+                {
+                    String fullFileName = saveFileDialog.FileName;
+                    g.writeExtractedDataIntoFile(selectedProject, fullFileName);
+                }
             }
         }
 
@@ -503,44 +527,13 @@ namespace Annotator
             return treeView.Nodes;
         }
 
-        private void clearComboBox1()
+        private void clearPlaybackFileComboBox()
         {
-            videoBox.Items.Clear();
-            videoBox.Enabled = false;
+            playbackFileComboBox.Items.Clear();
+            playbackFileComboBox.Enabled = false;
             frameTrackBar.Enabled = false;
         }
 
-        private void loadVideo(int videoIndex)
-        {
-            Application.DoEvents();
-            currentVideo = currentSession.getVideo(videoIndex);
-
-            if (currentVideo != null)
-            {
-                frameTrackBar.Maximum = currentVideo.frameCount;
-            }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int videoIndex = videoBox.SelectedIndex;
-            loadVideo(videoIndex);
-
-            if (currentVideo != null)
-            {
-                endPoint = startPoint;
-                label3.Text = "Frame: " + frameTrackBar.Value;
-
-                Mat m = currentVideo.getFrame(0);
-                if (m != null)
-                {
-                    pictureBoard.mat = m;
-                    pictureBoard.Image = pictureBoard.mat.Bitmap;
-                }
-
-                setLeftTopPanel();
-            }
-        }
 
         private void setLeftTopPanel()
         {
@@ -566,20 +559,6 @@ namespace Annotator
             }
         }
 
-        private void trackBar1_ValueChanged(object sender, EventArgs e)
-        {
-            label3.Text = "Frame: " + frameTrackBar.Value;
-            //if(trackBar1.Value >= trackBar1.Minimum && trackBar1.Value < trackBar1.
-            if (currentVideo != null)
-            {
-                Mat m = currentVideo.getFrame(frameTrackBar.Value);
-                if (m != null)
-                {
-                    pictureBoard.mat = m;
-                    pictureBoard.Image = pictureBoard.mat.Bitmap;
-                }
-            }
-        }
 
         /// <summary>
         /// Dirty clean
@@ -623,7 +602,6 @@ namespace Annotator
         {
 
         }
-
 
         internal void removeObject(Object o)
         {
@@ -671,29 +649,22 @@ namespace Annotator
             }
             objectToObjectTracks[o].selectDeco();
 
-            lock (selectedObjectLock)
+            this.selectedObject = o;
+
+            if (selectedObject != null)
             {
-                this.selectedObject = o;
-
-                if (selectedObject != null)
-                {
-                    selectObjContextPanel.Visible = true;
-                }
-
-                foreach (Button b in drawingButtonGroup)
-                {
-                    selectButtonDrawing(b, drawingButtonGroup, false);
-                }
-
-                this.showInformation(o);
+                selectObjContextPanel.Visible = true;
             }
+
+            foreach (Button b in drawingButtonGroup)
+            {
+                selectButtonDrawing(b, drawingButtonGroup, false);
+            }
+
+            this.showInformation(o);
             invalidatePictureBoard();
         }
 
-
-        internal void generate3dforObject(Object o)
-        {
-        }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {

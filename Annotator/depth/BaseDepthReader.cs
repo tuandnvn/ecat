@@ -1,22 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Annotator.depth
+namespace Annotator
 {
-    class BaseDepthReader : IDepthReader
+    public class BaseDepthReader : IDepthReader
     {
+        public String fileName { get; }
         private BinaryReader depthReader = null;
         public int depthWidth { get; private set; }
         public int depthHeight { get; private set; }
         public int depthFrame { get; private set; }
         private List<Int32> depthFrameTimePoints;
 
-        public BaseDepthReader ( string fileName)
+        public BaseDepthReader ( string fileName )
         {
+            this.fileName = fileName;
             depthReader = new BinaryReader(File.Open(fileName, FileMode.Open));
             depthWidth = depthReader.ReadInt16();
             depthHeight = depthReader.ReadInt16();
@@ -77,6 +82,27 @@ namespace Annotator.depth
 
             if (appropriateDepthFrame < 0 || appropriateDepthFrame >= depthFrame) return null;
             return readFrame(appropriateDepthFrame);
+        }
+
+        public void readFrameAtTimeToBitmap(int milisecondFromStart, Bitmap depthBitmap, byte[] depthValuesToByte, float scale)
+        {
+            ushort[] vals = readFrameAtTime(milisecondFromStart);
+
+            BitmapData bmapdata = depthBitmap.LockBits(
+                                     new Rectangle(0, 0, depthWidth, depthHeight),
+                                     ImageLockMode.WriteOnly,
+                                     depthBitmap.PixelFormat);
+
+            IntPtr ptr = bmapdata.Scan0;
+
+            for (int i = 0; i < depthWidth * depthHeight; i++)
+            {
+                depthValuesToByte[4 * i] = depthValuesToByte[4 * i + 1] = depthValuesToByte[4 * i + 2] = (byte)(vals[i] / scale);
+            }
+
+            Marshal.Copy(depthValuesToByte, 0, ptr, depthWidth * depthHeight * 4);
+
+            depthBitmap.UnlockBits(bmapdata);
         }
 
         public void Dispose()

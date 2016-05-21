@@ -16,13 +16,20 @@ namespace Annotator
         public GlyphBoxObject(Session currentSession, String id, Color color, int borderSize, string videoFile) : base(currentSession, id, color, borderSize, videoFile)
         {
             _borderType = BorderType.Others;
+            this.objectType = ObjectType._3D;
+            this.genType = GenType.TRACKED;
         }
 
         public void setBounding(int frameNumber, int glyphSize, List<List<PointF>> glyphBounds, List<GlyphFace> faces, List<List<Point3>> glyph3DBounds, double scale = 1, Point translation = new Point())
         {
             List<List<PointF>> inversedScaledGlyphBounds = glyphBounds.Select(glyphBound => glyphBound.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)))).ToList();
-            LocationMark2D ob = new GlyphBox2DLocationMark(frameNumber, glyphSize, inversedScaledGlyphBounds, faces, glyph3DBounds);
+            DrawableLocationMark ob = new GlyphBoxLocationMark(frameNumber, glyphSize, inversedScaledGlyphBounds, faces, glyph3DBounds);
             objectMarks[frameNumber] = ob;
+        }
+
+        protected override void write3DLocationMark(XmlWriter xmlWriter)
+        {
+            // No need to write location mark for rig object
         }
 
         protected override void loadObjectAdditionalFromXml(XmlNode objectNode)
@@ -37,7 +44,7 @@ namespace Annotator
                     switch (markType)
                     {
                         case "LOCATION":
-                            var lm = new GlyphBox2DLocationMark(frame);
+                            var lm = new GlyphBoxLocationMark(frame);
                             lm.readFromXml(markerNode);
                             setBounding(frame, lm);
                             break;

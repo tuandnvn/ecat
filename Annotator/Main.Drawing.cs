@@ -36,8 +36,6 @@ namespace Annotator
         // Editing bounding at a certain frame
         private bool editingAtAFrame = false;
 
-        object selectedObjectLock = new object();
-
         protected void InitDrawingComponent()
         {
             drawingButtonGroup.Add(cursorDrawing);
@@ -52,192 +50,185 @@ namespace Annotator
         //Start drawing selection rectangle
         private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
         {
-            lock (this)
+            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
             {
-                if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+                if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
                 {
-                    if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
+                    // If mouse down click on resize select boxes
+                    if (selectBoxes != null && selectBoxes.Length != 0)
                     {
-                        // If mouse down click on resize select boxes
-                        if (selectBoxes != null && selectBoxes.Length != 0)
+                        for (int i = 0; i < selectBoxes.Length; i++)
                         {
-                            for (int i = 0; i < selectBoxes.Length; i++)
+                            Rectangle r = selectBoxes[i];
+                            if (r.Contains(e.Location))
                             {
-                                Rectangle r = selectBoxes[i];
-                                if (r.Contains(e.Location))
-                                {
-                                    draggingSelectBoxes = true;
-                                    draggingSelectBoxIndex = i;
-                                    return;
-                                }
+                                draggingSelectBoxes = true;
+                                draggingSelectBoxIndex = i;
+                                return;
                             }
-                        }
-
-                        //set selection point for a new rectangle
-                        {
-                            drawingNewRectangle = true;
-                            startPoint = endPoint = e.Location;
                         }
                     }
-                }
 
-                if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
-                {
-                    if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
+                    //set selection point for a new rectangle
                     {
-                        if (editingPolygon)
+                        drawingNewRectangle = true;
+                        startPoint = endPoint = e.Location;
+                    }
+                }
+            }
+
+            if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+            {
+                if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
+                {
+                    if (editingPolygon)
+                    {
+                        // If mouse down click on resize select boxes
+                        if (draggingSelectBoxes)
                         {
-                            // If mouse down click on resize select boxes
-                            if (draggingSelectBoxes)
+                            draggingSelectBoxes = false;
+                            invalidatePictureBoard();
+                        }
+                        else {
+                            if (selectBoxes != null && selectBoxes.Length != 0)
                             {
-                                draggingSelectBoxes = false;
-                                invalidatePictureBoard();
-                            }
-                            else {
-                                if (selectBoxes != null && selectBoxes.Length != 0)
+                                for (int i = 0; i < selectBoxes.Length; i++)
                                 {
-                                    for (int i = 0; i < selectBoxes.Length; i++)
+                                    Rectangle r = selectBoxes[i];
+                                    if (r.Contains(e.Location))
                                     {
-                                        Rectangle r = selectBoxes[i];
-                                        if (r.Contains(e.Location))
-                                        {
-                                            draggingSelectBoxes = true;
-                                            draggingSelectBoxIndex = i;
-                                            return;
-                                        }
+                                        draggingSelectBoxes = true;
+                                        draggingSelectBoxIndex = i;
+                                        return;
                                     }
                                 }
                             }
                         }
-                        else
-                        {
-                            drawingNewPolygon = true;
-                            polygonPoints.Add(e.Location);
-                        }
                     }
-                    if (e.Button == System.Windows.Forms.MouseButtons.Right && currentVideo != null && drawingNewPolygon)
+                    else
                     {
-                        drawingNewPolygon = false;
-                        editingPolygon = true;
-                        temporaryPoint = null;
-                        newObjectContextPanel.Visible = true;
-                        List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                        foreach (PointF p in polygonPoints)
-                        {
-                            listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
-                        }
-                        selectBoxes = listOfSelectBox.ToArray();
-                        invalidatePictureBoard();
+                        drawingNewPolygon = true;
+                        polygonPoints.Add(e.Location);
                     }
                 }
-
-
-                if (drawingButtonSelected[cursorDrawing])
+                if (e.Button == System.Windows.Forms.MouseButtons.Right && currentVideo != null && drawingNewPolygon)
                 {
-                    whenCursorButtonAndMouseDown(e);
+                    drawingNewPolygon = false;
+                    editingPolygon = true;
+                    temporaryPoint = null;
+                    newObjectContextPanel.Visible = true;
+                    List<Rectangle> listOfSelectBox = new List<Rectangle>();
+                    foreach (PointF p in polygonPoints)
+                    {
+                        listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+                    }
+                    selectBoxes = listOfSelectBox.ToArray();
+                    invalidatePictureBoard();
                 }
+            }
+
+
+            if (drawingButtonSelected[cursorDrawing])
+            {
+                whenCursorButtonAndMouseDown(e);
             }
         }
 
         private void pictureBoard_MouseMove(object sender, MouseEventArgs e)
         {
-            lock (this)
+            if (drawingButtonSelected[rectangleDrawing])
             {
-                if (drawingButtonSelected[rectangleDrawing])
+                if (drawingNewRectangle)
                 {
-                    if (drawingNewRectangle)
-                    {
-                        endPoint = e.Location;
-                        //pictureBox1.Refresh();
-                        invalidatePictureBoard();
-                        return;
-                    }
+                    endPoint = e.Location;
+                    //pictureBox1.Refresh();
+                    invalidatePictureBoard();
+                    return;
                 }
+            }
 
-                if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+            {
+                if (draggingSelectBoxes)
                 {
-                    if (draggingSelectBoxes)
+                    switch (draggingSelectBoxIndex)
                     {
-                        switch (draggingSelectBoxIndex)
-                        {
-                            // The first four case are corners
-                            // Use e.Location as 1 corner and use another box center point as the opposite corner 
-                            case 0:
-                                startPoint = e.Location;
-                                endPoint = selectBoxes[3].getCenter();
-                                this.Cursor = Cursors.SizeNWSE;
-                                break;
-                            case 1:
-                                startPoint = e.Location;
-                                endPoint = selectBoxes[2].getCenter();
-                                this.Cursor = Cursors.SizeNESW;
-                                break;
-                            case 2:
-                                startPoint = e.Location;
-                                endPoint = selectBoxes[1].getCenter();
-                                this.Cursor = Cursors.SizeNESW;
-                                break;
-                            case 3:
-                                startPoint = e.Location;
-                                endPoint = selectBoxes[0].getCenter();
-                                this.Cursor = Cursors.SizeNWSE;
-                                break;
-                            case 4:
-                                startPoint = new Point(selectBoxes[0].getCenter().X, e.Location.Y);
-                                endPoint = selectBoxes[3].getCenter();
-                                this.Cursor = Cursors.SizeNS;
-                                break;
-                            case 5:
-                                startPoint = new Point(selectBoxes[1].getCenter().X, e.Location.Y);
-                                endPoint = selectBoxes[2].getCenter();
-                                this.Cursor = Cursors.SizeNS;
-                                break;
-                            case 6:
-                                startPoint = new Point(e.Location.X, selectBoxes[2].getCenter().Y);
-                                endPoint = selectBoxes[3].getCenter();
-                                this.Cursor = Cursors.SizeWE;
-                                break;
-                            case 7:
-                                startPoint = new Point(e.Location.X, selectBoxes[3].getCenter().Y);
-                                endPoint = selectBoxes[0].getCenter();
-                                this.Cursor = Cursors.SizeWE;
-                                break;
-                            // Center point
-                            case 8:
-                                startPoint = new Point(e.Location.X - (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y - (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
-                                endPoint = new Point(e.Location.X + (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y + (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
-                                this.Cursor = Cursors.Hand;
-                                break;
-                        }
-                        invalidatePictureBoard();
+                        // The first four case are corners
+                        // Use e.Location as 1 corner and use another box center point as the opposite corner 
+                        case 0:
+                            startPoint = e.Location;
+                            endPoint = selectBoxes[3].getCenter();
+                            this.Cursor = Cursors.SizeNWSE;
+                            break;
+                        case 1:
+                            startPoint = e.Location;
+                            endPoint = selectBoxes[2].getCenter();
+                            this.Cursor = Cursors.SizeNESW;
+                            break;
+                        case 2:
+                            startPoint = e.Location;
+                            endPoint = selectBoxes[1].getCenter();
+                            this.Cursor = Cursors.SizeNESW;
+                            break;
+                        case 3:
+                            startPoint = e.Location;
+                            endPoint = selectBoxes[0].getCenter();
+                            this.Cursor = Cursors.SizeNWSE;
+                            break;
+                        case 4:
+                            startPoint = new Point(selectBoxes[0].getCenter().X, e.Location.Y);
+                            endPoint = selectBoxes[3].getCenter();
+                            this.Cursor = Cursors.SizeNS;
+                            break;
+                        case 5:
+                            startPoint = new Point(selectBoxes[1].getCenter().X, e.Location.Y);
+                            endPoint = selectBoxes[2].getCenter();
+                            this.Cursor = Cursors.SizeNS;
+                            break;
+                        case 6:
+                            startPoint = new Point(e.Location.X, selectBoxes[2].getCenter().Y);
+                            endPoint = selectBoxes[3].getCenter();
+                            this.Cursor = Cursors.SizeWE;
+                            break;
+                        case 7:
+                            startPoint = new Point(e.Location.X, selectBoxes[3].getCenter().Y);
+                            endPoint = selectBoxes[0].getCenter();
+                            this.Cursor = Cursors.SizeWE;
+                            break;
+                        // Center point
+                        case 8:
+                            startPoint = new Point(e.Location.X - (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y - (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
+                            endPoint = new Point(e.Location.X + (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y + (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
+                            this.Cursor = Cursors.Hand;
+                            break;
                     }
-                    else
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+                    invalidatePictureBoard();
                 }
-
-
-                if (drawingButtonSelected[polygonDrawing])
+                else
                 {
-                    if (drawingNewPolygon)
-                    {
-                        temporaryPoint = e.Location;
-                        invalidatePictureBoard();
-                    }
+                    this.Cursor = Cursors.Default;
                 }
+            }
 
-                if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+
+            if (drawingButtonSelected[polygonDrawing])
+            {
+                if (drawingNewPolygon)
                 {
-                    if (draggingSelectBoxes)
-                    {
-                        polygonPoints[draggingSelectBoxIndex] = e.Location;
-                        selectBoxes[draggingSelectBoxIndex] = new Rectangle(e.Location.X - (boxSize - 1) / 2, e.Location.Y - (boxSize - 1) / 2, boxSize, boxSize);
-
-                        invalidatePictureBoard();
-                    }
+                    temporaryPoint = e.Location;
+                    invalidatePictureBoard();
                 }
+            }
 
+            if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+            {
+                if (draggingSelectBoxes)
+                {
+                    polygonPoints[draggingSelectBoxIndex] = e.Location;
+                    selectBoxes[draggingSelectBoxIndex] = new Rectangle(e.Location.X - (boxSize - 1) / 2, e.Location.Y - (boxSize - 1) / 2, boxSize, boxSize);
+
+                    invalidatePictureBoard();
+                }
             }
         }
 
@@ -247,14 +238,13 @@ namespace Annotator
             var linear = getLinearTransform();
             foreach (Object o in currentSession.getObjects())
             {
-                LocationMark2D lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                DrawableLocationMark lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                 if (lm != null)
                 {
                     objectWithScore.Add(new Tuple<float, Object>(lm.Score(e.Location), o));
                 }
             }
 
-            Console.WriteLine(string.Join(",", objectWithScore.Select(x => x.Item1).ToArray()));
             objectWithScore.Sort(delegate (Tuple<float, Object> p1, Tuple<float, Object> p2)
             {
                 if (p1.Item1 < p2.Item1) return -1;
@@ -274,53 +264,31 @@ namespace Annotator
 
         private void pictureBoard_MouseUp(object sender, MouseEventArgs e)
         {
-            lock (this)
+            if (drawingButtonSelected[rectangleDrawing])
             {
-                if (drawingButtonSelected[rectangleDrawing])
+                if (drawingNewRectangle)
                 {
-                    if (drawingNewRectangle)
-                    {
-                        endPoint = e.Location;
-                        if (drawingNewRectangle && boundingBox != null && boundingBox.Width > 0 && boundingBox.Height > 0)
-                            newObjectContextPanel.Visible = true;
-                        else
-                            newObjectContextPanel.Visible = false;
-                        drawingNewRectangle = false;
-                    }
+                    endPoint = e.Location;
+                    if (drawingNewRectangle && boundingBox != null && boundingBox.Width > 0 && boundingBox.Height > 0)
+                        newObjectContextPanel.Visible = true;
+                    else
+                        newObjectContextPanel.Visible = false;
+                    drawingNewRectangle = false;
                 }
+            }
 
-                if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+            {
+                if (draggingSelectBoxes)
                 {
-                    if (draggingSelectBoxes)
-                    {
-                        draggingSelectBoxes = false;
-                    }
+                    draggingSelectBoxes = false;
                 }
             }
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            //if (capture == null && currentVideo != null)
-            //{
-            //    capture = new Capture(currentVideo.fileName);
-            //}
-
-            //if (capture != null)
-            //{
-            //    capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.PosFrames, frameTrackBar.Value - 1);
-            //    pictureBoard.Image = capture.QueryFrame().Bitmap;
-            //    runGCForImage();
-            //}
-        }
-
-
         private void pictureBoard_Paint(object sender, PaintEventArgs e)
         {
-            // Has been drawn before
-            if (currentVideo != null)
+            if (currentVideo != null && currentSession != null)
             {
                 var linear = getLinearTransform();
 
@@ -328,12 +296,11 @@ namespace Annotator
                 {
                     if (o != selectedObject || o.genType != Object.GenType.MANUAL)
                     {
-                        
+
                         Pen p = new Pen(o.color, o.borderSize);
                         p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-                        LocationMark2D r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        DrawableLocationMark r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
 
-                        Console.WriteLine(o.id + " " + r);
                         if (r != null)
                         {
                             r.drawOnGraphics(e.Graphics, p);
@@ -344,43 +311,40 @@ namespace Annotator
 
                 if (selectedObject != null && !editingAtAFrame)
                 {
-                    lock (selectedObjectLock)
+                    LocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                    if (lm != null)
                     {
-                        LocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
-                        if (lm != null)
+                        switch (selectedObject.borderType)
                         {
-                            switch (selectedObject.borderType)
-                            {
-                                case Object.BorderType.Rectangle:
-                                    boundingBox = ((RectangleLocationMark)lm).boundingBox;
-                                    startPoint = new Point(boundingBox.X, boundingBox.Y);
-                                    endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
-                                    break;
-                                case Object.BorderType.Polygon:
-                                    polygonPoints = ((PolygonLocationMark)lm).boundingPolygon;
-                                    List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                                    foreach (PointF p in polygonPoints)
-                                    {
-                                        listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
-                                    }
-                                    selectBoxes = listOfSelectBox.ToArray();
-                                    break;
-                            }
+                            case Object.BorderType.Rectangle:
+                                boundingBox = ((RectangleLocationMark)lm).boundingBox;
+                                startPoint = new Point(boundingBox.X, boundingBox.Y);
+                                endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
+                                break;
+                            case Object.BorderType.Polygon:
+                                polygonPoints = ((PolygonLocationMark)lm).boundingPolygon;
+                                List<Rectangle> listOfSelectBox = new List<Rectangle>();
+                                foreach (PointF p in polygonPoints)
+                                {
+                                    listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+                                }
+                                selectBoxes = listOfSelectBox.ToArray();
+                                break;
                         }
-                        else
+                    }
+                    else
+                    {
+                        switch (selectedObject.borderType)
                         {
-                            switch (selectedObject.borderType)
-                            {
-                                case Object.BorderType.Rectangle:
-                                    startPoint = null;
-                                    endPoint = null;
-                                    selectBoxes = new Rectangle[0] { };
-                                    break;
-                                case Object.BorderType.Polygon:
-                                    polygonPoints = null;
-                                    selectBoxes = new Rectangle[0] { };
-                                    break;
-                            }
+                            case Object.BorderType.Rectangle:
+                                startPoint = null;
+                                endPoint = null;
+                                selectBoxes = new Rectangle[0] { };
+                                break;
+                            case Object.BorderType.Polygon:
+                                polygonPoints = null;
+                                selectBoxes = new Rectangle[0] { };
+                                break;
                         }
                     }
                 }
@@ -399,25 +363,22 @@ namespace Annotator
                 // Currently drawing or selecting a rectangle object
                 if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
                 {
-                    lock (selectedObjectLock)
+                    if (endPoint.HasValue && startPoint.HasValue && currentVideo != null)
                     {
-                        if (endPoint.HasValue && startPoint.HasValue && currentVideo != null)
+                        int lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
+                        int lowerY = Math.Min(startPoint.Value.Y, endPoint.Value.Y);
+                        int higherX = Math.Max(startPoint.Value.X, endPoint.Value.X);
+                        int higherY = Math.Max(startPoint.Value.Y, endPoint.Value.Y);
+
+                        boundingBox = new Rectangle(lowerX, lowerY, higherX - lowerX, higherY - lowerY);
+                        selectBoxes = boundingBox.getCornerSelectBoxes(boxSize);
+
+                        e.Graphics.DrawRectangle(pen, boundingBox);
+
+                        foreach (Rectangle r in selectBoxes)
                         {
-                            int lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
-                            int lowerY = Math.Min(startPoint.Value.Y, endPoint.Value.Y);
-                            int higherX = Math.Max(startPoint.Value.X, endPoint.Value.X);
-                            int higherY = Math.Max(startPoint.Value.Y, endPoint.Value.Y);
-
-                            boundingBox = new Rectangle(lowerX, lowerY, higherX - lowerX, higherY - lowerY);
-                            selectBoxes = boundingBox.getCornerSelectBoxes(boxSize);
-
-                            e.Graphics.DrawRectangle(pen, boundingBox);
-
-                            foreach (Rectangle r in selectBoxes)
-                            {
-                                e.Graphics.DrawRectangle(new Pen(Color.Black), r);
-                                e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
-                            }
+                            e.Graphics.DrawRectangle(new Pen(Color.Black), r);
+                            e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
                         }
                     }
                 }
@@ -425,34 +386,31 @@ namespace Annotator
                 // Currently drawing or selecting a polygon object
                 if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
                 {
-                    lock (selectedObjectLock)
+                    if (drawingNewPolygon)
                     {
-                        if (drawingNewPolygon)
+                        if (temporaryPoint.HasValue && polygonPoints.Count != 0)
                         {
-                            if (temporaryPoint.HasValue && polygonPoints.Count != 0)
-                            {
-                                polygonPoints.Add(temporaryPoint.Value);
-                                e.Graphics.DrawPolygon(pen, ((List<PointF>)polygonPoints).ToArray());
-                                polygonPoints.Remove(temporaryPoint.Value);
-                            }
+                            polygonPoints.Add(temporaryPoint.Value);
+                            e.Graphics.DrawPolygon(pen, ((List<PointF>)polygonPoints).ToArray());
+                            polygonPoints.Remove(temporaryPoint.Value);
                         }
-                        else
+                    }
+                    else
+                    {
+                        if (polygonPoints.Count != 0)
                         {
-                            if (polygonPoints.Count != 0)
-                            {
-                                e.Graphics.DrawPolygon(pen, ((List<PointF>)polygonPoints).ToArray());
-                            }
+                            e.Graphics.DrawPolygon(pen, ((List<PointF>)polygonPoints).ToArray());
+                        }
 
-                            for (int index = 0; index < selectBoxes.Count(); index++)
+                        for (int index = 0; index < selectBoxes.Count(); index++)
+                        {
+                            Rectangle r = selectBoxes[index];
+                            e.Graphics.DrawRectangle(new Pen(Color.Black), r);
+                            if (draggingSelectBoxes && index == draggingSelectBoxIndex)
                             {
-                                Rectangle r = selectBoxes[index];
-                                e.Graphics.DrawRectangle(new Pen(Color.Black), r);
-                                if (draggingSelectBoxes && index == draggingSelectBoxIndex)
-                                {
-                                    e.Graphics.FillRectangle(new SolidBrush(Color.Turquoise), r);
-                                }
-                                else { e.Graphics.FillRectangle(new SolidBrush(Color.White), r); }
+                                e.Graphics.FillRectangle(new SolidBrush(Color.Turquoise), r);
                             }
+                            else { e.Graphics.FillRectangle(new SolidBrush(Color.White), r); }
                         }
                     }
                 }
@@ -461,10 +419,9 @@ namespace Annotator
                 // Selecting a rig object
                 if (selectedObject != null && selectedObject.borderType == Object.BorderType.Others)
                 {
-                    lock (selectedObjectLock)
+                    DrawableLocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                    if (lm != null)
                     {
-                        LocationMark2D lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
-
                         selectBoxes = lm.getCornerSelectBoxes(boxSize);
 
                         foreach (Rectangle r in selectBoxes)
@@ -614,7 +571,6 @@ namespace Annotator
 
         private void invalidatePictureBoard()
         {
-            Console.WriteLine("invalidatePictureBoard");
             pictureBoard.Invalidate();
         }
     }

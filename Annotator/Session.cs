@@ -22,15 +22,16 @@ namespace Annotator
         private const string OBJECTS = "objects";
         private const string ANNOTATIONS = "annotations";
         private const string SESSION = "session";
-        
+
         public List<Event> events { get; private set; }
         public int objectCount { get; set; } = 0;          // video objects IDs
         private Dictionary<string, Object> objects;  // list of objects in videos
-        private String sessionName;     //session name
-        private String project;         //session's project 
-        private String locationFolder;  //session location folder
+        public String sessionName { get; private set; }     //session name
+        public String project { get; private set; }         //session's project 
+        public String locationFolder { get; private set; }  //session location folder
         private bool edited;            //true if session is currently edited
         private List<VideoReader> videos;
+        private List<BaseDepthReader> depthVideos;
         private List<String> filesList;
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
@@ -51,7 +52,8 @@ namespace Annotator
                 {
                     if (_sessionLength.Value != value)
                     {
-                        throw new Exception("Session length inconsistence");
+                        Console.WriteLine("Warning: Length inconsistence, original length = " + _sessionLength.Value + " ; new length = " + value);
+                        _sessionLength = value;
                     }
                 }
                 else
@@ -60,9 +62,11 @@ namespace Annotator
                 }
             }
         }
+
         public DateTime? startWriteRGB { get; set; }
         public long duration { get; set; }
         private bool loaded = false;
+        private string commonPrefix;
 
         //Constructor
         public Session(String sessionName, String projectOwner, String locationFolder)
@@ -71,20 +75,22 @@ namespace Annotator
             this.filesList = new List<String>();
             this.edited = false;
             this.videos = new List<VideoReader>();
-            
+            this.depthVideos = new List<BaseDepthReader>();
+
             this.events = new List<Event>();
             this.project = projectOwner;
             this.locationFolder = locationFolder;
             objects = new Dictionary<string, Object>();
-            //If session file list exist load files list            
-            metadataFile = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + "files.param";
-            tempMetadataFile = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + "~files.param";
-            loadSession();
+            //If session file list exist load files list
+            commonPrefix = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
+            metadataFile = commonPrefix + "files.param";
+            tempMetadataFile = commonPrefix + "~files.param";
         }
 
         internal void loadIfNotLoaded()
         {
-            if (!loaded) {
+            if (!loaded)
+            {
                 loadSession();
                 loaded = true;
             }
@@ -97,7 +103,7 @@ namespace Annotator
             bool exists = false;
             foreach (String file in filesList)
             {
-                if (file.Contains(fileName))
+                if (file == fileName)
                 {
                     exists = true;
                     break;
@@ -106,20 +112,17 @@ namespace Annotator
 
             if (!exists && !fileName.Contains("files.param"))
                 filesList.Add(fileName);
-            if (fileName.Contains(".avi"))
+            if (fileName.EndsWith(".avi"))
                 addVideo(fileName);
+            if (fileName.EndsWith(".dep"))
+                addDepth(fileName);
         }
-
-        //Get session name
-        public String getSessionName()
-        {
-            return sessionName;
-        }
+        
 
         //Add object
         public void addObject(Object o)
         {
-            
+
             //1)Check if object exists in objects list
             bool exists = false;
             if (o.id != null && objects.ContainsKey(o.id))
@@ -134,6 +137,11 @@ namespace Annotator
         public List<Object> getObjects()
         {
             return objects.Values.ToList();
+        }
+
+        public Object getObject(string objectRefId)
+        {
+            return objects[objectRefId];
         }
 
         //Save session
@@ -163,9 +171,19 @@ namespace Annotator
                     {
                         // Write files
                         writer.WriteStartElement(FILES);
-                        foreach (String file in filesList)
+                        foreach (String fileName in filesList)
                         {
-                            writer.WriteElementString(FILE, file);
+                            string tempoFileName = fileName;
+                            if (fileName.Contains(Path.DirectorySeparatorChar))
+                            {
+                                // Remove prefix
+                                if (fileName.Substring(0, commonPrefix.Length) == commonPrefix)
+                                {
+                                    tempoFileName = fileName.Substring(commonPrefix.Length);
+                                }
+                            }
+
+                            writer.WriteElementString(FILE, tempoFileName);
                         }
                         writer.WriteEndElement();
                     }
@@ -193,14 +211,18 @@ namespace Annotator
 
                     writer.WriteEndDocument();
                 }
-
+                File.SetAttributes(metadataFile, FileAttributes.Normal);
                 File.Copy(tempMetadataFile, metadataFile, true);
 
+
+                File.SetAttributes(tempMetadataFile, FileAttributes.Normal);
                 File.Delete(tempMetadataFile);
 
-                FileInfo myFile = new FileInfo(metadataFile);
-                myFile.Attributes = FileAttributes.Hidden;
-            } catch (Exception e)
+                File.SetAttributes(metadataFile, FileAttributes.Hidden);
+                //FileInfo myFile = new FileInfo(metadataFile);
+                //myFile.Attributes = FileAttributes.Hidden;
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
@@ -226,6 +248,8 @@ namespace Annotator
         public void loadSession()
         {
             CultureInfo provider = CultureInfo.CurrentCulture;
+
+            Console.WriteLine(provider);
             if (File.Exists(metadataFile))
             {
                 //Set file as hidden                
@@ -242,18 +266,21 @@ namespace Annotator
                 {
                     duration = int.Parse(xmlDocument.DocumentElement.Attributes["duration"].Value);
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     duration = 0;
                 }
 
                 try
                 {
-                    startWriteRGB = DateTime.ParseExact(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value, @"yyyy-MM-ddTHH:mm:ssss.ffffffZ", provider);
+                    startWriteRGB = DateTime.ParseExact(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value.Substring(0, xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value.Length - 1), @"yyyy-MM-ddTHH:mm:ssss.ffffff", provider);
                 }
                 catch (Exception e)
                 {
                     startWriteRGB = null;
                 }
+
+                Console.WriteLine("startWriteRGB " + startWriteRGB);
 
                 XmlNode files = xmlDocument.DocumentElement.SelectSingleNode(FILES);
 
@@ -264,6 +291,11 @@ namespace Annotator
                     if (filename.Contains(".avi"))
                     {
                         addVideo(filename);
+                    }
+
+                    if (filename.Contains(".dep"))
+                    {
+                        addDepth(filename);
                     }
                 }
 
@@ -289,6 +321,33 @@ namespace Annotator
                 return null;
             return videos[index];
         }
+
+        //Get video by filename
+        public VideoReader getVideo(String fileName)
+        {
+            foreach (VideoReader v in videos)
+            {
+                if (v.fileName.EndsWith(fileName))
+                {
+                    return v;
+                }
+            }
+            return null;
+        }
+
+        //Get depth video by filename
+        public BaseDepthReader getDepth(String fileName)
+        {
+            foreach (BaseDepthReader v in depthVideos)
+            {
+                if (v.fileName.EndsWith(fileName))
+                {
+                    return v;
+                }
+            }
+            return null;
+        }
+
         //Get video numbers
         public int videoCount()
         {
@@ -301,26 +360,80 @@ namespace Annotator
             bool exists = false;
             foreach (VideoReader v in videos)
             {
-                if (v.fileName.Contains(fileName))
+                if (v.fileName.EndsWith(fileName))
                 {
                     exists = true;
-                    break;
+                    return;
                 }
             }
-            if (!exists)
+
             {
                 VideoReader v = null;
-                if (fileName.Contains(Path.DirectorySeparatorChar)) {
-                    v = new VideoReader(fileName, 0);
-                } else
+                string fullFileName = getFullName(fileName);
+
+                if (!File.Exists(fullFileName))
                 {
-                    // Try resolve it by adding the session location
-                    v = new VideoReader(locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar + fileName, 0);
+                    Console.WriteLine("File " + fullFileName + " could not be found!!");
+                    return;
                 }
+
+                v = new VideoReader(fullFileName, 0);
+
                 videos.Add(v);
                 sessionLength = v.frameCount;
             }
         }
+
+        private string getFullName(string fileName)
+        {
+            string fullFileName = "";
+
+
+            if (fileName.Contains(Path.DirectorySeparatorChar))
+            {
+                fullFileName = fileName;
+            }
+            else
+            {
+                // Try resolve it by adding the session location
+                fullFileName = commonPrefix + fileName;
+            }
+
+            return fullFileName;
+        }
+
+        public void addDepth(String fileName)
+        {
+            Console.WriteLine(" add Depth ");
+            bool exists = false;
+            foreach (BaseDepthReader v in depthVideos)
+            {
+                Console.WriteLine(v.fileName);
+                if (v.fileName.EndsWith(fileName))
+                {
+                    exists = true;
+                    return;
+                }
+            }
+
+            Console.WriteLine(" add Depth " + fileName);
+            {
+                BaseDepthReader v = null;
+
+                string fullFileName = getFullName(fileName);
+
+                if (!File.Exists(fullFileName))
+                {
+                    Console.WriteLine("File " + fullFileName + " could not be found!!");
+                    return;
+                }
+
+                v = new BaseDepthReader(fullFileName);
+
+                depthVideos.Add(v);
+            }
+        }
+
         //Get session's project
         public String getProject()
         {
@@ -341,11 +454,9 @@ namespace Annotator
         public String[] getViews()
         {
             List<String> viewsL = new List<String>();
-            //MessageBox.Show(filesList.Count + "");
             foreach (String file in filesList)
             {
-                //MessageBox.Show(file);
-                if (file.Contains(".avi"))
+                if (file.Contains(".avi") )
                     viewsL.Add(file.Split(Path.DirectorySeparatorChar)[file.Split(Path.DirectorySeparatorChar).Length - 1]);
             }
             return viewsL.ToArray();

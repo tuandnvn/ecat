@@ -1,5 +1,4 @@
-﻿using Annotator.depth;
-using Emgu.CV;
+﻿using Emgu.CV;
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
@@ -120,24 +119,7 @@ namespace Annotator
             {
                 int recordedTimeForRgbFrame = (int)(lastWrittenRgbTime.TotalMilliseconds * (playBar.Value - 1) / (rgbPlaybackFrameNo - 1));
 
-                ushort[] vals = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
-
-                BitmapData bmapdata = depthBitmap.LockBits(
-                                         new Rectangle(0, 0, depthWidth, depthHeight),
-                                         ImageLockMode.WriteOnly,
-                                         depthBitmap.PixelFormat);
-
-                IntPtr ptr = bmapdata.Scan0;
-
-                for (int i = 0; i < depthWidth * depthHeight; i++)
-                {
-                    //Console.WriteLine((byte)(((int)vals[2 * i] << 8 + vals[2 * i + 1]) / scale));
-                    depthValuesToByte[4 * i] = depthValuesToByte[4 * i + 1] = depthValuesToByte[4 * i + 2] = (byte)(vals[i] / scale);
-                }
-
-                Marshal.Copy(depthValuesToByte, 0, ptr, depthWidth * depthHeight * 4);
-
-                depthBitmap.UnlockBits(bmapdata);
+                depthReader.readFrameAtTimeToBitmap(recordedTimeForRgbFrame, depthBitmap, depthValuesToByte, scale);
 
                 this.depthBoard.Image = depthBitmap;
             }
@@ -298,7 +280,6 @@ namespace Annotator
 
         private void addSessionOkClick(object sender, EventArgs e)
         {
-            Console.WriteLine("addSessionOkClick");
             if (main.currentSession != null)
             {
                 var localFiles = new Dictionary<string, string>();

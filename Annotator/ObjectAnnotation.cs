@@ -44,6 +44,15 @@ namespace Annotator
             drawObjectMarks();
 
             this.info.Text = "Id=" + o.id + "; Name=" + o.name;
+
+
+            if (this.o.genType == Object.GenType.MANUAL)
+            {
+                this.generate3d.Visible = true;
+            } else
+            {
+                this.generate3d.Visible = false;
+            }
         }
 
         public void drawObjectMarks()
@@ -155,7 +164,6 @@ namespace Annotator
 
         private void generate3d_Click(object sender, EventArgs e)
         {
-            main.generate3dforObject(o);
         }
 
         private void remove_Click(object sender, EventArgs e)

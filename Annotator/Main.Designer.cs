@@ -1,4 +1,6 @@
-﻿namespace Annotator
+﻿using System;
+
+namespace Annotator
 {
     partial class Main
     {
@@ -38,13 +40,14 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simpleEventDataCreateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.middleTopPanel = new System.Windows.Forms.Panel();
             this.frameTrackBar = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.videoPanel = new System.Windows.Forms.Panel();
-            this.videoBox = new System.Windows.Forms.ComboBox();
+            this.playbackFileComboBox = new System.Windows.Forms.ComboBox();
             this.tabs = new System.Windows.Forms.TabControl();
             this.annotateTab = new System.Windows.Forms.TabPage();
             this.rightCenterPanel = new System.Windows.Forms.Panel();
@@ -68,7 +71,7 @@
             this.cancelObjectBtn = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.addObjBtn = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.drawingButtonTool = new System.Windows.Forms.Panel();
             this.cursorDrawing = new System.Windows.Forms.Button();
             this.polygonDrawing = new System.Windows.Forms.Button();
             this.rectangleDrawing = new System.Windows.Forms.Button();
@@ -85,7 +88,7 @@
             this.middleBottomPanel = new System.Windows.Forms.Panel();
             this.addEventAnnotationBtn = new System.Windows.Forms.Button();
             this.recordTab = new System.Windows.Forms.TabPage();
-            this.trainTestTab = new System.Windows.Forms.TabPage();
+            //this.trainTestTab = new System.Windows.Forms.TabPage();
             this.trainingPanel1 = new Annotator.TrainingPanel();
             this.projectRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,13 +126,13 @@
             this.editObjectContextPanel.SuspendLayout();
             this.newObjectContextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.drawingButtonTool.SuspendLayout();
             this.rightBottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).BeginInit();
             this.cm3.SuspendLayout();
             this.middleBottomPanel.SuspendLayout();
             this.recordTab.SuspendLayout();
-            this.trainTestTab.SuspendLayout();
+            //this.trainTestTab.SuspendLayout();
             this.projectRightClickPanel.SuspendLayout();
             this.sessionRightClickPanel.SuspendLayout();
             this.fileRightClickPanel.SuspendLayout();
@@ -188,7 +191,9 @@
             // menu
             // 
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            newProjectToolStripMenuItem,
+            simpleEventDataCreateMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(1449, 24);
@@ -199,6 +204,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
+            this.simpleEventDataCreateMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
@@ -210,6 +216,15 @@
             this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.newProjectToolStripMenuItem.Text = "New project";
             this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
+            // 
+            // newProjectToolStripMenuItem
+            // 
+            this.simpleEventDataCreateMenuItem.Name = "simpleEventDataCreateMenuItem";
+            this.simpleEventDataCreateMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.simpleEventDataCreateMenuItem.Text = "Extract data for learning";
+            this.simpleEventDataCreateMenuItem.Click += new System.EventHandler(this.simpleEventDataCreateToolStripMenuItem_Click);
+            this.simpleEventDataCreateMenuItem.Enabled = false;
+
             // 
             // exitToolStripMenuItem
             // 
@@ -226,7 +241,7 @@
             this.middleTopPanel.Controls.Add(this.frameTrackBar);
             this.middleTopPanel.Controls.Add(this.label3);
             this.middleTopPanel.Controls.Add(this.videoPanel);
-            this.middleTopPanel.Controls.Add(this.videoBox);
+            this.middleTopPanel.Controls.Add(this.playbackFileComboBox);
             this.middleTopPanel.Location = new System.Drawing.Point(178, 5);
             this.middleTopPanel.Name = "middleTopPanel";
             this.middleTopPanel.Size = new System.Drawing.Size(921, 612);
@@ -245,7 +260,7 @@
             this.frameTrackBar.TabIndex = 3;
             this.frameTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.frameTrackBar.Value = 1;
-            this.frameTrackBar.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            this.frameTrackBar.ValueChanged += new System.EventHandler(this.frameTrackBar_ValueChanged);
             // 
             // label3
             // 
@@ -286,20 +301,20 @@
             // 
             // comboBox1
             // 
-            this.videoBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.videoBox.Enabled = false;
-            this.videoBox.FormattingEnabled = true;
-            this.videoBox.Location = new System.Drawing.Point(3, 0);
-            this.videoBox.Name = "comboBox1";
-            this.videoBox.Size = new System.Drawing.Size(88, 21);
-            this.videoBox.TabIndex = 0;
-            this.videoBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.playbackFileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.playbackFileComboBox.Enabled = false;
+            this.playbackFileComboBox.FormattingEnabled = true;
+            this.playbackFileComboBox.Location = new System.Drawing.Point(3, 0);
+            this.playbackFileComboBox.Name = "comboBox1";
+            this.playbackFileComboBox.Size = new System.Drawing.Size(88, 21);
+            this.playbackFileComboBox.TabIndex = 0;
+            this.playbackFileComboBox.SelectedIndexChanged += new System.EventHandler(this.playbackVideoComboBox_SelectedIndexChanged);
             // 
             // tabs
             // 
             this.tabs.Controls.Add(this.annotateTab);
             this.tabs.Controls.Add(this.recordTab);
-            this.tabs.Controls.Add(this.trainTestTab);
+            //this.tabs.Controls.Add(this.trainTestTab);
             this.tabs.Location = new System.Drawing.Point(0, 25);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
@@ -348,6 +363,7 @@
             this.objectProperties.Size = new System.Drawing.Size(324, 427);
             this.objectProperties.TabIndex = 0;
             this.objectProperties.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellValueChanged);
+            this.objectProperties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellContentClick);
             // 
             // PropertyName
             // 
@@ -359,7 +375,7 @@
             // 
             this.PropertyValue.HeaderText = "Property Value";
             this.PropertyValue.Name = "PropertyValue";
-            this.PropertyValue.Width = 200;
+            this.PropertyValue.Width = 190;
             // 
             // middleCenterPanel
             // 
@@ -377,7 +393,7 @@
             this.rightTopPanel.Controls.Add(this.selectObjContextPanel);
             this.rightTopPanel.Controls.Add(this.editObjectContextPanel);
             this.rightTopPanel.Controls.Add(this.newObjectContextPanel);
-            this.rightTopPanel.Controls.Add(this.panel4);
+            this.rightTopPanel.Controls.Add(this.drawingButtonTool);
             this.rightTopPanel.Location = new System.Drawing.Point(1105, 5);
             this.rightTopPanel.Name = "rightTopPanel";
             this.rightTopPanel.Size = new System.Drawing.Size(324, 174);
@@ -569,16 +585,16 @@
             // 
             // panel4
             // 
-            this.panel4.AutoScroll = true;
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.cursorDrawing);
-            this.panel4.Controls.Add(this.polygonDrawing);
-            this.panel4.Controls.Add(this.rectangleDrawing);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(318, 45);
-            this.panel4.TabIndex = 0;
+            this.drawingButtonTool.AutoScroll = true;
+            this.drawingButtonTool.BackColor = System.Drawing.Color.White;
+            this.drawingButtonTool.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.drawingButtonTool.Controls.Add(this.cursorDrawing);
+            this.drawingButtonTool.Controls.Add(this.polygonDrawing);
+            this.drawingButtonTool.Controls.Add(this.rectangleDrawing);
+            this.drawingButtonTool.Location = new System.Drawing.Point(3, 3);
+            this.drawingButtonTool.Name = "drawingButtons";
+            this.drawingButtonTool.Size = new System.Drawing.Size(318, 45);
+            this.drawingButtonTool.TabIndex = 0;
             // 
             // cursorDrawing
             // 
@@ -751,16 +767,16 @@
             this.recordTab.TabIndex = 1;
             this.recordTab.Text = "Record";
             this.recordTab.UseVisualStyleBackColor = true;
-            // 
-            // trainTestTab
-            // 
-            this.trainTestTab.Controls.Add(this.trainingPanel1);
-            this.trainTestTab.Location = new System.Drawing.Point(4, 22);
-            this.trainTestTab.Name = "trainTestTab";
-            this.trainTestTab.Size = new System.Drawing.Size(1435, 872);
-            this.trainTestTab.TabIndex = 2;
-            this.trainTestTab.Text = "Train/Test";
-            this.trainTestTab.UseVisualStyleBackColor = true;
+            //// 
+            //// trainTestTab
+            //// 
+            //this.trainTestTab.Controls.Add(this.trainingPanel1);
+            //this.trainTestTab.Location = new System.Drawing.Point(4, 22);
+            //this.trainTestTab.Name = "trainTestTab";
+            //this.trainTestTab.Size = new System.Drawing.Size(1435, 872);
+            //this.trainTestTab.TabIndex = 2;
+            //this.trainTestTab.Text = "Train/Test";
+            //this.trainTestTab.UseVisualStyleBackColor = true;
             // 
             // trainingPanel1
             // 
@@ -929,13 +945,13 @@
             this.newObjectContextPanel.ResumeLayout(false);
             this.newObjectContextPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panel4.ResumeLayout(false);
+            this.drawingButtonTool.ResumeLayout(false);
             this.rightBottomPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).EndInit();
             this.cm3.ResumeLayout(false);
             this.middleBottomPanel.ResumeLayout(false);
             this.recordTab.ResumeLayout(false);
-            this.trainTestTab.ResumeLayout(false);
+            //this.trainTestTab.ResumeLayout(false);
             this.projectRightClickPanel.ResumeLayout(false);
             this.sessionRightClickPanel.ResumeLayout(false);
             this.fileRightClickPanel.ResumeLayout(false);
@@ -944,6 +960,7 @@
             this.PerformLayout();
 
         }
+
 
         #endregion
 
@@ -962,8 +979,9 @@
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem simpleEventDataCreateMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ComboBox videoBox;
+        private System.Windows.Forms.ComboBox playbackFileComboBox;
         private System.Windows.Forms.Panel videoPanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar frameTrackBar;
@@ -984,7 +1002,7 @@
         private System.Windows.Forms.ContextMenuStrip cm3;
         private System.Windows.Forms.ToolStripMenuItem addObjRefToolStripMenuItem;
         private System.Windows.Forms.Panel rightTopPanel;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel drawingButtonTool;
         private System.Windows.Forms.Button rectangleDrawing;
         private System.Windows.Forms.Button cursorDrawing;
         private System.Windows.Forms.Button polygonDrawing;
@@ -1020,7 +1038,7 @@
         private System.Windows.Forms.ToolStripMenuItem addObjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addRigsFromFileToolStripMenuItem;
-        private System.Windows.Forms.TabPage trainTestTab;
+        //private System.Windows.Forms.TabPage trainTestTab;
         private TrainingPanel trainingPanel1;
     }
 }

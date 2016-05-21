@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Emgu.CV;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,11 @@ namespace Annotator
 {
     public partial class Main
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editSessionMenuItem_Click(object sender, EventArgs e)
         {
             //Check selected node:
@@ -18,35 +25,44 @@ namespace Annotator
             if (treeView.SelectedNode.Text[0] == '*')
             {
                 chosenSession = selectedProject.getSession(treeView.SelectedNode.Text.Substring(1));
-            } else
+            }
+            else
             {
                 chosenSession = selectedProject.getSession(treeView.SelectedNode.Text);
             }
-            
 
-            if (currentSession != null && chosenSession != null && currentSession.getSessionName() != chosenSession.getSessionName())
+            // Save current session if it is edited
+            if (currentSession != null && chosenSession != null && currentSession.sessionName != chosenSession.sessionName)
             {
                 if (currentSession.getEdited())
                 {
-                    //MessageBox.Show(checkSession.getSessionName() + checkSession.getEdited());
                     currentSession.setEdited(false);
                     treeView.BeginUpdate();
                     currentSessionNode.Text = currentSessionNode.Text.Substring(1);
                     treeView.EndUpdate();
-                    if (MessageBox.Show(("Session " + currentSession.getSessionName() + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+                    var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
                     {
-                        currentSession.saveSession();
-                    } 
+                        cleanCurrentSession();
+                    } else if (result == DialogResult.No)
+                    {
+                        cleanSessionUI();
+                    }
                 }
             }
 
+            // Set current session = chosen session
             if (chosenSession != null && !chosenSession.getEdited())
             {
                 chosenSession.setEdited(true);
                 currentSessionNode = treeView.SelectedNode;
                 currentSession = chosenSession;
+                currentSession.loadIfNotLoaded();
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
-                this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + chosenSession.getSessionName();
+
+                frameTrackBar.Value = 1;
+                this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + chosenSession.sessionName;
             }
 
             //Set comboBox:
@@ -54,66 +70,201 @@ namespace Annotator
             //MessageBox.Show(viewsList.Length + "");
             for (int i = 0; i < viewsList.Length; i++)
             {
-                videoBox.Items.Add(viewsList[i]);
+                playbackFileComboBox.Items.Add(viewsList[i]);
             }
 
-            if (videoBox.Items.Count > 0)
+            if (playbackFileComboBox.Items.Count > 0)
             {
-                videoBox.SelectedIndex = 0;
-                videoBox.Enabled = true;
+                playbackFileComboBox.SelectedIndex = 0;
+                playbackFileComboBox.Enabled = true;
                 frameTrackBar.Enabled = true;
                 addEventAnnotationBtn.Enabled = true;
                 //pictureBox1.BackgroundImage = null;
             }
         }
 
-        //Save option choosed
-        private void saveSessionMenuItem_Click(object sender, EventArgs e)
+        BaseDepthReader depthReader;
+        byte[] depthValuesToByte;
+        Bitmap depthBitmap;
+
+        private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TreeNode nodeS = treeView.SelectedNode;
-            Session s = null;
-            for (int i = 0; i < selectedProject.getSessionN(); i++)
+            string videoFilename = playbackFileComboBox.SelectedItem.ToString();
+
+            Console.WriteLine(videoFilename);
+            if (videoFilename.Contains(".avi"))
             {
-                s = selectedProject.getSession(i);
-                //MessageBox.Show(selectedProject.getSessionN() + "");
-                if (s.getEdited())
+                loadVideo(videoFilename);
+
+                if (currentVideo != null)
                 {
-                    //MessageBox.Show(currentSession.getSessionName());
-                    //Save
-                    s.saveSession();
-                    //Enable Edit
-                    TreeNode t = treeView.SelectedNode;
-                    if (t.Text.Contains("*"))
-                        t.Text = t.Text.Substring(1);
-                    s.setEdited(false);
-                    this.Text = "Project " + selectedProject.getProjectName() + " selected";
-                    clearComboBox1();
-                    pictureBoard.Image = null;
-                    clearMiddleCenterPanel();
-                    clearMidleBottomPanel();
-                    clearRightBottomPanel();
-                    startPoint = endPoint;
-                    newObjectContextPanel.Visible = false;
-                    currentVideo = null;
-                    addEventAnnotationBtn.Enabled = false;
+                    endPoint = startPoint = new Point();
+                    label3.Text = "Frame: " + frameTrackBar.Value;
+
+                    Mat m = currentVideo.getFrame(0);
+                    if (m != null)
+                    {
+                        pictureBoard.mat = m;
+                        pictureBoard.Image = pictureBoard.mat.Bitmap;
+                    }
+
+                    setLeftTopPanel();
+                }
+            }
+
+            if (videoFilename.Contains(".dep"))
+            {
+                depthReader = currentSession.getDepth(videoFilename);
+
+                if (depthReader == null) return;
+
+                if (depthValuesToByte == null)
+                {
+                    depthValuesToByte = new byte[depthReader.getWidth() * depthReader.getHeight() * 4];
+                }
+
+                if (depthBitmap == null )
+                {
+                    depthBitmap = new Bitmap(depthReader.getWidth(), depthReader.getHeight(), PixelFormat.Format32bppRgb);
+                }
+
+                depthReader.readFrameAtTimeToBitmap(0, depthBitmap, depthValuesToByte, 8000.0f / 256);
+
+                if (depthBitmap != null)
+                {
+                    pictureBoard.Image = depthBitmap;
                 }
             }
         }
 
-        public void clearMiddleCenterPanel()
+
+        private void frameTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            label3.Text = "Frame: " + frameTrackBar.Value;
+            int frameStartWithZero = frameTrackBar.Value - 1;
+            if (currentVideo != null)
+            {
+                Mat m = currentVideo.getFrame(frameStartWithZero);
+                if (m != null)
+                {
+                    pictureBoard.mat = m;
+                    pictureBoard.Image = pictureBoard.mat.Bitmap;
+                }
+                else
+                {
+                    Console.WriteLine("Could not get frame for " + frameStartWithZero);
+                }
+                runGCForImage();
+            }
+        }
+
+        private void loadVideo(string videoFilename)
+        {
+            Application.DoEvents();
+            currentVideo = currentSession.getVideo(videoFilename);
+
+            if (currentVideo != null)
+            {
+                frameTrackBar.Maximum = currentVideo.frameCount;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveSessionMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode nodeS = treeView.SelectedNode;
+            //MessageBox.Show(selectedProject.getSessionN() + "");
+            if (currentSession.getEdited())
+            {
+                cleanCurrentSession();
+            }
+
+        }
+
+        private void cleanCurrentSession()
+        {
+            currentSession.saveSession();
+            cleanSessionUI();
+        }
+
+        private void cleanSessionUI()
+        {
+            TreeNode t = treeView.SelectedNode;
+            if (t.Text.Contains("*"))
+                t.Text = t.Text.Substring(1);
+            currentSession.setEdited(false);
+            this.Text = "Project " + selectedProject.getProjectName() + " selected";
+
+            // Clean the playbackFileComboBox
+            clearPlaybackFileComboBox();
+
+            // Clean picture board frame
+            pictureBoard.Image = null;
+
+            // Clean object annotations
+            clearMiddleCenterPanel();
+
+            // Clean event annotation
+            clearMidleBottomPanel();
+
+            // Clean object properties
+            clearRightCenterPanel();
+
+            // Clean panel for annotating events
+            clearRightBottomPanel();
+
+            // Start point, end point drawn on the picture frame
+            startPoint = endPoint = new Point();
+
+            // Visible the new object panel and edit object panel
+            editObjectContextPanel.Visible = false;
+            newObjectContextPanel.Visible = false;
+            selectObjContextPanel.Visible = false;
+            
+            // Cancel select buttons in drawing button toolbox
+            foreach (Button b in drawingButtonGroup)
+            {
+                selectButtonDrawing(b, drawingButtonGroup, false);
+            }
+
+            // No object selected
+            selectedObject = null;
+
+
+            currentVideo = null;
+            addEventAnnotationBtn.Enabled = false;
+        }
+
+
+        internal void clearMiddleCenterPanel()
         {
             middleCenterPanel.Controls.Clear();
             lastObjectTrack = new Point(94, 0);
         }
 
-        public void clearMidleBottomPanel()
+        internal void clearMidleBottomPanel()
         {
             middleBottomPanel.Controls.Clear();
             middleBottomPanel.Controls.Add(addEventAnnotationBtn);
             lastAnnotation = new Point(94, 0);
         }
 
-        public void populateMiddleCenterPanel()
+        internal void clearRightCenterPanel()
+        {
+            objectProperties.Rows.Clear();
+        }
+
+        internal void clearRightBottomPanel()
+        {
+            annotationText.Text = "";
+            annoRefView.Rows.Clear();
+        }
+
+        internal void populateMiddleCenterPanel()
         {
             foreach (Object o in currentSession.getObjects())
             {
@@ -121,7 +272,7 @@ namespace Annotator
             }
         }
 
-        public void populateMiddleBottomPanel()
+        internal void populateMiddleBottomPanel()
         {
             foreach (Event ev in currentSession.events)
             {
@@ -130,12 +281,11 @@ namespace Annotator
             }
         }
 
-        public void clearRightBottomPanel()
-        {
-            annoRefView.Rows.Clear();
-        }
-
-        //"Delete" option for choosed session item
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deleteSessionMenuItem_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(item.ToString());     
@@ -164,14 +314,18 @@ namespace Annotator
             //Disable button2:
             addEventAnnotationBtn.Enabled = false;
             newObjectContextPanel.Visible = false;
-            clearComboBox1();
+            clearPlaybackFileComboBox();
             clearRightBottomPanel();
             pictureBoard.Image = null;
             startPoint = endPoint;
             currentVideo = null;
         }
 
-        //Add video to session
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addSessionMenuItem_Click(object sender, EventArgs e)
         {
             // Show the dialog and get result.
@@ -195,7 +349,7 @@ namespace Annotator
         {
             string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.getSessionName() + Path.DirectorySeparatorChar + relFileName;
+            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -214,7 +368,7 @@ namespace Annotator
                 treeView.EndUpdate();
 
                 //Add view to comboBox1:
-                videoBox.Items.Add(relFileName);
+                playbackFileComboBox.Items.Add(relFileName);
             }
             return dstFileName;
         }
@@ -228,7 +382,7 @@ namespace Annotator
         internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
         {
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.getSessionName() + Path.DirectorySeparatorChar + newRelFileName;
+            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -247,7 +401,7 @@ namespace Annotator
                 treeView.EndUpdate();
 
                 //Add view to comboBox1:
-                videoBox.Items.Add(newRelFileName);
+                playbackFileComboBox.Items.Add(newRelFileName);
             }
             return dstFileName;
         }

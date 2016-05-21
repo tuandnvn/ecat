@@ -223,7 +223,6 @@ namespace Annotator
 
             matBuffer = new Mat(colorFrameDescription.Height, colorFrameDescription.Width, Emgu.CV.CvEnum.DepthType.Cv8U, 4);
 
-
             rgbValues = new byte[colorFrameDescription.Width * colorFrameDescription.Height * 4];
 
             depthValues = new ushort[depthFrameDescription.Width * depthFrameDescription.Height];

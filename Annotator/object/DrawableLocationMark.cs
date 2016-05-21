@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Annotator
 {
-    public abstract class LocationMark2D : LocationMark
+    public abstract class DrawableLocationMark : LocationMark
     {
-        public LocationMark2D(int frameNo) : base(frameNo)
+        public DrawableLocationMark(int frameNo) : base(frameNo)
         {
         }
 
@@ -22,13 +22,13 @@ namespace Annotator
 
         public virtual Rectangle[] getCornerSelectBoxes(int boxSize) { return new Rectangle[0]; }
 
-        public virtual LocationMark2D getScaledLocationMark(double scale, Point translation)
+        public virtual DrawableLocationMark getScaledLocationMark(double scale, Point translation)
         {
             return null;
         }
     }
 
-    public class DeleteLocationMark : LocationMark2D
+    public class DeleteLocationMark : DrawableLocationMark
     {
         public DeleteLocationMark(int frameNo) : base(frameNo)
         {

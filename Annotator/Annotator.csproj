@@ -148,12 +148,14 @@
     </Compile>
     <Compile Include="depth\BaseDepthReader.cs" />
     <Compile Include="depth\BaseDepthWriter.cs" />
+    <Compile Include="depth\DepthCoordinateMapping.cs" />
     <Compile Include="depth\IDepthReader.cs" />
     <Compile Include="depth\IDepthWriter.cs" />
     <Compile Include="DrawMatches.cs" />
     <Compile Include="Event.cs" />
-    <Compile Include="GestureRecognition\HMMAlgorithm.cs" />
     <Compile Include="KinectUtils.cs" />
+    <Compile Include="learning\SimpleLearningDataGenerator.cs" />
+    <Compile Include="learning\LearningDataGenerator.cs" />
     <Compile Include="MappingUtils.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\GlyphBoxObjectRecognition.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\IObjectRecogAlgo.cs" />
@@ -162,8 +164,8 @@
     <Compile Include="object\GlyphBoxObject.cs" />
     <Compile Include="object\GlyphBoxPrototype.cs" />
     <Compile Include="object\LocationMark.cs" />
-    <Compile Include="object\GlyphBox2DLocationMark.cs" />
-    <Compile Include="object\LocationMark2D.cs" />
+    <Compile Include="object\GlyphBoxLocationMark.cs" />
+    <Compile Include="object\DrawableLocationMark.cs" />
     <Compile Include="object\ObjectMark.cs" />
     <Compile Include="object\PolygonLocationMark.cs" />
     <Compile Include="object\RectangleLocationMark.cs" />
@@ -290,6 +292,7 @@
     <Compile Include="Utils.cs" />
     <Compile Include="utils\AtomicBoolean.cs" />
     <Compile Include="VideoReader.cs" />
+    <Compile Include="VoxMLReader.cs" />
     <Compile Include="Workspace.cs" />
     <Compile Include="WorkspaceLauncher.cs">
       <SubType>Form</SubType>
@@ -416,6 +419,7 @@
     <Content Include="swscale-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="VoxML\square_table.xml" />
     <None Include="Resources\cursor-3-xxl.png" />
     <None Include="Resources\33807.png" />
     <None Include="Resources\imagetools-rectangle-icon.png" />
@@ -431,7 +435,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="pattern\" />
-    <Folder Include="TrackingAlgorithm\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.0.2\build\Accord.targets" Condition="Exists('..\packages\Accord.3.0.2\build\Accord.targets')" />
@@ -446,6 +449,13 @@
   </Target>
   <Import Project="..\packages\Accord.Video.FFMPEG.3.0.2\build\Accord.Video.FFMPEG.targets" Condition="Exists('..\packages\Accord.Video.FFMPEG.3.0.2\build\Accord.Video.FFMPEG.targets')" />
   <Import Project="..\packages\EmguCV.3.0.0\build\EmguCV.targets" Condition="Exists('..\packages\EmguCV.3.0.0\build\EmguCV.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(ProjectDir)VoxML\*.*" "$(TargetDir)VoxML\" /S /Y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if not exist "$(TargetDir)VoxML" mkdir "$(TargetDir)VoxML"
+attrib -R "$(TargetDir)VoxML" /S /D</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -55,12 +55,14 @@ namespace Annotator
                 node.BackColor = Color.White;
             }
             
-            
             selectedProjectNode.BackColor = Color.Silver;
             treeView.EndUpdate();
             selectedProject = workspace.getProject(prjName);
             selectedProject.setSelected(true);
+
+            this.simpleEventDataCreateMenuItem.Enabled = true;
             this.Text = "Project " + selectedProject.getProjectName() + " selected";
+
             foreach (TreeNode node in treeView.Nodes)
             {
                 if (node.Text != prjName)
