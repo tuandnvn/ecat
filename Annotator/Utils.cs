@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accord.Math;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -112,6 +113,18 @@ namespace Annotator
                 j = i;
             }
             return result;
+        }
+
+        /// <summary>
+        /// A method that try to fit a plane for planarPoints, than output the 
+        /// corresponding 3d points for targetPoints
+        /// </summary>
+        /// <param name="planarPoints"> A list of 3-d points that need to be fitted on a plane </param>
+        /// <param name="targetPoints"> A list of 3-d points to get the camera space points, target Points are in color space </param>
+        /// <returns></returns>
+        public static List<Point3> solvePlanar ( List<Point3> planarPoints, List<PointF> targetPoints)
+        {
+            return null;
         }
     }
 }

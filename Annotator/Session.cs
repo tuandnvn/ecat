@@ -322,6 +322,14 @@ namespace Annotator
             return videos[index];
         }
 
+        //Get depth by index
+        public BaseDepthReader getDepth(int index)
+        {
+            if (index < 0 || index >= depthVideos.Count)
+                return null;
+            return depthVideos[index];
+        }
+
         //Get video by filename
         public VideoReader getVideo(String fileName)
         {
@@ -404,7 +412,6 @@ namespace Annotator
 
         public void addDepth(String fileName)
         {
-            Console.WriteLine(" add Depth ");
             bool exists = false;
             foreach (BaseDepthReader v in depthVideos)
             {
@@ -416,7 +423,6 @@ namespace Annotator
                 }
             }
 
-            Console.WriteLine(" add Depth " + fileName);
             {
                 BaseDepthReader v = null;
 

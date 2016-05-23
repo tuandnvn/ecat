@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accord.Math;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -432,8 +433,26 @@ namespace Annotator
             }
         }
 
-        internal virtual void generate3d(BaseDepthReader depthReader)
+        // When getting back camera space point, if the value is set to -1, -1, -1
+        // it means that this value is not initiated
+        Point3 nullCameraSpacePoint = new Point3(-1, -1, -1);
+
+        internal virtual void generate3d(BaseDepthReader depthReader, DepthCoordinateMappingReader mappingHelper)
         {
+            if (depthReader == null)
+            {
+                Console.WriteLine("depthReader is null ");
+                return;
+            }
+
+            if (mappingHelper == null)
+            {
+                Console.WriteLine("mappingHelper is null ");
+                return;
+            }
+
+            
+
             switch (this.genType)
             {
                 case GenType.MANUAL:
@@ -445,26 +464,43 @@ namespace Annotator
                     if (voxMLType.HasValue)
                     {
                         inform = "Object 3d will be generated based on VoxML semantic type " + voxMLType.Value.pred;
-                    } else
+                    }
+                    else
                     {
                         inform = "There is no corresponding VoxML semantic type. The boundary of objects will be projected directly onto 3d. Do you want to continue?";
                     }
 
                     var result = System.Windows.Forms.MessageBox.Show(inform, "Generate 3D", System.Windows.Forms.MessageBoxButtons.YesNo);
 
-                    if (result == System.Windows.Forms.DialogResult.Yes )
+                    if (result == System.Windows.Forms.DialogResult.Yes)
                     {
                         foreach (var entry in objectMarks)
                         {
                             int frameNo = entry.Key;
+
+                            // Mapping depth image
+                            // At this point we use video frameNo
+                            // It's actually just an approximation for the depth frameNo
+                            Point3[,] colorSpaceToCameraSpacePoint = mappingHelper.projectDepthImageToColor(depthReader.readFrame(frameNo),
+                                depthReader.getWidth(),
+                                depthReader.getHeight(),
+                                session.getVideo(videoFile).frameWidth,
+                                session.getVideo(videoFile).frameHeight);
+
                             LocationMark objectMark = entry.Value;
 
                             List<PointF> boundary = new List<PointF>();
+                            List<Point3> boundary3d = new List<Point3>();
+
                             switch (borderType)
                             {
                                 // Rectangle will just be considered as a polygon
                                 case BorderType.Rectangle:
-                                    boundary.AddRange(((RectangleLocationMark)objectMark).boundingPolygon);
+                                    var boundingBox = ((RectangleLocationMark)objectMark).boundingBox;
+                                    boundary.Add(new PointF(boundingBox.X, boundingBox.Y));
+                                    boundary.Add(new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y));
+                                    boundary.Add(new PointF(boundingBox.X, boundingBox.Y + boundingBox.Height));
+                                    boundary.Add(new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height));
                                     break;
                                 case BorderType.Polygon:
                                     boundary.AddRange(((PolygonLocationMark)objectMark).boundingPolygon);
@@ -472,6 +508,54 @@ namespace Annotator
                                 default:
                                     return;
                             }
+
+                            // Using flat information if possible
+                            if (voxMLType.HasValue && voxMLType.Value.concavity == "Flat")
+                            {
+                                // Divide the diagonal between any two corners
+                                // into noOfInner + 1 sub-segments
+                                int noOfInner = 2;
+
+                                // Create a list of inner points for the surface
+                                // by linear combination of corners
+                                List<PointF> innerPoints = new List<PointF>();
+
+                                for (int i = 0; i < boundary.Count; i++)
+                                    for (int j = i + 1; j < boundary.Count; j++) {
+                                        var start = boundary[i];
+                                        var end = boundary[j];
+
+                                        for ( int k = 0; k < noOfInner; k ++ )
+                                        {
+                                            var p = new PointF((start.X * (k + 1) + end.X * (noOfInner - k)) / (noOfInner + 1),
+                                                (start.Y * (k + 1) + end.Y * (noOfInner - k)) / (noOfInner + 1));
+
+                                            innerPoints.Add(p);
+                                        }
+                                    }
+
+                                // Add the original corner points
+                                innerPoints.AddRange(boundary);
+
+                            } else
+                            {
+                                // Just mapping to 3d points
+                                foreach (PointF p in boundary)
+                                {
+                                    Point3 cameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, p);
+
+                                    if (cameraSpacePoint != null && !cameraSpacePoint.Equals(nullCameraSpacePoint))
+                                    {
+                                        boundary3d.Add(cameraSpacePoint);
+                                    }
+                                    else
+                                    {
+                                        boundary3d.Add(nullCameraSpacePoint);
+                                    }
+                                }
+                            }
+
+                            set3DBounding(frameNo, new PolygonLocationMark3D(frameNo, boundary3d));
                         }
                     }
 
@@ -479,6 +563,31 @@ namespace Annotator
                 default:
                     return;
             }
+
+            this.objectType = ObjectType._3D;
+        }
+
+        private Point3 getCameraSpacePoint(Point3[,] colorSpaceToCameraSpacePoint, PointF p)
+        {
+            int x = (int)p.X;
+            int y = (int)p.Y;
+
+            Point3 cameraSpacePoint = nullCameraSpacePoint;
+            foreach (var i in new int[] { 0, -1, 1, -2, 2 })
+                foreach (var j in new int[] { 0, -1, 1, -2, 2 })
+                {
+                    if (x + i >= 0 && x + i < session.getVideo(videoFile).frameWidth &&
+                        y + j >= 0 && y + j < session.getVideo(videoFile).frameHeight)
+                    {
+                        cameraSpacePoint = colorSpaceToCameraSpacePoint[x + i, y + j];
+                        if (!cameraSpacePoint.Equals(nullCameraSpacePoint))
+                        {
+                            return cameraSpacePoint;
+                        }
+                    }
+                }
+
+            return cameraSpacePoint;
         }
 
         private static void readLinks(XmlNode objectNode, Object o)

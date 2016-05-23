@@ -122,6 +122,11 @@ namespace Annotator
             return "( " + csp.X + ", " + csp.Y + ", " + csp.Z + " )";
         }
 
+        public static string ToSString(this Point3 p)
+        {
+            return "( " + p.X + ", " + p.Y + ", " + p.Z + " )";
+        }
+
         public static Point3 Add(this Point3 x, Point3 y) {
             return new Point3(x.X + y.X, x.Y + y.Y, x.Z + y.Z);
         }

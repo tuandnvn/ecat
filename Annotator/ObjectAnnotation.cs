@@ -164,6 +164,14 @@ namespace Annotator
 
         private void generate3d_Click(object sender, EventArgs e)
         {
+            // Current assumption is that the depth field is the first one
+            var depthReader = o.session.getDepth(0);
+            var mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
+
+            if (depthReader != null)
+            {
+                o.generate3d(depthReader, mappingReader);
+            }
         }
 
         private void remove_Click(object sender, EventArgs e)

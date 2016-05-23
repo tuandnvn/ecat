@@ -17,8 +17,10 @@ namespace Annotator
         public static void calculateProject( CoordinateMapper coordinateMapper, String outputFilename)
         {
             CameraSpacePoint[] spacePointBasics = new CameraSpacePoint[] {
+                new CameraSpacePoint { X = -0.1f, Y = 0.0f, Z = 1.0f },
                 new CameraSpacePoint { X = -0.7f, Y = 0.0f, Z = 1.0f },
-                new CameraSpacePoint { X = 0.0f, Y = -0.3f, Z = 1.0f },
+                new CameraSpacePoint { X = 0.0f, Y = -0.1f, Z = 1.0f },
+                new CameraSpacePoint { X = 0.0f, Y = -0.7f, Z = 1.0f },
                 new CameraSpacePoint { X = 0.7f, Y = 0.0f, Z = 1.0f },
                 new CameraSpacePoint { X = 0.35f, Y = 0.0f, Z = 1.0f },
                 new CameraSpacePoint { X = 0.0f, Y = 0.3f, Z = 1.0f },
@@ -49,6 +51,8 @@ namespace Annotator
             {
                 Console.WriteLine(t.ToSString());
             }
+
+
             Console.WriteLine("Camera space points to color space points");
             foreach (var t in spaceBasicToColor)
             {
@@ -94,6 +98,11 @@ namespace Annotator
                 foreach (var point in depthBasicToCamera)
                 {
                     Console.WriteLine(point.ToSString());
+                }
+
+                for (int i = 0; i < noOfPoints; i++)
+                {
+                    Console.WriteLine(projectDepthPixelToCameraSpacePoint(new Point3(depthBasics[i].X, depthBasics[i].Y, distance)).ToSString());
                 }
             }
 
@@ -189,6 +198,19 @@ namespace Annotator
                 Console.WriteLine(projectedA_rgb);
                 Console.WriteLine(coordinateMapper.MapDepthPointToColorSpace(new DepthSpacePoint { X = PointA.X, Y = PointA.Y }, (ushort)PointA.Z).ToSString());
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="depthPoint">depthPoint.X = pixel in X; depthPoint.Y = pixel in Y; depthPoint.Z in milimeter</param>
+        /// <returns></returns>
+        public static Point3 projectDepthPixelToCameraSpacePoint( Point3 depthPixel )
+        {
+            float x = (depthPixel.X - 262.7343f) * ( depthPixel.Z/ 1000 ) / 367.187f;
+            float y = (depthPixel.Y - 203.6235f) * (depthPixel.Z / 1000) / -369f;
+
+            return new Point3(x, y, depthPixel.Z / 1000);
         }
 
         public static System.Drawing.PointF projectedPoint(ColorSpacePoint[,] shortRange , ColorSpacePoint[,] longRange, int short_range, int long_range, Point3 p )
