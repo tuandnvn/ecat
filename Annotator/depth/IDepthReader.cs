@@ -16,6 +16,7 @@ namespace Annotator
         /// <returns></returns>
         ushort[] readFrameAtTime(int milisecondFromStart);
 
+
         /// <summary>
         /// Turn the depth frame into a bitmap to show on the screen
         /// 
