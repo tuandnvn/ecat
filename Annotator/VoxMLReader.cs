@@ -10,13 +10,13 @@ namespace Annotator
 {
     public class VoxMLReader
     {
-        public string directory { get;  }
+        public string directory { get; }
         private Dictionary<string, VoxMLType> voxMLTypes;
 
         // singleton
         private static VoxMLReader voxMLReader;
 
-        private VoxMLReader ( string directory )
+        private VoxMLReader(string directory)
         {
             this.directory = directory;
 
@@ -24,7 +24,7 @@ namespace Annotator
 
             String[] fileNames = Directory.GetFiles(directory);
 
-            foreach ( String fileName in fileNames )
+            foreach (String fileName in fileNames)
             {
                 var voxMLType = readVoxMLFile(fileName);
 
@@ -37,34 +37,37 @@ namespace Annotator
 
         public static VoxMLReader getDefaultVoxMLReader()
         {
-            if ( voxMLReader == null )
+            if (voxMLReader == null)
                 voxMLReader = new VoxMLReader("VoxML");
             return voxMLReader;
         }
 
         public VoxMLType? getVoxMLType(String pred)
         {
+            if (pred == null) return null;
             if (voxMLTypes.ContainsKey(pred))
                 return voxMLTypes[pred];
             return null;
         }
 
-        private VoxMLType? readVoxMLFile( string fileName)
+        private VoxMLType? readVoxMLFile(string fileName)
         {
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(fileName);
 
             try
             {
-                string pred = xmlDocument.SelectSingleNode("Lex").SelectSingleNode("Pred").InnerText;
-                string[] types = xmlDocument.SelectSingleNode("Lex").SelectSingleNode("Type").InnerText.Split('*');
-                string concavity = xmlDocument.SelectSingleNode("Type").SelectSingleNode("Concavity").InnerText;
+                string pred = xmlDocument.SelectSingleNode("VoxML").SelectSingleNode("Lex").SelectSingleNode("Pred").InnerText;
+                string[] types = xmlDocument.SelectSingleNode("VoxML").SelectSingleNode("Lex").SelectSingleNode("Type").InnerText.Split('*');
+                string concavity = xmlDocument.SelectSingleNode("VoxML").SelectSingleNode("Type").SelectSingleNode("Concavity").InnerText;
 
                 var voxMLType = new VoxMLType { pred = pred, types = types, concavity = concavity };
+                Console.WriteLine(voxMLType);
                 return voxMLType;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 return null;
             }
         }
@@ -75,5 +78,10 @@ namespace Annotator
         public string pred;
         public string[] types;
         public string concavity;
+
+        public override string ToString()
+        {
+            return "Pred = [" + pred + "], Types = [" + types.ToString() + "], Concavity = [" + concavity + "]";
+        }
     }
 }

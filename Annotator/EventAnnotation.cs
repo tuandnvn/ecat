@@ -180,7 +180,7 @@ namespace Annotator
 
         private void ShowToolTipMouseAt(Point location)
         {
-            string tooltip = string.Join("\n", this.ev.linkToEvents.Select( t => t.Item1 + "( " + this.ev.id + ", " + t.Item2 +  " )" ));
+            string tooltip = string.Join("\n", this.ev.linkToEvents.Select(t => t.Item1 + "( " + this.ev.id + ", " + t.Item2 + " )"));
             tt.Show(tooltip, this, location, TOOLTIP_TIME);
         }
 
@@ -192,10 +192,10 @@ namespace Annotator
                 ev.text = textAnnotation.Text;
                 selectAnnotation();
                 //Set middle_bottom panel:
-                /*
-                frm1.setStartFrameLabel(startFrame + "");
-                frm1.setEndFrameLabel(endFrame + "");
-                frm1.setTextBox1Text(textBox1.Text);*/
+
+                //mainGUI.setStartFrameLabel(startFrame + "");
+                //mainGUI.setEndFrameLabel(endFrame + "");
+                mainGUI.setAnnotationText(textAnnotation.Text);
             }
         }
 
@@ -212,8 +212,10 @@ namespace Annotator
 
         private void selectAnnotation()
         {
-            mainGUI.setAnnotationText(textAnnotation.Text);
+            // Caution: this call should be before setAnnotationText
+            // because it would clear out the textAnnotation.Text
             mainGUI.unselectAnnotations();
+            mainGUI.setAnnotationText(textAnnotation.Text);
             mainGUI.selectedEvent = this.ev;
             setSelected(true);
             selectDeco();

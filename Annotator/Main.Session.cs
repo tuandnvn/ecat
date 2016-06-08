@@ -13,6 +13,11 @@ namespace Annotator
 {
     public partial class Main
     {
+
+        BaseDepthReader depthReader;
+        byte[] depthValuesToByte;
+        Bitmap depthBitmap;
+
         /// <summary>
         /// 
         /// </summary>
@@ -45,7 +50,8 @@ namespace Annotator
                     if (result == DialogResult.Yes)
                     {
                         cleanCurrentSession();
-                    } else if (result == DialogResult.No)
+                    }
+                    else if (result == DialogResult.No)
                     {
                         cleanSessionUI();
                     }
@@ -83,17 +89,14 @@ namespace Annotator
             }
         }
 
-        BaseDepthReader depthReader;
-        byte[] depthValuesToByte;
-        Bitmap depthBitmap;
 
         private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string videoFilename = playbackFileComboBox.SelectedItem.ToString();
 
-            Console.WriteLine(videoFilename);
             if (videoFilename.Contains(".avi"))
             {
+                depthReader = null;
                 loadVideo(videoFilename);
 
                 if (currentVideo != null)
@@ -114,6 +117,7 @@ namespace Annotator
 
             if (videoFilename.Contains(".dep"))
             {
+                currentVideo = null;
                 depthReader = currentSession.getDepth(videoFilename);
 
                 if (depthReader == null) return;
@@ -123,7 +127,7 @@ namespace Annotator
                     depthValuesToByte = new byte[depthReader.getWidth() * depthReader.getHeight() * 4];
                 }
 
-                if (depthBitmap == null )
+                if (depthBitmap == null)
                 {
                     depthBitmap = new Bitmap(depthReader.getWidth(), depthReader.getHeight(), PixelFormat.Format32bppRgb);
                 }
@@ -154,6 +158,24 @@ namespace Annotator
                 {
                     Console.WriteLine("Could not get frame for " + frameStartWithZero);
                 }
+                runGCForImage();
+            }
+
+            if (depthReader != null)
+            {
+                int timeStepForFrame = (int)(currentSession.duration / currentSession.sessionLength);
+                int timeFromStart = frameStartWithZero * timeStepForFrame;
+                depthReader.readFrameAtTimeToBitmap(timeFromStart, depthBitmap, depthValuesToByte, 8000.0f / 256);
+
+                if (depthBitmap != null)
+                {
+                    pictureBoard.Image = depthBitmap;
+                }
+                else
+                {
+                    Console.WriteLine("Could not get frame for " + frameStartWithZero);
+                }
+
                 runGCForImage();
             }
         }
@@ -224,7 +246,7 @@ namespace Annotator
             editObjectContextPanel.Visible = false;
             newObjectContextPanel.Visible = false;
             selectObjContextPanel.Visible = false;
-            
+
             // Cancel select buttons in drawing button toolbox
             foreach (Button b in drawingButtonGroup)
             {

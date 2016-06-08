@@ -2,6 +2,7 @@
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -58,8 +59,8 @@ namespace Annotator
         public int height { private set; get; }
         public int shortRange { private set; get; }
         public int longRange { private set; get; }
-        public PointF[,] shortRangeMap;
-        public PointF[,] longRangeMap;
+        public System.Drawing.PointF[,] shortRangeMap;
+        public System.Drawing.PointF[,] longRangeMap;
 
         public DepthCoordinateMappingReader(String filename)
         {
@@ -82,15 +83,15 @@ namespace Annotator
                 shortRange = coordinateMappingReader.ReadInt32();
                 longRange = coordinateMappingReader.ReadInt32();
 
-                shortRangeMap = new PointF[width, height];
-                longRangeMap = new PointF[width, height];
+                shortRangeMap = new System.Drawing.PointF[width, height];
+                longRangeMap = new System.Drawing.PointF[width, height];
 
                 for (int i = 0; i < width; i++)
                     for (int j = 0; j < height; j++)
                     {
                         var x = coordinateMappingReader.ReadSingle();
                         var y = coordinateMappingReader.ReadSingle();
-                        shortRangeMap[i, j] = new PointF { X = x, Y = y };
+                        shortRangeMap[i, j] = new System.Drawing.PointF { X = x, Y = y };
                     }
 
                 for (int i = 0; i < width; i++)
@@ -98,7 +99,7 @@ namespace Annotator
                     {
                         var x = coordinateMappingReader.ReadSingle();
                         var y = coordinateMappingReader.ReadSingle();
-                        longRangeMap[i, j] = new PointF { X = x, Y = y };
+                        longRangeMap[i, j] = new System.Drawing.PointF { X = x, Y = y };
                     }
             }
 
@@ -168,19 +169,20 @@ namespace Annotator
 
                     System.Drawing.PointF colorPixelPoint = projectedPoint(depthPixel);
 
-                    int color_X = (int) colorPixelPoint.X;
-                    int color_Y = (int) colorPixelPoint.Y;
+                    int color_X = (int)colorPixelPoint.X;
+                    int color_Y = (int)colorPixelPoint.Y;
 
                     if (color_X >= 0 && color_X < colorWidth && color_Y >= 0 && color_Y < colorHeight)
                     {
-                        if ( ! result[color_X, color_Y].Equals(initiate) )
+                        if (!result[color_X, color_Y].Equals(initiate))
                         {
                             // Replace the current one with the one closer to the camera
-                            if ( result[color_X, color_Y].Z > cameraSpacePoint.Z )
+                            if (result[color_X, color_Y].Z > cameraSpacePoint.Z)
                             {
                                 result[color_X, color_Y] = cameraSpacePoint;
                             }
-                        } else
+                        }
+                        else
                         {
                             result[color_X, color_Y] = cameraSpacePoint;
                         }

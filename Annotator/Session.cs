@@ -117,7 +117,7 @@ namespace Annotator
             if (fileName.EndsWith(".dep"))
                 addDepth(fileName);
         }
-        
+
 
         //Add object
         public void addObject(Object o)
@@ -462,7 +462,7 @@ namespace Annotator
             List<String> viewsL = new List<String>();
             foreach (String file in filesList)
             {
-                if (file.Contains(".avi") )
+                if (file.Contains(".avi") || file.Contains(".dep"))
                     viewsL.Add(file.Split(Path.DirectorySeparatorChar)[file.Split(Path.DirectorySeparatorChar).Length - 1]);
             }
             return viewsL.ToArray();

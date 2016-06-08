@@ -437,21 +437,25 @@ namespace Annotator
         // it means that this value is not initiated
         Point3 nullCameraSpacePoint = new Point3(-1, -1, -1);
 
-        internal virtual void generate3d(BaseDepthReader depthReader, DepthCoordinateMappingReader mappingHelper)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="depthReader"></param>
+        /// <param name="mappingHelper"></param>
+        /// <returns> If the object is 3d-generated </returns>
+        internal virtual bool generate3d(BaseDepthReader depthReader, DepthCoordinateMappingReader mappingHelper)
         {
             if (depthReader == null)
             {
                 Console.WriteLine("depthReader is null ");
-                return;
+                return false;
             }
 
             if (mappingHelper == null)
             {
                 Console.WriteLine("mappingHelper is null ");
-                return;
+                return false;
             }
-
-            
 
             switch (this.genType)
             {
@@ -506,38 +510,109 @@ namespace Annotator
                                     boundary.AddRange(((PolygonLocationMark)objectMark).boundingPolygon);
                                     break;
                                 default:
-                                    return;
+                                    return false;
                             }
 
                             // Using flat information if possible
                             if (voxMLType.HasValue && voxMLType.Value.concavity == "Flat")
                             {
+                                // First algorithm : has completed
+                                // Using the majority of points to infer the exact locations 
+                                // of corner points
+
                                 // Divide the diagonal between any two corners
                                 // into noOfInner + 1 sub-segments
-                                int noOfInner = 2;
+                                // int noOfInner = 2;
 
                                 // Create a list of inner points for the surface
                                 // by linear combination of corners
-                                List<PointF> innerPoints = new List<PointF>();
+                                //List<PointF> innerPoints = new List<PointF>();
 
-                                for (int i = 0; i < boundary.Count; i++)
-                                    for (int j = i + 1; j < boundary.Count; j++) {
-                                        var start = boundary[i];
-                                        var end = boundary[j];
+                                //for (int i = 0; i < boundary.Count; i++)
+                                //    for (int j = i + 1; j < boundary.Count; j++) {
+                                //        var start = boundary[i];
+                                //        var end = boundary[j];
 
-                                        for ( int k = 0; k < noOfInner; k ++ )
+                                //        for ( int k = 0; k < noOfInner; k ++ )
+                                //        {
+                                //            var p = new PointF((start.X * (k + 1) + end.X * (noOfInner - k)) / (noOfInner + 1),
+                                //                (start.Y * (k + 1) + end.Y * (noOfInner - k)) / (noOfInner + 1));
+
+                                //            innerPoints.Add(p);
+                                //        }
+                                //    }
+
+                                //// Add the original corner points
+                                //innerPoints.AddRange(boundary);
+
+                                int tryDivide = 10;
+                                // Second algorithm, work only if one corner point is retrievable
+                                PointF anchorCorner = new PointF();
+                                Point3 anchorPoint = nullCameraSpacePoint;
+
+                                foreach (PointF p in boundary)
+                                {
+                                    Point3 cameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, p);
+
+                                    if (cameraSpacePoint != null && !cameraSpacePoint.Equals(nullCameraSpacePoint))
+                                    {
+                                        anchorCorner = p;
+                                        anchorPoint = cameraSpacePoint;
+                                        break;
+                                    }
+                                }
+
+                                if (!anchorPoint.Equals(nullCameraSpacePoint))
+                                {
+                                    foreach (PointF corner in boundary)
+                                    {
+                                        Point3 cameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, corner);
+
+                                        // If point p is out of the depth view 
+                                        if (cameraSpacePoint.Equals(nullCameraSpacePoint))
                                         {
-                                            var p = new PointF((start.X * (k + 1) + end.X * (noOfInner - k)) / (noOfInner + 1),
-                                                (start.Y * (k + 1) + end.Y * (noOfInner - k)) / (noOfInner + 1));
+                                            var start = anchorCorner;
+                                            var end = corner;
+                                            var added = false;
 
-                                            innerPoints.Add(p);
+                                            // For each value of k, try to get the point 
+                                            // between anchorCorner and corner
+                                            // that divide the segment into 1 andk k - 1
+                                            for (int k = 2; k < tryDivide; k++)
+                                            {
+                                                var p = new PointF((start.X + end.X * (k - 1)) / k,
+                                                   (start.Y + end.Y * (k - 1)) / k);
+
+                                                Point3 middleCameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, p);
+
+                                                if (middleCameraSpacePoint != null && !middleCameraSpacePoint.Equals(nullCameraSpacePoint))
+                                                {
+                                                    var inferred_p = new Point3()
+                                                    {
+                                                        X = anchorPoint.X + (middleCameraSpacePoint.X - anchorPoint.X) * k,
+                                                        Y = anchorPoint.Y + (middleCameraSpacePoint.Y - anchorPoint.Y) * k,
+                                                        Z = anchorPoint.Z + (middleCameraSpacePoint.Z - anchorPoint.Z) * k,
+                                                    };
+                                                    boundary3d.Add(inferred_p);
+                                                    added = true;
+                                                    break;
+                                                }
+                                            }
+
+                                            // If that doesn't work
+                                            if (!added)
+                                            {
+                                                boundary3d.Add(nullCameraSpacePoint);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            boundary3d.Add(cameraSpacePoint);
                                         }
                                     }
-
-                                // Add the original corner points
-                                innerPoints.AddRange(boundary);
-
-                            } else
+                                }
+                            }
+                            else
                             {
                                 // Just mapping to 3d points
                                 foreach (PointF p in boundary)
@@ -561,10 +636,11 @@ namespace Annotator
 
                     break;
                 default:
-                    return;
+                    return false;
             }
 
             this.objectType = ObjectType._3D;
+            return true;
         }
 
         private Point3 getCameraSpacePoint(Point3[,] colorSpaceToCameraSpacePoint, PointF p)

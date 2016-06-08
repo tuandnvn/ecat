@@ -20,7 +20,9 @@ namespace Annotator
 
         public void setAnnotationText(String txt)
         {
+            Console.WriteLine("setAnnotationText " + txt);
             annotationText.Text = txt;
+            this.Invalidate();
         }
 
         //Add annotation 
@@ -50,6 +52,8 @@ namespace Annotator
             }
 
             lastAnnotation.Y -= annotation.Height + 5;
+
+            annoRefView.Rows.Clear();
             this.Invalidate();
         }
 
