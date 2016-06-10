@@ -86,15 +86,24 @@ namespace Annotator
                 frameTrackBar.Enabled = true;
                 addEventAnnotationBtn.Enabled = true;
                 //pictureBox1.BackgroundImage = null;
+
+                // All toolstrips of file inside session are enables
+                toggleFileToolStripsOfSession(true);
             }
         }
 
+        private void toggleFileToolStripsOfSession(bool value)
+        {
+            addObjectToolStripMenuItem.Enabled = value;
+            addRigsFromFileToolStripMenuItem.Enabled = value;
+            removeToolStripMenuItem.Enabled = value;
+        }
 
         private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string videoFilename = playbackFileComboBox.SelectedItem.ToString();
 
-            if (videoFilename.Contains(".avi"))
+            if (videoFilename.isVideoFile())
             {
                 depthReader = null;
                 loadVideo(videoFilename);
@@ -115,7 +124,7 @@ namespace Annotator
                 }
             }
 
-            if (videoFilename.Contains(".dep"))
+            if (videoFilename.isDepthFile())
             {
                 currentVideo = null;
                 depthReader = currentSession.getDepth(videoFilename);
@@ -205,6 +214,7 @@ namespace Annotator
                 cleanCurrentSession();
             }
 
+            toggleFileToolStripsOfSession(false);
         }
 
         private void cleanCurrentSession()
@@ -348,7 +358,7 @@ namespace Annotator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void addSessionMenuItem_Click(object sender, EventArgs e)
+        private void addFileToSessionMenuItem_Click(object sender, EventArgs e)
         {
             // Show the dialog and get result.
             DialogResult result = openFileDialog.ShowDialog();
@@ -360,6 +370,34 @@ namespace Annotator
                     copyFileIntoLocalSession(fullFileName);
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void refreshSessionMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentSession == null)
+            { return; }
+
+            //Check files in current Session folder
+            String[] files = Directory.GetFiles(workspace.getLocationFolder() + Path.DirectorySeparatorChar + 
+                currentSession.getProject() + Path.DirectorySeparatorChar + currentSession.sessionName );
+
+            TreeNode[] arrayFiles = new TreeNode[files.Length];
+            for (int j = 0; j < arrayFiles.Length; j++)
+            {
+                arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
+                arrayFiles[j].ImageIndex = 2;
+                arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
+            }
+
+            treeView.BeginUpdate();
+            currentSessionNode.Nodes.Clear();
+            currentSessionNode.Nodes.AddRange(arrayFiles);
+            treeView.EndUpdate();
         }
 
         /// <summary>

@@ -29,10 +29,12 @@ namespace Annotator
         private bool drawingNewPolygon = false;
         private bool editingPolygon = false;            // (drawingNewPolygon, editingPolygon) = ( true, false ) when you're keep drawing the polygon;
                                                         // = (false, true)  when you're done drawing, editing the location of the newly created polygon
-
+                                                        // = (false, false) when you're added the polygon
+        private bool addPolygonPoint = false;
+        
         private Point? temporaryPoint; // When the mouse is moving, temporary point hold the current location of cursor, to suggest the shape of the polygon
 
-        Rectangle[] selectBoxes;
+        List<Rectangle> selectBoxes;
 
         // Editing bounding at a certain frame
         private bool editingAtAFrame = false;
@@ -51,14 +53,15 @@ namespace Annotator
         //Start drawing selection rectangle
         private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
         {
-            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+            if (drawingButtonSelected[rectangleDrawing] ||
+                (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
             {
                 if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
                 {
                     // If mouse down click on resize select boxes
-                    if (selectBoxes != null && selectBoxes.Length != 0)
+                    if (selectBoxes != null && selectBoxes.Count != 0)
                     {
-                        for (int i = 0; i < selectBoxes.Length; i++)
+                        for (int i = 0; i < selectBoxes.Count; i++)
                         {
                             Rectangle r = selectBoxes[i];
                             if (r.Contains(e.Location))
@@ -78,22 +81,26 @@ namespace Annotator
                 }
             }
 
-            if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+            if (drawingButtonSelected[polygonDrawing] ||   // Drawing mode 
+                (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)) // Editing mode
             {
                 if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
                 {
                     if (editingPolygon)
                     {
-                        // If mouse down click on resize select boxes
+                        // ----------------------------------
+                        // ---- Handle dragging select boxes
+                        // If mouse down click on select boxes
                         if (draggingSelectBoxes)
                         {
                             draggingSelectBoxes = false;
                             invalidatePictureBoard();
+                            return;
                         }
                         else {
-                            if (selectBoxes != null && selectBoxes.Length != 0)
+                            if (selectBoxes != null && selectBoxes.Count != 0)
                             {
-                                for (int i = 0; i < selectBoxes.Length; i++)
+                                for (int i = 0; i < selectBoxes.Count; i++)
                                 {
                                     Rectangle r = selectBoxes[i];
                                     if (r.Contains(e.Location))
@@ -105,6 +112,32 @@ namespace Annotator
                                 }
                             }
                         }
+
+
+                        if (addPolygonPoint)
+                        {
+                            double minDistance = double.MaxValue;
+                            int minPos = -1;
+                            for (int i = 0; i < polygonPoints.Count; i++)
+                            {
+                                double distance = Math.Pow(polygonPoints[i].X - e.Location.X, 2) + Math.Pow(polygonPoints[i].Y - e.Location.Y, 2);
+                                if (minDistance > distance)
+                                {
+                                    minDistance = distance;
+                                    minPos = i;
+                                }
+                            }
+
+                            draggingSelectBoxIndex = minPos + 1;
+                            polygonPoints.Insert(draggingSelectBoxIndex, e.Location);
+                            selectBoxes.Insert(draggingSelectBoxIndex, new Rectangle(e.Location.X - (boxSize - 1) / 2, e.Location.Y - (boxSize - 1) / 2, boxSize, boxSize));
+                            draggingSelectBoxes = true;
+                            addPolygonPoint = false;
+
+                            this.Cursor = Cursors.Default;
+                            invalidatePictureBoard();
+                            return;
+                        }
                     }
                     else
                     {
@@ -112,6 +145,9 @@ namespace Annotator
                         polygonPoints.Add(e.Location);
                     }
                 }
+
+                // Allow edit the polygon just have been drawn
+                // Right click after drawing polygon
                 if (e.Button == System.Windows.Forms.MouseButtons.Right && currentVideo != null && drawingNewPolygon)
                 {
                     drawingNewPolygon = false;
@@ -123,7 +159,7 @@ namespace Annotator
                     {
                         listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
                     }
-                    selectBoxes = listOfSelectBox.ToArray();
+                    selectBoxes = listOfSelectBox;
                     invalidatePictureBoard();
                 }
             }
@@ -133,6 +169,7 @@ namespace Annotator
             {
                 whenCursorButtonAndMouseDown(e);
             }
+
         }
 
         private void pictureBoard_MouseMove(object sender, MouseEventArgs e)
@@ -331,7 +368,7 @@ namespace Annotator
                                     {
                                         listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
                                     }
-                                    selectBoxes = listOfSelectBox.ToArray();
+                                    selectBoxes = listOfSelectBox;
                                     break;
                             }
                         }
@@ -342,11 +379,11 @@ namespace Annotator
                                 case Object.BorderType.Rectangle:
                                     startPoint = new Point();
                                     endPoint = new Point();
-                                    selectBoxes = new Rectangle[0] { };
+                                    selectBoxes = new List<Rectangle>();
                                     break;
                                 case Object.BorderType.Polygon:
                                     polygonPoints = new List<PointF>();
-                                    selectBoxes = new Rectangle[0] { };
+                                    selectBoxes = new List<Rectangle>();
                                     break;
                             }
                         }
@@ -443,83 +480,27 @@ namespace Annotator
         }
 
 
-        private void cancelObjectBtn_Click(object sender, EventArgs e)
+        private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {
-            cancelDrawing();
-        }
 
-        private void cancelDrawing()
-        {
-            newObjectContextPanel.Visible = false;
-            if (drawingButtonSelected[rectangleDrawing])
+            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon && editingAtAFrame && draggingSelectBoxes)
             {
-                startPoint = new Point();
-                endPoint = new Point();
-                drawingNewRectangle = false;
+                if (e.KeyCode == Keys.Delete)
+                {
+                    polygonPoints.RemoveAt(draggingSelectBoxIndex);
+                    selectBoxes.RemoveAt(draggingSelectBoxIndex);
+                    draggingSelectBoxes = false;
+                    invalidatePictureBoard();
+                }
             }
 
-            if (drawingButtonSelected[polygonDrawing])
+            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon && editingAtAFrame && e.KeyCode == Keys.Insert)
             {
-                polygonPoints = new List<PointF>();
-                drawingNewPolygon = editingPolygon = false;
-            }
-            draggingSelectBoxes = false;
-            selectBoxes = new Rectangle[] { };
-            invalidatePictureBoard();
-        }
-
-        //Choose bounding box color
-        private void chooseColorBtn_Click(object sender, EventArgs e)
-        {
-            // Show the color dialog.
-            DialogResult result = colorDialog1.ShowDialog();
-            // See if user pressed ok.
-            if (result == DialogResult.OK)
-            {
-                // Set form background to the selected color.
-                boundingColor = colorDialog1.Color;
+                //Cursor.Current = Cursors.Cross;
+                this.Cursor = Cursors.Cross;
+                addPolygonPoint = true;
                 invalidatePictureBoard();
             }
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            boundingBorder = (int)numericUpDown1.Value;
-            invalidatePictureBoard();
-        }
-
-        //Add object to the video
-        private void addObjBtn_Click(object sender, EventArgs e)
-        {
-            var linear = getLinearTransform();
-            Object objectToAdd = null;
-            if (drawingButtonSelected[rectangleDrawing])
-            {
-                var relFileName = currentVideo.fileName.Split(Path.DirectorySeparatorChar)[currentVideo.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
-                objectToAdd = new Object(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, relFileName);
-                objectToAdd.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
-                startPoint = new Point();
-                endPoint = new Point();
-            }
-
-            if (drawingButtonSelected[polygonDrawing])
-            {
-                var relFileName = currentVideo.fileName.Split(Path.DirectorySeparatorChar)[currentVideo.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
-                objectToAdd = new Object(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, relFileName);
-                objectToAdd.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
-                polygonPoints = new List<PointF>();
-            }
-
-            if (objectToAdd != null)
-            {
-                currentSession.addObject(objectToAdd);
-                newObjectContextPanel.Visible = false;
-                selectBoxes = new Rectangle[] { };
-                invalidatePictureBoard();
-            }
-
-            clearMiddleCenterPanel();
-            populateMiddleCenterPanel();
         }
 
         private Tuple<double, Point> getLinearTransform()
@@ -575,7 +556,7 @@ namespace Annotator
             newObjectContextPanel.Visible = false;
             selectObjContextPanel.Visible = false;
             this.clearInformation();
-            selectBoxes = new Rectangle[] { };
+            selectBoxes = new List<Rectangle>();
             invalidatePictureBoard();
         }
 

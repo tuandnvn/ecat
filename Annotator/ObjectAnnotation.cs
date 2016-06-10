@@ -121,6 +121,8 @@ namespace Annotator
         {
             var mark = (RectangleShapeWithFrame)sender;
             ShowToolTipMouseAt(mark.frameNo);
+
+            main.setTrackbarLocation(mark.frameNo);
         }
 
         private void Mark_MouseClick(object sender, MouseEventArgs e)

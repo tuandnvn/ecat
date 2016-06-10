@@ -20,7 +20,7 @@ namespace Annotator
 
         public virtual void drawOnGraphics(Graphics g, Pen p) { }
 
-        public virtual Rectangle[] getCornerSelectBoxes(int boxSize) { return new Rectangle[0]; }
+        public virtual List<Rectangle> getCornerSelectBoxes(int boxSize) { return new List<Rectangle>(); }
 
         public virtual DrawableLocationMark getScaledLocationMark(double scale, Point translation)
         {

@@ -113,6 +113,28 @@ namespace Annotator
             object3DMarks[frameNumber] = locationMark;
         }
 
+        public void setCopyBounding(int frameNumber)
+        {
+            int first = objectMarks.Keys.FirstOrDefault(x => x > frameNumber);
+
+            if (first > 0)
+            {
+                if (objectMarks[first].GetType() == typeof(RectangleLocationMark))
+                {
+                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[first]).boundingBox );
+
+                    objectMarks[frameNumber] = ob;
+                }
+
+                if (objectMarks[first].GetType() == typeof(PolygonLocationMark))
+                {
+                    var ob = new PolygonLocationMark(frameNumber, ((PolygonLocationMark)objectMarks[first]).boundingPolygon );
+
+                    objectMarks[frameNumber] = ob;
+                }
+            }
+        }
+
         public void setBounding(int frameNumber, Rectangle boundingBox, double scale, Point translation)
         {
             Rectangle inverseScaleBoundingBox = boundingBox.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
@@ -156,6 +178,16 @@ namespace Annotator
             {
                 objectMarks.Remove(first);
             }
+        }
+
+        public void deleteMarker(int frameNumber)
+        {
+            objectMarks.Remove(frameNumber);
+        }
+
+        public bool hasMarkerAt(int frameNumber)
+        {
+            return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
         public void setSpatialLink(int frameNumber, string objectId, bool qualified, SpatialLinkMark.SpatialLinkType linkType)

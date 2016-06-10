@@ -156,6 +156,12 @@
     <Compile Include="KinectUtils.cs" />
     <Compile Include="learning\SimpleLearningDataGenerator.cs" />
     <Compile Include="learning\LearningDataGenerator.cs" />
+    <Compile Include="Main.Drawing.NewObjectPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.File.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MappingUtils.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\GlyphBoxObjectRecognition.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\IObjectRecogAlgo.cs" />

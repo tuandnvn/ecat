@@ -37,9 +37,9 @@ namespace Annotator
             g.DrawRig(p, rigFigure);
         }
 
-        public override Rectangle[] getCornerSelectBoxes(int boxSize)
+        public override List<Rectangle> getCornerSelectBoxes(int boxSize)
         {
-            if (typeof(T) != typeof(Point) && typeof(T) != typeof(PointF)) return new Rectangle[0];
+            if (typeof(T) != typeof(Point) && typeof(T) != typeof(PointF)) return new List<Rectangle>();
 
             List<string> markedJointNames = new List<string>() { "head", "hand" };
             List<Rectangle> selectBoxes = new List<Rectangle>();
@@ -54,7 +54,7 @@ namespace Annotator
                         break;
                     }
             }
-            return selectBoxes.ToArray();
+            return selectBoxes;
         }
 
         public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)

@@ -36,7 +36,8 @@ namespace Annotator
 
         public override void drawOnGraphics(Graphics g, Pen p)
         {
-            g.DrawPolygon(p, boundingPolygon.ToArray());
+            if (boundingPolygon.Count >= 2)
+                g.DrawPolygon(p, boundingPolygon.ToArray());
         }
 
         public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)

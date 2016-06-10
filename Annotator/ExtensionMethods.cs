@@ -47,7 +47,7 @@ namespace Annotator
         }
 
 
-        public static Rectangle[] getCornerSelectBoxes(this Rectangle boundingBox, int boxSize)
+        public static List<Rectangle> getCornerSelectBoxes(this Rectangle boundingBox, int boxSize)
         {
             int lowerX = boundingBox.X;
             int lowerY = boundingBox.Y;
@@ -64,7 +64,7 @@ namespace Annotator
                                                         new Rectangle(higherX - (boxSize - 1)/2, (lowerY + higherY)/2 - (boxSize - 1)/2,boxSize,boxSize),
                                                         new Rectangle(boundingBox.getCenter().X, boundingBox.getCenter().Y,boxSize,boxSize)
             };
-            return selectBoxes;
+            return selectBoxes.ToList();
         }
 
         public static void DrawRig<T>(this Graphics graphics, Pen p, RigFigure<T> rigFigure)

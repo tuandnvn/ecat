@@ -63,6 +63,7 @@ namespace Annotator
             this.editObjectContextPanel = new System.Windows.Forms.Panel();
             this.addSpatialBtn = new System.Windows.Forms.Button();
             this.delAtFrameBtn = new System.Windows.Forms.Button();
+            this.delMarkerBtn = new System.Windows.Forms.Button();
             this.cancelEditObjBtn = new System.Windows.Forms.Button();
             this.addLocationBtn = new System.Windows.Forms.Button();
             this.newObjectContextPanel = new System.Windows.Forms.Panel();
@@ -100,9 +101,10 @@ namespace Annotator
             this.saveSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.fileRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRigsFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -256,7 +258,7 @@ namespace Annotator
             this.frameTrackBar.Maximum = 100;
             this.frameTrackBar.Minimum = 1;
             this.frameTrackBar.Name = "frameTrackBar";
-            this.frameTrackBar.Size = new System.Drawing.Size(820, 45);
+            this.frameTrackBar.Size = new System.Drawing.Size(800, 45);
             this.frameTrackBar.TabIndex = 3;
             this.frameTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.frameTrackBar.Value = 1;
@@ -298,7 +300,9 @@ namespace Annotator
             this.pictureBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseDown);
             this.pictureBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseMove);
             this.pictureBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseUp);
-            // 
+
+            this.KeyPreview = true;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(Main_KeyDown);
             // comboBox1
             // 
             this.playbackFileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -450,46 +454,14 @@ namespace Annotator
             this.editObjectContextPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editObjectContextPanel.Controls.Add(this.addSpatialBtn);
             this.editObjectContextPanel.Controls.Add(this.delAtFrameBtn);
+            this.editObjectContextPanel.Controls.Add(this.delMarkerBtn);
             this.editObjectContextPanel.Controls.Add(this.cancelEditObjBtn);
             this.editObjectContextPanel.Controls.Add(this.addLocationBtn);
             this.editObjectContextPanel.Location = new System.Drawing.Point(93, 50);
             this.editObjectContextPanel.Name = "editObjectContextPanel";
-            this.editObjectContextPanel.Size = new System.Drawing.Size(87, 85);
+            this.editObjectContextPanel.Size = new System.Drawing.Size(87, 106);
             this.editObjectContextPanel.TabIndex = 11;
             this.editObjectContextPanel.Visible = false;
-            // 
-            // addSpatialBtn
-            // 
-            this.addSpatialBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addSpatialBtn.Location = new System.Drawing.Point(-1, 41);
-            this.addSpatialBtn.Name = "addSpatialBtn";
-            this.addSpatialBtn.Size = new System.Drawing.Size(87, 22);
-            this.addSpatialBtn.TabIndex = 9;
-            this.addSpatialBtn.Text = "Spatial link";
-            this.addSpatialBtn.UseVisualStyleBackColor = true;
-            this.addSpatialBtn.Click += new System.EventHandler(this.addSpatialBtn_Click);
-            // 
-            // delAtFrameBtn
-            // 
-            this.delAtFrameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.delAtFrameBtn.Location = new System.Drawing.Point(-1, 20);
-            this.delAtFrameBtn.Name = "delAtFrameBtn";
-            this.delAtFrameBtn.Size = new System.Drawing.Size(87, 22);
-            this.delAtFrameBtn.TabIndex = 8;
-            this.delAtFrameBtn.Text = "Delete at frame";
-            this.delAtFrameBtn.UseVisualStyleBackColor = true;
-            this.delAtFrameBtn.Click += new System.EventHandler(this.delAtFrameBtn_Click);
-            // 
-            // cancelEditObjBtn
-            // 
-            this.cancelEditObjBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cancelEditObjBtn.Location = new System.Drawing.Point(-1, 62);
-            this.cancelEditObjBtn.Name = "cancelEditObjBtn";
-            this.cancelEditObjBtn.Size = new System.Drawing.Size(87, 22);
-            this.cancelEditObjBtn.TabIndex = 6;
-            this.cancelEditObjBtn.Text = "Cancel";
-            this.cancelEditObjBtn.UseVisualStyleBackColor = true;
-            this.cancelEditObjBtn.Click += new System.EventHandler(this.cancelEditObjBtn_Click);
             // 
             // addLocationBtn
             // 
@@ -500,8 +472,59 @@ namespace Annotator
             this.addLocationBtn.Size = new System.Drawing.Size(87, 22);
             this.addLocationBtn.TabIndex = 5;
             this.addLocationBtn.Text = "Add location";
+            this.toolTip.SetToolTip(this.addLocationBtn, "Add a location marker at this frame");
             this.addLocationBtn.UseVisualStyleBackColor = true;
             this.addLocationBtn.Click += new System.EventHandler(this.addLocationBtn_Click);
+            // 
+            // delAtFrameBtn
+            // 
+            this.delAtFrameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delAtFrameBtn.Location = new System.Drawing.Point(-1, 20);
+            this.delAtFrameBtn.Name = "delAtFrameBtn";
+            this.delAtFrameBtn.Size = new System.Drawing.Size(87, 22);
+            this.delAtFrameBtn.TabIndex = 8;
+            this.delAtFrameBtn.Text = "Delete at frame";
+            this.delAtFrameBtn.UseVisualStyleBackColor = true;
+            this.toolTip.SetToolTip(this.delAtFrameBtn, "Add a deletion marker at this frame when the object disappear on the screen");
+            this.delAtFrameBtn.Click += new System.EventHandler(this.delAtFrameBtn_Click);
+            // 
+            // delMarkerBtn
+            // 
+            this.delMarkerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delMarkerBtn.Location = new System.Drawing.Point(-1, 41);
+            this.delMarkerBtn.Name = "delMarkerBtn";
+            this.delMarkerBtn.Size = new System.Drawing.Size(87, 22);
+            this.delMarkerBtn.TabIndex = 9;
+            this.delMarkerBtn.Text = "Delete marker";
+            this.delMarkerBtn.UseVisualStyleBackColor = true;
+            this.delMarkerBtn.Enabled = false;
+            this.toolTip.SetToolTip(this.delMarkerBtn, "Delete the marker at this point");
+            this.delMarkerBtn.Click += new System.EventHandler(this.delMarkerBtn_Click);
+            // 
+            // addSpatialBtn
+            // 
+            this.addSpatialBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addSpatialBtn.Location = new System.Drawing.Point(-1, 62);
+            this.addSpatialBtn.Name = "addSpatialBtn";
+            this.addSpatialBtn.Size = new System.Drawing.Size(87, 22);
+            this.addSpatialBtn.TabIndex = 10;
+            this.addSpatialBtn.Text = "Spatial link";
+            this.addSpatialBtn.UseVisualStyleBackColor = true;
+            this.toolTip.SetToolTip(this.addSpatialBtn, "Link the object spatially to another object");
+            this.addSpatialBtn.Click += new System.EventHandler(this.addSpatialBtn_Click);
+            // 
+            // cancelEditObjBtn
+            // 
+            this.cancelEditObjBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cancelEditObjBtn.Location = new System.Drawing.Point(-1, 83);
+            this.cancelEditObjBtn.Name = "cancelEditObjBtn";
+            this.cancelEditObjBtn.Size = new System.Drawing.Size(87, 22);
+            this.cancelEditObjBtn.TabIndex = 11;
+            this.cancelEditObjBtn.Text = "Cancel";
+            this.cancelEditObjBtn.UseVisualStyleBackColor = true;
+            this.toolTip.SetToolTip(this.cancelEditObjBtn, "Cancel editing at this frame");
+            this.cancelEditObjBtn.Click += new System.EventHandler(this.cancelEditObjBtn_Click);
+            
             // 
             // newObjectContextPanel
             // 
@@ -560,6 +583,7 @@ namespace Annotator
             this.cancelObjectBtn.TabIndex = 6;
             this.cancelObjectBtn.Text = "Cancel";
             this.cancelObjectBtn.UseVisualStyleBackColor = true;
+            this.toolTip.SetToolTip(this.cancelObjectBtn, "Deselect object");
             this.cancelObjectBtn.Click += new System.EventHandler(this.cancelObjectBtn_Click);
             // 
             // label18
@@ -581,6 +605,7 @@ namespace Annotator
             this.addObjBtn.TabIndex = 5;
             this.addObjBtn.Text = "Add object";
             this.addObjBtn.UseVisualStyleBackColor = true;
+            this.toolTip.SetToolTip(this.addObjBtn, "Add object on the draw");
             this.addObjBtn.Click += new System.EventHandler(this.addObjBtn_Click);
             // 
             // panel4
@@ -605,7 +630,7 @@ namespace Annotator
             this.cursorDrawing.Name = "cursorDrawing";
             this.cursorDrawing.Size = new System.Drawing.Size(38, 38);
             this.cursorDrawing.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.cursorDrawing, "Rectangle");
+            this.toolTip.SetToolTip(this.cursorDrawing, "Rectangle");
             this.cursorDrawing.UseVisualStyleBackColor = false;
             this.cursorDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cursorDrawing_MouseDown);
             // 
@@ -619,7 +644,7 @@ namespace Annotator
             this.polygonDrawing.Name = "polygonDrawing";
             this.polygonDrawing.Size = new System.Drawing.Size(38, 38);
             this.polygonDrawing.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.polygonDrawing, "Rectangle");
+            this.toolTip.SetToolTip(this.polygonDrawing, "Rectangle");
             this.polygonDrawing.UseVisualStyleBackColor = false;
             this.polygonDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.polygonDrawing_MouseDown);
             // 
@@ -632,7 +657,7 @@ namespace Annotator
             this.rectangleDrawing.Name = "rectangleDrawing";
             this.rectangleDrawing.Size = new System.Drawing.Size(38, 38);
             this.rectangleDrawing.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.rectangleDrawing, "Rectangle");
+            this.toolTip.SetToolTip(this.rectangleDrawing, "Rectangle");
             this.rectangleDrawing.UseVisualStyleBackColor = false;
             this.rectangleDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rectangleDrawing_MouseDown);
             // 
@@ -831,7 +856,8 @@ namespace Annotator
             this.editSessionMenuItem,
             this.saveSessionMenuItem,
             this.deleteSessionMenuItem,
-            this.addSessionMenuItem});
+            this.addSessionMenuItem,
+            this.refreshSessionMenuItem});
             this.sessionRightClickPanel.Name = "cm2";
             this.sessionRightClickPanel.Size = new System.Drawing.Size(108, 92);
             // 
@@ -865,7 +891,15 @@ namespace Annotator
             this.addSessionMenuItem.Name = "addSessionMenuItem";
             this.addSessionMenuItem.Size = new System.Drawing.Size(107, 22);
             this.addSessionMenuItem.Text = "Add";
-            this.addSessionMenuItem.Click += new System.EventHandler(this.addSessionMenuItem_Click);
+            this.addSessionMenuItem.Click += new System.EventHandler(this.addFileToSessionMenuItem_Click);
+            // 
+            // refreshSessionMenuItem
+            // 
+            this.refreshSessionMenuItem.Enabled = true;
+            this.refreshSessionMenuItem.Name = "refreshSessionMenuItem";
+            this.refreshSessionMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.refreshSessionMenuItem.Text = "Refresh";
+            this.refreshSessionMenuItem.Click += new System.EventHandler(this.refreshSessionMenuItem_Click);
             // 
             // colorDialog1
             // 
@@ -886,6 +920,7 @@ namespace Annotator
             this.addObjectToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addObjectToolStripMenuItem.Name = "addObjectToolStripMenuItem";
             this.addObjectToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.addObjectToolStripMenuItem.Enabled = false;
             this.addObjectToolStripMenuItem.Text = "Add objects";
             // 
             // addRigsFromFileToolStripMenuItem
@@ -893,6 +928,7 @@ namespace Annotator
             this.addRigsFromFileToolStripMenuItem.Name = "addRigsFromFileToolStripMenuItem";
             this.addRigsFromFileToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addRigsFromFileToolStripMenuItem.Text = "Add rigs from file";
+            this.addRigsFromFileToolStripMenuItem.Enabled = false;
             this.addRigsFromFileToolStripMenuItem.Click += new System.EventHandler(this.addRigsFromFileToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
@@ -900,7 +936,8 @@ namespace Annotator
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.removeToolStripMenuItem.Text = "Remove";
-            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            this.removeToolStripMenuItem.Enabled = false;
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeFileToolStripMenuItem_Click);
             // 
             // recordPanel
             // 
@@ -987,6 +1024,7 @@ namespace Annotator
         private System.Windows.Forms.TrackBar frameTrackBar;
         private System.Windows.Forms.Button addEventAnnotationBtn;
         private System.Windows.Forms.ToolStripMenuItem addSessionMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshSessionMenuItem;
         internal System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
@@ -998,7 +1036,7 @@ namespace Annotator
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ContextMenuStrip cm3;
         private System.Windows.Forms.ToolStripMenuItem addObjRefToolStripMenuItem;
         private System.Windows.Forms.Panel rightTopPanel;
@@ -1011,6 +1049,7 @@ namespace Annotator
         private System.Windows.Forms.DataGridView objectProperties;
         private System.Windows.Forms.Panel editObjectContextPanel;
         private System.Windows.Forms.Button delAtFrameBtn;
+        private System.Windows.Forms.Button delMarkerBtn;
         private System.Windows.Forms.Button cancelEditObjBtn;
         private System.Windows.Forms.Button addLocationBtn;
         private System.Windows.Forms.Panel selectObjContextPanel;

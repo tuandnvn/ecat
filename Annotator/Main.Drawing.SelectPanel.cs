@@ -14,6 +14,17 @@ namespace Annotator
             editingAtAFrame = true;
             this.frameTrackBar.Enabled = false;
             editObjectContextPanel.Visible = true;
+            editingPolygon = true;
+
+            // Enable the delMarkerBtn if necessary
+            if (selectedObject != null)
+            {
+                if (selectedObject.hasMarkerAt(this.frameTrackBar.Value) )
+                {
+                    delMarkerBtn.Enabled = true;
+                }
+            }
+
             this.Invalidate();
         }
 
@@ -63,18 +74,22 @@ namespace Annotator
             {
                 doneEditPolygon();
             }
-            selectBoxes = new Rectangle[0] { };
+            selectBoxes = new List<Rectangle>();
 
             clearInformation();
             selectedObject = null;
+
+            polygonDrawing.Enabled = true;
+            rectangleDrawing.Enabled = true;
+
             this.invalidatePictureBoard();
             this.Invalidate();
         }
 
         private void doneEditRectangle()
         {
-            startPoint = null;
-            endPoint = null;
+            startPoint = new Point();
+            endPoint = new Point();
             drawingNewRectangle = false;
         }
 

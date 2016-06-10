@@ -16,7 +16,6 @@ namespace Annotator
 
         private void InitializeEditPanel()
         {
-            
         }
 
         private void addLocationBtn_Click(object sender, EventArgs e)
@@ -31,15 +30,30 @@ namespace Annotator
 
                 if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
                 {
-                    selectedObject.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
+                    if (boundingBox.Width == 0 && boundingBox.Height == 0)
+                    {
+                        // This case happens when there is no bounding box
+                        selectedObject.setCopyBounding(frameTrackBar.Value);
+                    } else
+                    {
+                        selectedObject.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
+                    }
                 }
 
                 if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
                 {
-                    selectedObject.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
+                    if (polygonPoints.Count == 0)
+                    {
+                        // This case happens when there is no  polygon points
+                        selectedObject.setCopyBounding(frameTrackBar.Value);
+                    } else
+                    {
+                        selectedObject.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
+                    }
                 }
 
                 redrawObjectMarks();
+                Invalidate();
             }
         }
 
@@ -50,14 +64,27 @@ namespace Annotator
                 editingAtAFrame = false;
                 this.frameTrackBar.Enabled = true;
                 editObjectContextPanel.Visible = false;
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
+                if (selectedObject != null && 
+                    (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon) )
                 {
                     selectedObject.delete(frameTrackBar.Value);
                 }
 
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
+                redrawObjectMarks();
+            }
+        }
+
+        private void delMarkerBtn_Click(object sender, EventArgs e)
+        {
+            if (editingAtAFrame)
+            {
+                editingAtAFrame = false;
+                this.frameTrackBar.Enabled = true;
+                editObjectContextPanel.Visible = false;
+                if (selectedObject != null &&
+                    (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon))
                 {
-                    selectedObject.delete(frameTrackBar.Value);
+                    selectedObject.deleteMarker(frameTrackBar.Value);
                 }
 
                 redrawObjectMarks();
@@ -95,7 +122,7 @@ namespace Annotator
                 editObjectContextPanel.Visible = false;
 
                 draggingSelectBoxes = false;
-                selectBoxes = new Rectangle[] { };
+                selectBoxes = new List<Rectangle>();
                 invalidatePictureBoard();
             }
         }

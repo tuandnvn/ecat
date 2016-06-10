@@ -126,5 +126,17 @@ namespace Annotator
         {
             return null;
         }
+
+        public static bool isVideoFile ( this string filename )
+        {
+            if (filename.ToLower().EndsWith(".avi") || filename.ToLower().EndsWith(".mkv") || filename.ToLower().EndsWith(".mp4")) return true;
+            return false;
+        }
+
+        public static bool isDepthFile(this string filename)
+        {
+            if (filename.ToLower().EndsWith(".dep")) return true;
+            return false;
+        }
     }
 }

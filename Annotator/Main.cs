@@ -309,11 +309,12 @@ namespace Annotator
             Session choosedSession = null;
             if (selectedNode != null && selectedProject != null && selectedNode.Parent.Text.Equals(selectedProject.getProjectName()))
             {
-                //MessageBox.Show("OK");
                 editSessionMenuItem.Enabled = true;
                 saveSessionMenuItem.Enabled = true;
                 deleteSessionMenuItem.Enabled = true;
                 addSessionMenuItem.Enabled = true;
+                refreshSessionMenuItem.Enabled = true;
+
                 //Check if session is editing:
                 choosedSession = selectedProject.getSession(selectedNode.Text);
                 if (choosedSession == null)
@@ -337,7 +338,9 @@ namespace Annotator
                 saveSessionMenuItem.Enabled = false;
                 deleteSessionMenuItem.Enabled = false;
                 addSessionMenuItem.Enabled = false;
+                refreshSessionMenuItem.Enabled = false;
             }
+
             Point location = this.Location;
             location.X += e.Location.X + leftMostPanel.Location.X + 15;
             location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
@@ -586,22 +589,7 @@ namespace Annotator
             }
         }
 
-        private void addRigsFromFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string relVideoFileName = treeView.SelectedNode.Text;
-            AddRigFileForm addRigForm = new AddRigFileForm(this, currentSession, relVideoFileName);
-            addRigForm.Show(this);
-            addRigForm.Location = new Point()
-            {
-                X = Math.Max(this.Location.X, this.Location.X + (this.Width - addRigForm.Width) / 2),
-                Y = Math.Max(this.Location.Y, this.Location.Y + (this.Height - addRigForm.Height) / 2)
-            };
-        }
-
-        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         internal void removeObject(Object o)
         {
@@ -662,6 +650,10 @@ namespace Annotator
             }
 
             this.showInformation(o);
+
+            polygonDrawing.Enabled = false;
+            rectangleDrawing.Enabled = false;
+
             invalidatePictureBoard();
         }
 
@@ -669,10 +661,21 @@ namespace Annotator
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             Console.WriteLine("KeyDown " + e.KeyCode);
-            if (e.KeyCode == Keys.D && recordPanel.recordMode != RecordPanel.RecordMode.Playingback)
+            
+            if (tabs.SelectedIndex == 0)
             {
-                recordPanel.rgbBoard.Image.Save("temp.png");
+                handleKeyDownOnAnnotatorTab(e);
+            }
+
+            if (tabs.SelectedIndex == 1)
+            {
+                if (e.KeyCode == Keys.D && recordPanel.recordMode != RecordPanel.RecordMode.Playingback)
+                {
+                    recordPanel.rgbBoard.Image.Save("temp.png");
+                }
+
             }
         }
+
     }
 }

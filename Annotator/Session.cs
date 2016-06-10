@@ -112,17 +112,22 @@ namespace Annotator
 
             if (!exists && !fileName.Contains("files.param"))
                 filesList.Add(fileName);
-            if (fileName.EndsWith(".avi"))
+            if (fileName.isVideoFile())
                 addVideo(fileName);
-            if (fileName.EndsWith(".dep"))
+            if (fileName.isDepthFile())
                 addDepth(fileName);
         }
 
+        public void removeFile(String fileName)
+        {
+            filesList.Remove(fileName);
+            removeVideo(fileName);
+            removeDepthVideo(fileName);
+        }
 
         //Add object
         public void addObject(Object o)
         {
-
             //1)Check if object exists in objects list
             bool exists = false;
             if (o.id != null && objects.ContainsKey(o.id))
@@ -211,9 +216,17 @@ namespace Annotator
 
                     writer.WriteEndDocument();
                 }
-                File.SetAttributes(metadataFile, FileAttributes.Normal);
-                File.Copy(tempMetadataFile, metadataFile, true);
 
+                if (!File.Exists(metadataFile))
+                {
+                    File.Copy(tempMetadataFile, metadataFile, true);
+                } else
+                {
+                    File.SetAttributes(metadataFile, FileAttributes.Normal);
+                    File.Copy(tempMetadataFile, metadataFile, true);
+                }
+
+                //File.SetAttributes(metadataFile, FileAttributes.Normal);
 
                 File.SetAttributes(tempMetadataFile, FileAttributes.Normal);
                 File.Delete(tempMetadataFile);
@@ -288,12 +301,12 @@ namespace Annotator
                 {
                     string filename = node.InnerText;
                     filesList.Add(node.InnerText);
-                    if (filename.Contains(".avi"))
+                    if (filename.isVideoFile())
                     {
                         addVideo(filename);
                     }
 
-                    if (filename.Contains(".dep"))
+                    if (filename.isDepthFile())
                     {
                         addDepth(filename);
                     }
@@ -392,6 +405,26 @@ namespace Annotator
             }
         }
 
+        //Remove video of session
+        public void removeVideo(String fileName)
+        {
+            var v = getVideo(fileName);
+            if ( v != null )
+            {
+                videos.Remove(v);
+            }
+        }
+
+        //Remove video of session
+        public void removeDepthVideo(String fileName)
+        {
+            var v = getDepth(fileName);
+            if ( v != null )
+            {
+                depthVideos.Remove(v);
+            }
+        }
+
         private string getFullName(string fileName)
         {
             string fullFileName = "";
@@ -462,7 +495,7 @@ namespace Annotator
             List<String> viewsL = new List<String>();
             foreach (String file in filesList)
             {
-                if (file.Contains(".avi") || file.Contains(".dep"))
+                if (file.isVideoFile() || file.isDepthFile())
                     viewsL.Add(file.Split(Path.DirectorySeparatorChar)[file.Split(Path.DirectorySeparatorChar).Length - 1]);
             }
             return viewsL.ToArray();
