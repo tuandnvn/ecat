@@ -111,7 +111,13 @@ namespace Annotator
             this.addRigsFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoard = new Annotator.MyPictureBox();
-            this.recordPanel = new Annotator.RecordPanel();
+
+            // Record panel only for >= windows 8 
+            if (System.Environment.OSVersion.Version.Major >= 6 && System.Environment.OSVersion.Version.Minor >= 2)
+            {
+                this.recordPanel = new Annotator.RecordPanel();
+            }
+            
             this.leftMostPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.projectExplorer.SuspendLayout();
@@ -832,7 +838,11 @@ namespace Annotator
             // 
             // recordTab
             // 
-            this.recordTab.Controls.Add(this.recordPanel);
+            if (recordPanel != null)
+            {
+                this.recordTab.Controls.Add(this.recordPanel);
+            }
+            
             this.recordTab.Location = new System.Drawing.Point(4, 22);
             this.recordTab.Name = "recordTab";
             this.recordTab.Padding = new System.Windows.Forms.Padding(3);
@@ -989,11 +999,14 @@ namespace Annotator
             // 
             // recordPanel
             // 
-            this.recordPanel.main = this;
-            this.recordPanel.Location = new System.Drawing.Point(0, 0);
-            this.recordPanel.Name = "recordPanel";
-            this.recordPanel.Size = new System.Drawing.Size(1420, 860);
-            this.recordPanel.TabIndex = 0;
+            if (recordPanel != null)
+            {
+                this.recordPanel.main = this;
+                this.recordPanel.Location = new System.Drawing.Point(0, 0);
+                this.recordPanel.Name = "recordPanel";
+                this.recordPanel.Size = new System.Drawing.Size(1420, 860);
+                this.recordPanel.TabIndex = 0;
+            }
             // 
             // Main
             // 

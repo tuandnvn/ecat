@@ -580,12 +580,14 @@ namespace Annotator
         {
             if (tabs.SelectedIndex == 0)
             {
-                recordPanel.releaseKinectViewers();
+                if (recordPanel != null)
+                    recordPanel.releaseKinectViewers();
             }
 
             if (tabs.SelectedIndex == 1)
             {
-                recordPanel.initiateKinectViewers();
+                if (recordPanel != null)
+                    recordPanel.initiateKinectViewers();
             }
         }
 
@@ -763,7 +765,7 @@ namespace Annotator
 
             if (tabs.SelectedIndex == 1)
             {
-                if (e.KeyCode == Keys.D && recordPanel.recordMode != RecordPanel.RecordMode.Playingback)
+                if (e.KeyCode == Keys.D && recordPanel.recordMode != RecordPanel.RecordMode.Playingback && recordPanel != null)
                 {
                     recordPanel.rgbBoard.Image.Save("temp.png");
                 }
