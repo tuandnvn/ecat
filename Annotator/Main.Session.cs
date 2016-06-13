@@ -67,7 +67,7 @@ namespace Annotator
                 currentSession.loadIfNotLoaded();
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
-                frameTrackBar.Value = 1;
+                frameTrackBar.Value = frameTrackBar.Minimum;
                 this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + chosenSession.sessionName;
             }
 
@@ -196,7 +196,7 @@ namespace Annotator
 
             if (currentVideo != null)
             {
-                frameTrackBar.Maximum = currentVideo.frameCount;
+                setMaximumFrameTrackBar(currentVideo.frameCount);
             }
         }
 
@@ -269,6 +269,11 @@ namespace Annotator
 
             currentVideo = null;
             addEventAnnotationBtn.Enabled = false;
+
+            startInSecondTextBox.Text = "";
+            endInSecondTextBox.Text = "";
+            setMinimumFrameTrackBar(1);
+            setMaximumFrameTrackBar(100);
         }
 
 

@@ -28,6 +28,8 @@ namespace Annotator
                 this.frameTrackBar.Enabled = true;
                 editObjectContextPanel.Visible = false;
 
+                editingPolygon = false;
+
                 if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
                 {
                     if (boundingBox.Width == 0 && boundingBox.Height == 0)
@@ -64,6 +66,8 @@ namespace Annotator
                 editingAtAFrame = false;
                 this.frameTrackBar.Enabled = true;
                 editObjectContextPanel.Visible = false;
+                editingPolygon = false;
+
                 if (selectedObject != null && 
                     (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon) )
                 {
@@ -81,6 +85,7 @@ namespace Annotator
                 editingAtAFrame = false;
                 this.frameTrackBar.Enabled = true;
                 editObjectContextPanel.Visible = false;
+                editingPolygon = false;
                 if (selectedObject != null &&
                     (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon))
                 {
@@ -98,6 +103,7 @@ namespace Annotator
                 editingAtAFrame = false;
                 this.frameTrackBar.Enabled = true;
                 editObjectContextPanel.Visible = false;
+                editingPolygon = false;
 
                 if (currentSession != null && selectedObject != null)
                 {
@@ -123,6 +129,7 @@ namespace Annotator
 
                 draggingSelectBoxes = false;
                 selectBoxes = new List<Rectangle>();
+                editingPolygon = false;
                 invalidatePictureBoard();
             }
         }

@@ -11,7 +11,7 @@ namespace Annotator
 {
     public partial class Main
     {
-        int boxSize = 5;
+        int boxSize = 7;
 
         private Color boundingColor = Color.Red;//bounding box color(red as default)
         private int boundingBorder = 1;         //bounding box border size
@@ -31,10 +31,28 @@ namespace Annotator
                                                         // = (false, true)  when you're done drawing, editing the location of the newly created polygon
                                                         // = (false, false) when you're added the polygon
         private bool addPolygonPoint = false;
-        
+
         private Point? temporaryPoint; // When the mouse is moving, temporary point hold the current location of cursor, to suggest the shape of the polygon
 
         List<Rectangle> selectBoxes;
+        PointF centroid = new PointF();
+        int centroidRadius = 8;
+
+        /// <summary>
+        /// If true: 
+        /// User holds the centroid point of polygon
+        /// to drag it across the image board
+        /// </summary>
+        private bool draggingCentroid = false;
+
+        /// <summary>
+        /// If true: 
+        /// User holds the centroid point of polygon while pressing Ctrl 
+        /// to rotate the polygon
+        /// </summary>
+        private bool rotatingCentroid = false;
+
+        private bool zoomingCentroid = false;
 
         // Editing bounding at a certain frame
         private bool editingAtAFrame = false;
@@ -88,16 +106,8 @@ namespace Annotator
                 {
                     if (editingPolygon)
                     {
-                        // ----------------------------------
-                        // ---- Handle dragging select boxes
-                        // If mouse down click on select boxes
-                        if (draggingSelectBoxes)
+                        if (!draggingSelectBoxes)
                         {
-                            draggingSelectBoxes = false;
-                            invalidatePictureBoard();
-                            return;
-                        }
-                        else {
                             if (selectBoxes != null && selectBoxes.Count != 0)
                             {
                                 for (int i = 0; i < selectBoxes.Count; i++)
@@ -110,6 +120,17 @@ namespace Annotator
                                         return;
                                     }
                                 }
+                            }
+                        }
+
+                        if (!draggingCentroid && !centroid.Equals(new Point()))
+                        {
+                            RectangleF r = new RectangleF(centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                            if (r.Contains(e.Location))
+                            {
+                                draggingCentroid = true;
+                                invalidatePictureBoard();
+                                return;
                             }
                         }
 
@@ -131,6 +152,10 @@ namespace Annotator
                             draggingSelectBoxIndex = minPos + 1;
                             polygonPoints.Insert(draggingSelectBoxIndex, e.Location);
                             selectBoxes.Insert(draggingSelectBoxIndex, new Rectangle(e.Location.X - (boxSize - 1) / 2, e.Location.Y - (boxSize - 1) / 2, boxSize, boxSize));
+
+                            // Recalculate centroid
+                            calculateCentroid();
+
                             draggingSelectBoxes = true;
                             addPolygonPoint = false;
 
@@ -141,8 +166,11 @@ namespace Annotator
                     }
                     else
                     {
-                        drawingNewPolygon = true;
-                        polygonPoints.Add(e.Location);
+                        if (drawingButtonSelected[polygonDrawing])
+                        {
+                            drawingNewPolygon = true;
+                            polygonPoints.Add(e.Location);
+                        }
                     }
                 }
 
@@ -160,6 +188,9 @@ namespace Annotator
                         listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
                     }
                     selectBoxes = listOfSelectBox;
+
+                    calculateCentroid();
+
                     invalidatePictureBoard();
                 }
             }
@@ -171,6 +202,7 @@ namespace Annotator
             }
 
         }
+
 
         private void pictureBoard_MouseMove(object sender, MouseEventArgs e)
         {
@@ -265,7 +297,31 @@ namespace Annotator
                     polygonPoints[draggingSelectBoxIndex] = e.Location;
                     selectBoxes[draggingSelectBoxIndex] = new Rectangle(e.Location.X - (boxSize - 1) / 2, e.Location.Y - (boxSize - 1) / 2, boxSize, boxSize);
 
+                    calculateCentroid();
+
                     invalidatePictureBoard();
+
+                    return;
+                }
+
+                if (draggingCentroid)
+                {
+                    PointF oldCentroid = getCentroid(polygonPoints);
+                    PointF translation = new PointF(e.Location.X - oldCentroid.X, e.Location.Y - oldCentroid.Y);
+                    for ( int i = 0; i < polygonPoints.Count; i ++ )
+                    {
+                        polygonPoints[i] = new PointF(polygonPoints[i].X + translation.X, polygonPoints[i].Y + translation.Y);
+                    }
+                    centroid = e.Location;
+
+                    List<Rectangle> listOfSelectBox = new List<Rectangle>();
+                    foreach (PointF p in polygonPoints)
+                    {
+                        listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+                    }
+                    selectBoxes = listOfSelectBox;
+                    invalidatePictureBoard();
+                    return;
                 }
             }
         }
@@ -322,6 +378,36 @@ namespace Annotator
                     draggingSelectBoxes = false;
                 }
             }
+
+            if (drawingButtonSelected[polygonDrawing] ||   // Drawing mode 
+                (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)) // Editing mode
+            {
+                if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
+                {
+                    if (editingPolygon)
+                    {
+                        // ----------------------------------
+                        // ---- Handle dragging select boxes
+                        // If mouse up release selected box
+                        if (draggingSelectBoxes)
+                        {
+                            draggingSelectBoxes = false;
+                            invalidatePictureBoard();
+                            return;
+                        }
+
+                        // ----------------------------------
+                        // ---- Handle dragging centroid of polygon
+                        // If mouse up release selected box
+                        if (draggingCentroid)
+                        {
+                            draggingCentroid = false;
+                            invalidatePictureBoard();
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         private void pictureBoard_Paint(object sender, PaintEventArgs e)
@@ -369,6 +455,8 @@ namespace Annotator
                                         listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
                                     }
                                     selectBoxes = listOfSelectBox;
+
+                                    calculateCentroid();
                                     break;
                             }
                         }
@@ -384,6 +472,7 @@ namespace Annotator
                                 case Object.BorderType.Polygon:
                                     polygonPoints = new List<PointF>();
                                     selectBoxes = new List<Rectangle>();
+                                    calculateCentroid();
                                     break;
                             }
                         }
@@ -452,6 +541,23 @@ namespace Annotator
                                 }
                                 else { e.Graphics.FillRectangle(new SolidBrush(Color.White), r); }
                             }
+
+                            if (editingAtAFrame)
+                            {
+                                if (!centroid.Equals(new Point()))
+                                {
+                                    e.Graphics.DrawLine(new Pen(Color.Black), centroid.X - centroidRadius + 4, centroid.Y, centroid.X + centroidRadius - 4, centroid.Y);
+                                    e.Graphics.DrawLine(new Pen(Color.Black), centroid.X, centroid.Y - centroidRadius + 4, centroid.X, centroid.Y + centroidRadius - 4);
+                                    e.Graphics.DrawEllipse(new Pen(Color.LightGray), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                    if ( draggingCentroid )
+                                    {
+                                        e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(150, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                    } else
+                                    {
+                                        e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(50, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                    }
+                                }
+                            }
                         }
                     }
 
@@ -479,6 +585,29 @@ namespace Annotator
             }
         }
 
+        private void calculateCentroid()
+        {
+            centroid = getCentroid(polygonPoints);
+        }
+
+        private PointF getCentroid(List<PointF> polygonPoints)
+        {
+            float x = 0, y = 0;
+            foreach (var point in polygonPoints)
+            {
+                x += point.X;
+                y += point.Y;
+            }
+
+            if (polygonPoints.Count != 0)
+            {
+                return new PointF(x / polygonPoints.Count, y / polygonPoints.Count);
+            }
+            else
+            {
+                return new PointF();
+            }
+        }
 
         private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {

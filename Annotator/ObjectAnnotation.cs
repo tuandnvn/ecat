@@ -23,7 +23,19 @@ namespace Annotator
         private int borderWidth = 2;
         private int sessionLength;
 
-        public ObjectAnnotation(Object o, Main main, int sessionLength)
+        /// <summary>
+        /// Start of frame to draw annotation
+        /// With assumption that annotator could zoom in and zoom out one interval
+        /// of video, 
+        /// </summary>
+        public int start { get; private set; }
+
+        /// <summary>
+        /// End of frame to draw annotation
+        /// </summary>
+        public int end { get; private set; }
+
+        public ObjectAnnotation(Object o, Main main, int start, int end)
         {
             InitializeComponent();
 
@@ -37,7 +49,10 @@ namespace Annotator
             maxLeftPosition = axis.X2;
 
             this.o = o;
-            this.sessionLength = sessionLength;
+
+            this.start = start;
+            this.end = end;
+            this.sessionLength = end - start + 1;
 
             frameStepX = (double)(maxLeftPosition - minLeftPosition) / (sessionLength - 1);
 
@@ -55,11 +70,23 @@ namespace Annotator
             }
         }
 
+        public void resetStartEnd(int start, int end)
+        {
+            this.start = start;
+            this.end = end;
+
+            this.sessionLength = end - start + 1;
+
+            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (sessionLength - 1);
+
+            drawObjectMarks();
+        }
+
         public void drawObjectMarks()
         {
             this.shapeContainer1.Shapes.Clear();
-            int start = 1;
-            int end = sessionLength;
+            int spanStart = start;
+            int spanEnd = end;
             bool finishOneRectangle = true; // Has just finish drawing one rectangle, or haven't started drawing any rectangle
 
             foreach (var entry in o.objectMarks)
@@ -71,7 +98,7 @@ namespace Annotator
                 mark.FillColor = System.Drawing.Color.Black;
                 mark.BackColor = System.Drawing.Color.Black;
                 mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-                mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1)) - borderWidth, 4);
+                mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
                 mark.Size = new System.Drawing.Size( borderWidth, 20);
 
                 this.shapeContainer1.Shapes.Add(mark);
@@ -81,14 +108,14 @@ namespace Annotator
 
                 if ( objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
                 {
-                    start = objectMark.frameNo;
+                    spanStart = objectMark.frameNo;
                     finishOneRectangle = false;
                 }
 
                 if (objectMark.GetType() == typeof(DeleteLocationMark))
                 {
-                    end = objectMark.frameNo;
-                    drawLifeSpan(start, end);
+                    spanEnd = objectMark.frameNo;
+                    drawLifeSpan(spanStart, spanEnd);
                     finishOneRectangle = true;
                 }
             }
@@ -103,7 +130,7 @@ namespace Annotator
                 mark.FillColor = System.Drawing.Color.Green;
                 mark.BackColor = System.Drawing.Color.Green;
                 mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-                mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1)) - borderWidth, 4);
+                mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
                 mark.Size = new System.Drawing.Size(borderWidth, 20);
                 mark.MouseEnter += Mark_MouseEnter;
                 mark.MouseClick += Mark_MouseClick;
@@ -113,7 +140,7 @@ namespace Annotator
 
             if (!finishOneRectangle)
             {
-                drawLifeSpan(start, sessionLength);
+                drawLifeSpan(spanStart, end);
             }
         }
 
@@ -137,15 +164,15 @@ namespace Annotator
             ShowToolTipMouseAt(mark.frameNo);
         }
 
-        private void drawLifeSpan(int start, int end)
+        private void drawLifeSpan(int startSpan, int endSpan)
         {
             RectangleShape lifespan = new RectangleShape();
             lifespan.BackColor = System.Drawing.Color.Yellow;
             lifespan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             lifespan.FillGradientColor = System.Drawing.Color.Yellow;
             lifespan.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent80;
-            lifespan.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (start - 1)), 8);
-            lifespan.Size = new System.Drawing.Size((int)(frameStepX * (end - start)), 12);
+            lifespan.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (startSpan - start)), 8);
+            lifespan.Size = new System.Drawing.Size((int)(frameStepX * (endSpan - startSpan)), 12);
             this.shapeContainer1.Shapes.Add(lifespan);
         }
 

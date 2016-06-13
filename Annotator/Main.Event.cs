@@ -28,7 +28,7 @@ namespace Annotator
         //Add annotation 
         internal void addAnnotation(Event ev)
         {
-            EventAnnotation annotation = new EventAnnotation(ev, this, currentSession);
+            EventAnnotation annotation = new EventAnnotation(ev, this, sessionStart, sessionEnd);
             this.mapFromEventToEventAnnotations[ev] = annotation;
             currentSession.addEvent(ev);
             annotation.Location = lastAnnotation;

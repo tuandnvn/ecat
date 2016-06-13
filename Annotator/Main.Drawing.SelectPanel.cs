@@ -25,6 +25,7 @@ namespace Annotator
                 }
             }
 
+            this.pictureBoard.Invalidate();
             this.Invalidate();
         }
 

@@ -17,6 +17,7 @@ namespace Annotator
         public int frameWidth { get; private set; }
         public int frameHeight { get; private set; }
         public int totalMiliTime { get; private set; }
+        public double fps { get; private set; }
 
         //constructor
         public VideoReader(String fileName, int totalMiliTime)
@@ -27,6 +28,8 @@ namespace Annotator
 
             // This framecount is just an estimation
             frameCount = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
+
+            fps = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.Fps);
 
             int countBack;
             for ( countBack = 0; countBack < 50; countBack ++ )

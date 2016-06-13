@@ -18,8 +18,8 @@ namespace Annotator
         int maxLeftPosition;
         private bool selected = false;
 
-        private int start;   //minimum value for left slider
-        private int end;   //maximum value for right slider
+        //private int startSpan;   //minimum value for left slider
+        //private int endSpan;   //maximum value for right slider
         private bool slider1Move; //true if slider1 can change position
         private bool slider2Move; //true if slider1 can change position
         private double frameStepX;
@@ -31,8 +31,20 @@ namespace Annotator
         private int rectangleSize = 12;
 
         Event ev;
+        /// <summary>
+        /// Start of frame to draw annotation
+        /// With assumption that annotator could zoom in and zoom out one interval
+        /// of video, 
+        /// </summary>
+        public int start { get; private set; }
 
-        public EventAnnotation(Event ev, Main mainGUI, Session session)
+        /// <summary>
+        /// End of frame to draw annotation
+        /// </summary>
+        public int end { get; private set; }
+
+
+        public EventAnnotation(Event ev, Main mainGUI, int start, int end)
         {
 
             InitializeComponent();
@@ -45,22 +57,37 @@ namespace Annotator
             if (ev.text != null)
                 textAnnotation.Text = ev.text;
             this.mainGUI = mainGUI;
-            this.start = ev.startFrame;
-            this.end = ev.endFrame;
+            this.start = start;
+            this.end = end;
+
             this.slider1Move = false;
             this.slider2Move = false;
 
-            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (session.sessionLength - 1);
-
-            leftMarker.X1 = leftMarker.X2 = (int)(minLeftPosition + frameStepX * (start - 1));
-            rightMarker.X1 = rightMarker.X2 = (int)(minLeftPosition + frameStepX * (end - 1));
-            this.rectangleShape.Bounds = new Rectangle(leftMarker.X1 + (leftMarker.BorderWidth - 1), rectangleYPos,
-                rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
+            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (end - start);
+            drawObjectMarks();
 
             rectangleShape.MouseClick += Mark_MouseClick;
 
             //MessageBox.Show("minimum = " + minimum + ", maximum = " + maximum + " stepX = " + frameStepX);
-            intervalLbl.Text = "Start: " + start + ", Stop: " + end;
+            intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
+        }
+
+        private void drawObjectMarks()
+        {
+            leftMarker.X1 = leftMarker.X2 = (int)(minLeftPosition + frameStepX * (ev.startFrame - start));
+            rightMarker.X1 = rightMarker.X2 = (int)(minLeftPosition + frameStepX * (ev.endFrame - start));
+            this.rectangleShape.Bounds = new Rectangle(leftMarker.X1 + (leftMarker.BorderWidth - 1), rectangleYPos,
+                rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
+        }
+
+        public void resetStartEnd(int start, int end)
+        {
+            this.start = start;
+            this.end = end;
+
+            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (end - start);
+
+            drawObjectMarks();
         }
 
         //Get annotation text
@@ -72,12 +99,12 @@ namespace Annotator
         //Get minimum
         public int getMinimum()
         {
-            return start;
+            return ev.startFrame;
         }
         //Get maximum
         public int getMaximum()
         {
-            return end;
+            return ev.endFrame;
         }
 
         public bool getSelected()
@@ -101,7 +128,7 @@ namespace Annotator
                     leftMarker.X2 = newX;
                     this.rectangleShape.Location = new Point(leftMarker.X1 + leftMarker.BorderWidth - 1, rectangleYPos);
                     this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
-                    this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + 1);
+                    this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + start);
                 }
             }
             if (slider2Move)
@@ -113,7 +140,7 @@ namespace Annotator
                     rightMarker.X1 = newX;
                     rightMarker.X2 = newX;
                     this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
-                    this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + 1);
+                    this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + start);
                 }
             }
         }
@@ -153,14 +180,14 @@ namespace Annotator
 
         private void lineShape2_Move(object sender, EventArgs e)
         {
-            ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + 1;
+            ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start;
             intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
             mainGUI.Invalidate();
         }
 
         private void lineShape3_Move(object sender, EventArgs e)
         {
-            ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + 1;
+            ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start;
             intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
             mainGUI.Invalidate();
         }

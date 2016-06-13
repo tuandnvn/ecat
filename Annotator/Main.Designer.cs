@@ -234,6 +234,37 @@ namespace Annotator
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+
+            //
+            // start in seconds
+            //
+            startInSecondLbl = new System.Windows.Forms.Label();
+            startInSecondLbl.Location = new System.Drawing.Point(3, 100);
+            startInSecondLbl.Size = new System.Drawing.Size(52, 17);
+            startInSecondLbl.Text = "Start:";
+
+            startInSecondTextBox = new System.Windows.Forms.TextBox();
+            startInSecondTextBox.Location = new System.Drawing.Point(3, 120);
+            startInSecondTextBox.Size = new System.Drawing.Size(52, 30);
+            startInSecondTextBox.Text = "";
+            startInSecondTextBox.KeyDown += StartInSecondTextBox_KeyDown;
+            startInSecondTextBox.LostFocus += StartInSecondTextBox_LostFocus;
+
+            //
+            // end in seconds
+            //
+            endInSecondLbl = new System.Windows.Forms.Label();
+            endInSecondLbl.Location = new System.Drawing.Point(3, 150);
+            endInSecondLbl.Size = new System.Drawing.Size(52, 17);
+            endInSecondLbl.Text = "End:";
+
+            endInSecondTextBox = new System.Windows.Forms.TextBox();
+            endInSecondTextBox.Location = new System.Drawing.Point(3, 170);
+            endInSecondTextBox.Size = new System.Drawing.Size(52, 30);
+            endInSecondTextBox.Text = "";
+            endInSecondTextBox.KeyDown += EndInSecondTextBox_KeyDown;
+            endInSecondTextBox.LostFocus += EndInSecondTextBox_LostFocus;
+
             // 
             // middleTopPanel
             // 
@@ -244,6 +275,10 @@ namespace Annotator
             this.middleTopPanel.Controls.Add(this.label3);
             this.middleTopPanel.Controls.Add(this.videoPanel);
             this.middleTopPanel.Controls.Add(this.playbackFileComboBox);
+            this.middleTopPanel.Controls.Add(startInSecondLbl);
+            this.middleTopPanel.Controls.Add(endInSecondLbl);
+            this.middleTopPanel.Controls.Add(startInSecondTextBox);
+            this.middleTopPanel.Controls.Add(endInSecondTextBox);
             this.middleTopPanel.Location = new System.Drawing.Point(178, 5);
             this.middleTopPanel.Name = "middleTopPanel";
             this.middleTopPanel.Size = new System.Drawing.Size(921, 612);
@@ -257,6 +292,8 @@ namespace Annotator
             this.frameTrackBar.Margin = new System.Windows.Forms.Padding(1);
             this.frameTrackBar.Maximum = 100;
             this.frameTrackBar.Minimum = 1;
+            setMinimumFrameTrackBar(1);
+            setMaximumFrameTrackBar(100);
             this.frameTrackBar.Name = "frameTrackBar";
             this.frameTrackBar.Size = new System.Drawing.Size(800, 45);
             this.frameTrackBar.TabIndex = 3;
@@ -303,7 +340,9 @@ namespace Annotator
 
             this.KeyPreview = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(Main_KeyDown);
-            // comboBox1
+
+            //
+            // playbackFileComboBox
             // 
             this.playbackFileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.playbackFileComboBox.Enabled = false;
@@ -313,6 +352,8 @@ namespace Annotator
             this.playbackFileComboBox.Size = new System.Drawing.Size(88, 21);
             this.playbackFileComboBox.TabIndex = 0;
             this.playbackFileComboBox.SelectedIndexChanged += new System.EventHandler(this.playbackVideoComboBox_SelectedIndexChanged);
+
+
             // 
             // tabs
             // 
@@ -422,7 +463,8 @@ namespace Annotator
             this.cancelSelectObjBtn.Name = "cancelSelectObjBtn";
             this.cancelSelectObjBtn.Size = new System.Drawing.Size(87, 22);
             this.cancelSelectObjBtn.TabIndex = 9;
-            this.cancelSelectObjBtn.Text = "Cancel";
+            this.cancelSelectObjBtn.Text = "&Cancel";
+            this.cancelSelectObjBtn.UseMnemonic = true;
             this.cancelSelectObjBtn.UseVisualStyleBackColor = true;
             this.cancelSelectObjBtn.Click += new System.EventHandler(this.cancelSelectObjBtn_Click);
             // 
@@ -433,8 +475,9 @@ namespace Annotator
             this.deleteObjBtn.Name = "deleteObjBtn";
             this.deleteObjBtn.Size = new System.Drawing.Size(87, 22);
             this.deleteObjBtn.TabIndex = 8;
-            this.deleteObjBtn.Text = "Delete";
+            this.deleteObjBtn.Text = "&Delete";
             this.deleteObjBtn.UseVisualStyleBackColor = true;
+            this.deleteObjBtn.UseMnemonic = true;
             this.deleteObjBtn.Click += new System.EventHandler(this.deleteObjBtn_Click);
             // 
             // editObjBtn
@@ -445,7 +488,8 @@ namespace Annotator
             this.editObjBtn.Name = "editObjBtn";
             this.editObjBtn.Size = new System.Drawing.Size(87, 22);
             this.editObjBtn.TabIndex = 5;
-            this.editObjBtn.Text = "Edit";
+            this.editObjBtn.Text = "&Edit";
+            this.editObjBtn.UseMnemonic = true;
             this.editObjBtn.UseVisualStyleBackColor = true;
             this.editObjBtn.Click += new System.EventHandler(this.editObjBtn_Click);
             // 
@@ -471,7 +515,8 @@ namespace Annotator
             this.addLocationBtn.Name = "addLocationBtn";
             this.addLocationBtn.Size = new System.Drawing.Size(87, 22);
             this.addLocationBtn.TabIndex = 5;
-            this.addLocationBtn.Text = "Add location";
+            this.addLocationBtn.Text = "&Add location";
+            this.addLocationBtn.UseMnemonic = true;
             this.toolTip.SetToolTip(this.addLocationBtn, "Add a location marker at this frame");
             this.addLocationBtn.UseVisualStyleBackColor = true;
             this.addLocationBtn.Click += new System.EventHandler(this.addLocationBtn_Click);
@@ -520,8 +565,9 @@ namespace Annotator
             this.cancelEditObjBtn.Name = "cancelEditObjBtn";
             this.cancelEditObjBtn.Size = new System.Drawing.Size(87, 22);
             this.cancelEditObjBtn.TabIndex = 11;
-            this.cancelEditObjBtn.Text = "Cancel";
+            this.cancelEditObjBtn.Text = "Ca&ncel";
             this.cancelEditObjBtn.UseVisualStyleBackColor = true;
+            this.cancelEditObjBtn.UseMnemonic = true;
             this.toolTip.SetToolTip(this.cancelEditObjBtn, "Cancel editing at this frame");
             this.cancelEditObjBtn.Click += new System.EventHandler(this.cancelEditObjBtn_Click);
             
@@ -1001,6 +1047,10 @@ namespace Annotator
 
         #endregion
 
+        System.Windows.Forms.Label startInSecondLbl;
+        System.Windows.Forms.TextBox startInSecondTextBox;
+        System.Windows.Forms.Label endInSecondLbl;
+        System.Windows.Forms.TextBox endInSecondTextBox;
         private System.Windows.Forms.Panel leftMostPanel;
         private System.Windows.Forms.Panel middleTopPanel;
         private System.Windows.Forms.Panel middleBottomPanel;

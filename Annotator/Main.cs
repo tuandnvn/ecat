@@ -30,7 +30,7 @@ namespace Annotator
 
             //comboBox1.SelectedIndex = 0;
             //Just for sample GUI test
-            frameTrackBar.Maximum = 100;
+            setMaximumFrameTrackBar(100);
         }
 
         //Project workspace 
@@ -43,7 +43,6 @@ namespace Annotator
         internal Session currentSession = null;
         internal TreeNode currentSessionNode = null;
         private VideoReader currentVideo = null;      //currently edited video
-
         private Font myFont = new Font("Microsoft Sans Serif", 5.75f);//font to write not-string colors
         private Point lastAnnotation = new Point(94, 0);              // last annotation location for middle-bottom panel
         private Point lastObjectTrack = new Point(94, 0);
@@ -517,7 +516,8 @@ namespace Annotator
 
         public void setTrackbarLocation(int value)
         {
-            frameTrackBar.Value = value;
+            if (value >= frameTrackBar.Minimum && value <= frameTrackBar.Maximum && !editingAtAFrame)
+                frameTrackBar.Value = value;
         }
 
         public void setNewSession(bool option)
@@ -589,7 +589,7 @@ namespace Annotator
             }
         }
 
-        
+
 
         internal void removeObject(Object o)
         {
@@ -618,7 +618,7 @@ namespace Annotator
 
         internal void addObjectAnnotation(Object o)
         {
-            var objectAnnotation = new ObjectAnnotation(o, this, currentSession.sessionLength);
+            var objectAnnotation = new ObjectAnnotation(o, this, this.frameTrackBar.Minimum, this.frameTrackBar.Maximum);
             objectAnnotations.Add(objectAnnotation);
             objectToObjectTracks[o] = objectAnnotation;
 
@@ -657,11 +657,107 @@ namespace Annotator
             invalidatePictureBoard();
         }
 
+        private int sessionStart;
+        private int sessionEnd;
+
+        private void StartInSecondTextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                changeStartInSecond();
+            }
+        }
+
+        private void StartInSecondTextBox_LostFocus(object sender, EventArgs e)
+        {
+            changeStartInSecond();
+        }
+
+        private void changeStartInSecond()
+        {
+            try
+            {
+                var startInSecond = int.Parse(startInSecondTextBox.Text);
+                if (currentVideo != null)
+                {
+                    if (startInSecond * currentVideo.fps < currentVideo.frameCount)
+                    {
+                        // Plus one because frame is counted from 1
+                        setMinimumFrameTrackBar((int)(currentVideo.fps * startInSecond) + 1);
+                        frameTrackBar_ValueChanged(null, null);
+                        if (frameTrackBar.Value < sessionStart)
+                        {
+                            frameTrackBar.Value = sessionStart;
+                        }
+
+                        rescaleFrameTrackBar();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                startInSecondTextBox.Text = sessionStart + "";
+            }
+        }
+
+        private void EndInSecondTextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                changeEndInSecond();
+            }
+        }
+
+        private void EndInSecondTextBox_LostFocus(object sender, EventArgs e)
+        {
+            changeEndInSecond();
+        }
+
+        private void changeEndInSecond()
+        {
+            try
+            {
+                var endInSecond = int.Parse(endInSecondTextBox.Text);
+                if (currentVideo != null)
+                {
+                    if (endInSecond * currentVideo.fps < currentVideo.frameCount)
+                    {
+                        setMaximumFrameTrackBar((int)(currentVideo.fps * endInSecond));
+                        frameTrackBar_ValueChanged(null, null);
+                        rescaleFrameTrackBar();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                endInSecondTextBox.Text = sessionEnd + "";
+            }
+        }
+
+        private void rescaleFrameTrackBar()
+        {
+            if (currentSession != null)
+            {
+                foreach (var objectAnnotation in objectAnnotations)
+                {
+                    objectAnnotation.resetStartEnd(frameTrackBar.Minimum, frameTrackBar.Maximum);
+                }
+
+                foreach (var eventAnnotation in mapFromEventToEventAnnotations.Values)
+                {
+                    eventAnnotation.resetStartEnd(frameTrackBar.Minimum, frameTrackBar.Maximum);
+                }
+            }
+
+            frameTrackBar.Invalidate();
+
+            Invalidate();
+        }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             Console.WriteLine("KeyDown " + e.KeyCode);
-            
+
             if (tabs.SelectedIndex == 0)
             {
                 handleKeyDownOnAnnotatorTab(e);
@@ -677,5 +773,16 @@ namespace Annotator
             }
         }
 
+        private void setMinimumFrameTrackBar(int value)
+        {
+            frameTrackBar.Minimum = value;
+            this.sessionStart = value;
+        }
+
+        private void setMaximumFrameTrackBar(int value)
+        {
+            frameTrackBar.Maximum = value;
+            this.sessionEnd = value;
+        }
     }
 }
