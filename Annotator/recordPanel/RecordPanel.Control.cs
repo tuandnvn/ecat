@@ -485,7 +485,6 @@ namespace Annotator
 
             playButton_MouseDown(null, null);
         }
-
     }
 }
 

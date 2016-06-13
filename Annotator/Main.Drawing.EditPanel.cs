@@ -22,13 +22,8 @@ namespace Annotator
         {
             if (editingAtAFrame)
             {
+                doneEditingAtAFrame();
                 var linear = getLinearTransform();
-                
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-
-                editingPolygon = false;
 
                 if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
                 {
@@ -63,10 +58,7 @@ namespace Annotator
         {
             if (editingAtAFrame)
             {
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-                editingPolygon = false;
+                doneEditingAtAFrame();
 
                 if (selectedObject != null && 
                     (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon) )
@@ -82,10 +74,8 @@ namespace Annotator
         {
             if (editingAtAFrame)
             {
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-                editingPolygon = false;
+                doneEditingAtAFrame();
+
                 if (selectedObject != null &&
                     (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon))
                 {
@@ -100,10 +90,7 @@ namespace Annotator
         {
             if (editingAtAFrame)
             {
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-                editingPolygon = false;
+                doneEditingAtAFrame();
 
                 if (currentSession != null && selectedObject != null)
                 {
@@ -123,15 +110,27 @@ namespace Annotator
         {
             if (editingAtAFrame)
             {
-                editingAtAFrame = false;
-                this.frameTrackBar.Enabled = true;
-                editObjectContextPanel.Visible = false;
-
-                draggingSelectBoxes = false;
-                selectBoxes = new List<Rectangle>();
-                editingPolygon = false;
-                invalidatePictureBoard();
+                doneEditingAtAFrame();
             }
+        }
+
+        private void doneEditingAtAFrame()
+        {
+            editingAtAFrame = false;
+            this.frameTrackBar.Enabled = true;
+            editObjectContextPanel.Visible = false;
+            editingPolygon = false;
+            doneWithCentroid();
+            draggingSelectBoxes = false;
+            selectBoxes = new List<Rectangle>();
+
+            invalidatePictureBoard();
+        }
+
+        private void doneWithCentroid()
+        {
+            centroidMode = CentroidMode.None;
+            tempoPolygonPoints = new List<PointF>();
         }
 
         public void redrawObjectMarks()

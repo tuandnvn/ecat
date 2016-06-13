@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Annotator
 {
@@ -340,6 +341,7 @@ namespace Annotator
 
             this.KeyPreview = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(Main_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(Main_KeyUp);
 
             //
             // playbackFileComboBox

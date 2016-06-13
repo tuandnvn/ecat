@@ -38,21 +38,32 @@ namespace Annotator
         PointF centroid = new PointF();
         int centroidRadius = 8;
 
-        /// <summary>
-        /// If true: 
-        /// User holds the centroid point of polygon
-        /// to drag it across the image board
-        /// </summary>
-        private bool draggingCentroid = false;
+        enum CentroidMode
+        {
+            None,
+            /// <summary>
+            /// If true: 
+            /// User holds the centroid point of polygon
+            /// to drag it across the image board
+            /// </summary>
+            Dragging,
+            /// <summary>
+            /// If true: 
+            /// User holds the centroid point of polygon while pressing Ctrl 
+            /// to rotate the polygon
+            /// </summary>
+            Rotating,
+            /// <summary>
+            /// If true: 
+            /// User holds the centroid point of polygon while pressing Shift
+            /// to zoom in and out the polygon
+            /// </summary>
+            Zooming
+        }
 
-        /// <summary>
-        /// If true: 
-        /// User holds the centroid point of polygon while pressing Ctrl 
-        /// to rotate the polygon
-        /// </summary>
-        private bool rotatingCentroid = false;
-
-        private bool zoomingCentroid = false;
+        CentroidMode centroidMode = CentroidMode.None;
+        // To be used with Rotating and Zooming mode
+        private List<PointF> tempoPolygonPoints = new List<PointF>();
 
         // Editing bounding at a certain frame
         private bool editingAtAFrame = false;
@@ -123,12 +134,12 @@ namespace Annotator
                             }
                         }
 
-                        if (!draggingCentroid && !centroid.Equals(new Point()))
+                        if (centroidMode == CentroidMode.None && !centroid.Equals(new Point()))
                         {
                             RectangleF r = new RectangleF(centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
                             if (r.Contains(e.Location))
                             {
-                                draggingCentroid = true;
+                                centroidMode = CentroidMode.Dragging;
                                 invalidatePictureBoard();
                                 return;
                             }
@@ -182,12 +193,7 @@ namespace Annotator
                     editingPolygon = true;
                     temporaryPoint = null;
                     newObjectContextPanel.Visible = true;
-                    List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                    foreach (PointF p in polygonPoints)
-                    {
-                        listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
-                    }
-                    selectBoxes = listOfSelectBox;
+                    resetSelectBoxes();
 
                     calculateCentroid();
 
@@ -304,24 +310,61 @@ namespace Annotator
                     return;
                 }
 
-                if (draggingCentroid)
+                switch (centroidMode)
                 {
-                    PointF oldCentroid = getCentroid(polygonPoints);
-                    PointF translation = new PointF(e.Location.X - oldCentroid.X, e.Location.Y - oldCentroid.Y);
-                    for ( int i = 0; i < polygonPoints.Count; i ++ )
-                    {
-                        polygonPoints[i] = new PointF(polygonPoints[i].X + translation.X, polygonPoints[i].Y + translation.Y);
-                    }
-                    centroid = e.Location;
+                    case CentroidMode.Dragging:
+                        {
+                            PointF oldCentroid = getCentroid(polygonPoints);
+                            PointF translation = new PointF(e.Location.X - oldCentroid.X, e.Location.Y - oldCentroid.Y);
+                            for (int i = 0; i < polygonPoints.Count; i++)
+                            {
+                                polygonPoints[i] = new PointF(polygonPoints[i].X + translation.X, polygonPoints[i].Y + translation.Y);
+                            }
+                            centroid = e.Location;
 
-                    List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                    foreach (PointF p in polygonPoints)
-                    {
-                        listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
-                    }
-                    selectBoxes = listOfSelectBox;
-                    invalidatePictureBoard();
-                    return;
+                            List<Rectangle> listOfSelectBox = new List<Rectangle>();
+                            foreach (PointF p in polygonPoints)
+                            {
+                                listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+                            }
+                            selectBoxes = listOfSelectBox;
+                            invalidatePictureBoard();
+                            break;
+                        }
+                    case CentroidMode.Rotating:
+                        {
+                            // Using the difference on vertical direction to measure rotating angle
+                            float verticalDiff = centroid.Y - e.Location.Y;
+                            float alpha = verticalDiff / 180;
+
+                            for (int i = 0; i < polygonPoints.Count; i++)
+                            {
+                                PointF translation = new PointF(tempoPolygonPoints[i].X - centroid.X, tempoPolygonPoints[i].Y - centroid.Y);
+                                PointF rotatedTranslation = new PointF((float)(translation.X * Math.Cos(alpha) - translation.Y * Math.Sin(alpha))
+                                    , (float)(translation.X * Math.Sin(alpha) + translation.Y * Math.Cos(alpha)));
+                                polygonPoints[i] = new PointF(centroid.X + rotatedTranslation.X, centroid.Y + rotatedTranslation.Y);
+                            }
+
+                            resetSelectBoxes();
+                            break;
+                        }
+                    case CentroidMode.Zooming:
+                        {
+                            // Using the difference on vertical direction to measure zooming scale
+                            float verticalDiff = centroid.Y - e.Location.Y;
+                            float alpha = verticalDiff / 100;
+                            for (int i = 0; i < polygonPoints.Count; i++)
+                            {
+                                PointF translation = new PointF(tempoPolygonPoints[i].X - centroid.X, tempoPolygonPoints[i].Y - centroid.Y);
+                                PointF scaledTranslation = new PointF((float)(translation.X * Math.Exp(alpha))
+                                    , (float)(translation.Y *Math.Exp(alpha)));
+                                polygonPoints[i] = new PointF(centroid.X + scaledTranslation.X, centroid.Y + scaledTranslation.Y);
+                            }
+                            resetSelectBoxes();
+                            break;
+                        }
+                    case CentroidMode.None:
+                        break;
                 }
             }
         }
@@ -397,11 +440,11 @@ namespace Annotator
                         }
 
                         // ----------------------------------
-                        // ---- Handle dragging centroid of polygon
-                        // If mouse up release selected box
-                        if (draggingCentroid)
+                        // ---- Handle when release hold of centroid
+                        // Turn centroid mode to None
+                        if ( centroidMode == CentroidMode.Dragging || centroidMode == CentroidMode.Rotating || centroidMode == CentroidMode.Zooming )
                         {
-                            draggingCentroid = false;
+                            centroidMode = CentroidMode.None;
                             invalidatePictureBoard();
                             return;
                         }
@@ -449,13 +492,8 @@ namespace Annotator
                                     break;
                                 case Object.BorderType.Polygon:
                                     polygonPoints = ((PolygonLocationMark)lm).boundingPolygon;
-                                    List<Rectangle> listOfSelectBox = new List<Rectangle>();
-                                    foreach (PointF p in polygonPoints)
-                                    {
-                                        listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
-                                    }
-                                    selectBoxes = listOfSelectBox;
 
+                                    resetSelectBoxes();
                                     calculateCentroid();
                                     break;
                             }
@@ -546,15 +584,43 @@ namespace Annotator
                             {
                                 if (!centroid.Equals(new Point()))
                                 {
-                                    e.Graphics.DrawLine(new Pen(Color.Black), centroid.X - centroidRadius + 4, centroid.Y, centroid.X + centroidRadius - 4, centroid.Y);
-                                    e.Graphics.DrawLine(new Pen(Color.Black), centroid.X, centroid.Y - centroidRadius + 4, centroid.X, centroid.Y + centroidRadius - 4);
-                                    e.Graphics.DrawEllipse(new Pen(Color.LightGray), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
-                                    if ( draggingCentroid )
+                                    Pen dashedPen = new Pen(Color.Black);
+                                    dashedPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+
+                                    Pen normalPen = new Pen(Color.Black);
+                                    switch (centroidMode)
                                     {
-                                        e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(150, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
-                                    } else
-                                    {
-                                        e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(50, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                        case CentroidMode.Dragging:
+                                            e.Graphics.DrawLine(normalPen, centroid.X - centroidRadius + 4, centroid.Y, centroid.X + centroidRadius - 4, centroid.Y);
+                                            e.Graphics.DrawLine(normalPen, centroid.X, centroid.Y - centroidRadius + 4, centroid.X, centroid.Y + centroidRadius - 4);
+                                            e.Graphics.DrawEllipse(new Pen(Color.LightGray), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(150, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            break;
+                                        case CentroidMode.Rotating:
+                                            e.Graphics.DrawLine(normalPen, centroid.X - 3 * centroidRadius, centroid.Y, centroid.X + 3 * centroidRadius, centroid.Y);
+                                            e.Graphics.DrawLine(normalPen, centroid.X, centroid.Y - centroidRadius + 4, centroid.X, centroid.Y + centroidRadius - 4);
+                                            e.Graphics.DrawEllipse(new Pen(Color.LightGray), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(150, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            break;
+                                        case CentroidMode.Zooming:
+                                            e.Graphics.DrawLine(normalPen, centroid.X - centroidRadius, centroid.Y, centroid.X + centroidRadius, centroid.Y);
+                                            e.Graphics.DrawLine(normalPen, centroid.X, centroid.Y - centroidRadius, centroid.X, centroid.Y + centroidRadius);
+
+                                            
+                                            e.Graphics.DrawLine(dashedPen, centroid.X - 2 * centroidRadius, centroid.Y, centroid.X, centroid.Y - 2 * centroidRadius);
+                                            e.Graphics.DrawLine(dashedPen, centroid.X - 2 * centroidRadius, centroid.Y, centroid.X, centroid.Y + 2 * centroidRadius);
+                                            e.Graphics.DrawLine(dashedPen, centroid.X + 2 * centroidRadius, centroid.Y, centroid.X, centroid.Y - 2 * centroidRadius);
+                                            e.Graphics.DrawLine(dashedPen, centroid.X + 2 * centroidRadius, centroid.Y, centroid.X, centroid.Y + 2 * centroidRadius);
+
+                                            e.Graphics.DrawEllipse(new Pen(Color.LightGray), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(150, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            break;
+                                        case CentroidMode.None:
+                                            e.Graphics.DrawLine(normalPen, centroid.X - centroidRadius + 4, centroid.Y, centroid.X + centroidRadius - 4, centroid.Y);
+                                            e.Graphics.DrawLine(normalPen, centroid.X, centroid.Y - centroidRadius + 4, centroid.X, centroid.Y + centroidRadius - 4);
+                                            e.Graphics.DrawEllipse(new Pen(Color.LightGray), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(50, 100, 100, 100)), centroid.X - centroidRadius, centroid.Y - centroidRadius, 2 * centroidRadius, 2 * centroidRadius);
+                                            break;
                                     }
                                 }
                             }
@@ -611,25 +677,55 @@ namespace Annotator
 
         private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {
-
-            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon && editingAtAFrame && draggingSelectBoxes)
+            // While editing a polygon
+            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon && editingAtAFrame)
             {
-                if (e.KeyCode == Keys.Delete)
+                // While dragging a select box, and user press delete, handle delete that polygon point
+                if (draggingSelectBoxes && e.KeyCode == Keys.Delete)
                 {
                     polygonPoints.RemoveAt(draggingSelectBoxIndex);
                     selectBoxes.RemoveAt(draggingSelectBoxIndex);
                     draggingSelectBoxes = false;
-                    invalidatePictureBoard();
                 }
-            }
 
-            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon && editingAtAFrame && e.KeyCode == Keys.Insert)
-            {
-                //Cursor.Current = Cursors.Cross;
-                this.Cursor = Cursors.Cross;
-                addPolygonPoint = true;
+                if (e.KeyCode == Keys.Insert)
+                {
+                    this.Cursor = Cursors.Cross;
+                    addPolygonPoint = true;
+                }
+
+                if (centroidMode == CentroidMode.Dragging && e.KeyCode == Keys.ControlKey)
+                {
+                    centroidMode = CentroidMode.Rotating;
+                    tempoPolygonPoints.AddRange(polygonPoints);
+                }
+
+                if (centroidMode == CentroidMode.Dragging && e.KeyCode == Keys.ShiftKey)
+                {
+                    centroidMode = CentroidMode.Zooming;
+                    tempoPolygonPoints.AddRange(polygonPoints);
+                }
+
                 invalidatePictureBoard();
             }
+        }
+
+
+        private void handleKeyUpOnAnnotatorTab(KeyEventArgs e)
+        {
+            if (centroidMode == CentroidMode.Rotating && e.KeyCode == Keys.ControlKey)
+            {
+                centroidMode = CentroidMode.None;
+                tempoPolygonPoints = new List<PointF>();
+            }
+
+            if (centroidMode == CentroidMode.Zooming && e.KeyCode == Keys.ShiftKey)
+            {
+                centroidMode = CentroidMode.None;
+                tempoPolygonPoints = new List<PointF>();
+            }
+
+            invalidatePictureBoard();
         }
 
         private Tuple<double, Point> getLinearTransform()
@@ -677,6 +773,16 @@ namespace Annotator
                 b.BackColor = Color.Transparent;
                 b.FlatAppearance.BorderColor = Color.White;
             }
+        }
+
+        private void resetSelectBoxes()
+        {
+            List<Rectangle> listOfSelectBox = new List<Rectangle>();
+            foreach (PointF p in polygonPoints)
+            {
+                listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+            }
+            selectBoxes = listOfSelectBox;
         }
 
         internal void removeDrawingObject(Object o)

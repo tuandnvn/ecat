@@ -756,8 +756,6 @@ namespace Annotator
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
-            Console.WriteLine("KeyDown " + e.KeyCode);
-
             if (tabs.SelectedIndex == 0)
             {
                 handleKeyDownOnAnnotatorTab(e);
@@ -769,9 +767,18 @@ namespace Annotator
                 {
                     recordPanel.rgbBoard.Image.Save("temp.png");
                 }
-
             }
         }
+
+
+        private void Main_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (tabs.SelectedIndex == 0)
+            {
+                handleKeyUpOnAnnotatorTab(e);
+            }
+        }
+
 
         private void setMinimumFrameTrackBar(int value)
         {
