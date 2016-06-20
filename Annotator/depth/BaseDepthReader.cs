@@ -21,40 +21,54 @@ namespace Annotator
 
         public BaseDepthReader ( string fileName )
         {
-            this.fileName = fileName;
-            depthReader = new BinaryReader(File.Open(fileName, FileMode.Open));
-            depthWidth = depthReader.ReadInt16();
-            depthHeight = depthReader.ReadInt16();
-
-            //Read metadata
-            depthReader.BaseStream.Seek(-4, SeekOrigin.End);
-            depthFrame = depthReader.ReadInt32();
-
-            depthReader.BaseStream.Seek(-4 * (depthFrame + 1), SeekOrigin.End);
-            byte[] vals = depthReader.ReadBytes(4 * depthFrame);
-
-            depthFrameTimePoints = new List<Int32>();
-            for (int i = 0; i < depthFrame; i++)
+            try
             {
-                //Console.WriteLine("depthFrameTimePoint " + BitConverter.ToInt32(vals, 4 * i));
-                depthFrameTimePoints.Add(BitConverter.ToInt32(vals, 4 * i));
+                this.fileName = fileName;
+                depthReader = new BinaryReader(File.Open(fileName, FileMode.Open));
+                depthWidth = depthReader.ReadInt16();
+                depthHeight = depthReader.ReadInt16();
+
+                //Read metadata
+                depthReader.BaseStream.Seek(-4, SeekOrigin.End);
+                depthFrame = depthReader.ReadInt32();
+
+                depthReader.BaseStream.Seek(-4 * (depthFrame + 1), SeekOrigin.End);
+                byte[] vals = depthReader.ReadBytes(4 * depthFrame);
+
+                depthFrameTimePoints = new List<Int32>();
+                for (int i = 0; i < depthFrame; i++)
+                {
+                    //Console.WriteLine("depthFrameTimePoint " + BitConverter.ToInt32(vals, 4 * i));
+                    depthFrameTimePoints.Add(BitConverter.ToInt32(vals, 4 * i));
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine("Exception in BaseDepthReader initialization");
+                Console.WriteLine(e);
+                this.Dispose();
             }
         }
 
         public ushort[] readFrame(int frame)
         {
-            // Plus 4 for depth frame, depth width , each two bytes
-            int beginOffset = 4;
+            
+            if (depthReader != null)
+            {
+                ushort[] depthVals = new ushort[depthWidth * depthHeight];
+                // Plus 4 for depth frame, depth width , each two bytes
+                int beginOffset = 4;
 
-            int frameSize = sizeof(short) * depthWidth * depthHeight;
-            int offset = frame * frameSize + beginOffset;
-            depthReader.BaseStream.Seek(offset, SeekOrigin.Begin);
-            byte[] vals = depthReader.ReadBytes(frameSize);
+                int frameSize = sizeof(short) * depthWidth * depthHeight;
+                int offset = frame * frameSize + beginOffset;
+                depthReader.BaseStream.Seek(offset, SeekOrigin.Begin);
+                byte[] vals = depthReader.ReadBytes(frameSize);
 
-            ushort[] depthVals = new ushort[depthWidth * depthHeight];
+                Buffer.BlockCopy(vals, 0, depthVals, 0, frameSize);
+                
 
-            Buffer.BlockCopy(vals, 0, depthVals, 0, frameSize);
-            return depthVals;
+                return depthVals;
+            }
+            return null;
         }
 
         public ushort[] readFrameAtTime(int milisecondFromStart)
@@ -87,22 +101,24 @@ namespace Annotator
         public void readFrameAtTimeToBitmap(int milisecondFromStart, Bitmap depthBitmap, byte[] depthValuesToByte, float scale)
         {
             ushort[] vals = readFrameAtTime(milisecondFromStart);
-
-            BitmapData bmapdata = depthBitmap.LockBits(
+            if ( vals != null )
+            {
+                BitmapData bmapdata = depthBitmap.LockBits(
                                      new Rectangle(0, 0, depthWidth, depthHeight),
                                      ImageLockMode.WriteOnly,
                                      depthBitmap.PixelFormat);
 
-            IntPtr ptr = bmapdata.Scan0;
+                IntPtr ptr = bmapdata.Scan0;
 
-            for (int i = 0; i < depthWidth * depthHeight; i++)
-            {
-                depthValuesToByte[4 * i] = depthValuesToByte[4 * i + 1] = depthValuesToByte[4 * i + 2] = (byte)(vals[i] / scale);
+                for (int i = 0; i < depthWidth * depthHeight; i++)
+                {
+                    depthValuesToByte[4 * i] = depthValuesToByte[4 * i + 1] = depthValuesToByte[4 * i + 2] = (byte)(vals[i] / scale);
+                }
+
+                Marshal.Copy(depthValuesToByte, 0, ptr, depthWidth * depthHeight * 4);
+
+                depthBitmap.UnlockBits(bmapdata);
             }
-
-            Marshal.Copy(depthValuesToByte, 0, ptr, depthWidth * depthHeight * 4);
-
-            depthBitmap.UnlockBits(bmapdata);
         }
 
         public void Dispose()

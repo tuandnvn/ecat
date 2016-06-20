@@ -50,12 +50,6 @@ namespace Annotator
             int frameWidth = videoReader.frameWidth;
             int frameHeight = videoReader.frameHeight;
 
-            // Add a range selector
-            cropBar.recordPanel = this;
-            cropBar.start = 1;
-            cropBar.end = rgbPlaybackFrameNo;
-            cropBar.Visible = true;
-
             depthReader = new BaseDepthReader(tempDepthFileName);
             depthFrame = depthReader.getFrameCount();
             depthWidth = depthReader.getWidth();
@@ -184,7 +178,6 @@ namespace Annotator
             playButton.ImageIndex = 2;
 
             recordMode = RecordMode.None;
-            cropBar.Visible = false;
             tmspStartRecording = null;
 
             helperTextBox.Text = "";

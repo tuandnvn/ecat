@@ -26,10 +26,16 @@ namespace Annotator
             this.totalMiliTime = totalMiliTime;
             capture = new Capture(fileName);
 
+            Console.WriteLine("fileName " + fileName);
+
             // This framecount is just an estimation
             frameCount = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameCount);
 
+            Console.WriteLine("frameCount " + frameCount);
+
             fps = capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.Fps);
+
+            Console.WriteLine("fps " + fps);
 
             int countBack;
             for ( countBack = 0; countBack < 50; countBack ++ )
@@ -38,6 +44,8 @@ namespace Annotator
                 if (m != null) break;
             }
             frameCount -= countBack - 1;
+
+            Console.WriteLine("frameCount " + frameCount);
 
             frameWidth = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameWidth);
             frameHeight = (int)capture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);

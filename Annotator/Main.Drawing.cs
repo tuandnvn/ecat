@@ -390,6 +390,10 @@ namespace Annotator
             }
             );
 
+            // Make sure there is some object to select
+            if (objectWithScore.Count == 0)
+                return;
+
             double bestScore = objectWithScore.Last().Item1;
             if (bestScore > 0)
             {

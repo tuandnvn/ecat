@@ -24,7 +24,6 @@ namespace Annotator
         internal MyPictureBox depthBoard;
         internal MyPictureBox rgbBoard;
         private TrackBar playBar;
-        private GroupBox cropBox;
         private GroupBox optionBox;
         private DataGridView optionsTable;
         private DataGridViewTextBoxColumn PropertyName;
@@ -37,7 +36,6 @@ namespace Annotator
         private Label videoNameLabel;
         private Label recordTimeLbl;
         private Label endTimeLabel;
-        private Range cropBar;
         private Button calibrateButton;
         internal Main main;
 
@@ -64,7 +62,6 @@ namespace Annotator
             this.endTimeLabel = new System.Windows.Forms.Label();
             this.startTimeLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cropBox = new System.Windows.Forms.GroupBox();
             this.playBar = new System.Windows.Forms.TrackBar();
             this.saveRecordedSession = new System.Windows.Forms.Button();
             this.recordTimeLbl = new System.Windows.Forms.Label();
@@ -81,10 +78,8 @@ namespace Annotator
             this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cameraStatusLabel = new System.Windows.Forms.Label();
-            this.cropBar = new Range();
             this.recordingButtonGroup.SuspendLayout();
             this.recordedBox.SuspendLayout();
-            this.cropBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playBar)).BeginInit();
             this.helpBox.SuspendLayout();
             this.viewPanel.SuspendLayout();
@@ -163,7 +158,6 @@ namespace Annotator
             this.recordedBox.Controls.Add(this.endTimeLabel);
             this.recordedBox.Controls.Add(this.startTimeLabel);
             this.recordedBox.Controls.Add(this.label2);
-            this.recordedBox.Controls.Add(this.cropBox);
             this.recordedBox.Controls.Add(this.playBar);
             this.recordedBox.Controls.Add(this.saveRecordedSession);
             this.recordedBox.Location = new System.Drawing.Point(269, 463);
@@ -206,27 +200,6 @@ namespace Annotator
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 4;
-            // 
-            // cropBox
-            // 
-            this.cropBox.Controls.Add(this.cropBar);
-            this.cropBox.Location = new System.Drawing.Point(23, 104);
-            this.cropBox.Name = "cropBox";
-            this.cropBox.Size = new System.Drawing.Size(1110, 84);
-            this.cropBox.TabIndex = 3;
-            this.cropBox.TabStop = false;
-            this.cropBox.Text = "Crop";
-            // 
-            // cropBar
-            // 
-            this.cropBar.axisLeft = 6;
-            this.cropBar.axisRight = 1088;
-            this.cropBar.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cropBar.Location = new System.Drawing.Point(9, 25);
-            this.cropBar.Name = "cropBar";
-            this.cropBar.Size = new System.Drawing.Size(1092, 53);
-            this.cropBar.TabIndex = 0;
-            this.cropBar.Visible = false;
             // 
             // playBar
             // 
@@ -406,7 +379,6 @@ namespace Annotator
             this.recordingButtonGroup.ResumeLayout(false);
             this.recordedBox.ResumeLayout(false);
             this.recordedBox.PerformLayout();
-            this.cropBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playBar)).EndInit();
             this.helpBox.ResumeLayout(false);
             this.viewPanel.ResumeLayout(false);
@@ -444,6 +416,11 @@ namespace Annotator
             {
                 rgbBoard.Image.Save("temp.png");
             }
+        }
+
+        private void recordedBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

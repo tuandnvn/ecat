@@ -72,19 +72,24 @@ namespace Annotator
         public Session(String sessionName, String projectOwner, String locationFolder)
         {
             this.sessionName = sessionName;
-            this.filesList = new List<String>();
-            this.edited = false;
-            this.videos = new List<VideoReader>();
-            this.depthVideos = new List<BaseDepthReader>();
-
-            this.events = new List<Event>();
             this.project = projectOwner;
             this.locationFolder = locationFolder;
-            objects = new Dictionary<string, Object>();
             //If session file list exist load files list
             commonPrefix = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
             metadataFile = commonPrefix + "files.param";
             tempMetadataFile = commonPrefix + "~files.param";
+
+            resetVariables();
+        }
+
+        private void resetVariables()
+        {
+            this.filesList = new List<String>();
+            this.edited = false;
+            this.videos = new List<VideoReader>();
+            this.depthVideos = new List<BaseDepthReader>();
+            this.events = new List<Event>();
+            this.objects = new Dictionary<string, Object>();
         }
 
         internal void loadIfNotLoaded()
@@ -94,6 +99,13 @@ namespace Annotator
                 loadSession();
                 loaded = true;
             }
+        }
+
+        internal void reloadAnnotation()
+        {
+            resetVariables();
+            loadAnnotation();
+            loaded = true;
         }
 
         //Add file to session filesList
@@ -311,6 +323,19 @@ namespace Annotator
                         addDepth(filename);
                     }
                 }
+                
+                loadAnnotation();
+
+                myFile.Attributes |= FileAttributes.Hidden;
+            }
+        }
+
+        private void loadAnnotation()
+        {
+            try
+            {
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load(metadataFile);
 
                 XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
                 objectCount = int.Parse(objectsNode.Attributes["no"].Value);
@@ -322,8 +347,10 @@ namespace Annotator
 
                 XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
                 events = Event.readFromXml(mainGUI, this, annotationsNode);
-
-                myFile.Attributes |= FileAttributes.Hidden;
+            } catch (Exception e)
+            {
+                Console.WriteLine("Exception in loading annotation");
+                Console.WriteLine(e);
             }
         }
 

@@ -632,6 +632,8 @@ namespace Annotator
 
         internal void selectObject(Object o)
         {
+            cancelSelectObject();
+
             //Remove any decoration of other objects
             foreach (Object other in objectToObjectTracks.Keys)
             {
@@ -693,12 +695,12 @@ namespace Annotator
                         }
 
                         rescaleFrameTrackBar();
-                    }
+                    } 
                 }
             }
             catch (Exception)
             {
-                startInSecondTextBox.Text = sessionStart + "";
+                startInSecondTextBox.Text = "";
             }
         }
 
@@ -732,7 +734,7 @@ namespace Annotator
             }
             catch (Exception)
             {
-                endInSecondTextBox.Text = sessionEnd + "";
+                endInSecondTextBox.Text = "";
             }
         }
 

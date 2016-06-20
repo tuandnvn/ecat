@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Annotator
 {
@@ -19,9 +20,24 @@ namespace Annotator
             // Enable the delMarkerBtn if necessary
             if (selectedObject != null)
             {
-                if (selectedObject.hasMarkerAt(this.frameTrackBar.Value) )
+                if (selectedObject.hasMarkerAt(this.frameTrackBar.Value))
                 {
                     delMarkerBtn.Enabled = true;
+                }
+                else {
+                    delMarkerBtn.Enabled = false;
+                }
+
+                if (selectedObject.genType == Object.GenType.PROVIDED || selectedObject.genType == Object.GenType.TRACKED)
+                {
+                    delMarkerBtn.Enabled = false;
+                    delAtFrameBtn.Enabled = false;
+                    addLocationBtn.Enabled = false;
+                } else
+                {
+                    delMarkerBtn.Enabled = true;
+                    delAtFrameBtn.Enabled = true;
+                    addLocationBtn.Enabled = true;
                 }
             }
 
@@ -31,20 +47,16 @@ namespace Annotator
 
         private void deleteObjBtn_Click(object sender, EventArgs e)
         {
-            editingAtAFrame = false;
-            editObjectContextPanel.Visible = false;
-            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
-            {
-                doneEditRectangle();
-            }
+            var tempoObject = selectedObject;
+            cancelSelectObject();
 
-            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
+            DialogResult result = MessageBox.Show("Are you sure you want to remove this object?",
+                "Remove",
+                MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                doneEditPolygon();
+                removeObject(tempoObject);
             }
-            selectedObject = null;
-
-            this.Invalidate();
         }
 
         private void cancelSelectObjBtn_Click(object sender, EventArgs e)
@@ -54,9 +66,10 @@ namespace Annotator
 
         private void cancelSelectObject()
         {
-            editingAtAFrame = false;
+            // Cancel edit at a frame
+            cancelEditObjBtn_Click(null, null);
+
             selectObjContextPanel.Visible = false;
-            editObjectContextPanel.Visible = false;
 
             if (selectedObject != null)
             {

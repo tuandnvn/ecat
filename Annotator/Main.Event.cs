@@ -150,12 +150,8 @@ namespace Annotator
         {
             LinkEventForm linkEventForm = new LinkEventForm();
             linkEventForm.populate(ev, currentSession.events);
-            linkEventForm.Show(this);
-            linkEventForm.Location = new Point()
-            {
-                X = Math.Max(this.Location.X, this.Location.X + (this.Width - linkEventForm.Width) / 2),
-                Y = Math.Max(this.Location.Y, this.Location.Y + (this.Height - linkEventForm.Height) / 2)
-            };
+            linkEventForm.StartPosition = FormStartPosition.CenterParent;
+            linkEventForm.ShowDialog(this);
         }
     }
 }

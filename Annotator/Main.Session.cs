@@ -49,11 +49,11 @@ namespace Annotator
                     var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        cleanCurrentSession();
+                        saveCurrentSession();
                     }
                     else if (result == DialogResult.No)
                     {
-                        cleanSessionUI();
+                        closeWithoutSaveCurrentSession();
                     }
                 }
             }
@@ -101,52 +101,61 @@ namespace Annotator
 
         private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string videoFilename = playbackFileComboBox.SelectedItem.ToString();
-
-            if (videoFilename.isVideoFile())
+            try
             {
-                depthReader = null;
-                loadVideo(videoFilename);
+                string videoFilename = playbackFileComboBox.SelectedItem.ToString();
 
-                if (currentVideo != null)
+                if (videoFilename.isVideoFile())
                 {
-                    endPoint = startPoint = new Point();
-                    label3.Text = "Frame: " + frameTrackBar.Value;
+                    depthReader = null;
+                    loadVideo(videoFilename);
 
-                    Mat m = currentVideo.getFrame(0);
-                    if (m != null)
+                    if (currentVideo != null)
                     {
-                        pictureBoard.mat = m;
-                        pictureBoard.Image = pictureBoard.mat.Bitmap;
+                        endPoint = startPoint = new Point();
+                        label3.Text = "Frame: " + frameTrackBar.Value;
+
+                        Mat m = currentVideo.getFrame(0);
+                        if (m != null)
+                        {
+                            pictureBoard.mat = m;
+                            pictureBoard.Image = pictureBoard.mat.Bitmap;
+                        }
+
+                        setLeftTopPanel();
+                    }
+                }
+
+                if (videoFilename.isDepthFile())
+                {
+                    currentVideo = null;
+                    depthReader = currentSession.getDepth(videoFilename);
+
+                    if (depthReader == null) return;
+
+                    if (depthValuesToByte == null)
+                    {
+                        depthValuesToByte = new byte[depthReader.getWidth() * depthReader.getHeight() * 4];
                     }
 
-                    setLeftTopPanel();
-                }
-            }
+                    if (depthBitmap == null)
+                    {
+                        depthBitmap = new Bitmap(depthReader.getWidth(), depthReader.getHeight(), PixelFormat.Format32bppRgb);
+                    }
 
-            if (videoFilename.isDepthFile())
+                    depthReader.readFrameAtTimeToBitmap(0, depthBitmap, depthValuesToByte, 8000.0f / 256);
+
+                    if (depthBitmap != null)
+                    {
+                        pictureBoard.Image = depthBitmap;
+                    }
+                }
+
+                frameTrackBar_ValueChanged(null, null);
+            } catch (Exception exc)
             {
-                currentVideo = null;
-                depthReader = currentSession.getDepth(videoFilename);
-
-                if (depthReader == null) return;
-
-                if (depthValuesToByte == null)
-                {
-                    depthValuesToByte = new byte[depthReader.getWidth() * depthReader.getHeight() * 4];
-                }
-
-                if (depthBitmap == null)
-                {
-                    depthBitmap = new Bitmap(depthReader.getWidth(), depthReader.getHeight(), PixelFormat.Format32bppRgb);
-                }
-
-                depthReader.readFrameAtTimeToBitmap(0, depthBitmap, depthValuesToByte, 8000.0f / 256);
-
-                if (depthBitmap != null)
-                {
-                    pictureBoard.Image = depthBitmap;
-                }
+                Console.WriteLine("Select video file exception");
+                MessageBox.Show("Exception in opening this file, please try another file", "File exception", MessageBoxButtons.OK);
             }
         }
 
@@ -158,6 +167,7 @@ namespace Annotator
             if (currentVideo != null)
             {
                 Mat m = currentVideo.getFrame(frameStartWithZero);
+                Console.WriteLine(frameStartWithZero);
                 if (m != null)
                 {
                     pictureBoard.mat = m;
@@ -211,15 +221,22 @@ namespace Annotator
             //MessageBox.Show(selectedProject.getSessionN() + "");
             if (currentSession.getEdited())
             {
-                cleanCurrentSession();
+                saveCurrentSession();
             }
 
             toggleFileToolStripsOfSession(false);
         }
 
-        private void cleanCurrentSession()
+        private void saveCurrentSession()
         {
             currentSession.saveSession();
+            cleanSessionUI();
+        }
+
+        private void closeWithoutSaveCurrentSession()
+        {
+            //Reload session
+            currentSession.reloadAnnotation();
             cleanSessionUI();
         }
 

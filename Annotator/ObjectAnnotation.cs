@@ -210,7 +210,6 @@ namespace Annotator
                 MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                Console.WriteLine("Remove object " + o.id);
                 main.removeObject(o);
             }
         }
