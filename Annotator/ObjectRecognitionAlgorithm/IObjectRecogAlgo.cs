@@ -17,6 +17,14 @@ namespace Annotator.ObjectRecognitionAlgorithm
     {
         string getName();
 
-        List<Object> findObjects( VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="videoReader">Provide the video stream.</param>
+        /// <param name="depthReader">Provide the depth stream. If set to null then results don't have 3-d data</param>
+        /// <param name="mappingFunction">Mapping function between depth field and camera space point. If depthReader is null, it is ignored</param>
+        /// <param name="progress">Because finding objects is a long process, there might be some UI need to be updated</param>
+        /// <returns></returns>
+        List<Object> findObjects( VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction, IProgress<int> progress);
     }
 }

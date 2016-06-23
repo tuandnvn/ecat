@@ -181,6 +181,12 @@
     <Compile Include="object\RigObject.cs" />
     <Compile Include="object\RigScheme.cs" />
     <Compile Include="object\SpatialLinkMark.cs" />
+    <Compile Include="ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -309,6 +315,9 @@
     </Compile>
     <EmbeddedResource Include="AddRigFileForm.resx">
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Range.resx">
       <DependentUpon>Range.cs</DependentUpon>

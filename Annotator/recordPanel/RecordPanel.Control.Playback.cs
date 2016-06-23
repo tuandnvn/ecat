@@ -24,7 +24,7 @@ namespace Annotator
         int rgbPlaybackFrameNo;
         private Body[] playbackBodies = null;
 
-        private void handlePlayButtonOn()
+        private async void handlePlayButtonOn()
         {
             recordMode = RecordMode.Playingback;
             finishRecording.Wait();
@@ -80,7 +80,9 @@ namespace Annotator
                 sb.Append("No rig is detected.\n");
             }
 
-            DetectObjects();
+            await DetectObjects();
+
+            Console.WriteLine("In playback " + detectedObjects.Count);
 
             sb.Append(detectedObjects.Count + " objects is detected.\n");
 
@@ -122,6 +124,9 @@ namespace Annotator
                 Console.WriteLine(e);
             }
             catch (IOException e)
+            {
+                Console.WriteLine(e);
+            }catch (Exception e)
             {
                 Console.WriteLine(e);
             }

@@ -38,7 +38,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
             }
         }
 
-        public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction)
+        public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction, IProgress<int> progress)
         {
             List<Object> objects = new List<Object>();
             var patternNameToFrames = new Dictionary<string, List<int>>();

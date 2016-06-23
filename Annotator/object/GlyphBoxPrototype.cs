@@ -175,6 +175,7 @@ namespace Annotator
         public static GlyphBoxPrototype prototype1;
         public static GlyphBoxPrototype prototype2;
         public static GlyphBoxPrototype prototype3;
+        public static GlyphBoxPrototype prototype4;
 
         static GlyphBoxPrototype(){
             var indexToGlyphFaces = new Dictionary<int, GlyphFace>();
@@ -220,7 +221,15 @@ namespace Annotator
 
             prototype3 = new GlyphBoxPrototype(indexToGlyphFaces, 5);
 
+            indexToGlyphFaces = new Dictionary<int, GlyphFace>();
+            indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { false, true, false, true, false},
+                                                                { true, true, false, true, false},
+                                                                { true, true, false, true, false},
+                                                                { true, false, false, false, false},
+                                                                { false, true, true, true, true}, }, 5);
+            indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
+            prototype4 = new GlyphBoxPrototype(indexToGlyphFaces, 5);
         }
     }
 }

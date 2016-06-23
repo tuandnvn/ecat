@@ -11,6 +11,7 @@ using AForge.Imaging;
 using AForge.Imaging.Filters;
 using AForge.Math.Geometry;
 using Accord.Math;
+using System.Diagnostics;
 
 namespace Annotator.ObjectRecognitionAlgorithm
 {
@@ -24,6 +25,15 @@ namespace Annotator.ObjectRecognitionAlgorithm
         protected int glyphSize;
         protected Session currentSession;
 
+        // Anchor frame number
+        // Object detection algorithm run for the whole frame
+        // if the frame is divided by anchorNumber, otherwise 
+        // only looking for glyphs in the neighborhood of previously detected
+        // frames
+        static int anchorNumber = 10;
+
+        // Extension frame 
+        static int extensionFrame = 20;
 
         public GlyphBoxObjectRecognition(Session currentSession, List<GlyphBoxPrototype> boxPrototypes, int glyphSize)
         {
@@ -40,10 +50,15 @@ namespace Annotator.ObjectRecognitionAlgorithm
             }
         }
 
-        public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction)
+        
+        public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction, IProgress<int> progress)
         {
+            var shapeOptimizer = new FlatAnglesOptimizer(160);
             Console.WriteLine("Find glyph box");
             List<Object> objects = new List<Object>();
+
+            if (videoReader == null)
+                return objects;
 
             /// For each frame (int frameNo)
             /// For each recognized glyph in frame (int faceIndex)
@@ -60,15 +75,35 @@ namespace Annotator.ObjectRecognitionAlgorithm
             Bitmap transformed = null;
             Bitmap transformedOtsu = null;
 
+
+            //A control flag, true if at the previous frame loop, there is detection of some glyph
+            // When this is true, only searching for glyph box in some neighborhood of the previous glyphs
+            // if the frame is not an anchor frame
+            bool previousFrameDetection = false;
+
+
             for (int frameNo = 0; frameNo < videoReader.frameCount; frameNo++)
             {
+                if (progress != null)
+                    progress.Report(frameNo);
+
+                Console.WriteLine("=============================================");
+                Console.WriteLine("Frame no " + frameNo);
                 m = videoReader.getFrame(frameNo);
                 if (m == null)
                 {
                     break;
                 }
 
-                image = m.Bitmap;
+                var startPos = new System.Drawing.Point();
+
+                getImageForProcessing(recognizedGlyphs, m, previousFrameDetection, frameNo, ref image, ref startPos);
+
+                // Reset right after using
+                previousFrameDetection = false;
+
+
+                Stopwatch stopwatch = Stopwatch.StartNew();
 
                 /// Adapt from Glyph Recognition Prototyping
                 /// Copyright © Andrew Kirillov, 2009-2010
@@ -76,23 +111,41 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 // 1 - Grayscale
                 grayImage = Grayscale.CommonAlgorithms.BT709.Apply(image);
 
+                stopwatch.Stop();
+                Console.WriteLine("Gray scale time = " + stopwatch.ElapsedMilliseconds);
+                stopwatch.Restart();
+
                 // 2 - Edge detection
                 DifferenceEdgeDetector edgeDetector = new DifferenceEdgeDetector();
                 edges = edgeDetector.Apply(grayImage);
 
+                stopwatch.Stop();
+                Console.WriteLine("Edge detection time = " + stopwatch.ElapsedMilliseconds);
+                stopwatch.Restart();
+
                 // 3 - Threshold edges
-                Threshold thresholdFilter = new Threshold(20);
+                // Was set to 20 and the number of detected glyphs are too low
+                // Should be set higher
+                Threshold thresholdFilter = new Threshold(40);
                 thresholdFilter.ApplyInPlace(edges);
+
+                stopwatch.Stop();
+                Console.WriteLine("Threshold time = " + stopwatch.ElapsedMilliseconds);
+                stopwatch.Restart();
 
                 // 4 - Blob Counter
                 BlobCounter blobCounter = new BlobCounter();
-                blobCounter.MinHeight = 32;
-                blobCounter.MinWidth = 32;
+                blobCounter.MinHeight = 16;
+                blobCounter.MinWidth = 16;
                 blobCounter.FilterBlobs = true;
                 blobCounter.ObjectsOrder = ObjectsOrder.Size;
 
                 blobCounter.ProcessImage(edges);
                 Blob[] blobs = blobCounter.GetObjectsInformation();
+
+                stopwatch.Stop();
+                Console.WriteLine("Blob finding time = " + stopwatch.ElapsedMilliseconds);
+                stopwatch.Restart();
 
                 //// create unmanaged copy of source image, so we could draw on it
                 //UnmanagedImage imageData = UnmanagedImage.FromManagedImage(image);
@@ -105,10 +158,13 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 // shape checker for checking quadrilaterals
                 SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
 
+                Console.WriteLine("edgePoints");
+
                 // 5 - check each blob
                 for (int i = 0, n = blobs.Length; i < n; i++)
                 {
                     List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
+
                     List<IntPoint> corners = null;
 
                     // does it look like a quadrilateral ?
@@ -127,7 +183,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                                 leftEdgePoints, rightEdgePoints, grayUI);
 
                             // check average difference, which tells how much outside is lighter than inside on the average
-                            if (diff > 20)
+                            if (diff > 10)
                             {
                                 //Drawing.Polygon(imageData, corners, Color.FromArgb(255, 255, 0, 0));
                                 // add the object to the list of interesting objects for further processing
@@ -137,13 +193,23 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     }
                 }
 
+                stopwatch.Stop();
+                Console.WriteLine("Finding black quadiralateral surrounded by white area = " + stopwatch.ElapsedMilliseconds);
+                stopwatch.Restart();
+
 
                 int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
-                ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
 
                 CameraSpacePoint[] csps = new CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
+                if (depthReader != null)
+                {
+                    ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
+                    mappingFunction(depthValues, csps);
+                }
 
-                mappingFunction(depthValues, csps);
+                stopwatch.Stop();
+                Console.WriteLine("Mapping into 3 dimensional = " + stopwatch.ElapsedMilliseconds);
+                stopwatch.Restart();
 
 
                 // further processing of each potential glyph
@@ -175,9 +241,26 @@ namespace Annotator.ObjectRecognitionAlgorithm
                             resizedGlyphValues[i, j] = glyphValues[i + 1, j + 1];
                         }
 
+                    
                     GlyphFace face = new GlyphFace(resizedGlyphValues, glyphSize);
 
-                    for ( int boxPrototypeIndex = 0; boxPrototypeIndex < boxPrototypes.Count; boxPrototypeIndex ++ )
+                    Console.WriteLine("Find glyph face " + face.ToString());
+
+                    // Transfer back to original coordinates
+                    List<IntPoint> originalCorners = new List<IntPoint>();
+                    foreach (var corner in corners)
+                    {
+                        IntPoint p = new IntPoint(corner.X + startPos.X, corner.Y + startPos.Y);
+                        originalCorners.Add(p);
+                    }
+
+                    Console.WriteLine("Corner points");
+                    foreach (var corner in originalCorners)
+                    {
+                        Console.WriteLine(corner);
+                    }
+
+                    for (int boxPrototypeIndex = 0; boxPrototypeIndex < boxPrototypes.Count; boxPrototypeIndex++)
                     {
                         var boxPrototype = boxPrototypes[boxPrototypeIndex];
                         foreach (int faceIndex in boxPrototype.indexToGlyphFaces.Keys)
@@ -186,24 +269,29 @@ namespace Annotator.ObjectRecognitionAlgorithm
                             {
                                 if (!recognizedGlyphs.ContainsKey(boxPrototypeIndex))
                                 {
-                                    Console.WriteLine("Detect glyph for prototype " + boxPrototypeIndex);
-
+                                    Console.WriteLine("Detect new type of prototype " + boxPrototypeIndex);
                                     recognizedGlyphs[boxPrototypeIndex] = new Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>();
                                 }
 
                                 if (!recognizedGlyphs[boxPrototypeIndex].ContainsKey(frameNo))
                                 {
                                     Console.WriteLine("Detect glyph at frame " + frameNo + " for prototype " + boxPrototypeIndex);
+                                    if (!previousFrameDetection)
+                                    {
+                                        previousFrameDetection = true;
+                                    }
 
                                     recognizedGlyphs[boxPrototypeIndex][frameNo] = new Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>();
                                 }
                                 recognizedGlyphs[boxPrototypeIndex][frameNo][faceIndex] = new Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>(
-                                    corners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(),
+                                    originalCorners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(),
                                     face,
-                                    corners.Select(p => p.X * videoReader.frameWidth + p.Y >= 0 && p.X * videoReader.frameWidth + p.Y < videoReader.frameWidth * videoReader.frameHeight ?
+                                    depthReader != null ?
+                                    originalCorners.Select(p => p.X * videoReader.frameWidth + p.Y >= 0 && p.X * videoReader.frameWidth + p.Y < videoReader.frameWidth * videoReader.frameHeight ?
                                                                    new Point3(csps[p.X * videoReader.frameWidth + p.Y].X,
                                                                    csps[p.X * videoReader.frameWidth + p.Y].Y,
-                                                                   csps[p.X * videoReader.frameWidth + p.Y].Z) : new Point3()).ToList()
+                                                                   csps[p.X * videoReader.frameWidth + p.Y].Z) : new Point3()).ToList() :
+                                                                   new List<Point3>()
                                     );
                                 break;
                             }
@@ -211,18 +299,27 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     }
                 }
 
-                foreach (IDisposable o in new IDisposable[] { image , m , grayImage , edges, grayUI, transformed, transformedOtsu })
+                foreach (IDisposable o in new IDisposable[] { image, m, grayImage, edges, grayUI, transformed, transformedOtsu })
                 {
-                    if ( o != null)
+                    if (o != null)
                     {
                         o.Dispose();
                     }
                 }
+
+                stopwatch.Stop();
+                Console.WriteLine("Transforming and detect glyph = " + stopwatch.ElapsedMilliseconds);
+                stopwatch.Restart();
+
             }
+
+            if (progress != null)
+                progress.Report(videoReader.frameCount);
 
             if (recognizedGlyphs.Keys.Count != 0){
                 foreach (int boxPrototypeIndex in recognizedGlyphs.Keys)
                 {
+                    Console.WriteLine("For boxPrototypeIndex = " + boxPrototypeIndex + " Found glyph box at " + recognizedGlyphs[boxPrototypeIndex].Keys.Count + " frames");
                     GlyphBoxObject oneBox = null;
                     var boxPrototype = boxPrototypes[boxPrototypeIndex];
                     oneBox = new GlyphBoxObject(currentSession, "", Color.Black, 1, videoReader.fileName);
@@ -255,6 +352,85 @@ namespace Annotator.ObjectRecognitionAlgorithm
             }
 
             return objects;
+        }
+
+        private static void getImageForProcessing(Dictionary<int, Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>> recognizedGlyphs, 
+            Mat m, bool previousFrameDetection, int frameNo, ref Bitmap bitmap, ref System.Drawing.Point startPos)
+        {
+            if (frameNo % anchorNumber == 0)
+            {
+                bitmap = m.Bitmap;
+                startPos.X = startPos.Y = 0;
+                return;
+            }
+            else
+            {
+
+                Console.WriteLine("previousFrameDetection " + previousFrameDetection);
+                if (previousFrameDetection)
+                {
+                    float minX = float.MaxValue, minY = float.MaxValue, maxX = -1, maxY = -1;
+
+                    foreach (var boxPrototypeIndex in recognizedGlyphs.Keys)
+                    {
+                        if (recognizedGlyphs[boxPrototypeIndex].ContainsKey(frameNo - 1))
+                        {
+                            foreach (var faceIndex in recognizedGlyphs[boxPrototypeIndex][frameNo - 1].Keys)
+                            {
+                                foreach (var p in recognizedGlyphs[boxPrototypeIndex][frameNo - 1][faceIndex].Item1)
+                                {
+                                    if (p.X < minX) minX = p.X;
+                                    if (p.X > maxX) maxX = p.X;
+                                    if (p.Y < minY) minY = p.Y;
+                                    if (p.Y > maxY) maxY = p.Y;
+                                }
+                            }
+                        }
+                    }
+
+                    Console.WriteLine("Crop rect " + minX + " , " + minY + " , " + maxX + " , " + maxY);
+
+                    if (minX == float.MaxValue || minY == float.MaxValue || maxX == -1 || maxY == -1)
+                    {
+                        bitmap = m.Bitmap;
+                        startPos.X = startPos.Y = 0;
+                        return;
+                    }
+                        
+
+                    minX -= extensionFrame;
+                    minY -= extensionFrame;
+                    maxX += extensionFrame;
+                    maxY += extensionFrame;
+
+                    int iminX = minX < 0 ? 0 : (int) minX;
+                    int iminY = minY < 0 ? 0 : (int)minY;
+                    int imaxX = maxX > m.Bitmap.Width ? m.Bitmap.Width : (int)maxX;
+                    int imaxY = maxY > m.Bitmap.Height ? m.Bitmap.Height : (int)maxY;
+
+                    Console.WriteLine("Crop rect " + iminX + " , " + iminY + " , " + imaxX + " , " + imaxY);
+                    Rectangle cropRect = new Rectangle(iminX, iminY, imaxX - iminX, imaxY - iminY);
+                    bitmap = new Bitmap(cropRect.Width, cropRect.Height);
+
+                    using (Graphics g = Graphics.FromImage(bitmap))
+                    {
+                        g.DrawImage(m.Bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                                         cropRect,
+                                         GraphicsUnit.Pixel);
+                    }
+
+                    startPos.X = iminX;
+                    startPos.Y = iminY;
+
+                    return;
+                }
+                else
+                {
+                    bitmap = m.Bitmap;
+                    startPos.X = startPos.Y = 0;
+                    return;
+                }
+            }
         }
 
         private const int stepSize = 3;
