@@ -50,9 +50,6 @@ namespace Annotator
             InitializeComponent();
 
             this.ev = ev;
-            minLeftPosition = axis.X1;
-            maxLeftPosition = axis.X2;
-
             //MessageBox.Show(txt);
             if (ev.text != null)
                 textAnnotation.Text = ev.text;
@@ -62,14 +59,21 @@ namespace Annotator
 
             this.slider1Move = false;
             this.slider2Move = false;
-
-            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (end - start);
-            drawObjectMarks();
+            Rendering();
 
             rectangleShape.MouseClick += Mark_MouseClick;
 
             //MessageBox.Show("minimum = " + minimum + ", maximum = " + maximum + " stepX = " + frameStepX);
             intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
+        }
+
+        private void Rendering()
+        {
+            minLeftPosition = axis.X1;
+            maxLeftPosition = axis.X2;
+
+            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (end - start);
+            drawObjectMarks();
         }
 
         private void drawObjectMarks()
@@ -249,20 +253,37 @@ namespace Annotator
 
             foreach (Event.Reference reference in ev.references)
             {
-                int start = reference.start;
-                int end = reference.end;
-                String refID = reference.refObjectId;
-                String text = this.getText().Substring(start, end - start);
-                mainGUI.addRightBottomTableReference(start, end, text, refID);
+                try
+                {
+                    int start = reference.start;
+                    int end = reference.end;
+                    String refID = reference.refObjectId;
+                    String text = this.getText().Substring(start, end - start);
+                    mainGUI.addRightBottomTableReference(start, end, text, refID);
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    // The case when there is problem with start and end
+                    Console.WriteLine(e);
+                }
+
             }
 
             foreach (Event.Action ev in ev.actions)
             {
-                int start = ev.start;
-                int end = ev.end;
-                String semanticType = ev.semanticType;
-                String text = this.getText().Substring(start, end - start);
-                mainGUI.addRightBottomTableReference(start, end, text, semanticType);
+                try
+                {
+                    int start = ev.start;
+                    int end = ev.end;
+                    String semanticType = ev.semanticType;
+                    String text = this.getText().Substring(start, end - start);
+                    mainGUI.addRightBottomTableReference(start, end, text, semanticType);
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    // The case when there is problem with start and end
+                    Console.WriteLine(e);
+                }
             }
         }
 
@@ -291,6 +312,12 @@ namespace Annotator
         private void subEventLink_Click(object sender, EventArgs e)
         {
             mainGUI.linkSubEvent(this.ev);
+        }
+
+        private void EventAnnotation_SizeChanged(object sender, EventArgs e)
+        {
+            axis.X2 = this.Size.Width - 10;
+            Rendering();
         }
     }
 }

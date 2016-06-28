@@ -39,24 +39,22 @@ namespace Annotator
         {
             InitializeComponent();
 
+            axis.X1 = 10;
+            axis.X2 = 820;
+
             tt.AutoPopDelay = 5000;
             tt.InitialDelay = 1000;
             tt.ReshowDelay = 500;
             tt.ShowAlways = true;
 
             this.main = main;
-            minLeftPosition = axis.X1;
-            maxLeftPosition = axis.X2;
-
             this.o = o;
 
             this.start = start;
             this.end = end;
             this.sessionLength = end - start + 1;
 
-            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (sessionLength - 1);
-
-            drawObjectMarks();
+            Rendering();
 
             this.info.Text = "Id=" + o.id + "; Name=" + o.name;
 
@@ -64,10 +62,21 @@ namespace Annotator
             if (this.o.genType == Object.GenType.MANUAL)
             {
                 this.generate3d.Visible = true;
-            } else
+            }
+            else
             {
                 this.generate3d.Visible = false;
             }
+        }
+
+        private void Rendering()
+        {
+            minLeftPosition = axis.X1;
+            maxLeftPosition = axis.X2;
+
+            frameStepX = (double)(maxLeftPosition - minLeftPosition) / (sessionLength - 1);
+
+            drawObjectMarks();
         }
 
         public void resetStartEnd(int start, int end)
@@ -253,6 +262,12 @@ namespace Annotator
                     tt.Show("Frame " + frameNo, this, new Point(X1, 14), TOOLTIP_TIME);
                 }
             }
+        }
+
+        private void ObjectAnnotation_SizeChanged(object sender, EventArgs e)
+        {
+            axis.X2 = this.Size.Width - 10;
+            Rendering();
         }
     }
 }

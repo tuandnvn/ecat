@@ -217,7 +217,7 @@ namespace Annotator
         {
             int first = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
 
-            if (first == 0)
+            if (first == 0 && !objectMarks.ContainsKey(0) )
             {
                 return null;
             }
@@ -225,7 +225,6 @@ namespace Annotator
             {
                 if (objectMarks[first].GetType().IsSubclassOf(typeof(DrawableLocationMark)))
                 {
-                    Console.WriteLine(objectMarks[first].GetType());
                     return objectMarks[first].getScaledLocationMark(scale, translation);
                 }
             }

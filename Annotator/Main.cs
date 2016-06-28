@@ -20,6 +20,7 @@ namespace Annotator
         public Main()
         {
             InitializeComponent();
+            InitializeOtherControls();
 
             InitDrawingComponent();
             InitEventAnnoComponent();
@@ -30,8 +31,39 @@ namespace Annotator
 
             //comboBox1.SelectedIndex = 0;
             //Just for sample GUI test
+            setMinimumFrameTrackBar(0);
             setMaximumFrameTrackBar(100);
+
+            previousSize = this.Size;
         }
+
+        private void InitializeOtherControls()
+        {
+            // Record panel only for >= windows 8 
+            if (System.Environment.OSVersion.Version.Major >= 6 && System.Environment.OSVersion.Version.Minor >= 2)
+            {
+                this.recordPanel = new Annotator.RecordPanel();
+            }
+
+            if (recordPanel != null)
+            {
+                this.recordTab.Controls.Add(this.recordPanel);
+            }
+
+            // 
+            // recordPanel
+            // 
+            if (recordPanel != null)
+            {
+                this.recordPanel.main = this;
+                this.recordPanel.Location = new System.Drawing.Point(0, 0);
+                this.recordPanel.Name = "recordPanel";
+                this.recordPanel.Size = new System.Drawing.Size(1420, 860);
+                this.recordPanel.TabIndex = 0;
+            }
+        }
+
+        Size previousSize;
 
         //Project workspace 
         private Workspace workspace = null;
@@ -44,8 +76,8 @@ namespace Annotator
         internal TreeNode currentSessionNode = null;
         private VideoReader currentVideo = null;      //currently edited video
         private Font myFont = new Font("Microsoft Sans Serif", 5.75f);//font to write not-string colors
-        private Point lastAnnotation = new Point(94, 0);              // last annotation location for middle-bottom panel
-        private Point lastObjectTrack = new Point(94, 0);
+        private Point lastAnnotationCell = new Point(94, 0);              // last annotation location for middle-bottom panel
+        private Point lastObjectCell = new Point(1, 0);
         internal List<ObjectAnnotation> objectAnnotations { get; set; }
         internal Dictionary<Object, ObjectAnnotation> objectToObjectTracks { get; set; }
         List<Button> drawingButtonGroup = new List<Button>();
@@ -378,12 +410,6 @@ namespace Annotator
             projectRightClickPanel.Show(location);
         }
 
-        public void removeObjectAnnotation(ObjectAnnotation objectTrack)
-        {
-            middleCenterPanel.Controls.Remove(objectTrack);
-            lastObjectTrack.Y = lastObjectTrack.Y - objectTrack.Height - 5;
-            middleCenterPanel.Invalidate();
-        }
 
         private void treeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -592,6 +618,17 @@ namespace Annotator
         }
 
 
+        internal void addObjectAnnotation(Object o)
+        {
+            var objectAnnotation = new ObjectAnnotation(o, this, this.frameTrackBar.Minimum, this.frameTrackBar.Maximum);
+            objectAnnotations.Add(objectAnnotation);
+            objectToObjectTracks[o] = objectAnnotation;
+
+            //objectAnnotation.Location = lastObjectCell;
+            //if (lastObjectCell.Y >= 0) return;
+
+            renderObjectAnnotation(objectAnnotation);
+        }
 
         internal void removeObject(Object o)
         {
@@ -607,26 +644,23 @@ namespace Annotator
                 this.objectAnnotations.Remove(ot);
             }
 
-            foreach (ObjectAnnotation other in objectAnnotations)
+            clearMiddleCenterPanel();
+            foreach (ObjectAnnotation objectAnnotation in objectAnnotations)
             {
-                if (other.Location.Y > ot.Location.Y)
-                {
-                    other.Location = new Point(other.Location.X, other.Location.Y - ot.Height - 5);
-                }
+                renderObjectAnnotation(objectAnnotation);
             }
-            removeObjectAnnotation(ot);
         }
 
-
-        internal void addObjectAnnotation(Object o)
+        private void renderObjectAnnotation(ObjectAnnotation objectAnnotation)
         {
-            var objectAnnotation = new ObjectAnnotation(o, this, this.frameTrackBar.Minimum, this.frameTrackBar.Maximum);
-            objectAnnotations.Add(objectAnnotation);
-            objectToObjectTracks[o] = objectAnnotation;
+            middleCenterTableLayoutPanel.RowCount = lastObjectCell.Y + 1;
+            middleCenterTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            middleCenterTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleCenterTableLayoutPanel.RowCount + 4);
+            middleCenterTableLayoutPanel.Controls.Add(objectAnnotation, lastObjectCell.X, lastObjectCell.Y);
+            objectAnnotation.Dock = DockStyle.Fill;
 
-            objectAnnotation.Location = lastObjectTrack;
-            middleCenterPanel.Controls.Add(objectAnnotation);
-            lastObjectTrack.Y = lastObjectTrack.Y + objectAnnotation.Height + 5;
+            lastObjectCell.Y = lastObjectCell.Y + 1;
+
             middleCenterPanel.Invalidate();
         }
 
@@ -687,7 +721,7 @@ namespace Annotator
                     if (startInSecond * currentVideo.fps < currentVideo.frameCount)
                     {
                         // Plus one because frame is counted from 1
-                        setMinimumFrameTrackBar((int)(currentVideo.fps * startInSecond) + 1);
+                        setMinimumFrameTrackBar((int)(currentVideo.fps * startInSecond));
                         frameTrackBar_ValueChanged(null, null);
                         if (frameTrackBar.Value < sessionStart)
                         {
@@ -695,7 +729,7 @@ namespace Annotator
                         }
 
                         rescaleFrameTrackBar();
-                    } 
+                    }
                 }
             }
             catch (Exception)
@@ -726,7 +760,7 @@ namespace Annotator
                 {
                     if (endInSecond * currentVideo.fps < currentVideo.frameCount)
                     {
-                        setMaximumFrameTrackBar((int)(currentVideo.fps * endInSecond));
+                        setMaximumFrameTrackBar((int)(currentVideo.fps * endInSecond) - 1);
                         frameTrackBar_ValueChanged(null, null);
                         rescaleFrameTrackBar();
                     }
@@ -795,5 +829,18 @@ namespace Annotator
             frameTrackBar.Maximum = value;
             this.sessionEnd = value;
         }
+
+        //private void Main_SizeChanged(object sender, EventArgs e)
+        //{
+        //    int widthChanged = this.Size.Width - previousSize.Width;
+        //    int heightChanged = this.Size.Height - previousSize.Height;
+
+        //    this.middleTopPanel.Size = new Size(this.middleTopPanel.Size.Width - widthChanged, this.middleTopPanel.Size.Height - heightChanged);
+        //    this.middleCenterPanel.Size = new Size(this.middleCenterPanel.Size.Width - widthChanged, this.middleCenterPanel.Size.Height);
+        //    this.middleBottomPanel.Size = new Size(this.middleBottomPanel.Size.Width - widthChanged, this.middleBottomPanel.Size.Height);
+
+        //    previousSize = this.Size;
+        //}
+
     }
 }

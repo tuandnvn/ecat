@@ -34,28 +34,27 @@ namespace Annotator
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.leftMostPanel = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.projectExplorer = new System.Windows.Forms.TabPage();
             this.treeView = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpleEventDataCreateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.middleTopPanel = new System.Windows.Forms.Panel();
-            this.frameTrackBar = new System.Windows.Forms.TrackBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.videoPanel = new System.Windows.Forms.Panel();
+            this.middleTopTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.playbackFileComboBox = new System.Windows.Forms.ComboBox();
-            this.tabs = new System.Windows.Forms.TabControl();
-            this.annotateTab = new System.Windows.Forms.TabPage();
-            this.rightCenterPanel = new System.Windows.Forms.Panel();
-            this.objectProperties = new System.Windows.Forms.DataGridView();
-            this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PropertyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.videoPanel = new System.Windows.Forms.Panel();
+            this.pictureBoard = new Annotator.MyPictureBox();
+            this.frameTrackBar = new System.Windows.Forms.TrackBar();
+            this.startInSecondLbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.startInSecondTextBox = new System.Windows.Forms.TextBox();
+            this.endInSecondLbl = new System.Windows.Forms.Label();
+            this.endInSecondTextBox = new System.Windows.Forms.TextBox();
             this.middleCenterPanel = new System.Windows.Forms.Panel();
+            this.middleCenterTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.middleBottomPanel = new System.Windows.Forms.Panel();
+            this.addEventAnnotationBtn = new System.Windows.Forms.Button();
             this.rightTopPanel = new System.Windows.Forms.Panel();
             this.selectObjContextPanel = new System.Windows.Forms.Panel();
             this.cancelSelectObjBtn = new System.Windows.Forms.Button();
@@ -77,6 +76,10 @@ namespace Annotator
             this.cursorDrawing = new System.Windows.Forms.Button();
             this.polygonDrawing = new System.Windows.Forms.Button();
             this.rectangleDrawing = new System.Windows.Forms.Button();
+            this.rightCenterPanel = new System.Windows.Forms.Panel();
+            this.objectProperties = new System.Windows.Forms.DataGridView();
+            this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PropertyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rightBottomPanel = new System.Windows.Forms.Panel();
             this.annoRefView = new System.Windows.Forms.DataGridView();
             this.StartAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,11 +90,14 @@ namespace Annotator
             this.cm3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addObjRefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.middleBottomPanel = new System.Windows.Forms.Panel();
-            this.addEventAnnotationBtn = new System.Windows.Forms.Button();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simpleEventDataCreateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabs = new System.Windows.Forms.TabControl();
+            this.annotateTab = new System.Windows.Forms.TabPage();
             this.recordTab = new System.Windows.Forms.TabPage();
-            //this.trainTestTab = new System.Windows.Forms.TabPage();
-            this.trainingPanel1 = new Annotator.TrainingPanel();
             this.projectRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,50 +116,73 @@ namespace Annotator
             this.addObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRigsFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBoard = new Annotator.MyPictureBox();
-
-            // Record panel only for >= windows 8 
-            if (System.Environment.OSVersion.Version.Major >= 6 && System.Environment.OSVersion.Version.Minor >= 2)
-            {
-                this.recordPanel = new Annotator.RecordPanel();
-            }
-            
+            this.trainingPanel1 = new Annotator.TrainingPanel();
+            this.middleBottomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.leftMostPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.projectExplorer.SuspendLayout();
-            this.menu.SuspendLayout();
             this.middleTopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.frameTrackBar)).BeginInit();
+            this.middleTopTableLayoutPanel.SuspendLayout();
             this.videoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).BeginInit();
-            this.tabs.SuspendLayout();
-            this.annotateTab.SuspendLayout();
-            this.rightCenterPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.objectProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frameTrackBar)).BeginInit();
+            this.middleCenterPanel.SuspendLayout();
+            this.middleBottomPanel.SuspendLayout();
             this.rightTopPanel.SuspendLayout();
             this.selectObjContextPanel.SuspendLayout();
             this.editObjectContextPanel.SuspendLayout();
             this.newObjectContextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.drawingButtonTool.SuspendLayout();
+            this.rightCenterPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.objectProperties)).BeginInit();
             this.rightBottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).BeginInit();
             this.cm3.SuspendLayout();
-            this.middleBottomPanel.SuspendLayout();
-            this.recordTab.SuspendLayout();
-            //this.trainTestTab.SuspendLayout();
+            this.menu.SuspendLayout();
+            this.tabs.SuspendLayout();
+            this.annotateTab.SuspendLayout();
             this.projectRightClickPanel.SuspendLayout();
             this.sessionRightClickPanel.SuspendLayout();
             this.fileRightClickPanel.SuspendLayout();
+            this.middleBottomTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 281F));
+            this.tableLayoutPanel1.Controls.Add(this.leftMostPanel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.middleTopPanel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.middleCenterPanel, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.middleBottomPanel, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.rightTopPanel, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.rightCenterPanel, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rightBottomPanel, 2, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1435, 867);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // leftMostPanel
             // 
             this.leftMostPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.leftMostPanel.Controls.Add(this.tabControl1);
-            this.leftMostPanel.Location = new System.Drawing.Point(2, 5);
+            this.leftMostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftMostPanel.Location = new System.Drawing.Point(4, 4);
             this.leftMostPanel.Name = "leftMostPanel";
-            this.leftMostPanel.Size = new System.Drawing.Size(170, 862);
+            this.tableLayoutPanel1.SetRowSpan(this.leftMostPanel, 4);
+            this.leftMostPanel.Size = new System.Drawing.Size(164, 859);
             this.leftMostPanel.TabIndex = 0;
             // 
             // tabControl1
@@ -197,126 +226,58 @@ namespace Annotator
             this.imageList1.Images.SetKeyName(1, "2SessionIcon.png");
             this.imageList1.Images.SetKeyName(2, "3FileIcon.png");
             // 
-            // menu
-            // 
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            newProjectToolStripMenuItem,
-            simpleEventDataCreateMenuItem});
-            this.menu.Location = new System.Drawing.Point(0, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1449, 24);
-            this.menu.TabIndex = 3;
-            this.menu.Text = "File";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newProjectToolStripMenuItem,
-            this.simpleEventDataCreateMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.fileToolStripMenuItem.Text = " File";
-            // 
-            // newProjectToolStripMenuItem
-            // 
-            this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.newProjectToolStripMenuItem.Text = "New project";
-            this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
-            // 
-            // newProjectToolStripMenuItem
-            // 
-            this.simpleEventDataCreateMenuItem.Name = "simpleEventDataCreateMenuItem";
-            this.simpleEventDataCreateMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.simpleEventDataCreateMenuItem.Text = "Extract data for learning";
-            this.simpleEventDataCreateMenuItem.Click += new System.EventHandler(this.simpleEventDataCreateToolStripMenuItem_Click);
-            this.simpleEventDataCreateMenuItem.Enabled = false;
-
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-
-            //
-            // start in seconds
-            //
-            startInSecondLbl = new System.Windows.Forms.Label();
-            startInSecondLbl.Location = new System.Drawing.Point(3, 100);
-            startInSecondLbl.Size = new System.Drawing.Size(52, 17);
-            startInSecondLbl.Text = "Start:";
-
-            startInSecondTextBox = new System.Windows.Forms.TextBox();
-            startInSecondTextBox.Location = new System.Drawing.Point(3, 120);
-            startInSecondTextBox.Size = new System.Drawing.Size(52, 30);
-            startInSecondTextBox.Text = "";
-            startInSecondTextBox.KeyDown += StartInSecondTextBox_KeyDown;
-            startInSecondTextBox.LostFocus += StartInSecondTextBox_LostFocus;
-
-            //
-            // end in seconds
-            //
-            endInSecondLbl = new System.Windows.Forms.Label();
-            endInSecondLbl.Location = new System.Drawing.Point(3, 150);
-            endInSecondLbl.Size = new System.Drawing.Size(52, 17);
-            endInSecondLbl.Text = "End:";
-
-            endInSecondTextBox = new System.Windows.Forms.TextBox();
-            endInSecondTextBox.Location = new System.Drawing.Point(3, 170);
-            endInSecondTextBox.Size = new System.Drawing.Size(52, 30);
-            endInSecondTextBox.Text = "";
-            endInSecondTextBox.KeyDown += EndInSecondTextBox_KeyDown;
-            endInSecondTextBox.LostFocus += EndInSecondTextBox_LostFocus;
-
-            // 
             // middleTopPanel
             // 
             this.middleTopPanel.BackColor = System.Drawing.SystemColors.Control;
             this.middleTopPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.middleTopPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.middleTopPanel.Controls.Add(this.frameTrackBar);
-            this.middleTopPanel.Controls.Add(this.label3);
-            this.middleTopPanel.Controls.Add(this.videoPanel);
-            this.middleTopPanel.Controls.Add(this.playbackFileComboBox);
-            this.middleTopPanel.Controls.Add(startInSecondLbl);
-            this.middleTopPanel.Controls.Add(endInSecondLbl);
-            this.middleTopPanel.Controls.Add(startInSecondTextBox);
-            this.middleTopPanel.Controls.Add(endInSecondTextBox);
-            this.middleTopPanel.Location = new System.Drawing.Point(178, 5);
+            this.middleTopPanel.Controls.Add(this.middleTopTableLayoutPanel);
+            this.middleTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.middleTopPanel.Location = new System.Drawing.Point(175, 4);
             this.middleTopPanel.Name = "middleTopPanel";
-            this.middleTopPanel.Size = new System.Drawing.Size(921, 612);
+            this.tableLayoutPanel1.SetRowSpan(this.middleTopPanel, 2);
+            this.middleTopPanel.Size = new System.Drawing.Size(974, 657);
             this.middleTopPanel.TabIndex = 1;
             // 
-            // frameTrackBar
+            // middleTopTableLayoutPanel
             // 
-            this.frameTrackBar.Enabled = false;
-            this.frameTrackBar.LargeChange = 1;
-            this.frameTrackBar.Location = new System.Drawing.Point(94, 564);
-            this.frameTrackBar.Margin = new System.Windows.Forms.Padding(1);
-            this.frameTrackBar.Maximum = 100;
-            this.frameTrackBar.Minimum = 1;
-            setMinimumFrameTrackBar(1);
-            setMaximumFrameTrackBar(100);
-            this.frameTrackBar.Name = "frameTrackBar";
-            this.frameTrackBar.Size = new System.Drawing.Size(800, 45);
-            this.frameTrackBar.TabIndex = 3;
-            this.frameTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.frameTrackBar.Value = 1;
-            this.frameTrackBar.ValueChanged += new System.EventHandler(this.frameTrackBar_ValueChanged);
+            this.middleTopTableLayoutPanel.ColumnCount = 2;
+            this.middleTopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.middleTopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.middleTopTableLayoutPanel.Controls.Add(this.playbackFileComboBox, 0, 0);
+            this.middleTopTableLayoutPanel.Controls.Add(this.videoPanel, 1, 0);
+            this.middleTopTableLayoutPanel.Controls.Add(this.frameTrackBar, 1, 7);
+            this.middleTopTableLayoutPanel.Controls.Add(this.startInSecondLbl, 0, 2);
+            this.middleTopTableLayoutPanel.Controls.Add(this.label3, 0, 7);
+            this.middleTopTableLayoutPanel.Controls.Add(this.startInSecondTextBox, 0, 3);
+            this.middleTopTableLayoutPanel.Controls.Add(this.endInSecondLbl, 0, 4);
+            this.middleTopTableLayoutPanel.Controls.Add(this.endInSecondTextBox, 0, 5);
+            this.middleTopTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.middleTopTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.middleTopTableLayoutPanel.Name = "middleTopTableLayoutPanel";
+            this.middleTopTableLayoutPanel.RowCount = 8;
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.middleTopTableLayoutPanel.Size = new System.Drawing.Size(972, 655);
+            this.middleTopTableLayoutPanel.TabIndex = 8;
             // 
-            // label3
+            // playbackFileComboBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 576);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Frame:";
+            this.playbackFileComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playbackFileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.playbackFileComboBox.Enabled = false;
+            this.playbackFileComboBox.FormattingEnabled = true;
+            this.playbackFileComboBox.Location = new System.Drawing.Point(3, 3);
+            this.playbackFileComboBox.Name = "playbackFileComboBox";
+            this.playbackFileComboBox.Size = new System.Drawing.Size(114, 21);
+            this.playbackFileComboBox.TabIndex = 0;
+            this.playbackFileComboBox.SelectedIndexChanged += new System.EventHandler(this.playbackVideoComboBox_SelectedIndexChanged);
             // 
             // videoPanel
             // 
@@ -324,19 +285,22 @@ namespace Annotator
             this.videoPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("videoPanel.BackgroundImage")));
             this.videoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.videoPanel.Controls.Add(this.pictureBoard);
-            this.videoPanel.Location = new System.Drawing.Point(94, 0);
+            this.videoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPanel.Location = new System.Drawing.Point(123, 3);
             this.videoPanel.Name = "videoPanel";
-            this.videoPanel.Size = new System.Drawing.Size(820, 560);
+            this.middleTopTableLayoutPanel.SetRowSpan(this.videoPanel, 7);
+            this.videoPanel.Size = new System.Drawing.Size(846, 598);
             this.videoPanel.TabIndex = 1;
             // 
             // pictureBoard
             // 
             this.pictureBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoard.capture = null;
-            this.pictureBoard.Location = new System.Drawing.Point(0, 3);
+            this.pictureBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoard.Location = new System.Drawing.Point(0, 0);
             this.pictureBoard.mat = null;
             this.pictureBoard.Name = "pictureBoard";
-            this.pictureBoard.Size = new System.Drawing.Size(820, 557);
+            this.pictureBoard.Size = new System.Drawing.Size(846, 598);
             this.pictureBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoard.TabIndex = 0;
             this.pictureBoard.TabStop = false;
@@ -344,100 +308,113 @@ namespace Annotator
             this.pictureBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseDown);
             this.pictureBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseMove);
             this.pictureBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseUp);
-
-            this.KeyPreview = true;
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(Main_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(Main_KeyUp);
-
-            //
-            // playbackFileComboBox
             // 
-            this.playbackFileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.playbackFileComboBox.Enabled = false;
-            this.playbackFileComboBox.FormattingEnabled = true;
-            this.playbackFileComboBox.Location = new System.Drawing.Point(3, 0);
-            this.playbackFileComboBox.Name = "comboBox1";
-            this.playbackFileComboBox.Size = new System.Drawing.Size(88, 21);
-            this.playbackFileComboBox.TabIndex = 0;
-            this.playbackFileComboBox.SelectedIndexChanged += new System.EventHandler(this.playbackVideoComboBox_SelectedIndexChanged);
-
-
+            // frameTrackBar
             // 
-            // tabs
+            this.frameTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.frameTrackBar.Enabled = false;
+            this.frameTrackBar.LargeChange = 1;
+            this.frameTrackBar.Location = new System.Drawing.Point(121, 605);
+            this.frameTrackBar.Margin = new System.Windows.Forms.Padding(1, 1, 15, 1);
+            this.frameTrackBar.Maximum = 100;
+            this.frameTrackBar.Minimum = 1;
+            this.frameTrackBar.Name = "frameTrackBar";
+            this.frameTrackBar.Size = new System.Drawing.Size(836, 49);
+            this.frameTrackBar.TabIndex = 3;
+            this.frameTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.frameTrackBar.Value = 1;
+            this.frameTrackBar.ValueChanged += new System.EventHandler(this.frameTrackBar_ValueChanged);
             // 
-            this.tabs.Controls.Add(this.annotateTab);
-            this.tabs.Controls.Add(this.recordTab);
-            //this.tabs.Controls.Add(this.trainTestTab);
-            this.tabs.Location = new System.Drawing.Point(0, 25);
-            this.tabs.Name = "tabs";
-            this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(1443, 898);
-            this.tabs.TabIndex = 5;
-            this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
+            // startInSecondLbl
             // 
-            // annotateTab
+            this.startInSecondLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.startInSecondLbl.Location = new System.Drawing.Point(3, 253);
+            this.startInSecondLbl.Name = "startInSecondLbl";
+            this.startInSecondLbl.Size = new System.Drawing.Size(114, 30);
+            this.startInSecondLbl.TabIndex = 4;
+            this.startInSecondLbl.Text = "Start:";
             // 
-            this.annotateTab.Controls.Add(this.rightCenterPanel);
-            this.annotateTab.Controls.Add(this.middleCenterPanel);
-            this.annotateTab.Controls.Add(this.rightTopPanel);
-            this.annotateTab.Controls.Add(this.rightBottomPanel);
-            this.annotateTab.Controls.Add(this.middleBottomPanel);
-            this.annotateTab.Controls.Add(this.middleTopPanel);
-            this.annotateTab.Controls.Add(this.leftMostPanel);
-            this.annotateTab.Location = new System.Drawing.Point(4, 22);
-            this.annotateTab.Name = "annotateTab";
-            this.annotateTab.Padding = new System.Windows.Forms.Padding(3);
-            this.annotateTab.Size = new System.Drawing.Size(1435, 872);
-            this.annotateTab.TabIndex = 0;
-            this.annotateTab.Text = "Annotate";
-            this.annotateTab.UseVisualStyleBackColor = true;
+            // label3
             // 
-            // rightCenterPanel
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(3, 621);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Frame:";
             // 
-            this.rightCenterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rightCenterPanel.Controls.Add(this.objectProperties);
-            this.rightCenterPanel.Location = new System.Drawing.Point(1105, 184);
-            this.rightCenterPanel.Name = "rightCenterPanel";
-            this.rightCenterPanel.Size = new System.Drawing.Size(324, 431);
-            this.rightCenterPanel.TabIndex = 4;
+            // startInSecondTextBox
             // 
-            // objectProperties
+            this.startInSecondTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.startInSecondTextBox.Location = new System.Drawing.Point(3, 288);
+            this.startInSecondTextBox.Name = "startInSecondTextBox";
+            this.startInSecondTextBox.Size = new System.Drawing.Size(52, 20);
+            this.startInSecondTextBox.TabIndex = 6;
+            this.startInSecondTextBox.LostFocus += StartInSecondTextBox_LostFocus;
             // 
-            this.objectProperties.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.objectProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.objectProperties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PropertyName,
-            this.PropertyValue});
-            this.objectProperties.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.objectProperties.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.objectProperties.Location = new System.Drawing.Point(-1, 3);
-            this.objectProperties.Name = "objectProperties";
-            this.objectProperties.RowHeadersVisible = false;
-            this.objectProperties.Size = new System.Drawing.Size(324, 427);
-            this.objectProperties.TabIndex = 0;
-            this.objectProperties.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellValueChanged);
-            this.objectProperties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellContentClick);
+            // endInSecondLbl
             // 
-            // PropertyName
+            this.endInSecondLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.endInSecondLbl.Location = new System.Drawing.Point(3, 324);
+            this.endInSecondLbl.Name = "endInSecondLbl";
+            this.endInSecondLbl.Size = new System.Drawing.Size(100, 23);
+            this.endInSecondLbl.TabIndex = 5;
+            this.endInSecondLbl.Text = "End:";
             // 
-            this.PropertyName.HeaderText = "Property name";
-            this.PropertyName.Name = "PropertyName";
-            this.PropertyName.Width = 130;
+            // endInSecondTextBox
             // 
-            // PropertyValue
-            // 
-            this.PropertyValue.HeaderText = "Property Value";
-            this.PropertyValue.Name = "PropertyValue";
-            this.PropertyValue.Width = 190;
+            this.endInSecondTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.endInSecondTextBox.Location = new System.Drawing.Point(3, 356);
+            this.endInSecondTextBox.Name = "endInSecondTextBox";
+            this.endInSecondTextBox.Size = new System.Drawing.Size(52, 20);
+            this.endInSecondTextBox.TabIndex = 7;
+            this.endInSecondTextBox.LostFocus += EndInSecondTextBox_LostFocus;
             // 
             // middleCenterPanel
             // 
             this.middleCenterPanel.AutoScroll = true;
             this.middleCenterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.middleCenterPanel.Location = new System.Drawing.Point(178, 623);
+            this.middleCenterPanel.Controls.Add(this.middleCenterTableLayoutPanel);
+            this.middleCenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.middleCenterPanel.Location = new System.Drawing.Point(175, 668);
             this.middleCenterPanel.Name = "middleCenterPanel";
-            this.middleCenterPanel.Size = new System.Drawing.Size(921, 121);
+            this.middleCenterPanel.Size = new System.Drawing.Size(974, 94);
             this.middleCenterPanel.TabIndex = 3;
+            // 
+            // middleCenterTableLayoutPanel
+            // 
+            this.middleCenterTableLayoutPanel.ColumnCount = 2;
+            this.middleCenterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.middleCenterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.middleCenterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.middleCenterTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.middleCenterTableLayoutPanel.Name = "middleCenterTableLayoutPanel";
+            this.middleCenterTableLayoutPanel.Size = new System.Drawing.Size(972, 0);
+            this.middleCenterTableLayoutPanel.TabIndex = 0;
+            // 
+            // middleBottomPanel
+            // 
+            this.middleBottomPanel.AutoScroll = true;
+            this.middleBottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.middleBottomPanel.Controls.Add(this.middleBottomTableLayoutPanel);
+            this.middleBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.middleBottomPanel.Location = new System.Drawing.Point(175, 769);
+            this.middleBottomPanel.Name = "middleBottomPanel";
+            this.middleBottomPanel.Size = new System.Drawing.Size(974, 94);
+            this.middleBottomPanel.TabIndex = 2;
+            // 
+            // addEventAnnotationBtn
+            // 
+            this.addEventAnnotationBtn.Enabled = false;
+            this.addEventAnnotationBtn.Location = new System.Drawing.Point(3, 3);
+            this.addEventAnnotationBtn.Name = "addEventAnnotationBtn";
+            this.addEventAnnotationBtn.Size = new System.Drawing.Size(75, 23);
+            this.addEventAnnotationBtn.TabIndex = 0;
+            this.addEventAnnotationBtn.Text = "Add+";
+            this.addEventAnnotationBtn.UseVisualStyleBackColor = true;
+            this.addEventAnnotationBtn.Click += new System.EventHandler(this.button2_Click);
             // 
             // rightTopPanel
             // 
@@ -447,9 +424,10 @@ namespace Annotator
             this.rightTopPanel.Controls.Add(this.editObjectContextPanel);
             this.rightTopPanel.Controls.Add(this.newObjectContextPanel);
             this.rightTopPanel.Controls.Add(this.drawingButtonTool);
-            this.rightTopPanel.Location = new System.Drawing.Point(1105, 5);
+            this.rightTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightTopPanel.Location = new System.Drawing.Point(1156, 4);
             this.rightTopPanel.Name = "rightTopPanel";
-            this.rightTopPanel.Size = new System.Drawing.Size(324, 174);
+            this.rightTopPanel.Size = new System.Drawing.Size(275, 168);
             this.rightTopPanel.TabIndex = 3;
             // 
             // selectObjContextPanel
@@ -472,7 +450,6 @@ namespace Annotator
             this.cancelSelectObjBtn.Size = new System.Drawing.Size(87, 22);
             this.cancelSelectObjBtn.TabIndex = 9;
             this.cancelSelectObjBtn.Text = "&Cancel";
-            this.cancelSelectObjBtn.UseMnemonic = true;
             this.cancelSelectObjBtn.UseVisualStyleBackColor = true;
             this.cancelSelectObjBtn.Click += new System.EventHandler(this.cancelSelectObjBtn_Click);
             // 
@@ -485,7 +462,6 @@ namespace Annotator
             this.deleteObjBtn.TabIndex = 8;
             this.deleteObjBtn.Text = "&Delete";
             this.deleteObjBtn.UseVisualStyleBackColor = true;
-            this.deleteObjBtn.UseMnemonic = true;
             this.deleteObjBtn.Click += new System.EventHandler(this.deleteObjBtn_Click);
             // 
             // editObjBtn
@@ -497,7 +473,6 @@ namespace Annotator
             this.editObjBtn.Size = new System.Drawing.Size(87, 22);
             this.editObjBtn.TabIndex = 5;
             this.editObjBtn.Text = "&Edit";
-            this.editObjBtn.UseMnemonic = true;
             this.editObjBtn.UseVisualStyleBackColor = true;
             this.editObjBtn.Click += new System.EventHandler(this.editObjBtn_Click);
             // 
@@ -515,19 +490,17 @@ namespace Annotator
             this.editObjectContextPanel.TabIndex = 11;
             this.editObjectContextPanel.Visible = false;
             // 
-            // addLocationBtn
+            // addSpatialBtn
             // 
-            this.addLocationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addLocationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addLocationBtn.Location = new System.Drawing.Point(-1, -1);
-            this.addLocationBtn.Name = "addLocationBtn";
-            this.addLocationBtn.Size = new System.Drawing.Size(87, 22);
-            this.addLocationBtn.TabIndex = 5;
-            this.addLocationBtn.Text = "&Add location";
-            this.addLocationBtn.UseMnemonic = true;
-            this.toolTip.SetToolTip(this.addLocationBtn, "Add a location marker at this frame");
-            this.addLocationBtn.UseVisualStyleBackColor = true;
-            this.addLocationBtn.Click += new System.EventHandler(this.addLocationBtn_Click);
+            this.addSpatialBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addSpatialBtn.Location = new System.Drawing.Point(-1, 62);
+            this.addSpatialBtn.Name = "addSpatialBtn";
+            this.addSpatialBtn.Size = new System.Drawing.Size(87, 22);
+            this.addSpatialBtn.TabIndex = 10;
+            this.addSpatialBtn.Text = "Spatial link";
+            this.toolTip.SetToolTip(this.addSpatialBtn, "Link the object spatially to another object");
+            this.addSpatialBtn.UseVisualStyleBackColor = true;
+            this.addSpatialBtn.Click += new System.EventHandler(this.addSpatialBtn_Click);
             // 
             // delAtFrameBtn
             // 
@@ -537,34 +510,22 @@ namespace Annotator
             this.delAtFrameBtn.Size = new System.Drawing.Size(87, 22);
             this.delAtFrameBtn.TabIndex = 8;
             this.delAtFrameBtn.Text = "Delete at frame";
-            this.delAtFrameBtn.UseVisualStyleBackColor = true;
             this.toolTip.SetToolTip(this.delAtFrameBtn, "Add a deletion marker at this frame when the object disappear on the screen");
+            this.delAtFrameBtn.UseVisualStyleBackColor = true;
             this.delAtFrameBtn.Click += new System.EventHandler(this.delAtFrameBtn_Click);
             // 
             // delMarkerBtn
             // 
+            this.delMarkerBtn.Enabled = false;
             this.delMarkerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.delMarkerBtn.Location = new System.Drawing.Point(-1, 41);
             this.delMarkerBtn.Name = "delMarkerBtn";
             this.delMarkerBtn.Size = new System.Drawing.Size(87, 22);
             this.delMarkerBtn.TabIndex = 9;
             this.delMarkerBtn.Text = "Delete marker";
-            this.delMarkerBtn.UseVisualStyleBackColor = true;
-            this.delMarkerBtn.Enabled = false;
             this.toolTip.SetToolTip(this.delMarkerBtn, "Delete the marker at this point");
+            this.delMarkerBtn.UseVisualStyleBackColor = true;
             this.delMarkerBtn.Click += new System.EventHandler(this.delMarkerBtn_Click);
-            // 
-            // addSpatialBtn
-            // 
-            this.addSpatialBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addSpatialBtn.Location = new System.Drawing.Point(-1, 62);
-            this.addSpatialBtn.Name = "addSpatialBtn";
-            this.addSpatialBtn.Size = new System.Drawing.Size(87, 22);
-            this.addSpatialBtn.TabIndex = 10;
-            this.addSpatialBtn.Text = "Spatial link";
-            this.addSpatialBtn.UseVisualStyleBackColor = true;
-            this.toolTip.SetToolTip(this.addSpatialBtn, "Link the object spatially to another object");
-            this.addSpatialBtn.Click += new System.EventHandler(this.addSpatialBtn_Click);
             // 
             // cancelEditObjBtn
             // 
@@ -574,11 +535,22 @@ namespace Annotator
             this.cancelEditObjBtn.Size = new System.Drawing.Size(87, 22);
             this.cancelEditObjBtn.TabIndex = 11;
             this.cancelEditObjBtn.Text = "Ca&ncel";
-            this.cancelEditObjBtn.UseVisualStyleBackColor = true;
-            this.cancelEditObjBtn.UseMnemonic = true;
             this.toolTip.SetToolTip(this.cancelEditObjBtn, "Cancel editing at this frame");
+            this.cancelEditObjBtn.UseVisualStyleBackColor = true;
             this.cancelEditObjBtn.Click += new System.EventHandler(this.cancelEditObjBtn_Click);
-            
+            // 
+            // addLocationBtn
+            // 
+            this.addLocationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addLocationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.addLocationBtn.Location = new System.Drawing.Point(-1, -1);
+            this.addLocationBtn.Name = "addLocationBtn";
+            this.addLocationBtn.Size = new System.Drawing.Size(87, 22);
+            this.addLocationBtn.TabIndex = 5;
+            this.addLocationBtn.Text = "&Add location";
+            this.toolTip.SetToolTip(this.addLocationBtn, "Add a location marker at this frame");
+            this.addLocationBtn.UseVisualStyleBackColor = true;
+            this.addLocationBtn.Click += new System.EventHandler(this.addLocationBtn_Click);
             // 
             // newObjectContextPanel
             // 
@@ -636,8 +608,8 @@ namespace Annotator
             this.cancelObjectBtn.Size = new System.Drawing.Size(87, 22);
             this.cancelObjectBtn.TabIndex = 6;
             this.cancelObjectBtn.Text = "Cancel";
-            this.cancelObjectBtn.UseVisualStyleBackColor = true;
             this.toolTip.SetToolTip(this.cancelObjectBtn, "Deselect object");
+            this.cancelObjectBtn.UseVisualStyleBackColor = true;
             this.cancelObjectBtn.Click += new System.EventHandler(this.cancelObjectBtn_Click);
             // 
             // label18
@@ -658,11 +630,11 @@ namespace Annotator
             this.addObjBtn.Size = new System.Drawing.Size(87, 22);
             this.addObjBtn.TabIndex = 5;
             this.addObjBtn.Text = "Add object";
-            this.addObjBtn.UseVisualStyleBackColor = true;
             this.toolTip.SetToolTip(this.addObjBtn, "Add object on the draw");
+            this.addObjBtn.UseVisualStyleBackColor = true;
             this.addObjBtn.Click += new System.EventHandler(this.addObjBtn_Click);
             // 
-            // panel4
+            // drawingButtonTool
             // 
             this.drawingButtonTool.AutoScroll = true;
             this.drawingButtonTool.BackColor = System.Drawing.Color.White;
@@ -671,7 +643,7 @@ namespace Annotator
             this.drawingButtonTool.Controls.Add(this.polygonDrawing);
             this.drawingButtonTool.Controls.Add(this.rectangleDrawing);
             this.drawingButtonTool.Location = new System.Drawing.Point(3, 3);
-            this.drawingButtonTool.Name = "drawingButtons";
+            this.drawingButtonTool.Name = "drawingButtonTool";
             this.drawingButtonTool.Size = new System.Drawing.Size(318, 45);
             this.drawingButtonTool.TabIndex = 0;
             // 
@@ -715,14 +687,55 @@ namespace Annotator
             this.rectangleDrawing.UseVisualStyleBackColor = false;
             this.rectangleDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rectangleDrawing_MouseDown);
             // 
+            // rightCenterPanel
+            // 
+            this.rightCenterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rightCenterPanel.Controls.Add(this.objectProperties);
+            this.rightCenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightCenterPanel.Location = new System.Drawing.Point(1156, 179);
+            this.rightCenterPanel.Name = "rightCenterPanel";
+            this.rightCenterPanel.Size = new System.Drawing.Size(275, 482);
+            this.rightCenterPanel.TabIndex = 4;
+            // 
+            // objectProperties
+            // 
+            this.objectProperties.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.objectProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.objectProperties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PropertyName,
+            this.PropertyValue});
+            this.objectProperties.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.objectProperties.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.objectProperties.Location = new System.Drawing.Point(-1, 3);
+            this.objectProperties.Name = "objectProperties";
+            this.objectProperties.RowHeadersVisible = false;
+            this.objectProperties.Size = new System.Drawing.Size(324, 427);
+            this.objectProperties.TabIndex = 0;
+            this.objectProperties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellContentClick);
+            this.objectProperties.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellValueChanged);
+            // 
+            // PropertyName
+            // 
+            this.PropertyName.HeaderText = "Property name";
+            this.PropertyName.Name = "PropertyName";
+            this.PropertyName.Width = 130;
+            // 
+            // PropertyValue
+            // 
+            this.PropertyValue.HeaderText = "Property Value";
+            this.PropertyValue.Name = "PropertyValue";
+            this.PropertyValue.Width = 190;
+            // 
             // rightBottomPanel
             // 
             this.rightBottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rightBottomPanel.Controls.Add(this.annoRefView);
             this.rightBottomPanel.Controls.Add(this.annotationText);
-            this.rightBottomPanel.Location = new System.Drawing.Point(1105, 621);
+            this.rightBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightBottomPanel.Location = new System.Drawing.Point(1156, 668);
             this.rightBottomPanel.Name = "rightBottomPanel";
-            this.rightBottomPanel.Size = new System.Drawing.Size(324, 248);
+            this.tableLayoutPanel1.SetRowSpan(this.rightBottomPanel, 2);
+            this.rightBottomPanel.Size = new System.Drawing.Size(275, 195);
             this.rightBottomPanel.TabIndex = 0;
             // 
             // annoRefView
@@ -815,58 +828,80 @@ namespace Annotator
             this.addEventToolStripMenuItem.Text = "Add event";
             this.addEventToolStripMenuItem.Click += new System.EventHandler(this.addEventToolStripMenuItem_Click);
             // 
-            // middleBottomPanel
+            // menu
             // 
-            this.middleBottomPanel.AutoScroll = true;
-            this.middleBottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.middleBottomPanel.Controls.Add(this.addEventAnnotationBtn);
-            this.middleBottomPanel.Location = new System.Drawing.Point(178, 750);
-            this.middleBottomPanel.Name = "middleBottomPanel";
-            this.middleBottomPanel.Size = new System.Drawing.Size(921, 117);
-            this.middleBottomPanel.TabIndex = 2;
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(1449, 24);
+            this.menu.TabIndex = 3;
+            this.menu.Text = "File";
             // 
-            // addEventAnnotationBtn
+            // fileToolStripMenuItem
             // 
-            this.addEventAnnotationBtn.Enabled = false;
-            this.addEventAnnotationBtn.Location = new System.Drawing.Point(3, 3);
-            this.addEventAnnotationBtn.Name = "addEventAnnotationBtn";
-            this.addEventAnnotationBtn.Size = new System.Drawing.Size(75, 23);
-            this.addEventAnnotationBtn.TabIndex = 0;
-            this.addEventAnnotationBtn.Text = "Add+";
-            this.addEventAnnotationBtn.UseVisualStyleBackColor = true;
-            this.addEventAnnotationBtn.Click += new System.EventHandler(this.button2_Click);
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newProjectToolStripMenuItem,
+            this.simpleEventDataCreateMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.fileToolStripMenuItem.Text = " File";
+            // 
+            // newProjectToolStripMenuItem
+            // 
+            this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.newProjectToolStripMenuItem.Text = "New project";
+            this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
+            // 
+            // simpleEventDataCreateMenuItem
+            // 
+            this.simpleEventDataCreateMenuItem.Enabled = false;
+            this.simpleEventDataCreateMenuItem.Name = "simpleEventDataCreateMenuItem";
+            this.simpleEventDataCreateMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.simpleEventDataCreateMenuItem.Text = "Extract data for learning";
+            this.simpleEventDataCreateMenuItem.Click += new System.EventHandler(this.simpleEventDataCreateToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // tabs
+            // 
+            this.tabs.Controls.Add(this.annotateTab);
+            this.tabs.Controls.Add(this.recordTab);
+            this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabs.Location = new System.Drawing.Point(0, 24);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(1449, 899);
+            this.tabs.TabIndex = 5;
+            this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
+            // 
+            // annotateTab
+            // 
+            this.annotateTab.Controls.Add(this.tableLayoutPanel1);
+            this.annotateTab.Location = new System.Drawing.Point(4, 22);
+            this.annotateTab.Name = "annotateTab";
+            this.annotateTab.Padding = new System.Windows.Forms.Padding(3);
+            this.annotateTab.Size = new System.Drawing.Size(1441, 873);
+            this.annotateTab.TabIndex = 0;
+            this.annotateTab.Text = "Annotate";
+            this.annotateTab.UseVisualStyleBackColor = true;
             // 
             // recordTab
             // 
-            if (recordPanel != null)
-            {
-                this.recordTab.Controls.Add(this.recordPanel);
-            }
-            
             this.recordTab.Location = new System.Drawing.Point(4, 22);
             this.recordTab.Name = "recordTab";
             this.recordTab.Padding = new System.Windows.Forms.Padding(3);
-            this.recordTab.Size = new System.Drawing.Size(1435, 872);
+            this.recordTab.Size = new System.Drawing.Size(1441, 873);
             this.recordTab.TabIndex = 1;
             this.recordTab.Text = "Record";
             this.recordTab.UseVisualStyleBackColor = true;
-            //// 
-            //// trainTestTab
-            //// 
-            //this.trainTestTab.Controls.Add(this.trainingPanel1);
-            //this.trainTestTab.Location = new System.Drawing.Point(4, 22);
-            //this.trainTestTab.Name = "trainTestTab";
-            //this.trainTestTab.Size = new System.Drawing.Size(1435, 872);
-            //this.trainTestTab.TabIndex = 2;
-            //this.trainTestTab.Text = "Train/Test";
-            //this.trainTestTab.UseVisualStyleBackColor = true;
-            // 
-            // trainingPanel1
-            // 
-            this.trainingPanel1.Location = new System.Drawing.Point(6, 6);
-            this.trainingPanel1.Name = "trainingPanel1";
-            this.trainingPanel1.Size = new System.Drawing.Size(1420, 860);
-            this.trainingPanel1.TabIndex = 0;
             // 
             // projectRightClickPanel
             // 
@@ -917,13 +952,13 @@ namespace Annotator
             this.addSessionMenuItem,
             this.refreshSessionMenuItem});
             this.sessionRightClickPanel.Name = "cm2";
-            this.sessionRightClickPanel.Size = new System.Drawing.Size(108, 92);
+            this.sessionRightClickPanel.Size = new System.Drawing.Size(114, 114);
             // 
             // editSessionMenuItem
             // 
             this.editSessionMenuItem.Enabled = false;
             this.editSessionMenuItem.Name = "editSessionMenuItem";
-            this.editSessionMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.editSessionMenuItem.Size = new System.Drawing.Size(113, 22);
             this.editSessionMenuItem.Text = "Edit";
             this.editSessionMenuItem.Click += new System.EventHandler(this.editSessionMenuItem_Click);
             // 
@@ -931,7 +966,7 @@ namespace Annotator
             // 
             this.saveSessionMenuItem.Enabled = false;
             this.saveSessionMenuItem.Name = "saveSessionMenuItem";
-            this.saveSessionMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.saveSessionMenuItem.Size = new System.Drawing.Size(113, 22);
             this.saveSessionMenuItem.Text = "Save";
             this.saveSessionMenuItem.Click += new System.EventHandler(this.saveSessionMenuItem_Click);
             // 
@@ -939,7 +974,7 @@ namespace Annotator
             // 
             this.deleteSessionMenuItem.Enabled = false;
             this.deleteSessionMenuItem.Name = "deleteSessionMenuItem";
-            this.deleteSessionMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteSessionMenuItem.Size = new System.Drawing.Size(113, 22);
             this.deleteSessionMenuItem.Text = "Delete";
             this.deleteSessionMenuItem.Click += new System.EventHandler(this.deleteSessionMenuItem_Click);
             // 
@@ -947,15 +982,14 @@ namespace Annotator
             // 
             this.addSessionMenuItem.Enabled = false;
             this.addSessionMenuItem.Name = "addSessionMenuItem";
-            this.addSessionMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.addSessionMenuItem.Size = new System.Drawing.Size(113, 22);
             this.addSessionMenuItem.Text = "Add";
             this.addSessionMenuItem.Click += new System.EventHandler(this.addFileToSessionMenuItem_Click);
             // 
             // refreshSessionMenuItem
             // 
-            this.refreshSessionMenuItem.Enabled = true;
             this.refreshSessionMenuItem.Name = "refreshSessionMenuItem";
-            this.refreshSessionMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.refreshSessionMenuItem.Size = new System.Drawing.Size(113, 22);
             this.refreshSessionMenuItem.Text = "Refresh";
             this.refreshSessionMenuItem.Click += new System.EventHandler(this.refreshSessionMenuItem_Click);
             // 
@@ -975,38 +1009,45 @@ namespace Annotator
             // 
             this.addObjectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addRigsFromFileToolStripMenuItem});
+            this.addObjectToolStripMenuItem.Enabled = false;
             this.addObjectToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addObjectToolStripMenuItem.Name = "addObjectToolStripMenuItem";
             this.addObjectToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.addObjectToolStripMenuItem.Enabled = false;
             this.addObjectToolStripMenuItem.Text = "Add objects";
             // 
             // addRigsFromFileToolStripMenuItem
             // 
+            this.addRigsFromFileToolStripMenuItem.Enabled = false;
             this.addRigsFromFileToolStripMenuItem.Name = "addRigsFromFileToolStripMenuItem";
             this.addRigsFromFileToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addRigsFromFileToolStripMenuItem.Text = "Add rigs from file";
-            this.addRigsFromFileToolStripMenuItem.Enabled = false;
             this.addRigsFromFileToolStripMenuItem.Click += new System.EventHandler(this.addRigsFromFileToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
+            this.removeToolStripMenuItem.Enabled = false;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.removeToolStripMenuItem.Text = "Remove";
-            this.removeToolStripMenuItem.Enabled = false;
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeFileToolStripMenuItem_Click);
             // 
-            // recordPanel
+            // trainingPanel1
             // 
-            if (recordPanel != null)
-            {
-                this.recordPanel.main = this;
-                this.recordPanel.Location = new System.Drawing.Point(0, 0);
-                this.recordPanel.Name = "recordPanel";
-                this.recordPanel.Size = new System.Drawing.Size(1420, 860);
-                this.recordPanel.TabIndex = 0;
-            }
+            this.trainingPanel1.Location = new System.Drawing.Point(6, 6);
+            this.trainingPanel1.Name = "trainingPanel1";
+            this.trainingPanel1.Size = new System.Drawing.Size(1420, 860);
+            this.trainingPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.middleBottomTableLayoutPanel.ColumnCount = 2;
+            this.middleBottomTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.middleBottomTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.middleBottomTableLayoutPanel.Controls.Add(this.addEventAnnotationBtn, 0, 0);
+            this.middleBottomTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.middleBottomTableLayoutPanel.Name = "tableLayoutPanel2";
+            this.middleBottomTableLayoutPanel.Dock = DockStyle.Top;
+            this.middleBottomTableLayoutPanel.TabIndex = 1;
             // 
             // Main
             // 
@@ -1017,26 +1058,26 @@ namespace Annotator
             this.Controls.Add(this.menu);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1299, 724);
+            this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ECAT 0.2";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.leftMostPanel.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.projectExplorer.ResumeLayout(false);
-            this.menu.ResumeLayout(false);
-            this.menu.PerformLayout();
             this.middleTopPanel.ResumeLayout(false);
-            this.middleTopPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.frameTrackBar)).EndInit();
+            this.middleTopTableLayoutPanel.ResumeLayout(false);
+            this.middleTopTableLayoutPanel.PerformLayout();
             this.videoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).EndInit();
-            this.tabs.ResumeLayout(false);
-            this.annotateTab.ResumeLayout(false);
-            this.rightCenterPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.objectProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frameTrackBar)).EndInit();
+            this.middleCenterPanel.ResumeLayout(false);
+            this.middleBottomPanel.ResumeLayout(false);
             this.rightTopPanel.ResumeLayout(false);
             this.selectObjContextPanel.ResumeLayout(false);
             this.editObjectContextPanel.ResumeLayout(false);
@@ -1044,21 +1085,23 @@ namespace Annotator
             this.newObjectContextPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.drawingButtonTool.ResumeLayout(false);
+            this.rightCenterPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.objectProperties)).EndInit();
             this.rightBottomPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).EndInit();
             this.cm3.ResumeLayout(false);
-            this.middleBottomPanel.ResumeLayout(false);
-            this.recordTab.ResumeLayout(false);
-            //this.trainTestTab.ResumeLayout(false);
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
+            this.tabs.ResumeLayout(false);
+            this.annotateTab.ResumeLayout(false);
             this.projectRightClickPanel.ResumeLayout(false);
             this.sessionRightClickPanel.ResumeLayout(false);
             this.fileRightClickPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).EndInit();
+            this.middleBottomTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
 
         #endregion
 
@@ -1066,6 +1109,7 @@ namespace Annotator
         System.Windows.Forms.TextBox startInSecondTextBox;
         System.Windows.Forms.Label endInSecondLbl;
         System.Windows.Forms.TextBox endInSecondTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel leftMostPanel;
         private System.Windows.Forms.Panel middleTopPanel;
         private System.Windows.Forms.Panel middleBottomPanel;
@@ -1144,6 +1188,9 @@ namespace Annotator
         private System.Windows.Forms.ToolStripMenuItem addRigsFromFileToolStripMenuItem;
         //private System.Windows.Forms.TabPage trainTestTab;
         private TrainingPanel trainingPanel1;
+        private TableLayoutPanel middleTopTableLayoutPanel;
+        private TableLayoutPanel middleCenterTableLayoutPanel;
+        private TableLayoutPanel middleBottomTableLayoutPanel;
     }
 }
 

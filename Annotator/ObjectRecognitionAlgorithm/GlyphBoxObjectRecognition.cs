@@ -30,10 +30,10 @@ namespace Annotator.ObjectRecognitionAlgorithm
         // if the frame is divided by anchorNumber, otherwise 
         // only looking for glyphs in the neighborhood of previously detected
         // frames
-        static int anchorNumber = 10;
+        static int anchorNumber = 20;
 
         // Extension frame 
-        static int extensionFrame = 20;
+        static int extensionFrame = 50;
 
         public GlyphBoxObjectRecognition(Session currentSession, List<GlyphBoxPrototype> boxPrototypes, int glyphSize)
         {
@@ -126,7 +126,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 // 3 - Threshold edges
                 // Was set to 20 and the number of detected glyphs are too low
                 // Should be set higher
-                Threshold thresholdFilter = new Threshold(40);
+                Threshold thresholdFilter = new Threshold(35);
                 thresholdFilter.ApplyInPlace(edges);
 
                 stopwatch.Stop();
@@ -135,8 +135,8 @@ namespace Annotator.ObjectRecognitionAlgorithm
 
                 // 4 - Blob Counter
                 BlobCounter blobCounter = new BlobCounter();
-                blobCounter.MinHeight = 16;
-                blobCounter.MinWidth = 16;
+                blobCounter.MinHeight = 32;
+                blobCounter.MinWidth = 32;
                 blobCounter.FilterBlobs = true;
                 blobCounter.ObjectsOrder = ObjectsOrder.Size;
 
@@ -183,7 +183,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                                 leftEdgePoints, rightEdgePoints, grayUI);
 
                             // check average difference, which tells how much outside is lighter than inside on the average
-                            if (diff > 10)
+                            if (diff > 20)
                             {
                                 //Drawing.Polygon(imageData, corners, Color.FromArgb(255, 255, 0, 0));
                                 // add the object to the list of interesting objects for further processing
@@ -218,7 +218,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     Console.WriteLine("found some corner");
                     // 6 - do quadrilateral transformation
                     QuadrilateralTransformation quadrilateralTransformation =
-                        new QuadrilateralTransformation(corners, 250, 250);
+                        new QuadrilateralTransformation(corners, 20 * (glyphSize + 2) , 20 * (glyphSize + 2));
 
                     transformed = quadrilateralTransformation.Apply(grayImage);
 
@@ -231,7 +231,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     SquareBinaryGlyphRecognizer gr = new SquareBinaryGlyphRecognizer(glyphSizeWithBoundary);
 
                     bool[,] glyphValues = gr.Recognize(ref transformedOtsu,
-                        new Rectangle(0, 0, 250, 250));
+                        new Rectangle(0, 0, 20 * (glyphSize + 2), 20 * (glyphSize + 2)));
 
                     bool[,] resizedGlyphValues = new bool[glyphSize, glyphSize];
 
@@ -283,6 +283,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
 
                                     recognizedGlyphs[boxPrototypeIndex][frameNo] = new Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>();
                                 }
+
                                 recognizedGlyphs[boxPrototypeIndex][frameNo][faceIndex] = new Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>(
                                     originalCorners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(),
                                     face,

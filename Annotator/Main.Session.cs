@@ -206,7 +206,7 @@ namespace Annotator
 
             if (currentVideo != null)
             {
-                setMaximumFrameTrackBar(currentVideo.frameCount);
+                setMaximumFrameTrackBar(currentVideo.frameCount - 1);
             }
         }
 
@@ -289,22 +289,22 @@ namespace Annotator
 
             startInSecondTextBox.Text = "";
             endInSecondTextBox.Text = "";
-            setMinimumFrameTrackBar(1);
+            setMinimumFrameTrackBar(0);
             setMaximumFrameTrackBar(100);
         }
 
 
         internal void clearMiddleCenterPanel()
         {
-            middleCenterPanel.Controls.Clear();
-            lastObjectTrack = new Point(94, 0);
+            middleCenterTableLayoutPanel.Controls.Clear();
+            lastObjectCell = new Point(1, 0);
         }
 
         internal void clearMidleBottomPanel()
         {
-            middleBottomPanel.Controls.Clear();
-            middleBottomPanel.Controls.Add(addEventAnnotationBtn);
-            lastAnnotation = new Point(94, 0);
+            middleBottomTableLayoutPanel.Controls.Clear();
+            middleBottomTableLayoutPanel.Controls.Add(addEventAnnotationBtn, 0, 0);
+            lastAnnotationCell = new Point(1, 0);
         }
 
         internal void clearRightCenterPanel()

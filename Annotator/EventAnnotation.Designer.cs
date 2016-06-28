@@ -98,7 +98,7 @@ namespace Annotator
             this.leftMarker.Y2 = 4;
             this.leftMarker.Move += new System.EventHandler(this.lineShape2_Move);
             // 
-            // rectangleShape1
+            // rectangleShape
             // 
             this.rectangleShape.BackColor = System.Drawing.Color.Yellow;
             this.rectangleShape.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -161,6 +161,7 @@ namespace Annotator
             this.DoubleBuffered = true;
             this.Name = "EventAnnotation";
             this.Size = new System.Drawing.Size(800, 54);
+            this.SizeChanged += new System.EventHandler(this.EventAnnotation_SizeChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Annotation_MouseUp);

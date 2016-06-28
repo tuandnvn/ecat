@@ -31,27 +31,33 @@ namespace Annotator
             EventAnnotation annotation = new EventAnnotation(ev, this, sessionStart, sessionEnd);
             this.mapFromEventToEventAnnotations[ev] = annotation;
             currentSession.addEvent(ev);
-            annotation.Location = lastAnnotation;
-            middleBottomPanel.Controls.Add(annotation);
-            lastAnnotation.Y += annotation.Height + 5;
+            renderEventAnnotation(annotation);
+        }
+
+        private void renderEventAnnotation(EventAnnotation annotation)
+        {
+            middleBottomTableLayoutPanel.RowCount = lastAnnotationCell.Y + 1;
+            middleBottomTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            middleBottomTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleBottomTableLayoutPanel.RowCount + 4);
+            middleBottomTableLayoutPanel.Controls.Add(annotation, lastAnnotationCell.X, lastAnnotationCell.Y);
+            annotation.Dock = DockStyle.Fill;
+
+            lastAnnotationCell.Y += 1;
+
+            middleBottomPanel.Invalidate();
         }
 
         internal void removeAnnotation(Event ev)
         {
             currentSession.removeEvent(ev);
 
-            EventAnnotation annotation = this.mapFromEventToEventAnnotations[ev];
-            middleBottomPanel.Controls.Remove(annotation);
+            mapFromEventToEventAnnotations.Remove(ev);
 
-            foreach (EventAnnotation other in mapFromEventToEventAnnotations.Values)
+            clearMidleBottomPanel();
+            foreach (EventAnnotation eventAnnotation in mapFromEventToEventAnnotations.Values)
             {
-                if (other.Location.Y > annotation.Location.Y)
-                {
-                    other.Location = new Point(other.Location.X, other.Location.Y - annotation.Height - 5);
-                }
+                renderEventAnnotation(eventAnnotation);
             }
-
-            lastAnnotation.Y -= annotation.Height + 5;
 
             annoRefView.Rows.Clear();
             this.Invalidate();

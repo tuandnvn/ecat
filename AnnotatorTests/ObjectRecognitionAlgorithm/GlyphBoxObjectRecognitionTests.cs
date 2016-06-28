@@ -14,8 +14,8 @@ namespace Annotator.ObjectRecognitionAlgorithm.Tests
         [TestMethod()]
         public void GlyphBoxObjectRecognitionTest()
         {
-            VideoReader vr = new VideoReader("rgb_4_20_2016_11_38_15PM.avi", 4290);
-
+            //VideoReader vr = new VideoReader("rgb_4_20_2016_11_38_15PM.avi", 4290);
+            VideoReader vr = new VideoReader("rgb_6_23_2016_5_09_26PM.avi", 4278);
             var recognizer = new GlyphBoxObjectRecognition(null, new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 }, 5);
 
             recognizer.findObjects(vr, null, null, null);
