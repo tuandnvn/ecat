@@ -33,8 +33,10 @@ namespace Annotator
             CAUSE
         }
 
-        public List<Reference> references { get; }
-        public List<Action> actions { get; }
+        public List<Reference> references { get; private set; }
+        public List<Action> actions { get; private set; }
+        private List<Reference> tempoReferences;
+        private List<Action> tempoActions;
         public HashSet<Tuple<EventLinkType, string>> linkToEvents { get; }
         public String id { get; set; } //anottation ID
         public int startFrame { get; set; }
@@ -49,6 +51,8 @@ namespace Annotator
             this.text = text;
             references = new List<Reference>();
             actions = new List<Action>();
+            tempoReferences = new List<Reference>();
+            tempoActions = new List<Action>();
             linkToEvents = new HashSet<Tuple<EventLinkType, string>>();
         }
 
@@ -100,6 +104,13 @@ namespace Annotator
             references.Add(new Reference(this, refObjectId, start, end));
         }
 
+        //Add temporary reference
+        // Has the same signature as addReference
+        public void addTempoReference(int start, int end, String refObjectId)
+        {
+            tempoReferences.Add(new Reference(this, refObjectId, start, end));
+        }
+
         public void addAction(Action action)
         {
             actions.Add(action);
@@ -110,6 +121,42 @@ namespace Annotator
             Action e = new Action(this, semanticType, start, end);
             actions.Add(e);
         }
+
+        public void addTempoAction(Action action)
+        {
+            tempoActions.Add(action);
+        }
+
+        public void addTempoAction(int start, int end, String semanticType)
+        {
+            Action e = new Action(this, semanticType, start, end);
+            tempoActions.Add(e);
+        }
+
+        public void edit()
+        {
+            tempoReferences = new List<Reference>();
+            tempoActions = new List<Action>();
+
+            foreach (var e in references)
+            {
+                tempoReferences.Add(e);
+            }
+
+            foreach (var e in actions)
+            {
+                tempoActions.Add(e);
+            }
+        }
+
+        public void save()
+        {
+            references = tempoReferences;
+            actions = tempoActions;
+            tempoReferences = new List<Reference>();
+            tempoActions = new List<Action>();
+        }
+
 
         /**
         <annotations>

@@ -52,7 +52,7 @@ namespace Annotator
             // select
             // 
             this.select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.select.Location = new System.Drawing.Point(644, 29);
+            this.select.Location = new System.Drawing.Point(635, 29);
             this.select.Name = "select";
             this.select.Size = new System.Drawing.Size(75, 21);
             this.select.TabIndex = 3;
@@ -63,7 +63,7 @@ namespace Annotator
             // remove
             // 
             this.remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.remove.Location = new System.Drawing.Point(725, 29);
+            this.remove.Location = new System.Drawing.Point(716, 29);
             this.remove.Name = "remove";
             this.remove.Size = new System.Drawing.Size(75, 21);
             this.remove.TabIndex = 4;
@@ -83,7 +83,7 @@ namespace Annotator
             // generate3d
             // 
             this.generate3d.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.generate3d.Location = new System.Drawing.Point(563, 29);
+            this.generate3d.Location = new System.Drawing.Point(554, 29);
             this.generate3d.Name = "generate3d";
             this.generate3d.Size = new System.Drawing.Size(75, 21);
             this.generate3d.TabIndex = 6;

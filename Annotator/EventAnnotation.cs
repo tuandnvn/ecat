@@ -43,11 +43,15 @@ namespace Annotator
         /// </summary>
         public int end { get; private set; }
 
+        public bool Editing { get; private set; } = false;
 
         public EventAnnotation(Event ev, Main mainGUI, int start, int end)
         {
 
             InitializeComponent();
+
+            axis.X1 = 10;
+            axis.X2 = 820;
 
             this.ev = ev;
             //MessageBox.Show(txt);
@@ -219,30 +223,41 @@ namespace Annotator
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                textAnnotation.ReadOnly = true;
-                ev.text = textAnnotation.Text;
-                selectAnnotation();
-                //Set middle_bottom panel:
-
-                //mainGUI.setStartFrameLabel(startFrame + "");
-                //mainGUI.setEndFrameLabel(endFrame + "");
-                mainGUI.setAnnotationText(textAnnotation.Text);
+                editAnnotation();
             }
         }
 
-        private void textAnnotation_DoubleClick(object sender, EventArgs e)
-        {
-            textAnnotation.ReadOnly = false;
-        }
-
-
         private void selectBtn_Click(object sender, EventArgs e)
         {
-            selectAnnotation();
+            if (!Editing)
+            {
+                editAnnotation();
+                selectBtn.Text = "Save";
+                Editing = true;
+            }
+            else
+            {
+                saveAnnotation();
+                selectBtn.Text = "Edit";
+                Editing = false;
+            }
+
         }
 
-        private void selectAnnotation()
+        private void saveAnnotation()
         {
+            ev.text = mainGUI.getAnnotationText();
+            textAnnotation.Text = ev.text;
+            ev.save();
+            mainGUI.selectedEvent = null;
+            mainGUI.clearRightBottomPanel();
+            setSelected(false);
+            deselectDeco();
+        }
+
+        private void editAnnotation()
+        {
+            ev.edit();
             // Caution: this call should be before setAnnotationText
             // because it would clear out the textAnnotation.Text
             mainGUI.unselectAnnotations();
@@ -253,29 +268,34 @@ namespace Annotator
 
             foreach (Event.Reference reference in ev.references)
             {
+
+                int start = reference.start;
+                int end = reference.end;
+                String refID = reference.refObjectId;
+                
                 try
                 {
-                    int start = reference.start;
-                    int end = reference.end;
-                    String refID = reference.refObjectId;
-                    String text = this.getText().Substring(start, end - start);
+                    String text = "";
+                    text = this.getText().Substring(start, end - start);
                     mainGUI.addRightBottomTableReference(start, end, text, refID);
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
                     // The case when there is problem with start and end
                     Console.WriteLine(e);
+                    mainGUI.addRightBottomTableReference(start, end, "", refID, Color.Red);
                 }
 
             }
 
             foreach (Event.Action ev in ev.actions)
             {
+                int start = ev.start;
+                int end = ev.end;
+                String semanticType = ev.semanticType;
+
                 try
                 {
-                    int start = ev.start;
-                    int end = ev.end;
-                    String semanticType = ev.semanticType;
                     String text = this.getText().Substring(start, end - start);
                     mainGUI.addRightBottomTableReference(start, end, text, semanticType);
                 }
@@ -283,6 +303,7 @@ namespace Annotator
                 {
                     // The case when there is problem with start and end
                     Console.WriteLine(e);
+                    mainGUI.addRightBottomTableReference(start, end, "", semanticType, Color.Red);
                 }
             }
         }
@@ -307,7 +328,6 @@ namespace Annotator
                 mainGUI.removeAnnotation(this.ev);
             }
         }
-
 
         private void subEventLink_Click(object sender, EventArgs e)
         {

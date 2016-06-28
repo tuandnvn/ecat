@@ -45,12 +45,12 @@ namespace Annotator
             // 
             // textAnnotation
             // 
+            this.textAnnotation.Enabled = false;
             this.textAnnotation.Location = new System.Drawing.Point(164, 29);
             this.textAnnotation.Multiline = true;
             this.textAnnotation.Name = "textAnnotation";
             this.textAnnotation.Size = new System.Drawing.Size(384, 20);
             this.textAnnotation.TabIndex = 0;
-            this.textAnnotation.DoubleClick += new System.EventHandler(this.textAnnotation_DoubleClick);
             this.textAnnotation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAnnotation_KeyPress);
             // 
             // shapeContainer1
@@ -119,16 +119,18 @@ namespace Annotator
             // 
             // selectBtn
             // 
+            this.selectBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectBtn.Location = new System.Drawing.Point(635, 29);
             this.selectBtn.Name = "selectBtn";
             this.selectBtn.Size = new System.Drawing.Size(75, 21);
             this.selectBtn.TabIndex = 3;
-            this.selectBtn.Text = "Select";
+            this.selectBtn.Text = "Edit";
             this.selectBtn.UseVisualStyleBackColor = true;
             this.selectBtn.Click += new System.EventHandler(this.selectBtn_Click);
             // 
             // remove
             // 
+            this.remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.remove.Location = new System.Drawing.Point(716, 29);
             this.remove.Name = "remove";
             this.remove.Size = new System.Drawing.Size(75, 21);
@@ -139,6 +141,7 @@ namespace Annotator
             // 
             // subEventLink
             // 
+            this.subEventLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.subEventLink.Location = new System.Drawing.Point(554, 29);
             this.subEventLink.Name = "subEventLink";
             this.subEventLink.Size = new System.Drawing.Size(75, 21);

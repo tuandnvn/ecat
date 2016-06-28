@@ -20,9 +20,13 @@ namespace Annotator
 
         public void setAnnotationText(String txt)
         {
-            Console.WriteLine("setAnnotationText " + txt);
             annotationText.Text = txt;
             this.Invalidate();
+        }
+
+        public string getAnnotationText()
+        {
+            return annotationText.Text;
         }
 
         //Add annotation 
@@ -36,12 +40,11 @@ namespace Annotator
 
         private void renderEventAnnotation(EventAnnotation annotation)
         {
+            annotation.Dock = DockStyle.Fill;
             middleBottomTableLayoutPanel.RowCount = lastAnnotationCell.Y + 1;
             middleBottomTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             middleBottomTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleBottomTableLayoutPanel.RowCount + 4);
             middleBottomTableLayoutPanel.Controls.Add(annotation, lastAnnotationCell.X, lastAnnotationCell.Y);
-            annotation.Dock = DockStyle.Fill;
-
             lastAnnotationCell.Y += 1;
 
             middleBottomPanel.Invalidate();
@@ -64,16 +67,21 @@ namespace Annotator
         }
 
         //Add annotation button
-        private void button2_Click(object sender, EventArgs e)
+        private void addEventAnnotationBtn_Click(object sender, EventArgs e)
         {
             Event annotation = new Event(null, frameTrackBar.Minimum, frameTrackBar.Maximum, "");
             addAnnotation(annotation);
         }
 
 
-        public void addRightBottomTableReference(int start, int end, String text, String refID)
+        public void addRightBottomTableReference(int start, int end, String text, String refID, Color? c = null)
         {
-            annoRefView.Rows.Add(start, end, text, refID);
+            int rowIndex = annoRefView.Rows.Add(start, end, text, refID);
+
+            if (c.HasValue)
+            {
+                annoRefView.Rows[rowIndex].DefaultCellStyle.BackColor = c.Value;
+            }
         }
 
         //Unselect all annotations
@@ -93,7 +101,7 @@ namespace Annotator
             }
         }
 
-        private void toolStripMenuItem6_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void addObjRefToolStripMenuItem_Clicked(object sender, ToolStripItemClickedEventArgs e)
         {
             //addReferenceLabel();
             String refID = e.ClickedItem.ToString();
@@ -104,7 +112,7 @@ namespace Annotator
 
             if (selectedEvent != null)
             {
-                selectedEvent.addReference(start, end, refID);
+                selectedEvent.addTempoReference(start, end, refID);
                 addRightBottomTableReference(start, end, txt, refID);
             }
         }
@@ -126,12 +134,15 @@ namespace Annotator
 
         private void annotationText_MouseDown(object sender, MouseEventArgs e)
         {
-            addObjRefToolStripMenuItem.DropDownItems.Clear();
-            foreach (Object o in currentSession.getObjects())
+            if (currentSession != null)
             {
-                addObjRefToolStripMenuItem.DropDownItems.Add(o.id);
+                addObjRefToolStripMenuItem.DropDownItems.Clear();
+                foreach (Object o in currentSession.getObjects())
+                {
+                    addObjRefToolStripMenuItem.DropDownItems.Add(o.id);
+                }
             }
-
+            
             if (e.Button == MouseButtons.Right)
             {
                 if (annotationText.Text != null && annotationText.Text.Length > 0)
