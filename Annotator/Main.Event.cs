@@ -74,7 +74,7 @@ namespace Annotator
         }
 
 
-        public void addRightBottomTableReference(int start, int end, String text, String refID, Color? c = null)
+        public int addRightBottomTableReference(int start, int end, String text, String refID, Color? c = null)
         {
             int rowIndex = annoRefView.Rows.Add(start, end, text, refID);
 
@@ -82,6 +82,8 @@ namespace Annotator
             {
                 annoRefView.Rows[rowIndex].DefaultCellStyle.BackColor = c.Value;
             }
+
+            return rowIndex;
         }
 
         //Unselect all annotations
@@ -94,7 +96,8 @@ namespace Annotator
                 {
                     if (mapFromEventToEventAnnotations.ContainsKey(ev))
                     {
-                        mapFromEventToEventAnnotations[ev].setSelected(false);
+                        mapFromEventToEventAnnotations[ev].setSelect(false);
+                        ev.resetTempo();
                         mapFromEventToEventAnnotations[ev].deselectDeco();
                     }
                 }
@@ -126,7 +129,7 @@ namespace Annotator
 
             if (selectedEvent != null)
             {
-                selectedEvent.addAction(start, end, txt);
+                selectedEvent.addTempoAction(start, end, txt);
                 addRightBottomTableReference(start, end, txt, txt);
             }
         }
@@ -142,7 +145,7 @@ namespace Annotator
                     addObjRefToolStripMenuItem.DropDownItems.Add(o.id);
                 }
             }
-            
+
             if (e.Button == MouseButtons.Right)
             {
                 if (annotationText.Text != null && annotationText.Text.Length > 0)
@@ -162,6 +165,15 @@ namespace Annotator
             annoRefView.Rows[e.RowIndex].Selected = true;
             annoRefView.Invalidate();
         }
+
+        private void AnnoRefView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (selectedEvent != null && mapFromEventToEventAnnotations.ContainsKey(selectedEvent))
+            {
+                mapFromEventToEventAnnotations[selectedEvent].deleteTempoEventParticipantByRowIndex(e.Row.Index);
+            }
+        }
+
 
         internal void linkSubEvent(Event ev)
         {

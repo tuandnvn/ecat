@@ -43,7 +43,7 @@ namespace Annotator
         /// </summary>
         public int end { get; private set; }
 
-        public bool Editing { get; private set; } = false;
+        Dictionary<int, object> rowIndexToObjs;
 
         public EventAnnotation(Event ev, Main mainGUI, int start, int end)
         {
@@ -66,6 +66,8 @@ namespace Annotator
             Rendering();
 
             rectangleShape.MouseClick += Mark_MouseClick;
+
+            rowIndexToObjs = new Dictionary<int, object>();
 
             //MessageBox.Show("minimum = " + minimum + ", maximum = " + maximum + " stepX = " + frameStepX);
             intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
@@ -118,10 +120,6 @@ namespace Annotator
         public bool getSelected()
         {
             return selected;
-        }
-        public void setSelected(bool option)
-        {
-            this.selected = option;
         }
 
         private void Annotation_MouseMove(object sender, MouseEventArgs e)
@@ -229,19 +227,27 @@ namespace Annotator
 
         private void selectBtn_Click(object sender, EventArgs e)
         {
-            if (!Editing)
+            if (!selected)
             {
                 editAnnotation();
-                selectBtn.Text = "Save";
-                Editing = true;
             }
             else
             {
                 saveAnnotation();
+            }
+        }
+
+        internal void setSelect(bool selected)
+        {
+            if (selected)
+            {
+                selectBtn.Text = "Save";
+            } else
+            {
                 selectBtn.Text = "Edit";
-                Editing = false;
             }
 
+            this.selected = selected;
         }
 
         private void saveAnnotation()
@@ -249,21 +255,22 @@ namespace Annotator
             ev.text = mainGUI.getAnnotationText();
             textAnnotation.Text = ev.text;
             ev.save();
+            mainGUI.unselectAnnotations();
             mainGUI.selectedEvent = null;
             mainGUI.clearRightBottomPanel();
-            setSelected(false);
+            setSelect(false);
             deselectDeco();
         }
 
         private void editAnnotation()
         {
-            ev.edit();
+            ev.resetTempo();
             // Caution: this call should be before setAnnotationText
             // because it would clear out the textAnnotation.Text
             mainGUI.unselectAnnotations();
             mainGUI.setAnnotationText(textAnnotation.Text);
             mainGUI.selectedEvent = this.ev;
-            setSelected(true);
+            setSelect(true);
             selectDeco();
 
             foreach (Event.Reference reference in ev.references)
@@ -272,20 +279,22 @@ namespace Annotator
                 int start = reference.start;
                 int end = reference.end;
                 String refID = reference.refObjectId;
-                
+                int rowIndex = -1;
+
                 try
                 {
                     String text = "";
                     text = this.getText().Substring(start, end - start);
-                    mainGUI.addRightBottomTableReference(start, end, text, refID);
+                    rowIndex = mainGUI.addRightBottomTableReference(start, end, text, refID);
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
                     // The case when there is problem with start and end
                     Console.WriteLine(e);
-                    mainGUI.addRightBottomTableReference(start, end, "", refID, Color.Red);
+                    rowIndex = mainGUI.addRightBottomTableReference(start, end, "", refID, Color.Red);
                 }
 
+                rowIndexToObjs[rowIndex] = reference;
             }
 
             foreach (Event.Action ev in ev.actions)
@@ -294,16 +303,36 @@ namespace Annotator
                 int end = ev.end;
                 String semanticType = ev.semanticType;
 
+                int rowIndex = -1;
+
                 try
                 {
                     String text = this.getText().Substring(start, end - start);
-                    mainGUI.addRightBottomTableReference(start, end, text, semanticType);
+                    rowIndex = mainGUI.addRightBottomTableReference(start, end, text, semanticType);
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
                     // The case when there is problem with start and end
                     Console.WriteLine(e);
-                    mainGUI.addRightBottomTableReference(start, end, "", semanticType, Color.Red);
+                    rowIndex = mainGUI.addRightBottomTableReference(start, end, "", semanticType, Color.Red);
+                }
+
+                rowIndexToObjs[rowIndex] = ev;
+            }
+        }
+
+        internal void deleteTempoEventParticipantByRowIndex(int rowIndex)
+        {
+            if (rowIndexToObjs.ContainsKey(rowIndex))
+            {
+                if ( rowIndexToObjs[rowIndex].GetType() == typeof(Event.Reference))
+                {
+                    ev.removeTempoReference(rowIndexToObjs[rowIndex] as Event.Reference);
+                }
+
+                if (rowIndexToObjs[rowIndex].GetType() == typeof(Event.Action))
+                {
+                    ev.removeTempoAction(rowIndexToObjs[rowIndex] as Event.Action);
                 }
             }
         }

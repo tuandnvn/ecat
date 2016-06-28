@@ -78,7 +78,7 @@ namespace Annotator
         private Font myFont = new Font("Microsoft Sans Serif", 5.75f);//font to write not-string colors
         private Point lastAnnotationCell = new Point(94, 0);              // last annotation location for middle-bottom panel
         private Point lastObjectCell = new Point(1, 0);
-        internal List<ObjectAnnotation> objectAnnotations { get; set; }
+        //internal List<ObjectAnnotation> objectAnnotations { get; set; }
         internal Dictionary<Object, ObjectAnnotation> objectToObjectTracks { get; set; }
         List<Button> drawingButtonGroup = new List<Button>();
         Dictionary<Button, bool> drawingButtonSelected = new Dictionary<Button, bool>();
@@ -106,7 +106,7 @@ namespace Annotator
                 setWorkspace(workspace.getLocationFolder(), workspace.getDefaultOption());
             }
 
-            this.objectAnnotations = new List<ObjectAnnotation>();
+            //this.objectAnnotations = new List<ObjectAnnotation>();
             this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
         }
 
@@ -621,7 +621,7 @@ namespace Annotator
         internal void addObjectAnnotation(Object o)
         {
             var objectAnnotation = new ObjectAnnotation(o, this, this.frameTrackBar.Minimum, this.frameTrackBar.Maximum);
-            objectAnnotations.Add(objectAnnotation);
+            //objectAnnotations.Add(objectAnnotation);
             objectToObjectTracks[o] = objectAnnotation;
 
             //objectAnnotation.Location = lastObjectCell;
@@ -637,15 +637,18 @@ namespace Annotator
 
             // Remove the annotation corresponding to this object
             // and rearrage all object annotations
-            ObjectAnnotation ot = this.objectToObjectTracks[o];
-            if (ot != null)
+            if (this.objectToObjectTracks.ContainsKey(o) )
             {
-                this.objectToObjectTracks.Remove(o);
-                this.objectAnnotations.Remove(ot);
+                ObjectAnnotation ot = this.objectToObjectTracks[o];
+                if (ot != null)
+                {
+                    this.objectToObjectTracks.Remove(o);
+                    //this.objectAnnotations.Remove(ot);
+                }
             }
 
             clearMiddleCenterPanel();
-            foreach (ObjectAnnotation objectAnnotation in objectAnnotations)
+            foreach (ObjectAnnotation objectAnnotation in objectToObjectTracks.Values)
             {
                 renderObjectAnnotation(objectAnnotation);
             }
@@ -776,7 +779,7 @@ namespace Annotator
         {
             if (currentSession != null)
             {
-                foreach (var objectAnnotation in objectAnnotations)
+                foreach (var objectAnnotation in objectToObjectTracks.Values)
                 {
                     objectAnnotation.resetStartEnd(frameTrackBar.Minimum, frameTrackBar.Maximum);
                 }
@@ -808,7 +811,6 @@ namespace Annotator
             }
         }
 
-
         private void Main_KeyUp(object sender, KeyEventArgs e)
         {
             if (tabs.SelectedIndex == 0)
@@ -816,7 +818,6 @@ namespace Annotator
                 handleKeyUpOnAnnotatorTab(e);
             }
         }
-
 
         private void setMinimumFrameTrackBar(int value)
         {
@@ -829,6 +830,7 @@ namespace Annotator
             frameTrackBar.Maximum = value;
             this.sessionEnd = value;
         }
+
 
         //private void Main_SizeChanged(object sender, EventArgs e)
         //{

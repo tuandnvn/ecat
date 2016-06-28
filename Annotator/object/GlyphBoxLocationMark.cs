@@ -65,6 +65,20 @@ namespace Annotator
             }
         }
 
+        public override List<Rectangle> getCornerSelectBoxes(int boxSize)
+        {
+            List<Rectangle> selectBoxes = new List<Rectangle>();
+            foreach (var boundingPolygon in boundingPolygons)
+            {
+                foreach (var p in boundingPolygon)
+                {
+                    selectBoxes.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2),
+                            (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+                }
+            }
+            return selectBoxes;
+        }
+
         public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
         {
             List<List<PointF>> scaledBoundingPolygons = boundingPolygons.Select(boundingPolygon => boundingPolygon.scaleBound(scale, translation)).ToList();

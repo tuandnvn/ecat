@@ -98,6 +98,11 @@ namespace Annotator
             references.Add(reference);
         }
 
+        public void removeReference(Reference reference)
+        {
+            references.Remove(reference);
+        }
+
         //Add reference
         public void addReference(int start, int end, String refObjectId)
         {
@@ -111,9 +116,19 @@ namespace Annotator
             tempoReferences.Add(new Reference(this, refObjectId, start, end));
         }
 
+        public void removeTempoReference(Reference reference)
+        {
+            tempoReferences.Remove(reference);
+        }
+
         public void addAction(Action action)
         {
             actions.Add(action);
+        }
+
+        public void removeAction(Action action)
+        {
+            actions.Remove(action);
         }
 
         public void addAction(int start, int end, String semanticType)
@@ -127,13 +142,18 @@ namespace Annotator
             tempoActions.Add(action);
         }
 
+        public void removeTempoAction(Action action)
+        {
+            tempoActions.Remove(action);
+        }
+
         public void addTempoAction(int start, int end, String semanticType)
         {
             Action e = new Action(this, semanticType, start, end);
             tempoActions.Add(e);
         }
 
-        public void edit()
+        public void resetTempo()
         {
             tempoReferences = new List<Reference>();
             tempoActions = new List<Action>();
