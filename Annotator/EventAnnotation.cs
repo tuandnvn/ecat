@@ -184,16 +184,31 @@ namespace Annotator
             }
         }
 
-        private void lineShape2_Move(object sender, EventArgs e)
+        private void leftMarker_Move(object sender, EventArgs e)
         {
-            ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start;
+            // Exact point
+            if ((int)((leftMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == leftMarker.X1 - minLeftPosition)
+            {
+                ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start;
+            } else
+            {
+                ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
+            }
+            
             intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
             mainGUI.Invalidate();
         }
 
-        private void lineShape3_Move(object sender, EventArgs e)
+        private void rightMarker_Move(object sender, EventArgs e)
         {
-            ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start;
+            if ((int)((rightMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == rightMarker.X1 - minLeftPosition)
+            {
+                ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start;
+            } else
+            {
+                ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
+            }
+            
             intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
             mainGUI.Invalidate();
         }

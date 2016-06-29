@@ -85,7 +85,7 @@ namespace Annotator
             this.rightMarker.X2 = this.axis.X2;
             this.rightMarker.Y1 = 24;
             this.rightMarker.Y2 = 4;
-            this.rightMarker.Move += new System.EventHandler(this.lineShape3_Move);
+            this.rightMarker.Move += new System.EventHandler(this.rightMarker_Move);
             // 
             // leftMarker
             // 
@@ -96,7 +96,7 @@ namespace Annotator
             this.leftMarker.X2 = this.axis.X1;
             this.leftMarker.Y1 = 24;
             this.leftMarker.Y2 = 4;
-            this.leftMarker.Move += new System.EventHandler(this.lineShape2_Move);
+            this.leftMarker.Move += new System.EventHandler(this.leftMarker_Move);
             // 
             // rectangleShape
             // 

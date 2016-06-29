@@ -47,7 +47,6 @@ namespace Annotator
             middleBottomTableLayoutPanel.Controls.Add(annotation, lastAnnotationCell.X, lastAnnotationCell.Y);
             lastAnnotationCell.Y += 1;
 
-            middleBottomPanel.Invalidate();
         }
 
         internal void removeAnnotation(Event ev)
