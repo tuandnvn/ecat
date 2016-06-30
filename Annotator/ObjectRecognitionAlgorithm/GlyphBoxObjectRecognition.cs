@@ -49,7 +49,6 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 }
             }
         }
-
         
         public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction, IProgress<int> progress)
         {

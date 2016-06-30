@@ -73,6 +73,9 @@ namespace Annotator
 
             //Set comboBox:
             String[] viewsList = chosenSession.getViews();
+
+            playbackFileComboBox.Items.Clear();
+
             //MessageBox.Show(viewsList.Length + "");
             for (int i = 0; i < viewsList.Length; i++)
             {
@@ -227,7 +230,7 @@ namespace Annotator
             toggleFileToolStripsOfSession(false);
         }
 
-        private void saveCurrentSession()
+        internal void saveCurrentSession()
         {
             currentSession.saveSession();
             cleanSessionUI();
@@ -449,8 +452,9 @@ namespace Annotator
                 currentSessionNode.Nodes.Add(fileNode);
                 treeView.EndUpdate();
 
-                //Add view to comboBox1:
-                playbackFileComboBox.Items.Add(relFileName);
+                ////Add view to comboBox1:
+                if (relFileName.isVideoFile() || relFileName.isDepthFile())
+                    playbackFileComboBox.Items.Add(relFileName);
             }
             return dstFileName;
         }
@@ -482,8 +486,9 @@ namespace Annotator
                 currentSessionNode.Nodes.Add(fileNode);
                 treeView.EndUpdate();
 
-                //Add view to comboBox1:
-                playbackFileComboBox.Items.Add(newRelFileName);
+                ////Add view to comboBox1:
+                //if (newRelFileName.isVideoFile() || newRelFileName.isDepthFile())
+                //    playbackFileComboBox.Items.Add(newRelFileName);
             }
             return dstFileName;
         }

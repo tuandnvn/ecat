@@ -33,12 +33,14 @@ namespace Annotator
         internal RecordMode recordMode = RecordMode.None;
 
         /// <summary>
-        /// 
+        /// finishRecording should count to 0 when it finish write down 
+        /// the RGB stream and the depth stream
         /// </summary>
         private CountdownEvent finishRecording = null;
 
         /// <summary>
-        /// 
+        /// hasArrived should start with 2, count to 0 when both the rgb stream
+        /// and depth stream are available
         /// </summary>
         private CountdownEvent hasArrived = null;
         private bool hasDepthArrived = false;
@@ -81,6 +83,24 @@ namespace Annotator
         Bitmap rgbBitmap;
         
         object writeRigLock = new object();
+
+        /// <summary>
+        /// Whether or not to show rig on rgbView
+        /// </summary>
+        private bool showRig = true;
+
+        /// <summary>
+        /// Whether or not to record rig into object
+        /// </summary>
+        private bool recordRig = true;
+
+        /// <summary>
+        /// Whether or not to record depth
+        /// </summary>
+        private bool recordDepth = true;
+
+        List<Button> toolbarButtonGroup = new List<Button>();
+        Dictionary<Button, bool> toolbarButtonSelected = new Dictionary<Button, bool>();
 
         public void InitializeOptionsTable()
         {
@@ -132,13 +152,50 @@ namespace Annotator
                 {
                 }
             }
+
+            // Show rig or not
+            if (e.RowIndex == 7 && e.ColumnIndex == 1)
+            {
+                try
+                {
+                    showRig = (bool)optionsTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                }
+                catch
+                {
+                }
+            }
+
+            // Record rig or not
+            if (e.RowIndex == 8 && e.ColumnIndex == 1)
+            {
+                try
+                {
+                    recordRig = (bool)optionsTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                }
+                catch
+                {
+                }
+            }
+
+            if (e.RowIndex >= objectRecognizerStartRow && e.ColumnIndex == 1)
+            {
+                try
+                {
+                    changeObjectRecognizerIncluded(e);
+                }
+                catch
+                {
+                }
+            }
         }
+
 
         private void changeRowToTrueFall(DataGridView optionsTable, int row, int col)
         {
             List<bool> bools = new List<bool>() { true, false };
             DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
             c.DataSource = bools;
+            c.ValueType = typeof(bool);
             c.Value = true;
 
             optionsTable.Rows[row].Cells[col] = c;
@@ -293,8 +350,6 @@ namespace Annotator
                                                             : Properties.Resources.NoSensorStatusText;
         }
 
-        List<Button> toolbarButtonGroup = new List<Button>();
-        Dictionary<Button, bool> toolbarButtonSelected = new Dictionary<Button, bool>();
 
         private void calibrateButton_MouseDown(object sender, MouseEventArgs e)
         {
@@ -414,38 +469,42 @@ namespace Annotator
                             jointPoints[jointType] = new Point((int)(colorSpacePoint.X * widthAspect), (int)(colorSpacePoint.Y * heightAspect));
                     }
 
-                    foreach (var bone in this.bones)
+                    if (showRig)
                     {
-                        if (jointPoints.ContainsKey(bone.Item1) && jointPoints.ContainsKey(bone.Item2))
+                        // Draw bones
+                        foreach (var bone in this.bones)
                         {
-                            Point p1 = jointPoints[bone.Item1];
-                            Point p2 = jointPoints[bone.Item2];
+                            if (jointPoints.ContainsKey(bone.Item1) && jointPoints.ContainsKey(bone.Item2))
+                            {
+                                Point p1 = jointPoints[bone.Item1];
+                                Point p2 = jointPoints[bone.Item2];
 
-                            e.Graphics.DrawLine(drawPen, p1, p2);
-                        }
-                    }
-
-                    // Draw the joints
-                    foreach (JointType jointType in jointPoints.Keys)
-                    {
-                        Brush drawBrush = null;
-
-                        TrackingState trackingState = joints[jointType].TrackingState;
-
-                        switch (trackingState)
-                        {
-                            case TrackingState.Tracked:
-                                drawBrush = this.trackedJointBrush;
-                                break;
-                            case TrackingState.Inferred:
-                                drawBrush = this.inferredJointBrush;
-                                break;
+                                e.Graphics.DrawLine(drawPen, p1, p2);
+                            }
                         }
 
-                        if (drawBrush != null)
+                        // Draw the joints
+                        foreach (JointType jointType in jointPoints.Keys)
                         {
-                            Pen jointPen = new Pen(drawBrush);
-                            e.Graphics.DrawEllipse(jointPen, jointPoints[jointType].X - JointThickness, jointPoints[jointType].Y - JointThickness, 2 * JointThickness + 1, 2 * JointThickness + 1);
+                            Brush drawBrush = null;
+
+                            TrackingState trackingState = joints[jointType].TrackingState;
+
+                            switch (trackingState)
+                            {
+                                case TrackingState.Tracked:
+                                    drawBrush = this.trackedJointBrush;
+                                    break;
+                                case TrackingState.Inferred:
+                                    drawBrush = this.inferredJointBrush;
+                                    break;
+                            }
+
+                            if (drawBrush != null)
+                            {
+                                Pen jointPen = new Pen(drawBrush);
+                                e.Graphics.DrawEllipse(jointPen, jointPoints[jointType].X - JointThickness, jointPoints[jointType].Y - JointThickness, 2 * JointThickness + 1, 2 * JointThickness + 1);
+                            }
                         }
                     }
                 }
@@ -457,10 +516,22 @@ namespace Annotator
             recordButton.ImageIndex = 1;
             recordMode = RecordMode.Recording;
 
-            finishRecording = new CountdownEvent(3);
+            optionsTable.Enabled = false;
+
+            int eventToTrack = 1;
+            if (recordRig)
+            {
+                eventToTrack++;
+            }
+
+            if (recordDepth)
+            {
+                eventToTrack++;
+            }
+
+            finishRecording = new CountdownEvent(eventToTrack);
 
             // Disable changing to options table
-            optionsTable.Enabled = false;
 
             string timeStr = (DateTime.Now.ToShortDateString() + "_" + DateTime.Now.ToLongTimeString()).Replace("/", "_").Replace(":", "_").Replace(" ", "");
 
@@ -471,7 +542,10 @@ namespace Annotator
 
             startRecordRgb();
             startRecordDepth();
-            startRecordRig();
+            if (recordRig)
+            {
+                startRecordRig();
+            }
         }
 
         private void handleRecordButtonOff()

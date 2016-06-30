@@ -183,6 +183,8 @@ namespace Annotator
             playButton.ImageIndex = 2;
 
             recordMode = RecordMode.None;
+            optionsTable.Enabled = true;
+
             tmspStartRecording = null;
 
             helperTextBox.Text = "";
@@ -287,7 +289,6 @@ namespace Annotator
                     localFiles[fileName] = main.copyFileIntoLocalSession(fileName, mapFileName[fileName]);
                 }
 
-                main.currentSession.addFile(mapFileName[tempRgbFileName]);
                 main.currentSession.duration = (long) lastWrittenRgbTime.TotalMilliseconds;
                 if (startRecordingRgb.HasValue)
                 {
@@ -318,7 +319,7 @@ namespace Annotator
                     main.currentSession.addObject(o);
                 }
 
-                main.currentSession.saveSession();
+                main.saveCurrentSession();
             }
         }
     }
