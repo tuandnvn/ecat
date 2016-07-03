@@ -63,17 +63,13 @@ namespace Annotator
             {
                 // This lambda is executed in context of UI thread,
                 // so it can safely update form controls
-                pf.progressBar.Value = v * 100.0 / numberOfSteps <= 100 ? (int)(v * 100.0 / numberOfSteps) : 100;
-                if ( v < numberOfSteps)
+                pf.progressBar.Value = (v + 1) * 100.0 / numberOfSteps <= 100 ? (int)( (v + 1) * 100.0 / numberOfSteps) : 100;
+                if ( v + 1 < numberOfSteps)
                 {
                     pf.description.Text = "Process at frame " + v;
                 } else
                 {
                     pf.description.Text = "Save down the objects ";
-                }
-
-                if (v == numberOfSteps)
-                {
                     pf.Dispose();
                 }
             });

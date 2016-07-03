@@ -32,7 +32,7 @@ namespace Annotator
         private bool edited;            //true if session is currently edited
         private List<VideoReader> videos;
         private List<BaseDepthReader> depthVideos;
-        private List<String> filesList;
+        internal List<String> filesList;
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
         public Main mainGUI { get; }
@@ -111,6 +111,7 @@ namespace Annotator
         //Add file to session filesList
         public void addFile(String fileName)
         {
+            Console.WriteLine("Add file " + fileName);
             //1)check if file already exists in session files list
             bool exists = false;
             foreach (String file in filesList)

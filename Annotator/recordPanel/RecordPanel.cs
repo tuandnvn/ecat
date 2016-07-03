@@ -61,12 +61,13 @@ namespace Annotator
             this.recordButton = new System.Windows.Forms.Button();
             this.calibrateButton = new System.Windows.Forms.Button();
             this.recordedBox = new System.Windows.Forms.GroupBox();
-            this.videoNameLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.playBar = new System.Windows.Forms.TrackBar();
             this.endTimeLabel = new System.Windows.Forms.Label();
             this.startTimeLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.playBar = new System.Windows.Forms.TrackBar();
             this.saveRecordedSession = new System.Windows.Forms.Button();
+            this.videoNameLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.recordTimeLbl = new System.Windows.Forms.Label();
             this.helpBox = new System.Windows.Forms.GroupBox();
             this.helperTextBox = new System.Windows.Forms.RichTextBox();
@@ -83,9 +84,9 @@ namespace Annotator
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cameraStatusLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.recordingButtonGroup.SuspendLayout();
             this.recordedBox.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playBar)).BeginInit();
             this.helpBox.SuspendLayout();
             this.viewPanel.SuspendLayout();
@@ -95,7 +96,6 @@ namespace Annotator
             this.viewBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.optionsTable)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // recordingButtonGroup
@@ -176,13 +176,38 @@ namespace Annotator
             this.recordedBox.TabStop = false;
             this.recordedBox.Text = "Recorded";
             // 
-            // videoNameLabel
+            // tableLayoutPanel3
             // 
-            this.videoNameLabel.AutoSize = true;
-            this.videoNameLabel.Location = new System.Drawing.Point(1096, 16);
-            this.videoNameLabel.Name = "videoNameLabel";
-            this.videoNameLabel.Size = new System.Drawing.Size(0, 13);
-            this.videoNameLabel.TabIndex = 7;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.endTimeLabel, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.startTimeLabel, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.playBar, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.saveRecordedSession, 2, 3);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1138, 295);
+            this.tableLayoutPanel3.TabIndex = 8;
+            // 
+            // playBar
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.playBar, 3);
+            this.playBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playBar.Enabled = false;
+            this.playBar.Location = new System.Drawing.Point(3, 3);
+            this.playBar.Maximum = 100;
+            this.playBar.Name = "playBar";
+            this.playBar.Size = new System.Drawing.Size(1132, 29);
+            this.playBar.TabIndex = 1;
+            this.playBar.ValueChanged += new System.EventHandler(this.playBar_ValueChanged);
             // 
             // endTimeLabel
             // 
@@ -204,26 +229,6 @@ namespace Annotator
             this.startTimeLabel.TabIndex = 5;
             this.startTimeLabel.Text = "00:00.000";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 4;
-            // 
-            // playBar
-            // 
-            this.tableLayoutPanel3.SetColumnSpan(this.playBar, 3);
-            this.playBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playBar.Enabled = false;
-            this.playBar.Location = new System.Drawing.Point(3, 3);
-            this.playBar.Maximum = 100;
-            this.playBar.Name = "playBar";
-            this.playBar.Size = new System.Drawing.Size(1132, 29);
-            this.playBar.TabIndex = 1;
-            this.playBar.ValueChanged += new System.EventHandler(this.playBar_ValueChanged);
-            // 
             // saveRecordedSession
             // 
             this.saveRecordedSession.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -234,6 +239,22 @@ namespace Annotator
             this.saveRecordedSession.Text = "Save";
             this.saveRecordedSession.UseVisualStyleBackColor = true;
             this.saveRecordedSession.Click += new System.EventHandler(this.saveRecordedSession_Click);
+            // 
+            // videoNameLabel
+            // 
+            this.videoNameLabel.AutoSize = true;
+            this.videoNameLabel.Location = new System.Drawing.Point(1096, 16);
+            this.videoNameLabel.Name = "videoNameLabel";
+            this.videoNameLabel.Size = new System.Drawing.Size(0, 13);
+            this.videoNameLabel.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 4;
             // 
             // recordTimeLbl
             // 
@@ -429,27 +450,6 @@ namespace Annotator
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1420, 860);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.endTimeLabel, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.startTimeLabel, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.playBar, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.saveRecordedSession, 2, 3);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1138, 295);
-            this.tableLayoutPanel3.TabIndex = 8;
-            // 
             // RecordPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +461,8 @@ namespace Annotator
             this.recordingButtonGroup.ResumeLayout(false);
             this.recordedBox.ResumeLayout(false);
             this.recordedBox.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playBar)).EndInit();
             this.helpBox.ResumeLayout(false);
             this.viewPanel.ResumeLayout(false);
@@ -472,8 +474,6 @@ namespace Annotator
             ((System.ComponentModel.ISupportInitialize)(this.optionsTable)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -233,6 +233,11 @@ namespace Annotator
         internal void saveCurrentSession()
         {
             currentSession.saveSession();
+            Console.WriteLine("File list when saved");
+            foreach (string fileName in currentSession.filesList)
+            {
+                Console.WriteLine(fileName);
+            }
             cleanSessionUI();
         }
 

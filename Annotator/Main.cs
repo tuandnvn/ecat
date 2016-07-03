@@ -457,8 +457,8 @@ namespace Annotator
             newSession = true;
             //2)Show popup for session name
             SessionInfo sessionInfo = new SessionInfo(this, treeView.SelectedNode.Text);
-            sessionInfo.Location = new Point(this.Location.X + (int)(sessionInfo.Width / 2.5), this.Location.Y + sessionInfo.Height / 2);
-            sessionInfo.Show();
+            sessionInfo.StartPosition = FormStartPosition.CenterParent;
+            sessionInfo.ShowDialog();
         }
 
         /// <summary>

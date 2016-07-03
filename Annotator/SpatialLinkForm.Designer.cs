@@ -131,6 +131,7 @@
             // 
             // SpatialLinkForm
             // 
+            this.AcceptButton = this.addLinkBtn;
             this.ClientSize = new System.Drawing.Size(321, 108);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SpatialLinkForm";

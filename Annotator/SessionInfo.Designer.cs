@@ -35,10 +35,10 @@
             this.warningTxt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // sessionNameTxtBox
             // 
             this.sessionNameTxtBox.Location = new System.Drawing.Point(112, 23);
-            this.sessionNameTxtBox.Name = "textBox1";
+            this.sessionNameTxtBox.Name = "sessionNameTxtBox";
             this.sessionNameTxtBox.Size = new System.Drawing.Size(211, 20);
             this.sessionNameTxtBox.TabIndex = 16;
             this.sessionNameTxtBox.TextChanged += new System.EventHandler(this.sessionNameTxtBox_TextChanged);
@@ -52,10 +52,10 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Session name: ";
             // 
-            // button3
+            // okButton
             // 
             this.okButton.Location = new System.Drawing.Point(143, 69);
-            this.okButton.Name = "ok";
+            this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(87, 23);
             this.okButton.TabIndex = 14;
             this.okButton.Text = "OK";
@@ -63,30 +63,33 @@
             this.okButton.Visible = false;
             this.okButton.Click += new System.EventHandler(this.ok_Click);
             // 
-            // button2
+            // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(236, 69);
-            this.cancelButton.Name = "cancel";
+            this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(87, 23);
             this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label3
+            // warningTxt
             // 
             this.warningTxt.AutoSize = true;
             this.warningTxt.ForeColor = System.Drawing.Color.Red;
             this.warningTxt.Location = new System.Drawing.Point(112, 46);
-            this.warningTxt.Name = "label3";
+            this.warningTxt.Name = "warningTxt";
             this.warningTxt.Size = new System.Drawing.Size(211, 13);
             this.warningTxt.TabIndex = 18;
             this.warningTxt.Text = "Incorrect project name(at least three letters)";
             // 
             // SessionInfo
             // 
+            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(335, 97);
             this.Controls.Add(this.warningTxt);
             this.Controls.Add(this.sessionNameTxtBox);

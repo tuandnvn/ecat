@@ -27,6 +27,7 @@ namespace Annotator
         private async void handlePlayButtonOn()
         {
             recordMode = RecordMode.Playingback;
+            saveRecordedSession.Focus();
             finishRecording.Wait();
 
             playButton.ImageIndex = 3;
@@ -236,7 +237,7 @@ namespace Annotator
             {
                 case DialogResult.Yes:
                     SessionInfo sessionInfo = new SessionInfo(main, currentProject.getProjectName());
-                    sessionInfo.Location = new Point(this.Location.X + (int)(sessionInfo.Width / 2.5), this.Location.Y + sessionInfo.Height / 2);
+                    sessionInfo.StartPosition = FormStartPosition.CenterParent;
                     if (videoReader != null)
                     {
                         videoReader.Dispose();
@@ -250,7 +251,7 @@ namespace Annotator
                     }
 
                     sessionInfo.okButton.Click += new System.EventHandler(this.addSessionOkClick);
-                    sessionInfo.Show();
+                    sessionInfo.ShowDialog();
                     break;
                 case DialogResult.No:
                     FolderBrowserDialog fbd = new FolderBrowserDialog();
