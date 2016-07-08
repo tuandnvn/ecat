@@ -13,7 +13,7 @@ using AForge.Math.Geometry;
 using Accord.Math;
 using System.Diagnostics;
 
-namespace Annotator.ObjectRecognitionAlgorithm
+namespace Annotator
 {
     public class GlyphBoxObjectRecognition : IObjectRecogAlgo
     {
@@ -41,7 +41,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
             this.boxPrototypes = boxPrototypes;
             this.glyphSize = glyphSize;
 
-            foreach ( var boxPrototype in boxPrototypes)
+            foreach (var boxPrototype in boxPrototypes)
             {
                 if (boxPrototype.glyphSize != glyphSize)
                 {
@@ -49,7 +49,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 }
             }
         }
-        
+
         public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction, IProgress<int> progress)
         {
             var shapeOptimizer = new FlatAnglesOptimizer(160);
@@ -80,8 +80,8 @@ namespace Annotator.ObjectRecognitionAlgorithm
             // if the frame is not an anchor frame
             bool previousFrameDetection = false;
 
-
             for (int frameNo = 0; frameNo < videoReader.frameCount; frameNo++)
+                //for (int frameNo = 0; frameNo < 1; frameNo++)
             {
                 if (progress != null)
                     progress.Report(frameNo);
@@ -125,7 +125,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                 // 3 - Threshold edges
                 // Was set to 20 and the number of detected glyphs are too low
                 // Should be set higher
-                Threshold thresholdFilter = new Threshold(35);
+                Threshold thresholdFilter = new Threshold(45);
                 thresholdFilter.ApplyInPlace(edges);
 
                 stopwatch.Stop();
@@ -217,7 +217,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                     Console.WriteLine("found some corner");
                     // 6 - do quadrilateral transformation
                     QuadrilateralTransformation quadrilateralTransformation =
-                        new QuadrilateralTransformation(corners, 20 * (glyphSize + 2) , 20 * (glyphSize + 2));
+                        new QuadrilateralTransformation(corners, 20 * (glyphSize + 2), 20 * (glyphSize + 2));
 
                     transformed = quadrilateralTransformation.Apply(grayImage);
 
@@ -240,7 +240,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
                             resizedGlyphValues[i, j] = glyphValues[i + 1, j + 1];
                         }
 
-                    
+
                     GlyphFace face = new GlyphFace(resizedGlyphValues, glyphSize);
 
                     Console.WriteLine("Find glyph face " + face.ToString());
@@ -287,12 +287,13 @@ namespace Annotator.ObjectRecognitionAlgorithm
                                     originalCorners.Select(p => new System.Drawing.PointF(p.X, p.Y)).ToList(),
                                     face,
                                     depthReader != null ?
-                                    originalCorners.Select(p => p.X * videoReader.frameWidth + p.Y >= 0 && p.X * videoReader.frameWidth + p.Y < videoReader.frameWidth * videoReader.frameHeight ?
-                                                                   new Point3(csps[p.X * videoReader.frameWidth + p.Y].X,
-                                                                   csps[p.X * videoReader.frameWidth + p.Y].Y,
-                                                                   csps[p.X * videoReader.frameWidth + p.Y].Z) : new Point3()).ToList() :
+                                    originalCorners.Select(p => p.X + p.Y * videoReader.frameWidth >= 0 && p.X + p.Y * videoReader.frameWidth < videoReader.frameWidth * videoReader.frameHeight ?
+                                                                   new Point3(csps[p.X + p.Y * videoReader.frameWidth].X,
+                                                                   csps[p.X + p.Y * videoReader.frameWidth].Y,
+                                                                   csps[p.X + p.Y * videoReader.frameWidth].Z) : new Point3()).ToList() :
                                                                    new List<Point3>()
                                     );
+
                                 break;
                             }
                         }
@@ -316,7 +317,8 @@ namespace Annotator.ObjectRecognitionAlgorithm
             if (progress != null)
                 progress.Report(videoReader.frameCount);
 
-            if (recognizedGlyphs.Keys.Count != 0){
+            if (recognizedGlyphs.Keys.Count != 0)
+            {
                 foreach (int boxPrototypeIndex in recognizedGlyphs.Keys)
                 {
                     Console.WriteLine("For boxPrototypeIndex = " + boxPrototypeIndex + " Found glyph box at " + recognizedGlyphs[boxPrototypeIndex].Keys.Count + " frames");
@@ -354,7 +356,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
             return objects;
         }
 
-        private static void getImageForProcessing(Dictionary<int, Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>> recognizedGlyphs, 
+        private static void getImageForProcessing(Dictionary<int, Dictionary<int, Dictionary<int, Tuple<List<System.Drawing.PointF>, GlyphFace, List<Point3>>>>> recognizedGlyphs,
             Mat m, bool previousFrameDetection, int frameNo, ref Bitmap bitmap, ref System.Drawing.Point startPos)
         {
             if (frameNo % anchorNumber == 0)
@@ -396,14 +398,14 @@ namespace Annotator.ObjectRecognitionAlgorithm
                         startPos.X = startPos.Y = 0;
                         return;
                     }
-                        
+
 
                     minX -= extensionFrame;
                     minY -= extensionFrame;
                     maxX += extensionFrame;
                     maxY += extensionFrame;
 
-                    int iminX = minX < 0 ? 0 : (int) minX;
+                    int iminX = minX < 0 ? 0 : (int)minX;
                     int iminY = minY < 0 ? 0 : (int)minY;
                     int imaxX = maxX > m.Bitmap.Width ? m.Bitmap.Width : (int)maxX;
                     int imaxY = maxY > m.Bitmap.Height ? m.Bitmap.Height : (int)maxY;

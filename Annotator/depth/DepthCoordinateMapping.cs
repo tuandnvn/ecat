@@ -3,8 +3,10 @@ using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +15,7 @@ namespace Annotator
     class DepthCoordinateMappingWriter
     {
         public String filename { get; }
+
         public DepthCoordinateMappingWriter(String filename)
         {
             this.filename = filename;
@@ -52,7 +55,7 @@ namespace Annotator
         }
     }
 
-    class DepthCoordinateMappingReader
+    public class DepthCoordinateMappingReader
     {
         public String filename { get; }
         public int width { private set; get; }
@@ -61,6 +64,8 @@ namespace Annotator
         public int longRange { private set; get; }
         public System.Drawing.PointF[,] shortRangeMap;
         public System.Drawing.PointF[,] longRangeMap;
+        static Point3 initiate = new Point3(-1, -1, -1);
+        private bool DEBUG = false;
 
         public DepthCoordinateMappingReader(String filename)
         {
@@ -150,7 +155,6 @@ namespace Annotator
         {
             Point3[,] result = new Point3[colorWidth, colorHeight];
 
-            var initiate = new Point3(-1, -1, -1);
             for (int x = 0; x < colorWidth; x++)
                 for (int y = 0; y < colorHeight; y++)
                 {
@@ -190,6 +194,225 @@ namespace Annotator
                 }
 
             return result;
+        }
+
+        public void projectDepthImageToCameraSpacePoint(ushort[] depthImage, int depthWidth, int depthHeight, int colorWidth, int colorHeight, CameraSpacePoint[] result)
+        {
+            // For debug purpose
+            Bitmap bm = null;
+            byte[] depthValuesToByte = null;
+            BitmapData bmapdata = null;
+            IntPtr? ptr = null;
+
+            if (DEBUG)
+            {
+                bm = new Bitmap(colorWidth, colorHeight, PixelFormat.Format32bppRgb);
+
+                bmapdata = bm.LockBits(
+                                     new Rectangle(0, 0, colorWidth, colorHeight),
+                                     ImageLockMode.WriteOnly,
+                                     bm.PixelFormat);
+
+                ptr = bmapdata.Scan0;
+                depthValuesToByte = new byte[colorWidth * colorHeight * 4];
+
+                for (int i = 0; i < colorWidth * colorHeight; i++)
+                {
+                    depthValuesToByte[4 * i] = depthValuesToByte[4 * i + 1] = depthValuesToByte[4 * i + 2] = 0;
+                }
+            }
+
+            Point3[,] tempo = new Point3[colorWidth, colorHeight];
+
+            for (int x = 0; x < colorWidth; x++)
+                for (int y = 0; y < colorHeight; y++)
+                {
+                    tempo[x, y] = initiate;
+                }
+
+            int xsmallest = colorWidth, ysmallest = colorHeight, xlargest = -1, ylargest = -1;
+            for (int x = 0; x < depthWidth; x++)
+            {
+                for (int y = 0; y < depthHeight; y++)
+                {
+                    ushort depth = depthImage[y * depthWidth + x];
+
+                    // Project this depth pixel coordinate to camera space point
+                    Point3 depthPixel = new Point3 { X = x, Y = y, Z = depth };
+
+                    Point3 cameraSpacePoint = KinectUtils.projectDepthPixelToCameraSpacePoint(depthPixel);
+
+                    System.Drawing.PointF colorPixelPoint = projectedPoint(depthPixel);
+
+                    int color_X = (int)colorPixelPoint.X;
+                    int color_Y = (int)colorPixelPoint.Y;
+
+                    if (color_X >= 0 && color_X < colorWidth && color_Y >= 0 && color_Y < colorHeight)
+                    {
+                        // Replace smallest and largest X and Y
+                        if (color_X < xsmallest)
+                        {
+                            //Console.WriteLine("XSmallest; depth = " + depth + " x = " + x + " y = " + y + " cameraSpacePoint = " + cameraSpacePoint.ToSString() + " colorPixelPoint = " + colorPixelPoint);
+                            xsmallest = color_X;
+                        }
+
+                        if (color_X > xlargest)
+                        {
+                            //Console.WriteLine("XLargest; depth = " + depth + " x = " + x + " y = " + y + " cameraSpacePoint = " + cameraSpacePoint.ToSString() + " colorPixelPoint = " + colorPixelPoint);
+                            xlargest = color_X;
+                        }
+
+                        if (color_Y < ysmallest)
+                        {
+                            //Console.WriteLine("YSmallest; depth = " + depth + " x = " + x + " y = " + y + " cameraSpacePoint = " + cameraSpacePoint.ToSString() + " colorPixelPoint = " + colorPixelPoint);
+                            ysmallest = color_Y;
+                        }
+
+                        if (color_Y > ylargest)
+                        {
+                            //Console.WriteLine("YLargest; depth = " + depth + " x = " + x + " y = " + y + " cameraSpacePoint = " + cameraSpacePoint.ToSString() + " colorPixelPoint = " + colorPixelPoint);
+                            ylargest = color_Y;
+                        }
+
+                        if (!tempo[color_X, color_Y].Equals(initiate))
+                        {
+                            // Replace the current one with the one closer to the camera
+                            if (tempo[color_X, color_Y].Z > cameraSpacePoint.Z)
+                            {
+                                tempo[color_X, color_Y] = cameraSpacePoint;
+                            }
+                        }
+                        else
+                        {
+                            tempo[color_X, color_Y] = cameraSpacePoint;
+                        }
+                    }
+                }
+            }
+
+            for (int x = 0; x < colorWidth; x++)
+                for (int y = 0; y < colorHeight; y++)
+                {
+                    result[x * colorHeight + y] = new CameraSpacePoint { X = -1, Y = -1, Z = -1 };
+                }
+
+            //Console.WriteLine("xsmallest " + xsmallest);
+            //Console.WriteLine("xlargest " + xlargest);
+            //Console.WriteLine("ysmallest " + ysmallest);
+            //Console.WriteLine("ylargest " + ylargest);
+
+            for (int x = xsmallest; x < xlargest; x++)
+            {
+                for (int y = ysmallest; y < ylargest; y++)
+                {
+                    var index = y * colorWidth + x;
+                    // If tempo[x,y] has value
+                    if (!tempo[x, y].Equals(initiate))
+                    {
+                        result[index] = new CameraSpacePoint { X = tempo[x, y].X, Y = tempo[x, y].Y, Z = tempo[x, y].Z };
+                        //writetext.Write("1");
+                        if (DEBUG)
+                            depthValuesToByte[4 * index] = depthValuesToByte[4 * index + 1] = depthValuesToByte[4 * index + 2] = 255;
+                    }
+                    else
+                    {
+                        //writetext.Write("0");
+                        if (DEBUG)
+                            depthValuesToByte[4 * index] = depthValuesToByte[4 * index + 1] = depthValuesToByte[4 * index + 2] = 0;
+                    }
+                }
+                //writetext.WriteLine();
+            }
+
+            if (DEBUG)
+            {
+                Marshal.Copy(depthValuesToByte, 0, ptr.Value, colorWidth * colorHeight * 4);
+                bm.UnlockBits(bmapdata);
+
+                bm.Save("0.png");
+
+                bmapdata = bm.LockBits(
+                                    new Rectangle(0, 0, colorWidth, colorHeight),
+                                    ImageLockMode.WriteOnly,
+                                    bm.PixelFormat);
+            }
+
+            // Linear interpolate
+            for (int x = xsmallest; x < xlargest; x++)
+                for (int y = ysmallest; y < ylargest; y++)
+                {
+                    var index = y * colorWidth + x;
+
+                    // If tempo[x,y] has value
+                    if (!tempo[x, y].Equals(initiate))
+                    {
+                        result[index] = new CameraSpacePoint { X = tempo[x, y].X, Y = tempo[x, y].Y, Z = tempo[x, y].Z };
+                        //writetext.Write("1");
+                        if (DEBUG)
+                            depthValuesToByte[4 * index] = depthValuesToByte[4 * index + 1] = depthValuesToByte[4 * index + 2] = 255;
+                        continue;
+                    }
+
+                    Point3 interpolatedOnBoundary = initiate;
+                    for (int boundarySize = 1; boundarySize <= 2; boundarySize++)
+                    {
+                        interpolatedOnBoundary = getLinearInterpolateOnBoundary(colorWidth, colorHeight, tempo, x, y, boundarySize);
+                        if (!interpolatedOnBoundary.Equals(initiate))
+                        {
+                            result[index] = new CameraSpacePoint { X = interpolatedOnBoundary.X, Y = interpolatedOnBoundary.Y, Z = interpolatedOnBoundary.Z };
+                            //writetext.Write("1");
+                            if (DEBUG)
+                                depthValuesToByte[4 * index] = depthValuesToByte[4 * index + 1] = depthValuesToByte[4 * index + 2] = 255;
+                            break;
+                        }
+                    }
+
+                    //writetext.Write("0");
+                    if (DEBUG)
+                    {
+                        if (interpolatedOnBoundary.Equals(initiate))
+                            depthValuesToByte[4 * index] = depthValuesToByte[4 * index + 1] = depthValuesToByte[4 * index + 2] = 0;
+                    }
+                }
+
+
+            if (DEBUG)
+            {
+                Marshal.Copy(depthValuesToByte, 0, ptr.Value, colorWidth * colorHeight * 4);
+                bm.UnlockBits(bmapdata);
+
+                bm.Save("1.png");
+                bm.Dispose();
+            }
+        }
+
+        private static Point3 getLinearInterpolateOnBoundary(int colorWidth, int colorHeight, Point3[,] tempo, int x, int y, int size)
+        {
+            float X = 0.0f, Y = 0.0f, Z = 0.0f;
+            var no_neighbors = 0;
+            // size-cell boundary
+            for (int i = -size; i <= size; i++)
+                for (int j = -size; j <= size; j++)
+                    if (i == -size || i == size || j == size || j == -size)
+                    {
+                        if (x + i >= 0 && x + i < colorWidth &&
+                            y + j >= 0 && y + j < colorHeight)
+                        {
+                            if (!tempo[x + i, y + j].Equals(initiate))
+                            {
+                                X += tempo[x + i, y + j].X;
+                                Y += tempo[x + i, y + j].Y;
+                                Z += tempo[x + i, y + j].Z;
+                                no_neighbors += 1;
+                            }
+                        }
+                    }
+            if (no_neighbors != 0)
+            {
+                return new Point3 { X = X / no_neighbors, Y = Y / no_neighbors, Z = Z / no_neighbors };
+            }
+
+            return initiate;
         }
     }
 }

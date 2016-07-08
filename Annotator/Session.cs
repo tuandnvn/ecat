@@ -426,7 +426,7 @@ namespace Annotator
                     return;
                 }
 
-                v = new VideoReader(fullFileName, 0);
+                v = new VideoReader(fullFileName, duration);
 
                 videos.Add(v);
                 sessionLength = v.frameCount;

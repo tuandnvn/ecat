@@ -16,11 +16,11 @@ namespace Annotator
         public int frameCount { get; private set; }
         public int frameWidth { get; private set; }
         public int frameHeight { get; private set; }
-        public int totalMiliTime { get; private set; }
+        public long totalMiliTime { get; private set; }
         public double fps { get; private set; }
 
         //constructor
-        public VideoReader(String fileName, int totalMiliTime)
+        public VideoReader(String fileName, long totalMiliTime)
         {
             this.fileName = fileName;
             this.totalMiliTime = totalMiliTime;

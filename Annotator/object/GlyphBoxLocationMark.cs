@@ -9,6 +9,18 @@ using System.Xml;
 
 namespace Annotator
 {
+    class PointFComparer : IComparer<PointF>
+    {
+        public int Compare(PointF x, PointF y)
+        {
+            if (x.X < y.X) return -1;
+            if (x.X > y.X) return 1;
+            if (x.Y < y.Y) return -1;
+            if (x.Y > y.Y) return 1;
+            return 0;
+
+        }
+    }
     class GlyphBoxLocationMark : DrawableLocationMark
     {
         private const string FACE = "face";
@@ -36,6 +48,40 @@ namespace Annotator
             this.bounding3DPolygons = bounding3DPolygons;
             this.faces = faces;
             this.glyphSize = glyphSize;
+        }
+
+        /// <summary>
+        /// Sort the boundingPolygons and bounding3DPolygons so that the order of polygons are consistent
+        /// Polygon points are sort on x + y first, than x
+        /// </summary>
+        private void resort()
+        {
+            var tempoBoundingPolygons = new List<List<PointF>>();
+            var tempoBounding3DPolygons = new List<List<Point3>>();
+
+            for (int i = 0; i < boundingPolygons.Count; i++)
+            {
+                IEnumerable<PointF> smallestXplusYs = boundingPolygons[i].Where(point => point.X + point.Y == boundingPolygons[i].Min(p => p.X + p.Y));
+                PointF select = smallestXplusYs.Where(point => point.X == smallestXplusYs.Min(p => p.X)).First();
+                var index = boundingPolygons[i].FindIndex(point => point.Equals(select));
+
+                if (index >=0)
+                {
+                    var t1 = new List<PointF>();
+                    var t2 = new List<Point3>();
+
+                    t1.AddRange(boundingPolygons[i].GetRange(index, boundingPolygons[i].Count - index));
+                    t2.AddRange(bounding3DPolygons[i].GetRange(index, boundingPolygons[i].Count - index));
+
+                    t1.AddRange(boundingPolygons[i].GetRange(0, index));
+                    t2.AddRange(bounding3DPolygons[i].GetRange(0, index));
+
+                    tempoBoundingPolygons.Add(t1);
+                    tempoBounding3DPolygons.Add(t2);
+                }
+            }
+            boundingPolygons = tempoBoundingPolygons;
+            bounding3DPolygons = tempoBounding3DPolygons;
         }
 
         public override float Score(Point testPoint)
@@ -88,6 +134,7 @@ namespace Annotator
 
         public override void writeToXml(XmlWriter xmlWriter)
         {
+            resort();
             xmlWriter.WriteAttributeString(GLYPH_SIZE, "" + glyphSize);
             for (int i = 0; i < boundingPolygons.Count; i++)
             {
@@ -174,6 +221,7 @@ namespace Annotator
                     faces.Add(gf);
                 }
             }
+
         }
     }
 }

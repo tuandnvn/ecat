@@ -94,6 +94,7 @@ namespace Annotator
                 }
             }
 
+            Console.WriteLine("In base Depth reader, readFrameAtTime = " + milisecondFromStart + "; frame " + appropriateDepthFrame);
             if (appropriateDepthFrame < 0 || appropriateDepthFrame >= depthFrame) return null;
             return readFrame(appropriateDepthFrame);
         }

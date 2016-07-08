@@ -10,7 +10,7 @@ using Emgu.CV.Util;
 using System.Drawing;
 using Microsoft.Kinect;
 
-namespace Annotator.ObjectRecognitionAlgorithm
+namespace Annotator
 {
     class PatternMatchingObjectRecognition : IObjectRecogAlgo
     {

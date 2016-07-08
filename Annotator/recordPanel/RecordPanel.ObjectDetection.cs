@@ -1,4 +1,4 @@
-﻿using Annotator.ObjectRecognitionAlgorithm;
+﻿using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,65 +42,10 @@ namespace Annotator
             foreach (var objectRecognizer in objectRecognizers)
             {
                 objectRecognizerIncluded[objectRecognizer] = true;
-                int rowIndex = optionsTable.Rows.Add(objectRecognizer.getName(), "False");
+                int rowIndex = optionsTable.Rows.Add(objectRecognizer.getName(), "True");
                 changeRowToTrueFall(optionsTable, rowIndex, 1);
             }
         }
 
-        public async Task DetectObjects()
-        {
-            detectedObjects = new List<Object>();
-
-            int numberOfSteps = (videoReader.frameCount + 1) * objectRecognizerIncluded.Values.Where(v => v).Count();
-
-            if (numberOfSteps == 0) return;
-
-            ProgressForm pf = new ProgressForm();
-            pf.progressBar.Maximum = 100;
-            pf.progressBar.Step = 1;
-
-            var progress2 = new Progress<int>(v =>
-            {
-                // This lambda is executed in context of UI thread,
-                // so it can safely update form controls
-                pf.progressBar.Value = (v + 1) * 100.0 / numberOfSteps <= 100 ? (int)( (v + 1) * 100.0 / numberOfSteps) : 100;
-                if ( v + 1 < numberOfSteps)
-                {
-                    pf.description.Text = "Process at frame " + v;
-                } else
-                {
-                    pf.description.Text = "Save down the objects ";
-                    pf.Dispose();
-                }
-            });
-
-            Task t = Task.Run(() =>
-            {
-                int recognizerCounter = 0;
-                foreach (var objectRecognizer in objectRecognizers)
-                {
-                    if (objectRecognizerIncluded[objectRecognizer])
-                    {
-                        var progress = new Progress<int>(v =>
-                        {
-                            (progress2 as IProgress<int>).Report(recognizerCounter * (videoReader.frameCount + 1) + v);
-                        });
-
-                        if (videoReader != null && depthReader != null)
-                        {
-                            var objects = objectRecognizer.findObjects(videoReader, depthReader, this.coordinateMapper.MapColorFrameToCameraSpace, progress);
-                            detectedObjects.AddRange(objects);
-                        }
-
-                        recognizerCounter++;
-                    }
-                }
-            });
-
-            pf.StartPosition = FormStartPosition.CenterParent;
-            pf.ShowDialog();
-
-            await t;
-        }
     }
 }

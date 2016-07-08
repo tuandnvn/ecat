@@ -62,6 +62,8 @@ namespace Annotator
                 this.recordPanel.Dock = DockStyle.Fill;
                 this.recordPanel.TabIndex = 0;
             }
+
+
         }
 
         Size previousSize;
@@ -346,6 +348,7 @@ namespace Annotator
                 deleteSessionMenuItem.Enabled = true;
                 addSessionMenuItem.Enabled = true;
                 refreshSessionMenuItem.Enabled = true;
+                detectToolStripMenuItem.Enabled = true;
 
                 //Check if session is editing:
                 choosedSession = selectedProject.getSession(selectedNode.Text);
@@ -361,6 +364,7 @@ namespace Annotator
                     editSessionMenuItem.Enabled = true;
                     saveSessionMenuItem.Enabled = false;
                     addSessionMenuItem.Enabled = false;
+                    detectToolStripMenuItem.Enabled = false;
                     //MessageBox.Show("OK2");
                 }
             }
@@ -831,7 +835,6 @@ namespace Annotator
             frameTrackBar.Maximum = value;
             this.sessionEnd = value;
         }
-
 
         //private void Main_SizeChanged(object sender, EventArgs e)
         //{

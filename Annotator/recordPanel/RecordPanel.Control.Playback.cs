@@ -81,7 +81,7 @@ namespace Annotator
                 sb.Append("No rig is detected.\n");
             }
 
-            await DetectObjects();
+            detectedObjects = await Utils.DetectObjects(videoReader, depthReader, objectRecognizers, objectRecognizerIncluded, this.coordinateMapper.MapColorFrameToCameraSpace);
 
             Console.WriteLine("In playback " + detectedObjects.Count);
 

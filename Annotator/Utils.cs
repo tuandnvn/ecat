@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Annotator
 {
-    public static class Utils
+     public static partial class Utils
     {
         public static List<PointF> getConvexHull(List<PointF> points)
         {
@@ -138,5 +138,7 @@ namespace Annotator
             if (filename.ToLower().EndsWith(".dep")) return true;
             return false;
         }
+
+
     }
 }

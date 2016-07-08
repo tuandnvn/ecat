@@ -1,4 +1,5 @@
 ﻿using Emgu.CV;
+using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -6,6 +7,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -155,7 +157,8 @@ namespace Annotator
                 }
 
                 frameTrackBar_ValueChanged(null, null);
-            } catch (Exception exc)
+            }
+            catch (Exception exc)
             {
                 Console.WriteLine("Select video file exception");
                 MessageBox.Show("Exception in opening this file, please try another file", "File exception", MessageBoxButtons.OK);
@@ -413,8 +416,8 @@ namespace Annotator
             { return; }
 
             //Check files in current Session folder
-            String[] files = Directory.GetFiles(workspace.getLocationFolder() + Path.DirectorySeparatorChar + 
-                currentSession.getProject() + Path.DirectorySeparatorChar + currentSession.sessionName );
+            String[] files = Directory.GetFiles(workspace.getLocationFolder() + Path.DirectorySeparatorChar +
+                currentSession.getProject() + Path.DirectorySeparatorChar + currentSession.sessionName);
 
             TreeNode[] arrayFiles = new TreeNode[files.Length];
             for (int j = 0; j < arrayFiles.Length; j++)
@@ -496,6 +499,130 @@ namespace Annotator
                 //    playbackFileComboBox.Items.Add(newRelFileName);
             }
             return dstFileName;
+        }
+
+        CountdownEvent isAvailable;
+        bool sensorAvailabel = false;
+        bool colorFrameArrived = false;
+        bool depthFrameArrived = false;
+        KinectSensor kinectSensor;
+        CoordinateMapper coordinateMapper;
+        DepthCoordinateMappingReader mappingReader;
+
+
+        private void useKinectAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 }, 5);
+            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
+            objectRecognizerIncluded[objectRecognizer] = true;
+
+            if (kinectSensor == null)
+            {
+                isAvailable = new CountdownEvent(3);
+                sensorAvailabel = false;
+                colorFrameArrived = false;
+                depthFrameArrived = false;
+                kinectSensor = KinectSensor.GetDefault();
+                coordinateMapper = kinectSensor.CoordinateMapper;
+                var colorFrameReader = this.kinectSensor.ColorFrameSource.OpenReader();
+                var depthFrameReader = this.kinectSensor.DepthFrameSource.OpenReader();
+                colorFrameReader.FrameArrived += this.Reader_ColorFrameArrived;
+                depthFrameReader.FrameArrived += this.Reader_DepthFrameArrived;
+                kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
+                kinectSensor.Open();
+            }
+
+            Task t = Task.Run(async () =>
+            {
+                Console.WriteLine("Await");
+                isAvailable.Wait();
+
+                List<Object> detectedObjects = await Utils.DetectObjects(currentSession.getVideo(0),
+                currentSession.getDepth(0),
+                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                coordinateMapper.MapColorFrameToCameraSpace
+                    );
+
+                // Run on UI thread
+                this.Invoke((MethodInvoker)delegate {
+                    AddDetectedObjects(detectedObjects);
+                });
+            });
+        }
+
+
+        private void offlineModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 }, 5);
+            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
+            objectRecognizerIncluded[objectRecognizer] = true;
+
+            if (mappingReader == null)
+            {
+                mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
+            }
+
+            Task t = Task.Run(async () =>
+            {
+                List<Object> detectedObjects = await Utils.DetectObjects(currentSession.getVideo(0),
+                currentSession.getDepth(0),
+                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,
+                    currentSession.getDepth(0).depthWidth,
+                    currentSession.getDepth(0).depthHeight,
+                    currentSession.getVideo(0).frameWidth,
+                    currentSession.getVideo(0).frameHeight, result)
+                    );
+
+                // Run on UI thread
+                this.Invoke((MethodInvoker)delegate {
+                    AddDetectedObjects(detectedObjects);
+                });
+                
+            });
+        }
+
+        private void AddDetectedObjects(List<Object> detectedObjects)
+        {
+            foreach (var o in detectedObjects)
+            {
+                currentSession.addObject(o);
+            }
+
+            // Redraw object annotation panel
+            if (detectedObjects.Count != 0)
+            {
+                clearMiddleCenterPanel();
+                populateMiddleCenterPanel();
+                invalidatePictureBoard();
+            }
+        }
+
+        private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
+        {
+            if (!sensorAvailabel)
+            {
+                isAvailable.Signal();
+                sensorAvailabel = true;
+            }
+        }
+
+        private void Reader_DepthFrameArrived(object sender, DepthFrameArrivedEventArgs e)
+        {
+            if (!depthFrameArrived)
+            {
+                isAvailable.Signal();
+                depthFrameArrived = true;
+            }
+        }
+
+        private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
+        {
+            if (!colorFrameArrived)
+            {
+                isAvailable.Signal();
+                colorFrameArrived = true;
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Annotator
 
         protected override void write3DLocationMark(XmlWriter xmlWriter)
         {
-            // No need to write location mark for rig object
+            // No need to write location mark for glyph box object
         }
 
         protected override void loadObjectAdditionalFromXml(XmlNode objectNode)

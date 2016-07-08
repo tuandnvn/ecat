@@ -166,6 +166,7 @@
     <Compile Include="ObjectRecognitionAlgorithm\GlyphBoxObjectRecognition.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\IObjectRecogAlgo.cs" />
     <Compile Include="ObjectRecognitionAlgorithm\PatternMatchingObjectRecognition.cs" />
+    <Compile Include="ObjectRecognitionAlgorithm\Utils.cs" />
     <Compile Include="object\CubeLocationMark.cs" />
     <Compile Include="object\GlyphBoxObject.cs" />
     <Compile Include="object\GlyphBoxPrototype.cs" />

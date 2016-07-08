@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Annotator.ObjectRecognitionAlgorithm
+namespace Annotator
 {
     /// <summary>
     /// Object recogniation algorithm is interface for any method
@@ -26,5 +26,7 @@ namespace Annotator.ObjectRecognitionAlgorithm
         /// <param name="progress">Because finding objects is a long process, there might be some UI need to be updated</param>
         /// <returns></returns>
         List<Object> findObjects( VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction, IProgress<int> progress);
+
+
     }
 }
