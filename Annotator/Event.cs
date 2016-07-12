@@ -244,7 +244,7 @@ namespace Annotator
             xmlWriter.WriteEndElement();
         }
 
-        public static List<Event> readFromXml(Main mainGUI, Session session, XmlNode xmlNode)
+        public static List<Event> readFromXml( Session session, XmlNode xmlNode)
         {
             List<Event> annotations = new List<Event>();
             foreach (XmlNode node in xmlNode.SelectNodes(ANNOTATION))

@@ -17,9 +17,44 @@ namespace Annotator
 {
     public partial class Main : Form
     {
+        Size previousSize;
+
+        //Project workspace 
+        private Workspace workspace = null;
+        private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
+        private bool newProject = false;//true if new project is creating
+        private bool newSession = false;//true if new session is creating     
+        internal Project selectedProject = null; //currently selected project
+        internal TreeNode selectedProjectNode = null;
+        internal Session currentSession = null;
+        internal TreeNode currentSessionNode = null;
+        private VideoReader videoReader = null;      //currently edited video
+        private Font myFont = new Font("Microsoft Sans Serif", 5.75f);//font to write not-string colors
+        private Point lastAnnotationCell = new Point(94, 0);              // last annotation location for middle-bottom panel
+        private Point lastObjectCell = new Point(1, 0);
+        //internal List<ObjectAnnotation> objectAnnotations { get; set; }
+        internal Dictionary<Object, ObjectAnnotation> objectToObjectTracks { get; set; }
+        List<Button> drawingButtonGroup = new List<Button>();
+        Dictionary<Button, bool> drawingButtonSelected = new Dictionary<Button, bool>();
+
+        // Increment each time user move frameTrackBar to new Location
+        // Keep track of how many bitmaps has not been garbage collected
+        // Will use for garbage collection
+        private int goToFrameCount = 0;
+        private const int GARBAGE_COLLECT_BITMAP_COUNT = 20;
+
+        internal Options options;
+
+
         public Main()
         {
             InitializeComponent();
+
+            // Load options from Options.FILENAME file
+            // If the file doesn't exist, or broken, options will be Default
+            options = Options.loadOption();
+
+            // Initialize some other controls might depends on options
             InitializeOtherControls();
 
             InitDrawingComponent();
@@ -35,6 +70,7 @@ namespace Annotator
             setMaximumFrameTrackBar(100);
 
             previousSize = this.Size;
+
         }
 
         private void InitializeOtherControls()
@@ -42,7 +78,7 @@ namespace Annotator
             // Record panel only for >= windows 8 
             if (System.Environment.OSVersion.Version.Major >= 6 && System.Environment.OSVersion.Version.Minor >= 2)
             {
-                this.recordPanel = new Annotator.RecordPanel();
+                this.recordPanel = new Annotator.RecordPanel(options);
             }
 
             if (recordPanel != null)
@@ -66,31 +102,6 @@ namespace Annotator
 
         }
 
-        Size previousSize;
-
-        //Project workspace 
-        private Workspace workspace = null;
-        private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
-        private bool newProject = false;//true if new project is creating
-        private bool newSession = false;//true if new session is creating     
-        internal Project selectedProject = null; //currently selected project
-        internal TreeNode selectedProjectNode = null;
-        internal Session currentSession = null;
-        internal TreeNode currentSessionNode = null;
-        private VideoReader currentVideo = null;      //currently edited video
-        private Font myFont = new Font("Microsoft Sans Serif", 5.75f);//font to write not-string colors
-        private Point lastAnnotationCell = new Point(94, 0);              // last annotation location for middle-bottom panel
-        private Point lastObjectCell = new Point(1, 0);
-        //internal List<ObjectAnnotation> objectAnnotations { get; set; }
-        internal Dictionary<Object, ObjectAnnotation> objectToObjectTracks { get; set; }
-        List<Button> drawingButtonGroup = new List<Button>();
-        Dictionary<Button, bool> drawingButtonSelected = new Dictionary<Button, bool>();
-
-        // Increment each time user move frameTrackBar to new Location
-        // Keep track of how many bitmaps has not been garbage collected
-        // Will use for garbage collection
-        private int goToFrameCount = 0;
-        private const int GARBAGE_COLLECT_BITMAP_COUNT = 20;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -217,7 +228,7 @@ namespace Annotator
 
                         if (project.checkSessionInProject(sessionName))
                         {
-                            project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation()));
+                            project.addSession(new Session(this, sessionName, project.getProjectName(), project.getLocation()));
                             //Add to treeview session list only files which exists in session filesList
 
                             Session session = project.getSession(sessionName);
@@ -235,7 +246,7 @@ namespace Annotator
                         Project project = workspace.getProject(prjName);
                         if (project.checkSessionInProject(sessionName))
                         {
-                            project.addSession(new Session(sessionName, project.getProjectName(), project.getLocation()));
+                            project.addSession(new Session(this, sessionName, project.getProjectName(), project.getLocation()));
                             array.Add(sessionNode);
                         }
                     }
@@ -484,7 +495,7 @@ namespace Annotator
 
             //1) Update workspace project by adding new session
             Project project = workspace.getProject(projectName);
-            Session newSession = new Session(sessionName, project.getProjectName(), project.getLocation());
+            Session newSession = new Session(this, sessionName, project.getProjectName(), project.getLocation());
 
             project.addSession(newSession);
 
@@ -571,7 +582,7 @@ namespace Annotator
 
         private void setLeftTopPanel()
         {
-            if (currentVideo != null)
+            if (videoReader != null)
             {
                 clearRightBottomPanel();
                 //MessageBox.Show(currentVideo.getObjects().Count + "");
@@ -642,7 +653,7 @@ namespace Annotator
 
             // Remove the annotation corresponding to this object
             // and rearrage all object annotations
-            if (this.objectToObjectTracks.ContainsKey(o) )
+            if (this.objectToObjectTracks.ContainsKey(o))
             {
                 ObjectAnnotation ot = this.objectToObjectTracks[o];
                 if (ot != null)
@@ -724,12 +735,12 @@ namespace Annotator
             try
             {
                 var startInSecond = int.Parse(startInSecondTextBox.Text);
-                if (currentVideo != null)
+                if (videoReader != null)
                 {
-                    if (startInSecond * currentVideo.fps < currentVideo.frameCount)
+                    if (startInSecond * videoReader.fps < videoReader.frameCount)
                     {
                         // Plus one because frame is counted from 1
-                        setMinimumFrameTrackBar((int)(currentVideo.fps * startInSecond));
+                        setMinimumFrameTrackBar((int)(videoReader.fps * startInSecond));
                         frameTrackBar_ValueChanged(null, null);
                         if (frameTrackBar.Value < sessionStart)
                         {
@@ -764,11 +775,11 @@ namespace Annotator
             try
             {
                 var endInSecond = int.Parse(endInSecondTextBox.Text);
-                if (currentVideo != null)
+                if (videoReader != null)
                 {
-                    if (endInSecond * currentVideo.fps < currentVideo.frameCount)
+                    if (endInSecond * videoReader.fps < videoReader.frameCount)
                     {
-                        setMaximumFrameTrackBar((int)(currentVideo.fps * endInSecond) - 1);
+                        setMaximumFrameTrackBar((int)(videoReader.fps * endInSecond) - 1);
                         frameTrackBar_ValueChanged(null, null);
                         rescaleFrameTrackBar();
                     }
@@ -836,17 +847,11 @@ namespace Annotator
             this.sessionEnd = value;
         }
 
-        //private void Main_SizeChanged(object sender, EventArgs e)
-        //{
-        //    int widthChanged = this.Size.Width - previousSize.Width;
-        //    int heightChanged = this.Size.Height - previousSize.Height;
-
-        //    this.middleTopPanel.Size = new Size(this.middleTopPanel.Size.Width - widthChanged, this.middleTopPanel.Size.Height - heightChanged);
-        //    this.middleCenterPanel.Size = new Size(this.middleCenterPanel.Size.Width - widthChanged, this.middleCenterPanel.Size.Height);
-        //    this.middleBottomPanel.Size = new Size(this.middleBottomPanel.Size.Width - widthChanged, this.middleBottomPanel.Size.Height);
-
-        //    previousSize = this.Size;
-        //}
-
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OptionsForm of = new OptionsForm(options);
+            of.StartPosition = FormStartPosition.CenterParent;
+            of.ShowDialog();
+        }
     }
 }

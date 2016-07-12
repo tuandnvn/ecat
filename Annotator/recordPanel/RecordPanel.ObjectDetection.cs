@@ -27,7 +27,7 @@ namespace Annotator
         {
             objectRecognizers = new List<IObjectRecogAlgo>();
             objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizers.Add(new GlyphBoxObjectRecognition(null, new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 }, 5));
+            objectRecognizers.Add(new GlyphBoxObjectRecognition(null, options.prototypeList, 5));
         }
 
         private void changeObjectRecognizerIncluded(DataGridViewCellEventArgs e)

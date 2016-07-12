@@ -341,12 +341,13 @@ namespace Annotator
                             glyph3DBounds.Add(glyph.Value.Item3);
                         }
 
-                        oneBox.setBounding(frameNo, glyphSize, glyphBounds, faces, glyph3DBounds);
+                        oneBox.setBounding(frameNo, glyphSize, glyphBounds, faces);
+                        oneBox.set3DBounding(frameNo, glyphSize, glyph3DBounds, faces);
 
-                        Point3 center = new Point3();
-                        Quaternions quaternions = new Quaternions();
+                        //Point3 center = new Point3();
+                        //Quaternions quaternions = new Quaternions();
 
-                        oneBox.set3DBounding(frameNo, new CubeLocationMark(frameNo, center, quaternions));
+                        //oneBox.set3DBounding(frameNo, new CubeLocationMark(frameNo, center, quaternions));
                     }
 
                     objects.Add(oneBox);

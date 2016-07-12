@@ -17,9 +17,9 @@ namespace Annotator
             this.objectType = ObjectType._3D;
         }
 
-        public void setBounding(int frameNumber, RigFigure<PointF> boundingRig, double scale, Point translation)
+        public void setBounding(int frameNumber, RigFigure<PointF> boundingRig, float scale, Point translation)
         {
-            RigFigure<PointF> inverseScaleBoundingRig = boundingRig.scaleBound( 1 / scale, new PointF((float)(-translation.X / scale), (float)(-translation.Y / scale)));
+            RigFigure<PointF> inverseScaleBoundingRig = boundingRig.scaleBound(1 / scale, new PointF((float)(-translation.X / scale), (float)(-translation.Y / scale)));
             var ob = new RigLocationMark<PointF>(frameNumber, inverseScaleBoundingRig);
             if (this._borderType == null) // First time appear
             {
@@ -57,6 +57,23 @@ namespace Annotator
             if (!sourceScheme.Contains(Path.DirectorySeparatorChar))
             {
                 sourceScheme = session.locationFolder + Path.DirectorySeparatorChar + session.project + Path.DirectorySeparatorChar + session.sessionName + Path.DirectorySeparatorChar + sourceScheme;
+            }
+
+            if (!File.Exists(source) || !File.Exists(sourceScheme))
+            {
+                // It's probably a bug from recording, that rig source and scheme path is absolute path from recording machine
+                // Get the relative path and assume the file in inside the session
+                source = source.Split(Path.DirectorySeparatorChar)[source.Split(Path.DirectorySeparatorChar).Length - 1];
+                source = session.locationFolder + Path.DirectorySeparatorChar + session.project + Path.DirectorySeparatorChar + session.sessionName + Path.DirectorySeparatorChar + source;
+
+                sourceScheme = sourceScheme.Split(Path.DirectorySeparatorChar)[sourceScheme.Split(Path.DirectorySeparatorChar).Length - 1];
+                sourceScheme = session.locationFolder + Path.DirectorySeparatorChar + session.project + Path.DirectorySeparatorChar + session.sessionName + Path.DirectorySeparatorChar + sourceScheme;
+            }
+
+            if (File.Exists(source) && File.Exists(sourceScheme))
+            {
+                this.otherProperties["sourceScheme"] = sourceScheme.Split(Path.DirectorySeparatorChar)[sourceScheme.Split(Path.DirectorySeparatorChar).Length - 1];
+                this.otherProperties["source"] = source.Split(Path.DirectorySeparatorChar)[source.Split(Path.DirectorySeparatorChar).Length - 1];
             }
 
             Rigs.loadDataForRig(source, sourceScheme, rigIndex, this);

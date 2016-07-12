@@ -115,12 +115,12 @@ namespace Annotator
                     depthReader = null;
                     loadVideo(videoFilename);
 
-                    if (currentVideo != null)
+                    if (videoReader != null)
                     {
                         endPoint = startPoint = new Point();
                         label3.Text = "Frame: " + frameTrackBar.Value;
 
-                        Mat m = currentVideo.getFrame(0);
+                        Mat m = videoReader.getFrame(0);
                         if (m != null)
                         {
                             pictureBoard.mat = m;
@@ -133,7 +133,7 @@ namespace Annotator
 
                 if (videoFilename.isDepthFile())
                 {
-                    currentVideo = null;
+                    videoReader = null;
                     depthReader = currentSession.getDepth(videoFilename);
 
                     if (depthReader == null) return;
@@ -170,9 +170,9 @@ namespace Annotator
         {
             label3.Text = "Frame: " + frameTrackBar.Value;
             int frameStartWithZero = frameTrackBar.Value - 1;
-            if (currentVideo != null)
+            if (videoReader != null)
             {
-                Mat m = currentVideo.getFrame(frameStartWithZero);
+                Mat m = videoReader.getFrame(frameStartWithZero);
                 Console.WriteLine(frameStartWithZero);
                 if (m != null)
                 {
@@ -208,11 +208,11 @@ namespace Annotator
         private void loadVideo(string videoFilename)
         {
             Application.DoEvents();
-            currentVideo = currentSession.getVideo(videoFilename);
+            videoReader = currentSession.getVideo(videoFilename);
 
-            if (currentVideo != null)
+            if (videoReader != null)
             {
-                setMaximumFrameTrackBar(currentVideo.frameCount - 1);
+                setMaximumFrameTrackBar(videoReader.frameCount - 1);
             }
         }
 
@@ -295,7 +295,8 @@ namespace Annotator
             selectedObject = null;
 
 
-            currentVideo = null;
+            videoReader = null;
+            depthReader = null;
             addEventAnnotationBtn.Enabled = false;
 
             startInSecondTextBox.Text = "";
@@ -383,7 +384,7 @@ namespace Annotator
             clearRightBottomPanel();
             pictureBoard.Image = null;
             startPoint = endPoint;
-            currentVideo = null;
+            videoReader = null;
         }
 
         /// <summary>
@@ -512,7 +513,7 @@ namespace Annotator
 
         private void useKinectAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 }, 5);
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
             var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
             objectRecognizerIncluded[objectRecognizer] = true;
 
@@ -544,7 +545,8 @@ namespace Annotator
                     );
 
                 // Run on UI thread
-                this.Invoke((MethodInvoker)delegate {
+                this.Invoke((MethodInvoker)delegate
+                {
                     AddDetectedObjects(detectedObjects);
                 });
             });
@@ -553,7 +555,7 @@ namespace Annotator
 
         private void offlineModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 }, 5);
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
             var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
             objectRecognizerIncluded[objectRecognizer] = true;
 
@@ -575,19 +577,67 @@ namespace Annotator
                     );
 
                 // Run on UI thread
-                this.Invoke((MethodInvoker)delegate {
+                this.Invoke((MethodInvoker)delegate
+                {
                     AddDetectedObjects(detectedObjects);
                 });
-                
+
             });
         }
 
         private void AddDetectedObjects(List<Object> detectedObjects)
         {
-            foreach (var o in detectedObjects)
+            // Handle adding identical objects or not
+            switch (options.detectionMode)
             {
-                currentSession.addObject(o);
+                case Options.GlyphDetectionMode.ADD_SEPARATE:
+                    foreach (var detectedObject in detectedObjects)
+                    {
+                        currentSession.addObject(detectedObject);
+                    }
+                    break;
+                case Options.GlyphDetectionMode.NO_OVERWRITE:
+                    foreach (GlyphBoxObject detectedObject in detectedObjects)
+                    {
+                        bool exist = false;
+                        foreach (var existObject in currentSession.getObjects())
+                        {
+                            if (existObject is GlyphBoxObject && detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype))
+                            {
+                                exist = true;
+                                break;
+                            }
+                        }
+
+                        if (!exist)
+                        {
+                            currentSession.addObject(detectedObject);
+                        }
+                    }
+                    break;
+                case Options.GlyphDetectionMode.OVERWRITE:
+                    foreach (GlyphBoxObject detectedObject in detectedObjects)
+                    {
+                        Object exist = null;
+                        foreach (var existObject in currentSession.getObjects())
+                        {
+
+                            if (existObject is GlyphBoxObject &&  detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype) )
+                            {
+                                exist = existObject;
+                                break;
+                            }
+                        }
+
+                        if (exist != null)
+                        {
+                            currentSession.removeObject(exist.id);
+                        }
+                        currentSession.addObject(detectedObject);
+                    }
+                    break;
             }
+
 
             // Redraw object annotation panel
             if (detectedObjects.Count != 0)

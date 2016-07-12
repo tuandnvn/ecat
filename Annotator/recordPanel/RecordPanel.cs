@@ -41,10 +41,11 @@ namespace Annotator
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         internal Main main;
+        private Options options;
 
-
-        public RecordPanel()
+        public RecordPanel(Options options)
         {
+            this.options = options;
             InitializeComponent();
             InitializeObjectRecognizers();
             InitializeOptionsTable();

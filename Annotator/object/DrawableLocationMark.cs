@@ -22,7 +22,7 @@ namespace Annotator
 
         public virtual List<Rectangle> getCornerSelectBoxes(int boxSize) { return new List<Rectangle>(); }
 
-        public virtual DrawableLocationMark getScaledLocationMark(double scale, Point translation)
+        public virtual DrawableLocationMark getScaledLocationMark(float scale, Point translation)
         {
             return null;
         }

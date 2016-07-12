@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Annotator
 {
-    class KinectUtils
+    public static class KinectUtils
     {
         private const string COORDINATE_MAPPING = "coordinateMapping.dat";
 
@@ -203,14 +203,27 @@ namespace Annotator
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="depthPoint">depthPoint.X = pixel in X; depthPoint.Y = pixel in Y; depthPoint.Z in milimeter</param>
+        /// <param name="depthPixel">depthPoint.X = pixel in X; depthPoint.Y = pixel in Y; depthPoint.Z in milimeter</param>
         /// <returns></returns>
         public static Point3 projectDepthPixelToCameraSpacePoint( Point3 depthPixel )
         {
-            float x = (depthPixel.X - 262.7343f) * ( depthPixel.Z/ 1000 ) / 367.187f;
-            float y = (depthPixel.Y - 203.6235f) * (depthPixel.Z / 1000) / -369f;
+            float z = depthPixel.Z / 1000;
+            float x = (depthPixel.X - 252.7343f) * z / 367.187f;
+            float y = (depthPixel.Y - 203.6235f) * z / -369f;
 
-            return new Point3(x, y, depthPixel.Z / 1000);
+            return new Point3(x, y, z);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="csp"> point in 3d coordination</param>
+        /// <returns>depthPoint.X = pixel in X (horizontal); depthPoint.Y = pixel in Y (vertical); depthPoint.Z in milimeter (depth)</returns>
+        public static Point3 projectCameraSpacePointToDepthPixel(Point3 csp)
+        {
+            float x = csp.X * 367.187f / csp.Z + 252.7343f;
+            float y = csp.Y * -369f / csp.Z + 203.6235f;
+            return new Point3(x, y, csp.Z * 1000);
         }
 
         public static System.Drawing.PointF projectedPoint(ColorSpacePoint[,] shortRange , ColorSpacePoint[,] longRange, int short_range, int long_range, Point3 p )

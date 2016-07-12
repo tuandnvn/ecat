@@ -40,7 +40,7 @@ namespace Annotator
                 g.DrawPolygon(p, boundingPolygon.ToArray());
         }
 
-        public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
+        public override DrawableLocationMark getScaledLocationMark(float scale, Point translation)
         {
             return new PolygonLocationMark(frameNo, boundingPolygon.scaleBound(scale, translation));
         }

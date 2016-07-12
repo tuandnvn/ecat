@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accord.Math;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -34,7 +35,41 @@ namespace Annotator
 
         public override void drawOnGraphics(Graphics g, Pen p)
         {
-            g.DrawRig(p, rigFigure);
+            if (typeof(T) == typeof(Point))
+            {
+                // Draw joints
+                foreach (var joint in rigFigure.rigJoints.Values)
+                {
+                    System.Drawing.PointF jointPoint = (System.Drawing.Point)(object)joint;
+                    g.DrawEllipse(p, jointPoint.X - 2 * p.Width, jointPoint.Y - 2 * p.Width, p.Width * 4, p.Width * 4);
+                }
+
+                // Draw bones
+                foreach (var bone in rigFigure.rigBones)
+                {
+                    System.Drawing.PointF from = (System.Drawing.Point)(object)bone.Item1;
+                    System.Drawing.PointF to = (System.Drawing.Point)(object)bone.Item2;
+                    g.DrawLine(p, from, to);
+                }
+            }
+
+            if (typeof(T) == typeof(System.Drawing.PointF))
+            {
+                // Draw joints
+                foreach (var joint in rigFigure.rigJoints.Values)
+                {
+                    System.Drawing.PointF jointPoint = (System.Drawing.PointF)(object)joint;
+                    g.DrawEllipse(p, jointPoint.X - 2 * p.Width, jointPoint.Y - 2 * p.Width, p.Width * 4, p.Width * 4);
+                }
+
+                // Draw bones
+                foreach (var bone in rigFigure.rigBones)
+                {
+                    System.Drawing.PointF from = (System.Drawing.PointF)(object)bone.Item1;
+                    System.Drawing.PointF to = (System.Drawing.PointF)(object)bone.Item2;
+                    g.DrawLine(p, from, to);
+                }
+            }
         }
 
         public override List<Rectangle> getCornerSelectBoxes(int boxSize)
@@ -57,11 +92,26 @@ namespace Annotator
             return selectBoxes;
         }
 
-        public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
+        public override DrawableLocationMark getScaledLocationMark(float scale, Point translation)
         {
             if (typeof(T) != typeof(Point) && typeof(T) != typeof(PointF)) return null;
 
             return new RigLocationMark<PointF>(frameNo, ((RigFigure<PointF>)(object)rigFigure).scaleBound(scale, translation));
+        }
+
+        public DrawableLocationMark getDepthViewLocationMark(float scale, Point translation)
+        {
+            if (typeof(T) == typeof(Point3))
+            {
+                var mappedJoints = ((Dictionary<string, Point3>)(object)rigFigure.rigJoints).ToDictionary(k => k.Key, k => KinectUtils.projectCameraSpacePointToDepthPixel(k.Value));
+                var flattenedMappedJoints = mappedJoints.ToDictionary(k => k.Key, k => new PointF(k.Value.X, k.Value.Y));
+                var mappedBones = ((List<Tuple<Point3, Point3>>)(object)rigFigure.rigBones).Select(t => new Tuple<Point3, Point3>(KinectUtils.projectCameraSpacePointToDepthPixel(t.Item1), 
+                    KinectUtils.projectCameraSpacePointToDepthPixel(t.Item2)));
+                var flattendMappedBones = mappedBones.Select(t => new Tuple<PointF, PointF>(new PointF(t.Item1.X, t.Item1.Y), new PointF(t.Item2.X, t.Item2.Y))).ToList();
+
+                return new RigLocationMark<PointF>(frameNo, new RigFigure<PointF>(flattenedMappedJoints, flattendMappedBones)).getScaledLocationMark(scale, translation);
+            }
+            return null;
         }
     }
 

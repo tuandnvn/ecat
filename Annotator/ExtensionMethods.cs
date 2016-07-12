@@ -11,7 +11,7 @@ namespace Annotator
 {
     public static class Extensions
     {
-        public static Rectangle scaleBound(this Rectangle original, double scale, Point translation)
+        public static Rectangle scaleBound(this Rectangle original, float scale, Point translation)
         {
             return new Rectangle((int)(original.X * scale + translation.X),
                 (int)(original.Y * scale + translation.Y),
@@ -19,23 +19,27 @@ namespace Annotator
                 (int)(original.Height * scale));
         }
 
-        public static Point scalePoint(this Point original, double scale, Point translation)
+        public static Point scalePoint(this Point original, float scale, Point translation)
         {
             return new Point((int)(original.X * scale + translation.X), (int)(original.Y * scale + translation.Y));
         }
 
-        public static System.Drawing.PointF scalePoint(this System.Drawing.PointF original, double scale, System.Drawing.PointF translation)
+        public static System.Drawing.PointF scalePoint(this System.Drawing.PointF original, float scale, System.Drawing.PointF translation)
         {
             return new System.Drawing.PointF((float)(original.X * scale + translation.X), (float)(original.Y * scale + translation.Y));
         }
 
-        public static List<System.Drawing.PointF> scaleBound(this List<System.Drawing.PointF> original, double scale, Point translation)
+        public static List<System.Drawing.PointF> scaleBound(this List<System.Drawing.PointF> original, float scale, Point translation)
         {
             return original.Select(p => scalePoint(p, scale, translation)).ToList();
         }
 
+        public static List<Point3> scaleBound(this List<Point3> original, float scale, Point translation)
+        {
+            return original.Select(p => new Point3(p.X * scale + translation.X, p.Y * scale + translation.Y, p.Z)).ToList();
+        }
 
-        public static RigFigure<System.Drawing.PointF> scaleBound(this RigFigure<System.Drawing.PointF> original, double scale, System.Drawing.PointF translation)
+        public static RigFigure<System.Drawing.PointF> scaleBound(this RigFigure<System.Drawing.PointF> original, float scale, System.Drawing.PointF translation)
         {
             return new RigFigure<System.Drawing.PointF>(original.rigJoints.ToDictionary(k => k.Key, k => scalePoint(k.Value, scale, translation)),
                 original.rigBones.Select(t => new Tuple<System.Drawing.PointF, System.Drawing.PointF>(scalePoint(t.Item1, scale, translation), scalePoint(t.Item2, scale, translation))).ToList());
@@ -67,46 +71,6 @@ namespace Annotator
             return selectBoxes.ToList();
         }
 
-        public static void DrawRig<T>(this Graphics graphics, Pen p, RigFigure<T> rigFigure)
-        {
-            if (typeof(T) == typeof(Point))
-            {
-                // Draw joints
-                foreach (var joint in rigFigure.rigJoints.Values)
-                {
-                    System.Drawing.PointF jointPoint = (System.Drawing.Point)(object)joint;
-                    graphics.DrawEllipse(p, jointPoint.X - 2 * p.Width, jointPoint.Y - 2 * p.Width, p.Width * 4, p.Width * 4);
-                }
-
-                // Draw bones
-                foreach (var bone in rigFigure.rigBones)
-                {
-                    System.Drawing.PointF from = (System.Drawing.Point)(object)bone.Item1;
-                    System.Drawing.PointF to = (System.Drawing.Point)(object)bone.Item2;
-                    graphics.DrawLine(p, from, to);
-                }
-            }
-
-            if (typeof(T) == typeof(System.Drawing.PointF))
-            {
-                // Draw joints
-                foreach (var joint in rigFigure.rigJoints.Values)
-                {
-                    System.Drawing.PointF jointPoint = (System.Drawing.PointF)(object)joint;
-                    graphics.DrawEllipse(p, jointPoint.X - 2 * p.Width, jointPoint.Y - 2 * p.Width, p.Width * 4, p.Width * 4);
-                }
-
-                // Draw bones
-                foreach (var bone in rigFigure.rigBones)
-                {
-                    System.Drawing.PointF from = (System.Drawing.PointF)(object)bone.Item1;
-                    System.Drawing.PointF to = (System.Drawing.PointF)(object)bone.Item2;
-                    graphics.DrawLine(p, from, to);
-                }
-            }
-
-        }
-
         public static string ToSString(this ColorSpacePoint scp)
         {
             return "( " + scp.X + ", " + scp.Y + " )";
@@ -127,13 +91,37 @@ namespace Annotator
             return "( " + p.X + ", " + p.Y + ", " + p.Z + " )";
         }
 
-        public static Point3 Add(this Point3 x, Point3 y) {
+        public static Point3 Add(this Point3 x, Point3 y)
+        {
             return new Point3(x.X + y.X, x.Y + y.Y, x.Z + y.Z);
         }
 
         public static Point3 Multiple(this Point3 x, float y)
         {
             return new Point3(x.X * y, x.Y * y, x.Z * y);
+        }
+
+        public static List<T> minVal<T>(this List<T> list, Func<T, float> mapper)
+        {
+            if (list.Count == 0) return new List<T>();
+
+            T min = list.First();
+            for (int i = 1; i < list.Count; i++)
+            {
+                if (mapper(list[i]) < mapper(min))
+                {
+                    min = list[i];
+                }
+            }
+
+            var listMin = new List<T>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (mapper(list[i]) == mapper(min))
+                    listMin.Add(list[i]);
+            }
+
+            return listMin;
         }
     }
 }

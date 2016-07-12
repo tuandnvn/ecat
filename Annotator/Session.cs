@@ -35,7 +35,7 @@ namespace Annotator
         internal List<String> filesList;
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
-        public Main mainGUI { get; }
+        public Main main { get; }
         private int annotationID;      // annotation ID
         private int? _sessionLength;
         public int sessionLength
@@ -69,8 +69,9 @@ namespace Annotator
         private string commonPrefix;
 
         //Constructor
-        public Session(String sessionName, String projectOwner, String locationFolder)
+        public Session(Main main, String sessionName, String projectOwner, String locationFolder)
         {
+            this.main = main;
             this.sessionName = sessionName;
             this.project = projectOwner;
             this.locationFolder = locationFolder;
@@ -347,7 +348,7 @@ namespace Annotator
                 }
 
                 XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
-                events = Event.readFromXml(mainGUI, this, annotationsNode);
+                events = Event.readFromXml(this, annotationsNode);
             } catch (Exception e)
             {
                 Console.WriteLine("Exception in loading annotation");

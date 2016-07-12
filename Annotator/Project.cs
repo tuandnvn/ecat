@@ -45,19 +45,19 @@ namespace Annotator
             }
         }
 
-        /// <summary>
-        /// Create a session inside project
-        /// </summary>
-        /// <param name="sessionName"> Session name </param>
-        /// <returns> Created session </returns>
-        public Session addSession(string sessionName)
-        {
-            Session newSession = new Session(sessionName, getProjectName(), getLocation());
-            sessions.Add(newSession);
-            saveProjectFile(newSession.sessionName);
+        ///// <summary>
+        ///// Create a session inside project
+        ///// </summary>
+        ///// <param name="sessionName"> Session name </param>
+        ///// <returns> Created session </returns>
+        //public Session addSession(string sessionName)
+        //{
+        //    Session newSession = new Session(main, sessionName, getProjectName(), getLocation());
+        //    sessions.Add(newSession);
+        //    saveProjectFile(newSession.sessionName);
 
-            return newSession;
-        }
+        //    return newSession;
+        //}
 
         //Add session to sessions list
         public void addSession(Session session)

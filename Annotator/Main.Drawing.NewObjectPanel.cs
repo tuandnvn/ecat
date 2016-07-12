@@ -18,7 +18,7 @@ namespace Annotator
             Object objectToAdd = null;
             if (drawingButtonSelected[rectangleDrawing])
             {
-                var relFileName = currentVideo.fileName.Split(Path.DirectorySeparatorChar)[currentVideo.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
+                var relFileName = videoReader.fileName.Split(Path.DirectorySeparatorChar)[videoReader.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
                 objectToAdd = new Object(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, relFileName);
                 objectToAdd.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
                 startPoint = new Point();
@@ -27,7 +27,7 @@ namespace Annotator
 
             if (drawingButtonSelected[polygonDrawing])
             {
-                var relFileName = currentVideo.fileName.Split(Path.DirectorySeparatorChar)[currentVideo.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
+                var relFileName = videoReader.fileName.Split(Path.DirectorySeparatorChar)[videoReader.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
                 objectToAdd = new Object(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, relFileName);
                 objectToAdd.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
                 polygonPoints = new List<PointF>();

@@ -36,7 +36,7 @@ namespace Annotator
             g.DrawRectangle(p, boundingBox);
         }
 
-        public override DrawableLocationMark getScaledLocationMark(double scale, Point translation)
+        public override DrawableLocationMark getScaledLocationMark(float scale, Point translation)
         {
             return new RectangleLocationMark(frameNo, boundingBox.scaleBound(scale, translation));
         }

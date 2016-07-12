@@ -41,7 +41,7 @@ namespace Annotator
 
         public SortedList<int, LocationMark> object3DMarks
         {
-            get; private set;
+            get; protected set;
         }
 
         public SortedList<int, SpatialLinkMark> spatialLinkMarks
@@ -135,7 +135,7 @@ namespace Annotator
             }
         }
 
-        public void setBounding(int frameNumber, Rectangle boundingBox, double scale, Point translation)
+        public void setBounding(int frameNumber, Rectangle boundingBox, float scale, Point translation)
         {
             Rectangle inverseScaleBoundingBox = boundingBox.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
             var ob = new RectangleLocationMark(frameNumber, inverseScaleBoundingBox);
@@ -151,7 +151,7 @@ namespace Annotator
             objectMarks[frameNumber] = ob;
         }
 
-        public void setBounding(int frameNumber, List<PointF> boundingPolygon, double scale, Point translation)
+        public void setBounding(int frameNumber, List<PointF> boundingPolygon, float scale, Point translation)
         {
             List<PointF> inverseScaleBoundingPolygon = boundingPolygon.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
             var ob = new PolygonLocationMark(frameNumber, inverseScaleBoundingPolygon);
@@ -213,7 +213,7 @@ namespace Annotator
         ///       Offset between the resized frame and the paintBoard
         /// </param>
         /// <returns></returns>
-        public DrawableLocationMark getScaledLocationMark(int frameNo, double scale, Point translation)
+        public DrawableLocationMark getScaledLocationMark(int frameNo, float scale, Point translation)
         {
             int first = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
 

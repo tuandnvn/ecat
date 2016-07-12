@@ -167,14 +167,14 @@ namespace Annotator
                             // Interpolation for glyph objects
                             // Fix Inf and -Inf for castedObj.objectMarks
 
-                            prev = castedObj.objectMarks.Keys.LastOrDefault(x => x <= frameNo);
-                            next = castedObj.objectMarks.Keys.FirstOrDefault(x => x > frameNo);
+                            prev = castedObj.object3DMarks.Keys.LastOrDefault(x => x <= frameNo);
+                            next = castedObj.object3DMarks.Keys.FirstOrDefault(x => x > frameNo);
 
                             // Has yet to detect the object
                             // Identical interpolation from the first marker
                             if (prev == 0)
                             {
-                                var locationMark3dNext = ((GlyphBoxLocationMark)castedObj.objectMarks[next]).bounding3DPolygons;
+                                var locationMark3dNext = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[next]).boundingPolygons;
                                 var fixedLocationMark3dNext = fixListOfPoints(locationMark3dNext[0]);
 
                                 foreach (Point3 p in fixedLocationMark3dNext)
@@ -187,7 +187,7 @@ namespace Annotator
                             // At the end, identical interpolation
                             else if (next == 0)
                             {
-                                var locationMark3dPrev = ((GlyphBoxLocationMark)castedObj.objectMarks[prev]).bounding3DPolygons;
+                                var locationMark3dPrev = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[prev]).boundingPolygons;
                                 var fixedLocationMark3dPrev = fixListOfPoints(locationMark3dPrev[0]);
 
                                 foreach (Point3 p in fixedLocationMark3dPrev)
@@ -201,8 +201,8 @@ namespace Annotator
                             else
                             {
                                 // both first and last != 0 
-                                var locationMark3dPrev = ((GlyphBoxLocationMark)castedObj.objectMarks[prev]).bounding3DPolygons;
-                                var locationMark3dNext = ((GlyphBoxLocationMark)castedObj.objectMarks[next]).bounding3DPolygons;
+                                var locationMark3dPrev = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[prev]).boundingPolygons;
+                                var locationMark3dNext = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[next]).boundingPolygons;
                                 
                                 var fixedLocationMark3dPrev = fixListOfPoints(locationMark3dPrev[0]);
                                 var fixedLocationMark3dNext = fixListOfPoints(locationMark3dNext[0]);

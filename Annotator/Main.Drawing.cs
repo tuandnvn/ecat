@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accord.Math;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -85,7 +86,7 @@ namespace Annotator
             if (drawingButtonSelected[rectangleDrawing] ||
                 (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
             {
-                if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
+                if (e.Button == System.Windows.Forms.MouseButtons.Left && videoReader != null)
                 {
                     // If mouse down click on resize select boxes
                     if (selectBoxes != null && selectBoxes.Count != 0)
@@ -113,7 +114,7 @@ namespace Annotator
             if (drawingButtonSelected[polygonDrawing] ||   // Drawing mode 
                 (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)) // Editing mode
             {
-                if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
+                if (e.Button == System.Windows.Forms.MouseButtons.Left && videoReader != null)
                 {
                     if (editingPolygon)
                     {
@@ -187,7 +188,7 @@ namespace Annotator
 
                 // Allow edit the polygon just have been drawn
                 // Right click after drawing polygon
-                if (e.Button == System.Windows.Forms.MouseButtons.Right && currentVideo != null && drawingNewPolygon)
+                if (e.Button == System.Windows.Forms.MouseButtons.Right && videoReader != null && drawingNewPolygon)
                 {
                     drawingNewPolygon = false;
                     editingPolygon = true;
@@ -357,7 +358,7 @@ namespace Annotator
                             {
                                 PointF translation = new PointF(tempoPolygonPoints[i].X - centroid.X, tempoPolygonPoints[i].Y - centroid.Y);
                                 PointF scaledTranslation = new PointF((float)(translation.X * Math.Exp(alpha))
-                                    , (float)(translation.Y *Math.Exp(alpha)));
+                                    , (float)(translation.Y * Math.Exp(alpha)));
                                 polygonPoints[i] = new PointF(centroid.X + scaledTranslation.X, centroid.Y + scaledTranslation.Y);
                             }
                             resetSelectBoxes();
@@ -429,7 +430,7 @@ namespace Annotator
             if (drawingButtonSelected[polygonDrawing] ||   // Drawing mode 
                 (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)) // Editing mode
             {
-                if (e.Button == System.Windows.Forms.MouseButtons.Left && currentVideo != null)
+                if (e.Button == System.Windows.Forms.MouseButtons.Left && videoReader != null)
                 {
                     if (editingPolygon)
                     {
@@ -446,7 +447,7 @@ namespace Annotator
                         // ----------------------------------
                         // ---- Handle when release hold of centroid
                         // Turn centroid mode to None
-                        if ( centroidMode == CentroidMode.Dragging || centroidMode == CentroidMode.Rotating || centroidMode == CentroidMode.Zooming )
+                        if (centroidMode == CentroidMode.Dragging || centroidMode == CentroidMode.Rotating || centroidMode == CentroidMode.Zooming)
                         {
                             centroidMode = CentroidMode.None;
                             invalidatePictureBoard();
@@ -459,9 +460,61 @@ namespace Annotator
 
         private void pictureBoard_Paint(object sender, PaintEventArgs e)
         {
+            pictureBoardPaintOnVideoFile(e);
+            pictureBoardPaintOnDepthFile(e);
+        }
+
+        private void pictureBoardPaintOnDepthFile(PaintEventArgs e)
+        {
             try
             {
-                if (currentVideo != null && currentSession != null)
+                if (depthReader != null && currentSession != null)
+                {
+                    var linear = getDepthLinearTransform();
+
+                    foreach (Object o in currentSession.getObjects())
+                    {
+                        if (o.objectType == Object.ObjectType._3D)
+                        {
+                            Pen p = new Pen(o.color, o.borderSize);
+                            p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+
+                            if (o.object3DMarks.ContainsKey(frameTrackBar.Value))
+                            {
+                                LocationMark mark3d = o.object3DMarks[frameTrackBar.Value];
+                                DrawableLocationMark depthMark2d = null;
+
+                                if (mark3d is GlyphBoxLocationMark<Point3>)
+                                {
+                                    depthMark2d = ((GlyphBoxLocationMark<Point3>)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
+                                }
+
+                                if (mark3d is RigLocationMark<Point3>)
+                                {
+                                    depthMark2d = ((RigLocationMark<Point3>)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
+                                }
+
+
+                                if (depthMark2d != null)
+                                {
+                                    depthMark2d.drawOnGraphics(e.Graphics, p);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
+        }
+
+        private void pictureBoardPaintOnVideoFile(PaintEventArgs e)
+        {
+            try
+            {
+                if (videoReader != null && currentSession != null)
                 {
                     var linear = getLinearTransform();
 
@@ -534,7 +587,7 @@ namespace Annotator
                     // Currently drawing or selecting a rectangle object
                     if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
                     {
-                        if (endPoint.HasValue && startPoint.HasValue && currentVideo != null)
+                        if (endPoint.HasValue && startPoint.HasValue && videoReader != null)
                         {
                             int lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
                             int lowerY = Math.Min(startPoint.Value.Y, endPoint.Value.Y);
@@ -610,7 +663,7 @@ namespace Annotator
                                             e.Graphics.DrawLine(normalPen, centroid.X - centroidRadius, centroid.Y, centroid.X + centroidRadius, centroid.Y);
                                             e.Graphics.DrawLine(normalPen, centroid.X, centroid.Y - centroidRadius, centroid.X, centroid.Y + centroidRadius);
 
-                                            
+
                                             e.Graphics.DrawLine(dashedPen, centroid.X - 2 * centroidRadius, centroid.Y, centroid.X, centroid.Y - 2 * centroidRadius);
                                             e.Graphics.DrawLine(dashedPen, centroid.X - 2 * centroidRadius, centroid.Y, centroid.X, centroid.Y + 2 * centroidRadius);
                                             e.Graphics.DrawLine(dashedPen, centroid.X + 2 * centroidRadius, centroid.Y, centroid.X, centroid.Y - 2 * centroidRadius);
@@ -732,11 +785,18 @@ namespace Annotator
             invalidatePictureBoard();
         }
 
-        private Tuple<double, Point> getLinearTransform()
+        private Tuple<float, Point> getLinearTransform()
         {
-            double scale = Math.Min((double)pictureBoard.Width / currentVideo.frameWidth, (double)pictureBoard.Height / currentVideo.frameHeight);
-            Point translation = new Point((int)(pictureBoard.Width - currentVideo.frameWidth * scale) / 2, (int)(pictureBoard.Height - currentVideo.frameHeight * scale) / 2);
-            return new Tuple<double, Point>(scale, translation);
+            float scale = Math.Min((float)pictureBoard.Width / videoReader.frameWidth, (float)pictureBoard.Height / videoReader.frameHeight);
+            Point translation = new Point((int)(pictureBoard.Width - videoReader.frameWidth * scale) / 2, (int)(pictureBoard.Height - videoReader.frameHeight * scale) / 2);
+            return new Tuple<float, Point>(scale, translation);
+        }
+
+        private Tuple<float, Point> getDepthLinearTransform()
+        {
+            float scale = Math.Min((float)pictureBoard.Width / depthReader.depthWidth, (float)pictureBoard.Height / depthReader.depthHeight);
+            Point translation = new Point((int)(pictureBoard.Width - depthReader.depthWidth * scale) / 2, (int)(pictureBoard.Height - depthReader.depthHeight * scale) / 2);
+            return new Tuple<float, Point>(scale, translation);
         }
 
         private void cursorDrawing_MouseDown(object sender, MouseEventArgs e)
