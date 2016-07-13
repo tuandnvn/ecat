@@ -82,7 +82,7 @@ namespace Annotator
 
             for (int frameNo = 0; frameNo < videoReader.frameCount; frameNo++)
                 //for (int frameNo = 0; frameNo < 1; frameNo++)
-            {
+                {
                 if (progress != null)
                     progress.Report(frameNo);
 

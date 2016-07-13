@@ -81,7 +81,7 @@ namespace Annotator
                 sb.Append("No rig is detected.\n");
             }
 
-            detectedObjects = await Utils.DetectObjects(videoReader, depthReader, objectRecognizers, objectRecognizerIncluded, this.coordinateMapper.MapColorFrameToCameraSpace);
+            detectedObjects = await Utils.DetectObjects("Progress on capturing", videoReader, depthReader, objectRecognizers, objectRecognizerIncluded, this.coordinateMapper.MapColorFrameToCameraSpace);
 
             Console.WriteLine("In playback " + detectedObjects.Count);
 
@@ -210,7 +210,7 @@ namespace Annotator
 
         private void saveRecordedSession_Click(object sender, EventArgs e)
         {
-            Project currentProject = main.selectedProject;
+            Project currentProject = main.currentProject;
 
             if (currentProject == null)
             {

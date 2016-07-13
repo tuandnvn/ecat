@@ -41,6 +41,16 @@ namespace Annotator
                         radioButton3.Checked = true;
                         break;
                 }
+
+                switch (options.showRigOption)
+                {
+                    case Options.ShowRig.SHOW_ALL:
+                        radioButton6.Checked = true;
+                        break;
+                    case Options.ShowRig.SHOW_UPPER:
+                        radioButton5.Checked = true;
+                        break;
+                }
             }
         }
 
@@ -52,9 +62,23 @@ namespace Annotator
             }
 
             saveDetection();
+            saveView();
+
             options.save();
 
             this.Dispose();
+        }
+
+        private void saveView()
+        {
+            if (radioButton6.Checked)
+            {
+                options.showRigOption = Options.ShowRig.SHOW_ALL;
+            }
+            else if (radioButton5.Checked)
+            {
+                options.showRigOption = Options.ShowRig.SHOW_UPPER;
+            }
         }
 
         private void saveDetection()

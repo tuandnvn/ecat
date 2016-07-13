@@ -178,42 +178,38 @@ namespace Annotator
             return new Dictionary<string, Point3>();
         }
 
-        public List<Tuple<PointF, PointF>> getRigBones(int frame, int rigIndex)
+        public List<Tuple<string, string>> getRigBones(int frame, int rigIndex)
         {
             RigFrame<PointF> rigFrame = frameToRig[frame];
+            var bones = new List<Tuple<string, string>>();
             if (rigFrame != null && rigFrame.joints[rigIndex] != null)
             {
-                var joints = rigFrame.joints[rigIndex];
-                var bones = new List<Tuple<PointF, PointF>>();
                 foreach (Point boneScheme in rigScheme.bones)
                 {
-                    var bone = new Tuple<PointF, PointF>(joints[rigScheme.jointToJointName[boneScheme.X].Item1],
-                        joints[rigScheme.jointToJointName[boneScheme.Y].Item1]);
+                    var bone = new Tuple<string, string>(rigScheme.jointToJointName[boneScheme.X].Item1,
+                        rigScheme.jointToJointName[boneScheme.Y].Item1);
                     bones.Add(bone);
                 }
-
-                return bones;
             }
-            return new List<Tuple<PointF, PointF>>();
+            return bones;
         }
 
-        public List<Tuple<Point3, Point3>> getRigBones3D(int frame, int rigIndex)
+        public List<Tuple<string, string>> getRigBones3D(int frame, int rigIndex)
         {
             RigFrame<Point3> rigFrame = frameTo3DRig[frame];
+            var bones = new List<Tuple<string, string>>();
             if (rigFrame != null && rigFrame.joints[rigIndex] != null)
             {
                 var joints = rigFrame.joints[rigIndex];
-                var bones = new List<Tuple<Point3, Point3>>();
+                
                 foreach (Point boneScheme in rigScheme.bones)
                 {
-                    var bone = new Tuple<Point3, Point3>(joints[rigScheme.jointToJointName[boneScheme.X].Item1],
-                        joints[rigScheme.jointToJointName[boneScheme.Y].Item1]);
+                    var bone = new Tuple<string, string>(rigScheme.jointToJointName[boneScheme.X].Item1,
+                        rigScheme.jointToJointName[boneScheme.Y].Item1);
                     bones.Add(bone);
                 }
-
-                return bones;
             }
-            return new List<Tuple<Point3, Point3>>();
+            return bones;
         }
 
         public RigFigure<PointF> getRigFigure(int frame, int rigIndex)
@@ -224,6 +220,20 @@ namespace Annotator
         public RigFigure<Point3> getRigFigure3d(int frame, int rigIndex)
         {
             return new RigFigure<Point3>(getRigJoints3D(frame, rigIndex), getRigBones3D(frame, rigIndex));
+        }
+
+        public static RigFigure<T> getUpperBody<T>(RigFigure<T> rigFigure)
+        {
+            var t = new SortedSet<int>(RigScheme.torsoIndices);
+            t.UnionWith(RigScheme.leftHandIndices);
+            t.UnionWith(RigScheme.rightHandIndices);
+
+            var listOfJointStrs = RigScheme.kinectV2jointToJointName.Where( p => t.Contains(p.Key)).ToDictionary(p => p.Key, p => p.Value).Values.Select( p => p.Item1 ).ToList();
+            var upperBodyJoints = rigFigure.rigJoints.Where(p => listOfJointStrs.Contains(p.Key)).ToDictionary(p => p.Key, p => p.Value);
+
+            var upperBodyBones = rigFigure.rigBones.Where(p => listOfJointStrs.Contains(p.Item1) && listOfJointStrs.Contains(p.Item2)).ToList();
+
+            return new RigFigure<T>(upperBodyJoints, upperBodyBones);
         }
 
         /// <summary>
@@ -334,7 +344,7 @@ namespace Annotator
         /// <summary>
         /// Rigs(s) for each frame. 
         /// There might be multiple rigs, the first integer key is rig index (as tracked by Kinect API)
-        /// The string key is joint name
+        /// The string key is joint name (shorten version of joint name, for example SpineBase)
         /// T is the location of joint (could be 2d or 3d)
         /// </summary>
         public Dictionary<int, Dictionary<string, T>> joints { get; }

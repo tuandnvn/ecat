@@ -33,6 +33,11 @@ namespace Annotator
             return score;
         }
 
+        public RigLocationMark<T> getUpperBody()
+        {
+            return new RigLocationMark<T>(frameNo, Rigs.getUpperBody(rigFigure));
+        }
+
         public override void drawOnGraphics(Graphics g, Pen p)
         {
             if (typeof(T) == typeof(Point))
@@ -47,8 +52,8 @@ namespace Annotator
                 // Draw bones
                 foreach (var bone in rigFigure.rigBones)
                 {
-                    System.Drawing.PointF from = (System.Drawing.Point)(object)bone.Item1;
-                    System.Drawing.PointF to = (System.Drawing.Point)(object)bone.Item2;
+                    System.Drawing.PointF from = (System.Drawing.Point)(object) (rigFigure.rigJoints[bone.Item1]);
+                    System.Drawing.PointF to = (System.Drawing.Point)(object)(rigFigure.rigJoints[bone.Item2]);
                     g.DrawLine(p, from, to);
                 }
             }
@@ -65,8 +70,8 @@ namespace Annotator
                 // Draw bones
                 foreach (var bone in rigFigure.rigBones)
                 {
-                    System.Drawing.PointF from = (System.Drawing.PointF)(object)bone.Item1;
-                    System.Drawing.PointF to = (System.Drawing.PointF)(object)bone.Item2;
+                    System.Drawing.PointF from = (System.Drawing.PointF)(object)(rigFigure.rigJoints[bone.Item1]);
+                    System.Drawing.PointF to = (System.Drawing.PointF)(object)(rigFigure.rigJoints[bone.Item2]);
                     g.DrawLine(p, from, to);
                 }
             }
@@ -105,11 +110,8 @@ namespace Annotator
             {
                 var mappedJoints = ((Dictionary<string, Point3>)(object)rigFigure.rigJoints).ToDictionary(k => k.Key, k => KinectUtils.projectCameraSpacePointToDepthPixel(k.Value));
                 var flattenedMappedJoints = mappedJoints.ToDictionary(k => k.Key, k => new PointF(k.Value.X, k.Value.Y));
-                var mappedBones = ((List<Tuple<Point3, Point3>>)(object)rigFigure.rigBones).Select(t => new Tuple<Point3, Point3>(KinectUtils.projectCameraSpacePointToDepthPixel(t.Item1), 
-                    KinectUtils.projectCameraSpacePointToDepthPixel(t.Item2)));
-                var flattendMappedBones = mappedBones.Select(t => new Tuple<PointF, PointF>(new PointF(t.Item1.X, t.Item1.Y), new PointF(t.Item2.X, t.Item2.Y))).ToList();
 
-                return new RigLocationMark<PointF>(frameNo, new RigFigure<PointF>(flattenedMappedJoints, flattendMappedBones)).getScaledLocationMark(scale, translation);
+                return new RigLocationMark<PointF>(frameNo, new RigFigure<PointF>(flattenedMappedJoints, rigFigure.rigBones)).getScaledLocationMark(scale, translation);
             }
             return null;
         }

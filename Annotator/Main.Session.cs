@@ -31,11 +31,11 @@ namespace Annotator
             Session chosenSession = null;
             if (treeView.SelectedNode.Text[0] == '*')
             {
-                chosenSession = selectedProject.getSession(treeView.SelectedNode.Text.Substring(1));
+                chosenSession = currentProject.getSession(treeView.SelectedNode.Text.Substring(1));
             }
             else
             {
-                chosenSession = selectedProject.getSession(treeView.SelectedNode.Text);
+                chosenSession = currentProject.getSession(treeView.SelectedNode.Text);
             }
 
             // Save current session if it is edited
@@ -70,7 +70,7 @@ namespace Annotator
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
                 frameTrackBar.Value = frameTrackBar.Minimum;
-                this.Text = "Project " + selectedProject.getProjectName() + " selected, edited session = " + chosenSession.sessionName;
+                this.Text = "Project " + currentProject.getProjectName() + " selected, edited session = " + chosenSession.sessionName;
             }
 
             //Set comboBox:
@@ -257,7 +257,7 @@ namespace Annotator
             if (t.Text.Contains("*"))
                 t.Text = t.Text.Substring(1);
             currentSession.setEdited(false);
-            this.Text = "Project " + selectedProject.getProjectName() + " selected";
+            this.Text = "Project " + currentProject.getProjectName() + " selected";
 
             // Clean the playbackFileComboBox
             clearPlaybackFileComboBox();
@@ -365,12 +365,12 @@ namespace Annotator
                 project.removeSession(sName);
                 //2)Remove session from treeView:
                 treeView.BeginUpdate();
-                foreach (TreeNode currentSessionNode in selectedProjectNode.Nodes)
+                foreach (TreeNode currentSessionNode in currentProjectNode.Nodes)
                 {
                     if (currentSessionNode.Text.Equals(sName))
                     {
                         //MessageBox.Show("Removing " + sName + " from" + project.getProjectName());
-                        selectedProjectNode.Nodes.Remove(currentSessionNode);
+                        currentProjectNode.Nodes.Remove(currentSessionNode);
                         break;
                     }
                 }
@@ -443,7 +443,7 @@ namespace Annotator
         {
             string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
+            string dstFileName = currentProject.getLocation() + Path.DirectorySeparatorChar + currentProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -477,7 +477,7 @@ namespace Annotator
         internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
         {
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = selectedProject.getLocation() + Path.DirectorySeparatorChar + selectedProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
+            string dstFileName = currentProject.getLocation() + Path.DirectorySeparatorChar + currentProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -503,20 +503,105 @@ namespace Annotator
         }
 
         CountdownEvent isAvailable;
-        bool sensorAvailabel = false;
-        bool colorFrameArrived = false;
-        bool depthFrameArrived = false;
+        volatile bool sensorAvailabel = false;
+        volatile bool colorFrameArrived = false;
+        volatile bool depthFrameArrived = false;
+        volatile bool currentlySetupKinect = false;
         KinectSensor kinectSensor;
         CoordinateMapper coordinateMapper;
         DepthCoordinateMappingReader mappingReader;
 
 
-        private void useKinectAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        private void projectOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
             var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
             objectRecognizerIncluded[objectRecognizer] = true;
+            setupKinectIfNeeded();
 
+            //foreach (var session in currentProject.sessions)
+            //{
+            //    currentSession = session;
+            //    currentSession.loadIfNotLoaded();
+            //    sessionOnlineModeGlyphDetectToolStripMenuItem_Click(null, null);
+            //    //currentSession.saveSession();
+            //}
+
+            Task t = Task.Run(async () =>
+            {
+                try
+                {
+                    if (currentlySetupKinect)
+                    {
+                        Console.WriteLine("Await");
+                        isAvailable.Wait();
+                        currentlySetupKinect = false;
+                    }
+
+                    foreach (var session in currentProject.sessions)
+                    {
+                        currentSession = session;
+                        currentSession.loadIfNotLoaded();
+                        List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                            currentSession.getDepth(0),
+                            new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                            coordinateMapper.MapColorFrameToCameraSpace
+                        );
+                        AddObjectsIntoSession(detectedObjects);
+                        currentSession.saveSession();
+                    }
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc);
+                }
+            });
+        }
+
+        private void projectOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var session in currentProject.sessions)
+            {
+                currentSession = session;
+                currentSession.loadIfNotLoaded();
+                sessionOfflineModeGlyphDetectToolStripMenuItem_Click(null, null);
+                currentSession.saveSession();
+            }
+        }
+
+        private void sessionOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
+            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
+            objectRecognizerIncluded[objectRecognizer] = true;
+            setupKinectIfNeeded();
+
+            Task t = Task.Run(async () =>
+            {
+               
+                if (currentlySetupKinect)
+                {
+                    Console.WriteLine("Await");
+                    isAvailable.Wait();
+                    currentlySetupKinect = false;
+                }
+
+                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                currentSession.getDepth(0),
+                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                coordinateMapper.MapColorFrameToCameraSpace
+                    );
+
+                // Run on UI thread
+                this.Invoke((MethodInvoker)delegate
+                {
+                    AddDetectedObjects(detectedObjects);
+                });
+            });
+        }
+
+        private void setupKinectIfNeeded()
+        {
             if (kinectSensor == null)
             {
                 isAvailable = new CountdownEvent(3);
@@ -531,29 +616,11 @@ namespace Annotator
                 depthFrameReader.FrameArrived += this.Reader_DepthFrameArrived;
                 kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
                 kinectSensor.Open();
+                currentlySetupKinect = true;
             }
-
-            Task t = Task.Run(async () =>
-            {
-                Console.WriteLine("Await");
-                isAvailable.Wait();
-
-                List<Object> detectedObjects = await Utils.DetectObjects(currentSession.getVideo(0),
-                currentSession.getDepth(0),
-                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                coordinateMapper.MapColorFrameToCameraSpace
-                    );
-
-                // Run on UI thread
-                this.Invoke((MethodInvoker)delegate
-                {
-                    AddDetectedObjects(detectedObjects);
-                });
-            });
         }
 
-
-        private void offlineModeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sessionOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
             var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
@@ -566,7 +633,7 @@ namespace Annotator
 
             Task t = Task.Run(async () =>
             {
-                List<Object> detectedObjects = await Utils.DetectObjects(currentSession.getVideo(0),
+                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
                 currentSession.getDepth(0),
                 new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
                 (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,
@@ -586,6 +653,23 @@ namespace Annotator
         }
 
         private void AddDetectedObjects(List<Object> detectedObjects)
+        {
+            AddObjectsIntoSession(detectedObjects);
+            RefreshUI(detectedObjects);
+        }
+
+        private void RefreshUI(List<Object> detectedObjects)
+        {
+            // Redraw object annotation panel
+            if (detectedObjects.Count != 0)
+            {
+                clearMiddleCenterPanel();
+                populateMiddleCenterPanel();
+                invalidatePictureBoard();
+            }
+        }
+
+        private void AddObjectsIntoSession(List<Object> detectedObjects)
         {
             // Handle adding identical objects or not
             switch (options.detectionMode)
@@ -622,7 +706,7 @@ namespace Annotator
                         foreach (var existObject in currentSession.getObjects())
                         {
 
-                            if (existObject is GlyphBoxObject &&  detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype) )
+                            if (existObject is GlyphBoxObject && detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype))
                             {
                                 exist = existObject;
                                 break;
@@ -637,20 +721,11 @@ namespace Annotator
                     }
                     break;
             }
-
-
-            // Redraw object annotation panel
-            if (detectedObjects.Count != 0)
-            {
-                clearMiddleCenterPanel();
-                populateMiddleCenterPanel();
-                invalidatePictureBoard();
-            }
         }
 
         private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
         {
-            if (!sensorAvailabel)
+            if (!sensorAvailabel && currentlySetupKinect)
             {
                 isAvailable.Signal();
                 sensorAvailabel = true;
@@ -659,7 +734,7 @@ namespace Annotator
 
         private void Reader_DepthFrameArrived(object sender, DepthFrameArrivedEventArgs e)
         {
-            if (!depthFrameArrived)
+            if (!depthFrameArrived && currentlySetupKinect)
             {
                 isAvailable.Signal();
                 depthFrameArrived = true;
@@ -668,7 +743,7 @@ namespace Annotator
 
         private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
         {
-            if (!colorFrameArrived)
+            if (!colorFrameArrived && currentlySetupKinect)
             {
                 isAvailable.Signal();
                 colorFrameArrived = true;

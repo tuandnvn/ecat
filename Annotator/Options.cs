@@ -19,6 +19,12 @@ namespace Annotator
             NO_OVERWRITE
         }
 
+        public enum ShowRig
+        {
+            SHOW_ALL,
+            SHOW_UPPER
+        }
+
         internal static string TEMP_FILENAME = "~option.txt";
         internal static string FILENAME = "option.txt";
 
@@ -28,38 +34,64 @@ namespace Annotator
         [DataMember]
         internal GlyphDetectionMode detectionMode;
 
+        [DataMember]
+        internal ShowRig showRigOption;
+
         /// <summary>
         /// List of prototypes, should be set by reading from the glyphPrototypePath. otherwise set to default
         /// </summary>
         public List<GlyphBoxPrototype> prototypeList;
 
 
-        public static Options loadOption()
+        public static Options singletonOptions;
+
+        public static Options getOption()
         {
-            Options options = getDefaultOption();
-            try
+            if (singletonOptions == null)
             {
-                var s = new DataContractSerializer(typeof(Options));
+                singletonOptions = createDefaultOption();
+                try
+                {
+                    var s = new DataContractSerializer(typeof(Options));
 
-                FileStream fs = new FileStream(Options.FILENAME, FileMode.Open);
-                options = (Options)s.ReadObject(fs);
-                options.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 };
+                    FileStream fs = new FileStream(Options.FILENAME, FileMode.Open);
+                    singletonOptions = (Options)s.ReadObject(fs);
 
-                fs.Close();
+                    if (singletonOptions.prototypeList == null)
+                        singletonOptions.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 };
+
+                    fs.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-            return options;
+
+            return singletonOptions;
         }
 
-        public static Options getDefaultOption()
+        /// <summary>
+        /// Change the singleton options to default and return
+        /// </summary>
+        /// <returns></returns>
+        public static Options makeDefaultOption()
+        {
+            singletonOptions = createDefaultOption();
+            return singletonOptions;
+        }
+
+        /// <summary>
+        /// CAUTIONS: This one create another Option object, so it should be private
+        /// </summary>
+        /// <returns></returns>
+        private static Options createDefaultOption()
         {
             Options options = new Options();
             options.glyphPrototypePath = "";
             options.detectionMode = GlyphDetectionMode.ADD_SEPARATE;
             options.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 };
+            options.showRigOption = ShowRig.SHOW_ALL;
 
             return options;
         }

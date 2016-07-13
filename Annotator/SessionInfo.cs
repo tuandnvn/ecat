@@ -78,7 +78,7 @@ namespace Annotator
             //MessageBox.Show(sessionLocation + Directory.Exists(sessionLocation));
 
             bool existSession = false;
-            foreach (TreeNode sessionNode in main.selectedProjectNode.Nodes)
+            foreach (TreeNode sessionNode in main.currentProjectNode.Nodes)
             {
                 if (sessionNode.Text.Equals(sessionNameTxtBox.Text))
                 {

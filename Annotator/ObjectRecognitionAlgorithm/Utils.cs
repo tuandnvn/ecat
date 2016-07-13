@@ -10,7 +10,7 @@ namespace Annotator
 {
     public partial class Utils
     {
-        public static async Task<List<Object>> DetectObjects(VideoReader videoReader,
+        public static async Task<List<Object>> DetectObjects(String info, VideoReader videoReader,
                                                                 IDepthReader depthReader,
                                                                 List<IObjectRecogAlgo> objectRecognizers,
                                                                 Dictionary<IObjectRecogAlgo, bool> objectRecognizerIncluded,
@@ -23,6 +23,7 @@ namespace Annotator
             if (numberOfSteps == 0) return detectedObjects;
 
             ProgressForm pf = new ProgressForm();
+            pf.Text = info;
             pf.progressBar.Maximum = 100;
             pf.progressBar.Step = 1;
 

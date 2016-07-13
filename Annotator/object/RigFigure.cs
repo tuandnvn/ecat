@@ -9,9 +9,9 @@ namespace Annotator
     public class RigFigure<T>
     {
         public Dictionary<string, T> rigJoints { get; }
-        public List<Tuple<T, T>> rigBones { get; }
+        public List<Tuple<string, string>> rigBones { get; }
 
-        public RigFigure(Dictionary<string, T> rigJoints, List<Tuple<T, T>> rigBones)
+        public RigFigure(Dictionary<string, T> rigJoints, List<Tuple<string, string>> rigBones)
         {
             this.rigBones = rigBones;
             this.rigJoints = rigJoints;

@@ -24,8 +24,8 @@ namespace Annotator
         private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
         private bool newProject = false;//true if new project is creating
         private bool newSession = false;//true if new session is creating     
-        internal Project selectedProject = null; //currently selected project
-        internal TreeNode selectedProjectNode = null;
+        internal Project currentProject = null; //currently selected project
+        internal TreeNode currentProjectNode = null;
         internal Session currentSession = null;
         internal TreeNode currentSessionNode = null;
         private VideoReader videoReader = null;      //currently edited video
@@ -44,7 +44,7 @@ namespace Annotator
         private const int GARBAGE_COLLECT_BITMAP_COUNT = 20;
 
         internal Options options;
-
+        private OptionsForm of;
 
         public Main()
         {
@@ -52,7 +52,7 @@ namespace Annotator
 
             // Load options from Options.FILENAME file
             // If the file doesn't exist, or broken, options will be Default
-            options = Options.loadOption();
+            options = Options.getOption();
 
             // Initialize some other controls might depends on options
             InitializeOtherControls();
@@ -352,19 +352,19 @@ namespace Annotator
 
             TreeNode selectedNode = treeView.SelectedNode;
             Session choosedSession = null;
-            if (selectedNode != null && selectedProject != null && selectedNode.Parent.Text.Equals(selectedProject.getProjectName()))
+            if (selectedNode != null && currentProject != null && selectedNode.Parent.Text.Equals(currentProject.getProjectName()))
             {
                 editSessionMenuItem.Enabled = true;
                 saveSessionMenuItem.Enabled = true;
                 deleteSessionMenuItem.Enabled = true;
                 addSessionMenuItem.Enabled = true;
                 refreshSessionMenuItem.Enabled = true;
-                detectToolStripMenuItem.Enabled = true;
+                sessionDetectToolStripMenuItem.Enabled = true;
 
                 //Check if session is editing:
-                choosedSession = selectedProject.getSession(selectedNode.Text);
+                choosedSession = currentProject.getSession(selectedNode.Text);
                 if (choosedSession == null)
-                    choosedSession = selectedProject.getSession(selectedNode.Text);
+                    choosedSession = currentProject.getSession(selectedNode.Text);
                 if (choosedSession != null && choosedSession.getEdited())
                 {
                     //MessageBox.Show("OK1");
@@ -375,7 +375,7 @@ namespace Annotator
                     editSessionMenuItem.Enabled = true;
                     saveSessionMenuItem.Enabled = false;
                     addSessionMenuItem.Enabled = false;
-                    detectToolStripMenuItem.Enabled = false;
+                    sessionDetectToolStripMenuItem.Enabled = false;
                     //MessageBox.Show("OK2");
                 }
             }
@@ -399,26 +399,29 @@ namespace Annotator
             if (treeView.SelectedNode == null)
                 return;
 
-            if (selectedProject != null && treeView.SelectedNode.Text.Equals(selectedProject.getProjectName()))
+            if (currentProject != null && treeView.SelectedNode.Text.Equals(currentProject.getProjectName()))
             {
                 selectToolStripMenuItem.Enabled = false;
                 closeToolStripMenuItem.Enabled = true;
                 newSessionToolStripMenuItem.Enabled = true;
                 recordSessionToolStripMenuItem.Enabled = true;
+                projectDetectToolStripMenuItem.Enabled = true;
             }
-            else if (selectedProject != null && !(treeView.SelectedNode.Text.Equals(selectedProject.getProjectName())))
+            else if (currentProject != null && !(treeView.SelectedNode.Text.Equals(currentProject.getProjectName())))
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
+                projectDetectToolStripMenuItem.Enabled = false;
             }
-            if (selectedProject == null)
+            if (currentProject == null)
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
+                projectDetectToolStripMenuItem.Enabled = false;
             }
             Point location = this.Location;
             location.X += e.Location.X + leftMostPanel.Location.X + 15;
@@ -451,7 +454,7 @@ namespace Annotator
 
         private void simpleEventDataCreateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (selectedProject != null)
+            if (currentProject != null)
             {
                 SimpleLearningDataGenerator g = new SimpleLearningDataGenerator();
 
@@ -460,7 +463,7 @@ namespace Annotator
                 if (result == DialogResult.OK) // Test result.
                 {
                     String fullFileName = saveFileDialog.FileName;
-                    g.writeExtractedDataIntoFile(selectedProject, fullFileName);
+                    g.writeExtractedDataIntoFile(currentProject, fullFileName);
                 }
             }
         }
@@ -505,8 +508,8 @@ namespace Annotator
             this.treeView.SelectedNode = this.currentSessionNode;
 
             //2) Update treeView
-            selectedProjectNode.Nodes.Add(newSessionNode);
-            selectedProjectNode.Expand();
+            currentProjectNode.Nodes.Add(newSessionNode);
+            currentProjectNode.Expand();
             treeView.EndUpdate();
 
             return newSession;
@@ -849,9 +852,11 @@ namespace Annotator
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OptionsForm of = new OptionsForm(options);
+            // Optionf form
+            of = new OptionsForm(options);
             of.StartPosition = FormStartPosition.CenterParent;
             of.ShowDialog();
         }
+
     }
 }

@@ -42,7 +42,7 @@ namespace Annotator
         public static RigFigure<System.Drawing.PointF> scaleBound(this RigFigure<System.Drawing.PointF> original, float scale, System.Drawing.PointF translation)
         {
             return new RigFigure<System.Drawing.PointF>(original.rigJoints.ToDictionary(k => k.Key, k => scalePoint(k.Value, scale, translation)),
-                original.rigBones.Select(t => new Tuple<System.Drawing.PointF, System.Drawing.PointF>(scalePoint(t.Item1, scale, translation), scalePoint(t.Item2, scale, translation))).ToList());
+                original.rigBones);
         }
 
         public static Point getCenter(this Rectangle r)

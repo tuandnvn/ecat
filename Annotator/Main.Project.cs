@@ -47,21 +47,21 @@ namespace Annotator
             }
             ///////////////////////////////////
             //Get selected node from treeView:
-            selectedProjectNode = treeView.SelectedNode;
-            String prjName = selectedProjectNode.Text;
+            currentProjectNode = treeView.SelectedNode;
+            String prjName = currentProjectNode.Text;
             treeView.BeginUpdate();
             foreach (TreeNode node in treeView.Nodes)
             {
                 node.BackColor = Color.White;
             }
             
-            selectedProjectNode.BackColor = Color.Silver;
+            currentProjectNode.BackColor = Color.Silver;
             treeView.EndUpdate();
-            selectedProject = workspace.getProject(prjName);
-            selectedProject.setSelected(true);
+            currentProject = workspace.getProject(prjName);
+            currentProject.setSelected(true);
 
             this.simpleEventDataCreateMenuItem.Enabled = true;
-            this.Text = "Project " + selectedProject.getProjectName() + " selected";
+            this.Text = "Project " + currentProject.getProjectName() + " selected";
 
             foreach (TreeNode node in treeView.Nodes)
             {
@@ -77,7 +77,7 @@ namespace Annotator
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (treeView.SelectedNode.Text.Equals(selectedProject.getProjectName()))
+            if (treeView.SelectedNode.Text.Equals(currentProject.getProjectName()))
             {
                 //Check if project session is editing:
                 //Check if there is editing session:
@@ -100,8 +100,8 @@ namespace Annotator
                 }
 
                 treeView.SelectedNode.BackColor = Color.White;
-                selectedProject.setSelected(false);
-                selectedProject = null;
+                currentProject.setSelected(false);
+                currentProject = null;
                 this.Text = "No project selected";
             }
         }

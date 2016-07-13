@@ -47,6 +47,12 @@ namespace Annotator
                 { 24, new Tuple<string, string>("ThumbRight", "Right thumb") }
             };
 
+        public static SortedSet<int> torsoIndices = new SortedSet<int>() { 0, 1, 20, 2, 3 };
+        public static SortedSet<int> leftHandIndices = new SortedSet<int>() { 4, 5, 6, 7, 20, 21, 22 };
+        public static SortedSet<int> rightHandIndices = new SortedSet<int>() { 8, 9, 10, 11, 20, 23, 24 };
+        public static SortedSet<int> leftLegIndices = new SortedSet<int>() { 0, 12, 13, 14, 15 };
+        public static SortedSet<int> rightLegIndices = new SortedSet<int>() { 0, 16,17, 18, 19 };
+
         public static List<Point> kinectv2bones = new List<Point> {
                 new Point(0, 1), new Point(1,20), new Point(20, 2), new Point(2,3),  // Torso
                 new Point(20, 4),new Point(4,5),new Point(5,6),new Point(6,7),new Point(7,21),new Point(7,22), // Left hand

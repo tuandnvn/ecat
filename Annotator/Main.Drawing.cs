@@ -491,6 +491,12 @@ namespace Annotator
 
                                 if (mark3d is RigLocationMark<Point3>)
                                 {
+                                    switch (options.showRigOption)
+                                    {
+                                        case Options.ShowRig.SHOW_UPPER:
+                                            mark3d = ((RigLocationMark<Point3>)mark3d).getUpperBody();
+                                            break;
+                                    }
                                     depthMark2d = ((RigLocationMark<Point3>)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
                                 }
 
@@ -498,6 +504,17 @@ namespace Annotator
                                 if (depthMark2d != null)
                                 {
                                     depthMark2d.drawOnGraphics(e.Graphics, p);
+                                }
+
+                                if (o.Equals(selectedObject))
+                                {
+                                    var selectBoxes = depthMark2d.getCornerSelectBoxes(boxSize);
+
+                                    foreach (Rectangle r in selectBoxes)
+                                    {
+                                        e.Graphics.DrawRectangle(new Pen(Color.Black), r);
+                                        e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
+                                    }
                                 }
                             }
                         }
@@ -529,6 +546,17 @@ namespace Annotator
 
                             if (r != null)
                             {
+                                // Clip to upper body for Rig object
+                                if (r is RigLocationMark<PointF>)
+                                {
+                                    switch (options.showRigOption)
+                                    {
+                                        case Options.ShowRig.SHOW_UPPER:
+                                            r = ((RigLocationMark<PointF>)r).getUpperBody();
+                                            break;
+                                    }
+                                }
+
                                 r.drawOnGraphics(e.Graphics, p);
                             }
                         }
@@ -685,7 +713,7 @@ namespace Annotator
                     }
 
 
-                    // Selecting a rig object
+                    // Selecting other kind of objects
                     if (selectedObject != null && selectedObject.borderType == Object.BorderType.Others)
                     {
                         DrawableLocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
