@@ -15,7 +15,6 @@ namespace Annotator
 
         public GlyphBoxObject(Session currentSession, String id, Color color, int borderSize, string videoFile) : base(currentSession, id, color, borderSize, videoFile)
         {
-            _borderType = BorderType.Others;
             this.object3DMarks = new SortedList<int, LocationMark>();
             this.objectType = ObjectType._3D;
             this.genType = GenType.TRACKED;

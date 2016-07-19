@@ -25,27 +25,29 @@ namespace Annotator
                 doneEditingAtAFrame();
                 var linear = getLinearTransform();
 
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
+                if (selectedObject != null && selectedObject is RectangleObject)
                 {
                     if (boundingBox.Width == 0 && boundingBox.Height == 0)
                     {
                         // This case happens when there is no bounding box
                         selectedObject.setCopyBounding(frameTrackBar.Value);
-                    } else
+                    }
+                    else
                     {
-                        selectedObject.setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
+                        (selectedObject as RectangleObject).setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
                     }
                 }
 
-                if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
+                if (selectedObject != null && selectedObject is PolygonObject)
                 {
                     if (polygonPoints.Count == 0)
                     {
                         // This case happens when there is no  polygon points
                         selectedObject.setCopyBounding(frameTrackBar.Value);
-                    } else
+                    }
+                    else
                     {
-                        selectedObject.setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
+                        (selectedObject as PolygonObject).setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
                     }
                 }
 
@@ -60,8 +62,8 @@ namespace Annotator
             {
                 doneEditingAtAFrame();
 
-                if (selectedObject != null && 
-                    (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon) )
+                if (selectedObject != null &&
+                    (selectedObject is RectangleObject || selectedObject is PolygonObject))
                 {
                     selectedObject.delete(frameTrackBar.Value);
                 }
@@ -77,7 +79,7 @@ namespace Annotator
                 doneEditingAtAFrame();
 
                 if (selectedObject != null &&
-                    (selectedObject.borderType == Object.BorderType.Rectangle || selectedObject.borderType == Object.BorderType.Polygon))
+                    (selectedObject is RectangleObject || selectedObject is PolygonObject))
                 {
                     selectedObject.deleteMarker(frameTrackBar.Value);
                 }
@@ -101,7 +103,7 @@ namespace Annotator
             }
         }
 
-        
+
         private void cancelEditObjBtn_Click(object sender, EventArgs e)
         {
             if (editingAtAFrame)

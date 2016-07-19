@@ -79,12 +79,12 @@ namespace Annotator
                 }
             }
 
-            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle)
+            if (selectedObject != null && selectedObject is RectangleObject)
             {
                 doneEditRectangle();
             }
 
-            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)
+            if (selectedObject != null && selectedObject is PolygonObject)
             {
                 doneEditPolygon();
             }

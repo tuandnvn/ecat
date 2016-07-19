@@ -13,7 +13,6 @@ namespace Annotator
     {
         public RigObject(Session currentSession, String id, Color color, int borderSize, string videoFile) : base(currentSession, id, color, borderSize, videoFile)
         {
-            _borderType = BorderType.Others;
             this.objectType = ObjectType._3D;
         }
 
@@ -21,15 +20,6 @@ namespace Annotator
         {
             RigFigure<PointF> inverseScaleBoundingRig = boundingRig.scaleBound(1 / scale, new PointF((float)(-translation.X / scale), (float)(-translation.Y / scale)));
             var ob = new RigLocationMark<PointF>(frameNumber, inverseScaleBoundingRig);
-            if (this._borderType == null) // First time appear
-            {
-                this._borderType = BorderType.Others;
-            }
-            else
-            {
-                if (this._borderType != BorderType.Others)
-                    throw new Exception("Border type not match");
-            }
             objectMarks[frameNumber] = ob;
         }
 

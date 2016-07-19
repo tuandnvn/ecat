@@ -188,6 +188,7 @@
     <Compile Include="object\PolygonLocationMark3D.cs" />
     <Compile Include="object\PolygonObject.cs" />
     <Compile Include="object\RectangleLocationMark.cs" />
+    <Compile Include="object\RectangleObject.cs" />
     <Compile Include="object\RigFigure.cs" />
     <Compile Include="object\RigLocationMark.cs" />
     <Compile Include="object\RigObject.cs" />

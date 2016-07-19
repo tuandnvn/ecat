@@ -8,16 +8,16 @@ using System.Xml;
 
 namespace Annotator
 {
-    public class PolygonObject : Object
+    public class RectangleObject : Object
     {
-        public PolygonObject(Session session, String id, Color color, int borderSize, string videoFile) : base(session, id, color, borderSize, videoFile)
+        public RectangleObject(Session session, String id, Color color, int borderSize, string videoFile) : base(session, id, color, borderSize, videoFile)
         {
         }
 
-        public void setBounding(int frameNumber, List<PointF> boundingPolygon, float scale, Point translation)
+        public void setBounding(int frameNumber, Rectangle boundingBox, float scale, Point translation)
         {
-            List<PointF> inverseScaleBoundingPolygon = boundingPolygon.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
-            var ob = new PolygonLocationMark(frameNumber, inverseScaleBoundingPolygon);
+            Rectangle inverseScaleBoundingBox = boundingBox.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
+            var ob = new RectangleLocationMark(frameNumber, inverseScaleBoundingBox);
             objectMarks[frameNumber] = ob;
         }
 
@@ -34,7 +34,7 @@ namespace Annotator
                 switch (markType.ToUpper())
                 {
                     case "LOCATION":
-                        var lm = new PolygonLocationMark(frame, new List<PointF>());
+                        var lm = new RectangleLocationMark(frame, new Rectangle());
                         lm.readFromXml(markerNode);
                         this.setBounding(frame, lm);
                         break;

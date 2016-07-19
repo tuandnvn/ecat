@@ -84,7 +84,7 @@ namespace Annotator
         private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
         {
             if (drawingButtonSelected[rectangleDrawing] ||
-                (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+                (selectedObject != null && selectedObject is RectangleObject))
             {
                 if (e.Button == System.Windows.Forms.MouseButtons.Left && videoReader != null)
                 {
@@ -112,7 +112,7 @@ namespace Annotator
             }
 
             if (drawingButtonSelected[polygonDrawing] ||   // Drawing mode 
-                (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)) // Editing mode
+                (selectedObject != null && selectedObject is PolygonObject)) // Editing mode
             {
                 if (e.Button == System.Windows.Forms.MouseButtons.Left && videoReader != null)
                 {
@@ -224,7 +224,7 @@ namespace Annotator
                 }
             }
 
-            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject is RectangleObject))
             {
                 if (draggingSelectBoxes)
                 {
@@ -297,7 +297,7 @@ namespace Annotator
                 }
             }
 
-            if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+            if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject is PolygonObject))
             {
                 if (draggingSelectBoxes)
                 {
@@ -419,7 +419,7 @@ namespace Annotator
                 }
             }
 
-            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+            if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject is RectangleObject))
             {
                 if (draggingSelectBoxes)
                 {
@@ -428,7 +428,7 @@ namespace Annotator
             }
 
             if (drawingButtonSelected[polygonDrawing] ||   // Drawing mode 
-                (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon)) // Editing mode
+                (selectedObject != null && selectedObject is PolygonObject)) // Editing mode
             {
                 if (e.Button == System.Windows.Forms.MouseButtons.Left && videoReader != null)
                 {
@@ -568,35 +568,33 @@ namespace Annotator
                         LocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                         if (lm != null)
                         {
-                            switch (selectedObject.borderType)
+                            if (selectedObject is RectangleObject)
                             {
-                                case Object.BorderType.Rectangle:
-                                    boundingBox = ((RectangleLocationMark)lm).boundingBox;
-                                    startPoint = new Point(boundingBox.X, boundingBox.Y);
-                                    endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
-                                    break;
-                                case Object.BorderType.Polygon:
-                                    polygonPoints = ((PolygonLocationMark)lm).boundingPolygon;
+                                boundingBox = ((RectangleLocationMark)lm).boundingBox;
+                                startPoint = new Point(boundingBox.X, boundingBox.Y);
+                                endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
+                            }
+                            if (selectedObject is PolygonObject)
+                            {
+                                polygonPoints = ((PolygonLocationMark)lm).boundingPolygon;
 
-                                    resetSelectBoxes();
-                                    calculateCentroid();
-                                    break;
+                                resetSelectBoxes();
+                                calculateCentroid();
                             }
                         }
                         else
                         {
-                            switch (selectedObject.borderType)
+                            if (selectedObject is RectangleObject)
                             {
-                                case Object.BorderType.Rectangle:
-                                    startPoint = new Point();
-                                    endPoint = new Point();
-                                    selectBoxes = new List<Rectangle>();
-                                    break;
-                                case Object.BorderType.Polygon:
-                                    polygonPoints = new List<PointF>();
-                                    selectBoxes = new List<Rectangle>();
-                                    calculateCentroid();
-                                    break;
+                                startPoint = new Point();
+                                endPoint = new Point();
+                                selectBoxes = new List<Rectangle>();
+                            }
+                            if (selectedObject is PolygonObject)
+                            {
+                                polygonPoints = new List<PointF>();
+                                selectBoxes = new List<Rectangle>();
+                                calculateCentroid();
                             }
                         }
                     }
@@ -613,7 +611,7 @@ namespace Annotator
                     pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
                     // Currently drawing or selecting a rectangle object
-                    if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Rectangle))
+                    if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject is RectangleObject))
                     {
                         if (endPoint.HasValue && startPoint.HasValue && videoReader != null)
                         {
@@ -636,7 +634,7 @@ namespace Annotator
                     }
 
                     // Currently drawing or selecting a polygon object
-                    if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon))
+                    if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject is PolygonObject))
                     {
                         if (drawingNewPolygon)
                         {
@@ -714,7 +712,7 @@ namespace Annotator
 
 
                     // Selecting other kind of objects
-                    if (selectedObject != null && selectedObject.borderType == Object.BorderType.Others)
+                    if (selectedObject != null && !(selectedObject is PolygonObject) && !(selectedObject is RectangleObject))
                     {
                         DrawableLocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                         if (lm != null)
@@ -763,7 +761,7 @@ namespace Annotator
         private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {
             // While editing a polygon
-            if (selectedObject != null && selectedObject.borderType == Object.BorderType.Polygon && editingAtAFrame)
+            if (selectedObject != null && selectedObject is PolygonObject && editingAtAFrame)
             {
                 // While dragging a select box, and user press delete, handle delete that polygon point
                 if (draggingSelectBoxes && e.KeyCode == Keys.Delete)
