@@ -31,24 +31,54 @@ namespace Annotator
                 // There is a saved option config file
                 switch (options.detectionMode)
                 {
-                    case Options.GlyphDetectionMode.ADD_SEPARATE:
-                        radioButton1.Checked = true;
+                    case Options.OverwriteMode.ADD_SEPARATE:
+                        detectSeparatedObjRb.Checked = true;
                         break;
-                    case Options.GlyphDetectionMode.OVERWRITE:
-                        radioButton2.Checked = true;
+                    case Options.OverwriteMode.OVERWRITE:
+                        detectOverwriteObjRb.Checked = true;
                         break;
-                    case Options.GlyphDetectionMode.NO_OVERWRITE:
-                        radioButton3.Checked = true;
+                    case Options.OverwriteMode.NO_OVERWRITE:
+                        detectIgnoreObjRb.Checked = true;
                         break;
                 }
 
                 switch (options.showRigOption)
                 {
                     case Options.ShowRig.SHOW_ALL:
-                        radioButton6.Checked = true;
+                        showAllRigRb.Checked = true;
                         break;
                     case Options.ShowRig.SHOW_UPPER:
-                        radioButton5.Checked = true;
+                        upperBodyRb.Checked = true;
+                        break;
+                }
+
+                switch (options.interpolationModes[Options.RIG])
+                {
+                    case Options.InterpolationMode.LEFT_COPY:
+                        interpolateLeftRigRb.Checked = true;
+                        break;
+                    case Options.InterpolationMode.LINEAR:
+                        interpolateLinearRigRb.Checked = true;
+                        break;
+                }
+
+                switch (options.interpolationModes[Options.RECTANGLE])
+                {
+                    case Options.InterpolationMode.LEFT_COPY:
+                        interpolateLeftRectRb.Checked = true;
+                        break;
+                    case Options.InterpolationMode.LINEAR:
+                        interpolateLinearRectRb.Checked = true;
+                        break;
+                }
+
+                switch (options.interpolationModes[Options.GLYPH])
+                {
+                    case Options.InterpolationMode.LEFT_COPY:
+                        interpolateLeftGlyphRb.Checked = true;
+                        break;
+                    case Options.InterpolationMode.LINEAR:
+                        interpolateLinearGlyphRb.Checked = true;
                         break;
                 }
             }
@@ -71,29 +101,56 @@ namespace Annotator
 
         private void saveView()
         {
-            if (radioButton6.Checked)
+            if (showAllRigRb.Checked)
             {
                 options.showRigOption = Options.ShowRig.SHOW_ALL;
             }
-            else if (radioButton5.Checked)
+            else if (upperBodyRb.Checked)
             {
                 options.showRigOption = Options.ShowRig.SHOW_UPPER;
+            }
+
+            if (interpolateLeftRigRb.Checked)
+            {
+                options.interpolationModes[Options.RIG] = Options.InterpolationMode.LEFT_COPY;
+            }
+            else if (interpolateLinearRigRb.Checked)
+            {
+                options.interpolationModes[Options.RIG] = Options.InterpolationMode.LINEAR;
+            }
+
+            if (interpolateLeftGlyphRb.Checked)
+            {
+                options.interpolationModes[Options.GLYPH] = Options.InterpolationMode.LEFT_COPY;
+            }
+            else if (interpolateLinearGlyphRb.Checked)
+            {
+                options.interpolationModes[Options.GLYPH] = Options.InterpolationMode.LINEAR;
+            }
+
+            if (interpolateLeftRectRb.Checked)
+            {
+                options.interpolationModes[Options.RECTANGLE] = Options.InterpolationMode.LEFT_COPY;
+            }
+            else if (interpolateLinearRectRb.Checked)
+            {
+                options.interpolationModes[Options.RECTANGLE] = Options.InterpolationMode.LINEAR;
             }
         }
 
         private void saveDetection()
         {
-            if (radioButton1.Checked)
+            if (detectSeparatedObjRb.Checked)
             {
-                options.detectionMode = Options.GlyphDetectionMode.ADD_SEPARATE;
+                options.detectionMode = Options.OverwriteMode.ADD_SEPARATE;
             }
-            else if (radioButton2.Checked)
+            else if (detectOverwriteObjRb.Checked)
             {
-                options.detectionMode = Options.GlyphDetectionMode.OVERWRITE;
+                options.detectionMode = Options.OverwriteMode.OVERWRITE;
             }
-            else if (radioButton3.Checked)
+            else if (detectIgnoreObjRb.Checked)
             {
-                options.detectionMode = Options.GlyphDetectionMode.NO_OVERWRITE;
+                options.detectionMode = Options.OverwriteMode.NO_OVERWRITE;
             }
         }
     }

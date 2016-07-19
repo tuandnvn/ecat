@@ -12,11 +12,12 @@ namespace Annotator
     [DataContract]
     public class Options
     {
-        public enum GlyphDetectionMode
+        public enum OverwriteMode
         {
             ADD_SEPARATE,
             OVERWRITE,
-            NO_OVERWRITE
+            NO_OVERWRITE,
+            REMOVE_EXISTING
         }
 
         public enum ShowRig
@@ -25,6 +26,15 @@ namespace Annotator
             SHOW_UPPER
         }
 
+        public enum InterpolationMode
+        {
+            LEFT_COPY,
+            LINEAR
+        }
+
+        internal const string RIG = "Rig";
+        internal const string RECTANGLE = "Rectangle";
+        internal const string GLYPH = "Glyph";
         internal static string TEMP_FILENAME = "~option.txt";
         internal static string FILENAME = "option.txt";
 
@@ -32,24 +42,27 @@ namespace Annotator
         internal string glyphPrototypePath = "";
 
         [DataMember]
-        internal GlyphDetectionMode detectionMode;
+        internal OverwriteMode detectionMode;
 
         [DataMember]
         internal ShowRig showRigOption;
 
+        [DataMember]
+        internal Dictionary<string, InterpolationMode> interpolationModes;
+
         /// <summary>
         /// List of prototypes, should be set by reading from the glyphPrototypePath. otherwise set to default
         /// </summary>
-        public List<GlyphBoxPrototype> prototypeList;
+        public List<GlyphBoxPrototype> prototypeList { get; private set; }
 
 
-        public static Options singletonOptions;
+        private static Options singletonOptions;
 
         public static Options getOption()
         {
             if (singletonOptions == null)
             {
-                singletonOptions = createDefaultOption();
+                Options tempOptions = createDefaultOption();
                 try
                 {
                     var s = new DataContractSerializer(typeof(Options));
@@ -58,7 +71,10 @@ namespace Annotator
                     singletonOptions = (Options)s.ReadObject(fs);
 
                     if (singletonOptions.prototypeList == null)
-                        singletonOptions.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 };
+                        singletonOptions.prototypeList = tempOptions.prototypeList;
+
+                    if (singletonOptions.interpolationModes == null)
+                        singletonOptions.interpolationModes = tempOptions.interpolationModes;
 
                     fs.Close();
                 }
@@ -89,9 +105,13 @@ namespace Annotator
         {
             Options options = new Options();
             options.glyphPrototypePath = "";
-            options.detectionMode = GlyphDetectionMode.ADD_SEPARATE;
+            options.detectionMode = OverwriteMode.ADD_SEPARATE;
             options.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 };
             options.showRigOption = ShowRig.SHOW_ALL;
+            options.interpolationModes = new Dictionary<string, InterpolationMode>();
+            options.interpolationModes[RIG] = InterpolationMode.LEFT_COPY;
+            options.interpolationModes[RECTANGLE] = InterpolationMode.LEFT_COPY;
+            options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
 
             return options;
         }

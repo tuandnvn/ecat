@@ -147,6 +147,9 @@
     <Compile Include="AddRigFileForm.Designer.cs">
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomizedTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="depth\BaseDepthReader.cs" />
     <Compile Include="depth\BaseDepthWriter.cs" />
     <Compile Include="depth\DepthCoordinateMapping.cs" />
@@ -154,6 +157,12 @@
     <Compile Include="depth\IDepthWriter.cs" />
     <Compile Include="DrawMatches.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="EventTemplateGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventTemplateGenerator.Designer.cs">
+      <DependentUpon>EventTemplateGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="KinectUtils.cs" />
     <Compile Include="learning\SimpleLearningDataGenerator.cs" />
     <Compile Include="learning\LearningDataGenerator.cs" />
@@ -177,6 +186,7 @@
     <Compile Include="object\ObjectMark.cs" />
     <Compile Include="object\PolygonLocationMark.cs" />
     <Compile Include="object\PolygonLocationMark3D.cs" />
+    <Compile Include="object\PolygonObject.cs" />
     <Compile Include="object\RectangleLocationMark.cs" />
     <Compile Include="object\RigFigure.cs" />
     <Compile Include="object\RigLocationMark.cs" />
@@ -330,6 +340,9 @@
     </Compile>
     <EmbeddedResource Include="AddRigFileForm.resx">
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventTemplateGenerator.resx">
+      <DependentUpon>EventTemplateGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>

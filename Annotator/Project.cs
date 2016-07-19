@@ -10,26 +10,34 @@ namespace Annotator
     public class Project
     {
         internal List<Session> sessions;//project sessions
-        private String locationFolder; //project location folder == workspace folder
-        private String projectName;    //project name
-        private bool selected = false;  //true if project selected
+
+        /// <summary>
+        /// project location folder == workspace folder
+        /// </summary>
+        public String locationFolder
+        {
+            get; set;
+        }
+
+        public String name
+        {
+            get; set;
+        }
+
+        public bool selected
+        {
+            get; set;
+        } = false;
 
         //constructor
         public Project(String locationFolder, String projectName, List<Session> sessions)
         {
             this.locationFolder = locationFolder;
             this.sessions = sessions;
-            this.projectName = projectName;
+            this.name = projectName;
             if (this.sessions == null)
                 this.sessions = new List<Session>();
             this.selected = false;
-        }
-
-        public Session this [int index] {
-            get
-            {
-                return sessions[index];
-            }
         }
 
         //Get project session at given index
@@ -77,7 +85,7 @@ namespace Annotator
         public bool checkSessionInProject(String sessionName)
         {
             //Check if project file exists:
-            String projectFileName = locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + projectName + ".project";
+            String projectFileName = locationFolder + Path.DirectorySeparatorChar + name + Path.DirectorySeparatorChar + name + ".project";
             if (File.Exists(projectFileName))
             {
                 StreamReader file = new StreamReader(projectFileName);
@@ -103,7 +111,7 @@ namespace Annotator
         //Save project parameters file
         public void saveProjectFile(String sessionName)
         {
-            String projectFileName = locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + projectName + ".project";
+            String projectFileName = locationFolder + Path.DirectorySeparatorChar + name + Path.DirectorySeparatorChar + name + ".project";
             if (!File.Exists(projectFileName))
             {
                 TextWriter tw = new StreamWriter(projectFileName);
@@ -152,7 +160,7 @@ namespace Annotator
                 }
             }
             //2)Update .project file
-            String projectFileName = locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + projectName + ".project";
+            String projectFileName = locationFolder + Path.DirectorySeparatorChar + name + Path.DirectorySeparatorChar + name + ".project";
             try
             {
                 TextWriter tw = new StreamWriter(projectFileName);
@@ -168,43 +176,12 @@ namespace Annotator
             }
         }
 
-        //Set project name
-        public void setProjectName(String projectName)
-        {
-            this.projectName = projectName;
-        }
-        //Get project name
-        public String getProjectName()
-        {
-            return projectName;
-        }
-        //Get project location == workspace folder
-        public String getLocation()
-        {
-            return locationFolder;
-        }
         //Get session by name
         public Session getSession(String sessionName)
         {
             Session s = sessions.Find(t => t.sessionName.Equals(sessionName));
-            
-            return s;
-        }
 
-        //Get number of sessions in project
-        public int getSessionN()
-        {
-            return sessions.Count;
-        }
-        //Set selected
-        public void setSelected(bool option)
-        {
-            this.selected = option;
-        }
-        //Get selected
-        public bool getSelected()
-        {
-            return selected;
+            return s;
         }
     }
 }

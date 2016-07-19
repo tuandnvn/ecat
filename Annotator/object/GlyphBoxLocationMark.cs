@@ -291,7 +291,6 @@ namespace Annotator
                     faces.Add(gf);
                 }
             }
-
         }
     }
 }

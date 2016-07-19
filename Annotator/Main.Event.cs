@@ -95,7 +95,7 @@ namespace Annotator
                 {
                     if (mapFromEventToEventAnnotations.ContainsKey(ev))
                     {
-                        mapFromEventToEventAnnotations[ev].setSelect(false);
+                        mapFromEventToEventAnnotations[ev].selected = false;
                         ev.resetTempo();
                         mapFromEventToEventAnnotations[ev].deselectDeco();
                     }

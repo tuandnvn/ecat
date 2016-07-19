@@ -230,13 +230,13 @@ namespace Annotator
                 return;
             }
 
-            var result = MessageBox.Show(main, "Do you want to add captured session into project " + currentProject.getProjectName() +
+            var result = MessageBox.Show(main, "Do you want to add captured session into project " + currentProject.name +
                 "?. Yes if you do, no if you want to save it into a separate folder", "Save session", MessageBoxButtons.YesNoCancel);
 
             switch (result)
             {
                 case DialogResult.Yes:
-                    SessionInfo sessionInfo = new SessionInfo(main, currentProject.getProjectName());
+                    SessionInfo sessionInfo = new SessionInfo(main, currentProject.name);
                     sessionInfo.StartPosition = FormStartPosition.CenterParent;
                     if (videoReader != null)
                     {

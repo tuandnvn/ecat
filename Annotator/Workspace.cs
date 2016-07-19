@@ -11,6 +11,11 @@ namespace Annotator
     //Workspace class
     class Workspace
     {
+        private List<Project> projects = new List<Project>();
+        private Dictionary<string, Project> projectNameToProject = new Dictionary<string, Project>();
+        private String locationFolder;//workspace folder
+        private bool defaultOption;//default workspace folder option
+
         //Constructor
         public Workspace()
         {
@@ -57,7 +62,7 @@ namespace Annotator
         {
             if (index < 0 || index > projects.Count)
                 return null;
-            return projects[index].getProjectName();
+            return projects[index].name;
         }
 
         //Return number of project in workspace
@@ -71,10 +76,5 @@ namespace Annotator
         {
             return projectNameToProject[projectName];
         }
-        
-        private List<Project> projects = new List<Project>();
-        private Dictionary<string, Project> projectNameToProject = new Dictionary<string, Project>();
-        private String locationFolder;//workspace folder
-        private bool   defaultOption ;//default workspace folder option
     }
 }

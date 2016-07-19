@@ -16,7 +16,38 @@ namespace Annotator
 
         int minLeftPosition;
         int maxLeftPosition;
-        private bool selected = false;
+        private bool _selected = false;
+        internal bool selected
+        {
+            get
+            {
+                return _selected;
+            }
+            set
+            {
+                this._selected = value;
+
+                if (_selected)
+                {
+                    selectBtn.Text = "Save";
+                }
+                else
+                {
+                    selectBtn.Text = "Edit";
+                }
+
+                if (_selected)
+                {
+                    main.setTrackbarMinDragValue(ev.startFrame);
+                    main.setTrackbarMaxDragValue(ev.endFrame);
+                }
+                else
+                {
+                    main.resetTrackbarMinDragValue();
+                    main.resetTrackbarMaxDragValue();
+                }
+            }
+        }
 
         //private int startSpan;   //minimum value for left slider
         //private int endSpan;   //maximum value for right slider
@@ -25,7 +56,7 @@ namespace Annotator
         private double frameStepX;
 
         Brush rBrush = new SolidBrush(Color.FromArgb(128, Color.Yellow));
-        private Main mainGUI;
+        private Main main;
 
         private int rectangleYPos = 8;
         private int rectangleSize = 12;
@@ -57,7 +88,7 @@ namespace Annotator
             //MessageBox.Show(txt);
             if (ev.text != null)
                 textAnnotation.Text = ev.text;
-            this.mainGUI = mainGUI;
+            this.main = mainGUI;
             this.start = start;
             this.end = end;
 
@@ -124,29 +155,32 @@ namespace Annotator
 
         private void Annotation_MouseMove(object sender, MouseEventArgs e)
         {
-            if (slider1Move)
+            if (!selected)
             {
-                int newX = (e.Location.X < minLeftPosition) ? minLeftPosition : (e.Location.X > maxLeftPosition) ? maxLeftPosition : e.Location.X;
-
-                if (newX < rightMarker.X1)
+                if (slider1Move)
                 {
-                    leftMarker.X1 = newX;
-                    leftMarker.X2 = newX;
-                    this.rectangleShape.Location = new Point(leftMarker.X1 + leftMarker.BorderWidth - 1, rectangleYPos);
-                    this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
-                    this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + start);
+                    int newX = (e.Location.X < minLeftPosition) ? minLeftPosition : (e.Location.X > maxLeftPosition) ? maxLeftPosition : e.Location.X;
+
+                    if (newX < rightMarker.X1)
+                    {
+                        leftMarker.X1 = newX;
+                        leftMarker.X2 = newX;
+                        this.rectangleShape.Location = new Point(leftMarker.X1 + leftMarker.BorderWidth - 1, rectangleYPos);
+                        this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
+                        this.main.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + start);
+                    }
                 }
-            }
-            if (slider2Move)
-            {
-                int newX = (e.Location.X < minLeftPosition) ? minLeftPosition : (e.Location.X > maxLeftPosition) ? maxLeftPosition : e.Location.X;
-
-                if (leftMarker.X1 < newX)
+                if (slider2Move)
                 {
-                    rightMarker.X1 = newX;
-                    rightMarker.X2 = newX;
-                    this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
-                    this.mainGUI.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + start);
+                    int newX = (e.Location.X < minLeftPosition) ? minLeftPosition : (e.Location.X > maxLeftPosition) ? maxLeftPosition : e.Location.X;
+
+                    if (leftMarker.X1 < newX)
+                    {
+                        rightMarker.X1 = newX;
+                        rightMarker.X2 = newX;
+                        this.rectangleShape.Size = new Size(rightMarker.X1 - leftMarker.X1 - (leftMarker.BorderWidth + rightMarker.BorderWidth - 2), rectangleSize);
+                        this.main.setTrackbarLocation((int)((newX - minLeftPosition) / frameStepX) + start);
+                    }
                 }
             }
         }
@@ -186,31 +220,39 @@ namespace Annotator
 
         private void leftMarker_Move(object sender, EventArgs e)
         {
-            // Exact point
-            if ((int)((leftMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == leftMarker.X1 - minLeftPosition)
+            if (!selected)
             {
-                ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start;
-            } else
-            {
-                ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
+                // Exact point
+                if ((int)((leftMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == leftMarker.X1 - minLeftPosition)
+                {
+                    ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start;
+                }
+                else
+                {
+                    ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
+                }
+
+                intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
+                main.Invalidate();
             }
-            
-            intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
-            mainGUI.Invalidate();
         }
 
         private void rightMarker_Move(object sender, EventArgs e)
         {
-            if ((int)((rightMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == rightMarker.X1 - minLeftPosition)
+            if (!selected)
             {
-                ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start;
-            } else
-            {
-                ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
+                if ((int)((rightMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == rightMarker.X1 - minLeftPosition)
+                {
+                    ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start;
+                }
+                else
+                {
+                    ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
+                }
+
+                intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
+                main.Invalidate();
             }
-            
-            intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
-            mainGUI.Invalidate();
         }
 
         private void lineShape1_Paint(object sender, PaintEventArgs e)
@@ -252,28 +294,17 @@ namespace Annotator
             }
         }
 
-        internal void setSelect(bool selected)
-        {
-            if (selected)
-            {
-                selectBtn.Text = "Save";
-            } else
-            {
-                selectBtn.Text = "Edit";
-            }
 
-            this.selected = selected;
-        }
 
         private void saveAnnotation()
         {
-            ev.text = mainGUI.getAnnotationText();
+            ev.text = main.getAnnotationText();
             textAnnotation.Text = ev.text;
             ev.save();
-            mainGUI.unselectAnnotations();
-            mainGUI.selectedEvent = null;
-            mainGUI.clearRightBottomPanel();
-            setSelect(false);
+            main.unselectAnnotations();
+            main.selectedEvent = null;
+            main.clearRightBottomPanel();
+            selected = false;
             deselectDeco();
         }
 
@@ -282,10 +313,10 @@ namespace Annotator
             ev.resetTempo();
             // Caution: this call should be before setAnnotationText
             // because it would clear out the textAnnotation.Text
-            mainGUI.unselectAnnotations();
-            mainGUI.setAnnotationText(textAnnotation.Text);
-            mainGUI.selectedEvent = this.ev;
-            setSelect(true);
+            main.unselectAnnotations();
+            main.setAnnotationText(textAnnotation.Text);
+            main.selectedEvent = this.ev;
+            selected = true;
             selectDeco();
 
             foreach (Event.Reference reference in ev.references)
@@ -300,13 +331,13 @@ namespace Annotator
                 {
                     String text = "";
                     text = this.getText().Substring(start, end - start);
-                    rowIndex = mainGUI.addRightBottomTableReference(start, end, text, refID);
+                    rowIndex = main.addRightBottomTableReference(start, end, text, refID);
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
                     // The case when there is problem with start and end
                     Console.WriteLine(e);
-                    rowIndex = mainGUI.addRightBottomTableReference(start, end, "", refID, Color.Red);
+                    rowIndex = main.addRightBottomTableReference(start, end, "", refID, Color.Red);
                 }
 
                 rowIndexToObjs[rowIndex] = reference;
@@ -323,13 +354,13 @@ namespace Annotator
                 try
                 {
                     String text = this.getText().Substring(start, end - start);
-                    rowIndex = mainGUI.addRightBottomTableReference(start, end, text, semanticType);
+                    rowIndex = main.addRightBottomTableReference(start, end, text, semanticType);
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
                     // The case when there is problem with start and end
                     Console.WriteLine(e);
-                    rowIndex = mainGUI.addRightBottomTableReference(start, end, "", semanticType, Color.Red);
+                    rowIndex = main.addRightBottomTableReference(start, end, "", semanticType, Color.Red);
                 }
 
                 rowIndexToObjs[rowIndex] = ev;
@@ -340,7 +371,7 @@ namespace Annotator
         {
             if (rowIndexToObjs.ContainsKey(rowIndex))
             {
-                if ( rowIndexToObjs[rowIndex].GetType() == typeof(Event.Reference))
+                if (rowIndexToObjs[rowIndex].GetType() == typeof(Event.Reference))
                 {
                     ev.removeTempoReference(rowIndexToObjs[rowIndex] as Event.Reference);
                 }
@@ -369,13 +400,13 @@ namespace Annotator
                 MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                mainGUI.removeAnnotation(this.ev);
+                main.removeAnnotation(this.ev);
             }
         }
 
         private void subEventLink_Click(object sender, EventArgs e)
         {
-            mainGUI.linkSubEvent(this.ev);
+            main.linkSubEvent(this.ev);
         }
 
         private void EventAnnotation_SizeChanged(object sender, EventArgs e)

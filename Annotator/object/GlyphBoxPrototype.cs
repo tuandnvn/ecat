@@ -153,6 +153,7 @@ namespace Annotator
     {
         public Dictionary<int, GlyphFace> indexToGlyphFaces { get; private set; }
         public int glyphSize { get; private set; }
+        public string prototypeName { get; private set; }
 
         /// <summary>
         /// Prototype for a glyphbox
@@ -166,8 +167,9 @@ namespace Annotator
         /// - ___________________________Oz____ on the positive side is indexed 4.
         /// - _________________________________ on the negative side is indexed 5.
         /// </summary>
-        public GlyphBoxPrototype(Dictionary<int, GlyphFace> indexToGlyphFaces, int glyphSize)
+        public GlyphBoxPrototype(string prototypeName, Dictionary<int, GlyphFace> indexToGlyphFaces, int glyphSize)
         {
+            this.prototypeName = prototypeName;
             this.indexToGlyphFaces = indexToGlyphFaces;
             this.glyphSize = glyphSize;
         }
@@ -199,7 +201,7 @@ namespace Annotator
                                                                 { true, true,  false } }, 3);
 
 
-            prototype1 = new GlyphBoxPrototype(indexToGlyphFaces, 3);
+            prototype1 = new GlyphBoxPrototype("", indexToGlyphFaces, 3);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
             indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { false, false, false, false, true},
@@ -209,7 +211,7 @@ namespace Annotator
                                                                 { true, true, true, false, true}, }, 5);
             indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
-            prototype2 = new GlyphBoxPrototype(indexToGlyphFaces, 5);
+            prototype2 = new GlyphBoxPrototype("Stella Artois", indexToGlyphFaces, 5);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
             indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { true, true, true, true, false},
@@ -219,7 +221,7 @@ namespace Annotator
                                                                 { false, false, false, true, true}, }, 5);
             indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
-            prototype3 = new GlyphBoxPrototype(indexToGlyphFaces, 5);
+            prototype3 = new GlyphBoxPrototype("Pepsi", indexToGlyphFaces, 5);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
             indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { false, true, false, true, false},
@@ -229,7 +231,7 @@ namespace Annotator
                                                                 { false, true, true, true, true}, }, 5);
             indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
-            prototype4 = new GlyphBoxPrototype(indexToGlyphFaces, 5);
+            prototype4 = new GlyphBoxPrototype("", indexToGlyphFaces, 5);
         }
     }
 }

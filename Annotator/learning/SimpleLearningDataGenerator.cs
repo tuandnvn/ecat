@@ -23,9 +23,9 @@ namespace Annotator
 
             // For each session, there is a list of data points and label points
             // Each data point and label point corresponds to a frame
-            for (int i = 0; i < project.getSessionN(); i++)
+            for (int i = 0; i < project.sessions.Count; i++)
             {
-                Session session = project[i];
+                Session session = project.getSession(i);
 
                 session.loadIfNotLoaded();
 

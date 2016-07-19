@@ -27,41 +27,39 @@ namespace Annotator
         //Select project from available projects in workspace
         private void selectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Check if there is editing session:
-            foreach (TreeNode projectNode in treeView.Nodes)
+            if (currentSession != null && currentSession.getEdited())
             {
-                String sessionName = "";
-                foreach (TreeNode sessionNode in projectNode.Nodes)
-                {
-                    sessionName = sessionNode.Text;
-                    if (sessionName.Contains("*"))
-                        sessionName = sessionName.Substring(1);
-                    Project project = workspace.getProject(projectNode.Text);
-                    Session session = project.getSession(sessionName);
-                    if (session.getEdited())
-                    {
-                        MessageBox.Show("Cannot select project, session " + sessionName + " in project " + project.getProjectName() + " is editing");
-                        return;
-                    }
-                }
+                MessageBox.Show("Cannot select project, session " + currentSession.sessionName + " in project " + currentSession.project + " is editing");
+                return;
             }
+
+            treeView.BeginUpdate();
+
+
+            ///////////////////////////////////
+            //Release current project
+            if (currentProject != null)
+            {
+                currentProjectNode.BackColor = Color.White;
+                // Release resources to free memory
+                foreach (Session s in currentProject.sessions)
+                {
+                    s.releaseResources();
+                }
+                currentProject.selected = false;
+            }
+
             ///////////////////////////////////
             //Get selected node from treeView:
             currentProjectNode = treeView.SelectedNode;
             String prjName = currentProjectNode.Text;
-            treeView.BeginUpdate();
-            foreach (TreeNode node in treeView.Nodes)
-            {
-                node.BackColor = Color.White;
-            }
-            
             currentProjectNode.BackColor = Color.Silver;
             treeView.EndUpdate();
             currentProject = workspace.getProject(prjName);
-            currentProject.setSelected(true);
+            currentProject.selected = (true);
 
             this.simpleEventDataCreateMenuItem.Enabled = true;
-            this.Text = "Project " + currentProject.getProjectName() + " selected";
+            this.Text = "Project " + currentProject.name + " selected";
 
             foreach (TreeNode node in treeView.Nodes)
             {
@@ -77,32 +75,80 @@ namespace Annotator
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (treeView.SelectedNode.Text.Equals(currentProject.getProjectName()))
+            if (currentSession != null && currentSession.getEdited())
             {
-                //Check if project session is editing:
-                //Check if there is editing session:
-                foreach (TreeNode projectNode in treeView.Nodes)
+                MessageBox.Show("Cannot close project, session " + currentSession.sessionName + " is editing");
+                return;
+            }
+
+            // Release resources to free memory
+            foreach (Session s in currentProject.sessions)
+            {
+                s.releaseResources();
+            }
+
+            treeView.SelectedNode.BackColor = Color.White;
+            currentProject.selected = false;
+            currentProject = null;
+            this.Text = "No project selected";
+        }
+
+        private void projectOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
+            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
+            objectRecognizerIncluded[objectRecognizer] = true;
+            setupKinectIfNeeded();
+
+            Task t = Task.Run(async () =>
+            {
+                try
                 {
-                    String sessionName = "";
-                    foreach (TreeNode sessionNode in projectNode.Nodes)
+                    if (currentlySetupKinect)
                     {
-                        sessionName = sessionNode.Text;
-                        if (sessionName.Contains("*"))
-                            sessionName = sessionName.Substring(1);
-                        Project project = workspace.getProject(projectNode.Text);
-                        Session session = project.getSession(sessionName);
-                        if (session.getEdited())
-                        {
-                            MessageBox.Show("Cannot close project, session " + sessionName + " is editing");
-                            return;
-                        }
+                        Console.WriteLine("Await");
+                        isAvailable.Wait();
+                        currentlySetupKinect = false;
+                    }
+
+                    foreach (var session in currentProject.sessions)
+                    {
+                        currentSession = session;
+                        currentSession.loadIfNotLoaded();
+                        List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                            currentSession.getDepth(0),
+                            new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                            coordinateMapper.MapColorFrameToCameraSpace
+                        );
+                        AddObjectsIntoSession(detectedObjects);
+                        currentSession.saveSession();
                     }
                 }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc);
+                }
+            });
+        }
 
-                treeView.SelectedNode.BackColor = Color.White;
-                currentProject.setSelected(false);
-                currentProject = null;
-                this.Text = "No project selected";
+        private void projectOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var session in currentProject.sessions)
+            {
+                currentSession = session;
+                currentSession.loadIfNotLoaded();
+                sessionOfflineModeGlyphDetectToolStripMenuItem_Click(null, null);
+                currentSession.saveSession();
+            }
+        }
+
+        private void projectEventTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentProject != null)
+            {
+                EventTemplateGenerator etg = new EventTemplateGenerator(this, true);
+                etg.StartPosition = FormStartPosition.CenterParent;
+                etg.ShowDialog();
             }
         }
     }

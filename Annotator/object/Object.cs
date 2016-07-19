@@ -215,17 +215,18 @@ namespace Annotator
         /// <returns></returns>
         public DrawableLocationMark getScaledLocationMark(int frameNo, float scale, Point translation)
         {
-            int first = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
+            int prevMarker = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
+            int nextMarker = objectMarks.Keys.FirstOrDefault(x => x >= frameNo);
 
-            if (first == 0 && !objectMarks.ContainsKey(0) )
+            if (prevMarker == 0 && !objectMarks.ContainsKey(0) )
             {
                 return null;
             }
             if (_borderType != null)
             {
-                if (objectMarks[first].GetType().IsSubclassOf(typeof(DrawableLocationMark)))
+                if (objectMarks[prevMarker].GetType().IsSubclassOf(typeof(DrawableLocationMark)))
                 {
-                    return objectMarks[first].getScaledLocationMark(scale, translation);
+                    return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
                 }
             }
             return null;
@@ -402,6 +403,17 @@ namespace Annotator
 
                 objects.Add(o);
             }
+
+            int performerCount = 1;
+            // Add performer names to RigObject
+            foreach ( var o in objects )
+            {
+                if ( o is RigObject )
+                {
+                    o.name = "Performer " + performerCount++;
+                }
+            }
+
             return objects;
         }
 

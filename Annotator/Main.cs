@@ -228,7 +228,7 @@ namespace Annotator
 
                         if (project.checkSessionInProject(sessionName))
                         {
-                            project.addSession(new Session(this, sessionName, project.getProjectName(), project.getLocation()));
+                            project.addSession(new Session(sessionName, project.name, project.locationFolder));
                             //Add to treeview session list only files which exists in session filesList
 
                             Session session = project.getSession(sessionName);
@@ -246,7 +246,7 @@ namespace Annotator
                         Project project = workspace.getProject(prjName);
                         if (project.checkSessionInProject(sessionName))
                         {
-                            project.addSession(new Session(this, sessionName, project.getProjectName(), project.getLocation()));
+                            project.addSession(new Session(sessionName, project.name, project.locationFolder));
                             array.Add(sessionNode);
                         }
                     }
@@ -352,7 +352,7 @@ namespace Annotator
 
             TreeNode selectedNode = treeView.SelectedNode;
             Session choosedSession = null;
-            if (selectedNode != null && currentProject != null && selectedNode.Parent.Text.Equals(currentProject.getProjectName()))
+            if (selectedNode != null && currentProject != null && selectedNode.Parent.Text.Equals(currentProject.name))
             {
                 editSessionMenuItem.Enabled = true;
                 saveSessionMenuItem.Enabled = true;
@@ -360,6 +360,7 @@ namespace Annotator
                 addSessionMenuItem.Enabled = true;
                 refreshSessionMenuItem.Enabled = true;
                 sessionDetectToolStripMenuItem.Enabled = true;
+                sessionGenerateToolStripMenuItem.Enabled = true;
 
                 //Check if session is editing:
                 choosedSession = currentProject.getSession(selectedNode.Text);
@@ -376,6 +377,7 @@ namespace Annotator
                     saveSessionMenuItem.Enabled = false;
                     addSessionMenuItem.Enabled = false;
                     sessionDetectToolStripMenuItem.Enabled = false;
+                    sessionGenerateToolStripMenuItem.Enabled = false;
                     //MessageBox.Show("OK2");
                 }
             }
@@ -386,6 +388,8 @@ namespace Annotator
                 deleteSessionMenuItem.Enabled = false;
                 addSessionMenuItem.Enabled = false;
                 refreshSessionMenuItem.Enabled = false;
+                sessionDetectToolStripMenuItem.Enabled = false;
+                sessionGenerateToolStripMenuItem.Enabled = false;
             }
 
             Point location = this.Location;
@@ -399,22 +403,25 @@ namespace Annotator
             if (treeView.SelectedNode == null)
                 return;
 
-            if (currentProject != null && treeView.SelectedNode.Text.Equals(currentProject.getProjectName()))
+            if (currentProject != null && treeView.SelectedNode.Text.Equals(currentProject.name))
             {
                 selectToolStripMenuItem.Enabled = false;
                 closeToolStripMenuItem.Enabled = true;
                 newSessionToolStripMenuItem.Enabled = true;
                 recordSessionToolStripMenuItem.Enabled = true;
                 projectDetectToolStripMenuItem.Enabled = true;
+                projectGenerateToolStripMenuItem.Enabled = true;
             }
-            else if (currentProject != null && !(treeView.SelectedNode.Text.Equals(currentProject.getProjectName())))
+            else if (currentProject != null && !(treeView.SelectedNode.Text.Equals(currentProject.name)))
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
                 projectDetectToolStripMenuItem.Enabled = false;
+                projectGenerateToolStripMenuItem.Enabled = false;
             }
+
             if (currentProject == null)
             {
                 selectToolStripMenuItem.Enabled = true;
@@ -422,6 +429,7 @@ namespace Annotator
                 newSessionToolStripMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
                 projectDetectToolStripMenuItem.Enabled = false;
+                projectGenerateToolStripMenuItem.Enabled = false;
             }
             Point location = this.Location;
             location.X += e.Location.X + leftMostPanel.Location.X + 15;
@@ -498,7 +506,7 @@ namespace Annotator
 
             //1) Update workspace project by adding new session
             Project project = workspace.getProject(projectName);
-            Session newSession = new Session(this, sessionName, project.getProjectName(), project.getLocation());
+            Session newSession = new Session(sessionName, project.name, project.locationFolder);
 
             project.addSession(newSession);
 
@@ -563,6 +571,28 @@ namespace Annotator
         {
             if (value >= frameTrackBar.Minimum && value <= frameTrackBar.Maximum && !editingAtAFrame)
                 frameTrackBar.Value = value;
+        }
+
+        public void setTrackbarMinDragValue(int value)
+        {
+            if (value >= frameTrackBar.Minimum && value <= frameTrackBar.Maximum)
+                frameTrackBar.MinDragVal = value;
+        }
+
+        public void resetTrackbarMinDragValue()
+        {
+            frameTrackBar.MinDragVal = frameTrackBar.Minimum;
+        }
+
+        public void setTrackbarMaxDragValue(int value)
+        {
+            if (value >= frameTrackBar.Minimum && value <= frameTrackBar.Maximum)
+                frameTrackBar.MaxDragVal = value;
+        }
+
+        public void resetTrackbarMaxDragValue()
+        {
+            frameTrackBar.MaxDragVal = frameTrackBar.Maximum;
         }
 
         public void setNewSession(bool option)
@@ -857,6 +887,5 @@ namespace Annotator
             of.StartPosition = FormStartPosition.CenterParent;
             of.ShowDialog();
         }
-
     }
 }

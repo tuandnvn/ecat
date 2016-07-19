@@ -30,12 +30,11 @@ namespace Annotator
         public String project { get; private set; }         //session's project 
         public String locationFolder { get; private set; }  //session location folder
         private bool edited;            //true if session is currently edited
-        private List<VideoReader> videos;
-        private List<BaseDepthReader> depthVideos;
-        internal List<String> filesList;
+        private List<VideoReader> videoReaders;
+        private List<BaseDepthReader> depthReaders;
+        internal SortedSet<String> filesList;
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
-        public Main main { get; }
         private int annotationID;      // annotation ID
         private int? _sessionLength;
         public int sessionLength
@@ -69,9 +68,8 @@ namespace Annotator
         private string commonPrefix;
 
         //Constructor
-        public Session(Main main, String sessionName, String projectOwner, String locationFolder)
+        public Session(String sessionName, String projectOwner, String locationFolder)
         {
-            this.main = main;
             this.sessionName = sessionName;
             this.project = projectOwner;
             this.locationFolder = locationFolder;
@@ -85,10 +83,10 @@ namespace Annotator
 
         private void resetVariables()
         {
-            this.filesList = new List<String>();
+            this.filesList = new SortedSet<String>();
             this.edited = false;
-            this.videos = new List<VideoReader>();
-            this.depthVideos = new List<BaseDepthReader>();
+            this.videoReaders = new List<VideoReader>();
+            this.depthReaders = new List<BaseDepthReader>();
             this.events = new List<Event>();
             this.objects = new Dictionary<string, Object>();
         }
@@ -234,7 +232,8 @@ namespace Annotator
                 if (!File.Exists(metadataFile))
                 {
                     File.Copy(tempMetadataFile, metadataFile, true);
-                } else
+                }
+                else
                 {
                     File.SetAttributes(metadataFile, FileAttributes.Normal);
                     File.Copy(tempMetadataFile, metadataFile, true);
@@ -253,6 +252,27 @@ namespace Annotator
             {
                 Console.WriteLine(e);
             }
+        }
+
+        /// <summary>
+        /// When the resources is scarce, we need to release some of video readers
+        /// </summary>
+        internal void releaseResources()
+        {
+            foreach (var v in videoReaders)
+            {
+                v.Dispose();
+            }
+
+            foreach (var v in depthReaders)
+            {
+                v.Dispose();
+            }
+
+            videoReaders = new List<VideoReader>();
+            depthReaders = new List<BaseDepthReader>();
+
+            loaded = false;
         }
 
         internal void removeObject(string objectId)
@@ -325,7 +345,7 @@ namespace Annotator
                         addDepth(filename);
                     }
                 }
-                
+
                 loadAnnotation();
 
                 myFile.Attributes |= FileAttributes.Hidden;
@@ -349,7 +369,8 @@ namespace Annotator
 
                 XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
                 events = Event.readFromXml(this, annotationsNode);
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine("Exception in loading annotation");
                 Console.WriteLine(e);
@@ -359,23 +380,23 @@ namespace Annotator
         //Get video by index
         public VideoReader getVideo(int index)
         {
-            if (index < 0 || index >= videos.Count)
+            if (index < 0 || index >= videoReaders.Count)
                 return null;
-            return videos[index];
+            return videoReaders[index];
         }
 
         //Get depth by index
         public BaseDepthReader getDepth(int index)
         {
-            if (index < 0 || index >= depthVideos.Count)
+            if (index < 0 || index >= depthReaders.Count)
                 return null;
-            return depthVideos[index];
+            return depthReaders[index];
         }
 
         //Get video by filename
         public VideoReader getVideo(String fileName)
         {
-            foreach (VideoReader v in videos)
+            foreach (VideoReader v in videoReaders)
             {
                 if (v.fileName.EndsWith(fileName))
                 {
@@ -388,7 +409,7 @@ namespace Annotator
         //Get depth video by filename
         public BaseDepthReader getDepth(String fileName)
         {
-            foreach (BaseDepthReader v in depthVideos)
+            foreach (BaseDepthReader v in depthReaders)
             {
                 if (v.fileName.EndsWith(fileName))
                 {
@@ -401,14 +422,14 @@ namespace Annotator
         //Get video numbers
         public int videoCount()
         {
-            return videos.Count;
+            return videoReaders.Count;
         }
 
         //Add video to session
         public void addVideo(String fileName)
         {
             bool exists = false;
-            foreach (VideoReader v in videos)
+            foreach (VideoReader v in videoReaders)
             {
                 if (v.fileName.EndsWith(fileName))
                 {
@@ -429,7 +450,7 @@ namespace Annotator
 
                 v = new VideoReader(fullFileName, duration);
 
-                videos.Add(v);
+                videoReaders.Add(v);
                 sessionLength = v.frameCount;
             }
         }
@@ -438,9 +459,9 @@ namespace Annotator
         public void removeVideo(String fileName)
         {
             var v = getVideo(fileName);
-            if ( v != null )
+            if (v != null)
             {
-                videos.Remove(v);
+                videoReaders.Remove(v);
             }
         }
 
@@ -448,9 +469,9 @@ namespace Annotator
         public void removeDepthVideo(String fileName)
         {
             var v = getDepth(fileName);
-            if ( v != null )
+            if (v != null)
             {
-                depthVideos.Remove(v);
+                depthReaders.Remove(v);
             }
         }
 
@@ -475,7 +496,7 @@ namespace Annotator
         public void addDepth(String fileName)
         {
             bool exists = false;
-            foreach (BaseDepthReader v in depthVideos)
+            foreach (BaseDepthReader v in depthReaders)
             {
                 Console.WriteLine(v.fileName);
                 if (v.fileName.EndsWith(fileName))
@@ -498,7 +519,7 @@ namespace Annotator
 
                 v = new BaseDepthReader(fullFileName);
 
-                depthVideos.Add(v);
+                depthReaders.Add(v);
             }
         }
 
@@ -552,6 +573,88 @@ namespace Annotator
         internal void removeEvent(Event a)
         {
             events.Remove(a);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="startFrame"></param>
+        /// <param name="skipLength"></param>
+        /// <param name="duration"></param>
+        /// <param name="templateDescription"></param>
+        /// <param name="overwriteMode"></param>
+        /// <returns></returns>
+        internal List<Event> addEventTemplate(int startFrame, int skipLength, int duration, string templateDescription,
+            Options.OverwriteMode overwriteMode)
+        {
+            var addedEvents = new List<Event>();
+            int noOfEventTemplate = (this.sessionLength - startFrame - duration) / skipLength + 1;
+
+            /// Process before looping through generated event templates
+            /// 
+            switch (overwriteMode)
+            {
+                case Options.OverwriteMode.REMOVE_EXISTING:
+                    this.events = new List<Event>();
+                    break;
+            }
+
+            for (int i = 0; i < noOfEventTemplate; i++)
+            {
+                int start = startFrame + skipLength * i;
+                int end = startFrame + skipLength * i + duration;
+
+                Event e = new Event(null, start, end, templateDescription);
+
+                // Some text preprocessing 
+                foreach (var o in objects.Values)
+                {
+                    if (o.name != "")
+                    {
+                        if (templateDescription.IndexOf(o.name) != -1)
+                        {
+                            int startRef = templateDescription.IndexOf(o.name);
+                            int endRef = startRef + o.name.Length - 1;
+                            e.addReference(new Event.Reference(e, o.id, startRef, endRef));
+                        }
+                    }
+                }
+
+                switch (overwriteMode)
+                {
+                    case Options.OverwriteMode.ADD_SEPARATE:
+                        this.addEvent(e);
+                        addedEvents.Add(e);
+                        break;
+                    case Options.OverwriteMode.REMOVE_EXISTING:
+                        this.addEvent(e);
+                        addedEvents.Add(e);
+                        break;
+                    case Options.OverwriteMode.OVERWRITE:
+                        foreach (Event ev in this.events)
+                        {
+                            if (ev.startFrame == e.startFrame && ev.endFrame == e.endFrame)
+                            {
+                                this.removeEvent(ev);
+                                break;
+                            }
+                        }
+
+                        this.addEvent(e);
+                        addedEvents.Add(e);
+                        break;
+                    case Options.OverwriteMode.NO_OVERWRITE:
+                        foreach (Event ev in this.events)
+                        {
+                            if (ev.startFrame == e.startFrame && ev.endFrame == e.endFrame)
+                                break;
+                        }
+                        break;
+                }
+
+            }
+
+            return addedEvents;
         }
     }
 }

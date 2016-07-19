@@ -70,7 +70,7 @@ namespace Annotator
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
                 frameTrackBar.Value = frameTrackBar.Minimum;
-                this.Text = "Project " + currentProject.getProjectName() + " selected, edited session = " + chosenSession.sessionName;
+                this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.sessionName;
             }
 
             //Set comboBox:
@@ -86,7 +86,15 @@ namespace Annotator
 
             if (playbackFileComboBox.Items.Count > 0)
             {
-                playbackFileComboBox.SelectedIndex = 0;
+                int startIndex = -1;
+                foreach (string item in playbackFileComboBox.Items)
+                {
+                    startIndex++;
+                    if (Utils.isVideoFile(item))
+                        break;
+                }
+
+                playbackFileComboBox.SelectedIndex = startIndex;
                 playbackFileComboBox.Enabled = true;
                 frameTrackBar.Enabled = true;
                 addEventAnnotationBtn.Enabled = true;
@@ -168,12 +176,24 @@ namespace Annotator
 
         private void frameTrackBar_ValueChanged(object sender, EventArgs e)
         {
+            // Don't allow the track bar value to get out of the range [MinDragValue, MaxDragValue] 
+            if (frameTrackBar.Value < frameTrackBar.MinDragVal) {
+                frameTrackBar.Value = frameTrackBar.MinDragVal;
+                return;
+            }
+
+            if (frameTrackBar.Value > frameTrackBar.MaxDragVal)
+            {
+                frameTrackBar.Value = frameTrackBar.MaxDragVal;
+                return;
+            }
+
             label3.Text = "Frame: " + frameTrackBar.Value;
+
             int frameStartWithZero = frameTrackBar.Value - 1;
             if (videoReader != null)
             {
                 Mat m = videoReader.getFrame(frameStartWithZero);
-                Console.WriteLine(frameStartWithZero);
                 if (m != null)
                 {
                     pictureBoard.mat = m;
@@ -236,11 +256,7 @@ namespace Annotator
         internal void saveCurrentSession()
         {
             currentSession.saveSession();
-            Console.WriteLine("File list when saved");
-            foreach (string fileName in currentSession.filesList)
-            {
-                Console.WriteLine(fileName);
-            }
+
             cleanSessionUI();
         }
 
@@ -257,7 +273,7 @@ namespace Annotator
             if (t.Text.Contains("*"))
                 t.Text = t.Text.Substring(1);
             currentSession.setEdited(false);
-            this.Text = "Project " + currentProject.getProjectName() + " selected";
+            this.Text = "Project " + currentProject.name + " selected";
 
             // Clean the playbackFileComboBox
             clearPlaybackFileComboBox();
@@ -359,7 +375,7 @@ namespace Annotator
             String sName = sessionToDeleteName.Text;
             TreeNode projectNode = sessionToDeleteName.Parent;
             Project project = workspace.getProject(projectNode.Text);
-            if (MessageBox.Show("Confirm session removal (exclude from project): " + sName + " from " + project.getProjectName(), "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Confirm session removal (exclude from project): " + sName + " from " + project.name, "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //1)Remove session from project:
                 project.removeSession(sName);
@@ -443,7 +459,7 @@ namespace Annotator
         {
             string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.getLocation() + Path.DirectorySeparatorChar + currentProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
+            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -477,7 +493,7 @@ namespace Annotator
         internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
         {
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.getLocation() + Path.DirectorySeparatorChar + currentProject.getProjectName() + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
+            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -512,62 +528,6 @@ namespace Annotator
         DepthCoordinateMappingReader mappingReader;
 
 
-        private void projectOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
-            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizerIncluded[objectRecognizer] = true;
-            setupKinectIfNeeded();
-
-            //foreach (var session in currentProject.sessions)
-            //{
-            //    currentSession = session;
-            //    currentSession.loadIfNotLoaded();
-            //    sessionOnlineModeGlyphDetectToolStripMenuItem_Click(null, null);
-            //    //currentSession.saveSession();
-            //}
-
-            Task t = Task.Run(async () =>
-            {
-                try
-                {
-                    if (currentlySetupKinect)
-                    {
-                        Console.WriteLine("Await");
-                        isAvailable.Wait();
-                        currentlySetupKinect = false;
-                    }
-
-                    foreach (var session in currentProject.sessions)
-                    {
-                        currentSession = session;
-                        currentSession.loadIfNotLoaded();
-                        List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
-                            currentSession.getDepth(0),
-                            new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                            coordinateMapper.MapColorFrameToCameraSpace
-                        );
-                        AddObjectsIntoSession(detectedObjects);
-                        currentSession.saveSession();
-                    }
-                }
-                catch (Exception exc)
-                {
-                    Console.WriteLine(exc);
-                }
-            });
-        }
-
-        private void projectOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var session in currentProject.sessions)
-            {
-                currentSession = session;
-                currentSession.loadIfNotLoaded();
-                sessionOfflineModeGlyphDetectToolStripMenuItem_Click(null, null);
-                currentSession.saveSession();
-            }
-        }
 
         private void sessionOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -578,7 +538,7 @@ namespace Annotator
 
             Task t = Task.Run(async () =>
             {
-               
+
                 if (currentlySetupKinect)
                 {
                     Console.WriteLine("Await");
@@ -674,13 +634,13 @@ namespace Annotator
             // Handle adding identical objects or not
             switch (options.detectionMode)
             {
-                case Options.GlyphDetectionMode.ADD_SEPARATE:
+                case Options.OverwriteMode.ADD_SEPARATE:
                     foreach (var detectedObject in detectedObjects)
                     {
                         currentSession.addObject(detectedObject);
                     }
                     break;
-                case Options.GlyphDetectionMode.NO_OVERWRITE:
+                case Options.OverwriteMode.NO_OVERWRITE:
                     foreach (GlyphBoxObject detectedObject in detectedObjects)
                     {
                         bool exist = false;
@@ -699,7 +659,7 @@ namespace Annotator
                         }
                     }
                     break;
-                case Options.GlyphDetectionMode.OVERWRITE:
+                case Options.OverwriteMode.OVERWRITE:
                     foreach (GlyphBoxObject detectedObject in detectedObjects)
                     {
                         Object exist = null;
@@ -747,6 +707,16 @@ namespace Annotator
             {
                 isAvailable.Signal();
                 colorFrameArrived = true;
+            }
+        }
+
+        private void sessionEventTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentSession != null)
+            {
+                EventTemplateGenerator etg = new EventTemplateGenerator(this, false);
+                etg.StartPosition = FormStartPosition.CenterParent;
+                etg.ShowDialog();
             }
         }
     }

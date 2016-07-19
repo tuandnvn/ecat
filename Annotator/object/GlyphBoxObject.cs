@@ -69,6 +69,9 @@ namespace Annotator
                 }
 
             boxPrototype = getPrototype();
+            if (boxPrototype != null)
+                this.name = boxPrototype.prototypeName;
+
         }
 
         /// <summary>
@@ -78,7 +81,7 @@ namespace Annotator
         /// <returns></returns>
         private GlyphBoxPrototype getPrototype()
         {
-            foreach (var prototype in session.main.options.prototypeList)
+            foreach (var prototype in Options.getOption().prototypeList)
             {
                 foreach (GlyphBoxLocationMark<PointF> objectMark in objectMarks.Values)
                 {

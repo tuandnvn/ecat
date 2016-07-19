@@ -46,7 +46,7 @@ namespace Annotator
             if (warningTxt.Visible == false || (warningTxt.ForeColor == Color.Green))
             {
                 Project project = main.getProjectFromWorkspace(projectName);
-                String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + sessionNameTxtBox.Text;
+                String sessionLocation = project.locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + sessionNameTxtBox.Text;
                 if (!Directory.Exists(sessionLocation))
                     Directory.CreateDirectory(sessionLocation);
 
@@ -74,7 +74,7 @@ namespace Annotator
             }
 
             Project project = main.getProjectFromWorkspace(projectName);
-            String sessionLocation = project.getLocation() + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + sessionNameTxtBox.Text;
+            String sessionLocation = project.locationFolder + Path.DirectorySeparatorChar + projectName + Path.DirectorySeparatorChar + sessionNameTxtBox.Text;
             //MessageBox.Show(sessionLocation + Directory.Exists(sessionLocation));
 
             bool existSession = false;

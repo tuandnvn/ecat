@@ -31,33 +31,42 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.detectIgnoreObjRb = new System.Windows.Forms.RadioButton();
+            this.detectOverwriteObjRb = new System.Windows.Forms.RadioButton();
+            this.detectSeparatedObjRb = new System.Windows.Forms.RadioButton();
             this.browserBtn = new System.Windows.Forms.Button();
             this.glyphPrototypeTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.interpolateLinearRectRb = new System.Windows.Forms.RadioButton();
+            this.interpolateLeftRectRb = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.upperBodyRb = new System.Windows.Forms.RadioButton();
+            this.showAllRigRb = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.interpolateLeftGlyphRb = new System.Windows.Forms.RadioButton();
+            this.interpolateLinearGlyphRb = new System.Windows.Forms.RadioButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.interpolateLeftRigRb = new System.Windows.Forms.RadioButton();
+            this.interpolateLinearRigRb = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -86,9 +95,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.detectIgnoreObjRb);
+            this.groupBox1.Controls.Add(this.detectOverwriteObjRb);
+            this.groupBox1.Controls.Add(this.detectSeparatedObjRb);
             this.groupBox1.Controls.Add(this.browserBtn);
             this.groupBox1.Controls.Add(this.glyphPrototypeTxtBox);
             this.groupBox1.Controls.Add(this.label2);
@@ -100,37 +109,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Glyph box";
             // 
-            // radioButton3
+            // detectIgnoreObjRb
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(29, 145);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(312, 17);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.Text = "Ignore detected object if there are object with the same code";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.detectIgnoreObjRb.AutoSize = true;
+            this.detectIgnoreObjRb.Location = new System.Drawing.Point(29, 145);
+            this.detectIgnoreObjRb.Name = "detectIgnoreObjRb";
+            this.detectIgnoreObjRb.Size = new System.Drawing.Size(312, 17);
+            this.detectIgnoreObjRb.TabIndex = 6;
+            this.detectIgnoreObjRb.Text = "Ignore detected object if there are object with the same code";
+            this.detectIgnoreObjRb.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // detectOverwriteObjRb
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(29, 122);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(261, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.Text = "Overwrite object if they have the same glyph code";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.detectOverwriteObjRb.AutoSize = true;
+            this.detectOverwriteObjRb.Location = new System.Drawing.Point(29, 122);
+            this.detectOverwriteObjRb.Name = "detectOverwriteObjRb";
+            this.detectOverwriteObjRb.Size = new System.Drawing.Size(261, 17);
+            this.detectOverwriteObjRb.TabIndex = 5;
+            this.detectOverwriteObjRb.Text = "Overwrite object if they have the same glyph code";
+            this.detectOverwriteObjRb.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // detectSeparatedObjRb
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(29, 99);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(261, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Write each detection object as a separated object";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.detectSeparatedObjRb.AutoSize = true;
+            this.detectSeparatedObjRb.Checked = true;
+            this.detectSeparatedObjRb.Location = new System.Drawing.Point(29, 99);
+            this.detectSeparatedObjRb.Name = "detectSeparatedObjRb";
+            this.detectSeparatedObjRb.Size = new System.Drawing.Size(261, 17);
+            this.detectSeparatedObjRb.TabIndex = 4;
+            this.detectSeparatedObjRb.TabStop = true;
+            this.detectSeparatedObjRb.Text = "Write each detection object as a separated object";
+            this.detectSeparatedObjRb.UseVisualStyleBackColor = true;
             // 
             // browserBtn
             // 
@@ -165,6 +174,106 @@
             this.label1.Size = new System.Drawing.Size(128, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detection overwrite mode";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(643, 369);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "View";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.groupBox6);
+            this.groupBox3.Controls.Add(this.groupBox5);
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Location = new System.Drawing.Point(6, 108);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(628, 237);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Object interpolation";
+            // 
+            // interpolateLinearRectRb
+            // 
+            this.interpolateLinearRectRb.AutoSize = true;
+            this.interpolateLinearRectRb.Location = new System.Drawing.Point(6, 42);
+            this.interpolateLinearRectRb.Name = "interpolateLinearRectRb";
+            this.interpolateLinearRectRb.Size = new System.Drawing.Size(224, 17);
+            this.interpolateLinearRectRb.TabIndex = 5;
+            this.interpolateLinearRectRb.Text = "Rectangle boundary is linearly interpolated";
+            this.interpolateLinearRectRb.UseVisualStyleBackColor = true;
+            // 
+            // interpolateLeftRectRb
+            // 
+            this.interpolateLeftRectRb.AutoSize = true;
+            this.interpolateLeftRectRb.Checked = true;
+            this.interpolateLeftRectRb.Location = new System.Drawing.Point(6, 19);
+            this.interpolateLeftRectRb.Name = "interpolateLeftRectRb";
+            this.interpolateLeftRectRb.Size = new System.Drawing.Size(329, 17);
+            this.interpolateLeftRectRb.TabIndex = 4;
+            this.interpolateLeftRectRb.TabStop = true;
+            this.interpolateLeftRectRb.Text = "Rectangle boundary is kept from the left marker (no interpolation)";
+            this.interpolateLeftRectRb.UseMnemonic = false;
+            this.interpolateLeftRectRb.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.upperBodyRb);
+            this.groupBox2.Controls.Add(this.showAllRigRb);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(5, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(628, 96);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Rig ";
+            // 
+            // upperBodyRb
+            // 
+            this.upperBodyRb.AutoSize = true;
+            this.upperBodyRb.Location = new System.Drawing.Point(29, 66);
+            this.upperBodyRb.Name = "upperBodyRb";
+            this.upperBodyRb.Size = new System.Drawing.Size(130, 17);
+            this.upperBodyRb.TabIndex = 5;
+            this.upperBodyRb.Text = "Only show upper body";
+            this.upperBodyRb.UseVisualStyleBackColor = true;
+            // 
+            // showAllRigRb
+            // 
+            this.showAllRigRb.AutoSize = true;
+            this.showAllRigRb.Checked = true;
+            this.showAllRigRb.Location = new System.Drawing.Point(29, 43);
+            this.showAllRigRb.Name = "showAllRigRb";
+            this.showAllRigRb.Size = new System.Drawing.Size(106, 17);
+            this.showAllRigRb.TabIndex = 4;
+            this.showAllRigRb.TabStop = true;
+            this.showAllRigRb.Text = "Show all rig joints";
+            this.showAllRigRb.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Show rig";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(643, 369);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Data generator";
             // 
             // tableLayoutPanel1
             // 
@@ -204,114 +313,84 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // tabPage2
+            // groupBox4
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(643, 369);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "View";
+            this.groupBox4.Controls.Add(this.interpolateLeftRectRb);
+            this.groupBox4.Controls.Add(this.interpolateLinearRectRb);
+            this.groupBox4.Location = new System.Drawing.Point(9, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(613, 64);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Rectangle boundary";
             // 
-            // groupBox2
+            // groupBox5
             // 
-            this.groupBox2.Controls.Add(this.radioButton5);
-            this.groupBox2.Controls.Add(this.radioButton6);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(5, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(628, 96);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Rig ";
+            this.groupBox5.Controls.Add(this.interpolateLeftGlyphRb);
+            this.groupBox5.Controls.Add(this.interpolateLinearGlyphRb);
+            this.groupBox5.Location = new System.Drawing.Point(9, 89);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(613, 64);
+            this.groupBox5.TabIndex = 10;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Glyph boundary";
             // 
-            // radioButton5
+            // interpolateLeftGlyphRb
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(29, 66);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(130, 17);
-            this.radioButton5.TabIndex = 5;
-            this.radioButton5.Text = "Only show upper body";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.interpolateLeftGlyphRb.AutoSize = true;
+            this.interpolateLeftGlyphRb.Checked = true;
+            this.interpolateLeftGlyphRb.Location = new System.Drawing.Point(6, 19);
+            this.interpolateLeftGlyphRb.Name = "interpolateLeftGlyphRb";
+            this.interpolateLeftGlyphRb.Size = new System.Drawing.Size(307, 17);
+            this.interpolateLeftGlyphRb.TabIndex = 4;
+            this.interpolateLeftGlyphRb.TabStop = true;
+            this.interpolateLeftGlyphRb.Text = "Glyph boundary is kept from the left marker (no interpolation)";
+            this.interpolateLeftGlyphRb.UseMnemonic = false;
+            this.interpolateLeftGlyphRb.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // interpolateLinearGlyphRb
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Checked = true;
-            this.radioButton6.Location = new System.Drawing.Point(29, 43);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(106, 17);
-            this.radioButton6.TabIndex = 4;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Show all rig joints";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.interpolateLinearGlyphRb.AutoSize = true;
+            this.interpolateLinearGlyphRb.Location = new System.Drawing.Point(6, 42);
+            this.interpolateLinearGlyphRb.Name = "interpolateLinearGlyphRb";
+            this.interpolateLinearGlyphRb.Size = new System.Drawing.Size(202, 17);
+            this.interpolateLinearGlyphRb.TabIndex = 5;
+            this.interpolateLinearGlyphRb.Text = "Glyph boundary is linearly interpolated";
+            this.interpolateLinearGlyphRb.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // groupBox6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Show rig";
+            this.groupBox6.Controls.Add(this.interpolateLeftRigRb);
+            this.groupBox6.Controls.Add(this.interpolateLinearRigRb);
+            this.groupBox6.Location = new System.Drawing.Point(9, 163);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(613, 64);
+            this.groupBox6.TabIndex = 11;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Rig boundary";
             // 
-            // groupBox3
+            // interpolateLeftRigRb
             // 
-            this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Controls.Add(this.radioButton7);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(6, 108);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(628, 96);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Object";
+            this.interpolateLeftRigRb.AutoSize = true;
+            this.interpolateLeftRigRb.Checked = true;
+            this.interpolateLeftRigRb.Location = new System.Drawing.Point(6, 19);
+            this.interpolateLeftRigRb.Name = "interpolateLeftRigRb";
+            this.interpolateLeftRigRb.Size = new System.Drawing.Size(296, 17);
+            this.interpolateLeftRigRb.TabIndex = 4;
+            this.interpolateLeftRigRb.TabStop = true;
+            this.interpolateLeftRigRb.Text = "Rig boundary is kept from the left marker (no interpolation)";
+            this.interpolateLeftRigRb.UseMnemonic = false;
+            this.interpolateLeftRigRb.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // interpolateLinearRigRb
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(29, 66);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(224, 17);
-            this.radioButton4.TabIndex = 5;
-            this.radioButton4.Text = "Rectangle boundary is linearly interpolated";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Checked = true;
-            this.radioButton7.Location = new System.Drawing.Point(29, 43);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(329, 17);
-            this.radioButton7.TabIndex = 4;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Rectangle boundary is kept from the left marker (no interpolation)";
-            this.radioButton7.UseMnemonic = false;
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(339, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Rectangle boundary interpolation (for frames that do not have markers)";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(643, 369);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Data generator";
+            this.interpolateLinearRigRb.AutoSize = true;
+            this.interpolateLinearRigRb.Location = new System.Drawing.Point(6, 42);
+            this.interpolateLinearRigRb.Name = "interpolateLinearRigRb";
+            this.interpolateLinearRigRb.Size = new System.Drawing.Size(191, 17);
+            this.interpolateLinearRigRb.TabIndex = 5;
+            this.interpolateLinearRigRb.Text = "Rig boundary is linearly interpolated";
+            this.interpolateLinearRigRb.UseVisualStyleBackColor = true;
             // 
             // OptionsForm
             // 
@@ -328,12 +407,17 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -350,18 +434,24 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton detectIgnoreObjRb;
+        private System.Windows.Forms.RadioButton detectOverwriteObjRb;
+        private System.Windows.Forms.RadioButton detectSeparatedObjRb;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton upperBodyRb;
+        private System.Windows.Forms.RadioButton showAllRigRb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton interpolateLinearRectRb;
+        private System.Windows.Forms.RadioButton interpolateLeftRectRb;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RadioButton interpolateLeftGlyphRb;
+        private System.Windows.Forms.RadioButton interpolateLinearGlyphRb;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RadioButton interpolateLeftRigRb;
+        private System.Windows.Forms.RadioButton interpolateLinearRigRb;
     }
 }
