@@ -186,7 +186,7 @@
     <Compile Include="object\LocationMark2D.cs" />
     <Compile Include="object\LocationMark3D.cs" />
     <Compile Include="object\ObjectMark.cs" />
-    <Compile Include="object\PolygonLocationMark.cs" />
+    <Compile Include="object\PolygonLocationMark2D.cs" />
     <Compile Include="object\PolygonLocationMark3D.cs" />
     <Compile Include="object\PolygonObject.cs" />
     <Compile Include="object\RectangleLocationMark.cs" />

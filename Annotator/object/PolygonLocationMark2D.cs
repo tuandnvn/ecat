@@ -8,11 +8,11 @@ using System.Xml;
 
 namespace Annotator
 {
-    public class PolygonLocationMark : LocationMark2D
+    public class PolygonLocationMark2D : LocationMark2D
     {
         public List<PointF> boundingPolygon { get; private set; }         // Object bounding polygon, if the tool to draw object is polygon tool
 
-        public PolygonLocationMark(int frameNo, List<PointF> boundingPolygon) : base(frameNo)
+        public PolygonLocationMark2D(int frameNo, List<PointF> boundingPolygon) : base(frameNo)
         {
             this.boundingPolygon = boundingPolygon;
         }
@@ -42,7 +42,7 @@ namespace Annotator
 
         public override LocationMark2D getScaledLocationMark(float scale, PointF translation)
         {
-            return new PolygonLocationMark(frameNo, boundingPolygon.scaleBound(scale, translation));
+            return new PolygonLocationMark2D(frameNo, boundingPolygon.scaleBound(scale, translation));
         }
 
         public override void writeToXml(XmlWriter xmlWriter)

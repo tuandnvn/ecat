@@ -122,9 +122,9 @@ namespace Annotator
                     objectMarks[frameNumber] = ob;
                 }
 
-                if (objectMarks[first].GetType() == typeof(PolygonLocationMark))
+                if (objectMarks[first].GetType() == typeof(PolygonLocationMark2D))
                 {
-                    var ob = new PolygonLocationMark(frameNumber, ((PolygonLocationMark)objectMarks[first]).boundingPolygon);
+                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[first]).boundingPolygon);
 
                     objectMarks[frameNumber] = ob;
                 }
@@ -212,7 +212,7 @@ namespace Annotator
             return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
         }
 
-        public LocationMark getLocationMark3D (int frameNo)
+        public LocationMark3D getLocationMark3D (int frameNo)
         {
             int prevMarker = object3DMarks.Keys.LastOrDefault(x => x <= frameNo);
             int nextMarker = object3DMarks.Keys.FirstOrDefault(x => x >= frameNo);
@@ -240,7 +240,6 @@ namespace Annotator
                          object3DMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new Point3()))
                          ;
                 }
-
             }
 
             return object3DMarks[prevMarker];
@@ -507,7 +506,7 @@ namespace Annotator
                             }
                             else if (this is PolygonObject)
                             {
-                                boundary.AddRange(((PolygonLocationMark)objectMark).boundingPolygon);
+                                boundary.AddRange(((PolygonLocationMark2D)objectMark).boundingPolygon);
                             }
 
                             // Using flat information if possible

@@ -60,7 +60,7 @@ namespace Annotator.Tests
         [TestMethod()]
         public void ScoreTestPolygon()
         {
-            Console.WriteLine(new PolygonLocationMark(0, new PointF[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
+            Console.WriteLine(new PolygonLocationMark2D(0, new PointF[] { new Point(0,0), new Point(0, 2), new Point(2, 2),
                                                 new Point(2,0) }.ToList()).Score(new Point(1, 1)));
         }
 

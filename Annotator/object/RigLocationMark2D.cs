@@ -24,7 +24,7 @@ namespace Annotator
             if (rigJoints.Count != 0)
             {
                 var convexHull = Utils.getConvexHull(rigJoints);
-                PolygonLocationMark temp = new PolygonLocationMark(frameNo, convexHull);
+                PolygonLocationMark2D temp = new PolygonLocationMark2D(frameNo, convexHull);
                 return temp.Score(testPoint);
             }
 

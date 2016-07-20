@@ -65,9 +65,9 @@ namespace Annotator
         /// <param name="scale"> size of image board/ size of depth field view</param>
         /// <param name="translation"> alignment offset from the top left corner of image board to where to depth image is rendered</param>
         /// <returns></returns>
-        public LocationMark2D getDepthViewLocationMark(float scale, PointF translation)
+        public override LocationMark2D getDepthViewLocationMark(float scale, PointF translation)
         {
-            var boundingPolygonInDepthPixels = ((List<List<Point3>>)(object)boundingPolygons).Select(boundingPolygon => boundingPolygon.Select(p => KinectUtils.projectCameraSpacePointToDepthPixel(p)));
+            var boundingPolygonInDepthPixels = boundingPolygons.Select(boundingPolygon => boundingPolygon.Select(p => KinectUtils.projectCameraSpacePointToDepthPixel(p)));
             // Point3 -> PointF
             var flattenBoundingPolygonInDepthPixels = boundingPolygonInDepthPixels.Select(boundingPolygon => boundingPolygon.Select(p => new PointF(p.X, p.Y)).ToList());
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accord.Math;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Annotator
         public void setBounding(int frameNumber, List<PointF> boundingPolygon, float scale, Point translation)
         {
             List<PointF> inverseScaleBoundingPolygon = boundingPolygon.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
-            var ob = new PolygonLocationMark(frameNumber, inverseScaleBoundingPolygon);
+            var ob = new PolygonLocationMark2D(frameNumber, inverseScaleBoundingPolygon);
             objectMarks[frameNumber] = ob;
         }
 
@@ -34,7 +35,7 @@ namespace Annotator
                 switch (markType.ToUpper())
                 {
                     case "LOCATION":
-                        var lm = new PolygonLocationMark(frame, new List<PointF>());
+                        var lm = new PolygonLocationMark2D(frame, new List<PointF>());
                         lm.readFromXml(markerNode);
                         this.setBounding(frame, lm);
                         break;
@@ -43,6 +44,17 @@ namespace Annotator
                         break;
                 }
             }
+
+            XmlNode markers3DNodes = objectNode.SelectSingleNode(MARKERS3D);
+
+            if (markers3DNodes != null)
+                foreach (XmlNode markerNode in markers3DNodes.SelectNodes(MARKER))
+                {
+                    int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                    var lm = new PolygonLocationMark3D(frame, new List<Point3>());
+                    lm.readFromXml(markerNode);
+                    set3DBounding(frame, lm);
+                }
         }
     }
 }

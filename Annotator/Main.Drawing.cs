@@ -479,17 +479,12 @@ namespace Annotator
                             Pen p = new Pen(o.color, o.borderSize);
                             p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-                            LocationMark mark3d = o.getLocationMark3D(frameTrackBar.Value);
+                            LocationMark3D mark3d = o.getLocationMark3D(frameTrackBar.Value);
 
                             if (mark3d == null)
                                 continue;
 
                             LocationMark2D depthMark2d = null;
-
-                            if (mark3d is GlyphBoxLocationMark3D)
-                            {
-                                depthMark2d = ((GlyphBoxLocationMark3D)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
-                            }
 
                             if (mark3d is RigLocationMark3D)
                             {
@@ -499,8 +494,9 @@ namespace Annotator
                                         mark3d = ((RigLocationMark3D)mark3d).getUpperBody();
                                         break;
                                 }
-                                depthMark2d = ((RigLocationMark3D)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
                             }
+
+                            depthMark2d = mark3d.getDepthViewLocationMark(linear.Item1, linear.Item2);
 
 
                             if (depthMark2d != null)
@@ -577,7 +573,7 @@ namespace Annotator
                             }
                             if (selectedObject is PolygonObject)
                             {
-                                polygonPoints = ((PolygonLocationMark)lm).boundingPolygon;
+                                polygonPoints = ((PolygonLocationMark2D)lm).boundingPolygon;
 
                                 resetSelectBoxes();
                                 calculateCentroid();
