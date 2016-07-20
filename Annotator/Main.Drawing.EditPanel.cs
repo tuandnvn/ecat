@@ -120,7 +120,7 @@ namespace Annotator
             editingPolygon = false;
             doneWithCentroid();
             draggingSelectBoxes = false;
-            selectBoxes = new List<Rectangle>();
+            selectBoxes = new List<RectangleF>();
 
             invalidatePictureBoard();
         }

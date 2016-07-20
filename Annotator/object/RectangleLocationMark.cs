@@ -8,11 +8,11 @@ using System.Xml;
 
 namespace Annotator
 {
-    public class RectangleLocationMark : DrawableLocationMark
+    public class RectangleLocationMark : LocationMark2D
     {
-        public Rectangle boundingBox { get; private set;  }              //Object bounding box;
+        public RectangleF boundingBox { get; private set;  }              //Object bounding box;
 
-        public RectangleLocationMark(int frameNo, Rectangle boundingBox) : base(frameNo)
+        public RectangleLocationMark(int frameNo, RectangleF boundingBox) : base(frameNo)
         {
             this.boundingBox = boundingBox;
         }
@@ -22,8 +22,8 @@ namespace Annotator
             if (!boundingBox.Contains(testPoint))
                 return 0;
             float score = 0;
-            foreach (Point p in new Point[] { new Point(boundingBox.Top, boundingBox.Left), new Point(boundingBox.Top, boundingBox.Right),
-                    new Point(boundingBox.Bottom, boundingBox.Left), new Point(boundingBox.Bottom, boundingBox.Right) })
+            foreach (PointF p in new PointF[] { new PointF(boundingBox.Top, boundingBox.Left), new PointF(boundingBox.Top, boundingBox.Right),
+                    new PointF(boundingBox.Bottom, boundingBox.Left), new PointF(boundingBox.Bottom, boundingBox.Right) })
             {
                 score += (float)(1f / Math.Sqrt(Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
             }
@@ -36,7 +36,7 @@ namespace Annotator
             g.DrawRectangle(p, boundingBox);
         }
 
-        public override DrawableLocationMark getScaledLocationMark(float scale, Point translation)
+        public override LocationMark2D getScaledLocationMark(float scale, PointF translation)
         {
             return new RectangleLocationMark(frameNo, boundingBox.scaleBound(scale, translation));
         }
@@ -58,6 +58,20 @@ namespace Annotator
                 int width = int.Parse(parts[2].Trim());
                 int height = int.Parse(parts[3].Trim());
                 boundingBox = new Rectangle(x, y, width, height);
+            }
+        }
+
+        public override LocationMark2D addLocationMark(int resultFrameNo, LocationMark2D added)
+        {
+            if (added is RectangleLocationMark)
+            {
+                var addedBoundingBox = (added as RectangleLocationMark).boundingBox;
+                return new RectangleLocationMark(resultFrameNo, new RectangleF(boundingBox.X + addedBoundingBox.X, boundingBox.Y + addedBoundingBox.Y, 
+                    boundingBox.Width + addedBoundingBox.Width, boundingBox.Height + addedBoundingBox.Height));
+            }
+            else
+            {
+                throw new ArgumentException(" Adding location mark needs to be of the same type !");
             }
         }
     }

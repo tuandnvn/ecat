@@ -15,22 +15,22 @@ namespace Annotator
 
         public GlyphBoxObject(Session currentSession, String id, Color color, int borderSize, string videoFile) : base(currentSession, id, color, borderSize, videoFile)
         {
-            this.object3DMarks = new SortedList<int, LocationMark>();
+            this.object3DMarks = new SortedList<int, LocationMark3D>();
             this.objectType = ObjectType._3D;
             this.genType = GenType.TRACKED;
         }
 
-        public void setBounding(int frameNumber, int glyphSize, List<List<PointF>> glyphBounds, List<GlyphFace> faces, float scale = 1, Point translation = new Point())
+        public void setBounding(int frameNumber, int glyphSize, List<List<PointF>> glyphBounds, List<GlyphFace> faces, float scale = 1, PointF translation = new PointF())
         {
-            List<List<PointF>> inversedScaledGlyphBounds = glyphBounds.Select(glyphBound => glyphBound.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)))).ToList();
-            DrawableLocationMark ob = new GlyphBoxLocationMark<PointF>(frameNumber, glyphSize, inversedScaledGlyphBounds, faces);
+            List<List<PointF>> inversedScaledGlyphBounds = glyphBounds.Select(glyphBound => glyphBound.scaleBound(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale))).ToList();
+            LocationMark2D ob = new GlyphBoxLocationMark2D(frameNumber, glyphSize, inversedScaledGlyphBounds, faces);
             objectMarks[frameNumber] = ob;
         }
 
-        public void set3DBounding(int frameNumber, int glyphSize, List<List<Point3>> glyphBounds, List<GlyphFace> faces, float scale = 1, Point translation = new Point())
+        public void set3DBounding(int frameNumber, int glyphSize, List<List<Point3>> glyphBounds, List<GlyphFace> faces, float scale = 1, Point3 translation = new Point3())
         {
-            List<List<Point3>> inversedScaledGlyphBounds = glyphBounds.Select(glyphBound => glyphBound.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)))).ToList();
-            DrawableLocationMark ob = new GlyphBoxLocationMark<Point3>(frameNumber, glyphSize, inversedScaledGlyphBounds, faces);
+            List<List<Point3>> inversedScaledGlyphBounds = glyphBounds.Select(glyphBound => glyphBound.scaleBound(1 / scale, new Point3(-translation.X / scale, -translation.Y / scale, -translation.Z / scale))).ToList();
+            LocationMark3D ob = new GlyphBoxLocationMark3D(frameNumber, glyphSize, inversedScaledGlyphBounds, faces);
             object3DMarks[frameNumber] = ob;
         }
 
@@ -46,7 +46,7 @@ namespace Annotator
                     switch (markType)
                     {
                         case "LOCATION":
-                            var lm = new GlyphBoxLocationMark<PointF>(frame);
+                            var lm = new GlyphBoxLocationMark2D(frame);
                             lm.readFromXml(markerNode);
                             setBounding(frame, lm);
                             break;
@@ -62,7 +62,7 @@ namespace Annotator
                 foreach (XmlNode markerNode in markers3DNodes.SelectNodes(MARKER))
                 {
                     int frame = int.Parse(markerNode.Attributes[FRAME].Value);
-                    var lm = new GlyphBoxLocationMark<Point3>(frame);
+                    var lm = new GlyphBoxLocationMark3D(frame);
                     lm.readFromXml(markerNode);
                     set3DBounding(frame, lm);
                 }
@@ -82,7 +82,7 @@ namespace Annotator
         {
             foreach (var prototype in Options.getOption().prototypeList)
             {
-                foreach (GlyphBoxLocationMark<PointF> objectMark in objectMarks.Values)
+                foreach (GlyphBoxLocationMark2D objectMark in objectMarks.Values)
                 {
                     foreach (var face in objectMark.faces)
                     {

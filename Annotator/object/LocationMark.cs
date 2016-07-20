@@ -21,6 +21,7 @@ namespace Annotator
         public virtual void readFromXml(XmlNode xmlNode)
         {
         }
+
     }
 
 }

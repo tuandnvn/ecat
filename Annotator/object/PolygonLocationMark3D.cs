@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Annotator
 {
-    public class PolygonLocationMark3D : LocationMark
+    public class PolygonLocationMark3D : LocationMark3D
     {
         public List<Point3> boundingPolygon { get; private set; }         // Object bounding polygon, if the tool to draw object is polygon tool
 

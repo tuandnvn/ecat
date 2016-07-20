@@ -34,12 +34,12 @@ namespace Annotator
 
         public string videoFile { get; }
 
-        public SortedList<int, DrawableLocationMark> objectMarks
+        public SortedList<int, LocationMark2D> objectMarks
         {
             get; private set;
         }
 
-        public SortedList<int, LocationMark> object3DMarks
+        public SortedList<int, LocationMark3D> object3DMarks
         {
             get; protected set;
         }
@@ -62,20 +62,16 @@ namespace Annotator
             TRACKED
         }
 
-        //protected BorderType? _borderType;
         public string id { get; set; }                //Object's ID
         public string name { get; set; }           // Object's name
         public Color color { get; set; }           //Object's boudnign box color
         public string semanticType { get; set; }           //Object's type
         public int borderSize { get; set; }        //Object bounding box border size
         public double scale { get; set; }          //Object scale
-        //public BorderType? borderType { get { return _borderType; } }
         public Dictionary<string, string> otherProperties { get; }
         public GenType genType { get; set; }
         public ObjectType objectType { get; set; }
         public Session session { get; set; }
-
-        //public enum BorderType { Rectangle, Polygon, Others }
 
         /// <summary>
         /// Create an object that is manually drawn on the paintBoard
@@ -94,21 +90,21 @@ namespace Annotator
             this.genType = GenType.MANUAL;
             this.objectType = ObjectType._2D;
             this.otherProperties = new Dictionary<string, string>();
-            this.objectMarks = new SortedList<int, DrawableLocationMark>();
+            this.objectMarks = new SortedList<int, LocationMark2D>();
             this.object3DMarks = null;
             this.spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
         }
 
-        public void setBounding(int frameNumber, DrawableLocationMark locationMark)
+        public void setBounding(int frameNumber, LocationMark2D locationMark)
         {
             objectMarks[frameNumber] = locationMark;
         }
 
-        public void set3DBounding(int frameNumber, LocationMark locationMark)
+        public void set3DBounding(int frameNumber, LocationMark3D locationMark)
         {
             if (this.object3DMarks == null)
             {
-                this.object3DMarks = new SortedList<int, LocationMark>();
+                this.object3DMarks = new SortedList<int, LocationMark3D>();
             }
             object3DMarks[frameNumber] = locationMark;
         }
@@ -181,7 +177,7 @@ namespace Annotator
         ///       Offset between the resized frame and the paintBoard
         /// </param>
         /// <returns></returns>
-        public DrawableLocationMark getScaledLocationMark(int frameNo, float scale, Point translation)
+        public LocationMark2D getScaledLocationMark(int frameNo, float scale, PointF translation)
         {
             int prevMarker = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
             int nextMarker = objectMarks.Keys.FirstOrDefault(x => x >= frameNo);
@@ -191,12 +187,63 @@ namespace Annotator
                 return null;
             }
 
-            if (objectMarks[prevMarker].GetType().IsSubclassOf(typeof(DrawableLocationMark)))
+            // No marker to the right
+            if (nextMarker == 0)
             {
                 return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
             }
 
-            return null;
+            // Interpolation
+            if (prevMarker != nextMarker && objectMarks[prevMarker] != null && objectMarks[nextMarker] != null)
+            {
+                if ( this is RectangleObject && Options.getOption().interpolationModes[Options.RECTANGLE] == Options.InterpolationMode.LINEAR ||
+                    this is GlyphBoxObject && Options.getOption().interpolationModes[Options.GLYPH] == Options.InterpolationMode.LINEAR ||
+                    this is RigObject && Options.getOption().interpolationModes[Options.RIG] == Options.InterpolationMode.LINEAR)
+                {
+                    return objectMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new PointF())
+                        .addLocationMark( frameNo,
+                         objectMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new PointF()))
+                         .getScaledLocationMark( scale, translation )
+                         ;
+                }
+                
+            } 
+
+            return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
+        }
+
+        public LocationMark getLocationMark3D (int frameNo)
+        {
+            int prevMarker = object3DMarks.Keys.LastOrDefault(x => x <= frameNo);
+            int nextMarker = object3DMarks.Keys.FirstOrDefault(x => x >= frameNo);
+
+            if (prevMarker == 0 && !object3DMarks.ContainsKey(0))
+            {
+                return null;
+            }
+
+            // No marker to the right
+            if (nextMarker == 0)
+            {
+                return object3DMarks[prevMarker];
+            }
+
+            // Interpolation
+            if (prevMarker != nextMarker && object3DMarks[prevMarker] != null && object3DMarks[nextMarker] != null)
+            {
+                if (this is RectangleObject && Options.getOption().interpolationModes[Options.RECTANGLE] == Options.InterpolationMode.LINEAR ||
+                    this is GlyphBoxObject && Options.getOption().interpolationModes[Options.GLYPH] == Options.InterpolationMode.LINEAR ||
+                    this is RigObject && Options.getOption().interpolationModes[Options.RIG] == Options.InterpolationMode.LINEAR)
+                {
+                    return object3DMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new Point3())
+                        .addLocationMark(frameNo,
+                         object3DMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new Point3()))
+                         ;
+                }
+
+            }
+
+            return object3DMarks[prevMarker];
         }
 
 
@@ -223,14 +270,7 @@ namespace Annotator
             xmlWriter.WriteAttributeString(COLOR, "" + color.ToArgb());
             xmlWriter.WriteAttributeString(BORDER_SIZE, "" + borderSize);
             xmlWriter.WriteAttributeString(SEMANTIC_TYPE, semanticType);
-            //if (_borderType == BorderType.Others)
-            //{
             xmlWriter.WriteAttributeString(SHAPE, this.GetType().ToString());
-            //}
-            //else
-            //{
-            //    xmlWriter.WriteAttributeString(SHAPE, _borderType.ToString());
-            //}
 
             foreach (String key in otherProperties.Keys)
             {
@@ -457,14 +497,15 @@ namespace Annotator
                             List<PointF> boundary = new List<PointF>();
                             List<Point3> boundary3d = new List<Point3>();
 
-                            if ( this is RectangleObject )
+                            if (this is RectangleObject)
                             {
                                 var boundingBox = ((RectangleLocationMark)objectMark).boundingBox;
                                 boundary.Add(new PointF(boundingBox.X, boundingBox.Y));
                                 boundary.Add(new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y));
                                 boundary.Add(new PointF(boundingBox.X, boundingBox.Y + boundingBox.Height));
                                 boundary.Add(new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height));
-                            } else if (this is PolygonObject)
+                            }
+                            else if (this is PolygonObject)
                             {
                                 boundary.AddRange(((PolygonLocationMark)objectMark).boundingPolygon);
                             }

@@ -41,7 +41,7 @@ namespace Annotator
             {
                 currentSession.addObject(objectToAdd);
                 newObjectContextPanel.Visible = false;
-                selectBoxes = new List<Rectangle>();
+                selectBoxes = new List<RectangleF>();
                 invalidatePictureBoard();
             }
 
@@ -70,7 +70,7 @@ namespace Annotator
                 drawingNewPolygon = editingPolygon = false;
             }
             draggingSelectBoxes = false;
-            selectBoxes = new List<Rectangle>();
+            selectBoxes = new List<RectangleF>();
             invalidatePictureBoard();
         }
 

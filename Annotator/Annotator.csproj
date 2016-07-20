@@ -163,6 +163,7 @@
     <Compile Include="EventTemplateGenerator.Designer.cs">
       <DependentUpon>EventTemplateGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="object\GlyphBoxLocationMark3D.cs" />
     <Compile Include="KinectUtils.cs" />
     <Compile Include="learning\SimpleLearningDataGenerator.cs" />
     <Compile Include="learning\LearningDataGenerator.cs" />
@@ -181,8 +182,9 @@
     <Compile Include="object\GlyphBoxObject.cs" />
     <Compile Include="object\GlyphBoxPrototype.cs" />
     <Compile Include="object\LocationMark.cs" />
-    <Compile Include="object\GlyphBoxLocationMark.cs" />
-    <Compile Include="object\DrawableLocationMark.cs" />
+    <Compile Include="object\GlyphBoxLocationMark2D.cs" />
+    <Compile Include="object\LocationMark2D.cs" />
+    <Compile Include="object\LocationMark3D.cs" />
     <Compile Include="object\ObjectMark.cs" />
     <Compile Include="object\PolygonLocationMark.cs" />
     <Compile Include="object\PolygonLocationMark3D.cs" />
@@ -190,7 +192,8 @@
     <Compile Include="object\RectangleLocationMark.cs" />
     <Compile Include="object\RectangleObject.cs" />
     <Compile Include="object\RigFigure.cs" />
-    <Compile Include="object\RigLocationMark.cs" />
+    <Compile Include="object\RigLocationMark2D.cs" />
+    <Compile Include="object\RigLocationMark3D.cs" />
     <Compile Include="object\RigObject.cs" />
     <Compile Include="object\RigScheme.cs" />
     <Compile Include="object\SpatialLinkMark.cs" />

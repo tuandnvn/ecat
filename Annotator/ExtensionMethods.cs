@@ -11,12 +11,12 @@ namespace Annotator
 {
     public static class Extensions
     {
-        public static Rectangle scaleBound(this Rectangle original, float scale, Point translation)
+        public static RectangleF scaleBound(this RectangleF original, float scale, System.Drawing.PointF translation)
         {
-            return new Rectangle((int)(original.X * scale + translation.X),
-                (int)(original.Y * scale + translation.Y),
-                (int)(original.Width * scale),
-                (int)(original.Height * scale));
+            return new RectangleF(original.X * scale + translation.X,
+                original.Y * scale + translation.Y,
+                original.Width * scale,
+                original.Height * scale);
         }
 
         public static Point scalePoint(this Point original, float scale, Point translation)
@@ -29,14 +29,21 @@ namespace Annotator
             return new System.Drawing.PointF((float)(original.X * scale + translation.X), (float)(original.Y * scale + translation.Y));
         }
 
-        public static List<System.Drawing.PointF> scaleBound(this List<System.Drawing.PointF> original, float scale, Point translation)
+        public static Point3 scalePoint(this Point3 original, float scale, Point3 translation)
+        {
+            return new Point3((float)(original.X * scale + translation.X), 
+                (float)(original.Y * scale + translation.Y),
+                (float)(original.Z * scale + translation.Z));
+        }
+
+        public static List<System.Drawing.PointF> scaleBound(this List<System.Drawing.PointF> original, float scale, System.Drawing.PointF translation)
         {
             return original.Select(p => scalePoint(p, scale, translation)).ToList();
         }
 
-        public static List<Point3> scaleBound(this List<Point3> original, float scale, Point translation)
+        public static List<Point3> scaleBound(this List<Point3> original, float scale, Point3 translation)
         {
-            return original.Select(p => new Point3(p.X * scale + translation.X, p.Y * scale + translation.Y, p.Z)).ToList();
+            return original.Select(p => new Point3(p.X * scale + translation.X, p.Y * scale + translation.Y, p.Z * scale + translation.Z)).ToList();
         }
 
         public static RigFigure<System.Drawing.PointF> scaleBound(this RigFigure<System.Drawing.PointF> original, float scale, System.Drawing.PointF translation)
@@ -45,28 +52,38 @@ namespace Annotator
                 original.rigBones);
         }
 
-        public static Point getCenter(this Rectangle r)
+        public static System.Drawing.PointF getCenter(this Rectangle r)
         {
-            return new Point(r.X + r.Width / 2, r.Y + r.Height / 2);
+            return new System.Drawing.PointF(r.X + r.Width * 1.0f / 2, r.Y + r.Height * 1.0f / 2);
         }
 
 
-        public static List<Rectangle> getCornerSelectBoxes(this Rectangle boundingBox, int boxSize)
+        public static System.Drawing.PointF getCenter(this RectangleF r)
         {
-            int lowerX = boundingBox.X;
-            int lowerY = boundingBox.Y;
-            int higherX = lowerX + boundingBox.Width;
-            int higherY = lowerY + boundingBox.Height;
+            return new System.Drawing.PointF(r.X + r.Width * 1.0f / 2, r.Y + r.Height * 1.0f / 2);
+        }
 
-            Rectangle[] selectBoxes = new Rectangle[] { new Rectangle(lowerX - (boxSize - 1)/2, lowerY - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle(lowerX - (boxSize - 1)/2, higherY - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle(higherX - (boxSize - 1)/2, lowerY - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle(higherX - (boxSize - 1)/2, higherY - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle((lowerX + higherX)/2 - (boxSize - 1)/2, lowerY - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle((lowerX + higherX)/2 - (boxSize - 1)/2, higherY - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle(lowerX - (boxSize - 1)/2, (lowerY + higherY)/2 - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle(higherX - (boxSize - 1)/2, (lowerY + higherY)/2 - (boxSize - 1)/2,boxSize,boxSize),
-                                                        new Rectangle(boundingBox.getCenter().X, boundingBox.getCenter().Y,boxSize,boxSize)
+        public static void DrawRectangle(this Graphics graphics, Pen pen, RectangleF rectangle)
+        {
+            graphics.DrawRectangles(pen, new RectangleF[] { rectangle });
+        }
+
+        public static List<RectangleF> getCornerSelectBoxes(this RectangleF boundingBox, int boxSize)
+        {
+            float lowerX = boundingBox.X;
+            float lowerY = boundingBox.Y;
+            float higherX = lowerX + boundingBox.Width;
+            float higherY = lowerY + boundingBox.Height;
+
+            RectangleF[] selectBoxes = new RectangleF[] { new RectangleF(lowerX - (boxSize - 1) / 2.0f, lowerY - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF(lowerX - (boxSize - 1)/2.0f, higherY - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF(higherX - (boxSize - 1)/2.0f, lowerY - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF(higherX - (boxSize - 1)/2.0f, higherY - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF((lowerX + higherX)/2.0f - (boxSize - 1)/2.0f, lowerY - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF((lowerX + higherX)/2.0f - (boxSize - 1)/2.0f, higherY - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF(lowerX - (boxSize - 1)/2.0f, (lowerY + higherY)/2.0f - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF(higherX - (boxSize - 1)/2.0f, (lowerY + higherY)/2.0f - (boxSize - 1)/2.0f,boxSize,boxSize),
+                                                        new RectangleF(boundingBox.getCenter().X, boundingBox.getCenter().Y,boxSize,boxSize)
             };
             return selectBoxes.ToList();
         }

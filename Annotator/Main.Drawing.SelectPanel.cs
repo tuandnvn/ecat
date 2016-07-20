@@ -88,7 +88,7 @@ namespace Annotator
             {
                 doneEditPolygon();
             }
-            selectBoxes = new List<Rectangle>();
+            selectBoxes = new List<RectangleF>();
 
             clearInformation();
             selectedObject = null;

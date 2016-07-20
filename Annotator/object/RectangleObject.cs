@@ -14,9 +14,9 @@ namespace Annotator
         {
         }
 
-        public void setBounding(int frameNumber, Rectangle boundingBox, float scale, Point translation)
+        public void setBounding(int frameNumber, RectangleF boundingBox, float scale, PointF translation)
         {
-            Rectangle inverseScaleBoundingBox = boundingBox.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
+            RectangleF inverseScaleBoundingBox = boundingBox.scaleBound(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale));
             var ob = new RectangleLocationMark(frameNumber, inverseScaleBoundingBox);
             objectMarks[frameNumber] = ob;
         }

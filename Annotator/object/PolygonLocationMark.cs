@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Annotator
 {
-    public class PolygonLocationMark : DrawableLocationMark
+    public class PolygonLocationMark : LocationMark2D
     {
         public List<PointF> boundingPolygon { get; private set; }         // Object bounding polygon, if the tool to draw object is polygon tool
 
@@ -40,7 +40,7 @@ namespace Annotator
                 g.DrawPolygon(p, boundingPolygon.ToArray());
         }
 
-        public override DrawableLocationMark getScaledLocationMark(float scale, Point translation)
+        public override LocationMark2D getScaledLocationMark(float scale, PointF translation)
         {
             return new PolygonLocationMark(frameNo, boundingPolygon.scaleBound(scale, translation));
         }

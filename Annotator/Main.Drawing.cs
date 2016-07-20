@@ -18,9 +18,9 @@ namespace Annotator
         private int boundingBorder = 1;         //bounding box border size
 
         // Rectangle new drawing
-        private Point? startPoint;               //start point for selection in frame from selected video
-        private Point? endPoint;                 //end point for selection in frame from selected video
-        private Rectangle boundingBox;             //current mouse selection in video frame
+        private PointF? startPoint;               //start point for selection in frame from selected video
+        private PointF? endPoint;                 //end point for selection in frame from selected video
+        private RectangleF boundingBox;             //current mouse selection in video frame
         private bool drawingNewRectangle = false; //flag variable for pictureBox1 drawing selection rectangle
         private bool draggingSelectBoxes = false;
         private int draggingSelectBoxIndex;
@@ -35,7 +35,7 @@ namespace Annotator
 
         private Point? temporaryPoint; // When the mouse is moving, temporary point hold the current location of cursor, to suggest the shape of the polygon
 
-        List<Rectangle> selectBoxes;
+        List<RectangleF> selectBoxes;
         PointF centroid = new PointF();
         int centroidRadius = 8;
 
@@ -93,7 +93,7 @@ namespace Annotator
                     {
                         for (int i = 0; i < selectBoxes.Count; i++)
                         {
-                            Rectangle r = selectBoxes[i];
+                            RectangleF r = selectBoxes[i];
                             if (r.Contains(e.Location))
                             {
                                 draggingSelectBoxes = true;
@@ -124,7 +124,7 @@ namespace Annotator
                             {
                                 for (int i = 0; i < selectBoxes.Count; i++)
                                 {
-                                    Rectangle r = selectBoxes[i];
+                                    RectangleF r = selectBoxes[i];
                                     if (r.Contains(e.Location))
                                     {
                                         draggingSelectBoxes = true;
@@ -253,29 +253,29 @@ namespace Annotator
                             this.Cursor = Cursors.SizeNWSE;
                             break;
                         case 4:
-                            startPoint = new Point(selectBoxes[0].getCenter().X, e.Location.Y);
+                            startPoint = new PointF(selectBoxes[0].getCenter().X, e.Location.Y);
                             endPoint = selectBoxes[3].getCenter();
                             this.Cursor = Cursors.SizeNS;
                             break;
                         case 5:
-                            startPoint = new Point(selectBoxes[1].getCenter().X, e.Location.Y);
+                            startPoint = new PointF(selectBoxes[1].getCenter().X, e.Location.Y);
                             endPoint = selectBoxes[2].getCenter();
                             this.Cursor = Cursors.SizeNS;
                             break;
                         case 6:
-                            startPoint = new Point(e.Location.X, selectBoxes[2].getCenter().Y);
+                            startPoint = new PointF(e.Location.X, selectBoxes[2].getCenter().Y);
                             endPoint = selectBoxes[3].getCenter();
                             this.Cursor = Cursors.SizeWE;
                             break;
                         case 7:
-                            startPoint = new Point(e.Location.X, selectBoxes[3].getCenter().Y);
+                            startPoint = new PointF(e.Location.X, selectBoxes[3].getCenter().Y);
                             endPoint = selectBoxes[0].getCenter();
                             this.Cursor = Cursors.SizeWE;
                             break;
                         // Center point
                         case 8:
-                            startPoint = new Point(e.Location.X - (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y - (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
-                            endPoint = new Point(e.Location.X + (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y + (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
+                            startPoint = new PointF(e.Location.X - (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y - (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
+                            endPoint = new PointF(e.Location.X + (selectBoxes[2].X - selectBoxes[1].X) / 2, e.Location.Y + (selectBoxes[1].Y - selectBoxes[0].Y) / 2);
                             this.Cursor = Cursors.Hand;
                             break;
                     }
@@ -323,10 +323,10 @@ namespace Annotator
                             }
                             centroid = e.Location;
 
-                            List<Rectangle> listOfSelectBox = new List<Rectangle>();
+                            List<RectangleF> listOfSelectBox = new List<RectangleF>();
                             foreach (PointF p in polygonPoints)
                             {
-                                listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+                                listOfSelectBox.Add(new RectangleF(p.X - (boxSize - 1) / 2, p.Y - (boxSize - 1) / 2, boxSize, boxSize));
                             }
                             selectBoxes = listOfSelectBox;
                             invalidatePictureBoard();
@@ -376,7 +376,7 @@ namespace Annotator
             var linear = getLinearTransform();
             foreach (Object o in currentSession.getObjects())
             {
-                DrawableLocationMark lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                LocationMark2D lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                 if (lm != null)
                 {
                     objectWithScore.Add(new Tuple<float, Object>(lm.Score(e.Location), o));
@@ -479,42 +479,43 @@ namespace Annotator
                             Pen p = new Pen(o.color, o.borderSize);
                             p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-                            if (o.object3DMarks.ContainsKey(frameTrackBar.Value))
+                            LocationMark mark3d = o.getLocationMark3D(frameTrackBar.Value);
+
+                            if (mark3d == null)
+                                continue;
+
+                            LocationMark2D depthMark2d = null;
+
+                            if (mark3d is GlyphBoxLocationMark3D)
                             {
-                                LocationMark mark3d = o.object3DMarks[frameTrackBar.Value];
-                                DrawableLocationMark depthMark2d = null;
+                                depthMark2d = ((GlyphBoxLocationMark3D)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
+                            }
 
-                                if (mark3d is GlyphBoxLocationMark<Point3>)
+                            if (mark3d is RigLocationMark3D)
+                            {
+                                switch (options.showRigOption)
                                 {
-                                    depthMark2d = ((GlyphBoxLocationMark<Point3>)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
+                                    case Options.ShowRig.SHOW_UPPER:
+                                        mark3d = ((RigLocationMark3D)mark3d).getUpperBody();
+                                        break;
                                 }
+                                depthMark2d = ((RigLocationMark3D)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
+                            }
 
-                                if (mark3d is RigLocationMark<Point3>)
+
+                            if (depthMark2d != null)
+                            {
+                                depthMark2d.drawOnGraphics(e.Graphics, p);
+                            }
+
+                            if (o.Equals(selectedObject))
+                            {
+                                var selectBoxes = depthMark2d.getCornerSelectBoxes(boxSize);
+
+                                foreach (RectangleF r in selectBoxes)
                                 {
-                                    switch (options.showRigOption)
-                                    {
-                                        case Options.ShowRig.SHOW_UPPER:
-                                            mark3d = ((RigLocationMark<Point3>)mark3d).getUpperBody();
-                                            break;
-                                    }
-                                    depthMark2d = ((RigLocationMark<Point3>)mark3d).getDepthViewLocationMark(linear.Item1, linear.Item2);
-                                }
-
-
-                                if (depthMark2d != null)
-                                {
-                                    depthMark2d.drawOnGraphics(e.Graphics, p);
-                                }
-
-                                if (o.Equals(selectedObject))
-                                {
-                                    var selectBoxes = depthMark2d.getCornerSelectBoxes(boxSize);
-
-                                    foreach (Rectangle r in selectBoxes)
-                                    {
-                                        e.Graphics.DrawRectangle(new Pen(Color.Black), r);
-                                        e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
-                                    }
+                                    e.Graphics.DrawRectangle(new Pen(Color.Black), r);
+                                    e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
                                 }
                             }
                         }
@@ -542,17 +543,17 @@ namespace Annotator
 
                             Pen p = new Pen(o.color, o.borderSize);
                             p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-                            DrawableLocationMark r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                            LocationMark2D r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
 
                             if (r != null)
                             {
                                 // Clip to upper body for Rig object
-                                if (r is RigLocationMark<PointF>)
+                                if (r is RigLocationMark2D)
                                 {
                                     switch (options.showRigOption)
                                     {
                                         case Options.ShowRig.SHOW_UPPER:
-                                            r = ((RigLocationMark<PointF>)r).getUpperBody();
+                                            r = ((RigLocationMark2D)r).getUpperBody();
                                             break;
                                     }
                                 }
@@ -571,8 +572,8 @@ namespace Annotator
                             if (selectedObject is RectangleObject)
                             {
                                 boundingBox = ((RectangleLocationMark)lm).boundingBox;
-                                startPoint = new Point(boundingBox.X, boundingBox.Y);
-                                endPoint = new Point(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
+                                startPoint = new PointF(boundingBox.X, boundingBox.Y);
+                                endPoint = new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
                             }
                             if (selectedObject is PolygonObject)
                             {
@@ -586,14 +587,14 @@ namespace Annotator
                         {
                             if (selectedObject is RectangleObject)
                             {
-                                startPoint = new Point();
-                                endPoint = new Point();
-                                selectBoxes = new List<Rectangle>();
+                                startPoint = new PointF();
+                                endPoint = new PointF();
+                                selectBoxes = new List<RectangleF>();
                             }
                             if (selectedObject is PolygonObject)
                             {
                                 polygonPoints = new List<PointF>();
-                                selectBoxes = new List<Rectangle>();
+                                selectBoxes = new List<RectangleF>();
                                 calculateCentroid();
                             }
                         }
@@ -615,17 +616,17 @@ namespace Annotator
                     {
                         if (endPoint.HasValue && startPoint.HasValue && videoReader != null)
                         {
-                            int lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
-                            int lowerY = Math.Min(startPoint.Value.Y, endPoint.Value.Y);
-                            int higherX = Math.Max(startPoint.Value.X, endPoint.Value.X);
-                            int higherY = Math.Max(startPoint.Value.Y, endPoint.Value.Y);
+                            float lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
+                            float lowerY = Math.Min(startPoint.Value.Y, endPoint.Value.Y);
+                            float higherX = Math.Max(startPoint.Value.X, endPoint.Value.X);
+                            float higherY = Math.Max(startPoint.Value.Y, endPoint.Value.Y);
 
-                            boundingBox = new Rectangle(lowerX, lowerY, higherX - lowerX, higherY - lowerY);
+                            boundingBox = new RectangleF(lowerX, lowerY, higherX - lowerX, higherY - lowerY);
                             selectBoxes = boundingBox.getCornerSelectBoxes(boxSize);
 
                             e.Graphics.DrawRectangle(pen, boundingBox);
 
-                            foreach (Rectangle r in selectBoxes)
+                            foreach (RectangleF r in selectBoxes)
                             {
                                 e.Graphics.DrawRectangle(new Pen(Color.Black), r);
                                 e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
@@ -654,7 +655,7 @@ namespace Annotator
 
                             for (int index = 0; index < selectBoxes.Count(); index++)
                             {
-                                Rectangle r = selectBoxes[index];
+                                RectangleF r = selectBoxes[index];
                                 e.Graphics.DrawRectangle(new Pen(Color.Black), r);
                                 if (draggingSelectBoxes && index == draggingSelectBoxIndex)
                                 {
@@ -714,12 +715,12 @@ namespace Annotator
                     // Selecting other kind of objects
                     if (selectedObject != null && !(selectedObject is PolygonObject) && !(selectedObject is RectangleObject))
                     {
-                        DrawableLocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        LocationMark2D lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                         if (lm != null)
                         {
                             selectBoxes = lm.getCornerSelectBoxes(boxSize);
 
-                            foreach (Rectangle r in selectBoxes)
+                            foreach (RectangleF r in selectBoxes)
                             {
                                 e.Graphics.DrawRectangle(new Pen(Color.Black), r);
                                 e.Graphics.FillRectangle(new SolidBrush(Color.White), r);
@@ -867,10 +868,10 @@ namespace Annotator
 
         private void resetSelectBoxes()
         {
-            List<Rectangle> listOfSelectBox = new List<Rectangle>();
+            List<RectangleF> listOfSelectBox = new List<RectangleF>();
             foreach (PointF p in polygonPoints)
             {
-                listOfSelectBox.Add(new Rectangle((int)(p.X - (boxSize - 1) / 2), (int)(p.Y - (boxSize - 1) / 2), boxSize, boxSize));
+                listOfSelectBox.Add(new RectangleF(p.X - (boxSize - 1) / 2, p.Y - (boxSize - 1) / 2, boxSize, boxSize));
             }
             selectBoxes = listOfSelectBox;
         }
@@ -881,7 +882,7 @@ namespace Annotator
             newObjectContextPanel.Visible = false;
             selectObjContextPanel.Visible = false;
             this.clearInformation();
-            selectBoxes = new List<Rectangle>();
+            selectBoxes = new List<RectangleF>();
             invalidatePictureBoard();
         }
 

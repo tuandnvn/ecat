@@ -38,7 +38,6 @@ namespace Annotator
                 depthFrameTimePoints = new List<Int32>();
                 for (int i = 0; i < depthFrame; i++)
                 {
-                    //Console.WriteLine("depthFrameTimePoint " + BitConverter.ToInt32(vals, 4 * i));
                     depthFrameTimePoints.Add(BitConverter.ToInt32(vals, 4 * i));
                 }
             } catch (Exception e)
@@ -94,7 +93,6 @@ namespace Annotator
                 }
             }
 
-            Console.WriteLine("In base Depth reader, readFrameAtTime = " + milisecondFromStart + "; frame " + appropriateDepthFrame);
             if (appropriateDepthFrame < 0 || appropriateDepthFrame >= depthFrame) return null;
             return readFrame(appropriateDepthFrame);
         }

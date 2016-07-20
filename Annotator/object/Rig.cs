@@ -264,7 +264,7 @@ namespace Annotator
                     }
 
                     rigObjects[rigIndex].setBounding(frame, getRigFigure(frame, rigIndex), 1, new Point());
-                    rigObjects[rigIndex].set3DBounding(frame, new RigLocationMark<Point3>(frame, getRigFigure3d(frame, rigIndex)));
+                    rigObjects[rigIndex].set3DBounding(frame, new RigLocationMark3D(frame, getRigFigure3d(frame, rigIndex)));
                 }
             }
 
@@ -295,7 +295,7 @@ namespace Annotator
                 if (rf.joints.ContainsKey(rigIndex))
                 {
                     o.setBounding(frame, rigs.getRigFigure(frame, rigIndex), 1, new Point());
-                    o.set3DBounding(frame, new RigLocationMark<Point3>(frame, rigs.getRigFigure3d(frame, rigIndex)));
+                    o.set3DBounding(frame, new RigLocationMark3D(frame, rigs.getRigFigure3d(frame, rigIndex)));
                 }
             }
         }

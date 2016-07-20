@@ -127,14 +127,14 @@ namespace Annotator
                             // Identical interpolation from the first marker
                             if (prev == 0)
                             {
-                                var locationMark3dNext = (RigLocationMark<Point3>)castedSub.object3DMarks[next];
+                                var locationMark3dNext = (RigLocationMark3D)castedSub.object3DMarks[next];
                                 var rigJoints3DNext = locationMark3dNext.rigFigure.rigJoints;
                                 insertDataFromJointsToFrameData(frameData, rigJoints3DNext);
                             }
                             // At the end, identical interpolation
                             else if (next == 0)
                             {
-                                var locationMark3dPrev = (RigLocationMark<Point3>)castedSub.object3DMarks[prev];
+                                var locationMark3dPrev = (RigLocationMark3D)castedSub.object3DMarks[prev];
                                 var rigJoints3DPrev = locationMark3dPrev.rigFigure.rigJoints;
 
                                 insertDataFromJointsToFrameData(frameData, rigJoints3DPrev);
@@ -143,10 +143,10 @@ namespace Annotator
                             else
                             {
                                 // both first and last != 0 
-                                var locationMark3dPrev = (RigLocationMark<Point3>)castedSub.object3DMarks[prev];
+                                var locationMark3dPrev = (RigLocationMark3D)castedSub.object3DMarks[prev];
                                 var rigJoints3DPrev = locationMark3dPrev.rigFigure.rigJoints;
 
-                                var locationMark3dNext = (RigLocationMark<Point3>)castedSub.object3DMarks[next];
+                                var locationMark3dNext = (RigLocationMark3D)castedSub.object3DMarks[next];
                                 var rigJoints3DNext = locationMark3dNext.rigFigure.rigJoints;
 
                                 foreach (string jointName in extractedJointNames)
@@ -174,7 +174,7 @@ namespace Annotator
                             // Identical interpolation from the first marker
                             if (prev == 0)
                             {
-                                var locationMark3dNext = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[next]).boundingPolygons;
+                                var locationMark3dNext = ((GlyphBoxLocationMark3D)castedObj.object3DMarks[next]).boundingPolygons;
                                 var fixedLocationMark3dNext = fixListOfPoints(locationMark3dNext[0]);
 
                                 foreach (Point3 p in fixedLocationMark3dNext)
@@ -187,7 +187,7 @@ namespace Annotator
                             // At the end, identical interpolation
                             else if (next == 0)
                             {
-                                var locationMark3dPrev = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[prev]).boundingPolygons;
+                                var locationMark3dPrev = ((GlyphBoxLocationMark3D)castedObj.object3DMarks[prev]).boundingPolygons;
                                 var fixedLocationMark3dPrev = fixListOfPoints(locationMark3dPrev[0]);
 
                                 foreach (Point3 p in fixedLocationMark3dPrev)
@@ -201,8 +201,8 @@ namespace Annotator
                             else
                             {
                                 // both first and last != 0 
-                                var locationMark3dPrev = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[prev]).boundingPolygons;
-                                var locationMark3dNext = ((GlyphBoxLocationMark<Point3>)castedObj.object3DMarks[next]).boundingPolygons;
+                                var locationMark3dPrev = ((GlyphBoxLocationMark3D)castedObj.object3DMarks[prev]).boundingPolygons;
+                                var locationMark3dNext = ((GlyphBoxLocationMark3D)castedObj.object3DMarks[next]).boundingPolygons;
                                 
                                 var fixedLocationMark3dPrev = fixListOfPoints(locationMark3dPrev[0]);
                                 var fixedLocationMark3dNext = fixListOfPoints(locationMark3dNext[0]);

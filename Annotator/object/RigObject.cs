@@ -19,7 +19,7 @@ namespace Annotator
         public void setBounding(int frameNumber, RigFigure<PointF> boundingRig, float scale, Point translation)
         {
             RigFigure<PointF> inverseScaleBoundingRig = boundingRig.scaleBound(1 / scale, new PointF((float)(-translation.X / scale), (float)(-translation.Y / scale)));
-            var ob = new RigLocationMark<PointF>(frameNumber, inverseScaleBoundingRig);
+            var ob = new RigLocationMark2D(frameNumber, inverseScaleBoundingRig);
             objectMarks[frameNumber] = ob;
         }
 
