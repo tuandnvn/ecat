@@ -151,5 +151,6 @@ namespace Annotator
                 etg.ShowDialog();
             }
         }
+
     }
 }

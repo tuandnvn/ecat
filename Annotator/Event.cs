@@ -88,6 +88,16 @@ namespace Annotator
             }
         }
 
+        public void resetReferences()
+        {
+            references = new List<Reference>();
+        }
+
+        public void resetActions()
+        {
+            actions = new List<Action>();
+        }
+
         public void addLinkTo(string evId, EventLinkType type)
         {
             linkToEvents.Add(new Tuple<EventLinkType, string>(type, evId));
@@ -155,8 +165,7 @@ namespace Annotator
 
         public void resetTempo()
         {
-            tempoReferences = new List<Reference>();
-            tempoActions = new List<Action>();
+            resetTempoToEmpty();
 
             foreach (var e in references)
             {
@@ -167,6 +176,12 @@ namespace Annotator
             {
                 tempoActions.Add(e);
             }
+        }
+
+        public void resetTempoToEmpty()
+        {
+            tempoReferences = new List<Reference>();
+            tempoActions = new List<Action>();
         }
 
         public void save()

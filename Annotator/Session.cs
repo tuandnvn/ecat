@@ -552,22 +552,51 @@ namespace Annotator
         }
 
         //Add annotation
-        internal void addEvent(Event a)
+        internal void addEvent(Event e)
         {
-            bool exists = false;
-            foreach (Event ev in events)
+            if (events.Find(ev => ev.id == e.id) != null)
+                return;
+
+            events.Add(e);
+            e.id = "a" + ++annotationID;
+        }
+
+        internal void findObjectsByNames(Event e)
+        {
+            if (events.Find(ev => ev.id == e.id) == null)
+                return;
+
+            // Some text preprocessing 
+            foreach (var o in objects.Values)
             {
-                if (ev.id == a.id)
+                if (o.name != "")
                 {
-                    exists = true;
-                    break;
+                    if (e.text.IndexOf(o.name) != -1)
+                    {
+                        int startRef = e.text.IndexOf(o.name);
+                        int endRef = startRef + o.name.Length - 1;
+                        e.addTempoReference(startRef, endRef, o.id);
+                    }
                 }
             }
-            if (!exists)
-            {
-                events.Add(a);
-                a.id = "a" + ++annotationID;
-            }
+        }
+
+        internal void resetTempo(Event e)
+        {
+            // Event must exist
+            if (events.Find(ev => ev.id == e.id) == null)
+                return;
+
+            e.resetTempo();
+        }
+
+        internal void resetTempoEmpty(Event e)
+        {
+            // Event must exist
+            if (events.Find(ev => ev.id == e.id) == null)
+                return;
+
+            e.resetTempoToEmpty();
         }
 
         internal void removeEvent(Event a)
@@ -606,28 +635,16 @@ namespace Annotator
 
                 Event e = new Event(null, start, end, templateDescription);
 
-                // Some text preprocessing 
-                foreach (var o in objects.Values)
-                {
-                    if (o.name != "")
-                    {
-                        if (templateDescription.IndexOf(o.name) != -1)
-                        {
-                            int startRef = templateDescription.IndexOf(o.name);
-                            int endRef = startRef + o.name.Length - 1;
-                            e.addReference(new Event.Reference(e, o.id, startRef, endRef));
-                        }
-                    }
-                }
-
                 switch (overwriteMode)
                 {
                     case Options.OverwriteMode.ADD_SEPARATE:
                         this.addEvent(e);
+                        this.findObjectsByNames(e);
                         addedEvents.Add(e);
                         break;
                     case Options.OverwriteMode.REMOVE_EXISTING:
                         this.addEvent(e);
+                        this.findObjectsByNames(e);
                         addedEvents.Add(e);
                         break;
                     case Options.OverwriteMode.OVERWRITE:
@@ -641,6 +658,7 @@ namespace Annotator
                         }
 
                         this.addEvent(e);
+                        this.findObjectsByNames(e);
                         addedEvents.Add(e);
                         break;
                     case Options.OverwriteMode.NO_OVERWRITE:

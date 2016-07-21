@@ -40,7 +40,8 @@ namespace Annotator
             this.intervalLbl = new System.Windows.Forms.Label();
             this.selectBtn = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
-            this.subEventLink = new System.Windows.Forms.Button();
+            this.subEventLinkBtn = new System.Windows.Forms.Button();
+            this.findObjectBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textAnnotation
@@ -49,7 +50,7 @@ namespace Annotator
             this.textAnnotation.Location = new System.Drawing.Point(164, 29);
             this.textAnnotation.Multiline = true;
             this.textAnnotation.Name = "textAnnotation";
-            this.textAnnotation.Size = new System.Drawing.Size(384, 20);
+            this.textAnnotation.Size = new System.Drawing.Size(303, 20);
             this.textAnnotation.TabIndex = 0;
             this.textAnnotation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAnnotation_KeyPress);
             // 
@@ -139,23 +140,37 @@ namespace Annotator
             this.remove.UseVisualStyleBackColor = true;
             this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
-            // subEventLink
+            // subEventLinkBtn
             // 
-            this.subEventLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.subEventLink.Location = new System.Drawing.Point(554, 29);
-            this.subEventLink.Name = "subEventLink";
-            this.subEventLink.Size = new System.Drawing.Size(75, 21);
-            this.subEventLink.TabIndex = 6;
-            this.subEventLink.Text = "Link to";
-            this.subEventLink.UseVisualStyleBackColor = true;
-            this.subEventLink.Click += new System.EventHandler(this.subEventLink_Click);
+            this.subEventLinkBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.subEventLinkBtn.Enabled = false;
+            this.subEventLinkBtn.Location = new System.Drawing.Point(554, 29);
+            this.subEventLinkBtn.Name = "subEventLinkBtn";
+            this.subEventLinkBtn.Size = new System.Drawing.Size(75, 21);
+            this.subEventLinkBtn.TabIndex = 6;
+            this.subEventLinkBtn.Text = "Link to";
+            this.subEventLinkBtn.UseVisualStyleBackColor = true;
+            this.subEventLinkBtn.Click += new System.EventHandler(this.subEventLink_Click);
+            // 
+            // findObjectBtn
+            // 
+            this.findObjectBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.findObjectBtn.Enabled = false;
+            this.findObjectBtn.Location = new System.Drawing.Point(473, 29);
+            this.findObjectBtn.Name = "findObjectBtn";
+            this.findObjectBtn.Size = new System.Drawing.Size(75, 21);
+            this.findObjectBtn.TabIndex = 7;
+            this.findObjectBtn.Text = "Find objects";
+            this.findObjectBtn.UseVisualStyleBackColor = true;
+            this.findObjectBtn.Click += new System.EventHandler(this.findObjectBtn_Click);
             // 
             // EventAnnotation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Controls.Add(this.subEventLink);
+            this.Controls.Add(this.findObjectBtn);
+            this.Controls.Add(this.subEventLinkBtn);
             this.Controls.Add(this.remove);
             this.Controls.Add(this.selectBtn);
             this.Controls.Add(this.intervalLbl);
@@ -184,6 +199,7 @@ namespace Annotator
         private System.Windows.Forms.Button selectBtn;
         private RectangleShape rectangleShape;
         private System.Windows.Forms.Button remove;
-        private System.Windows.Forms.Button subEventLink;
+        private System.Windows.Forms.Button subEventLinkBtn;
+        private System.Windows.Forms.Button findObjectBtn;
     }
 }

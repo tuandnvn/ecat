@@ -719,5 +719,11 @@ namespace Annotator
                 etg.ShowDialog();
             }
         }
+
+        internal void findObjectForEvent(Event ev)
+        {
+            currentSession.resetTempoEmpty(ev);
+            currentSession.findObjectsByNames(ev);
+        }
     }
 }

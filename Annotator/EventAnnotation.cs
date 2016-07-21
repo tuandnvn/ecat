@@ -318,31 +318,12 @@ namespace Annotator
             main.selectedEvent = this.ev;
             selected = true;
             selectDeco();
+            populateReferences();
+            populateActions();
+        }
 
-            foreach (Event.Reference reference in ev.references)
-            {
-
-                int start = reference.start;
-                int end = reference.end;
-                String refID = reference.refObjectId;
-                int rowIndex = -1;
-
-                try
-                {
-                    String text = "";
-                    text = this.getText().Substring(start, end - start);
-                    rowIndex = main.addRightBottomTableReference(start, end, text, refID);
-                }
-                catch (ArgumentOutOfRangeException e)
-                {
-                    // The case when there is problem with start and end
-                    Console.WriteLine(e);
-                    rowIndex = main.addRightBottomTableReference(start, end, "", refID, Color.Red);
-                }
-
-                rowIndexToObjs[rowIndex] = reference;
-            }
-
+        internal void populateActions()
+        {
             foreach (Event.Action ev in ev.actions)
             {
                 int start = ev.start;
@@ -367,6 +348,33 @@ namespace Annotator
             }
         }
 
+        internal void populateReferences()
+        {
+            foreach (Event.Reference reference in ev.references)
+            {
+
+                int start = reference.start;
+                int end = reference.end;
+                String refID = reference.refObjectId;
+                int rowIndex = -1;
+
+                try
+                {
+                    String text = "";
+                    text = this.getText().Substring(start, end - start);
+                    rowIndex = main.addRightBottomTableReference(start, end, text, refID);
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    // The case when there is problem with start and end
+                    Console.WriteLine(e);
+                    rowIndex = main.addRightBottomTableReference(start, end, "", refID, Color.Red);
+                }
+
+                rowIndexToObjs[rowIndex] = reference;
+            }
+        }
+
         internal void deleteTempoEventParticipantByRowIndex(int rowIndex)
         {
             if (rowIndexToObjs.ContainsKey(rowIndex))
@@ -385,11 +393,15 @@ namespace Annotator
 
         internal void selectDeco()
         {
+            this.findObjectBtn.Enabled = true;
+            this.subEventLinkBtn.Enabled = true;
             this.BorderStyle = BorderStyle.FixedSingle;
         }
 
         internal void deselectDeco()
         {
+            this.findObjectBtn.Enabled = false;
+            this.subEventLinkBtn.Enabled = false;
             this.BorderStyle = BorderStyle.None;
         }
 
@@ -413,6 +425,17 @@ namespace Annotator
         {
             axis.X2 = this.Size.Width - 10;
             Rendering();
+        }
+
+        private void findObjectBtn_Click(object sender, EventArgs e)
+        {
+            //Reset right bottom panel
+            main.clearRightBottomPanel();
+            main.setAnnotationText(textAnnotation.Text);
+            main.findObjectForEvent(ev);
+
+            populateReferences();
+            populateActions();
         }
     }
 }
