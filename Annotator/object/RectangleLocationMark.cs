@@ -53,11 +53,11 @@ namespace Annotator
             String[] parts = parameters.Split(',');
             if (parts.Length == 4)
             {
-                int x = int.Parse(parts[0].Trim());
-                int y = int.Parse(parts[1].Trim());
-                int width = int.Parse(parts[2].Trim());
-                int height = int.Parse(parts[3].Trim());
-                boundingBox = new Rectangle(x, y, width, height);
+                float x = float.Parse(parts[0].Trim());
+                float y = float.Parse(parts[1].Trim());
+                float width = float.Parse(parts[2].Trim());
+                float height = float.Parse(parts[3].Trim());
+                boundingBox = new RectangleF(x, y, width, height);
             }
         }
 

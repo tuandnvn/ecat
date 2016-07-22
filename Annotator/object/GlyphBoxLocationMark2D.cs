@@ -162,7 +162,7 @@ namespace Annotator
                     {
                         for (int i = 0; i < parts.Length / 2; i++)
                         {
-                            PointF p = new Point(int.Parse(parts[2 * i].Trim()), int.Parse(parts[2 * i + 1].Trim()));
+                            PointF p = new PointF(float.Parse(parts[2 * i].Trim()), float.Parse(parts[2 * i + 1].Trim()));
                             points.Add(p);
                         }
                     }
