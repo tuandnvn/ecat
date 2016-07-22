@@ -250,7 +250,7 @@ namespace Annotator
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                MessageBox.Show("Exception when writing session " + e.ToString());
             }
         }
 

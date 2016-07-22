@@ -11,7 +11,20 @@ namespace Annotator
 {
     public class GlyphBoxObject : Object
     {
-        public GlyphBoxPrototype boxPrototype;
+        public GlyphBoxPrototype _boxPrototype;
+        public GlyphBoxPrototype boxPrototype
+        {
+            get { return _boxPrototype; }
+            set
+            {
+                _boxPrototype = value;
+
+                if (_boxPrototype != null)
+                {
+                    this.name = _boxPrototype.prototypeName;
+                }
+            }
+        }
 
         public GlyphBoxObject(Session currentSession, String id, Color color, int borderSize, string videoFile) : base(currentSession, id, color, borderSize, videoFile)
         {
@@ -68,9 +81,6 @@ namespace Annotator
                 }
 
             boxPrototype = getPrototype();
-            if (boxPrototype != null)
-                this.name = boxPrototype.prototypeName;
-
         }
 
         /// <summary>

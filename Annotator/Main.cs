@@ -12,6 +12,8 @@ using System.IO;
 using System.Diagnostics;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using System.Threading;
+using System.Globalization;
 
 namespace Annotator
 {
@@ -73,6 +75,7 @@ namespace Annotator
             rowStyles = tableLayoutPanel1.RowStyles;
             columnStyles = tableLayoutPanel1.ColumnStyles;
 
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCulture("en-US");
         }
 
         private void InitializeOtherControls()

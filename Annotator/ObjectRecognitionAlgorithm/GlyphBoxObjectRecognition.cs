@@ -125,7 +125,7 @@ namespace Annotator
                 // 3 - Threshold edges
                 // Was set to 20 and the number of detected glyphs are too low
                 // Should be set higher
-                Threshold thresholdFilter = new Threshold(45);
+                Threshold thresholdFilter = new Threshold(60);
                 thresholdFilter.ApplyInPlace(edges);
 
                 stopwatch.Stop();
