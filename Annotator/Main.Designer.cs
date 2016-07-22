@@ -1211,7 +1211,7 @@ namespace Annotator
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ECAT 0.2";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             this.tableLayoutPanel1.ResumeLayout(false);

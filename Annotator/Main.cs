@@ -108,7 +108,7 @@ namespace Annotator
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
             //Parameters hidden file open:
             loadParameters();
@@ -119,13 +119,26 @@ namespace Annotator
                 WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
                 workspaceLauncher.Show();
             }
-
             else
             {
-                setWorkspace(workspace.getLocationFolder(), workspace.getDefaultOption());
+                // Try the location folder from the param file
+                try
+                {
+                    setWorkspace(workspace.getLocationFolder(), workspace.getDefaultOption());
+                } catch (Exception exc)
+                {
+                    DialogResult r = MessageBox.Show(this, "You will need to use another workspace\n" + exc.ToString(), "Problem open workspace", MessageBoxButtons.OKCancel);
+
+                    if (r == DialogResult.OK)
+                    {
+                        // If fail, reset workspace
+                        WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
+                        workspaceLauncher.Show();
+                    } 
+                }
+                
             }
 
-            //this.objectAnnotations = new List<ObjectAnnotation>();
             this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
         }
 
