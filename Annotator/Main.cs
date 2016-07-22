@@ -75,7 +75,7 @@ namespace Annotator
             rowStyles = tableLayoutPanel1.RowStyles;
             columnStyles = tableLayoutPanel1.ColumnStyles;
 
-            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCulture("en-US");
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
         }
 
         private void InitializeOtherControls()
