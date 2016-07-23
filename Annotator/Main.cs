@@ -48,6 +48,15 @@ namespace Annotator
         internal Options options;
         private OptionsForm of;
 
+        bool resizing = false;
+        TableLayoutRowStyleCollection rowStyles;
+        TableLayoutColumnStyleCollection columnStyles;
+        RowStyle[] originalRowStyles;
+        ColumnStyle[] originalColumnStyles;
+
+        int colindex = -1;
+        int rowindex = -1;
+
         public Main()
         {
             InitializeComponent();
@@ -74,6 +83,29 @@ namespace Annotator
             previousSize = this.Size;
             rowStyles = tableLayoutPanel1.RowStyles;
             columnStyles = tableLayoutPanel1.ColumnStyles;
+
+            originalRowStyles = new RowStyle[rowStyles.Count];
+            originalColumnStyles = new ColumnStyle[columnStyles.Count];
+
+            for (int i = 0; i < rowStyles.Count; i++)
+            {
+                originalRowStyles[i] = new RowStyle(rowStyles[i].SizeType, rowStyles[i].Height);
+            }
+
+            for (int i = 0; i < columnStyles.Count; i++)
+            {
+                originalColumnStyles[i] = new ColumnStyle(columnStyles[i].SizeType, columnStyles[i].Width);
+            }
+
+            for (int i = 0; i < rowStyles.Count; i++)
+            {
+                Console.WriteLine("Row " + i + " " + tableLayoutPanel1.GetRowHeights()[i]);
+            }
+
+            for (int i = 0; i < columnStyles.Count; i++)
+            {
+                Console.WriteLine("Column " + i + " " + tableLayoutPanel1.GetColumnWidths()[i]);
+            }
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
         }
@@ -103,8 +135,6 @@ namespace Annotator
                 this.recordPanel.Dock = DockStyle.Fill;
                 this.recordPanel.TabIndex = 0;
             }
-
-
         }
 
 
@@ -125,7 +155,8 @@ namespace Annotator
                 try
                 {
                     setWorkspace(workspace.getLocationFolder(), workspace.getDefaultOption());
-                } catch (Exception exc)
+                }
+                catch (Exception exc)
                 {
                     DialogResult r = MessageBox.Show(this, "You will need to use another workspace\n" + exc.ToString(), "Problem open workspace", MessageBoxButtons.OKCancel);
 
@@ -134,9 +165,9 @@ namespace Annotator
                         // If fail, reset workspace
                         WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
                         workspaceLauncher.Show();
-                    } 
+                    }
                 }
-                
+
             }
 
             this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
@@ -906,12 +937,6 @@ namespace Annotator
             of.ShowDialog();
         }
 
-        bool resizing = false;
-        TableLayoutRowStyleCollection rowStyles;
-        TableLayoutColumnStyleCollection columnStyles;
-        
-        int colindex = -1;
-        int rowindex = -1;
 
         private void tableLayoutPanel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -971,24 +996,49 @@ namespace Annotator
             {
                 float width = e.X;
                 float height = e.Y;
+
+
                 if (colindex > -1)
                 {
+                    var originalWidth = tableLayoutPanel1.GetColumnWidths()[colindex];
+
+
                     for (int i = 0; i < colindex; i++)
                     {
-                        width -= columnStyles[i].Width;
+                        width -= tableLayoutPanel1.GetColumnWidths()[i];
                     }
+
                     columnStyles[colindex].SizeType = SizeType.Absolute;
                     columnStyles[colindex].Width = width;
+
+                    if (colindex < columnStyles.Count - 1)
+                    {
+                        var nextColWidth = tableLayoutPanel1.GetColumnWidths()[colindex + 1] + originalWidth - width;
+                        columnStyles[colindex + 1].SizeType = SizeType.Absolute;
+                        columnStyles[colindex + 1].Width = nextColWidth;
+                    }
                 }
+
                 if (rowindex > -1)
                 {
+                    var originalHeight = tableLayoutPanel1.GetRowHeights()[rowindex];
+
                     for (int i = 0; i < rowindex; i++)
                     {
-                        height -= rowStyles[i].Height;
+                        height -= tableLayoutPanel1.GetRowHeights()[i];
                     }
+
+                    var initalRowStyle = rowStyles[rowindex].SizeType;
 
                     rowStyles[rowindex].SizeType = SizeType.Absolute;
                     rowStyles[rowindex].Height = height;
+
+                    if (rowindex < rowStyles.Count - 1)
+                    {
+                        var nextRowHeight = tableLayoutPanel1.GetRowHeights()[rowindex + 1] + originalHeight - height;
+                        rowStyles[rowindex + 1].SizeType = SizeType.Absolute;
+                        rowStyles[rowindex + 1].Height = nextRowHeight;
+                    }
                 }
             }
         }
@@ -999,7 +1049,26 @@ namespace Annotator
             {
                 resizing = false;
                 tableLayoutPanel1.Cursor = Cursors.Default;
+
+                for (int i = 0; i < rowStyles.Count; i++)
+                {
+                    if (originalRowStyles[i].SizeType == SizeType.Percent)
+                    {
+                        rowStyles[i].SizeType = originalRowStyles[i].SizeType;
+                        rowStyles[i].Height = originalRowStyles[i].Height;
+                    }
+                }
+
+                for (int i = 0; i < columnStyles.Count; i++)
+                {
+                    if (originalColumnStyles[i].SizeType == SizeType.Percent)
+                    {
+                        columnStyles[i].SizeType = originalColumnStyles[i].SizeType;
+                        columnStyles[i].Width = originalColumnStyles[i].Width;
+                    }
+                }
             }
         }
+
     }
 }

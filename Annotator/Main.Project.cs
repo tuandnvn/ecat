@@ -152,5 +152,15 @@ namespace Annotator
             }
         }
 
+        private void objectReferencesByNameMatchingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var session in currentProject.sessions)
+            {
+                currentSession = session;
+                currentSession.loadIfNotLoaded();
+                currentSession.findObjectsByNames();
+                currentSession.saveSession();
+            }
+        }
     }
 }

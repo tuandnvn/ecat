@@ -561,6 +561,10 @@ namespace Annotator
             e.id = "a" + ++annotationID;
         }
 
+        /// <summary>
+        /// Match the object names with text span in text description of event
+        /// </summary>
+        /// <param name="e"></param>
         internal void findObjectsByNames(Event e)
         {
             if (events.Find(ev => ev.id == e.id) == null)
@@ -578,6 +582,19 @@ namespace Annotator
                         e.addTempoReference(startRef, endRef, o.id);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Match the object names with text span in text description of all events
+        /// </summary>
+        internal void findObjectsByNames()
+        {
+            foreach (Event e in events)
+            {
+                resetTempoEmpty(e);
+                findObjectsByNames(e);
+                e.save();
             }
         }
 
