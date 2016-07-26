@@ -10,36 +10,43 @@ using System.Windows.Forms;
 
 namespace Annotator
 {
-    public partial class SpatialLinkForm : Form
+    public partial class ObjectLinkForm : Form
     {
         Session session;
         Object obj;
         int frameNo;
-        Main mainFrame;
+        Main main;
 
-        public SpatialLinkForm(Main mainFrame, Session session, Object obj, int frameNo)
+        public ObjectLinkForm(Main main, Session session, Object obj, int frameNo)
         {
             InitializeComponent();
 
-            this.mainFrame = mainFrame;
+            this.main = main;
             this.obj = obj;
             this.frameNo = frameNo;
             this.session = session;
 
             this.objectSelectComboBox.Items.AddRange(session.getObjects().Select( o => o.id ).ToArray() );
             this.qualifiedSelectComboBox.Items.AddRange(new object[] { true, false });
-            this.spatialLinkComboBox.Items.AddRange(Enum.GetValues(typeof(SpatialLinkMark.SpatialLinkType)).Cast<object>().ToArray());
+            this.linkComboBox.Items.AddRange(Options.getOption().objectLinkTypes.ToArray());
         }
 
         private void addLinkBtn_Click(object sender, EventArgs e)
         {
-            var oid = (string) this.objectSelectComboBox.SelectedItem;
-            var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
-            var spatialLink = (SpatialLinkMark.SpatialLinkType)this.spatialLinkComboBox.SelectedItem;
+            try
+            {
+                var oid = (string)this.objectSelectComboBox.SelectedItem;
+                var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
+                var link = (string)this.linkComboBox.SelectedItem;
 
-            obj.setSpatialLink(frameNo, oid, qualified, spatialLink);
+                obj.setLink(frameNo, oid, qualified, link);
 
-            this.mainFrame.redrawObjectMarks();
+                this.main.redrawObjectMarks();
+            } catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString(), "Problem when adding link");
+            }
+            
             this.Hide();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Annotator
 {
-    partial class SpatialLinkForm
+    partial class ObjectLinkForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.spatialLinkComboBox = new System.Windows.Forms.ComboBox();
+            this.linkComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.qualifiedSelectComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.spatialLinkComboBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.linkComboBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.qualifiedSelectComboBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -63,12 +63,12 @@
             // 
             // spatialLinkComboBox
             // 
-            this.spatialLinkComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.spatialLinkComboBox.FormattingEnabled = true;
-            this.spatialLinkComboBox.Location = new System.Drawing.Point(160, 53);
-            this.spatialLinkComboBox.Name = "spatialLinkComboBox";
-            this.spatialLinkComboBox.Size = new System.Drawing.Size(151, 21);
-            this.spatialLinkComboBox.TabIndex = 5;
+            this.linkComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkComboBox.FormattingEnabled = true;
+            this.linkComboBox.Location = new System.Drawing.Point(160, 53);
+            this.linkComboBox.Name = "spatialLinkComboBox";
+            this.linkComboBox.Size = new System.Drawing.Size(151, 21);
+            this.linkComboBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -145,7 +145,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox spatialLinkComboBox;
+        private System.Windows.Forms.ComboBox linkComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox qualifiedSelectComboBox;
         private System.Windows.Forms.Label label2;

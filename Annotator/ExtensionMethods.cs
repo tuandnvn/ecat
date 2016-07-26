@@ -60,7 +60,7 @@ namespace Annotator
 
         public static System.Drawing.PointF getCenter(this RectangleF r)
         {
-            return new System.Drawing.PointF(r.X + r.Width * 1.0f / 2, r.Y + r.Height * 1.0f / 2);
+            return new System.Drawing.PointF(r.X + r.Width / 2, r.Y + r.Height / 2);
         }
 
         public static void DrawRectangle(this Graphics graphics, Pen pen, RectangleF rectangle)
@@ -75,14 +75,14 @@ namespace Annotator
             float higherX = lowerX + boundingBox.Width;
             float higherY = lowerY + boundingBox.Height;
 
-            RectangleF[] selectBoxes = new RectangleF[] { new RectangleF(lowerX - (boxSize - 1) / 2.0f, lowerY - (boxSize - 1)/2.0f,boxSize,boxSize),
-                                                        new RectangleF(lowerX - (boxSize - 1)/2.0f, higherY - (boxSize - 1)/2.0f,boxSize,boxSize),
-                                                        new RectangleF(higherX - (boxSize - 1)/2.0f, lowerY - (boxSize - 1)/2.0f,boxSize,boxSize),
-                                                        new RectangleF(higherX - (boxSize - 1)/2.0f, higherY - (boxSize - 1)/2.0f,boxSize,boxSize),
-                                                        new RectangleF((lowerX + higherX)/2.0f - (boxSize - 1)/2.0f, lowerY - (boxSize - 1)/2.0f,boxSize,boxSize),
-                                                        new RectangleF((lowerX + higherX)/2.0f - (boxSize - 1)/2.0f, higherY - (boxSize - 1)/2.0f,boxSize,boxSize),
-                                                        new RectangleF(lowerX - (boxSize - 1)/2.0f, (lowerY + higherY)/2.0f - (boxSize - 1)/2.0f,boxSize,boxSize),
-                                                        new RectangleF(higherX - (boxSize - 1)/2.0f, (lowerY + higherY)/2.0f - (boxSize - 1)/2.0f,boxSize,boxSize),
+            RectangleF[] selectBoxes = new RectangleF[] { new RectangleF(lowerX - boxSize / 2.0f, lowerY - boxSize/2.0f,boxSize,boxSize),
+                                                        new RectangleF(lowerX - boxSize/2.0f, higherY - boxSize/2.0f,boxSize,boxSize),
+                                                        new RectangleF(higherX - boxSize/2.0f, lowerY - boxSize/2.0f,boxSize,boxSize),
+                                                        new RectangleF(higherX - boxSize/2.0f, higherY - boxSize/2.0f,boxSize,boxSize),
+                                                        new RectangleF((lowerX + higherX)/2.0f - boxSize/2.0f, lowerY - boxSize/2.0f,boxSize,boxSize),
+                                                        new RectangleF((lowerX + higherX)/2.0f - boxSize/2.0f, higherY - boxSize/2.0f,boxSize,boxSize),
+                                                        new RectangleF(lowerX - boxSize/2.0f, (lowerY + higherY)/2.0f - boxSize/2.0f,boxSize,boxSize),
+                                                        new RectangleF(higherX - boxSize/2.0f, (lowerY + higherY)/2.0f - boxSize/2.0f,boxSize,boxSize),
                                                         new RectangleF(boundingBox.getCenter().X, boundingBox.getCenter().Y,boxSize,boxSize)
             };
             return selectBoxes.ToList();

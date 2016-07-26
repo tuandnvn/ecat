@@ -379,7 +379,8 @@ namespace Annotator
                 LocationMark2D lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
                 if (lm != null)
                 {
-                    objectWithScore.Add(new Tuple<float, Object>(lm.Score(e.Location), o));
+                    var score = lm.Score(e.Location);
+                    objectWithScore.Add(new Tuple<float, Object>(score, o));
                 }
             }
 

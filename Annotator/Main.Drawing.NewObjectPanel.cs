@@ -19,7 +19,7 @@ namespace Annotator
             if (drawingButtonSelected[rectangleDrawing])
             {
                 var relFileName = videoReader.fileName.Split(Path.DirectorySeparatorChar)[videoReader.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
-                objectToAdd = new RectangleObject(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, relFileName);
+                objectToAdd = new RectangleObject(currentSession, null, colorDialog1.Color, (int)borderSizeNumeric.Value, relFileName);
                 (objectToAdd as RectangleObject).setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
                 startPoint = new Point();
                 endPoint = new Point();
@@ -28,7 +28,7 @@ namespace Annotator
             if (drawingButtonSelected[polygonDrawing])
             {
                 var relFileName = videoReader.fileName.Split(Path.DirectorySeparatorChar)[videoReader.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
-                objectToAdd = new PolygonObject(currentSession, null, colorDialog1.Color, (int)numericUpDown1.Value, relFileName);
+                objectToAdd = new PolygonObject(currentSession, null, colorDialog1.Color, (int)borderSizeNumeric.Value, relFileName);
                 (objectToAdd as PolygonObject).setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
                 polygonPoints = new List<PointF>();
 
@@ -45,8 +45,7 @@ namespace Annotator
                 invalidatePictureBoard();
             }
 
-            clearMiddleCenterPanel();
-            populateMiddleCenterPanel();
+            addObjectAnnotation(objectToAdd);
         }
 
         private void cancelObjectBtn_Click(object sender, EventArgs e)
@@ -90,7 +89,7 @@ namespace Annotator
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            boundingBorder = (int)numericUpDown1.Value;
+            boundingBorder = (int)borderSizeNumeric.Value;
             invalidatePictureBoard();
         }
 

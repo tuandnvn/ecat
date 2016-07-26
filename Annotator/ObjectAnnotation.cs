@@ -132,7 +132,7 @@ namespace Annotator
             foreach (var entry in o.spatialLinkMarks)
             {
                 int frameNo = entry.Key;
-                SpatialLinkMark objectMark = entry.Value;
+                LinkMark objectMark = entry.Value;
 
                 RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
                 mark.BorderColor = System.Drawing.Color.Green;
@@ -232,7 +232,7 @@ namespace Annotator
         {
             if (o.spatialLinkMarks.ContainsKey(frameNo))
             {
-                SpatialLinkMark objectMark = o.spatialLinkMarks[frameNo];
+                LinkMark objectMark = o.spatialLinkMarks[frameNo];
 
                 int X1 = (int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1));
                 int ms = (int)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);

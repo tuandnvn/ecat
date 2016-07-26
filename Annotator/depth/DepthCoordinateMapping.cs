@@ -65,7 +65,7 @@ namespace Annotator
         public System.Drawing.PointF[,] shortRangeMap;
         public System.Drawing.PointF[,] longRangeMap;
         static Point3 initiate = new Point3(-1, -1, -1);
-        private bool DEBUG = false;
+        private bool DEBUG = true;
 
         public DepthCoordinateMappingReader(String filename)
         {

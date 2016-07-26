@@ -40,33 +40,44 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.interpolateLinearRectRb = new System.Windows.Forms.RadioButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.interpolateLeftRigRb = new System.Windows.Forms.RadioButton();
+            this.interpolateLinearRigRb = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.interpolateLeftGlyphRb = new System.Windows.Forms.RadioButton();
+            this.interpolateLinearGlyphRb = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.interpolateLeftRectRb = new System.Windows.Forms.RadioButton();
+            this.interpolateLinearRectRb = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.upperBodyRb = new System.Windows.Forms.RadioButton();
             this.showAllRigRb = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.downObjLinkTypeBtn = new System.Windows.Forms.Button();
+            this.upObjLinkTypeBtn = new System.Windows.Forms.Button();
+            this.removeLinkTypeBtn = new System.Windows.Forms.Button();
+            this.addLinkType = new System.Windows.Forms.Button();
+            this.objectLinkTypeTxtBox = new System.Windows.Forms.TextBox();
+            this.objectLinkTypeListBox = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.interpolateLeftGlyphRb = new System.Windows.Forms.RadioButton();
-            this.interpolateLinearGlyphRb = new System.Windows.Forms.RadioButton();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.interpolateLeftRigRb = new System.Windows.Forms.RadioButton();
-            this.interpolateLinearRigRb = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -75,6 +86,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
@@ -199,15 +211,84 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Object interpolation";
             // 
-            // interpolateLinearRectRb
+            // groupBox6
             // 
-            this.interpolateLinearRectRb.AutoSize = true;
-            this.interpolateLinearRectRb.Location = new System.Drawing.Point(6, 42);
-            this.interpolateLinearRectRb.Name = "interpolateLinearRectRb";
-            this.interpolateLinearRectRb.Size = new System.Drawing.Size(224, 17);
-            this.interpolateLinearRectRb.TabIndex = 5;
-            this.interpolateLinearRectRb.Text = "Rectangle boundary is linearly interpolated";
-            this.interpolateLinearRectRb.UseVisualStyleBackColor = true;
+            this.groupBox6.Controls.Add(this.interpolateLeftRigRb);
+            this.groupBox6.Controls.Add(this.interpolateLinearRigRb);
+            this.groupBox6.Location = new System.Drawing.Point(9, 163);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(613, 64);
+            this.groupBox6.TabIndex = 11;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Rig boundary";
+            // 
+            // interpolateLeftRigRb
+            // 
+            this.interpolateLeftRigRb.AutoSize = true;
+            this.interpolateLeftRigRb.Checked = true;
+            this.interpolateLeftRigRb.Location = new System.Drawing.Point(6, 19);
+            this.interpolateLeftRigRb.Name = "interpolateLeftRigRb";
+            this.interpolateLeftRigRb.Size = new System.Drawing.Size(296, 17);
+            this.interpolateLeftRigRb.TabIndex = 4;
+            this.interpolateLeftRigRb.TabStop = true;
+            this.interpolateLeftRigRb.Text = "Rig boundary is kept from the left marker (no interpolation)";
+            this.interpolateLeftRigRb.UseMnemonic = false;
+            this.interpolateLeftRigRb.UseVisualStyleBackColor = true;
+            // 
+            // interpolateLinearRigRb
+            // 
+            this.interpolateLinearRigRb.AutoSize = true;
+            this.interpolateLinearRigRb.Location = new System.Drawing.Point(6, 42);
+            this.interpolateLinearRigRb.Name = "interpolateLinearRigRb";
+            this.interpolateLinearRigRb.Size = new System.Drawing.Size(191, 17);
+            this.interpolateLinearRigRb.TabIndex = 5;
+            this.interpolateLinearRigRb.Text = "Rig boundary is linearly interpolated";
+            this.interpolateLinearRigRb.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.interpolateLeftGlyphRb);
+            this.groupBox5.Controls.Add(this.interpolateLinearGlyphRb);
+            this.groupBox5.Location = new System.Drawing.Point(9, 89);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(613, 64);
+            this.groupBox5.TabIndex = 10;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Glyph boundary";
+            // 
+            // interpolateLeftGlyphRb
+            // 
+            this.interpolateLeftGlyphRb.AutoSize = true;
+            this.interpolateLeftGlyphRb.Checked = true;
+            this.interpolateLeftGlyphRb.Location = new System.Drawing.Point(6, 19);
+            this.interpolateLeftGlyphRb.Name = "interpolateLeftGlyphRb";
+            this.interpolateLeftGlyphRb.Size = new System.Drawing.Size(307, 17);
+            this.interpolateLeftGlyphRb.TabIndex = 4;
+            this.interpolateLeftGlyphRb.TabStop = true;
+            this.interpolateLeftGlyphRb.Text = "Glyph boundary is kept from the left marker (no interpolation)";
+            this.interpolateLeftGlyphRb.UseMnemonic = false;
+            this.interpolateLeftGlyphRb.UseVisualStyleBackColor = true;
+            // 
+            // interpolateLinearGlyphRb
+            // 
+            this.interpolateLinearGlyphRb.AutoSize = true;
+            this.interpolateLinearGlyphRb.Location = new System.Drawing.Point(6, 42);
+            this.interpolateLinearGlyphRb.Name = "interpolateLinearGlyphRb";
+            this.interpolateLinearGlyphRb.Size = new System.Drawing.Size(202, 17);
+            this.interpolateLinearGlyphRb.TabIndex = 5;
+            this.interpolateLinearGlyphRb.Text = "Glyph boundary is linearly interpolated";
+            this.interpolateLinearGlyphRb.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.interpolateLeftRectRb);
+            this.groupBox4.Controls.Add(this.interpolateLinearRectRb);
+            this.groupBox4.Location = new System.Drawing.Point(9, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(613, 64);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Rectangle boundary";
             // 
             // interpolateLeftRectRb
             // 
@@ -221,6 +302,16 @@
             this.interpolateLeftRectRb.Text = "Rectangle boundary is kept from the left marker (no interpolation)";
             this.interpolateLeftRectRb.UseMnemonic = false;
             this.interpolateLeftRectRb.UseVisualStyleBackColor = true;
+            // 
+            // interpolateLinearRectRb
+            // 
+            this.interpolateLinearRectRb.AutoSize = true;
+            this.interpolateLinearRectRb.Location = new System.Drawing.Point(6, 42);
+            this.interpolateLinearRectRb.Name = "interpolateLinearRectRb";
+            this.interpolateLinearRectRb.Size = new System.Drawing.Size(224, 17);
+            this.interpolateLinearRectRb.TabIndex = 5;
+            this.interpolateLinearRectRb.Text = "Rectangle boundary is linearly interpolated";
+            this.interpolateLinearRectRb.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -275,6 +366,105 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Data generator";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox7);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(643, 369);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Object";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.downObjLinkTypeBtn);
+            this.groupBox7.Controls.Add(this.upObjLinkTypeBtn);
+            this.groupBox7.Controls.Add(this.removeLinkTypeBtn);
+            this.groupBox7.Controls.Add(this.addLinkType);
+            this.groupBox7.Controls.Add(this.objectLinkTypeTxtBox);
+            this.groupBox7.Controls.Add(this.objectLinkTypeListBox);
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Location = new System.Drawing.Point(6, 6);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(628, 196);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Object links";
+            // 
+            // downObjLinkTypeBtn
+            // 
+            this.downObjLinkTypeBtn.Enabled = false;
+            this.downObjLinkTypeBtn.Location = new System.Drawing.Point(510, 151);
+            this.downObjLinkTypeBtn.Name = "downObjLinkTypeBtn";
+            this.downObjLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.downObjLinkTypeBtn.TabIndex = 6;
+            this.downObjLinkTypeBtn.Text = "Down";
+            this.downObjLinkTypeBtn.UseVisualStyleBackColor = true;
+            this.downObjLinkTypeBtn.Click += new System.EventHandler(this.downObjLinkTypeBtn_Click);
+            // 
+            // upObjLinkTypeBtn
+            // 
+            this.upObjLinkTypeBtn.Enabled = false;
+            this.upObjLinkTypeBtn.Location = new System.Drawing.Point(510, 123);
+            this.upObjLinkTypeBtn.Name = "upObjLinkTypeBtn";
+            this.upObjLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.upObjLinkTypeBtn.TabIndex = 5;
+            this.upObjLinkTypeBtn.Text = "Up";
+            this.upObjLinkTypeBtn.UseVisualStyleBackColor = true;
+            this.upObjLinkTypeBtn.Click += new System.EventHandler(this.upObjLinkTypeBtn_Click);
+            // 
+            // removeLinkTypeBtn
+            // 
+            this.removeLinkTypeBtn.Enabled = false;
+            this.removeLinkTypeBtn.Location = new System.Drawing.Point(510, 95);
+            this.removeLinkTypeBtn.Name = "removeLinkTypeBtn";
+            this.removeLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.removeLinkTypeBtn.TabIndex = 4;
+            this.removeLinkTypeBtn.Text = "Remove";
+            this.removeLinkTypeBtn.UseVisualStyleBackColor = true;
+            this.removeLinkTypeBtn.Click += new System.EventHandler(this.removeLinkType_Click);
+            // 
+            // addLinkType
+            // 
+            this.addLinkType.Location = new System.Drawing.Point(510, 59);
+            this.addLinkType.Name = "addLinkType";
+            this.addLinkType.Size = new System.Drawing.Size(112, 22);
+            this.addLinkType.TabIndex = 3;
+            this.addLinkType.Text = "Add";
+            this.addLinkType.UseVisualStyleBackColor = true;
+            this.addLinkType.Click += new System.EventHandler(this.addLinkType_Click);
+            // 
+            // objectLinkTypeTxtBox
+            // 
+            this.objectLinkTypeTxtBox.Location = new System.Drawing.Point(9, 60);
+            this.objectLinkTypeTxtBox.Name = "objectLinkTypeTxtBox";
+            this.objectLinkTypeTxtBox.Size = new System.Drawing.Size(494, 20);
+            this.objectLinkTypeTxtBox.TabIndex = 2;
+            // 
+            // objectLinkTypeListBox
+            // 
+            this.objectLinkTypeListBox.FormattingEnabled = true;
+            this.objectLinkTypeListBox.Items.AddRange(new object[] {
+            "ON",
+            "IN",
+            "ATTACH_TO"});
+            this.objectLinkTypeListBox.Location = new System.Drawing.Point(9, 95);
+            this.objectLinkTypeListBox.Name = "objectLinkTypeListBox";
+            this.objectLinkTypeListBox.Size = new System.Drawing.Size(494, 95);
+            this.objectLinkTypeListBox.TabIndex = 1;
+            this.objectLinkTypeListBox.SelectedIndexChanged += new System.EventHandler(this.objectLinkTypeListBox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Link labels";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -313,85 +503,6 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.interpolateLeftRectRb);
-            this.groupBox4.Controls.Add(this.interpolateLinearRectRb);
-            this.groupBox4.Location = new System.Drawing.Point(9, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(613, 64);
-            this.groupBox4.TabIndex = 9;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Rectangle boundary";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.interpolateLeftGlyphRb);
-            this.groupBox5.Controls.Add(this.interpolateLinearGlyphRb);
-            this.groupBox5.Location = new System.Drawing.Point(9, 89);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(613, 64);
-            this.groupBox5.TabIndex = 10;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Glyph boundary";
-            // 
-            // interpolateLeftGlyphRb
-            // 
-            this.interpolateLeftGlyphRb.AutoSize = true;
-            this.interpolateLeftGlyphRb.Checked = true;
-            this.interpolateLeftGlyphRb.Location = new System.Drawing.Point(6, 19);
-            this.interpolateLeftGlyphRb.Name = "interpolateLeftGlyphRb";
-            this.interpolateLeftGlyphRb.Size = new System.Drawing.Size(307, 17);
-            this.interpolateLeftGlyphRb.TabIndex = 4;
-            this.interpolateLeftGlyphRb.TabStop = true;
-            this.interpolateLeftGlyphRb.Text = "Glyph boundary is kept from the left marker (no interpolation)";
-            this.interpolateLeftGlyphRb.UseMnemonic = false;
-            this.interpolateLeftGlyphRb.UseVisualStyleBackColor = true;
-            // 
-            // interpolateLinearGlyphRb
-            // 
-            this.interpolateLinearGlyphRb.AutoSize = true;
-            this.interpolateLinearGlyphRb.Location = new System.Drawing.Point(6, 42);
-            this.interpolateLinearGlyphRb.Name = "interpolateLinearGlyphRb";
-            this.interpolateLinearGlyphRb.Size = new System.Drawing.Size(202, 17);
-            this.interpolateLinearGlyphRb.TabIndex = 5;
-            this.interpolateLinearGlyphRb.Text = "Glyph boundary is linearly interpolated";
-            this.interpolateLinearGlyphRb.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.interpolateLeftRigRb);
-            this.groupBox6.Controls.Add(this.interpolateLinearRigRb);
-            this.groupBox6.Location = new System.Drawing.Point(9, 163);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(613, 64);
-            this.groupBox6.TabIndex = 11;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Rig boundary";
-            // 
-            // interpolateLeftRigRb
-            // 
-            this.interpolateLeftRigRb.AutoSize = true;
-            this.interpolateLeftRigRb.Checked = true;
-            this.interpolateLeftRigRb.Location = new System.Drawing.Point(6, 19);
-            this.interpolateLeftRigRb.Name = "interpolateLeftRigRb";
-            this.interpolateLeftRigRb.Size = new System.Drawing.Size(296, 17);
-            this.interpolateLeftRigRb.TabIndex = 4;
-            this.interpolateLeftRigRb.TabStop = true;
-            this.interpolateLeftRigRb.Text = "Rig boundary is kept from the left marker (no interpolation)";
-            this.interpolateLeftRigRb.UseMnemonic = false;
-            this.interpolateLeftRigRb.UseVisualStyleBackColor = true;
-            // 
-            // interpolateLinearRigRb
-            // 
-            this.interpolateLinearRigRb.AutoSize = true;
-            this.interpolateLinearRigRb.Location = new System.Drawing.Point(6, 42);
-            this.interpolateLinearRigRb.Name = "interpolateLinearRigRb";
-            this.interpolateLinearRigRb.Size = new System.Drawing.Size(191, 17);
-            this.interpolateLinearRigRb.TabIndex = 5;
-            this.interpolateLinearRigRb.Text = "Rig boundary is linearly interpolated";
-            this.interpolateLinearRigRb.UseVisualStyleBackColor = true;
-            // 
             // OptionsForm
             // 
             this.AcceptButton = this.saveBtn;
@@ -409,15 +520,18 @@
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -453,5 +567,14 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton interpolateLeftRigRb;
         private System.Windows.Forms.RadioButton interpolateLinearRigRb;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button removeLinkTypeBtn;
+        private System.Windows.Forms.Button addLinkType;
+        private System.Windows.Forms.TextBox objectLinkTypeTxtBox;
+        private System.Windows.Forms.ListBox objectLinkTypeListBox;
+        private System.Windows.Forms.Button downObjLinkTypeBtn;
+        private System.Windows.Forms.Button upObjLinkTypeBtn;
     }
 }

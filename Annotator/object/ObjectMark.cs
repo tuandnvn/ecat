@@ -8,7 +8,7 @@ namespace Annotator
 {
     public class ObjectMark
     {
-        public int frameNo { get; }
+        public int frameNo { get; set; }
         public ObjectMark(int frameNo)
         {
             this.frameNo = frameNo;

@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -26,7 +27,7 @@ namespace Annotator
 
         private void InitializeFromConfig()
         {
-            if ( options != null )
+            if (options != null)
             {
                 // There is a saved option config file
                 switch (options.detectionMode)
@@ -81,12 +82,14 @@ namespace Annotator
                         interpolateLinearGlyphRb.Checked = true;
                         break;
                 }
+
+                renderLinkTypeList();
             }
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if ( options == null )
+            if (options == null)
             {
                 options = new Options();
             }
@@ -151,6 +154,110 @@ namespace Annotator
             else if (detectIgnoreObjRb.Checked)
             {
                 options.detectionMode = Options.OverwriteMode.NO_OVERWRITE;
+            }
+        }
+
+        private void addLinkType_Click(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"[a-zA-Z0-9_]+");
+
+            try
+            {
+                var newType = objectLinkTypeTxtBox.Text;
+
+                if (!rgx.IsMatch(newType))
+                {
+                    throw new ArgumentException("Type should only be considered of alphanumeric and underscore _");
+                }
+
+                if (this.options.objectLinkTypes.Contains(newType))
+                {
+                    throw new ArgumentException("Type exists!");
+                }
+
+                this.options.objectLinkTypes.Add(newType);
+
+
+                renderLinkTypeList();
+                this.objectLinkTypeListBox.SelectedIndex = this.objectLinkTypeListBox.Items.Count - 1;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+        }
+
+        private void removeLinkType_Click(object sender, EventArgs e)
+        {
+            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            try
+            {
+                this.options.objectLinkTypes.RemoveAt(selectIndex);
+                renderLinkTypeList();
+            }
+            catch
+            {
+            }
+        }
+
+        private void upObjLinkTypeBtn_Click(object sender, EventArgs e)
+        {
+            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            try
+            {
+                if ( selectIndex > 0)
+                {
+                    var swapItem = this.options.objectLinkTypes[selectIndex];
+                    this.options.objectLinkTypes.RemoveAt(selectIndex);
+                    this.options.objectLinkTypes.Insert(selectIndex - 1, swapItem);
+                    renderLinkTypeList();
+                    this.objectLinkTypeListBox.SelectedIndex = selectIndex - 1;
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void downObjLinkTypeBtn_Click(object sender, EventArgs e)
+        {
+            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            try
+            {
+                if (selectIndex < this.options.objectLinkTypes.Count - 1)
+                {
+                    var swapItem = this.options.objectLinkTypes[selectIndex];
+                    this.options.objectLinkTypes.RemoveAt(selectIndex);
+                    this.options.objectLinkTypes.Insert(selectIndex + 1, swapItem);
+                    renderLinkTypeList();
+                    this.objectLinkTypeListBox.SelectedIndex = selectIndex + 1;
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void renderLinkTypeList()
+        {
+            this.objectLinkTypeListBox.Items.Clear();
+            this.objectLinkTypeListBox.Items.AddRange(this.options.objectLinkTypes.ToArray());
+        }
+
+        private void objectLinkTypeListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            if (selectIndex != -1)
+            {
+                upObjLinkTypeBtn.Enabled = true;
+                downObjLinkTypeBtn.Enabled = true;
+                removeLinkTypeBtn.Enabled = true;
+            }
+            else
+            {
+                upObjLinkTypeBtn.Enabled = false;
+                downObjLinkTypeBtn.Enabled = false;
+                removeLinkTypeBtn.Enabled = false;
             }
         }
     }

@@ -623,8 +623,10 @@ namespace Annotator
             // Redraw object annotation panel
             if (detectedObjects.Count != 0)
             {
-                clearMiddleCenterPanel();
-                populateMiddleCenterPanel();
+                foreach (Object o in detectedObjects)
+                {
+                    addObjectAnnotation(o);
+                }
                 invalidatePictureBoard();
             }
         }
@@ -724,6 +726,38 @@ namespace Annotator
         {
             currentSession.resetTempoEmpty(ev);
             currentSession.findObjectsByNames(ev);
+        }
+
+        /// <summary>
+        /// A handful method when annotating movie,
+        /// copy the list of objects from the end of previous session to current session,
+        /// when these two sessions are in continuation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fromPreviousSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var currentSessionIndex = currentProject.sessions.IndexOf(currentSession);
+            if (currentSessionIndex > 0)
+            {
+                var previousSession = currentProject.getSession(currentSessionIndex - 1);
+                previousSession.loadIfNotLoaded();
+                foreach (var o in previousSession.getObjects())
+                {
+                    var newObject = (Object) Activator.CreateInstance(o.GetType(), new object[] { currentSession, "", o.color, o.borderSize, this.playbackFileComboBox.Text });
+                    newObject.objectMarks[frameTrackBar.Value] = o.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
+                    newObject.objectMarks[frameTrackBar.Value].frameNo = frameTrackBar.Value;
+                    currentSession.addObject(newObject);
+                    addObjectAnnotation(newObject);
+                }
+
+                invalidatePictureBoard();
+            }
+        }
+
+        private void fromSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

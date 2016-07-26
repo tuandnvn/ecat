@@ -44,7 +44,7 @@ namespace Annotator
             get; protected set;
         }
 
-        public SortedList<int, SpatialLinkMark> spatialLinkMarks
+        public SortedList<int, LinkMark> spatialLinkMarks
         {
             get; private set;
         }
@@ -92,7 +92,7 @@ namespace Annotator
             this.otherProperties = new Dictionary<string, string>();
             this.objectMarks = new SortedList<int, LocationMark2D>();
             this.object3DMarks = null;
-            this.spatialLinkMarks = new SortedList<int, SpatialLinkMark>();
+            this.spatialLinkMarks = new SortedList<int, LinkMark>();
         }
 
         public void setBounding(int frameNumber, LocationMark2D locationMark)
@@ -154,11 +154,11 @@ namespace Annotator
             return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
-        public void setSpatialLink(int frameNumber, string objectId, bool qualified, SpatialLinkMark.SpatialLinkType linkType)
+        public void setLink(int frameNumber, string objectId, bool qualified, string linkType)
         {
             if (!spatialLinkMarks.ContainsKey(frameNumber))
             {
-                spatialLinkMarks[frameNumber] = new SpatialLinkMark(frameNumber);
+                spatialLinkMarks[frameNumber] = new LinkMark(frameNumber);
             }
 
             spatialLinkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
@@ -338,7 +338,7 @@ namespace Annotator
             {
                 xmlWriter.WriteStartElement(SPATIAL_LINK);
                 xmlWriter.WriteAttributeString(FRAME, "" + frame);
-                foreach (Tuple<string, bool, SpatialLinkMark.SpatialLinkType> spatialLink in spatialLinkMarks[frame].spatialLinks)
+                foreach (Tuple<string, bool, string> spatialLink in spatialLinkMarks[frame].spatialLinks)
                 {
                     xmlWriter.WriteStartElement(LINKTO);
                     xmlWriter.WriteAttributeString(ID, spatialLink.Item1);
@@ -674,8 +674,8 @@ namespace Annotator
                 {
                     String linkToObjectId = linkto.Attributes[ID].Value;
                     bool qualified = bool.Parse(linkto.Attributes[QUALIFIED].Value);
-                    SpatialLinkMark.SpatialLinkType markType = (SpatialLinkMark.SpatialLinkType)Enum.Parse(typeof(SpatialLinkMark.SpatialLinkType), linkto.Attributes[TYPE].Value, true);
-                    o.setSpatialLink(frame, linkToObjectId, qualified, markType);
+                    string markType = linkto.Attributes[TYPE].Value;
+                    o.setLink(frame, linkToObjectId, qualified, markType);
                 }
             }
         }

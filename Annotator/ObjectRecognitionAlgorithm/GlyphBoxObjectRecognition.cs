@@ -81,8 +81,8 @@ namespace Annotator
             bool previousFrameDetection = false;
 
             for (int frameNo = 0; frameNo < videoReader.frameCount; frameNo++)
-                //for (int frameNo = 0; frameNo < 1; frameNo++)
-                {
+            //for (int frameNo = 80; frameNo < 81; frameNo++)
+            {
                 if (progress != null)
                     progress.Report(frameNo);
 

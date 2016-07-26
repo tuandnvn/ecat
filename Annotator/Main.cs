@@ -81,8 +81,8 @@ namespace Annotator
             setMaximumFrameTrackBar(100);
 
             previousSize = this.Size;
-            rowStyles = tableLayoutPanel1.RowStyles;
-            columnStyles = tableLayoutPanel1.ColumnStyles;
+            rowStyles = annotateTableLayoutPanel.RowStyles;
+            columnStyles = annotateTableLayoutPanel.ColumnStyles;
 
             originalRowStyles = new RowStyle[rowStyles.Count];
             originalColumnStyles = new ColumnStyle[columnStyles.Count];
@@ -99,12 +99,12 @@ namespace Annotator
 
             for (int i = 0; i < rowStyles.Count; i++)
             {
-                Console.WriteLine("Row " + i + " " + tableLayoutPanel1.GetRowHeights()[i]);
+                Console.WriteLine("Row " + i + " " + annotateTableLayoutPanel.GetRowHeights()[i]);
             }
 
             for (int i = 0; i < columnStyles.Count; i++)
             {
-                Console.WriteLine("Column " + i + " " + tableLayoutPanel1.GetColumnWidths()[i]);
+                Console.WriteLine("Column " + i + " " + annotateTableLayoutPanel.GetColumnWidths()[i]);
             }
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
@@ -737,22 +737,41 @@ namespace Annotator
             // and rearrage all object annotations
             if (this.objectToObjectTracks.ContainsKey(o))
             {
-                ObjectAnnotation ot = this.objectToObjectTracks[o];
-                if (ot != null)
-                {
-                    this.objectToObjectTracks.Remove(o);
-                    //this.objectAnnotations.Remove(ot);
-                }
-            }
+                ObjectAnnotation oa = this.objectToObjectTracks[o];
 
-            clearMiddleCenterPanel();
-            foreach (ObjectAnnotation objectAnnotation in objectToObjectTracks.Values)
-            {
-                renderObjectAnnotation(objectAnnotation);
+                if (oa != null)
+                {
+                    var index = this.objectToObjectTracks.Keys.ToList().IndexOf(o);
+
+                    this.objectToObjectTracks.Remove(o);
+
+                    middleCenterTableLayoutPanel.Controls.Remove(oa);
+
+                    // Move all the object annotations following ot up one step
+                    for (var i = index; i < this.objectToObjectTracks.Keys.Count; i ++ )
+                    {
+                        var moveObjectAnnotation = this.objectToObjectTracks[this.objectToObjectTracks.Keys.ToList()[i]];
+                        middleCenterTableLayoutPanel.Controls.Remove(moveObjectAnnotation);
+                        middleCenterTableLayoutPanel.Controls.Add(moveObjectAnnotation, lastObjectCell.X, i);
+                    }
+
+                    middleCenterTableLayoutPanel.RowCount = lastObjectCell.Y - 1;
+                    middleCenterTableLayoutPanel.RowStyles.RemoveAt(middleCenterTableLayoutPanel.RowStyles.Count - 1);
+                    middleCenterTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleCenterTableLayoutPanel.RowCount + 4);
+                    lastObjectCell.Y --;
+                }
+                middleCenterPanel.Invalidate();
             }
         }
 
         private void renderObjectAnnotation(ObjectAnnotation objectAnnotation)
+        {
+            renderObjectAnnotationWithoutInvalidate(objectAnnotation);
+
+            middleCenterPanel.Invalidate();
+        }
+
+        private void renderObjectAnnotationWithoutInvalidate(ObjectAnnotation objectAnnotation)
         {
             middleCenterTableLayoutPanel.RowCount = lastObjectCell.Y + 1;
             middleCenterTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
@@ -761,8 +780,6 @@ namespace Annotator
             objectAnnotation.Dock = DockStyle.Fill;
 
             lastObjectCell.Y = lastObjectCell.Y + 1;
-
-            middleCenterPanel.Invalidate();
         }
 
         internal void selectObject(Object o)
@@ -938,17 +955,17 @@ namespace Annotator
         }
 
 
-        private void tableLayoutPanel1_MouseDown(object sender, MouseEventArgs e)
+        private void annotateTableLayoutPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                rowStyles = tableLayoutPanel1.RowStyles;
-                columnStyles = tableLayoutPanel1.ColumnStyles;
+                rowStyles = annotateTableLayoutPanel.RowStyles;
+                columnStyles = annotateTableLayoutPanel.ColumnStyles;
                 resizing = true;
             }
         }
 
-        private void tableLayoutPanel1_MouseMove(object sender, MouseEventArgs e)
+        private void annotateTableLayoutPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (!resizing)
             {
@@ -957,16 +974,16 @@ namespace Annotator
 
                 rowindex = -1;
                 colindex = -1;
-                tableLayoutPanel1.Cursor = Cursors.Default;
+                annotateTableLayoutPanel.Cursor = Cursors.Default;
 
                 //for rows
                 for (int i = 0; i < rowStyles.Count; i++)
                 {
-                    height += tableLayoutPanel1.GetRowHeights()[i];
+                    height += annotateTableLayoutPanel.GetRowHeights()[i];
                     if (e.Y > height - 3 && e.Y < height + 3)
                     {
                         rowindex = i;
-                        tableLayoutPanel1.Cursor = Cursors.HSplit;
+                        annotateTableLayoutPanel.Cursor = Cursors.HSplit;
                         break;
                     }
                 }
@@ -974,20 +991,20 @@ namespace Annotator
                 //for columns
                 for (int i = 0; i < columnStyles.Count; i++)
                 {
-                    width += tableLayoutPanel1.GetColumnWidths()[i];
+                    width += annotateTableLayoutPanel.GetColumnWidths()[i];
                     if (e.X > width - 3 && e.X < width + 3)
                     {
                         colindex = i;
                         if (rowindex > -1)
-                            tableLayoutPanel1.Cursor = Cursors.Cross;
+                            annotateTableLayoutPanel.Cursor = Cursors.Cross;
                         else
-                            tableLayoutPanel1.Cursor = Cursors.VSplit;
+                            annotateTableLayoutPanel.Cursor = Cursors.VSplit;
                         break;
                     }
                     else
                     {
                         if (rowindex == -1)
-                            tableLayoutPanel1.Cursor = Cursors.Default;
+                            annotateTableLayoutPanel.Cursor = Cursors.Default;
                     }
                 }
             }
@@ -1000,12 +1017,12 @@ namespace Annotator
 
                 if (colindex > -1)
                 {
-                    var originalWidth = tableLayoutPanel1.GetColumnWidths()[colindex];
+                    var originalWidth = annotateTableLayoutPanel.GetColumnWidths()[colindex];
 
 
                     for (int i = 0; i < colindex; i++)
                     {
-                        width -= tableLayoutPanel1.GetColumnWidths()[i];
+                        width -= annotateTableLayoutPanel.GetColumnWidths()[i];
                     }
 
                     columnStyles[colindex].SizeType = SizeType.Absolute;
@@ -1013,7 +1030,7 @@ namespace Annotator
 
                     if (colindex < columnStyles.Count - 1)
                     {
-                        var nextColWidth = tableLayoutPanel1.GetColumnWidths()[colindex + 1] + originalWidth - width;
+                        var nextColWidth = annotateTableLayoutPanel.GetColumnWidths()[colindex + 1] + originalWidth - width;
                         columnStyles[colindex + 1].SizeType = SizeType.Absolute;
                         columnStyles[colindex + 1].Width = nextColWidth;
                     }
@@ -1021,11 +1038,11 @@ namespace Annotator
 
                 if (rowindex > -1)
                 {
-                    var originalHeight = tableLayoutPanel1.GetRowHeights()[rowindex];
+                    var originalHeight = annotateTableLayoutPanel.GetRowHeights()[rowindex];
 
                     for (int i = 0; i < rowindex; i++)
                     {
-                        height -= tableLayoutPanel1.GetRowHeights()[i];
+                        height -= annotateTableLayoutPanel.GetRowHeights()[i];
                     }
 
                     var initalRowStyle = rowStyles[rowindex].SizeType;
@@ -1035,7 +1052,7 @@ namespace Annotator
 
                     if (rowindex < rowStyles.Count - 1)
                     {
-                        var nextRowHeight = tableLayoutPanel1.GetRowHeights()[rowindex + 1] + originalHeight - height;
+                        var nextRowHeight = annotateTableLayoutPanel.GetRowHeights()[rowindex + 1] + originalHeight - height;
                         rowStyles[rowindex + 1].SizeType = SizeType.Absolute;
                         rowStyles[rowindex + 1].Height = nextRowHeight;
                     }
@@ -1043,12 +1060,12 @@ namespace Annotator
             }
         }
 
-        private void tableLayoutPanel1_MouseUp(object sender, MouseEventArgs e)
+        private void annotateTableLayoutPanel_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 resizing = false;
-                tableLayoutPanel1.Cursor = Cursors.Default;
+                annotateTableLayoutPanel.Cursor = Cursors.Default;
 
                 for (int i = 0; i < rowStyles.Count; i++)
                 {
@@ -1070,5 +1087,9 @@ namespace Annotator
             }
         }
 
+        private void annotateTableLayoutPanel_MouseLeave(object sender, EventArgs e)
+        {
+            annotateTableLayoutPanel.Cursor = Cursors.Default;
+        }
     }
 }

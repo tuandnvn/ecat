@@ -22,10 +22,11 @@ namespace Annotator
             if (!boundingBox.Contains(testPoint))
                 return 0;
             float score = 0;
-            foreach (PointF p in new PointF[] { new PointF(boundingBox.Top, boundingBox.Left), new PointF(boundingBox.Top, boundingBox.Right),
-                    new PointF(boundingBox.Bottom, boundingBox.Left), new PointF(boundingBox.Bottom, boundingBox.Right) })
+            foreach (PointF p in new PointF[] { new PointF(boundingBox.Left, boundingBox.Top), new PointF(boundingBox.Right, boundingBox.Top),
+                    new PointF(boundingBox.Left, boundingBox.Bottom), new PointF(boundingBox.Right, boundingBox.Bottom) })
             {
-                score += (float)(1f / Math.Sqrt(Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
+                var val = (float)(1f / Math.Sqrt(Math.Pow(p.X - testPoint.X, 2) + Math.Pow(p.Y - testPoint.Y, 2) + 1));
+                score += val;
             }
             score /= 4;
             return score;

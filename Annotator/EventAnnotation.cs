@@ -227,13 +227,6 @@ namespace Annotator
         {
             if (!selected)
             {
-                Console.WriteLine("before set");
-                Console.WriteLine("leftMarker.X1 " + leftMarker.X1);
-                Console.WriteLine("minLeftPosition " + minLeftPosition);
-                Console.WriteLine("frameStepX " + frameStepX);
-                Console.WriteLine("ev.startFrame " + ev.startFrame);
-
-
                 // Exact point
                 if ((int)((leftMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == leftMarker.X1 - minLeftPosition)
                 {
@@ -246,12 +239,6 @@ namespace Annotator
 
                 intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
                 main.Invalidate();
-
-                Console.WriteLine("after set");
-                Console.WriteLine("leftMarker.X1 " + leftMarker.X1);
-                Console.WriteLine("minLeftPosition " + minLeftPosition);
-                Console.WriteLine("frameStepX " + frameStepX);
-                Console.WriteLine("ev.startFrame " + ev.startFrame);
             }
         }
 
