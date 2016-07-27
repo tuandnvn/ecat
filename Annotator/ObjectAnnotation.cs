@@ -129,7 +129,7 @@ namespace Annotator
                 }
             }
 
-            foreach (var entry in o.spatialLinkMarks)
+            foreach (var entry in o.linkMarks)
             {
                 int frameNo = entry.Key;
                 LinkMark objectMark = entry.Value;
@@ -230,9 +230,9 @@ namespace Annotator
 
         private void ShowToolTipMouseAt(int frameNo)
         {
-            if (o.spatialLinkMarks.ContainsKey(frameNo))
+            if (o.linkMarks.ContainsKey(frameNo))
             {
-                LinkMark objectMark = o.spatialLinkMarks[frameNo];
+                LinkMark objectMark = o.linkMarks[frameNo];
 
                 int X1 = (int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1));
                 int ms = (int)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);

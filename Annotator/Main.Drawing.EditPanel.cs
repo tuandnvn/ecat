@@ -96,7 +96,7 @@ namespace Annotator
 
                 if (currentSession != null && selectedObject != null)
                 {
-                    spatialLinkForm = new ObjectLinkForm(this, currentSession, selectedObject, frameTrackBar.Value);
+                    spatialLinkForm = new ObjectLinkForm(this, currentProject, currentSession, selectedObject, frameTrackBar.Value);
                     spatialLinkForm.StartPosition = FormStartPosition.CenterParent;
                     spatialLinkForm.ShowDialog();
                 }

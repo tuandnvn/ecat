@@ -294,61 +294,65 @@ namespace Annotator
         //Load files list
         public void loadSession()
         {
-            CultureInfo provider = CultureInfo.CurrentCulture;
-
-            Console.WriteLine(provider);
-            if (File.Exists(metadataFile))
+            try
             {
-                //Set file as hidden                
-                FileInfo myFile = new FileInfo(metadataFile);
-                // Remove the hidden attribute of the file
-                myFile.Attributes &= ~FileAttributes.Hidden;
+                CultureInfo provider = CultureInfo.CurrentCulture;
 
-                XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(metadataFile);
-
-                sessionLength = int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value);
-
-                try
+                if (File.Exists(metadataFile))
                 {
-                    duration = int.Parse(xmlDocument.DocumentElement.Attributes["duration"].Value);
-                }
-                catch (Exception e)
-                {
-                    duration = 0;
-                }
+                    //Set file as hidden                
+                    FileInfo myFile = new FileInfo(metadataFile);
+                    // Remove the hidden attribute of the file
+                    myFile.Attributes &= ~FileAttributes.Hidden;
 
-                try
-                {
-                    startWriteRGB = DateTime.ParseExact(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value.Substring(0, xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value.Length - 1), @"yyyy-MM-ddTHH:mm:ssss.ffffff", provider);
-                }
-                catch (Exception e)
-                {
-                    startWriteRGB = null;
-                }
+                    XmlDocument xmlDocument = new XmlDocument();
+                    xmlDocument.Load(metadataFile);
 
-                Console.WriteLine("startWriteRGB " + startWriteRGB);
+                    sessionLength = int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value);
 
-                XmlNode files = xmlDocument.DocumentElement.SelectSingleNode(FILES);
-
-                foreach (XmlNode node in files.SelectNodes(FILE))
-                {
-                    string filename = node.InnerText;
-                    filesList.Add(node.InnerText);
-                    if (filename.isVideoFile())
+                    try
                     {
-                        addVideo(filename);
+                        duration = int.Parse(xmlDocument.DocumentElement.Attributes["duration"].Value);
+                    }
+                    catch (Exception e)
+                    {
+                        duration = 0;
                     }
 
-                    if (filename.isDepthFile())
+                    try
                     {
-                        addDepth(filename);
+                        startWriteRGB = DateTime.ParseExact(xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value.Substring(0, xmlDocument.DocumentElement.Attributes["startWriteRGB"].Value.Length - 1), @"yyyy-MM-ddTHH:mm:ssss.ffffff", provider);
                     }
+                    catch (Exception e)
+                    {
+                        startWriteRGB = null;
+                    }
+
+
+                    XmlNode files = xmlDocument.DocumentElement.SelectSingleNode(FILES);
+
+                    foreach (XmlNode node in files.SelectNodes(FILE))
+                    {
+                        string filename = node.InnerText;
+                        filesList.Add(node.InnerText);
+                        if (filename.isVideoFile())
+                        {
+                            addVideo(filename);
+                        }
+
+                        if (filename.isDepthFile())
+                        {
+                            addDepth(filename);
+                        }
+                    }
+
+                    loadAnnotation();
+
+                    myFile.Attributes |= FileAttributes.Hidden;
                 }
-
-                loadAnnotation();
-
-                myFile.Attributes |= FileAttributes.Hidden;
+            } catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
             }
         }
 
@@ -451,7 +455,7 @@ namespace Annotator
                 v = new VideoReader(fullFileName, duration);
 
                 videoReaders.Add(v);
-                sessionLength = v.frameCount;
+                //sessionLength = v.frameCount;
             }
         }
 
@@ -686,7 +690,6 @@ namespace Annotator
                         }
                         break;
                 }
-
             }
 
             return addedEvents;

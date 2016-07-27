@@ -197,7 +197,7 @@
     <Compile Include="object\RigLocationMark3D.cs" />
     <Compile Include="object\RigObject.cs" />
     <Compile Include="object\RigScheme.cs" />
-    <Compile Include="object\SpatialLinkMark.cs" />
+    <Compile Include="object\LinkMark.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="OptionsForm.cs">
       <SubType>Form</SubType>

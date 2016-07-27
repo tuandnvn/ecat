@@ -28,9 +28,10 @@ namespace Annotator
         internal const string BORDER_SIZE = "borderSize";
         internal const string COLOR = "color";
         internal const string LINKS = "links";
-        internal const string SPATIAL_LINK = "spatialLink";
+        internal const string LINK = "link";
         internal const string QUALIFIED = "q";
         internal const string LINKTO = "linkTo";
+        internal const string OTHER_SESSION = "otherSession";
 
         public string videoFile { get; }
 
@@ -44,7 +45,7 @@ namespace Annotator
             get; protected set;
         }
 
-        public SortedList<int, LinkMark> spatialLinkMarks
+        public SortedList<int, LinkMark> linkMarks
         {
             get; private set;
         }
@@ -92,7 +93,7 @@ namespace Annotator
             this.otherProperties = new Dictionary<string, string>();
             this.objectMarks = new SortedList<int, LocationMark2D>();
             this.object3DMarks = null;
-            this.spatialLinkMarks = new SortedList<int, LinkMark>();
+            this.linkMarks = new SortedList<int, LinkMark>();
         }
 
         public void setBounding(int frameNumber, LocationMark2D locationMark)
@@ -111,23 +112,51 @@ namespace Annotator
 
         public void setCopyBounding(int frameNumber)
         {
-            int first = objectMarks.Keys.FirstOrDefault(x => x > frameNumber);
+            int nextMarker = objectMarks.Keys.FirstOrDefault(x => x > frameNumber);
 
-            if (first > 0)
+            // Forward copy
+            if (nextMarker > 0)
             {
-                if (objectMarks[first].GetType() == typeof(RectangleLocationMark))
+                if (objectMarks[nextMarker].GetType() == typeof(RectangleLocationMark))
                 {
-                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[first]).boundingBox);
+                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[nextMarker]).boundingBox);
 
                     objectMarks[frameNumber] = ob;
                 }
 
-                if (objectMarks[first].GetType() == typeof(PolygonLocationMark2D))
+                if (objectMarks[nextMarker].GetType() == typeof(PolygonLocationMark2D))
                 {
-                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[first]).boundingPolygon);
+                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[nextMarker]).boundingPolygon);
 
                     objectMarks[frameNumber] = ob;
                 }
+
+                return;
+            }
+
+            // Backward copy
+            try
+            {
+                int prevMarker = objectMarks.Keys.Last(x => x < frameNumber && objectMarks[x].GetType() != typeof(DeleteLocationMark));
+
+                if (objectMarks[prevMarker].GetType() == typeof(RectangleLocationMark))
+                {
+                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[nextMarker]).boundingBox);
+
+                    objectMarks[frameNumber] = ob;
+                }
+
+                if (objectMarks[prevMarker].GetType() == typeof(PolygonLocationMark2D))
+                {
+                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[nextMarker]).boundingPolygon);
+
+                    objectMarks[frameNumber] = ob;
+                }
+
+                return;
+            } catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc);
             }
         }
 
@@ -156,12 +185,22 @@ namespace Annotator
 
         public void setLink(int frameNumber, string objectId, bool qualified, string linkType)
         {
-            if (!spatialLinkMarks.ContainsKey(frameNumber))
+            if (!linkMarks.ContainsKey(frameNumber))
             {
-                spatialLinkMarks[frameNumber] = new LinkMark(frameNumber);
+                linkMarks[frameNumber] = new LinkMark(id, frameNumber);
             }
 
-            spatialLinkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
+            linkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
+        }
+
+        public void setLink(int frameNumber, string sessionName, string objectId, bool qualified, string linkType)
+        {
+            if (!linkMarks.ContainsKey(frameNumber))
+            {
+                linkMarks[frameNumber] = new LinkMark(id, frameNumber);
+            }
+
+            linkMarks[frameNumber].addLinkToObject(sessionName, objectId, qualified, linkType);
         }
 
         /// <summary>
@@ -193,21 +232,25 @@ namespace Annotator
                 return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
             }
 
-            // Interpolation
-            if (prevMarker != nextMarker && objectMarks[prevMarker] != null && objectMarks[nextMarker] != null)
+            // Interpolation might fail
+            try
             {
-                if ( this is RectangleObject && Options.getOption().interpolationModes[Options.RECTANGLE] == Options.InterpolationMode.LINEAR ||
-                    this is GlyphBoxObject && Options.getOption().interpolationModes[Options.GLYPH] == Options.InterpolationMode.LINEAR ||
-                    this is RigObject && Options.getOption().interpolationModes[Options.RIG] == Options.InterpolationMode.LINEAR)
+                // Interpolation
+                if (prevMarker != nextMarker && objectMarks[prevMarker] != null && objectMarks[nextMarker] != null)
                 {
-                    return objectMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new PointF())
-                        .addLocationMark( frameNo,
-                         objectMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new PointF()))
-                         .getScaledLocationMark( scale, translation )
-                         ;
+                    if (this is RectangleObject && Options.getOption().interpolationModes[Options.RECTANGLE] == Options.InterpolationMode.LINEAR ||
+                        this is GlyphBoxObject && Options.getOption().interpolationModes[Options.GLYPH] == Options.InterpolationMode.LINEAR ||
+                        this is RigObject && Options.getOption().interpolationModes[Options.RIG] == Options.InterpolationMode.LINEAR)
+                    {
+                        var prev = objectMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new PointF());
+                        var next = objectMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new PointF());
+                        return prev.addLocationMark(frameNo, next).getScaledLocationMark(scale, translation);
+                    }
                 }
-                
-            } 
+            }
+            catch (Exception exc) {
+            }
+            
 
             return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
         }
@@ -235,10 +278,9 @@ namespace Annotator
                     this is GlyphBoxObject && Options.getOption().interpolationModes[Options.GLYPH] == Options.InterpolationMode.LINEAR ||
                     this is RigObject && Options.getOption().interpolationModes[Options.RIG] == Options.InterpolationMode.LINEAR)
                 {
-                    return object3DMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new Point3())
-                        .addLocationMark(frameNo,
-                         object3DMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new Point3()))
-                         ;
+                    var prev = object3DMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new Point3());
+                    var next = object3DMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new Point3());
+                    return prev.addLocationMark(frameNo, next);
                 }
             }
 
@@ -332,20 +374,14 @@ namespace Annotator
 
         protected virtual void writeLinks(XmlWriter xmlWriter)
         {
-            if (spatialLinkMarks.Count == 0) return;
+            if (linkMarks.Count == 0) return;
             xmlWriter.WriteStartElement(LINKS);
-            foreach (int frame in spatialLinkMarks.Keys)
+            foreach (int frame in linkMarks.Keys)
             {
-                xmlWriter.WriteStartElement(SPATIAL_LINK);
+                xmlWriter.WriteStartElement(LINK);
                 xmlWriter.WriteAttributeString(FRAME, "" + frame);
-                foreach (Tuple<string, bool, string> spatialLink in spatialLinkMarks[frame].spatialLinks)
-                {
-                    xmlWriter.WriteStartElement(LINKTO);
-                    xmlWriter.WriteAttributeString(ID, spatialLink.Item1);
-                    xmlWriter.WriteAttributeString(QUALIFIED, "" + spatialLink.Item2);
-                    xmlWriter.WriteAttributeString(TYPE, spatialLink.Item3.ToString());
-                    xmlWriter.WriteEndElement();
-                }
+                linkMarks[frame].writeToXml(xmlWriter);
+
                 xmlWriter.WriteEndElement();
             }
             xmlWriter.WriteEndElement();
@@ -409,7 +445,7 @@ namespace Annotator
                 }
 
                 readMarkers(objectNode, o);
-                readLinks(objectNode, o);
+                o.readLinks(objectNode);
 
                 objects.Add(o);
             }
@@ -662,29 +698,30 @@ namespace Annotator
             return cameraSpacePoint;
         }
 
-        private static void readLinks(XmlNode objectNode, Object o)
+        private void readLinks(XmlNode objectNode)
         {
             XmlNode linksNode = objectNode.SelectSingleNode(LINKS);
 
             if (linksNode == null) return;
-            foreach (XmlNode linkNode in linksNode.SelectNodes(SPATIAL_LINK))
+            foreach (XmlNode linkNode in linksNode.SelectNodes(LINK))
             {
+
                 int frame = int.Parse(linkNode.Attributes[FRAME].Value);
-                foreach (XmlNode linkto in linkNode.SelectNodes(LINKTO))
+
+                if (!linkMarks.ContainsKey(frame))
                 {
-                    String linkToObjectId = linkto.Attributes[ID].Value;
-                    bool qualified = bool.Parse(linkto.Attributes[QUALIFIED].Value);
-                    string markType = linkto.Attributes[TYPE].Value;
-                    o.setLink(frame, linkToObjectId, qualified, markType);
+                    linkMarks[frame] = new LinkMark(id, frame);
                 }
+
+                linkMarks[frame].loadFromHtml(linkNode);
             }
         }
 
         public String queryTooltip(int frameNo)
         {
-            if (spatialLinkMarks.ContainsKey(frameNo))
+            if (linkMarks.ContainsKey(frameNo))
             {
-                return spatialLinkMarks[frameNo].ToString();
+                return linkMarks[frameNo].ToString();
             }
             return "";
         }
