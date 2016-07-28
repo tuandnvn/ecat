@@ -37,7 +37,7 @@ namespace Annotator
 
         public SortedList<int, LocationMark2D> objectMarks
         {
-            get; private set;
+            get; protected set;
         }
 
         public SortedList<int, LocationMark3D> object3DMarks
@@ -47,7 +47,7 @@ namespace Annotator
 
         public SortedList<int, LinkMark> linkMarks
         {
-            get; private set;
+            get; protected set;
         }
 
         public enum ObjectType
@@ -183,7 +183,7 @@ namespace Annotator
             return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
-        public void setLink(int frameNumber, string objectId, bool qualified, string linkType)
+        public void addLink(int frameNumber, string objectId, bool qualified, string linkType)
         {
             if (!linkMarks.ContainsKey(frameNumber))
             {
@@ -193,7 +193,17 @@ namespace Annotator
             linkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
         }
 
-        public void setLink(int frameNumber, string sessionName, string objectId, bool qualified, string linkType)
+        public LinkMark getLink(int frameNumber)
+        {
+            if (!linkMarks.ContainsKey(frameNumber))
+            {
+                return null; 
+            }
+
+            return linkMarks[frameNumber];
+        }
+
+        public void addLink(int frameNumber, string sessionName, string objectId, bool qualified, string linkType)
         {
             if (!linkMarks.ContainsKey(frameNumber))
             {

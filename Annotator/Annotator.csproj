@@ -164,6 +164,9 @@
     <Compile Include="EventTemplateGenerator.Designer.cs">
       <DependentUpon>EventTemplateGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.Drawing.Zoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="object\GlyphBoxLocationMark3D.cs" />
     <Compile Include="KinectUtils.cs" />
     <Compile Include="learning\SimpleLearningDataGenerator.cs" />
@@ -428,6 +431,11 @@
     <Content Include="bodyScheme.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="zoom-in.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\Zoom_in.png" />
+    <Content Include="zoomout.cur" />
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -468,6 +476,10 @@
     <None Include="Resources\BoxIcon.png" />
     <None Include="Resources\BoxIcon1.png" />
     <None Include="Resources\videoreel.png" />
+    <None Include="Resources\zoom-tool.png" />
+    <None Include="Resources\Zoom_search_find_magnifying_glass.png" />
+    <None Include="Resources\zoom_out.png" />
+    <None Include="Resources\zoom-in.png" />
     <Content Include="swresample-0.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

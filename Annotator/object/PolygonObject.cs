@@ -15,9 +15,9 @@ namespace Annotator
         {
         }
 
-        public void setBounding(int frameNumber, List<PointF> boundingPolygon, float scale, Point translation)
+        public void setBounding(int frameNumber, List<PointF> boundingPolygon, float scale, PointF translation)
         {
-            List<PointF> inverseScaleBoundingPolygon = boundingPolygon.scaleBound(1 / scale, new Point((int)(-translation.X / scale), (int)(-translation.Y / scale)));
+            List<PointF> inverseScaleBoundingPolygon = boundingPolygon.scaleBound(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale));
             var ob = new PolygonLocationMark2D(frameNumber, inverseScaleBoundingPolygon);
             objectMarks[frameNumber] = ob;
         }

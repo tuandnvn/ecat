@@ -1091,5 +1091,6 @@ namespace Annotator
         {
             annotateTableLayoutPanel.Cursor = Cursors.Default;
         }
+
     }
 }

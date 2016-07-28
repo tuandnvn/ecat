@@ -10,7 +10,6 @@ namespace Annotator
 {
     class MyPictureBox : PictureBox
     {
-        public Capture capture { set; get; }
         public Mat mat { set; get; }
         public object playbackLock;
 

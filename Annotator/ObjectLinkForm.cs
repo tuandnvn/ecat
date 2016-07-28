@@ -40,30 +40,48 @@ namespace Annotator
                 this.Dispose();
                 return;
             }
-            this.infoLbl.Text = "Add link from object " + obj.id + " of session " + session.sessionName;
-            this.sessionSelectComboBox.Items.AddRange( project.sessions.Select(s => (s.sessionName.Equals(session.sessionName) ? "(current session)": s.sessionName) ).ToArray() );
+            this.infoLbl.Text = "Link from object " + obj.id + " of session " + session.sessionName + " at frame " + frameNo;
+            this.sessionSelectComboBox.Items.AddRange(project.sessions.Select(s => (s.sessionName.Equals(session.sessionName) ? "(current session)" : s.sessionName)).ToArray());
             this.sessionSelectComboBox.SelectedIndex = sessionIndex;
-            this.objectSelectComboBox.Items.AddRange(session.getObjects().Select( o => o.id ).ToArray() );
+            this.objectSelectComboBox.Items.AddRange(session.getObjects().Select(o => o.id + (o.name.Equals("") ? "" : (" (\"" + o.name + "\")"))).ToArray());
+            this.objectSelectComboBox.SelectedIndex = 0;
             this.qualifiedSelectComboBox.Items.AddRange(new object[] { true, false });
+            this.qualifiedSelectComboBox.SelectedIndex = 0;
             this.linkComboBox.Items.AddRange(Options.getOption().objectLinkTypes.ToArray());
+            this.linkComboBox.SelectedIndex = 0;
+            renderPredicateList();
+        }
+
+        private void renderPredicateList()
+        {
+            this.existingPredicateListBox.Items.Clear();
+            LinkMark lm = this.obj.getLink(frameNo);
+            if (lm != null)
+            {
+                this.existingPredicateListBox.Items.AddRange(lm.binaryPredicates.Select(s => lm.getLiteralForm(s)).ToArray());
+                this.existingPredicateListBox.Items.AddRange(lm.crossSessionBinaryPredicates.Select(s => lm.getLiteralForm(s)).ToArray());
+            }
         }
 
         private void addLinkBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                var oid = (string)this.objectSelectComboBox.SelectedItem;
+                //var oid = (string)this.objectSelectComboBox.SelectedItem;
+                
                 var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
                 var predicateType = (string)this.linkComboBox.SelectedItem;
 
                 if (!crossSessionChkBox.Checked)
                 {
-                    obj.setLink(frameNo, oid, qualified, predicateType);
+                    var oid = session.getObjects()[this.objectSelectComboBox.SelectedIndex].id;
+                    obj.addLink(frameNo, oid, qualified, predicateType);
                 } else
                 {
                     var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
                     var tempoSession = project.sessions[sessionIndex];
-                    obj.setLink(frameNo, tempoSession.sessionName, oid, qualified, predicateType);
+                    var oid = tempoSession.getObjects()[this.objectSelectComboBox.SelectedIndex].id;
+                    obj.addLink(frameNo, tempoSession.sessionName, oid, qualified, predicateType);
                 }
                 
                 this.main.redrawObjectMarks();
@@ -82,14 +100,107 @@ namespace Annotator
 
         private void sessionSelectComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
+            if (crossSessionChkBox.Checked)
+            {
+                var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
 
-            var tempoSession = project.sessions[sessionIndex];
+                var tempoSession = project.sessions[sessionIndex];
 
-            tempoSession.loadIfNotLoaded();
-            this.objectSelectComboBox.Text = "";
-            this.objectSelectComboBox.Items.Clear();
-            this.objectSelectComboBox.Items.AddRange(tempoSession.getObjects().Select(o => o.id).ToArray());
+                tempoSession.loadIfNotLoaded();
+                //this.objectSelectComboBox.Text = "";
+                this.objectSelectComboBox.Items.Clear();
+                this.objectSelectComboBox.Items.AddRange(tempoSession.getObjects().Select(o => o.id + (o.name.Equals("") ? "" : (" (\"" + o.name + "\")"))).ToArray());
+                this.objectSelectComboBox.SelectedIndex = 0;
+
+                updatePredicateForm();
+            }
+        }
+
+        private void objectSelectComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updatePredicateForm();
+        }
+
+        private void qualifiedSelectComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updatePredicateForm();
+        }
+
+        private void linkComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updatePredicateForm();
+        }
+
+        private void updatePredicateForm()
+        {
+            try
+            {
+                var oid = (string)this.objectSelectComboBox.SelectedItem;
+                var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
+                var predicateType = (string)this.linkComboBox.SelectedItem;
+
+                if (!crossSessionChkBox.Checked)
+                {
+                    this.predicateLbl.Text = getLiteralForm(obj.id, obj.name, oid, qualified, predicateType);
+                }
+                else
+                {
+                    var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
+                    var tempoSession = project.sessions[sessionIndex];
+                    this.predicateLbl.Text = getLiteralForm(obj.id, tempoSession.sessionName, oid, qualified, predicateType);
+                }
+
+            } catch (Exception exc)
+            {
+                this.predicateLbl.Text = "";
+            }
+        }
+
+        private String getLiteralForm(string id, string name, string oid, bool qualified, string predicateType)
+        {
+            String q = predicateType + "( " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + ", " + oid + " )";
+            if (!qualified)
+            {
+                q = "NOT( " + q + " )";
+            }
+            return q;
+        }
+
+        private String getLiteralForm(string id, string name, string osession, string oid, bool qualified, string predicateType)
+        {
+            String q = predicateType + "( " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + ", " + osession + "/" + oid + " )";
+            if (!qualified)
+            {
+                q = "NOT( " + q + " )";
+            }
+            return q;
+        }
+
+        private void removePredBtn_Click(object sender, EventArgs e)
+        {
+            var selectIndex = existingPredicateListBox.SelectedIndex;
+            LinkMark lm = this.obj.getLink(frameNo);
+
+            if (selectIndex != -1 && lm != null)
+            {
+                lm.binaryPredicates.RemoveWhere(t => lm.getLiteralForm(t).Equals((string)existingPredicateListBox.SelectedItem));
+                lm.crossSessionBinaryPredicates.RemoveWhere(t => lm.getLiteralForm(t).Equals((string)existingPredicateListBox.SelectedItem));
+            }
+            renderPredicateList();
+        }
+
+
+        private void existingPredicateListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectIndex = existingPredicateListBox.SelectedIndex;
+            if (selectIndex != -1)
+            {
+                removePredBtn.Enabled = true;
+            }
+            else
+            {
+                removePredBtn.Enabled = false;
+            }
         }
     }
 }

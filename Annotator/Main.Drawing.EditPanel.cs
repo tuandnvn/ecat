@@ -27,6 +27,7 @@ namespace Annotator
 
                 if (selectedObject != null && selectedObject is RectangleObject)
                 {
+                    RectangleF boundingBox = boundingBoxLocationMark.boundingBox;
                     if (boundingBox.Width == 0 && boundingBox.Height == 0)
                     {
                         // This case happens when there is no bounding box
@@ -34,20 +35,20 @@ namespace Annotator
                     }
                     else
                     {
-                        (selectedObject as RectangleObject).setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
+                        (selectedObject as RectangleObject).setBounding(frameTrackBar.Value, boundingBox, 1, new PointF());
                     }
                 }
 
                 if (selectedObject != null && selectedObject is PolygonObject)
                 {
-                    if (polygonPoints.Count == 0)
+                    if (polygonPointsLocationMark.boundingPolygon.Count == 0)
                     {
                         // This case happens when there is no  polygon points
                         selectedObject.setCopyBounding(frameTrackBar.Value);
                     }
                     else
                     {
-                        (selectedObject as PolygonObject).setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
+                        (selectedObject as PolygonObject).setBounding(frameTrackBar.Value, polygonPointsLocationMark.boundingPolygon, 1, new PointF());
                     }
                 }
 

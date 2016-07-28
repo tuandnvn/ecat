@@ -344,7 +344,6 @@ namespace Annotator
             // 
             this.depthBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.depthBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.depthBoard.capture = null;
             this.depthBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.depthBoard.Location = new System.Drawing.Point(627, 3);
             this.depthBoard.mat = null;
@@ -358,7 +357,6 @@ namespace Annotator
             // 
             this.rgbBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rgbBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rgbBoard.capture = null;
             this.rgbBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rgbBoard.Location = new System.Drawing.Point(3, 3);
             this.rgbBoard.mat = null;

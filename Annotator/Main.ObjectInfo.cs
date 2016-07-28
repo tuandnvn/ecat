@@ -110,6 +110,7 @@ namespace Annotator
             if (rowIndex == Array.FindIndex(defaultRows, t => t == NAME))
             {
                 selectedObject.name = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
+                objectToObjectTracks[selectedObject].updateInfo();
             }
 
             if (rowIndex == Array.FindIndex(defaultRows, t => t == SEMANTIC_TYPE))

@@ -125,7 +125,8 @@ namespace Annotator
 
                     if (videoReader != null)
                     {
-                        endPoint = startPoint = new Point();
+                        //endPoint = startPoint = new Point();
+                        boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
                         label3.Text = "Frame: " + frameTrackBar.Value;
 
                         Mat m = videoReader.getFrame(0);
@@ -294,7 +295,8 @@ namespace Annotator
             clearRightBottomPanel();
 
             // Start point, end point drawn on the picture frame
-            startPoint = endPoint = new Point();
+            //startPoint = endPoint = new Point();
+            boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
 
             // Visible the new object panel and edit object panel
             editObjectContextPanel.Visible = false;
@@ -319,6 +321,10 @@ namespace Annotator
             endInSecondTextBox.Text = "";
             setMinimumFrameTrackBar(0);
             setMaximumFrameTrackBar(100);
+
+            // Reset zooming 
+            this.pictureBoard.Dock = DockStyle.Fill;
+            inZoomIn = true;
         }
 
 
@@ -399,7 +405,8 @@ namespace Annotator
             clearPlaybackFileComboBox();
             clearRightBottomPanel();
             pictureBoard.Image = null;
-            startPoint = endPoint;
+            //startPoint = endPoint;
+            boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
             videoReader = null;
         }
 
@@ -745,10 +752,17 @@ namespace Annotator
                 foreach (var o in previousSession.getObjects())
                 {
                     var newObject = (Object) Activator.CreateInstance(o.GetType(), new object[] { currentSession, "", o.color, o.borderSize, this.playbackFileComboBox.Text });
-                    newObject.objectMarks[frameTrackBar.Value] = o.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
-                    newObject.objectMarks[frameTrackBar.Value].frameNo = frameTrackBar.Value;
-                    currentSession.addObject(newObject);
-                    addObjectAnnotation(newObject);
+                    newObject.name = o.name;
+                    var lastLocationMark = o.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
+                    if (lastLocationMark != null)
+                    {
+                        // Change the internal frameNo to current one
+                        lastLocationMark.frameNo = frameTrackBar.Value;
+                        newObject.objectMarks[frameTrackBar.Value] = lastLocationMark;
+                        newObject.addLink(frameTrackBar.Value, previousSession.sessionName, o.id, true, "IDENTITY");
+                        currentSession.addObject(newObject);
+                        addObjectAnnotation(newObject);
+                    }
                 }
 
                 invalidatePictureBoard();

@@ -102,14 +102,15 @@ namespace Annotator
 
         private void doneEditRectangle()
         {
-            startPoint = new Point();
-            endPoint = new Point();
+            //startPoint = new Point();
+            //endPoint = new Point();
+            boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
             drawingNewRectangle = false;
         }
 
         private void doneEditPolygon()
         {
-            polygonPoints = new List<PointF>();
+            polygonPointsLocationMark = new PolygonLocationMark2D(-1, new List<PointF>());
             drawingNewPolygon = editingPolygon = false;
         }
     }

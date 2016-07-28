@@ -20,17 +20,18 @@ namespace Annotator
             {
                 var relFileName = videoReader.fileName.Split(Path.DirectorySeparatorChar)[videoReader.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
                 objectToAdd = new RectangleObject(currentSession, null, colorDialog1.Color, (int)borderSizeNumeric.Value, relFileName);
-                (objectToAdd as RectangleObject).setBounding(frameTrackBar.Value, boundingBox, linear.Item1, linear.Item2);
-                startPoint = new Point();
-                endPoint = new Point();
+                (objectToAdd as RectangleObject).setBounding(frameTrackBar.Value, boundingBoxLocationMark.boundingBox, 1, new PointF());
+                //startPoint = new Point();
+                //endPoint = new Point();
+                boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
             }
 
             if (drawingButtonSelected[polygonDrawing])
             {
                 var relFileName = videoReader.fileName.Split(Path.DirectorySeparatorChar)[videoReader.fileName.Split(Path.DirectorySeparatorChar).Length - 1];
                 objectToAdd = new PolygonObject(currentSession, null, colorDialog1.Color, (int)borderSizeNumeric.Value, relFileName);
-                (objectToAdd as PolygonObject).setBounding(frameTrackBar.Value, polygonPoints, linear.Item1, linear.Item2);
-                polygonPoints = new List<PointF>();
+                (objectToAdd as PolygonObject).setBounding(frameTrackBar.Value, polygonPointsLocationMark.boundingPolygon, 1, new PointF());
+                polygonPointsLocationMark = new PolygonLocationMark2D(-1, new List<PointF>());
 
                 // (drawingNewPolygon, editingPolygon) = (false, false) when you're added the polygon
                 drawingNewPolygon = false;
@@ -58,14 +59,15 @@ namespace Annotator
             newObjectContextPanel.Visible = false;
             if (drawingButtonSelected[rectangleDrawing])
             {
-                startPoint = new Point();
-                endPoint = new Point();
+                //startPoint = new Point();
+                //endPoint = new Point();
+                boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
                 drawingNewRectangle = false;
             }
 
             if (drawingButtonSelected[polygonDrawing])
             {
-                polygonPoints = new List<PointF>();
+                polygonPointsLocationMark = new PolygonLocationMark2D(-1, new List<PointF>());
                 drawingNewPolygon = editingPolygon = false;
             }
             draggingSelectBoxes = false;

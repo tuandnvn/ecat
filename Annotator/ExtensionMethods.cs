@@ -19,9 +19,9 @@ namespace Annotator
                 original.Height * scale);
         }
 
-        public static Point scalePoint(this Point original, float scale, Point translation)
+        public static System.Drawing.PointF scalePoint(this Point original, float scale, System.Drawing.PointF translation)
         {
-            return new Point((int)(original.X * scale + translation.X), (int)(original.Y * scale + translation.Y));
+            return new System.Drawing.PointF(original.X * scale + translation.X, original.Y * scale + translation.Y);
         }
 
         public static System.Drawing.PointF scalePoint(this System.Drawing.PointF original, float scale, System.Drawing.PointF translation)
@@ -83,7 +83,8 @@ namespace Annotator
                                                         new RectangleF((lowerX + higherX)/2.0f - boxSize/2.0f, higherY - boxSize/2.0f,boxSize,boxSize),
                                                         new RectangleF(lowerX - boxSize/2.0f, (lowerY + higherY)/2.0f - boxSize/2.0f,boxSize,boxSize),
                                                         new RectangleF(higherX - boxSize/2.0f, (lowerY + higherY)/2.0f - boxSize/2.0f,boxSize,boxSize),
-                                                        new RectangleF(boundingBox.getCenter().X, boundingBox.getCenter().Y,boxSize,boxSize)
+                                                        new RectangleF(boundingBox.getCenter().X - boxSize/2.0f, boundingBox.getCenter().Y - boxSize/2.0f,
+                                                        boxSize,boxSize)
             };
             return selectBoxes.ToList();
         }

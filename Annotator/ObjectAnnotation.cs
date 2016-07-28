@@ -54,10 +54,8 @@ namespace Annotator
             this.end = end;
             this.sessionLength = end - start + 1;
 
+            this.updateInfo();
             Rendering();
-
-            this.info.Text = "Id=" + o.id + "; Name=" + o.name;
-
 
             if (this.o.genType == Object.GenType.MANUAL)
             {
@@ -67,6 +65,11 @@ namespace Annotator
             {
                 this.generate3d.Visible = false;
             }
+        }
+
+        public void updateInfo()
+        {
+            this.info.Text = "Id=" + o.id + "; Name=" + o.name;
         }
 
         private void Rendering()
@@ -108,14 +111,14 @@ namespace Annotator
                 mark.BackColor = System.Drawing.Color.Black;
                 mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
                 mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
-                mark.Size = new System.Drawing.Size( borderWidth, 20);
+                mark.Size = new System.Drawing.Size(borderWidth, 20);
 
                 this.shapeContainer1.Shapes.Add(mark);
                 mark.MouseEnter += Mark_MouseEnter;
                 mark.MouseClick += Mark_MouseClick;
                 mark.Click += Mark_Click;
 
-                if ( objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
+                if (objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
                 {
                     spanStart = objectMark.frameNo;
                     finishOneRectangle = false;
@@ -226,7 +229,7 @@ namespace Annotator
         ToolTip tt = new ToolTip();
 
         // Tuple of frame and time showing a tooltip
-        Tuple<int, int> currentToolTipShow = null;
+        Tuple<int, long> currentToolTipShow = null;
 
         private void ShowToolTipMouseAt(int frameNo)
         {
@@ -235,14 +238,14 @@ namespace Annotator
                 LinkMark objectMark = o.linkMarks[frameNo];
 
                 int X1 = (int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1));
-                int ms = (int)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
-                if (currentToolTipShow != null && currentToolTipShow.Item1 == frameNo && currentToolTipShow.Item2 - ms < TOOLTIP_TIME)
+                long ms = (long)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
+                if (currentToolTipShow != null && currentToolTipShow.Item1 == frameNo && ms - currentToolTipShow.Item2 < TOOLTIP_TIME)
                 {
                     // Don't display tooltip
                 }
                 else
                 {
-                    currentToolTipShow = new Tuple<int, int>(frameNo, ms);
+                    currentToolTipShow = new Tuple<int, long>(frameNo, ms);
                     tt.Show("Frame " + frameNo + "\n" + objectMark.ToString(), this, new Point(X1, 14), TOOLTIP_TIME);
                 }
             }
@@ -251,14 +254,14 @@ namespace Annotator
                 LocationMark objectMark = o.objectMarks[frameNo];
 
                 int X1 = (int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1));
-                int ms = (int)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
-                if (currentToolTipShow != null && currentToolTipShow.Item1 == frameNo && currentToolTipShow.Item2 - ms < TOOLTIP_TIME)
+                long ms = (long)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
+                if (currentToolTipShow != null && currentToolTipShow.Item1 == frameNo && ms - currentToolTipShow.Item2 < TOOLTIP_TIME)
                 {
                     // Don't display tooltip
                 }
                 else
                 {
-                    currentToolTipShow = new Tuple<int, int>(frameNo, ms);
+                    currentToolTipShow = new Tuple<int, long>(frameNo, ms);
                     tt.Show("Frame " + frameNo, this, new Point(X1, 14), TOOLTIP_TIME);
                 }
             }

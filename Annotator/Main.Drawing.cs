@@ -18,15 +18,17 @@ namespace Annotator
         private int boundingBorder = 1;         //bounding box border size
 
         // Rectangle new drawing
-        private PointF? startPoint;               //start point for selection in frame from selected video
-        private PointF? endPoint;                 //end point for selection in frame from selected video
-        private RectangleF boundingBox;             //current mouse selection in video frame
+        //private PointF? startPoint;               //start point for selection in frame from selected video
+        //private PointF? endPoint;                 //end point for selection in frame from selected video
+        private RectangleLocationMark boundingBoxLocationMark; // Wrapper of currently drawing bounding box
+        //private RectangleF boundingBox;             
         private bool drawingNewRectangle = false; //flag variable for pictureBox1 drawing selection rectangle
         private bool draggingSelectBoxes = false;
         private int draggingSelectBoxIndex;
 
         // Polygon new drawing
-        private List<PointF> polygonPoints = new List<PointF>();
+        private PolygonLocationMark2D polygonPointsLocationMark;
+        //private List<PointF> polygonPoints = new List<PointF>();
         private bool drawingNewPolygon = false;
         private bool editingPolygon = false;            // (drawingNewPolygon, editingPolygon) = ( true, false ) when you're keep drawing the polygon;
                                                         // = (false, true)  when you're done drawing, editing the location of the newly created polygon
@@ -63,6 +65,7 @@ namespace Annotator
         }
 
         CentroidMode centroidMode = CentroidMode.None;
+
         // To be used with Rotating and Zooming mode
         private List<PointF> tempoPolygonPoints = new List<PointF>();
 
@@ -71,18 +74,34 @@ namespace Annotator
 
         protected void InitDrawingComponent()
         {
-            drawingButtonGroup.Add(cursorDrawing);
+            //drawingButtonGroup.Add(cursorDrawing);
             drawingButtonGroup.Add(rectangleDrawing);
             drawingButtonGroup.Add(polygonDrawing);
+            drawingButtonGroup.Add(zoomDrawing);
 
-            drawingButtonSelected[cursorDrawing] = drawingButtonSelected[rectangleDrawing] = drawingButtonSelected[polygonDrawing] = false;
+            //drawingButtonSelected[cursorDrawing] = 
+            drawingButtonSelected[rectangleDrawing] =
+            drawingButtonSelected[polygonDrawing] = drawingButtonSelected[zoomDrawing] = false;
 
+            InitializeZooming();
             InitializeEditPanel();
         }
 
         //Start drawing selection rectangle
         private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
         {
+            if (currentSession == null) return;
+
+            var linear = getLinearTransform();
+            var scale = linear.Item1;
+            var translation = linear.Item2;
+
+
+            if (drawingButtonSelected[zoomDrawing])
+            {
+                whenZoomButtonAndMouseDown(e);
+            }
+
             if (drawingButtonSelected[rectangleDrawing] ||
                 (selectedObject != null && selectedObject is RectangleObject))
             {
@@ -103,10 +122,20 @@ namespace Annotator
                         }
                     }
 
-                    //set selection point for a new rectangle
+
+                    if (drawingButtonSelected[rectangleDrawing])
                     {
+                        ////set selection point for a new rectangle
                         drawingNewRectangle = true;
-                        startPoint = endPoint = e.Location;
+                        var scaledPointerLocation = e.Location.scalePoint(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale));
+                        boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF(scaledPointerLocation, new SizeF()));
+                        return;
+                    }
+
+                    // Only allow editing the current rectangle when you edit the rectangle object at a frame
+                    if (editingAtAFrame)
+                    {
+                        return;
                     }
                 }
             }
@@ -116,6 +145,9 @@ namespace Annotator
             {
                 if (e.Button == System.Windows.Forms.MouseButtons.Left && videoReader != null)
                 {
+                    List<PointF> polygonPoints = polygonPointsLocationMark.boundingPolygon;
+                    var scaledPointerLocation = e.Location.scalePoint(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale));
+
                     if (editingPolygon)
                     {
                         if (!draggingSelectBoxes)
@@ -151,9 +183,10 @@ namespace Annotator
                         {
                             double minDistance = double.MaxValue;
                             int minPos = -1;
+
                             for (int i = 0; i < polygonPoints.Count; i++)
                             {
-                                double distance = Math.Pow(polygonPoints[i].X - e.Location.X, 2) + Math.Pow(polygonPoints[i].Y - e.Location.Y, 2);
+                                double distance = Math.Pow(polygonPoints[i].X - scaledPointerLocation.X, 2) + Math.Pow(polygonPoints[i].Y - scaledPointerLocation.Y, 2);
                                 if (minDistance > distance)
                                 {
                                     minDistance = distance;
@@ -162,7 +195,7 @@ namespace Annotator
                             }
 
                             draggingSelectBoxIndex = minPos + 1;
-                            polygonPoints.Insert(draggingSelectBoxIndex, e.Location);
+                            polygonPoints.Insert(draggingSelectBoxIndex, scaledPointerLocation);
                             selectBoxes.Insert(draggingSelectBoxIndex, new Rectangle(e.Location.X - (boxSize - 1) / 2, e.Location.Y - (boxSize - 1) / 2, boxSize, boxSize));
 
                             // Recalculate centroid
@@ -181,7 +214,8 @@ namespace Annotator
                         if (drawingButtonSelected[polygonDrawing])
                         {
                             drawingNewPolygon = true;
-                            polygonPoints.Add(e.Location);
+                            polygonPoints.Add(scaledPointerLocation);
+                            return;
                         }
                     }
                 }
@@ -199,29 +233,46 @@ namespace Annotator
                     calculateCentroid();
 
                     invalidatePictureBoard();
+                    return;
+                }
+
+                // Only allow editing the current polygon when you edit the polygon object at a frame
+                if (editingAtAFrame)
+                {
+                    return;
                 }
             }
 
 
-            if (drawingButtonSelected[cursorDrawing])
-            {
-                whenCursorButtonAndMouseDown(e);
-            }
+            //if (drawingButtonSelected[cursorDrawing])
+            //{
+            //    whenCursorButtonAndMouseDown(e);
+            //}
 
+
+            whenCursorButtonAndMouseDown(e);
         }
 
 
         private void pictureBoard_MouseMove(object sender, MouseEventArgs e)
         {
-            if (drawingButtonSelected[rectangleDrawing])
+            if (currentSession == null) return;
+
+            var linear = getLinearTransform();
+            var scale = linear.Item1;
+            var translation = linear.Item2;
+
+            var boundingBox = (boundingBoxLocationMark.getScaledLocationMark(scale, translation) as RectangleLocationMark).boundingBox;
+            var startPoint = new PointF(boundingBox.X, boundingBox.Y);
+            var endPoint = new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
+
+            if (drawingButtonSelected[rectangleDrawing] && drawingNewRectangle)
             {
-                if (drawingNewRectangle)
-                {
-                    endPoint = e.Location;
-                    //pictureBox1.Refresh();
-                    invalidatePictureBoard();
-                    return;
-                }
+                endPoint = e.Location;
+                boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint, endPoint)).
+                    getScaledLocationMark(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale)) as RectangleLocationMark;
+                invalidatePictureBoard();
+                return;
             }
 
             if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject is RectangleObject))
@@ -279,6 +330,8 @@ namespace Annotator
                             this.Cursor = Cursors.Hand;
                             break;
                     }
+                    boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint, endPoint)).
+                    getScaledLocationMark(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale)) as RectangleLocationMark;
                     invalidatePictureBoard();
                 }
                 else
@@ -286,7 +339,6 @@ namespace Annotator
                     this.Cursor = Cursors.Default;
                 }
             }
-
 
             if (drawingButtonSelected[polygonDrawing])
             {
@@ -301,7 +353,7 @@ namespace Annotator
             {
                 if (draggingSelectBoxes)
                 {
-                    polygonPoints[draggingSelectBoxIndex] = e.Location;
+                    polygonPointsLocationMark.boundingPolygon[draggingSelectBoxIndex] = e.Location.scalePoint(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale));
                     selectBoxes[draggingSelectBoxIndex] = new Rectangle(e.Location.X - (boxSize - 1) / 2, e.Location.Y - (boxSize - 1) / 2, boxSize, boxSize);
 
                     calculateCentroid();
@@ -311,15 +363,20 @@ namespace Annotator
                     return;
                 }
 
+                // polygonPoints are real coordinates on pictureBoard
+                var polygonPoints = new List<PointF>();
+                polygonPoints.AddRange(polygonPointsLocationMark.boundingPolygon);
+                polygonPoints = polygonPoints.Select(value => value.scalePoint(scale, translation)).ToList();
+
                 switch (centroidMode)
                 {
                     case CentroidMode.Dragging:
                         {
                             PointF oldCentroid = getCentroid(polygonPoints);
-                            PointF translation = new PointF(e.Location.X - oldCentroid.X, e.Location.Y - oldCentroid.Y);
+                            PointF dragTranslation = new PointF(e.Location.X - oldCentroid.X, e.Location.Y - oldCentroid.Y);
                             for (int i = 0; i < polygonPoints.Count; i++)
                             {
-                                polygonPoints[i] = new PointF(polygonPoints[i].X + translation.X, polygonPoints[i].Y + translation.Y);
+                                polygonPoints[i] = new PointF(polygonPoints[i].X + dragTranslation.X, polygonPoints[i].Y + dragTranslation.Y);
                             }
                             centroid = e.Location;
 
@@ -330,6 +387,8 @@ namespace Annotator
                             }
                             selectBoxes = listOfSelectBox;
                             invalidatePictureBoard();
+
+
                             break;
                         }
                     case CentroidMode.Rotating:
@@ -340,9 +399,9 @@ namespace Annotator
 
                             for (int i = 0; i < polygonPoints.Count; i++)
                             {
-                                PointF translation = new PointF(tempoPolygonPoints[i].X - centroid.X, tempoPolygonPoints[i].Y - centroid.Y);
-                                PointF rotatedTranslation = new PointF((float)(translation.X * Math.Cos(alpha) - translation.Y * Math.Sin(alpha))
-                                    , (float)(translation.X * Math.Sin(alpha) + translation.Y * Math.Cos(alpha)));
+                                PointF rotateTranslation = new PointF(tempoPolygonPoints[i].X - centroid.X, tempoPolygonPoints[i].Y - centroid.Y);
+                                PointF rotatedTranslation = new PointF((float)(rotateTranslation.X * Math.Cos(alpha) - rotateTranslation.Y * Math.Sin(alpha))
+                                    , (float)(rotateTranslation.X * Math.Sin(alpha) + rotateTranslation.Y * Math.Cos(alpha)));
                                 polygonPoints[i] = new PointF(centroid.X + rotatedTranslation.X, centroid.Y + rotatedTranslation.Y);
                             }
 
@@ -356,9 +415,9 @@ namespace Annotator
                             float alpha = verticalDiff / 100;
                             for (int i = 0; i < polygonPoints.Count; i++)
                             {
-                                PointF translation = new PointF(tempoPolygonPoints[i].X - centroid.X, tempoPolygonPoints[i].Y - centroid.Y);
-                                PointF scaledTranslation = new PointF((float)(translation.X * Math.Exp(alpha))
-                                    , (float)(translation.Y * Math.Exp(alpha)));
+                                PointF zoomTranslation = new PointF(tempoPolygonPoints[i].X - centroid.X, tempoPolygonPoints[i].Y - centroid.Y);
+                                PointF scaledTranslation = new PointF((float)(zoomTranslation.X * Math.Exp(alpha))
+                                    , (float)(zoomTranslation.Y * Math.Exp(alpha)));
                                 polygonPoints[i] = new PointF(centroid.X + scaledTranslation.X, centroid.Y + scaledTranslation.Y);
                             }
                             resetSelectBoxes();
@@ -367,8 +426,17 @@ namespace Annotator
                     case CentroidMode.None:
                         break;
                 }
+
+                // Update polygonPointsLocationMark
+                polygonPointsLocationMark = new PolygonLocationMark2D(polygonPointsLocationMark.frameNo, polygonPoints.Select(value => value.scalePoint(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale))).ToList());
+            }
+
+            if (drawingButtonSelected[zoomDrawing])
+            {
+                whenZoomButtonAndMouseMove(e);
             }
         }
+
 
         private void whenCursorButtonAndMouseDown(MouseEventArgs e)
         {
@@ -407,17 +475,27 @@ namespace Annotator
 
         private void pictureBoard_MouseUp(object sender, MouseEventArgs e)
         {
-            if (drawingButtonSelected[rectangleDrawing])
+            if (currentSession == null)
+                return;
+
+            if (drawingButtonSelected[rectangleDrawing] && drawingNewRectangle)
             {
-                if (drawingNewRectangle)
-                {
-                    endPoint = e.Location;
-                    if (drawingNewRectangle && boundingBox != null && boundingBox.Width > 0 && boundingBox.Height > 0)
-                        newObjectContextPanel.Visible = true;
-                    else
-                        newObjectContextPanel.Visible = false;
-                    drawingNewRectangle = false;
-                }
+                var linear = getLinearTransform();
+                var scale = linear.Item1;
+                var translation = linear.Item2;
+                var boundingBox = (boundingBoxLocationMark.getScaledLocationMark(scale, translation) as RectangleLocationMark).boundingBox;
+                var startPoint = new PointF(boundingBox.X, boundingBox.Y);
+                var endPoint = e.Location;
+
+                boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint, endPoint)).
+                    getScaledLocationMark(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale)) as RectangleLocationMark;
+
+                boundingBox = boundingBoxLocationMark.boundingBox;
+                if (drawingNewRectangle && boundingBox != null && boundingBox.Width > 0 && boundingBox.Height > 0)
+                    newObjectContextPanel.Visible = true;
+                else
+                    newObjectContextPanel.Visible = false;
+                drawingNewRectangle = false;
             }
 
             if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject is RectangleObject))
@@ -532,6 +610,8 @@ namespace Annotator
                 if (videoReader != null && currentSession != null)
                 {
                     var linear = getLinearTransform();
+                    var scale = linear.Item1;
+                    var translation = linear.Item2;
 
                     foreach (Object o in currentSession.getObjects())
                     {
@@ -540,7 +620,7 @@ namespace Annotator
 
                             Pen p = new Pen(o.color, o.borderSize);
                             p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-                            LocationMark2D r = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                            LocationMark2D r = o.getScaledLocationMark(frameTrackBar.Value, scale, translation);
 
                             if (r != null)
                             {
@@ -561,21 +641,34 @@ namespace Annotator
                     }
 
 
-                    if (selectedObject != null && !editingAtAFrame)
+                    if (selectedObject != null)
                     {
-                        LocationMark lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        LocationMark lm = null;
+                        if (!editingAtAFrame)
+                        {
+                            lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, 1, new PointF());
+                        }
+                        else
+                        {
+                            if (selectedObject is RectangleObject)
+                            {
+                                lm = boundingBoxLocationMark.getScaledLocationMark(1, new PointF());
+                            }
+                            if (selectedObject is PolygonObject)
+                            {
+                                lm = polygonPointsLocationMark.getScaledLocationMark(1, new PointF());
+                            }
+                        }
+
                         if (lm != null)
                         {
                             if (selectedObject is RectangleObject)
                             {
-                                boundingBox = ((RectangleLocationMark)lm).boundingBox;
-                                startPoint = new PointF(boundingBox.X, boundingBox.Y);
-                                endPoint = new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
+                                boundingBoxLocationMark = lm as RectangleLocationMark;
                             }
                             if (selectedObject is PolygonObject)
                             {
-                                polygonPoints = ((PolygonLocationMark2D)lm).boundingPolygon;
-
+                                polygonPointsLocationMark = lm as PolygonLocationMark2D;
                                 resetSelectBoxes();
                                 calculateCentroid();
                             }
@@ -584,13 +677,12 @@ namespace Annotator
                         {
                             if (selectedObject is RectangleObject)
                             {
-                                startPoint = new PointF();
-                                endPoint = new PointF();
+                                boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
                                 selectBoxes = new List<RectangleF>();
                             }
                             if (selectedObject is PolygonObject)
                             {
-                                polygonPoints = new List<PointF>();
+                                polygonPointsLocationMark = new PolygonLocationMark2D(-1, new List<PointF>());
                                 selectBoxes = new List<RectangleF>();
                                 calculateCentroid();
                             }
@@ -611,14 +703,19 @@ namespace Annotator
                     // Currently drawing or selecting a rectangle object
                     if (drawingButtonSelected[rectangleDrawing] || (selectedObject != null && selectedObject is RectangleObject))
                     {
-                        if (endPoint.HasValue && startPoint.HasValue && videoReader != null)
+                        if (videoReader != null)
                         {
-                            float lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
-                            float lowerY = Math.Min(startPoint.Value.Y, endPoint.Value.Y);
-                            float higherX = Math.Max(startPoint.Value.X, endPoint.Value.X);
-                            float higherY = Math.Max(startPoint.Value.Y, endPoint.Value.Y);
+                            //float lowerX = Math.Min(startPoint.Value.X, endPoint.Value.X);
+                            //float lowerY = Math.Min(startPoint.Value.Y, endPoint.Value.Y);
+                            //float higherX = Math.Max(startPoint.Value.X, endPoint.Value.X);
+                            //float higherY = Math.Max(startPoint.Value.Y, endPoint.Value.Y);
 
-                            boundingBox = new RectangleF(lowerX, lowerY, higherX - lowerX, higherY - lowerY);
+                            //RectangleF boundingBox = new RectangleF(lowerX, lowerY, higherX - lowerX, higherY - lowerY);
+                            //boundingBoxLocationMark = new RectangleLocationMark(-1, boundingBox).getScaledLocationMark(1 / scale,
+                            //    new PointF(-translation.X / scale, -translation.Y / scale)) as RectangleLocationMark;
+
+                            RectangleF boundingBox = (boundingBoxLocationMark.getScaledLocationMark(scale, translation) as RectangleLocationMark).boundingBox;
+
                             selectBoxes = boundingBox.getCornerSelectBoxes(boxSize);
 
                             e.Graphics.DrawRectangle(pen, boundingBox);
@@ -630,6 +727,13 @@ namespace Annotator
                             }
                         }
                     }
+
+                    if (polygonPointsLocationMark == null)
+                    {
+                        polygonPointsLocationMark = new PolygonLocationMark2D(-1, new List<PointF>());
+                    }
+                    var polygonPoints = new List<PointF>();
+                    polygonPoints = (polygonPointsLocationMark.getScaledLocationMark(scale, translation) as PolygonLocationMark2D).boundingPolygon;
 
                     // Currently drawing or selecting a polygon object
                     if (drawingButtonSelected[polygonDrawing] || (selectedObject != null && selectedObject is PolygonObject))
@@ -712,7 +816,7 @@ namespace Annotator
                     // Selecting other kind of objects
                     if (selectedObject != null && !(selectedObject is PolygonObject) && !(selectedObject is RectangleObject))
                     {
-                        LocationMark2D lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                        LocationMark2D lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, scale, translation);
                         if (lm != null)
                         {
                             selectBoxes = lm.getCornerSelectBoxes(boxSize);
@@ -732,9 +836,24 @@ namespace Annotator
             }
         }
 
+        private RectangleF getRectangleFromStartAndEndPoint(PointF startPoint, PointF endPoint)
+        {
+            float lowerX = Math.Min(startPoint.X, endPoint.X);
+            float lowerY = Math.Min(startPoint.Y, endPoint.Y);
+            float higherX = Math.Max(startPoint.X, endPoint.X);
+            float higherY = Math.Max(startPoint.Y, endPoint.Y);
+
+            RectangleF boundingBox = new RectangleF(lowerX, lowerY, higherX - lowerX, higherY - lowerY);
+            return boundingBox;
+        }
+
         private void calculateCentroid()
         {
-            centroid = getCentroid(polygonPoints);
+            var linear = getLinearTransform();
+            var scale = linear.Item1;
+            var translation = linear.Item2;
+
+            centroid = getCentroid(polygonPointsLocationMark.boundingPolygon.Select(value => value.scalePoint(scale, translation)).ToList());
         }
 
         private PointF getCentroid(List<PointF> polygonPoints)
@@ -758,13 +877,17 @@ namespace Annotator
 
         private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {
+            var linear = getLinearTransform();
+            var scale = linear.Item1;
+            var translation = linear.Item2;
+
             // While editing a polygon
             if (selectedObject != null && selectedObject is PolygonObject && editingAtAFrame)
             {
                 // While dragging a select box, and user press delete, handle delete that polygon point
                 if (draggingSelectBoxes && e.KeyCode == Keys.Delete)
                 {
-                    polygonPoints.RemoveAt(draggingSelectBoxIndex);
+                    polygonPointsLocationMark.boundingPolygon.RemoveAt(draggingSelectBoxIndex);
                     selectBoxes.RemoveAt(draggingSelectBoxIndex);
                     draggingSelectBoxes = false;
                 }
@@ -778,13 +901,13 @@ namespace Annotator
                 if (centroidMode == CentroidMode.Dragging && e.KeyCode == Keys.ControlKey)
                 {
                     centroidMode = CentroidMode.Rotating;
-                    tempoPolygonPoints.AddRange(polygonPoints);
+                    tempoPolygonPoints.AddRange(polygonPointsLocationMark.boundingPolygon.Select(value => value.scalePoint(scale, translation)));
                 }
 
                 if (centroidMode == CentroidMode.Dragging && e.KeyCode == Keys.ShiftKey)
                 {
                     centroidMode = CentroidMode.Zooming;
-                    tempoPolygonPoints.AddRange(polygonPoints);
+                    tempoPolygonPoints.AddRange(polygonPointsLocationMark.boundingPolygon.Select(value => value.scalePoint(scale, translation)));
                 }
 
                 invalidatePictureBoard();
@@ -823,21 +946,23 @@ namespace Annotator
             return new Tuple<float, Point>(scale, translation);
         }
 
-        private void cursorDrawing_MouseDown(object sender, MouseEventArgs e)
-        {
-            selectButtonDrawing(cursorDrawing, drawingButtonGroup, !drawingButtonSelected[cursorDrawing]);
-            cancelSelectObject();
-        }
+
+        //private void cursorDrawing_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    selectButtonDrawing(cursorDrawing, drawingButtonGroup, !drawingButtonSelected[cursorDrawing]);
+        //    cancelSelectObject();
+        //}
 
         private void rectangleDrawing_MouseDown(object sender, MouseEventArgs e)
         {
             selectButtonDrawing(rectangleDrawing, drawingButtonGroup, !drawingButtonSelected[rectangleDrawing]);
+            cancelDrawing();
         }
 
         private void polygonDrawing_MouseDown(object sender, MouseEventArgs e)
         {
-
             selectButtonDrawing(polygonDrawing, drawingButtonGroup, !drawingButtonSelected[polygonDrawing]);
+            cancelDrawing();
         }
 
         private void selectButtonDrawing(Button b, List<Button> buttonGroup, bool select)
@@ -865,6 +990,11 @@ namespace Annotator
 
         private void resetSelectBoxes()
         {
+            var linear = getLinearTransform();
+            var scale = linear.Item1;
+            var translation = linear.Item2;
+            var polygonPoints = polygonPointsLocationMark.boundingPolygon.Select(value => value.scalePoint(scale, translation)).ToList();
+
             List<RectangleF> listOfSelectBox = new List<RectangleF>();
             foreach (PointF p in polygonPoints)
             {
