@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.01.873-00.05.03.530" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.05.01.873-00.05.03.530.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="shoe 2" filename="0009_Forrest_Gump_00.05.01.873-00.05.03.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1023.133,304.6693,248.8904,550.4081</marker>
+        <marker type="LOCATION" frame="15">1491.01,398.7586,176.6105,500.7021</marker>
+        <marker type="LOCATION" frame="28">1363.407,448.6901,176.6105,500.7021</marker>
+        <marker type="LOCATION" frame="47">1422.123,676.8495,122.0553,272.5431</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.05.00.328-00.05.01.873" id="o5" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="shoe 1" filename="0009_Forrest_Gump_00.05.01.873-00.05.03.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1407.503,369.8055,280.5514,548.0909</marker>
+        <marker type="LOCATION" frame="15">1265.105,467.241,188.2832,470.9975</marker>
+        <marker type="LOCATION" frame="28">1670.105,452.4465,188.2834,470.9975</marker>
+        <marker type="LOCATION" frame="47">1521.987,666.0701,122.0548,283.2646</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.05.00.328-00.05.01.873" id="o6" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="boy" filename="0009_Forrest_Gump_00.05.01.873-00.05.03.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1116.537,128.7585,393.6612,480.5803</marker>
+        <marker type="LOCATION" frame="15">1374.734,132.4571,335.1893,208.5104</marker>
+        <marker type="LOCATION" frame="28">1437.611,136.1558,378.4161,250.351</marker>
+        <marker type="LOCATION" frame="47">1370.779,136.1558,346.6917,516.6527</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.05.00.328-00.05.01.873" id="o7" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="doctor" filename="0009_Forrest_Gump_00.05.01.873-00.05.03.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">886.7466,132.226,368.0137,578.8356</marker>
+        <marker type="LOCATION" frame="15">659.2809,148.8699,368.0137,578.8356</marker>
+        <marker type="LOCATION" frame="28">509.4863,132.226,368.0137,578.8356</marker>
+        <marker type="LOCATION" frame="47">98.93837,137.774,409.6233,688.8699</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.05.00.328-00.05.01.873" id="o8" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="mom" filename="0009_Forrest_Gump_00.05.01.873-00.05.03.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1765.798,129.4521,150.1006,589.9322</marker>
+        <marker type="LOCATION" frame="15">1488.699,129.4521,427.1931,643.5617</marker>
+        <marker type="LOCATION" frame="28">1310.239,136.8493,427.1931,643.5618</marker>
+        <marker type="LOCATION" frame="47">944.5368,141.4726,420.2578,668.5274</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.05.00.328-00.05.01.873" id="o9" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Forrest walks around stiffly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

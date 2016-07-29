@@ -1120,7 +1120,9 @@ namespace Annotator
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            InfoForm iff = new InfoForm();
+            iff.StartPosition = FormStartPosition.CenterParent;
+            iff.ShowDialog();
         }
     }
 }

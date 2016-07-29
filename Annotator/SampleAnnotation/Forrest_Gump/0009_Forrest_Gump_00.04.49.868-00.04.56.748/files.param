@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.04.49.868-00.04.56.748" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.04.49.868-00.04.56.748.avi</file>
+  </files>
+  <objects no="10">
+    <object id="o10" name="shoe 2" filename="0009_Forrest_Gump_00.04.49.868-00.04.56.748.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1379.589,525.2055,440.137,427.1918</marker>
+        <marker type="LOCATION" frame="137">1011.575,346.7466,586.2337,561.2672</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o8" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o9" name="shoe 1" filename="0009_Forrest_Gump_00.04.49.868-00.04.56.748.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.698652,508.5617,456.7809,441.9863</marker>
+        <marker type="LOCATION" frame="137">121.1301,337.5001,581.6096,576.0616</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o8" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o8" name="boy" filename="0009_Forrest_Gump_00.04.49.868-00.04.56.748.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">480.822,162.7397,859.9316,789.6578</marker>
+        <marker type="LOCATION" frame="137">612.1234,162.7397,575.1369,789.6578</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.04.47.798-00.04.49.868" id="o3" q="True" type="IDENTITY" />
+        </link>
+        <link frame="33">
+          <linkTo id="o10" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o7" name="doctor" filename="0009_Forrest_Gump_00.04.49.868-00.04.56.748.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1473.904,129.4521,438.2881,817.3978</marker>
+        <marker type="LOCATION" frame="137">1442.466,129.4521,469.7265,817.3978</marker>
+        <marker type="LOCATION" frame="164">908.0137,129.4521,1004.179,817.3978</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o10" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0009_Forrest_Gump_00.04.47.798-00.04.49.868" id="o4" q="True" type="IDENTITY" />
+        </link>
+        <link frame="33">
+          <linkTo id="o10" q="False" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="165" />
+      <text>Forrest has been fitted with orthopedic shoes and metal leg braces.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

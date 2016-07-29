@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.04.41.185-00.04.45.732" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.04.41.185-00.04.45.732.avi</file>
+  </files>
+  <objects no="10">
+    <object id="o7" name="man" filename="0009_Forrest_Gump_00.04.41.185-00.04.45.732.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">539.5596,181.8039,840.0295,775.5703</marker>
+        <marker type="LOCATION" frame="98">334.5058,176.256,1043.234,775.5703</marker>
+        <marker type="DELETE" frame="100" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.04.06.764-00.04.31.733" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o10" name="boy" filename="0009_Forrest_Gump_00.04.41.185-00.04.45.732.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="100">348.5959,147.9452,1121.61,804.4521</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="109" />
+      <text>Forrest closes his eyes tightly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

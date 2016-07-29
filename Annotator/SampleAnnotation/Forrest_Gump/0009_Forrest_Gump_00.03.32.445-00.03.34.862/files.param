@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.03.32.445-00.03.34.862" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.03.32.445-00.03.34.862.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="woman" filename="0009_Forrest_Gump_00.03.32.445-00.03.34.862.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">858.7668,494.1555,105.964,339.7291</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0009_Forrest_Gump_00.03.25.467-00.03.32.445" id="o1" q="True" type="IDENTITY" />
+        </link>
+        <link frame="38">
+          <linkTo id="o2" q="False" type="LOOK_AT" />
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="man" filename="0009_Forrest_Gump_00.03.32.445-00.03.34.862.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1125.576,486.4343,140.6971,342.3056</marker>
+        <marker type="LOCATION" frame="57">1140.231,474.7703,130.8462,355.999</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0009_Forrest_Gump_00.03.25.467-00.03.32.445" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="magazine" filename="0009_Forrest_Gump_00.03.32.445-00.03.34.862.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">878.4987,591.9571,70.34853,37.74799</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.25.467-00.03.32.445" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="chocolate box" filename="0009_Forrest_Gump_00.03.32.445-00.03.34.862.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1144.45,621.9839,78.92761,47.18499</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.25.467-00.03.32.445" id="o4" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="chocolate" filename="0009_Forrest_Gump_00.03.32.445-00.03.34.862.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">956.5958,559.6409,73.78031,29.16893</marker>
+        <marker type="LOCATION" frame="57">977.6867,565.9155,73.78046,29.16895</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.25.467-00.03.32.445" id="o5" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o6" name="hand" filename="0009_Forrest_Gump_00.03.32.445-00.03.34.862.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1017.173,556.6154,21.80769,18.69231</marker>
+        <marker type="LOCATION" frame="57">1034.827,569.077,21.80769,18.69231</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.25.467-00.03.32.445" id="o7" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="57" />
+      <text>The nurse shakes her head, a bit apprehensive about this strange man next to her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.03.44.974-00.04.06.250" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="woman" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">803.5698,420.6774,105.964,403.9532</marker>
+        <marker type="LOCATION" frame="91">784.9491,395.2156,105.964,424.0948</marker>
+        <marker type="LOCATION" frame="239">755.468,340.4926,135.445,478.8177</marker>
+        <marker type="LOCATION" frame="395">711.5764,340.4926,179.3367,509.4089</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="man" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1138.271,411.2123,151.8763,396.1276</marker>
+        <marker type="LOCATION" frame="91">1138.271,364.4335,151.8763,442.9064</marker>
+        <marker type="LOCATION" frame="239">1138.271,343.1527,161.1866,464.1872</marker>
+        <marker type="LOCATION" frame="395">1174.973,331.8473,194.9776,492.7833</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o2" q="True" type="IDENTITY" />
+        </link>
+        <link frame="91">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="177">
+          <linkTo id="o7" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="239">
+          <linkTo id="o7" q="True" type="POINT_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="magazine" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">808.077,517.1359,70.34843,37.74794</marker>
+        <marker type="LOCATION" frame="395">748.2248,455.9536,108.3269,80.05624</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="chocolate box" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1172.211,564.2893,88.67558,52.85359</marker>
+        <marker type="LOCATION" frame="395">1232.51,560.1249,88.67558,52.85355</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o4" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="chocolate" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1197.044,468.2234,42.21039,25.22487</marker>
+        <marker type="DELETE" frame="91" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o5" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o6" name="hand" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1186.141,484.1021,26.86449,26.63679</marker>
+        <marker type="LOCATION" frame="91">1162.331,446.8787,29.39284,30.60903</marker>
+        <marker type="LOCATION" frame="239">1030.722,544.6462,49.27774,37.91533</marker>
+        <marker type="LOCATION" frame="314">1148.465,515.7222,49.27774,37.91533</marker>
+        <marker type="LOCATION" frame="395">1051.371,567.5941,49.27774,37.91533</marker>
+        <marker type="LOCATION" frame="415">1197.676,562.2739,49.27774,37.91533</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o6" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o7" name="woman's shoes" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">802.0197,772.7586,71.82266,49.21182</marker>
+        <marker type="LOCATION" frame="91">784.7291,773.4236,71.82266,49.21182</marker>
+        <marker type="LOCATION" frame="395">746.1577,814.6552,71.82266,49.21182</marker>
+      </markers>
+      <links>
+        <link frame="177" />
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="510" />
+      <text>Forrest eats a chocolate as he looks down at the nurse's shoes.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

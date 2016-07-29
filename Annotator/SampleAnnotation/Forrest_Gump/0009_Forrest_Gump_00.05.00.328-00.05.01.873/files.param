@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.00.328-00.05.01.873" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.05.00.328-00.05.01.873.avi</file>
+  </files>
+  <objects no="9">
+    <object id="o5" name="shoe 2" filename="0009_Forrest_Gump_00.05.00.328-00.05.01.873.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1268.63,263.0651,176.6105,500.702</marker>
+        <marker type="LOCATION" frame="16">1246.753,350.5828,176.6104,500.7021</marker>
+        <marker type="LOCATION" frame="27">1204.366,306.2928,176.6105,500.7021</marker>
+        <marker type="LOCATION" frame="41">1002.791,356.2243,176.6105,500.7021</marker>
+        <marker type="LOCATION" frame="47">1196.969,372.8682,176.6105,500.7021</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.04.49.868-00.04.56.748" id="o10" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o6" name="shoe 1" filename="0009_Forrest_Gump_00.05.00.328-00.05.01.873.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">991.2329,300.0515,168.7504,452.6198</marker>
+        <marker type="LOCATION" frame="16">983.835,362.0169,168.7505,452.62</marker>
+        <marker type="LOCATION" frame="27">855.0769,321.0873,168.7505,452.6199</marker>
+        <marker type="LOCATION" frame="41">1430.214,488.2192,261.9095,420.488</marker>
+        <marker type="LOCATION" frame="47">1307.813,449.3836,188.2832,470.9975</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.04.49.868-00.04.56.748" id="o9" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o7" name="boy" filename="0009_Forrest_Gump_00.05.00.328-00.05.01.873.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">977.8254,129.9143,418.8699,283.87</marker>
+        <marker type="LOCATION" frame="27">1031.456,126.2157,418.8699,283.87</marker>
+        <marker type="LOCATION" frame="41">1197.894,128.065,418.8699,283.87</marker>
+        <marker type="LOCATION" frame="47">1281.575,128.065,335.1892,208.5103</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.04.49.868-00.04.56.748" id="o8" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o8" name="doctor" filename="0009_Forrest_Gump_00.05.00.328-00.05.01.873.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1270.479,129.4521,368.0137,578.8356</marker>
+        <marker type="LOCATION" frame="16">1186.771,128.7145,368.0136,578.8356</marker>
+        <marker type="LOCATION" frame="27">1086.473,128.5274,368.0137,578.8356</marker>
+        <marker type="LOCATION" frame="41">860.8562,126.6781,368.0137,578.8356</marker>
+        <marker type="LOCATION" frame="47">753.5959,115.5822,368.0137,578.8356</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0009_Forrest_Gump_00.04.49.868-00.04.56.748" id="o7" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o9" name="mom" filename="0009_Forrest_Gump_00.05.00.328-00.05.01.873.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="41">1693.973,129.4521,221.9178,589.9315</marker>
+        <marker type="LOCATION" frame="47">1605.206,129.4521,310.6856,589.9315</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The doctor sets Forrest down on its feet.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

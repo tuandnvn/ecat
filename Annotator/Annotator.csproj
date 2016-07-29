@@ -164,6 +164,12 @@
     <Compile Include="EventTemplateGenerator.Designer.cs">
       <DependentUpon>EventTemplateGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.Drawing.Zoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EventTemplateGenerator.resx">
       <DependentUpon>EventTemplateGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
