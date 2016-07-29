@@ -18,7 +18,7 @@ namespace Annotator
         private int boundingBorder = 1;         //bounding box border size
 
         // Rectangle new drawing
-        //private PointF? startPoint;               //start point for selection in frame from selected video
+        private PointF? startPoint = null;               //start point for selection in frame from selected video
         //private PointF? endPoint;                 //end point for selection in frame from selected video
         private RectangleLocationMark boundingBoxLocationMark; // Wrapper of currently drawing bounding box
         //private RectangleF boundingBox;             
@@ -90,7 +90,7 @@ namespace Annotator
         //Start drawing selection rectangle
         private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
         {
-            if (currentSession == null) return;
+            if (currentSession == null || videoReader == null) return;
 
             var linear = getLinearTransform();
             var scale = linear.Item1;
@@ -128,6 +128,7 @@ namespace Annotator
                         ////set selection point for a new rectangle
                         drawingNewRectangle = true;
                         var scaledPointerLocation = e.Location.scalePoint(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale));
+                        startPoint = scaledPointerLocation;
                         boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF(scaledPointerLocation, new SizeF()));
                         return;
                     }
@@ -249,27 +250,28 @@ namespace Annotator
             //    whenCursorButtonAndMouseDown(e);
             //}
 
-
-            whenCursorButtonAndMouseDown(e);
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                whenCursorButtonAndMouseDown(e);
+            }
         }
 
 
         private void pictureBoard_MouseMove(object sender, MouseEventArgs e)
         {
-            if (currentSession == null) return;
+            if (currentSession == null || videoReader == null) return;
 
             var linear = getLinearTransform();
             var scale = linear.Item1;
             var translation = linear.Item2;
 
             var boundingBox = (boundingBoxLocationMark.getScaledLocationMark(scale, translation) as RectangleLocationMark).boundingBox;
-            var startPoint = new PointF(boundingBox.X, boundingBox.Y);
             var endPoint = new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
 
             if (drawingButtonSelected[rectangleDrawing] && drawingNewRectangle)
             {
                 endPoint = e.Location;
-                boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint, endPoint)).
+                boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint.Value.scalePoint(scale, translation), endPoint)).
                     getScaledLocationMark(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale)) as RectangleLocationMark;
                 invalidatePictureBoard();
                 return;
@@ -330,7 +332,7 @@ namespace Annotator
                             this.Cursor = Cursors.Hand;
                             break;
                     }
-                    boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint, endPoint)).
+                    boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint.Value, endPoint)).
                     getScaledLocationMark(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale)) as RectangleLocationMark;
                     invalidatePictureBoard();
                 }
@@ -475,7 +477,7 @@ namespace Annotator
 
         private void pictureBoard_MouseUp(object sender, MouseEventArgs e)
         {
-            if (currentSession == null)
+            if (currentSession == null || videoReader == null)
                 return;
 
             if (drawingButtonSelected[rectangleDrawing] && drawingNewRectangle)
@@ -484,10 +486,9 @@ namespace Annotator
                 var scale = linear.Item1;
                 var translation = linear.Item2;
                 var boundingBox = (boundingBoxLocationMark.getScaledLocationMark(scale, translation) as RectangleLocationMark).boundingBox;
-                var startPoint = new PointF(boundingBox.X, boundingBox.Y);
                 var endPoint = e.Location;
 
-                boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint, endPoint)).
+                boundingBoxLocationMark = new RectangleLocationMark(-1, getRectangleFromStartAndEndPoint(startPoint.Value.scalePoint(scale, translation), endPoint)).
                     getScaledLocationMark(1 / scale, new PointF(-translation.X / scale, -translation.Y / scale)) as RectangleLocationMark;
 
                 boundingBox = boundingBoxLocationMark.boundingBox;

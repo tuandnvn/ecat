@@ -24,6 +24,7 @@ namespace Annotator
                 //startPoint = new Point();
                 //endPoint = new Point();
                 boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
+                startPoint = null;
             }
 
             if (drawingButtonSelected[polygonDrawing])
@@ -62,6 +63,7 @@ namespace Annotator
                 //startPoint = new Point();
                 //endPoint = new Point();
                 boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
+                startPoint = null;
                 drawingNewRectangle = false;
             }
 

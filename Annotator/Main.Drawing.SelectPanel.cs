@@ -47,6 +47,11 @@ namespace Annotator
 
         private void deleteObjBtn_Click(object sender, EventArgs e)
         {
+            deleteCurrentObject();
+        }
+
+        private void deleteCurrentObject()
+        {
             var tempoObject = selectedObject;
             cancelSelectObject();
 

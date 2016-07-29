@@ -739,27 +739,38 @@ namespace Annotator
             {
                 ObjectAnnotation oa = this.objectToObjectTracks[o];
 
-                if (oa != null)
+                this.objectToObjectTracks.Remove(o);
+
+                //// BUGGY
+                //if (oa != null)
+                //{
+                //    var index = this.objectToObjectTracks.Keys.ToList().IndexOf(o);
+
+                //    this.objectToObjectTracks.Remove(o);
+
+                //    middleCenterTableLayoutPanel.Controls.Remove(oa);
+
+                //    // Move all the object annotations following ot up one step
+                //    for (var i = index; i < this.objectToObjectTracks.Keys.Count; i ++ )
+                //    {
+                //        var moveObjectAnnotation = this.objectToObjectTracks[this.objectToObjectTracks.Keys.ToList()[i]];
+                //        middleCenterTableLayoutPanel.Controls.Remove(moveObjectAnnotation);
+                //        middleCenterTableLayoutPanel.Controls.Add(moveObjectAnnotation, lastObjectCell.X, i);
+                //    }
+
+                //    middleCenterTableLayoutPanel.RowStyles.RemoveAt(middleCenterTableLayoutPanel.RowStyles.Count - 1);
+                //    middleCenterTableLayoutPanel.RowCount = lastObjectCell.Y - 1;
+                //    middleCenterTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleCenterTableLayoutPanel.RowCount + 4);
+                //    lastObjectCell.Y --;
+                //}
+
+                lastObjectCell.Y = 0;
+                middleCenterTableLayoutPanel.Controls.Clear();
+                foreach (Object obj in this.objectToObjectTracks.Keys)
                 {
-                    var index = this.objectToObjectTracks.Keys.ToList().IndexOf(o);
-
-                    this.objectToObjectTracks.Remove(o);
-
-                    middleCenterTableLayoutPanel.Controls.Remove(oa);
-
-                    // Move all the object annotations following ot up one step
-                    for (var i = index; i < this.objectToObjectTracks.Keys.Count; i ++ )
-                    {
-                        var moveObjectAnnotation = this.objectToObjectTracks[this.objectToObjectTracks.Keys.ToList()[i]];
-                        middleCenterTableLayoutPanel.Controls.Remove(moveObjectAnnotation);
-                        middleCenterTableLayoutPanel.Controls.Add(moveObjectAnnotation, lastObjectCell.X, i);
-                    }
-
-                    middleCenterTableLayoutPanel.RowCount = lastObjectCell.Y - 1;
-                    middleCenterTableLayoutPanel.RowStyles.RemoveAt(middleCenterTableLayoutPanel.RowStyles.Count - 1);
-                    middleCenterTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleCenterTableLayoutPanel.RowCount + 4);
-                    lastObjectCell.Y --;
+                    renderObjectAnnotation(this.objectToObjectTracks[obj]);
                 }
+
                 middleCenterPanel.Invalidate();
             }
         }

@@ -257,7 +257,6 @@ namespace Annotator
         internal void saveCurrentSession()
         {
             currentSession.saveSession();
-
             cleanSessionUI();
         }
 
@@ -330,8 +329,10 @@ namespace Annotator
 
         internal void clearMiddleCenterPanel()
         {
+
             middleCenterTableLayoutPanel.Controls.Clear();
             lastObjectCell = new Point(1, 0);
+            this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
         }
 
         internal void clearMidleBottomPanel()
