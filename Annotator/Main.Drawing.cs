@@ -878,13 +878,13 @@ namespace Annotator
 
         private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {
-            var linear = getLinearTransform();
-            var scale = linear.Item1;
-            var translation = linear.Item2;
-
             // While editing a polygon
             if (selectedObject != null && selectedObject is PolygonObject && editingAtAFrame)
             {
+                var linear = getLinearTransform();
+                var scale = linear.Item1;
+                var translation = linear.Item2;
+
                 // While dragging a select box, and user press delete, handle delete that polygon point
                 if (draggingSelectBoxes && e.KeyCode == Keys.Delete)
                 {
