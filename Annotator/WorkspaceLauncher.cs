@@ -14,13 +14,13 @@ namespace Annotator
 {
     public partial class WorkspaceLauncher : Form
     {
-        
-        public WorkspaceLauncher(Main frm1)
+        private Main main;
+        public WorkspaceLauncher(Main main)
         {
             InitializeComponent();
-            this.frm1 = frm1;
+            this.main = main;
         }
-        private Main frm1;
+        
         private void WorkspaceLauncher_Load(object sender, EventArgs e)
         {
             try
@@ -36,8 +36,8 @@ namespace Annotator
                 if(!Directory.Exists(defaultLocation)){
                     Directory.CreateDirectory(defaultLocation);
                 }
-                textBox1.Text = defaultLocation;
-                textBox1.Select(0, 0);
+                workspacePath.Text = defaultLocation;
+                workspacePath.Select(0, 0);
                 //Set default folderBrowser properties:
                 folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.Desktop;
                 folderBrowserDialog1.SelectedPath = defaultLocation;                
@@ -48,30 +48,25 @@ namespace Annotator
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void cancelWsBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            frm1.Close();
+            main.Close();
             Close();
         }
-        //OK button clicked
-        private void button3_Click(object sender, EventArgs e)
+
+        private void selectWsBtn_Click(object sender, EventArgs e)
         {
             //Set workspace options:
-            frm1.setWorkspace(textBox1.Text, checkBox1.Checked);
+            main.setWorkspace(workspacePath.Text, checkBox1.Checked);
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void wsBrowserBtn_Click(object sender, EventArgs e)
         {
             //Show folder browser for Annotator workspace:
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Text = folderBrowserDialog1.SelectedPath;
+                workspacePath.Text = folderBrowserDialog1.SelectedPath;
             }
         }
 

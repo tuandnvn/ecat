@@ -70,8 +70,7 @@ namespace Annotator
 
             InitDrawingComponent();
             InitEventAnnoComponent();
-            //Iinitialize workspace object
-            workspace = new Workspace();
+
             //Load images to imageList
             //loadImages();
 
@@ -144,7 +143,7 @@ namespace Annotator
             loadParameters();
 
             //Show workspace launcher at the beginning:
-            if (!workspace.getDefaultOption())
+            if (workspace == null)
             {
                 WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
                 workspaceLauncher.Show();
@@ -154,7 +153,24 @@ namespace Annotator
                 // Try the location folder from the param file
                 try
                 {
-                    setWorkspace(workspace.getLocationFolder(), workspace.getDefaultOption());
+                    loadWorkspace();
+
+                    //If default workspace option choosed set parametrs in hidden param file
+                    if (workspace.defaultOption)
+                    {
+                        // Remove the hidden attribute of the file   
+                        if (File.Exists(parametersFileName))
+                        {
+                            FileInfo myFile = new FileInfo(parametersFileName);
+                            myFile.Attributes &= ~FileAttributes.Hidden;
+                        }
+
+                        File.WriteAllText(parametersFileName, workspace.locationFolder);
+
+                        FileInfo myFile1 = new FileInfo(parametersFileName);
+                        // Set the hidden attribute of the file
+                        myFile1.Attributes = FileAttributes.Hidden;
+                    }
                 }
                 catch (Exception exc)
                 {
@@ -174,29 +190,12 @@ namespace Annotator
         }
 
         //Set workspace option: folder and default option
-        public void setWorkspace(String locationFolder, bool defaulOption)
+        public void loadWorkspace()
         {
-            workspace.setLocationFolder(locationFolder);
-            workspace.setDefaulOption(defaulOption);
-            //If deaflt workspace option choosed set parametrs in hidden param file
-            if (workspace.getDefaultOption())
-            {
-                // Remove the hidden attribute of the file   
-                if (File.Exists(parametersFileName))
-                {
-                    FileInfo myFile = new FileInfo(parametersFileName);
-                    myFile.Attributes &= ~FileAttributes.Hidden;
-                }
-
-                File.WriteAllText(parametersFileName, workspace.getLocationFolder());
-
-                FileInfo myFile1 = new FileInfo(parametersFileName);
-                // Set the hidden attribute of the file
-                myFile1.Attributes = FileAttributes.Hidden;
-            }
-
+            workspace.load();
+            
             //Load workspace treeView:
-            initworkspaceTreeView();
+            initWorkspaceTreeview();
         }
 
         private void loadParameters()
@@ -225,99 +224,109 @@ namespace Annotator
                 }
                 if (list.Count == 1)
                 {
-                    workspace.setLocationFolder(list[0]);
-                    workspace.setDefaulOption(true);
-                    //MessageBox.Show("OK");
+                    workspace = new Workspace(list[0], true);
                 }
                 file.Close();
                 myFile.Attributes |= FileAttributes.Hidden;
             }
         }
 
+        internal void setWorkspace(string locationFolder, bool defaultOption)
+        {
+            clearWorkspaceTreeview();
+            workspace = new Workspace(locationFolder, defaultOption);
+            loadWorkspace();
+        }
+
+        private void clearWorkspaceTreeview()
+        {
+            treeView.Nodes.Clear();
+        }
 
         //Load workspace treeView:
-        private void initworkspaceTreeView()
+        private void initWorkspaceTreeview()
         {
-            //Step 1: detect all projects in workspace
-            String workspaceFolder = workspace.getLocationFolder();
-            String[] projects = Directory.GetDirectories(workspaceFolder);
-
-            foreach (String projectName in projects)
+            try
             {
-                TreeNode projectNode;
-
-                String prjName = projectName.Split(Path.DirectorySeparatorChar)[projectName.Split(Path.DirectorySeparatorChar).Length - 1];
-                List<TreeNode> array = new List<TreeNode>();
-                String[] sessions = Directory.GetDirectories(projectName);
-                workspace.addProject(prjName);
-
-                // Initiate sessions in project
-                for (int i = 0; i < Directory.GetDirectories(projectName).Length; i++)
+                for (int projectIndex = 0; projectIndex < workspace.getProjectCount(); projectIndex ++ )
                 {
-                    //Check files in current Session folder
-                    String[] files = Directory.GetFiles(sessions[i]);
+                    TreeNode projectNode;
 
-                    if (files.Length > 0)
+                    String prjName = workspace.getProject(projectIndex).name;
+                    List<TreeNode> array = new List<TreeNode>();
+                    String[] sessions = Directory.GetDirectories(workspace.locationFolder + Path.DirectorySeparatorChar + prjName);
+
+                    // Initiate sessions in project
+                    for (int i = 0; i < sessions.Length; i++)
                     {
-                        TreeNode[] arrayFiles = new TreeNode[files.Length];
-                        for (int j = 0; j < arrayFiles.Length; j++)
+                        //Check files in current Session folder
+                        String[] files = Directory.GetFiles(sessions[i]);
+
+                        if (files.Length > 0)
                         {
-                            arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
-                            arrayFiles[j].ImageIndex = 2;
-                            arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
+                            TreeNode[] arrayFiles = new TreeNode[files.Length];
+                            for (int j = 0; j < arrayFiles.Length; j++)
+                            {
+                                arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
+                                arrayFiles[j].ImageIndex = 2;
+                                arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
+                            }
+
+                            TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
+
+                            sessionNode.ImageIndex = 1;
+                            sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
+                            //Add session to workspace 
+                            String sessionName = sessionNode.Text;
+                            Project project = workspace.getProject(prjName);
+
+                            if (project.checkSessionInProject(sessionName))
+                            {
+                                project.addSession(new Session(sessionName, project.name, project.locationFolder));
+                                //Add to treeview session list only files which exists in session filesList
+
+                                Session session = project.getSession(sessionName);
+
+                                array.Add(sessionNode);
+                            }
+
                         }
-
-                        TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
-
-                        sessionNode.ImageIndex = 1;
-                        sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
-                        //Add session to workspace 
-                        String sessionName = sessionNode.Text;
-                        Project project = workspace.getProject(prjName);
-
-                        if (project.checkSessionInProject(sessionName))
+                        else if (files.Length == 0)
                         {
-                            project.addSession(new Session(sessionName, project.name, project.locationFolder));
-                            //Add to treeview session list only files which exists in session filesList
-
-                            Session session = project.getSession(sessionName);
-
-                            array.Add(sessionNode);
+                            TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
+                            sessionNode.ImageIndex = 1;
+                            sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
+                            String sessionName = sessionNode.Text;
+                            Project project = workspace.getProject(prjName);
+                            if (project.checkSessionInProject(sessionName))
+                            {
+                                project.addSession(new Session(sessionName, project.name, project.locationFolder));
+                                array.Add(sessionNode);
+                            }
                         }
-
                     }
-                    else if (files.Length == 0)
+
+                    // If there are sessions in the project
+                    if (array.Count > 0)
                     {
-                        TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
-                        sessionNode.ImageIndex = 1;
-                        sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
-                        String sessionName = sessionNode.Text;
-                        Project project = workspace.getProject(prjName);
-                        if (project.checkSessionInProject(sessionName))
-                        {
-                            project.addSession(new Session(sessionName, project.name, project.locationFolder));
-                            array.Add(sessionNode);
-                        }
+                        projectNode = new TreeNode(prjName, array.ToArray());
+                        projectNode.ImageIndex = 0;
+                        projectNode.SelectedImageIndex = projectNode.ImageIndex;
+                        treeView.Nodes.Add(projectNode);
+                    }
+
+                    // If the project is empty
+                    else if (array.Count == 0)
+                    {
+                        projectNode = new TreeNode(prjName);
+                        projectNode.ImageIndex = 0;
+                        projectNode.SelectedImageIndex = projectNode.ImageIndex;
+                        treeView.Nodes.Add(projectNode);
                     }
                 }
-
-                // If there are sessions in the project
-                if (array.Count > 0)
-                {
-                    projectNode = new TreeNode(prjName, array.ToArray());
-                    projectNode.ImageIndex = 0;
-                    projectNode.SelectedImageIndex = projectNode.ImageIndex;
-                    treeView.Nodes.Add(projectNode);
-                }
-
-                // If the project is empty
-                else if (array.Count == 0)
-                {
-                    projectNode = new TreeNode(prjName);
-                    projectNode.ImageIndex = 0;
-                    projectNode.SelectedImageIndex = projectNode.ImageIndex;
-                    treeView.Nodes.Add(projectNode);
-                }
+            } catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
         }
 
@@ -348,7 +357,7 @@ namespace Annotator
             List<char> r = p.ToList();
             r.RemoveAll(c => c == '*');
             p = new string(r.ToArray());
-            String fileName = workspace.getLocationFolder() + Path.DirectorySeparatorChar + p;
+            String fileName = workspace.locationFolder + Path.DirectorySeparatorChar + p;
             //MessageBox.Show(p); 
             //MessageBox.Show(fileName + " nested level = " + treeView.SelectedNode.Level);
 
@@ -613,7 +622,7 @@ namespace Annotator
         //Get workspace projects list size
         public int getWorkspaceProjectSize()
         {
-            return workspace.getProjectsSize();
+            return workspace.getProjectCount();
         }
 
         public void setTrackbarLocation(int value)
@@ -1103,5 +1112,15 @@ namespace Annotator
             annotateTableLayoutPanel.Cursor = Cursors.Default;
         }
 
+        private void switchWorkspaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
+            workspaceLauncher.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

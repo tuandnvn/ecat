@@ -72,6 +72,7 @@ namespace Annotator
             }
         }
 
+
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {

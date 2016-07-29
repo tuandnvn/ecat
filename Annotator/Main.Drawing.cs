@@ -72,14 +72,15 @@ namespace Annotator
         // Editing bounding at a certain frame
         private bool editingAtAFrame = false;
 
+        float scale;
+        PointF translation;
+
         protected void InitDrawingComponent()
         {
-            //drawingButtonGroup.Add(cursorDrawing);
             drawingButtonGroup.Add(rectangleDrawing);
             drawingButtonGroup.Add(polygonDrawing);
             drawingButtonGroup.Add(zoomDrawing);
 
-            //drawingButtonSelected[cursorDrawing] = 
             drawingButtonSelected[rectangleDrawing] =
             drawingButtonSelected[polygonDrawing] = drawingButtonSelected[zoomDrawing] = false;
 
@@ -87,15 +88,39 @@ namespace Annotator
             InitializeEditPanel();
         }
 
+        private void calculateLinear()
+        {
+            Tuple<float, PointF> linear = null;
+
+            if (videoReader != null)
+            {
+                linear = getLinearTransform();
+            }
+            if (depthReader != null)
+            {
+                linear = getDepthLinearTransform();
+            }
+
+            if (linear != null)
+            {
+                scale = linear.Item1;
+                translation = linear.Item2;
+            }
+            else
+            {
+                scale = 1.0f;
+                translation = new PointF();
+            }
+        }
+
         //Start drawing selection rectangle
         private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
         {
-            if (currentSession == null || videoReader == null) return;
+            if (currentSession == null) return;
 
-            var linear = getLinearTransform();
-            var scale = linear.Item1;
-            var translation = linear.Item2;
-
+            // These two lines should be together
+            if (videoReader == null && depthReader == null) return;
+            calculateLinear();
 
             if (drawingButtonSelected[zoomDrawing])
             {
@@ -229,8 +254,7 @@ namespace Annotator
                     editingPolygon = true;
                     temporaryPoint = null;
                     newObjectContextPanel.Visible = true;
-                    resetSelectBoxes();
-
+                    selectBoxes = (polygonPointsLocationMark.getScaledLocationMark(scale, translation) as PolygonLocationMark2D).getCornerSelectBoxes(boxSize);
                     calculateCentroid();
 
                     invalidatePictureBoard();
@@ -244,12 +268,6 @@ namespace Annotator
                 }
             }
 
-
-            //if (drawingButtonSelected[cursorDrawing])
-            //{
-            //    whenCursorButtonAndMouseDown(e);
-            //}
-
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 whenCursorButtonAndMouseDown(e);
@@ -259,11 +277,11 @@ namespace Annotator
 
         private void pictureBoard_MouseMove(object sender, MouseEventArgs e)
         {
-            if (currentSession == null || videoReader == null) return;
+            if (currentSession == null) return;
 
-            var linear = getLinearTransform();
-            var scale = linear.Item1;
-            var translation = linear.Item2;
+            // These two lines should be together
+            if (videoReader == null && depthReader == null) return;
+            calculateLinear();
 
             var boundingBox = (boundingBoxLocationMark.getScaledLocationMark(scale, translation) as RectangleLocationMark).boundingBox;
             var endPoint = new PointF(boundingBox.X + boundingBox.Width, boundingBox.Y + boundingBox.Height);
@@ -407,7 +425,7 @@ namespace Annotator
                                 polygonPoints[i] = new PointF(centroid.X + rotatedTranslation.X, centroid.Y + rotatedTranslation.Y);
                             }
 
-                            resetSelectBoxes();
+                            selectBoxes = (polygonPointsLocationMark.getScaledLocationMark(scale, translation) as PolygonLocationMark2D).getCornerSelectBoxes(boxSize);
                             break;
                         }
                     case CentroidMode.Zooming:
@@ -422,7 +440,7 @@ namespace Annotator
                                     , (float)(zoomTranslation.Y * Math.Exp(alpha)));
                                 polygonPoints[i] = new PointF(centroid.X + scaledTranslation.X, centroid.Y + scaledTranslation.Y);
                             }
-                            resetSelectBoxes();
+                            selectBoxes = (polygonPointsLocationMark.getScaledLocationMark(scale, translation) as PolygonLocationMark2D).getCornerSelectBoxes(boxSize);
                             break;
                         }
                     case CentroidMode.None:
@@ -443,10 +461,25 @@ namespace Annotator
         private void whenCursorButtonAndMouseDown(MouseEventArgs e)
         {
             var objectWithScore = new List<Tuple<float, Object>>();
-            var linear = getLinearTransform();
+
+            // These two lines should be together
+            if (videoReader == null && depthReader == null) return;
+            calculateLinear();
+
             foreach (Object o in currentSession.getObjects())
             {
-                LocationMark2D lm = o.getScaledLocationMark(frameTrackBar.Value, linear.Item1, linear.Item2);
+                LocationMark2D lm = null;
+
+                if ( videoReader != null )
+                {
+                    lm = o.getScaledLocationMark(frameTrackBar.Value, scale, translation);
+                }
+
+                if ( depthReader != null )
+                {
+                    lm = getMark2DFromLocationMark3D(o);
+                }
+                
                 if (lm != null)
                 {
                     var score = lm.Score(e.Location);
@@ -477,14 +510,15 @@ namespace Annotator
 
         private void pictureBoard_MouseUp(object sender, MouseEventArgs e)
         {
-            if (currentSession == null || videoReader == null)
+            if (currentSession == null)
                 return;
+
+            // These two lines should be together
+            if (videoReader == null && depthReader == null) return;
+            calculateLinear();
 
             if (drawingButtonSelected[rectangleDrawing] && drawingNewRectangle)
             {
-                var linear = getLinearTransform();
-                var scale = linear.Item1;
-                var translation = linear.Item2;
                 var boundingBox = (boundingBoxLocationMark.getScaledLocationMark(scale, translation) as RectangleLocationMark).boundingBox;
                 var endPoint = e.Location;
 
@@ -550,7 +584,7 @@ namespace Annotator
             {
                 if (depthReader != null && currentSession != null)
                 {
-                    var linear = getDepthLinearTransform();
+                    calculateLinear();
 
                     foreach (Object o in currentSession.getObjects())
                     {
@@ -559,25 +593,7 @@ namespace Annotator
                             Pen p = new Pen(o.color, o.borderSize);
                             p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 
-                            LocationMark3D mark3d = o.getLocationMark3D(frameTrackBar.Value);
-
-                            if (mark3d == null)
-                                continue;
-
-                            LocationMark2D depthMark2d = null;
-
-                            if (mark3d is RigLocationMark3D)
-                            {
-                                switch (options.showRigOption)
-                                {
-                                    case Options.ShowRig.SHOW_UPPER:
-                                        mark3d = ((RigLocationMark3D)mark3d).getUpperBody();
-                                        break;
-                                }
-                            }
-
-                            depthMark2d = mark3d.getDepthViewLocationMark(linear.Item1, linear.Item2);
-
+                            var depthMark2d = getMark2DFromLocationMark3D(o);
 
                             if (depthMark2d != null)
                             {
@@ -604,15 +620,36 @@ namespace Annotator
             }
         }
 
+        private LocationMark2D getMark2DFromLocationMark3D(Object o)
+        {
+            LocationMark3D mark3d = o.getLocationMark3D(frameTrackBar.Value);
+
+            if (mark3d == null)
+                return null;
+
+            LocationMark2D depthMark2d = null;
+
+            if (mark3d is RigLocationMark3D)
+            {
+                switch (options.showRigOption)
+                {
+                    case Options.ShowRig.SHOW_UPPER:
+                        mark3d = ((RigLocationMark3D)mark3d).getUpperBody();
+                        break;
+                }
+            }
+
+            depthMark2d = mark3d.getDepthViewLocationMark(scale, translation);
+            return depthMark2d;
+        }
+
         private void pictureBoardPaintOnVideoFile(PaintEventArgs e)
         {
             try
             {
                 if (videoReader != null && currentSession != null)
                 {
-                    var linear = getLinearTransform();
-                    var scale = linear.Item1;
-                    var translation = linear.Item2;
+                    calculateLinear();
 
                     foreach (Object o in currentSession.getObjects())
                     {
@@ -670,7 +707,7 @@ namespace Annotator
                             if (selectedObject is PolygonObject)
                             {
                                 polygonPointsLocationMark = lm as PolygonLocationMark2D;
-                                resetSelectBoxes();
+                                selectBoxes = (polygonPointsLocationMark.getScaledLocationMark(scale, translation) as PolygonLocationMark2D).getCornerSelectBoxes(boxSize);
                                 calculateCentroid();
                             }
                         }
@@ -850,9 +887,7 @@ namespace Annotator
 
         private void calculateCentroid()
         {
-            var linear = getLinearTransform();
-            var scale = linear.Item1;
-            var translation = linear.Item2;
+            calculateLinear();
 
             centroid = getCentroid(polygonPointsLocationMark.boundingPolygon.Select(value => value.scalePoint(scale, translation)).ToList());
         }
@@ -881,9 +916,7 @@ namespace Annotator
             // While editing a polygon
             if (selectedObject != null && selectedObject is PolygonObject && editingAtAFrame)
             {
-                var linear = getLinearTransform();
-                var scale = linear.Item1;
-                var translation = linear.Item2;
+                calculateLinear();
 
                 // While dragging a select box, and user press delete, handle delete that polygon point
                 if (draggingSelectBoxes && e.KeyCode == Keys.Delete)
@@ -933,26 +966,19 @@ namespace Annotator
             invalidatePictureBoard();
         }
 
-        private Tuple<float, Point> getLinearTransform()
+        private Tuple<float, PointF> getLinearTransform()
         {
             float scale = Math.Min((float)pictureBoard.Width / videoReader.frameWidth, (float)pictureBoard.Height / videoReader.frameHeight);
-            Point translation = new Point((int)(pictureBoard.Width - videoReader.frameWidth * scale) / 2, (int)(pictureBoard.Height - videoReader.frameHeight * scale) / 2);
-            return new Tuple<float, Point>(scale, translation);
+            PointF translation = new PointF((pictureBoard.Width - videoReader.frameWidth * scale) / 2, (pictureBoard.Height - videoReader.frameHeight * scale) / 2);
+            return new Tuple<float, PointF>(scale, translation);
         }
 
-        private Tuple<float, Point> getDepthLinearTransform()
+        private Tuple<float, PointF> getDepthLinearTransform()
         {
             float scale = Math.Min((float)pictureBoard.Width / depthReader.depthWidth, (float)pictureBoard.Height / depthReader.depthHeight);
-            Point translation = new Point((int)(pictureBoard.Width - depthReader.depthWidth * scale) / 2, (int)(pictureBoard.Height - depthReader.depthHeight * scale) / 2);
-            return new Tuple<float, Point>(scale, translation);
+            PointF translation = new PointF((pictureBoard.Width - depthReader.depthWidth * scale) / 2, (pictureBoard.Height - depthReader.depthHeight * scale) / 2);
+            return new Tuple<float, PointF>(scale, translation);
         }
-
-
-        //private void cursorDrawing_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    selectButtonDrawing(cursorDrawing, drawingButtonGroup, !drawingButtonSelected[cursorDrawing]);
-        //    cancelSelectObject();
-        //}
 
         private void rectangleDrawing_MouseDown(object sender, MouseEventArgs e)
         {
@@ -989,20 +1015,6 @@ namespace Annotator
             }
         }
 
-        private void resetSelectBoxes()
-        {
-            var linear = getLinearTransform();
-            var scale = linear.Item1;
-            var translation = linear.Item2;
-            var polygonPoints = polygonPointsLocationMark.boundingPolygon.Select(value => value.scalePoint(scale, translation)).ToList();
-
-            List<RectangleF> listOfSelectBox = new List<RectangleF>();
-            foreach (PointF p in polygonPoints)
-            {
-                listOfSelectBox.Add(new RectangleF(p.X - (boxSize - 1) / 2, p.Y - (boxSize - 1) / 2, boxSize, boxSize));
-            }
-            selectBoxes = listOfSelectBox;
-        }
 
         internal void removeDrawingObject(Object o)
         {

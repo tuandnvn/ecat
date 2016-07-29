@@ -11,37 +11,20 @@ namespace Annotator
     //Workspace class
     class Workspace
     {
-        private List<Project> projects = new List<Project>();
-        private Dictionary<string, Project> projectNameToProject = new Dictionary<string, Project>();
-        private String locationFolder;//workspace folder
-        private bool defaultOption;//default workspace folder option
+        private List<Project> projects;
+        private Dictionary<string, Project> projectNameToProject;
+        public String locationFolder { get; } //workspace folder
+        public bool defaultOption { get; } //default workspace folder option
 
         //Constructor
-        public Workspace()
-        {
-            locationFolder = "";
-        }
-        //Set default option
-        public void setDefaulOption(bool option)
-        {
-            this.defaultOption = option;
-        }
-        //Get defaultOption
-        public bool getDefaultOption()
-        {
-            return defaultOption;
-        }
-        //Set locationFolder
-        public void setLocationFolder(String locationFolder)
+        public Workspace(String locationFolder, bool defaultOption)
         {
             this.locationFolder = locationFolder;
+            this.defaultOption = defaultOption;
+            projects = new List<Project>();
+            projectNameToProject = new Dictionary<string, Project>();
         }
-        //Get locationFolder
-        public String getLocationFolder()
-        {
-            return locationFolder;
-        }
-        
+
         /// <summary>
         /// Add a project into the work space
         /// </summary>
@@ -66,7 +49,7 @@ namespace Annotator
         }
 
         //Return number of project in workspace
-        public int getProjectsSize()
+        public int getProjectCount()
         {
             return projects.Count;
         }
@@ -75,6 +58,33 @@ namespace Annotator
         public Project getProject(String projectName)
         {
             return projectNameToProject[projectName];
+        }
+
+        //Get project by index
+        public Project getProject(int index)
+        {
+            if (index < 0 || index > projects.Count)
+                return null;
+            return projects[index];
+        }
+
+        internal void load()
+        {
+            // Load projects
+            try
+            {
+                String[] projectNames = Directory.GetDirectories(this.locationFolder);
+
+                foreach (String projectName in projectNames)
+                {
+                    String prjName = projectName.Split(Path.DirectorySeparatorChar)[projectName.Split(Path.DirectorySeparatorChar).Length - 1];
+                    this.addProject(prjName);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Load workspace failed! Directory might not exist.", e);
+            }
         }
     }
 }

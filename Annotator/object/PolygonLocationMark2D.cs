@@ -66,5 +66,17 @@ namespace Annotator
 
             boundingPolygon = points;
         }
+
+        public override List<RectangleF> getCornerSelectBoxes(int boxSize)
+        {
+            List<RectangleF> selectBoxes = new List<RectangleF>();
+            foreach (var p in boundingPolygon)
+            {
+                var p_ = (PointF)(object)p;
+                selectBoxes.Add(new Rectangle((int)(p_.X - (boxSize - 1) / 2),
+                        (int)(p_.Y - (boxSize - 1) / 2), boxSize, boxSize));
+            }
+            return selectBoxes;
+        }
     }
 }

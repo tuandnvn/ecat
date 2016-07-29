@@ -441,7 +441,7 @@ namespace Annotator
             { return; }
 
             //Check files in current Session folder
-            String[] files = Directory.GetFiles(workspace.getLocationFolder() + Path.DirectorySeparatorChar +
+            String[] files = Directory.GetFiles(workspace.locationFolder + Path.DirectorySeparatorChar +
                 currentSession.getProject() + Path.DirectorySeparatorChar + currentSession.sessionName);
 
             TreeNode[] arrayFiles = new TreeNode[files.Length];
