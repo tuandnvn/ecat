@@ -20,7 +20,7 @@ namespace Annotator
         private double frameStepX;
         private Main main;
         public Object o { get; }
-        private int borderWidth = 2;
+        private int borderWidth = 5;
         private int sessionLength;
 
         /// <summary>

@@ -275,6 +275,11 @@ namespace Annotator
             currentSession.setEdited(false);
             this.Text = "Project " + currentProject.name + " selected";
 
+            if (selectedObject != null)
+            {
+                cancelSelectObject();
+            }
+
             // Clean the playbackFileComboBox
             clearPlaybackFileComboBox();
 
@@ -287,29 +292,18 @@ namespace Annotator
             // Clean event annotation
             clearMidleBottomPanel();
 
-            // Clean object properties
-            clearRightCenterPanel();
-
             // Clean panel for annotating events
             clearRightBottomPanel();
-
-            // Start point, end point drawn on the picture frame
-            //startPoint = endPoint = new Point();
-            boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
 
             // Visible the new object panel and edit object panel
             editObjectContextPanel.Visible = false;
             newObjectContextPanel.Visible = false;
-            selectObjContextPanel.Visible = false;
 
             // Cancel select buttons in drawing button toolbox
             foreach (Button b in drawingButtonGroup)
             {
                 selectButtonDrawing(b, drawingButtonGroup, false);
             }
-
-            // No object selected
-            selectedObject = null;
 
 
             videoReader = null;
