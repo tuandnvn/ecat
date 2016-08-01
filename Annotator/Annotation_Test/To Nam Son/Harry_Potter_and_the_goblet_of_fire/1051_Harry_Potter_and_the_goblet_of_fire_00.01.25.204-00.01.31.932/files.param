@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o7" name="lightthegas" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">1222.714,123.4286,106.0714,69.42857</marker>
+        <marker type="LOCATION" frame="7">1177.393,136.9286,106.0714,69.42857</marker>
+        <marker type="LOCATION" frame="10">1113.75,135,122.4643,198.6429</marker>
+        <marker type="LOCATION" frame="13">1119.054,238.1786,122.4643,198.6429</marker>
+        <marker type="LOCATION" frame="16">1149.911,284.4643,146.0893,259.3929</marker>
+        <marker type="LOCATION" frame="19">1151.598,400.6607,146.0893,259.3929</marker>
+        <marker type="LOCATION" frame="52">962.5982,524.0893,373.9018,316.7679</marker>
+        <marker type="LOCATION" frame="121">962.5982,727.0714,373.9018,113.7855</marker>
+        <marker type="DELETE" frame="124" />
+      </markers>
+    </object>
+    <object id="o5" name="kettle" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">424.8275,122.7586,576.5517,388.9655</marker>
+        <marker type="LOCATION" frame="42">351.7241,95.1724,576.5517,388.9655</marker>
+        <marker type="LOCATION" frame="63">428.1609,102.4138,514.9106,388.9655</marker>
+        <marker type="LOCATION" frame="81">381.5954,108.303,536.6664,388.9655</marker>
+        <marker type="LOCATION" frame="101">350.2232,119.8744,560.8393,388.9656</marker>
+        <marker type="LOCATION" frame="114">613.7931,120,576.5517,388.9655</marker>
+        <marker type="LOCATION" frame="120">639.9999,150.3448,797.2413,388.9655</marker>
+        <marker type="LOCATION" frame="124">691.0344,142.7143,797.2412,738.6428</marker>
+        <marker type="LOCATION" frame="127">691.0344,138.8571,797.2415,708.0393</marker>
+        <marker type="LOCATION" frame="136">765.8448,193.1786,747.8818,684.3215</marker>
+        <marker type="LOCATION" frame="148">707.7857,171.6429,767.5715,673.0714</marker>
+        <marker type="LOCATION" frame="153">717.4286,129.2143,746.3572,723.2142</marker>
+        <marker type="LOCATION" frame="154">904.5,476.3571,98.35715,82.92857</marker>
+      </markers>
+    </object>
+    <object id="o6" name="man" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="154">965.5171,215.1724,292.4138,651.0344</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="162" />
+      <text>A disheveled old man lights the gas and puts on a kettle.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>
