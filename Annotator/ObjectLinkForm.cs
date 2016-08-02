@@ -67,8 +67,6 @@ namespace Annotator
         {
             try
             {
-                //var oid = (string)this.objectSelectComboBox.SelectedItem;
-                
                 var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
                 var predicateType = (string)this.linkComboBox.SelectedItem;
 

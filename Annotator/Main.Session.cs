@@ -178,7 +178,8 @@ namespace Annotator
         private void frameTrackBar_ValueChanged(object sender, EventArgs e)
         {
             // Don't allow the track bar value to get out of the range [MinDragValue, MaxDragValue] 
-            if (frameTrackBar.Value < frameTrackBar.MinDragVal) {
+            if (frameTrackBar.Value < frameTrackBar.MinDragVal)
+            {
                 frameTrackBar.Value = frameTrackBar.MinDragVal;
                 return;
             }
@@ -742,31 +743,44 @@ namespace Annotator
             var currentSessionIndex = currentProject.sessions.IndexOf(currentSession);
             if (currentSessionIndex > 0)
             {
-                var previousSession = currentProject.getSession(currentSessionIndex - 1);
-                previousSession.loadIfNotLoaded();
-                foreach (var o in previousSession.getObjects())
-                {
-                    var newObject = (Object) Activator.CreateInstance(o.GetType(), new object[] { currentSession, "", o.color, o.borderSize, this.playbackFileComboBox.Text });
-                    newObject.name = o.name;
-                    var lastLocationMark = o.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
-                    if (lastLocationMark != null)
-                    {
-                        // Change the internal frameNo to current one
-                        lastLocationMark.frameNo = frameTrackBar.Value;
-                        newObject.objectMarks[frameTrackBar.Value] = lastLocationMark;
-                        newObject.addLink(frameTrackBar.Value, previousSession.sessionName, o.id, true, "IDENTITY");
-                        currentSession.addObject(newObject);
-                        addObjectAnnotation(newObject);
-                    }
-                }
-
-                invalidatePictureBoard();
+                copyFromSession(currentSessionIndex, currentSessionIndex - 1);
             }
         }
 
         private void fromSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            SessionSelector ss = new SessionSelector(this, currentProject, currentSession);
+            ss.StartPosition = FormStartPosition.CenterParent;
+            ss.ShowDialog();
+        }
+
+        /// <summary>
+        /// Copy to current Session the objects from the other session
+        /// The form of the objects are taken from the end of the other session
+        /// </summary>
+        /// <param name="currentSessionIndex"></param>
+        /// <param name="otherSessonIndex"></param>
+        internal void copyFromSession(int currentSessionIndex, int otherSessonIndex)
+        {
+            var previousSession = currentProject.getSession(otherSessonIndex);
+            previousSession.loadIfNotLoaded();
+            foreach (var o in previousSession.getObjects())
+            {
+                var newObject = (Object)Activator.CreateInstance(o.GetType(), new object[] { currentSession, "", o.color, o.borderSize, this.playbackFileComboBox.Text });
+                newObject.name = o.name;
+                var lastLocationMark = o.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
+                if (lastLocationMark != null)
+                {
+                    // Change the internal frameNo to current one
+                    lastLocationMark.frameNo = frameTrackBar.Value;
+                    newObject.objectMarks[frameTrackBar.Value] = lastLocationMark;
+                    newObject.addLink(frameTrackBar.Value, previousSession.sessionName, o.id, true, "IDENTITY");
+                    currentSession.addObject(newObject);
+                    addObjectAnnotation(newObject);
+                }
+            }
+
+            invalidatePictureBoard();
         }
     }
 }

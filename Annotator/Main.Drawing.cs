@@ -470,16 +470,16 @@ namespace Annotator
             {
                 LocationMark2D lm = null;
 
-                if ( videoReader != null )
+                if (videoReader != null)
                 {
                     lm = o.getScaledLocationMark(frameTrackBar.Value, scale, translation);
                 }
 
-                if ( depthReader != null )
+                if (depthReader != null)
                 {
                     lm = getMark2DFromLocationMark3D(o);
                 }
-                
+
                 if (lm != null)
                 {
                     var score = lm.Score(e.Location);
@@ -913,6 +913,38 @@ namespace Annotator
 
         private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {
+            // Click on rectangle
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
+            {
+                if (rectangleDrawing.Enabled)
+                {
+                    rectangleDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Click on polygon
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.P)
+            {
+                if (polygonDrawing.Enabled)
+                {
+                    polygonDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Save down session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
+            {
+                saveCurrentSession();
+            }
+
+            // Save down session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            {
+                editSessionMenuItem_Click(null, null);
+            }
+
             // While editing a polygon
             if (selectedObject != null && selectedObject is PolygonObject && editingAtAFrame)
             {

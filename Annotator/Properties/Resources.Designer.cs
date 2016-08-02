@@ -111,6 +111,16 @@ namespace Annotator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_64 {
+            get {
+                object obj = ResourceManager.GetObject("edit_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kinect not available!.
         /// </summary>
         internal static string NoSensorStatusText {
@@ -165,6 +175,16 @@ namespace Annotator.Properties {
         internal static string RunningStatusText {
             get {
                 return ResourceManager.GetString("RunningStatusText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_64 {
+            get {
+                object obj = ResourceManager.GetObject("save_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

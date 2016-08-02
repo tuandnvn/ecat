@@ -16,6 +16,10 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+# Tuan added on July 31
+# Ignore video files in Annotator
+Annotator/SampleAnnotation/*/*/*.avi
+
 # Roslyn cache directories
 *.ide/
 

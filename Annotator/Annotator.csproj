@@ -335,6 +335,12 @@
       <DependentUpon>ObjectLinkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ObjectRecognitionAlgorithm\SquareBinaryGlyphRecognizer.cs" />
+    <Compile Include="SessionSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionSelector.Designer.cs">
+      <DependentUpon>SessionSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrainingPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     <EmbeddedResource Include="LinkEventForm.resx">
       <DependentUpon>LinkEventForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SessionSelector.resx">
+      <DependentUpon>SessionSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrainingPanel.resx">
       <DependentUpon>TrainingPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -444,6 +453,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="Resources\Zoom_in.png" />
+    <None Include="Resources\edit-64.png" />
+    <None Include="Resources\save-64.png" />
     <Content Include="zoomout.cur" />
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
