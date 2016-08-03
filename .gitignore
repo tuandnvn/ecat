@@ -15,11 +15,11 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+# Added on August 1st, 2016
+Annotator/Annotation_Test/*/*/*/*.avi
 
-# Tuan added on July 31
 # Ignore video files in Annotator
 Annotator/SampleAnnotation/*/*/*.avi
-
 # Roslyn cache directories
 *.ide/
 

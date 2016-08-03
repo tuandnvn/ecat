@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159.avi</file>
+  </files>
+  <objects no="13">
+    <object id="o13" name="skullleft" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="39">252.72,118.8,453.6,820.8</marker>
+        <marker type="LOCATION" frame="158">252.72,118.8,390.96,820.8001</marker>
+      </markers>
+    </object>
+    <object id="o12" name="skullright" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="39">1313.28,159.84,488.16,781.92</marker>
+        <marker type="LOCATION" frame="101">1313.28,159.84,388.8,781.92</marker>
+        <marker type="LOCATION" frame="188">1252.8,138.24,388.8,781.92</marker>
+      </markers>
+    </object>
+    <object id="o11" name="skullmid" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">775.44,237.6,444.96,643.6801</marker>
+        <marker type="LOCATION" frame="39">740.88,136.08,479.52,803.52</marker>
+        <marker type="LOCATION" frame="158">740.88,136.08,412.56,803.52</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="212" />
+      <text>A heap of skulls and bones is piled high behind iron railings.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>
