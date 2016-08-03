@@ -455,6 +455,7 @@
     <None Include="Resources\Zoom_in.png" />
     <None Include="Resources\edit-64.png" />
     <None Include="Resources\save-64.png" />
+    <None Include="Resources\delete.png" />
     <Content Include="zoomout.cur" />
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

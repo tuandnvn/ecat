@@ -914,7 +914,7 @@ namespace Annotator
         private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
         {
             // Click on rectangle
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.R)
             {
                 if (rectangleDrawing.Enabled)
                 {
@@ -924,7 +924,7 @@ namespace Annotator
             }
 
             // Click on polygon
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.P)
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.P)
             {
                 if (polygonDrawing.Enabled)
                 {
@@ -939,10 +939,16 @@ namespace Annotator
                 saveCurrentSession();
             }
 
-            // Save down session
+            // Edit session
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
             {
                 editSessionMenuItem_Click(null, null);
+            }
+
+            // Add a file into session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            {
+                addFileToSessionMenuItem_Click(null, null);
             }
 
             // While editing a polygon
