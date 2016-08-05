@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o7" name="sky" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">482.09,133.1495,1437.91,802.5544</marker>
+        <marker type="LOCATION" frame="310">13.93326,133.1495,1906.068,802.5544</marker>
+      </markers>
+    </object>
+    <object id="o6" name="letters" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">749.6082,177.7359,415.2104,122.6125</marker>
+        <marker type="LOCATION" frame="35">722.5508,332.3723,458.9877,164.4572</marker>
+        <marker type="LOCATION" frame="114">697.999,410.5468,542.0591,258.9065</marker>
+        <marker type="LOCATION" frame="310">278.6648,308.7083,1412.83,493.2366</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o7" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="310" />
+      <text>Metallic silver letters appear in the dark, glowering sky.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

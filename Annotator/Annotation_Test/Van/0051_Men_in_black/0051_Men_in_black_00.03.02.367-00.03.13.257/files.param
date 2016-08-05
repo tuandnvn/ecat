@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.02.367-00.03.13.257" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.02.367-00.03.13.257.avi</file>
+  </files>
+  <objects no="9">
+    <object id="o1" name="men" filename="0051_Men_in_black_00.03.02.367-00.03.13.257.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.187634,159.6589,1252.708,888.3582</marker>
+        <marker type="DELETE" frame="54" />
+        <marker type="LOCATION" frame="140">300.6896,77.24137,1205.517,970.7748</marker>
+        <marker type="LOCATION" frame="205">300.6896,77.24137,1205.517,970.7748</marker>
+        <marker type="LOCATION" frame="206">651.0344,66.20688,239.9995,217.931</marker>
+        <marker type="LOCATION" frame="261">642.7586,66.20688,231.7238,217.931</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="140">
+          <linkTo id="o6" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="glass" filename="0051_Men_in_black_00.03.02.367-00.03.13.257.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">278.3795,135.0959,1625.245,781.919</marker>
+        <marker type="DELETE" frame="54" />
+        <marker type="LOCATION" frame="140">1161.379,8.275858,758.6207,908.738</marker>
+        <marker type="LOCATION" frame="205">1161.379,8.275858,758.6207,908.738</marker>
+        <marker type="LOCATION" frame="206">641.3793,55.9758,586.2068,172.9897</marker>
+        <marker type="LOCATION" frame="261">641.3793,55.9758,586.2068,172.9897</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o3" q="True" type="PART_OF" />
+          <linkTo id="o5" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="wiper 1" filename="0051_Men_in_black_00.03.02.367-00.03.13.257.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1183.113,331.5992,323.4115,540.3838</marker>
+        <marker type="LOCATION" frame="7">1723.497,311.1301,182.1762,540.3838</marker>
+        <marker type="DELETE" frame="16" />
+        <marker type="LOCATION" frame="24">1825.842,667.2921,92.11237,229.254</marker>
+        <marker type="LOCATION" frame="29">1542.345,262.0042,213.9027,605.885</marker>
+        <marker type="LOCATION" frame="32">1215.864,409.3817,463.1141,495.3518</marker>
+        <marker type="LOCATION" frame="40">1792.835,474.8828,115.1411,423.71</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o5" name="wiper 2" filename="0051_Men_in_black_00.03.02.367-00.03.13.257.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">769.6376,319.3177,102.3455,307.0363</marker>
+        <marker type="LOCATION" frame="16">1140.128,806.4819,415.5224,83.924</marker>
+        <marker type="LOCATION" frame="24">926.226,245.629,432.9211,451.3438</marker>
+        <marker type="LOCATION" frame="28">749.6802,257.9105,97.73988,311.1301</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+    <object id="o6" name="cig" filename="0051_Men_in_black_00.03.02.367-00.03.13.257.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="140">546.2068,184.8276,113.1035,71.72414</marker>
+        <marker type="LOCATION" frame="205">588.9655,184.8276,113.1034,71.72414</marker>
+        <marker type="DELETE" frame="206" />
+      </markers>
+    </object>
+    <object id="o9" name="refugee" filename="0051_Men_in_black_00.03.02.367-00.03.13.257.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="54">19.50655,82.98985,1894.921,989.2601</marker>
+        <marker type="DELETE" frame="140" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="261" />
+      <text>He squirts some wiper fluid onto the glass, which clears it up a bit, but now he sees something worse up ahead.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

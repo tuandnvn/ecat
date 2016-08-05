@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.04.11.832-00.04.12.499" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.04.11.832-00.04.12.499.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o3" name="reporter" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1011.553,592.9463,504.3839,342.7576</marker>
+        <marker type="DELETE" frame="2" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="flash light" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">947.4601,545.5733,401.2772,390.1306</marker>
+        <marker type="DELETE" frame="2" />
+      </markers>
+    </object>
+    <object id="o4" name="men" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">195.0653,161.016,730.1022,771.9013</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+      <links>
+        <link frame="2">
+          <linkTo id="o5" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="camera" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">607.4891,406.2409,312.1045,292.598</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o7" name="women" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="17">1253.991,291.9884,342.7575,599.1292</marker>
+        <marker type="LOCATION" frame="25">291.2047,565.0798,416.6038,357.9816</marker>
+        <marker type="LOCATION" frame="44">553.1495,618.0261,342.7577,316.2846</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o8" name="men next to women" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="17">947.4601,166.5893,306.5312,470.9434</marker>
+        <marker type="LOCATION" frame="27">81.85779,445.254,337.881,390.392</marker>
+        <marker type="LOCATION" frame="33">172.7722,481.4804,356.6909,369.2309</marker>
+        <marker type="LOCATION" frame="44">342.7576,439.6807,326.0378,440.2904</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Cameras flash.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

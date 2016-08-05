@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi</file>
+  </files>
+  <objects no="12">
+    <object id="o1" name="parchment" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.573316,138.7228,1883.774,794.1945</marker>
+        <marker type="LOCATION" frame="127">5.573316,138.7228,1906.067,794.1946</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="PART_OF" />
+          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212" id="o1" q="True" type="IDENTITY" />
+        </link>
+        <link frame="21">
+          <linkTo id="o10" q="True" type="PART_OF" />
+          <linkTo id="o11" q="True" type="PART_OF" />
+          <linkTo id="o12" q="True" type="PART_OF" />
+          <linkTo id="o4" q="True" type="PART_OF" />
+          <linkTo id="o5" q="True" type="PART_OF" />
+          <linkTo id="o6" q="True" type="PART_OF" />
+          <linkTo id="o7" q="True" type="PART_OF" />
+          <linkTo id="o8" q="True" type="PART_OF" />
+          <linkTo id="o9" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="V" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">659.0421,354.688,398.4906,352.5109</marker>
+        <marker type="LOCATION" frame="17">37.61976,269.6952,84.99274,434.7172</marker>
+        <marker type="DELETE" frame="21" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="word" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">604.7024,762.9319,585.196,50.15965</marker>
+        <marker type="LOCATION" frame="17">13.93326,779.6517,158.8389,75.23948</marker>
+        <marker type="DELETE" frame="21" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="L large 1" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">813.701,417.3876,105.8926,114.2525</marker>
+        <marker type="LOCATION" frame="107">730.1016,374.1945,128.1858,135.1524</marker>
+        <marker type="LOCATION" frame="116">409.6372,293.3817,112.8592,178.3454</marker>
+        <marker type="LOCATION" frame="117">343.4543,283.6284,95.44265,178.3454</marker>
+        <marker type="DELETE" frame="118" />
+      </markers>
+    </object>
+    <object id="o5" name="L large 2" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">992.0464,414.6009,108.6792,114.2525</marker>
+        <marker type="LOCATION" frame="107">948.8535,361.6546,125.399,139.3324</marker>
+        <marker type="LOCATION" frame="116">576.836,271.0886,98.92623,175.5589</marker>
+        <marker type="DELETE" frame="117" />
+      </markers>
+    </object>
+    <object id="o6" name="L large 3" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">992.0464,598.5196,108.6793,108.6794</marker>
+        <marker type="LOCATION" frame="107">955.8201,598.5196,129.5792,142.119</marker>
+        <marker type="LOCATION" frame="116">582.4093,567.8665,102.4095,178.3454</marker>
+        <marker type="DELETE" frame="117" />
+      </markers>
+    </object>
+    <object id="o7" name="L large 4" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">810.9144,601.3063,108.6792,103.1059</marker>
+        <marker type="LOCATION" frame="107">738.4615,602.6996,126.7924,136.5456</marker>
+        <marker type="LOCATION" frame="116">415.9071,572.0464,107.9826,169.9855</marker>
+        <marker type="LOCATION" frame="117">343.106,573.4398,107.9826,169.9855</marker>
+        <marker type="LOCATION" frame="118">266.4732,572.0464,35.87809,169.9855</marker>
+        <marker type="DELETE" frame="119" />
+      </markers>
+    </object>
+    <object id="o8" name="L medium 1" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">891.7272,499.5936,52.9463,54.33962</marker>
+        <marker type="LOCATION" frame="107">829.0276,473.1205,65.48621,66.87962</marker>
+        <marker type="LOCATION" frame="116">488.36,414.6009,52.24964,89.17271</marker>
+        <marker type="LOCATION" frame="117">414.1655,409.0276,45.63135,89.17271</marker>
+        <marker type="DELETE" frame="118" />
+      </markers>
+    </object>
+    <object id="o9" name="L medium 2" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">968.36,495.4137,52.94621,59.91288</marker>
+        <marker type="LOCATION" frame="107">918.2003,469.6372,65.48621,63.39622</marker>
+        <marker type="LOCATION" frame="116">558.7228,405.196,57.1264,91.61103</marker>
+        <marker type="LOCATION" frame="117">478.6067,402.2351,18.80991,52.77213</marker>
+        <marker type="DELETE" frame="118" />
+      </markers>
+    </object>
+    <object id="o10" name="L medium 3" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">969.7533,577.6198,52.9463,57.12627</marker>
+        <marker type="LOCATION" frame="107">922.3804,564.3832,64.0928,73.14949</marker>
+        <marker type="LOCATION" frame="116">565.6895,528.5051,48.76646,89.52104</marker>
+        <marker type="LOCATION" frame="117">484.1799,531.4659,48.7665,89.52104</marker>
+        <marker type="DELETE" frame="118" />
+      </markers>
+    </object>
+    <object id="o11" name="L medium 4" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">888.9405,579.0131,55.73295,51.55297</marker>
+        <marker type="LOCATION" frame="107">824.8477,574.1364,68.27277,64.78955</marker>
+        <marker type="LOCATION" frame="116">491.1466,538.2584,55.03629,86.7344</marker>
+        <marker type="LOCATION" frame="117">412.7722,534.2526,55.03629,86.7344</marker>
+        <marker type="DELETE" frame="118" />
+      </markers>
+    </object>
+    <object id="o12" name="square" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">940.4935,549.7533,30.65312,34.83305</marker>
+        <marker type="LOCATION" frame="107">888.9405,537.91,34.83309,34.83309</marker>
+        <marker type="LOCATION" frame="116">536.4296,491.9304,31.34991,42.49633</marker>
+        <marker type="LOCATION" frame="117">453.8751,489.492,31.34995,42.49637</marker>
+        <marker type="DELETE" frame="118" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="127" />
+      <text>Another page turn reveals L shapes and a set of two broken squares with a small square in the center.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

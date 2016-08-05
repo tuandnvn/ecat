@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="table" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.573316,141.5094,1908.853,799.7678</marker>
+        <marker type="DELETE" frame="213" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="PART_OF" />
+          <linkTo id="o3" q="True" type="PART_OF" />
+          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="paper" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">250.7983,147.0828,1655.269,774.6879</marker>
+        <marker type="LOCATION" frame="139">1711.001,871.611,195.0668,50.15991</marker>
+        <marker type="DELETE" frame="149" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="typewriter" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">11.14661,155.4427,459.7968,284.238</marker>
+        <marker type="LOCATION" frame="212">399.8839,144.2961,1511.756,794.1945</marker>
+        <marker type="DELETE" frame="213" />
+      </markers>
+    </object>
+    <object id="o4" name="men" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="213">454.2235,141.5094,997.6198,799.7678</marker>
+        <marker type="LOCATION" frame="235">454.2235,141.5094,997.6198,799.7678</marker>
+      </markers>
+      <links>
+        <link frame="213">
+          <linkTo id="o5" q="True" type="PART_OF" />
+          <linkTo id="o6" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="hair's men" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="213">607.4891,147.0828,663.222,242.4383</marker>
+        <marker type="LOCATION" frame="235">607.4891,147.0828,649.2889,242.4383</marker>
+      </markers>
+    </object>
+    <object id="o6" name="mustache's men" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="213">780.2613,670.9724,300.958,72.45283</marker>
+        <marker type="LOCATION" frame="235">780.2613,670.9724,292.598,72.45283</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="235" />
+      <text>Sitting at the typewriter is a man in his late 30s with dark hair and a neat mustache.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

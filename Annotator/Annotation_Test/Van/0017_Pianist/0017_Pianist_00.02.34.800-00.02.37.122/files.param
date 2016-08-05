@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.34.800-00.02.37.122" length="0">
+  <files>
+    <file>0017_Pianist_00.02.34.800-00.02.37.122.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="women 1" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">468.023,143.7236,479.0787,913.9348</marker>
+        <marker type="LOCATION" frame="22">1031.862,143.7236,479.0787,936.0461</marker>
+        <marker type="LOCATION" frame="42">1665.72,508.5605,250.595,545.4127</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o3" q="True" type="PART_OF" />
+          <linkTo otherSession="0017_Pianist_00.02.32.435-00.02.34.460" id="o5" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="women 2" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">125.2975,22.11132,895.5086,1055.816</marker>
+        <marker type="LOCATION" frame="22">224.7985,22.11132,796.0077,1055.816</marker>
+        <marker type="LOCATION" frame="45">224.7985,51.59309,696.5067,1026.334</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0017_Pianist_00.02.32.435-00.02.34.460" id="o6" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="Women 1's Clothes" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">331.6699,608.0614,176.8906,449.5969</marker>
+        <marker type="LOCATION" frame="18">1050.288,442.2265,202.687,560.1536</marker>
+        <marker type="LOCATION" frame="30">1321.152,807.0634,488.2917,250.595</marker>
+        <marker type="LOCATION" frame="37">1802.073,980.2687,114.2418,77.38963</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+    </object>
+    <object id="o4" name="Women 2's Clothes" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">508.5605,534.357,398.0038,512.2457</marker>
+        <marker type="LOCATION" frame="18">442.2265,563.8387,386.9482,475.3935</marker>
+        <marker type="LOCATION" frame="29">322.4568,593.3206,386.9482,444.0691</marker>
+        <marker type="LOCATION" frame="46">460.6526,534.357,331.6699,453.2821</marker>
+        <marker type="LOCATION" frame="55">309.5585,519.6161,578.5798,519.6161</marker>
+      </markers>
+    </object>
+    <object id="o5" name="women 3" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="26">5.517241,118.6207,129.6552,590.3448</marker>
+        <marker type="LOCATION" frame="37">375.1724,333.7931,173.793,717.2413</marker>
+        <marker type="LOCATION" frame="55">896.5516,182.069,507.5862,874.4827</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="55" />
+      <text>The Szpilman family in panic: coming and going out of rooms, packing clothes and belongings into open suitcases and a trunk in a comfortable, tastefully furnished bourgeois apartment, the living room lined with books, paintings and boasting a boudoir grand, silver platters and candlesticks.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

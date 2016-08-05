@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o2" name="v" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">1102.157,380.2925,131.6271,191.298</marker>
+        <marker type="LOCATION" frame="18">773.9671,380.2925,459.8172,342.2303</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="71" />
+      <text>The page turns to a set of interlocking V's.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

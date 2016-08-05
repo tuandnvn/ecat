@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="smoke" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">629.7872,499.1489,745.5319,146.383</marker>
+        <marker type="LOCATION" frame="50">5.106344,146.8085,1853.617,708.0851</marker>
+      </markers>
+    </object>
+    <object id="o2" name="bd1" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">580.4255,638.7234,129.3618,246.8085</marker>
+        <marker type="LOCATION" frame="9">580.4255,725.5319,146.383,160</marker>
+        <marker type="LOCATION" frame="15">580.4255,800.4255,166.8086,85.10618</marker>
+        <marker type="LOCATION" frame="25">705.532,805.532,76.59554,85.10618</marker>
+        <marker type="DELETE" frame="30" />
+      </markers>
+    </object>
+    <object id="o3" name="bd2" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1305.532,580.8511,124.2554,330.2128</marker>
+        <marker type="LOCATION" frame="14">1305.532,744.2553,124.2554,166.8081</marker>
+        <marker type="LOCATION" frame="20">1248.511,754.4683,124.2553,166.8081</marker>
+        <marker type="LOCATION" frame="23">1248.511,836.1702,124.2553,85.10618</marker>
+        <marker type="DELETE" frame="26" />
+      </markers>
+    </object>
+    <object id="o4" name="bd3" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">134.468,591.0638,183.8298,340.4255</marker>
+        <marker type="LOCATION" frame="11">134.468,635.3192,221.2766,296.1698</marker>
+        <marker type="LOCATION" frame="19">134.468,761.2766,282.5532,170.2119</marker>
+        <marker type="LOCATION" frame="25">240,854.8936,214.4681,76.59492</marker>
+        <marker type="LOCATION" frame="53">166.8085,890.6383,325.1064,56.17022</marker>
+        <marker type="LOCATION" frame="84">166.8085,848.0851,359.149,98.7234</marker>
+        <marker type="LOCATION" frame="102">169.3617,825.9575,359.149,98.7234</marker>
+        <marker type="LOCATION" frame="116">181.2766,808.9362,359.149,98.7234</marker>
+        <marker type="LOCATION" frame="136">194.8936,783.4042,359.149,98.7234</marker>
+        <marker type="DELETE" frame="148" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="187" />
+      <text>A marquee in front of a cathedral erupts in flames, and smoke billows out over bodies on the ground.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

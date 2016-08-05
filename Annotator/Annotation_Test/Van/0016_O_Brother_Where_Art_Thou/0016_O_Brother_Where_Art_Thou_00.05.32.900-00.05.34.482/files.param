@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="convict 1" filename="0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">599.9999,455.1724,315.8621,289.6552</marker>
+        <marker type="LOCATION" frame="8">656.5517,514.4827,422.0689,289.6552</marker>
+        <marker type="LOCATION" frame="14">777.931,446.8965,489.6549,382.0686</marker>
+        <marker type="LOCATION" frame="32">1406.896,620.6896,515.1721,226.2069</marker>
+        <marker type="LOCATION" frame="36">1528.276,433.1034,389.4812,411.0339</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0016_O_Brother_Where_Art_Thou_00.05.30.360-00.05.31.673" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="convict 2" filename="0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">979.3103,593.1033,286.8965,217.9311</marker>
+        <marker type="LOCATION" frame="8">1111.724,593.1033,364.1372,217.9311</marker>
+        <marker type="LOCATION" frame="14">1293.793,678.6207,215.1725,132.4135</marker>
+        <marker type="LOCATION" frame="32">1266.207,606.8966,242.7588,159.9999</marker>
+        <marker type="LOCATION" frame="36">1252.414,565.5172,242.7586,160</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o3" name="convict 3" filename="0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1095.172,617.931,85.51723,99.31038</marker>
+        <marker type="LOCATION" frame="7">1226.207,708.9655,85.51723,99.31034</marker>
+        <marker type="LOCATION" frame="14">1242.759,651.0344,85.51723,63.44836</marker>
+        <marker type="LOCATION" frame="32">966.8965,681.3793,321.3793,92.41362</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The three men tumble, clanking, down the track embankment.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

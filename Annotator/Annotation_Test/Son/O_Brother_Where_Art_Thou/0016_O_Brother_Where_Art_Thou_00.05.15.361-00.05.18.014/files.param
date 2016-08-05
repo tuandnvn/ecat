@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi</file>
+  </files>
+  <objects no="12">
+    <object id="o4" name="man2" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">469.1619,184.1618,436.9942,600.8671</marker>
+      </markers>
+    </object>
+    <object id="o10" name="eye1" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">88.83497,477.0874,169.5146,78.64078</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o5" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o12" name="eye3" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1126.893,311.068,132.8155,68.15534</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o6" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="man1" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.075162,324.6243,421.3873,547.8035</marker>
+      </markers>
+    </object>
+    <object id="o6" name="man3" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">949.8555,201.3295,474.4509,586.8208</marker>
+      </markers>
+    </object>
+    <object id="o11" name="eye2" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">588.6408,218.4466,139.8058,57.6699</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o4" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="63" />
+      <text>The hobos stare.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

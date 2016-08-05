@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.03.270-00.03.05.363" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o7" name="Holden" filename="0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">262.0689,13.7931,1655.172,1039.999</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o8" q="True" type="PART_OF" />
+        </link>
+        <link frame="32">
+          <linkTo id="o8" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="48">
+          <linkTo id="o8" q="False" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o8" name="Book's Holder" filename="0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">289.6551,571.0344,833.1034,480</marker>
+        <marker type="LOCATION" frame="33">521.3793,571.0344,637.2413,480</marker>
+        <marker type="LOCATION" frame="47">211.0346,780.6896,637.241,281.3784</marker>
+        <marker type="LOCATION" frame="50">211.0346,1001.379,136.5515,60.68814</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="50" />
+      <text>Holden sits at a table.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

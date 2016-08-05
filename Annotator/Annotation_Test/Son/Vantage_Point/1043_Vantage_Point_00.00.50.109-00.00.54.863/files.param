@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.00.50.109-00.00.54.863" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.00.50.109-00.00.54.863.avi</file>
+  </files>
+  <objects no="9">
+    <object id="o1" name="machine" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">71.79191,202.8902,358.9595,655.4913,536.8786,596.1849,127.9769,134.2197</marker>
+        <marker type="DELETE" frame="8" />
+      </markers>
+    </object>
+    <object id="o2" name="street" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">65.54913,310.578,380.8092,861.5029,600.8671,764.7399,550.9249,541.5607,109.2486,131.0983</marker>
+        <marker type="DELETE" frame="8" />
+      </markers>
+    </object>
+    <object id="o3" name="moto" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">430.7514,527.5145,337.1098,563.4104,383.9306,636.763,496.3006,596.1849</marker>
+        <marker type="LOCATION" frame="7">444.7977,533.7572,340.2312,593.0636,383.9306,636.763,496.3006,596.1849</marker>
+        <marker type="DELETE" frame="8" />
+      </markers>
+    </object>
+    <object id="o7" name="car" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="87">874.2857,139.5918,1575.918,934.8979,1880.816,933.0612,1111.224,137.7551</marker>
+        <marker type="LOCATION" frame="90">815.9702,137.755,1517.602,933.0612,1822.5,931.2245,1052.907,135.9183</marker>
+        <marker type="LOCATION" frame="91">648.8279,141.4284,1350.458,936.7347,1655.357,934.8979,885.7653,139.5918</marker>
+        <marker type="LOCATION" frame="92">538.6238,154.2856,1240.254,949.5918,1545.152,947.7551,775.5621,152.449</marker>
+        <marker type="LOCATION" frame="93">490.8691,159.7958,1192.499,955.102,1497.396,953.2653,727.8073,157.9592</marker>
+        <marker type="DELETE" frame="95" />
+      </markers>
+      <links>
+        <link frame="87">
+          <linkTo id="o6" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o6" name="street2" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="87">337.9592,137.7551,666.7347,933.0612,1910.204,938.5714,1906.531,832.0408,1272.857,135.9184</marker>
+      </markers>
+    </object>
+    <object id="o8" name="moto" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="87">486.7347,521.6326,595.1021,413.2653</marker>
+        <marker type="LOCATION" frame="92">288.3673,461.0204,720,473.8773</marker>
+        <marker type="LOCATION" frame="94">288.3673,415.102,578.5714,519.7956</marker>
+        <marker type="LOCATION" frame="98">243.3673,364.592,578.5714,519.7956</marker>
+        <marker type="LOCATION" frame="100">244.2857,247.9592,459.1837,636.4279</marker>
+        <marker type="LOCATION" frame="103">317.7551,247.9592,194.6939,636.4279</marker>
+        <marker type="DELETE" frame="104" />
+      </markers>
+    </object>
+    <object id="o9" name="car2" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="96">595.1021,146.9388,1144.285,929.3878,1563.061,940.4081,852.2449,148.7755</marker>
+        <marker type="LOCATION" frame="97">739.2859,145.5617,1288.469,928.0097,1707.244,939.0304,996.4297,147.3983</marker>
+      </markers>
+      <links>
+        <link frame="96">
+          <linkTo id="o6" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="113" />
+      <text>A motorcade sweeps through the city streets, with motorcycles in the background.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

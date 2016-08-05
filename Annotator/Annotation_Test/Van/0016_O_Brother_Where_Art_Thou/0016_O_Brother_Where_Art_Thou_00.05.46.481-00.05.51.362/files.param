@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.46.481-00.05.51.362" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.46.481-00.05.51.362.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="117" />
+      <text>Everett looks desperately about.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

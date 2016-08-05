@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="words" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">736.5517,171.0345,446.8965,154.4827</marker>
+        <marker type="LOCATION" frame="11">719.9999,212.4138,488.2758,165.5173</marker>
+        <marker type="LOCATION" frame="20">710.3448,256.5517,488.2758,165.5172</marker>
+        <marker type="LOCATION" frame="32">710.3448,256.5517,488.2758,289.6552</marker>
+        <marker type="LOCATION" frame="78">650.3448,420.4286,591.7239,215.4336</marker>
+        <marker type="LOCATION" frame="195">585.8621,365.5172,764.8274,289.6552</marker>
+        <marker type="LOCATION" frame="253">452.4138,345.5172,1053.793,417.931</marker>
+        <marker type="LOCATION" frame="297">303.4486,305.1724,1390.344,482.0689</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="PART_OF" />
+        </link>
+        <link frame="244" />
+      </links>
+    </object>
+    <object id="o2" name="dark" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.55.511-00.01.08.473.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">536.1429,143.4482,1381.098,761.0518</marker>
+        <marker type="LOCATION" frame="38">262.2857,143.4482,1654.955,789.2824</marker>
+        <marker type="LOCATION" frame="45">15.42857,143.4482,1901.812,794.4827</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="310" />
+      <text>Metallic silver letters appear in the dark, glowering sky.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

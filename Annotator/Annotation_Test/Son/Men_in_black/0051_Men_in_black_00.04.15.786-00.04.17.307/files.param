@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.15.786-00.04.17.307" length="0">
+  <files>
+    <file>0051_Men_in_black_00.04.15.786-00.04.17.307.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o2" name="agent" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">986.5714,22.2857,619.7143,1016.571</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0051_Men_in_black_00.03.52.700-00.03.53.513" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="driver" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">282.0004,37.71427,799.7139,1009.714</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0051_Men_in_black_00.03.52.700-00.03.53.513" id="o4" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="car" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="13">1049.143,356.5714,252,186.8571</marker>
+        <marker type="LOCATION" frame="32">770.5714,288.8571,520.2857,371.1429</marker>
+        <marker type="LOCATION" frame="44">363.4285,234.4287,912,545.9998</marker>
+        <marker type="LOCATION" frame="47">227.1428,214.0715,1044,617.5714</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He stops in the middle of his sentence, as another car is approaching, fast, its engine WHINING as it barrels down the road toward them.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

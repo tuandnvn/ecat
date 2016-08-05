@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.19.056-00.04.19.878" length="0">
+  <files>
+    <file>0051_Men_in_black_00.04.19.056-00.04.19.878.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="car" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.517241,173.7931,1293.793,882.7561</marker>
+        <marker type="LOCATION" frame="15">5.517241,215.1724,1685.517,841.3762</marker>
+        <marker type="LOCATION" frame="21">5.517241,289.6552,1906.207,766.8932</marker>
+        <marker type="LOCATION" frame="34">5.517241,717.2413,1906.207,339.3057</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="PART_OF" />
+          <linkTo id="o3" q="True" type="PART_OF" />
+          <linkTo otherSession="0051_Men_in_black_00.04.18.181-00.04.18.585" id="o1" q="True" type="IDENTITY" />
+        </link>
+        <link frame="40">
+          <linkTo id="o2" q="False" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="men 2" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">766.8964,231.7243,278.6196,182.0688</marker>
+        <marker type="LOCATION" frame="15">409.6556,314.4827,544.8271,270.3443</marker>
+        <marker type="LOCATION" frame="21">380.6896,353.1037,824.827,695.1721</marker>
+        <marker type="LOCATION" frame="34">380.6896,212.4138,1051.034,835.8611</marker>
+        <marker type="LOCATION" frame="47">350.3448,11.03448,1197.24,1037.24</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0051_Men_in_black_00.04.18.181-00.04.18.585" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="men 3" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">427.5862,251.0345,262.0687,165.5172</marker>
+        <marker type="LOCATION" frame="15">51.03467,358.6207,315.8618,228.9655</marker>
+        <marker type="LOCATION" frame="20">10.34493,426.2069,75.1723,315.8621</marker>
+        <marker type="DELETE" frame="21" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Two men get out, dressed in plain black suits, crisp white shirts, simple black ties, shiny black shoes</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

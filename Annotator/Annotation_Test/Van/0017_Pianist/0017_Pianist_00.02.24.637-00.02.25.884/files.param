@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.24.637-00.02.25.884" length="0">
+  <files>
+    <file>0017_Pianist_00.02.24.637-00.02.25.884.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="women" filename="0017_Pianist_00.02.24.637-00.02.25.884.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">201.3793,311.7241,626.2068,740.6868</marker>
+        <marker type="LOCATION" frame="10">460.6896,750.3448,446.8965,302.0654</marker>
+        <marker type="LOCATION" frame="25">322.7586,446.8965,419.3103,606.2043</marker>
+        <marker type="LOCATION" frame="34">306.2069,419.3103,397.241,639.6538</marker>
+        <marker type="DELETE" frame="35" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0017_Pianist_00.02.23.440-00.02.24.637" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="men" filename="0017_Pianist_00.02.24.637-00.02.25.884.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1191.724,13.10372,722.7569,1033.102</marker>
+        <marker type="LOCATION" frame="25">1282.759,13.10362,631.7207,1033.102</marker>
+        <marker type="LOCATION" frame="30">1242.415,20.86267,671.0316,1041.206</marker>
+        <marker type="LOCATION" frame="35">754.4843,107.5862,710.3432,946.8951</marker>
+        <marker type="LOCATION" frame="47">508.2767,103.1041,981.3784,946.8951</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0017_Pianist_00.02.23.440-00.02.24.637" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="Jurek" filename="0017_Pianist_00.02.24.637-00.02.25.884.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">910.3448,593.1034,449.6552,458.6193</marker>
+        <marker type="LOCATION" frame="10">954.4827,557.2413,328.2745,494.4807</marker>
+        <marker type="LOCATION" frame="25">816.5517,278.6206,427.5862,773.1002</marker>
+        <marker type="LOCATION" frame="34">677.2413,212.0705,456.5518,836.2053</marker>
+        <marker type="DELETE" frame="35" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0017_Pianist_00.02.23.440-00.02.24.637" id="o3" q="True" type="IDENTITY" />
+        </link>
+        <link frame="26">
+          <linkTo id="o1" q="False" type="LOOK_AT" />
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Jurek, pulling Dorota, fights his way down the stairs.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

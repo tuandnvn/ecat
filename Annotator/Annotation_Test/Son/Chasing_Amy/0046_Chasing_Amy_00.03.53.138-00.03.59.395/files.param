@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.53.138-00.03.59.395" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.53.138-00.03.59.395.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="man" filename="0046_Chasing_Amy_00.03.53.138-00.03.59.395.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">12.41386,13.79309,1354.483,1042.759</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0046_Chasing_Amy_00.03.51.901-00.03.53.494" id="o1" q="True" type="IDENTITY" />
+        </link>
+        <link frame="86">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="pen" filename="0046_Chasing_Amy_00.03.53.138-00.03.59.395.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">939.1,844.3541,189.4924,61.30641</marker>
+        <marker type="LOCATION" frame="25">950.2466,905.6603,189.4924,61.30641</marker>
+        <marker type="LOCATION" frame="39">763.5412,902.8737,242.4385,69.66627</marker>
+        <marker type="LOCATION" frame="66">936.3135,897.3004,218.7523,68.2732</marker>
+        <marker type="LOCATION" frame="76">753.6613,837.0074,269.0383,124.3859</marker>
+        <marker type="LOCATION" frame="88">969.7534,863.8607,136.5456,158.8389</marker>
+        <marker type="LOCATION" frame="150">702.9318,865.254,305.1379,58.51959</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="150" />
+      <text>He composes himself and continues signing.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.34.800-00.02.37.122" length="0">
+  <files>
+    <file>0017_Pianist_00.02.34.800-00.02.37.122.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="w1" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">467.1428,47.99998,529.7143,1008</marker>
+        <marker type="LOCATION" frame="34">249.4285,102.8571,706.2857,953.1429</marker>
+      </markers>
+      <links>
+        <link frame="52">
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="w2" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">669.4285,126.8571,375.4286,924</marker>
+        <marker type="LOCATION" frame="11">915.4285,120.8571,375.4286,924</marker>
+        <marker type="LOCATION" frame="26">1177.714,143.1428,375.4286,924</marker>
+        <marker type="LOCATION" frame="34">1383.429,151.7142,515.1429,897.4286</marker>
+        <marker type="LOCATION" frame="38">1480.286,151.7142,418.2853,897.4286</marker>
+        <marker type="LOCATION" frame="43">1737.429,264,161.142,785.1429</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o3" name="w3" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="27">9.42854,159.4286,188.5714,735.4286</marker>
+        <marker type="LOCATION" frame="37">381.4286,139.7142,308.5714,916.2857</marker>
+        <marker type="LOCATION" frame="46">703.7142,124.7143,308.5714,916.2857</marker>
+        <marker type="LOCATION" frame="54">935.1428,150.4286,308.5714,916.2857</marker>
+      </markers>
+    </object>
+    <object id="o4" name="clothes1" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">460.2857,541.7143,488.5714,435.4286</marker>
+        <marker type="LOCATION" frame="4">325.7143,492,488.5714,435.4286</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+        <link frame="55" />
+      </links>
+    </object>
+    <object id="o5" name="clothes2" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="16">1019.143,392.5714,150.8571,488.5714</marker>
+        <marker type="LOCATION" frame="23">1019.143,507.4286,553.7143,541.7143</marker>
+        <marker type="LOCATION" frame="31">1263.429,774.8571,553.7143,279.4282</marker>
+        <marker type="LOCATION" frame="36">1701.429,912,216.8567,136.2855</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+      <links>
+        <link frame="16">
+          <linkTo id="o2" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="55" />
+      <text>The Szpilman family in panic: coming and going out of rooms, packing clothes and belongings into open suitcases and a trunk in a comfortable, tastefully furnished bourgeois apartment, the living room lined with books, paintings and boasting a boudoir grand, silver platters and candlesticks.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.03.47.713-00.03.50.379" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.03.47.713-00.03.50.379.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="light of police car" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.359963,520.4935,1911.64,417.9974</marker>
+        <marker type="LOCATION" frame="37">-33.43975,233.4687,493.2366,599.1293</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1043_Vantage_Point_00.03.42.055-00.03.47.379" id="o11" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="motorcycles" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">963.4833,384.6445,505.0798,244.5283</marker>
+        <marker type="LOCATION" frame="37">814.746,300.6967,533.9913,317.3294</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1043_Vantage_Point_00.03.42.055-00.03.47.379" id="o10" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="bell tower" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">691.0886,141.5094,571.2626,220.1451</marker>
+        <marker type="LOCATION" frame="37">548.9695,141.5094,431.9303,86.38607</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1043_Vantage_Point_00.03.42.055-00.03.47.379" id="o8" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="motorcade" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">958.6067,364.4412,604.7025,289.8113</marker>
+        <marker type="LOCATION" frame="37">810.9144,244.6154,571.2627,378.984</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1043_Vantage_Point_00.03.42.055-00.03.47.379" id="o9" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="men" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">576.836,133.1495,1320.872,805.3411</marker>
+        <marker type="LOCATION" frame="63">526.6758,137.3295,1295.792,805.3411</marker>
+      </markers>
+      <links>
+        <link frame="38">
+          <linkTo id="o6" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o6" name="camera" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">732.8882,133.1495,691.0886,632.569</marker>
+        <marker type="LOCATION" frame="63">601.9158,140.1161,705.0218,720.3483</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="63" />
+      <text>A GNN TV camera is fixed on the vehicles.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

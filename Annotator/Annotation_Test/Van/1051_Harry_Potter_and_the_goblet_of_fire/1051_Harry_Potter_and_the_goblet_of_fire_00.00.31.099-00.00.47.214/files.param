@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">652.0756,475.9071,1259.564,288.4183</marker>
+        <marker type="LOCATION" frame="66">663.2221,406.2409,443.0769,523.8897</marker>
+        <marker type="LOCATION" frame="126">999.0131,389.5211,907.0537,540.6096</marker>
+        <marker type="LOCATION" frame="192">999.0131,286.4151,516.9231,643.7157</marker>
+        <marker type="LOCATION" frame="278">688.3019,492.627,1044.993,437.5042</marker>
+        <marker type="LOCATION" frame="350">241.0448,406.2409,893.1207,528.0704</marker>
+        <marker type="LOCATION" frame="386">710.5951,409.7239,636.0527,528.0704</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="graveyard" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">11.14661,149.8694,1897.707,780.2612</marker>
+      </markers>
+      <links>
+        <link frame="145">
+          <linkTo id="o3" q="True" type="PART_OF" />
+        </link>
+        <link frame="153">
+          <linkTo id="o4" q="True" type="PART_OF" />
+        </link>
+        <link frame="197">
+          <linkTo id="o5" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="gravestone 1" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="145">1084.006,138.7228,108.6792,86.38607</marker>
+        <marker type="LOCATION" frame="209">1184.325,138.7228,412.4238,214.5718</marker>
+        <marker type="LOCATION" frame="246">1306.938,156.836,590.7694,620.0291</marker>
+        <marker type="LOCATION" frame="343">1535.443,156.836,362.2657,620.0291</marker>
+        <marker type="LOCATION" frame="357">1850.334,347.7213,47.37521,429.144</marker>
+        <marker type="DELETE" frame="358" />
+      </markers>
+    </object>
+    <object id="o4" name="gravestone 2" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="153">1019.913,144.2961,72.45274,89.17271</marker>
+        <marker type="LOCATION" frame="264">886.1539,219.5356,387.344,312.1049</marker>
+        <marker type="LOCATION" frame="358">1143.919,169.3757,756.5748,741.2484</marker>
+        <marker type="LOCATION" frame="386">1410.044,169.3757,490.4513,741.2484</marker>
+      </markers>
+    </object>
+    <object id="o5" name="gravestone 3" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="197">638.1423,222.3222,130.9724,55.73295</marker>
+        <marker type="LOCATION" frame="292">365.0508,252.9753,390.1306,303.7446</marker>
+        <marker type="LOCATION" frame="386">-16.71986,234.8622,766.328,681.3353</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="386" />
+      <text>Flickering its tongue, it slithers down onto a narrow path and moves silently between the gravestones in a dark and overgrown cemetery.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

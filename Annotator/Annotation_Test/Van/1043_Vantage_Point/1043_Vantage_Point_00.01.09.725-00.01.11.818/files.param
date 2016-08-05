@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.01.09.725-00.01.11.818" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.01.09.725-00.01.11.818.avi</file>
+  </files>
+  <objects no="14">
+    <object id="o7" name="men 1" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">666.0087,250.1887,404.0639,646.5022</marker>
+        <marker type="LOCATION" frame="38">663.2221,138.7228,356.6908,507.1698</marker>
+        <marker type="LOCATION" frame="39">693.8752,138.7228,105.8926,167.1988</marker>
+        <marker type="DELETE" frame="40" />
+      </markers>
+      <links>
+        <link frame="21">
+          <linkTo id="o11" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="city" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.786626,145.6894,1914.427,792.8011</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1043_Vantage_Point_00.00.50.109-00.00.54.863" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o8" name="men 2" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1044.993,305.9216,200.6389,261.9449</marker>
+        <marker type="LOCATION" frame="50">1067.286,155.4427,384.5573,496.0232</marker>
+      </markers>
+      <links>
+        <link frame="21">
+          <linkTo id="o12" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o9" name="men 3" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1128.592,356.0813,295.3849,331.611</marker>
+        <marker type="LOCATION" frame="50">1371.03,475.907,417.9973,465.3703</marker>
+      </markers>
+      <links>
+        <link frame="21">
+          <linkTo id="o13" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o10" name="men 4" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1368.244,269.6952,309.3187,640.9289</marker>
+        <marker type="LOCATION" frame="50">1761.161,183.3092,146.3,749.6087</marker>
+      </markers>
+      <links>
+        <link frame="21">
+          <linkTo id="o14" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o11" name="suit's men 1" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">783.0479,420.1742,267.5181,459.7968</marker>
+        <marker type="LOCATION" frame="38">905.6604,514.9202,91.95962,125.3991</marker>
+        <marker type="DELETE" frame="39" />
+      </markers>
+    </object>
+    <object id="o12" name="suit's men 2" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1064.499,475.9071,161.6257,78.02621</marker>
+        <marker type="LOCATION" frame="50">1075.646,303.1349,362.2642,331.6111</marker>
+      </markers>
+    </object>
+    <object id="o13" name="suit's men 3" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1175.965,498.2003,211.7851,172.7721</marker>
+        <marker type="LOCATION" frame="50">1382.177,637.5327,367.8378,303.7446</marker>
+      </markers>
+    </object>
+    <object id="o14" name="suit's men 4" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1396.11,428.5341,261.9448,454.2235</marker>
+        <marker type="LOCATION" frame="50">1775.094,264.1219,133.7596,663.2222</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="50" />
+      <text>Men in suits climb stairs.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

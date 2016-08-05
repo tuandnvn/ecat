@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.23.440-00.02.24.637" length="0">
+  <files>
+    <file>0017_Pianist_00.02.23.440-00.02.24.637.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="women" filename="0017_Pianist_00.02.23.440-00.02.24.637.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">24.31051,328.2758,726.0342,725.5162</marker>
+        <marker type="LOCATION" frame="33">275.8621,377.931,556.1198,674.4819</marker>
+        <marker type="LOCATION" frame="47">422.0689,601.3793,471.7241,451.0329</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0017_Pianist_00.02.11.041-00.02.15.635" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="men" filename="0017_Pianist_00.02.23.440-00.02.24.637.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1318.621,13.10383,595.8613,1033.102</marker>
+        <marker type="LOCATION" frame="33">1191.724,13.10372,722.7569,1033.102</marker>
+        <marker type="LOCATION" frame="47">1191.724,13.10372,722.7569,1033.102</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0017_Pianist_00.02.11.041-00.02.15.635" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="Jurek" filename="0017_Pianist_00.02.23.440-00.02.24.637.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">811.0344,477.2413,689.6552,573.7927</marker>
+        <marker type="LOCATION" frame="33">943.4481,601.3793,380.6885,449.654</marker>
+        <marker type="LOCATION" frame="47">855.1724,394.4827,358.6206,657.9295</marker>
+      </markers>
+      <links>
+        <link frame="3">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="15">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+          <linkTo id="o2" q="False" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>JUREK pushes in beside them and takes her arm.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

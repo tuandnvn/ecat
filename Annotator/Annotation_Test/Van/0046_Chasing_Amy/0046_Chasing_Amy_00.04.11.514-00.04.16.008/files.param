@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.04.11.514-00.04.16.008" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi</file>
+  </files>
+  <objects no="10">
+    <object id="o8" name="collector" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,106.207,948.9655,951.7238</marker>
+        <marker type="LOCATION" frame="21">182.069,220.6896,1735.17,837.2408</marker>
+        <marker type="LOCATION" frame="25">297.931,220.6896,1619.307,837.2408</marker>
+        <marker type="LOCATION" frame="38">377.931,220.6896,1464.828,837.2408</marker>
+        <marker type="LOCATION" frame="63">95.17241,124.1379,1800,928.9644</marker>
+        <marker type="LOCATION" frame="77">-2.758621,104.8276,1771.034,948.2744</marker>
+        <marker type="LOCATION" frame="96">248.2758,104.8276,1519.997,948.2743</marker>
+        <marker type="LOCATION" frame="107">248.2758,104.8276,1519.997,948.2743</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o10" q="True" type="PART_OF" />
+          <linkTo id="o9" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="43">
+          <linkTo id="o9" q="False" type="LOOK_AT" />
+        </link>
+        <link frame="86">
+          <linkTo id="o9" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o9" name="boy" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1012.414,52.41379,871.7242,1004.138</marker>
+        <marker type="LOCATION" frame="21">1028.965,52.41379,888.2758,1004.138</marker>
+        <marker type="LOCATION" frame="25">1073.103,52.41379,844.1379,1004.138</marker>
+        <marker type="LOCATION" frame="77">993.1034,22.06896,924.1375,1034.482</marker>
+        <marker type="LOCATION" frame="96">924.1379,22.06887,993.103,1034.482</marker>
+        <marker type="LOCATION" frame="107">965.5172,22.06877,951.7238,1034.482</marker>
+      </markers>
+      <links>
+        <link frame="25">
+          <linkTo id="o8" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="86">
+          <linkTo id="o8" q="False" type="LOOK_AT" />
+        </link>
+        <link frame="107">
+          <linkTo id="o8" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o10" name="cig" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">176.5517,306.2069,160,126.8965</marker>
+        <marker type="LOCATION" frame="14">295.1724,411.0345,63.44827,126.8965</marker>
+        <marker type="LOCATION" frame="21">404.1379,433.1034,63.44827,126.8965</marker>
+        <marker type="LOCATION" frame="25">481.3793,438.6207,63.44827,126.8965</marker>
+        <marker type="LOCATION" frame="38">685.5172,380.6896,45.51724,99.31034</marker>
+        <marker type="LOCATION" frame="43">738.6207,361.3793,45.51724,99.31034</marker>
+        <marker type="LOCATION" frame="50">727.5862,328.2758,45.51724,99.31034</marker>
+        <marker type="LOCATION" frame="63">559.3103,273.1034,45.51724,99.31034</marker>
+        <marker type="LOCATION" frame="77">388.2758,267.5862,45.51724,99.31034</marker>
+        <marker type="LOCATION" frame="96">468.2758,422.0689,45.51724,99.31034</marker>
+        <marker type="LOCATION" frame="107">504.1379,394.4827,45.51724,99.31034</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="107" />
+      <text>A LITTLE KID steps up but the Collector linger</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

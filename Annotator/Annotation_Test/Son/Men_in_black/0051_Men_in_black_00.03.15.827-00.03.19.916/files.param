@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.15.827-00.03.19.916" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.15.827-00.03.19.916.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="light" filename="0051_Men_in_black_00.03.15.827-00.03.19.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">699.4285,108,502.2858,77.14286</marker>
+        <marker type="LOCATION" frame="27">630,146.5714,502.2857,77.14286</marker>
+        <marker type="LOCATION" frame="48">534,192,599.1429,84.85715</marker>
+        <marker type="LOCATION" frame="65">468,192,665.1429,82.28571</marker>
+        <marker type="DELETE" frame="85" />
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0051_Men_in_black_00.03.15.827-00.03.19.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="85">363.4285,186.8571,1078.286,848.5714</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="98" />
+      <text>It's a grouping of headlights, eight of them, all pointed at him, sealing off the road.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

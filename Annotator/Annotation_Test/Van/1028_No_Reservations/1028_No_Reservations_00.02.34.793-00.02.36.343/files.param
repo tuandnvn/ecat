@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.02.34.793-00.02.36.343" length="0">
+  <files>
+    <file>1028_No_Reservations_00.02.34.793-00.02.36.343.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o6" name="left eyebrows" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">740.8029,367.3573,99.45038,40.59172</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+    </object>
+    <object id="o4" name="women" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">300.3806,190.7822,819.9562,750.9501</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o5" q="True" type="PART_OF" />
+          <linkTo id="o6" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="right eyebrows" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">598.7315,387.6533,103.5095,38.56237</marker>
+        <marker type="LOCATION" frame="45">601.7759,402.8752,103.5095,38.56237</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The woman, Kate Armstrong, raises her eyebrows.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

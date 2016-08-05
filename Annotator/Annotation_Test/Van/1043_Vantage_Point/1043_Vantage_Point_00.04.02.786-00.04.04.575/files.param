@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.04.02.786-00.04.04.575" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.04.02.786-00.04.04.575.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o3" name="" filename="1043_Vantage_Point_00.04.02.786-00.04.04.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">362.2642,319.8549,1337.591,613.0626</marker>
+        <marker type="LOCATION" frame="42">654.8621,319.8549,941.8868,613.0626</marker>
+        <marker type="DELETE" frame="43" />
+      </markers>
+    </object>
+    <object id="o5" name="women" filename="1043_Vantage_Point_00.04.02.786-00.04.04.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="43">766.3281,161.016,1042.206,774.688</marker>
+        <marker type="LOCATION" frame="47">766.3281,161.016,1042.206,774.688</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The convoy comes to a halt.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

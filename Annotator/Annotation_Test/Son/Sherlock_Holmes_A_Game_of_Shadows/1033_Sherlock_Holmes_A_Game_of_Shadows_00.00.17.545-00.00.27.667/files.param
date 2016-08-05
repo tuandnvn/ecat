@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="glass" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">691.0638,206.383,1036.596,723.4043</marker>
+        <marker type="LOCATION" frame="19">677.4468,194.8102,1082.95,723.4043</marker>
+        <marker type="LOCATION" frame="48">760.0403,197.0213,958.2173,723.4043</marker>
+        <marker type="LOCATION" frame="102">1177.447,144.2553,725.9575,723.4043</marker>
+        <marker type="LOCATION" frame="138">1496.17,144.2553,407.2336,514.8936</marker>
+        <marker type="LOCATION" frame="150">1628.936,144.2553,274.466,514.8936</marker>
+        <marker type="LOCATION" frame="169">1792.34,230.2128,111.0615,428.936</marker>
+        <marker type="LOCATION" frame="177">1832.129,322.9788,80.42304,314.8934</marker>
+        <marker type="DELETE" frame="178" />
+      </markers>
+    </object>
+    <object id="o2" name="clock" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1414.468,267.6595,348.9363,342.1277</marker>
+        <marker type="LOCATION" frame="45">1431.064,268.9362,371.9149,358.2979</marker>
+        <marker type="LOCATION" frame="55">1482.128,268.9362,371.9149,358.2979</marker>
+        <marker type="LOCATION" frame="67">1586.383,255.3191,325.5305,358.2979</marker>
+        <marker type="LOCATION" frame="82">1722.553,255.3191,189.3594,317.0213</marker>
+        <marker type="LOCATION" frame="90">1787.234,255.3191,124.6784,317.0213</marker>
+        <marker type="LOCATION" frame="99">1858.723,255.3191,53.189,317.0213</marker>
+        <marker type="DELETE" frame="102" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="242" />
+      <text>A pocket watch on a chain lies on a desk beside typewritten sheets, on top of which rests a magnifying glass.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

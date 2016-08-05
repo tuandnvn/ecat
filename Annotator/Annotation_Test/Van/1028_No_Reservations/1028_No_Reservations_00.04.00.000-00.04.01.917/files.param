@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.04.00.000-00.04.01.917" length="0">
+  <files>
+    <file>1028_No_Reservations_00.04.00.000-00.04.01.917.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o3" name="men" filename="1028_No_Reservations_00.04.00.000-00.04.01.917.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1142.018,340.5504,158.5322,146.789</marker>
+        <marker type="LOCATION" frame="10">1271.193,317.0642,102.7518,182.0183</marker>
+        <marker type="LOCATION" frame="25">1316.697,305.3211,102.7519,182.0183</marker>
+        <marker type="DELETE" frame="26" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="couple" filename="1028_No_Reservations_00.04.00.000-00.04.01.917.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">574.0464,178.3106,893.8435,753.1035</marker>
+        <marker type="LOCATION" frame="25">675.2294,199.633,719.2653,731.7808</marker>
+        <marker type="DELETE" frame="26" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+          <linkTo otherSession="1028_No_Reservations_00.03.45.795-00.03.47.724" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Mr. and Mrs. Peterson leave.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

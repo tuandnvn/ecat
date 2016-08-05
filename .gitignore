@@ -17,6 +17,7 @@ bld/
 [Oo]bj/
 # Added on August 1st, 2016
 Annotator/Annotation_Test/*/*/*/*.avi
+Annotator/Annotation_Test/*/*/*/*.ini
 
 # Ignore video files in Annotator
 Annotator/SampleAnnotation/*/*/*.avi

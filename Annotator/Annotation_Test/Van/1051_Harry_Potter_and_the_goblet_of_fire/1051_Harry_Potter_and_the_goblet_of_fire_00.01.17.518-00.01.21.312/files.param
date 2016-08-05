@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.01.17.518-00.01.21.312" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.01.17.518-00.01.21.312.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="sky" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.17.518-00.01.21.312.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.570691,138.5341,1914.031,800.1047</marker>
+        <marker type="LOCATION" frame="90">1.570691,138.5341,1914.031,407.0964</marker>
+      </markers>
+    </object>
+    <object id="o3" name="cottage" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.17.518-00.01.21.312.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="6">338.0105,876.4398,98.95286,59.37173</marker>
+        <marker type="LOCATION" frame="50">120.3141,506.0733,661.5709,424.084</marker>
+        <marker type="LOCATION" frame="90">120.3141,407.1204,661.5709,523.0372</marker>
+      </markers>
+    </object>
+    <object id="o4" name="graveyard" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.17.518-00.01.21.312.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="52">7.225142,788.7958,1063.037,147.0157</marker>
+        <marker type="LOCATION" frame="90">7.225142,630.4713,1899.896,305.341</marker>
+      </markers>
+      <links>
+        <link frame="52">
+          <linkTo id="o3" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="90" />
+      <text>A huge dilapidated house stands silhouetted against the night sky.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

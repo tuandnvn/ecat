@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.51.901-00.03.53.494" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.51.901-00.03.53.494.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Pen's Banky" filename="0046_Chasing_Amy_00.03.51.901-00.03.53.494.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">824.5399,836.3191,263.0675,113.865</marker>
+        <marker type="LOCATION" frame="19">965.8906,812.7608,184.5397,51.04295</marker>
+        <marker type="LOCATION" frame="26">965.8906,863.8037,184.5397,62.82209</marker>
+        <marker type="LOCATION" frame="47">965.8906,863.8037,184.5397,62.82209</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0046_Chasing_Amy_00.03.44.917-00.03.46.658" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="Banky" filename="0046_Chasing_Amy_00.03.51.901-00.03.53.494.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">27.48469,23.55828,1342.822,1036.564</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+          <linkTo otherSession="0046_Chasing_Amy_00.03.44.917-00.03.46.658" id="o2" q="True" type="IDENTITY" />
+        </link>
+        <link frame="47" />
+      </links>
+    </object>
+    <object id="o3" name="Book's fan" filename="0046_Chasing_Amy_00.03.51.901-00.03.53.494.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1327.118,1009.08,337.6678,47.11657</marker>
+        <marker type="LOCATION" frame="19">1244.663,1009.08,408.3434,47.11657</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0046_Chasing_Amy_00.03.44.917-00.03.46.658" id="o4" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Banky freezes up.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

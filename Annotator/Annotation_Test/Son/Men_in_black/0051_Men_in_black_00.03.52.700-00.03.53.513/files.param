@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.52.700-00.03.53.513" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.52.700-00.03.53.513.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="agent" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">169.7142,63.42855,502.2857,992.5714</marker>
+        <marker type="LOCATION" frame="17">169.7142,164.5714,505.7143,661.7143</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o4" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0051_Men_in_black_00.03.51.887-00.03.52.700" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="driver" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1205.143,363.4286,336,361.7143</marker>
+        <marker type="LOCATION" frame="7">1205.143,186.8571,409.7143,857.1429</marker>
+        <marker type="LOCATION" frame="31">961.7142,186.8571,653.1422,857.1429</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Agent Janus looks at the Driver, who's now held by two other Agents, and shakes his head.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>
