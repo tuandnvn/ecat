@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.04.47.798-00.04.49.868" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">470.1466,148.6804,844.5748,816.4222</marker>
+      </markers>
+    </object>
+    <object id="o2" name="doctor" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="22">1565.279,165.5719,337.8299,737.5953</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="49" />
+      <text>It is young Forrest as he sits in a doctor's office.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

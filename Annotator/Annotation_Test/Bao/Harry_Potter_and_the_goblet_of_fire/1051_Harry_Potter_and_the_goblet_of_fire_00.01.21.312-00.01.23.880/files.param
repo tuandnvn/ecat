@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="house" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">182.9912,458.3578,731.9648,503.9296</marker>
+      </markers>
+    </object>
+    <object id="o2" name="windows" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">665.8065,655.4252,136.5396,115.4252</marker>
+      </markers>
+    </object>
+    <object id="o3" name="light" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="9">699.5894,673.7243,54.8974,67.56598</marker>
+      </markers>
+      <links>
+        <link frame="9">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="61" />
+      <text>A light is switched on in a cottage nearby.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.18.181-00.04.18.585" length="0">
+  <files>
+    <file>0051_Men_in_black_00.04.18.181-00.04.18.585.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="car" filename="0051_Men_in_black_00.04.18.181-00.04.18.585.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">244.9267,128.9736,1112.023,734.78</marker>
+        <marker type="LOCATION" frame="18">40.82113,189.5015,1313.314,857.2434</marker>
+      </markers>
+    </object>
+    <object id="o2" name="black man" filename="0051_Men_in_black_00.04.18.181-00.04.18.585.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">926.217,266.9208,123.871,146.393</marker>
+        <marker type="LOCATION" frame="18">844.5748,255.6598,123.871,146.393</marker>
+        <marker type="LOCATION" frame="46">861.4662,486.5103,123.871,146.393</marker>
+      </markers>
+    </object>
+    <object id="o3" name="door car" filename="0051_Men_in_black_00.04.18.181-00.04.18.585.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1069.795,300.7038,157.654,284.3402</marker>
+        <marker type="LOCATION" frame="27">1069.795,300.7038,250.5572,489.8534</marker>
+        <marker type="LOCATION" frame="35">1069.795,300.7038,546.1583,664.3988</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>It's a boxy, black 1986 Ford LTD.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

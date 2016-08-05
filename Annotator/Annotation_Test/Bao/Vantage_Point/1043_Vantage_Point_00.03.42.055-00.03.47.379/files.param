@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.03.42.055-00.03.47.379" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.03.42.055-00.03.47.379.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="tower" filename="1043_Vantage_Point_00.03.42.055-00.03.47.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">641.8768,143.0499,563.0499,796.7155</marker>
+        <marker type="LOCATION" frame="39">731.9648,130.3812,563.0499,796.7155</marker>
+        <marker type="DELETE" frame="111" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="127" />
+      <text>The motorcade moves past a tall stone bell tower towards the flashing lights of a parked police car.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

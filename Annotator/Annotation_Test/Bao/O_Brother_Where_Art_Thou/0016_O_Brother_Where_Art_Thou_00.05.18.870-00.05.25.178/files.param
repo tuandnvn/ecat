@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="man" filename="0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">363.1671,112.0821,900.8798,822.0528</marker>
+        <marker type="LOCATION" frame="20">594.0176,120.5279,900.8798,822.0528</marker>
+        <marker type="LOCATION" frame="31">1351.32,60,444.809,881.173</marker>
+        <marker type="LOCATION" frame="144">819.2377,130.3812,444.809,881.173</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man 2" filename="0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="31">411.0264,297.8885,481.4076,534.8973</marker>
+        <marker type="LOCATION" frame="55">598.2405,340.1173,481.4076,534.8973</marker>
+        <marker type="LOCATION" frame="63">456.7742,119.1203,719.2961,774.1934</marker>
+        <marker type="LOCATION" frame="94">245.6305,195.132,719.2961,774.1934</marker>
+        <marker type="LOCATION" frame="107">501.8182,197.9473,719.2961,774.1934</marker>
+        <marker type="LOCATION" frame="144">487.3902,767.3314,421.5832,181.5836</marker>
+      </markers>
+      <links>
+        <link frame="31">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="72">
+          <linkTo id="o1" q="False" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="man's hand 2" filename="0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="31">695.3666,545.6305,87.27273,56.30499</marker>
+        <marker type="LOCATION" frame="45">851.6129,486.5103,87.27273,56.30499</marker>
+        <marker type="LOCATION" frame="55">1079.648,672.3167,87.27273,56.30499</marker>
+        <marker type="LOCATION" frame="63">1057.126,835.6011,87.27273,56.30499</marker>
+        <marker type="LOCATION" frame="107">1217.595,886.2756,87.27273,56.30499</marker>
+        <marker type="DELETE" frame="142" />
+      </markers>
+    </object>
+    <object id="o4" name="chain" filename="0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="31">733.3724,623.0499,136.5396,175.9531</marker>
+        <marker type="LOCATION" frame="45">897.3607,626.5689,136.5396,175.9531</marker>
+        <marker type="LOCATION" frame="55">1005.044,734.2522,57.0088,147.0968</marker>
+        <marker type="DELETE" frame="63" />
+      </markers>
+    </object>
+    <object id="o5" name="man 3" filename="0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="124">228.0352,168.3871,335.0146,667.2141</marker>
+        <marker type="LOCATION" frame="144">470.1468,469.6188,191.4367,365.9824</marker>
+      </markers>
+      <links>
+        <link frame="125">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="144">
+          <linkTo id="o2" q="False" type="LOOK_AT" />
+          <linkTo id="o5" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="151" />
+      <text>Everett gives an ingratiating smile as, behind him, the second convict starts to haul himself into the boxcar, the third convict still keeping pace outside.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

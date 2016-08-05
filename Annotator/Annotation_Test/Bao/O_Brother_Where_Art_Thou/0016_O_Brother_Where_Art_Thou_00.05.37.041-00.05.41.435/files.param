@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="man" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">213.959,178.2405,709.4428,774.1935</marker>
+        <marker type="DELETE" frame="42" />
+        <marker type="LOCATION" frame="85">512.3754,136.0117,709.4428,774.1935</marker>
+        <marker type="LOCATION" frame="104">292.7859,158.5337,709.4428,774.1935</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460" id="o1" q="True" type="IDENTITY" />
+        </link>
+        <link frame="24">
+          <linkTo id="o2" q="False" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="train" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1050.088,131.7889,844.5748,574.3109</marker>
+        <marker type="DELETE" frame="42" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="man 2" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="48">115.4252,441.4663,706.6276,537.7126</marker>
+        <marker type="LOCATION" frame="55">115.4252,238.7683,594.0176,740.4103</marker>
+        <marker type="LOCATION" frame="63">163.2845,150.0881,743.2258,800.9383</marker>
+        <marker type="LOCATION" frame="81">577.1261,213.4311,523.6364,738.2991</marker>
+        <marker type="DELETE" frame="85" />
+      </markers>
+    </object>
+    <object id="o4" name="man 3" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="63">1005.044,131.7889,723.519,827.6833</marker>
+        <marker type="LOCATION" frame="81">1255.601,300.7038,472.9619,658.7683</marker>
+        <marker type="DELETE" frame="85" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="105" />
+      <text>They shake their heads clear, then rise to their feet in the muck and watch the train recede.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

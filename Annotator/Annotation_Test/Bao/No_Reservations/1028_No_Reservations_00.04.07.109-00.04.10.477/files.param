@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.04.07.109-00.04.10.477" length="0">
+  <files>
+    <file>1028_No_Reservations_00.04.07.109-00.04.10.477.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="woman" filename="1028_No_Reservations_00.04.07.109-00.04.10.477.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">1086.896,217.931,212.4138,714.4827</marker>
+        <marker type="LOCATION" frame="31">1179.31,219.3103,212.4138,714.4827</marker>
+        <marker type="LOCATION" frame="61">1102.069,227.5862,212.4138,714.4827</marker>
+      </markers>
+      <links>
+        <link frame="2">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="27">
+          <linkTo id="o2" q="False" type="LOOK_AT" />
+        </link>
+        <link frame="29">
+          <linkTo id="o5" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="47">
+          <linkTo id="o2" q="False" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="man" filename="1028_No_Reservations_00.04.07.109-00.04.10.477.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">899.3103,206.8965,182.0683,725.5172</marker>
+        <marker type="LOCATION" frame="38">951.7244,186.2069,182.0683,725.5172</marker>
+        <marker type="LOCATION" frame="47">984.8279,188.9655,182.0683,725.5172</marker>
+        <marker type="DELETE" frame="54" />
+      </markers>
+      <links>
+        <link frame="2">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="29">
+          <linkTo id="o1" q="False" type="LOOK_AT" />
+          <linkTo id="o5" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="38">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+          <linkTo id="o5" q="False" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="man's hand" filename="1028_No_Reservations_00.04.07.109-00.04.10.477.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">965.5171,521.3793,46.89663,57.93103</marker>
+        <marker type="DELETE" frame="31" />
+      </markers>
+      <links>
+        <link frame="4">
+          <linkTo id="o2" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="woman''s hand" filename="1028_No_Reservations_00.04.07.109-00.04.10.477.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="22">1023.448,557.2413,44.13801,44.13797</marker>
+        <marker type="LOCATION" frame="31">976.5516,582.0689,44.13793,44.13793</marker>
+        <marker type="DELETE" frame="47" />
+      </markers>
+      <links>
+        <link frame="23">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="woman 2" filename="1028_No_Reservations_00.04.07.109-00.04.10.477.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="27">717.2413,206.8965,124.1379,137.931</marker>
+        <marker type="LOCATION" frame="38">748.9655,204.1379,124.1379,137.931</marker>
+        <marker type="LOCATION" frame="47">823.4482,215.1724,124.1379,137.931</marker>
+        <marker type="DELETE" frame="54" />
+      </markers>
+      <links>
+        <link frame="29">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="80" />
+      <text>Kate shakes hands with another couple and makes her way back through the restaurant.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

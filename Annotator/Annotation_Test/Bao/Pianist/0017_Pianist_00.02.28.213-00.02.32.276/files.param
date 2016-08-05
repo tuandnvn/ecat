@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.28.213-00.02.32.276" length="0">
+  <files>
+    <file>0017_Pianist_00.02.28.213-00.02.32.276.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="windows" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1219.003,27.62464,408.2111,495.4839</marker>
+        <marker type="DELETE" frame="14" />
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="88">244.9267,44.51613,709.4428,1038.827</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man's hand" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="88">1002.229,514.6628,194.2522,208.3284</marker>
+      </markers>
+      <links>
+        <link frame="88">
+          <linkTo id="o2" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="97" />
+      <text>Szpilman fights to get to the main door, when another bomb explodes, filling the air with dust and debris, obscuring him and everyone else.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

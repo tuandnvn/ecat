@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="man 1" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">25.33725,317.5953,301.2317,624.9854</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man 2" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">456.0704,145.8651,425.1026,774.1935</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man 3" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1016.305,219.0616,351.9062,684.1055</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man 4" filename="0016_O_Brother_Where_Art_Thou_00.05.15.361-00.05.18.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1508.974,140.2346,365.9824,785.4545</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="63" />
+      <text>The hobos stare.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

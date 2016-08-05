@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.04.140-00.03.07.728" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.04.140-00.03.07.728.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o2" name="man" filename="0046_Chasing_Amy_00.03.04.140-00.03.07.728.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">743.2258,75.48387,807.9765,560.2346</marker>
+        <marker type="LOCATION" frame="29">743.2258,75.48387,886.8035,945.9237</marker>
+        <marker type="DELETE" frame="72" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0046_Chasing_Amy_00.03.03.270-00.03.05.363" id="o1" q="True" type="IDENTITY" />
+        </link>
+        <link frame="12">
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="news paper" filename="0046_Chasing_Amy_00.03.04.140-00.03.07.728.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">295.6012,610.3812,754.4868,416.6569</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0046_Chasing_Amy_00.03.03.270-00.03.05.363" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="87" />
+      <text>Beside it is a large mock-up of the comic book cover which features two stoner super-heroes who bear a striking resemblance to a pair of very familiar friendly neighborhood drug dealers, Holden hands the book back to the Fan.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>
