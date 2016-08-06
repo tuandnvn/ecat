@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.01.09.725-00.01.11.818" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.01.09.725-00.01.11.818.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="men" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1133.793,358.6207,303.4483,573.7931</marker>
+        <marker type="LOCATION" frame="26">1227.586,317.2414,372.4136,623.4478</marker>
+        <marker type="LOCATION" frame="33">612.4138,162.7586,565.5172,761.3777</marker>
+        <marker type="LOCATION" frame="34">1236.207,386.2069,485.1725,554.4827</marker>
+        <marker type="LOCATION" frame="41">576.5517,162.7586,405.5172,761.3777</marker>
+        <marker type="LOCATION" frame="42">1306.207,411.0345,522.7587,524.1379</marker>
+        <marker type="LOCATION" frame="50">1346.207,471.7241,435.8617,463.4479</marker>
+      </markers>
+      <links>
+        <link frame="21">
+          <linkTo otherSession="1043_Vantage_Point_00.00.50.109-00.00.54.863" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="50" />
+      <text>Men in suits climb stairs.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

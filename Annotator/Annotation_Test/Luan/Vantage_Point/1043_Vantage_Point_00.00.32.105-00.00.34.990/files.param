@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.00.32.105-00.00.34.990" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.00.32.105-00.00.34.990.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o2" name="vsky" filename="1043_Vantage_Point_00.00.32.105-00.00.34.990.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1318.621,135.1724,1497.931,135.1724,1288.276,336.5517</marker>
+        <marker type="LOCATION" frame="9">1318.621,135.1724,1497.931,135.1724,1244.138,422.0689</marker>
+        <marker type="LOCATION" frame="28">1266.207,126.8965,1544.828,135.1724,1194.483,546.2068</marker>
+        <marker type="LOCATION" frame="45">1224.828,126.8965,1622.069,137.931,1139.31,692.4138</marker>
+        <marker type="LOCATION" frame="55">1183.448,143.4482,1649.655,135.1724,1117.241,739.3103</marker>
+        <marker type="LOCATION" frame="64">1150.345,135.1724,1671.724,137.931,1100.689,794.4827</marker>
+        <marker type="LOCATION" frame="69">1161.379,135.1724,1685.517,137.931,1073.103,846.8965</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="70" />
+      <text>Framed within a V shape, a city skyline.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

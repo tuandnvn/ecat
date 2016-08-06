@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.51.887-00.03.52.700_2" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.51.887-00.03.52.700_2.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="agents" filename="0051_Men_in_black_00.03.51.887-00.03.52.700_2.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">226.2069,79.99999,639.9999,995.862</marker>
+        <marker type="LOCATION" frame="16">179.3103,78.62068,639.9999,995.862</marker>
+        <marker type="LOCATION" frame="24">107.5862,73.10344,639.9999,995.862</marker>
+        <marker type="LOCATION" frame="27">107.5862,73.10343,565.5172,995.862</marker>
+        <marker type="LOCATION" frame="30">107.5862,73.10343,507.5862,995.862</marker>
+        <marker type="LOCATION" frame="33">71.72414,73.10343,612.4138,995.862</marker>
+        <marker type="LOCATION" frame="36">223.4483,73.10343,460.689,995.862</marker>
+        <marker type="LOCATION" frame="45">66.20689,148.9655,561.3787,626.2068</marker>
+        <marker type="LOCATION" frame="47">77.24137,162.7586,584.8276,579.3103</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+          <linkTo id="o3" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="driver" filename="0051_Men_in_black_00.03.51.887-00.03.52.700_2.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1114.483,242.7586,455.1725,576.5517</marker>
+        <marker type="LOCATION" frame="5">1056.552,162.7586,513.1024,656.5515</marker>
+        <marker type="LOCATION" frame="12">1175.172,162.7586,394.4809,656.5515</marker>
+        <marker type="LOCATION" frame="22">1275.863,137.9311,394.4807,656.5515</marker>
+        <marker type="LOCATION" frame="24">1275.863,137.9311,394.4807,918.6205</marker>
+        <marker type="LOCATION" frame="30">1275.863,137.9311,394.4807,924.1378</marker>
+        <marker type="LOCATION" frame="33">1260.001,128.2759,376.5493,924.1377</marker>
+        <marker type="LOCATION" frame="45">1059.31,128.2759,502.7569,924.1377</marker>
+        <marker type="LOCATION" frame="47">1023.448,128.2759,538.619,924.1377</marker>
+      </markers>
+    </object>
+    <object id="o3" name="door" filename="0051_Men_in_black_00.03.51.887-00.03.52.700_2.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">893.793,66.20689,739.3104,1001.379</marker>
+        <marker type="LOCATION" frame="22">827.5861,67.58636,739.3103,1001.379</marker>
+        <marker type="LOCATION" frame="24">808.2758,67.58635,615.1724,1001.379</marker>
+        <marker type="LOCATION" frame="27">808.2758,67.58635,314.4827,1001.379</marker>
+        <marker type="LOCATION" frame="30">562.7586,84.13809,402.7581,1001.379</marker>
+        <marker type="LOCATION" frame="33">284.1379,84.13809,681.3784,1001.379</marker>
+        <marker type="LOCATION" frame="36">68.96552,78.62084,881.3781,1001.379</marker>
+        <marker type="LOCATION" frame="45">-16.55172,78.62084,966.8947,1001.379</marker>
+        <marker type="LOCATION" frame="47">-0.688729,70.34498,952.4128,1001.379</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>the Agents fling open the rear doors, revealing a DOZEN FRIGHTENED MEXICANS, hopeful immigrants without official permission.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

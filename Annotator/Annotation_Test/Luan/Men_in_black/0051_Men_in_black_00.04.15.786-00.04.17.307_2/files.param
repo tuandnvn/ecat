@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.15.786-00.04.17.307_2" length="0">
+  <files>
+    <file>0051_Men_in_black_00.04.15.786-00.04.17.307_2.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="agents" filename="0051_Men_in_black_00.04.15.786-00.04.17.307_2.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">994.483,15.17218,666.2065,1046.897</marker>
+        <marker type="LOCATION" frame="12">994.483,15.17207,870.3444,1046.897</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0051_Men_in_black_00.03.52.700-00.03.53.513_2" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="driver" filename="0051_Men_in_black_00.04.15.786-00.04.17.307_2.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.275862,20.00005,1097.93,1042.069</marker>
+        <marker type="LOCATION" frame="12">8.275862,19.99997,995.862,1042.069</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0051_Men_in_black_00.03.52.700-00.03.53.513_2" id="o2" q="True" type="IDENTITY" />
+        </link>
+        <link frame="5">
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="car" filename="0051_Men_in_black_00.04.15.786-00.04.17.307_2.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="13">1034.483,353.1034,262.069,187.5862</marker>
+        <marker type="LOCATION" frame="27">888.2758,297.931,384.8267,289.6549</marker>
+        <marker type="LOCATION" frame="34">736.5517,253.793,521.3793,388.9653</marker>
+        <marker type="LOCATION" frame="44">353.1034,237.2414,904.8259,535.1724</marker>
+        <marker type="LOCATION" frame="47">231.7241,223.4482,976.5516,606.8964</marker>
+      </markers>
+    </object>
+    <object id="o4" name="two men" filename="0051_Men_in_black_00.04.15.786-00.04.17.307_2.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="13">1073.103,375.1724,148.9655,44.13793</marker>
+        <marker type="LOCATION" frame="21">1048.276,350.3448,187.5863,55.17245</marker>
+        <marker type="LOCATION" frame="35">896.5516,292.4138,267.5857,88.27564</marker>
+        <marker type="LOCATION" frame="45">708.9655,267.5862,366.8964,140.6897</marker>
+        <marker type="LOCATION" frame="47">674.4828,266.2069,366.8964,140.6897</marker>
+      </markers>
+      <links>
+        <link frame="13">
+          <linkTo id="o3" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He stops in the middle of his sentence, as another car is approaching, fast, its engine WHINING as it barrels down the road toward them.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

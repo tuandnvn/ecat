@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="convict" filename="0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.464698,276.0462,990.8087,670.3979</marker>
+        <marker type="LOCATION" frame="10">2.464698,349.9872,961.2324,596.4572</marker>
+        <marker type="LOCATION" frame="21">128.1643,349.9872,1064.751,596.4572</marker>
+        <marker type="LOCATION" frame="32">-2.464698,125.6996,660.5391,820.7448</marker>
+        <marker type="LOCATION" frame="46">-2.464698,125.6996,1146.085,820.7448</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Squush - they come to a rest in swampland at the bottom.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

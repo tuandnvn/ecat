@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.32.435-00.02.34.460" length="0">
+  <files>
+    <file>0017_Pianist_00.02.32.435-00.02.34.460.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o6" name="Women" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">546.2068,71.72412,286.8966,984.8275</marker>
+      </markers>
+      <links>
+        <link frame="47">
+          <linkTo id="o7" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="Men3" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">173.7931,38.62068,1009.655,1020.69</marker>
+        <marker type="LOCATION" frame="11">173.7931,38.62068,1009.655,1020.69</marker>
+        <marker type="DELETE" frame="44" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o8" q="True" type="PART_OF" />
+        </link>
+        <link frame="11">
+          <linkTo id="o5" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0017_Pianist_00.02.28.213-00.02.32.276" id="o9" q="True" type="IDENTITY" />
+        </link>
+        <link frame="36">
+          <linkTo id="o5" q="False" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="Radio" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">468.9655,148.9655,739.3103,595.862</marker>
+        <marker type="LOCATION" frame="11">468.9655,148.9655,739.3103,595.862</marker>
+        <marker type="DELETE" frame="44" />
+      </markers>
+      <links>
+        <link frame="11">
+          <linkTo otherSession="0017_Pianist_00.02.28.213-00.02.32.276" id="o10" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o7" name="Women2" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">802.7585,96.5517,424.8276,954.4827</marker>
+        <marker type="LOCATION" frame="45">761.3793,88.27592,424.8275,954.4825</marker>
+        <marker type="LOCATION" frame="47">678.6207,82.75868,424.8275,954.4825</marker>
+        <marker type="LOCATION" frame="48">662.0689,91.03456,424.8275,954.4825</marker>
+      </markers>
+    </object>
+    <object id="o8" name="ear" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">788.9655,223.4482,79.99999,129.6552</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="48" />
+      <text>He sits by the radio set, ear to the speaker, trying to tune to a station.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

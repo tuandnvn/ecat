@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.11.041-00.02.15.635" length="0">
+  <files>
+    <file>0017_Pianist_00.02.11.041-00.02.15.635.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Women" filename="0017_Pianist_00.02.11.041-00.02.15.635.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">67.85341,67.85341,819.8958,986.7031</marker>
+        <marker type="LOCATION" frame="5">39.58115,67.85341,808.5864,986.7031</marker>
+        <marker type="LOCATION" frame="7">22.61763,72.09347,808.5867,986.7031</marker>
+        <marker type="LOCATION" frame="10">2.827053,89.05682,808.5867,986.7031</marker>
+        <marker type="LOCATION" frame="26">39.58115,107.4346,831.2043,968.3255</marker>
+        <marker type="LOCATION" frame="27">59.37157,103.9001,831.2045,968.3255</marker>
+        <marker type="LOCATION" frame="29">90.47103,112.3818,831.2045,968.3255</marker>
+        <marker type="LOCATION" frame="30">118.7433,118.0362,831.2045,968.3255</marker>
+        <marker type="LOCATION" frame="31">161.1517,112.3818,831.2045,968.3255</marker>
+        <marker type="LOCATION" frame="33">161.1517,112.3818,831.2045,968.3255</marker>
+        <marker type="LOCATION" frame="35">186.5967,109.5545,831.2045,968.3255</marker>
+        <marker type="LOCATION" frame="37">186.5967,152.6702,831.2045,925.2101</marker>
+        <marker type="LOCATION" frame="60">186.5967,152.6702,769.0054,925.2101</marker>
+        <marker type="LOCATION" frame="71">98.95288,172.4607,828.3771,912.134</marker>
+        <marker type="LOCATION" frame="77">53.71728,243.1414,867.9581,841.4537</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+          <linkTo otherSession="0017_Pianist_00.02.06.770-00.02.11.041" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="Men" filename="0017_Pianist_00.02.11.041-00.02.15.635.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">944.2932,16.96335,1012.155,1054.559</marker>
+        <marker type="LOCATION" frame="19">998.0105,-2.732983,958.439,1074.255</marker>
+        <marker type="LOCATION" frame="24">989.5288,-7.916231,966.9214,1079.439</marker>
+        <marker type="LOCATION" frame="30">1096.963,-14.13613,859.4865,1085.659</marker>
+        <marker type="LOCATION" frame="37">1187.435,-14.13613,769.0154,1085.659</marker>
+        <marker type="LOCATION" frame="43">1224.188,-14.13613,732.2624,1085.659</marker>
+        <marker type="LOCATION" frame="53">1068.691,-14.13613,887.7598,1085.659</marker>
+        <marker type="LOCATION" frame="58">1023.456,-14.13613,932.9957,1085.659</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="0017_Pianist_00.02.06.770-00.02.11.041" id="o3" q="True" type="IDENTITY" />
+        </link>
+        <link frame="9">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="50">
+          <linkTo id="o1" q="False" type="PART_OF" />
+        </link>
+        <link frame="62">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="Women's eyes" filename="0017_Pianist_00.02.11.041-00.02.15.635.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">579.5812,330.7853,169.6334,135.7068</marker>
+        <marker type="LOCATION" frame="3">590.8901,359.0576,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="5">573.9267,384.5026,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="7">545.6545,401.466,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="10">503.2461,412.7749,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="12">503.2461,452.356,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="22">494.7644,418.4293,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="23">523.0367,409.9477,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="24">537.1728,415.6021,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="26">579.5812,404.2932,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="27">590.8901,407.1204,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="28">630.4712,407.1204,169.6335,135.7068</marker>
+        <marker type="LOCATION" frame="29">638.9529,415.6021,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="30">658.7435,418.4293,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="31">689.843,429.7382,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="33">692.6702,441.0471,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="35">723.7697,446.7016,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="37">723.7697,455.1833,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="44">726.5969,483.4555,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="46">720.9424,506.0733,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="50">689.843,525.8639,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="51">701.1519,554.1362,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="53">703.9791,576.754,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="57">715.288,551.3089,169.6335,107.4346</marker>
+        <marker type="LOCATION" frame="60">726.5969,503.2461,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="64">672.8796,474.9738,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="68">638.9529,486.2827,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="71">630.4712,494.7643,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="74">602.199,503.246,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="77">573.9267,520.2094,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="80">571.0995,500.4188,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="84">579.5812,477.801,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="89">602.199,438.2198,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="92">624.8168,432.5654,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="100">624.8168,449.5287,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="107">647.4346,469.3193,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="109">675.7068,497.5916,186.5969,118.7436</marker>
+        <marker type="LOCATION" frame="110">687.0157,517.3821,186.5969,118.7436</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o4" name="Men2" filename="0017_Pianist_00.02.11.041-00.02.15.635.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="89">760.5236,670.0524,206.3874,373.1937</marker>
+        <marker type="LOCATION" frame="91">712.4607,703.9791,339.2672,373.1937</marker>
+        <marker type="LOCATION" frame="95">774.6596,703.9791,339.2672,373.1937</marker>
+        <marker type="LOCATION" frame="100">740.7329,706.8063,339.2672,373.1937</marker>
+        <marker type="LOCATION" frame="104">720.9423,715.288,339.2672,373.1937</marker>
+        <marker type="LOCATION" frame="107">732.2513,709.6335,395.8115,373.1937</marker>
+      </markers>
+      <links>
+        <link frame="94">
+          <linkTo id="o1" q="True" type="LOOK_AT" />
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="110" />
+      <text>His eyes light up.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.41.993-00.00.44.046" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.41.993-00.00.44.046.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="men" filename="1060_Yes_man_00.00.41.993-00.00.44.046.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">320,146.2069,1097.931,794.4827</marker>
+        <marker type="LOCATION" frame="26">320,146.2069,984.8275,794.4827</marker>
+        <marker type="LOCATION" frame="39">718.6207,146.2069,984.8275,794.4827</marker>
+        <marker type="LOCATION" frame="49">1274.483,135.1724,644.1364,794.4827</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+          <linkTo otherSession="1060_Yes_man_00.00.37.969-00.00.39.897" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="phone" filename="1060_Yes_man_00.00.41.993-00.00.44.046.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1354.483,434.4827,193.1038,223.4483</marker>
+        <marker type="LOCATION" frame="8">1293.793,649.6552,193.1038,223.4483</marker>
+        <marker type="LOCATION" frame="9">1260.689,772.4138,193.1038,161.3789</marker>
+        <marker type="DELETE" frame="10" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+          <linkTo otherSession="1060_Yes_man_00.00.37.969-00.00.39.897" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="men's hand" filename="1060_Yes_man_00.00.41.993-00.00.44.046.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1237.241,582.0689,405.5175,347.5862</marker>
+        <marker type="LOCATION" frame="8">1237.241,822.0689,357.2416,115.8621</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+          <linkTo otherSession="1060_Yes_man_00.00.37.969-00.00.39.897" id="o3" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="49" />
+      <text>He hangs up again.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.00.50.109-00.00.54.863" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.00.50.109-00.00.54.863.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o2" name="motorcade" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">55.17241,154.4827,339.3103,388.9655</marker>
+        <marker type="LOCATION" frame="7">78.62068,177.931,339.3103,388.9655</marker>
+        <marker type="DELETE" frame="8" />
+        <marker type="LOCATION" frame="87">955.862,142.069,928.2758,798.6206</marker>
+        <marker type="LOCATION" frame="91">855.1724,142.069,852.4134,798.6205</marker>
+        <marker type="LOCATION" frame="93">918.6206,513.1034,344.8259,427.5852</marker>
+        <marker type="LOCATION" frame="97">871.7241,212.4138,660.9651,715.0334</marker>
+        <marker type="LOCATION" frame="98">899.3103,201.3793,700.6896,722.758</marker>
+        <marker type="LOCATION" frame="100">852.4138,168.2758,747.5856,755.8613</marker>
+        <marker type="LOCATION" frame="101">819.3103,168.2758,780.6889,755.8613</marker>
+        <marker type="LOCATION" frame="113">819.3103,168.2758,780.6889,755.8613</marker>
+      </markers>
+    </object>
+    <object id="o3" name="motobike" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">344.8276,537.931,137.931,93.79301</marker>
+        <marker type="LOCATION" frame="7">350.3448,548.9655,137.931,93.79301</marker>
+        <marker type="DELETE" frame="8" />
+        <marker type="LOCATION" frame="87">402.7586,515.8621,742.0689,413.7931</marker>
+        <marker type="LOCATION" frame="91">402.7586,515.8621,590.3448,413.7931</marker>
+        <marker type="LOCATION" frame="93">402.7586,435.862,493.7931,493.7926</marker>
+        <marker type="LOCATION" frame="97">370.483,376.5517,479.1721,550.3448</marker>
+        <marker type="LOCATION" frame="98">342.0692,357.2414,485.5169,594.4827</marker>
+        <marker type="LOCATION" frame="100">304.368,304.5977,423.9078,619.5402</marker>
+        <marker type="LOCATION" frame="101">242.7589,280,438.6203,666.2068</marker>
+        <marker type="LOCATION" frame="104">242.7589,280,226.2065,666.2068</marker>
+        <marker type="DELETE" frame="105" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="113" />
+      <text>A motorcade sweeps through the city streets, with motorcycles in the background.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

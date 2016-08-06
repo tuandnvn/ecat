@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1001.953,502.0313,651.7969,436.0144</marker>
+        <marker type="LOCATION" frame="26">1080,567.4219,320.625,370.6238</marker>
+        <marker type="LOCATION" frame="44">1147.5,567.4219,253.125,370.6238</marker>
+        <marker type="LOCATION" frame="53">1185.469,537.8906,215.1563,400.155</marker>
+        <marker type="LOCATION" frame="61">1252.969,668.6719,215.1563,271.7963</marker>
+        <marker type="LOCATION" frame="72">1261.406,769.9219,259.4531,175.9763</marker>
+        <marker type="LOCATION" frame="77">1261.406,843.75,259.4531,102.1481</marker>
+        <marker type="LOCATION" frame="79">1261.406,881.7188,259.4531,64.17938</marker>
+        <marker type="DELETE" frame="81" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593" id="o2" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="skeleton" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">440.8594,132.8906,495.7031,512.5781</marker>
+        <marker type="LOCATION" frame="11">293.2031,132.8906,649.6875,723.5156</marker>
+        <marker type="LOCATION" frame="26">202.5,132.8906,782.5781,803.6719</marker>
+        <marker type="LOCATION" frame="34">137.1094,132.8906,847.9688,803.6719</marker>
+        <marker type="LOCATION" frame="44">261.5625,132.8906,780.4688,803.6719</marker>
+        <marker type="LOCATION" frame="61">303.75,132.8906,791.0156,803.6719</marker>
+        <marker type="LOCATION" frame="72">238.3594,132.8906,911.25,803.6719</marker>
+        <marker type="LOCATION" frame="77">168.75,132.8906,1421.719,803.6719</marker>
+        <marker type="LOCATION" frame="79">151.875,132.8906,1461.797,803.6719</marker>
+        <marker type="LOCATION" frame="81">103.3594,132.8906,1510.313,803.6719</marker>
+        <marker type="LOCATION" frame="90">6.328125,132.8906,1676.953,803.6719</marker>
+        <marker type="LOCATION" frame="106">111.7969,132.8906,1664.297,803.6719</marker>
+        <marker type="LOCATION" frame="118">35.85938,132.8906,1824.609,803.6719</marker>
+        <marker type="LOCATION" frame="126">35.85938,132.8906,1879.453,803.6719</marker>
+        <marker type="LOCATION" frame="133">35.85938,132.8906,1792.969,803.6719</marker>
+        <marker type="LOCATION" frame="149">35.85938,156.0938,1792.969,780.4688</marker>
+        <marker type="LOCATION" frame="163">35.85938,156.0938,1792.969,780.4688</marker>
+        <marker type="LOCATION" frame="176">8.4375,299.5313,1913.203,637.0313</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="177" />
+      <text />
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>
