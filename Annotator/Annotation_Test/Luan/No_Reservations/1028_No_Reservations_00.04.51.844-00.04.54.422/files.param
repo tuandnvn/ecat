@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.04.51.844-00.04.54.422" length="0">
+  <files>
+    <file>1028_No_Reservations_00.04.51.844-00.04.54.422.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="women" filename="1028_No_Reservations_00.04.51.844-00.04.54.422.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1343.448,209.6551,427.5848,735.1714</marker>
+        <marker type="LOCATION" frame="9">1343.448,209.6551,347.5862,735.1714</marker>
+        <marker type="LOCATION" frame="11">1364.414,234.4827,397.2414,710.3433</marker>
+        <marker type="LOCATION" frame="12">1374.896,234.4827,422.069,710.343</marker>
+        <marker type="LOCATION" frame="14">1395.862,587.5862,471.7242,357.2401</marker>
+        <marker type="DELETE" frame="17" />
+        <marker type="LOCATION" frame="18">1315.862,206.8965,256.5517,722.7585</marker>
+        <marker type="LOCATION" frame="19">1315.862,206.8965,320.0001,722.7585</marker>
+        <marker type="LOCATION" frame="21">1282.759,206.8965,391.7238,722.7585</marker>
+        <marker type="LOCATION" frame="29">1244.138,237.2414,430.3444,692.4136</marker>
+        <marker type="LOCATION" frame="37">1244.138,206.8965,546.207,722.7583</marker>
+        <marker type="LOCATION" frame="38">1314.023,217.931,505.7472,711.7234</marker>
+        <marker type="LOCATION" frame="39">1383.908,223.4483,465.2874,706.2058</marker>
+        <marker type="LOCATION" frame="40">1453.793,491.0345,424.8277,438.6199</marker>
+        <marker type="LOCATION" frame="41">1536.552,495.6322,336.551,436.7816</marker>
+        <marker type="LOCATION" frame="42">1252.414,548.9655,604.1374,369.6548</marker>
+        <marker type="LOCATION" frame="43">1219.31,504.8275,231.7241,251.0345</marker>
+        <marker type="LOCATION" frame="44">1164.138,226.2069,424.8272,584.8276</marker>
+        <marker type="LOCATION" frame="45">1177.931,215.1724,513.1033,728.2756</marker>
+        <marker type="LOCATION" frame="47">1177.931,201.3793,598.6207,742.0687</marker>
+        <marker type="LOCATION" frame="49">1177.931,201.3793,571.0345,742.0687</marker>
+        <marker type="LOCATION" frame="54">1177.931,160,515.8621,783.4479</marker>
+        <marker type="LOCATION" frame="61">1045.517,160,590.3448,783.4479</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+          <linkTo otherSession="1028_No_Reservations_00.04.07.109-00.04.10.477" id="o2" q="True" type="IDENTITY" />
+        </link>
+        <link frame="38">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="44">
+          <linkTo id="o3" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="Ken's Wife" filename="1028_No_Reservations_00.04.51.844-00.04.54.422.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">107.5862,168.2758,595.862,761.3792</marker>
+        <marker type="LOCATION" frame="9">480,137.9311,736.5514,791.724</marker>
+        <marker type="LOCATION" frame="14">922.7587,144.8276,906.2067,791.7239</marker>
+        <marker type="LOCATION" frame="17">1155.862,142.069,762.0679,791.7239</marker>
+        <marker type="LOCATION" frame="19">1492.414,142.069,425.5142,791.7239</marker>
+        <marker type="LOCATION" frame="21">1729.655,142.069,188.2718,791.7239</marker>
+        <marker type="DELETE" frame="22" />
+      </markers>
+    </object>
+    <object id="o3" name="Ken" filename="1028_No_Reservations_00.04.51.844-00.04.54.422.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">140.6897,124.1379,300.6895,819.3103</marker>
+        <marker type="LOCATION" frame="9">107.5862,151.7241,444.1378,791.7238</marker>
+        <marker type="LOCATION" frame="15">8.275862,151.7241,543.4479,791.7238</marker>
+        <marker type="LOCATION" frame="21">8.275862,135.1724,543.4479,808.2755</marker>
+        <marker type="LOCATION" frame="25">8.275862,135.1724,686.8965,808.2754</marker>
+        <marker type="LOCATION" frame="30">197.2415,133.7934,782.0688,808.2753</marker>
+        <marker type="LOCATION" frame="35">395.1724,131.0347,876.5516,808.2753</marker>
+        <marker type="LOCATION" frame="39">620.6896,131.0347,982.0663,808.2753</marker>
+        <marker type="LOCATION" frame="43">1103.448,131.0347,813.7921,808.2753</marker>
+        <marker type="LOCATION" frame="45">1384.828,131.0347,532.4113,808.2753</marker>
+        <marker type="LOCATION" frame="46">1528.276,131.0347,388.9619,808.2753</marker>
+        <marker type="LOCATION" frame="47">1622.069,131.0347,295.1684,808.2753</marker>
+        <marker type="LOCATION" frame="49">1773.793,131.0347,143.4429,808.2753</marker>
+        <marker type="DELETE" frame="50" />
+      </markers>
+      <links>
+        <link frame="5">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="61" />
+      <text>Ken and his wife walk off.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

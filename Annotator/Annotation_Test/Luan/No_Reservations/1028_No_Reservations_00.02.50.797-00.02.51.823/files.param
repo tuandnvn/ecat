@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.02.50.797-00.02.51.823" length="0">
+  <files>
+    <file>1028_No_Reservations_00.02.50.797-00.02.51.823.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="women" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">400,242.7586,297.931,601.3793</marker>
+        <marker type="LOCATION" frame="8">400,242.7586,242.7586,601.3793</marker>
+        <marker type="LOCATION" frame="9">209.6552,140.6896,731.0341,703.4471</marker>
+        <marker type="LOCATION" frame="29">303.4482,147.5867,782.0686,703.4472</marker>
+        <marker type="LOCATION" frame="47">447.5863,144.8281,782.0686,668.965</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="the oder" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">165.5172,391.7241,154.4827,115.8621</marker>
+        <marker type="LOCATION" frame="4">173.7931,391.7241,173.7931,115.8621</marker>
+        <marker type="LOCATION" frame="8">173.7931,391.7241,206.8966,115.8621</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+    </object>
+    <object id="o3" name="women's hand" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">292.4138,493.793,79.99999,66.20693</marker>
+        <marker type="LOCATION" frame="8">324.1379,471.7241,79.99999,66.20689</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>She checks some orders attached to a shelf.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>
