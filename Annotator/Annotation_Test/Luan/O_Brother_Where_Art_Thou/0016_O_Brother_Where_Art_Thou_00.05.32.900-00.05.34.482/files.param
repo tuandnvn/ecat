@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="three men" filename="0016_O_Brother_Where_Art_Thou_00.05.32.900-00.05.34.482.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">592.7344,447.1875,702.4219,381.7969</marker>
+        <marker type="LOCATION" frame="7">657.0703,514.6875,777.3047,311.1328</marker>
+        <marker type="LOCATION" frame="12">657.0703,514.6875,933.3984,333.2813</marker>
+        <marker type="LOCATION" frame="17">972.4219,468.2813,586.4063,379.6875</marker>
+        <marker type="LOCATION" frame="24">1084.219,552.6563,626.4844,295.3125</marker>
+        <marker type="LOCATION" frame="30">936.5625,449.2969,978.75,428.2031</marker>
+        <marker type="LOCATION" frame="34">881.7188,506.25,1033.594,371.25</marker>
+        <marker type="LOCATION" frame="36">881.7188,442.9688,1033.594,434.5313</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The three men tumble, clanking, down the track embankment.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

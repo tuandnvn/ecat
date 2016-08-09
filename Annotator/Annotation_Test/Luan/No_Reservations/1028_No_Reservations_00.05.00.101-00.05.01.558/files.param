@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.05.00.101-00.05.01.558" length="0">
+  <files>
+    <file>1028_No_Reservations_00.05.00.101-00.05.01.558.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="human" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">226.2069,132.4138,982.0689,808.2756</marker>
+        <marker type="LOCATION" frame="3">2.75862,142.0692,830.3448,808.2753</marker>
+        <marker type="LOCATION" frame="5">2.75862,142.0692,386.2069,808.2753</marker>
+        <marker type="LOCATION" frame="6">2.75862,142.0692,146.2069,808.2753</marker>
+        <marker type="DELETE" frame="7" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1028_No_Reservations_00.04.51.844-00.04.54.422" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o7" name="women3" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">891.0344,204.1379,140.6897,165.5173</marker>
+        <marker type="LOCATION" frame="3">852.4138,204.1379,190.3447,733.793</marker>
+        <marker type="LOCATION" frame="7">874.4827,204.1379,168.2758,733.793</marker>
+        <marker type="LOCATION" frame="15">874.4827,204.1379,187.5862,733.793</marker>
+        <marker type="LOCATION" frame="25">874.4827,220.6896,187.5862,717.2413</marker>
+        <marker type="LOCATION" frame="40">846.8965,220.6896,187.5862,717.2413</marker>
+        <marker type="LOCATION" frame="45">846.8965,220.6896,173.7931,717.2413</marker>
+        <marker type="LOCATION" frame="47">835.862,220.6896,184.8275,717.2413</marker>
+      </markers>
+      <links>
+        <link frame="45">
+          <linkTo id="o8" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="women2" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1172.414,253.7931,160.0001,303.4483</marker>
+        <marker type="LOCATION" frame="3">1158.621,256.5517,160,303.4482</marker>
+        <marker type="LOCATION" frame="15">1158.62,256.5517,209.6553,504.8275</marker>
+        <marker type="LOCATION" frame="25">1158.62,242.7586,198.6208,579.3103</marker>
+        <marker type="LOCATION" frame="40">1230.345,242.7586,234.4829,642.7586</marker>
+        <marker type="LOCATION" frame="45">1264.828,249.6551,268.9655,666.2068</marker>
+        <marker type="LOCATION" frame="47">1310.345,249.6551,223.4481,693.793</marker>
+      </markers>
+      <links>
+        <link frame="25">
+          <linkTo id="o8" q="True" type="LOOK_AT" />
+        </link>
+        <link frame="31">
+          <linkTo id="o5" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o8" name="women4" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">391.7241,322.7586,49.65517,68.96552</marker>
+        <marker type="LOCATION" frame="10">422.0689,329.6552,52.41379,371.0345</marker>
+        <marker type="LOCATION" frame="16">438.6207,329.6552,68.96543,371.0345</marker>
+        <marker type="LOCATION" frame="24">463.4482,317.2414,71.72409,397.2414</marker>
+        <marker type="LOCATION" frame="32">480,317.2414,82.75858,411.0345</marker>
+        <marker type="LOCATION" frame="42">507.5862,317.2414,104.8275,438.6207</marker>
+        <marker type="LOCATION" frame="47">532.4138,303.4482,96.55151,452.4136</marker>
+      </markers>
+      <links>
+        <link frame="5">
+          <linkTo id="o5" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="women1" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">267.5862,292.4138,132.4138,273.1035</marker>
+        <marker type="DELETE" frame="2" />
+        <marker type="LOCATION" frame="5">267.5862,292.4138,256.5517,430.3448</marker>
+        <marker type="LOCATION" frame="11">320,292.4138,193.1035,441.3793</marker>
+        <marker type="LOCATION" frame="15">361.3793,292.4138,151.724,441.3791</marker>
+        <marker type="LOCATION" frame="25">361.3792,292.4138,171.0345,529.6552</marker>
+        <marker type="LOCATION" frame="35">402.7586,292.4138,168.2758,601.3793</marker>
+        <marker type="LOCATION" frame="47">427.5862,278.6206,162.7585,662.069</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>In the kitchen.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

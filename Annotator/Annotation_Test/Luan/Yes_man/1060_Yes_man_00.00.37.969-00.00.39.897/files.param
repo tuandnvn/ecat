@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.37.969-00.00.39.897" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.37.969-00.00.39.897.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="men" filename="1060_Yes_man_00.00.37.969-00.00.39.897.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">320,146.2069,1097.931,794.4827</marker>
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1060_Yes_man_00.00.36.351-00.00.37.969" id="o1" q="True" type="IDENTITY" />
+        </link>
+        <link frame="20">
+          <linkTo id="o2" q="True" type="LOOK_AT" />
+        </link>
+      </links>
+    </object>
+    <object id="o2" name="phone" filename="1060_Yes_man_00.00.37.969-00.00.39.897.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">1390.345,728.2758,193.1035,198.6207</marker>
+        <marker type="LOCATION" frame="22">1384.827,551.7241,193.1037,223.4483</marker>
+        <marker type="LOCATION" frame="28">1354.483,434.4827,193.1038,223.4483</marker>
+      </markers>
+      <links>
+        <link frame="20">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o3" name="men's hand" filename="1060_Yes_man_00.00.37.969-00.00.39.897.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1252.414,750.3448,405.5173,184.8276</marker>
+        <marker type="LOCATION" frame="22">1252.414,750.3448,405.5173,184.8276</marker>
+        <marker type="LOCATION" frame="28">1237.241,582.0689,405.5175,347.5862</marker>
+      </markers>
+      <links>
+        <link frame="21">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He takes the phone out again.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

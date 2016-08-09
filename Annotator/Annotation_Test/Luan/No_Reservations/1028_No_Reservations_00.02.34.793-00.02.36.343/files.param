@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.02.34.793-00.02.36.343" length="0">
+  <files>
+    <file>1028_No_Reservations_00.02.34.793-00.02.36.343.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="women" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">243.1414,180.9424,921.6754,763.351</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo otherSession="1028_No_Reservations_00.00.19.000-00.00.22.842" id="o1" q="True" type="IDENTITY" />
+        </link>
+      </links>
+    </object>
+    <object id="o5" name="m1" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">616.3351,432.5655,631.8848,414.1885,689.843,411.3613,692.6702,401.466,634.712,401.466,613.5079,422.6702</marker>
+        <marker type="LOCATION" frame="3">618.6912,435.6284,634.2408,417.2513,692.1992,414.424,695.0261,404.5287,637.0681,404.5287,615.864,425.7331</marker>
+        <marker type="LOCATION" frame="4">617.2775,437.042,632.8272,418.6649,690.7855,415.8377,693.6125,405.9424,635.6544,405.9424,614.4503,427.1466</marker>
+        <marker type="LOCATION" frame="5">630,437.042,645.5498,418.6649,703.508,415.8376,706.3352,405.9424,648.377,405.9424,619.1623,431.1519</marker>
+        <marker type="LOCATION" frame="8">628.5077,434.9608,644.0577,416.5837,702.0157,413.7564,704.8431,403.8612,646.8848,403.8612,617.6702,429.0707</marker>
+        <marker type="LOCATION" frame="10">622.8533,430.72,638.4033,412.3429,696.3614,409.5156,699.1887,399.6204,641.2304,399.6204,621.9896,428.3246</marker>
+        <marker type="LOCATION" frame="12">612.7093,435.7921,628.2593,417.415,686.2173,414.5876,689.0446,404.6924,631.0864,404.6924,611.8456,433.3966</marker>
+        <marker type="LOCATION" frame="17">619.7773,434.3784,635.3274,416.0013,693.2855,413.1739,696.1127,403.2787,638.1545,403.2787,618.9136,431.983</marker>
+        <marker type="LOCATION" frame="21">614.9215,448.1152,635.3274,416.0013,693.2855,413.1739,692.6702,390.1571,638.1545,403.2787,609.267,441.0471</marker>
+        <marker type="LOCATION" frame="22">614.9215,448.1152,635.3274,416.0013,693.2855,413.1739,696.9111,402.8796,638.1545,403.2787,609.267,441.0471</marker>
+        <marker type="LOCATION" frame="23">610.1373,440.1408,634.712,414.1885,694.0838,412.7749,692.6702,401.466,630.4712,407.1204,604.4829,433.0727</marker>
+        <marker type="LOCATION" frame="25">610.1373,440.1408,634.712,414.1885,687.0157,411.3613,687.0157,400.0524,630.4712,407.1204,604.4829,433.0727</marker>
+        <marker type="LOCATION" frame="32">613.8524,442.3278,638.4271,416.3755,690.7308,413.5482,690.7308,402.2393,634.1863,409.3074,608.198,435.2597</marker>
+        <marker type="LOCATION" frame="44">609.267,436.8063,629.0577,417.0157,690.7308,413.5482,690.7308,402.2393,626.2304,404.2932,608.198,435.2597</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+    <object id="o6" name="m2" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">749.2147,390.1571,801.5184,371.7801,842.5131,385.9162,836.8586,390.1571,810,380.2618,756.2827,402.8796</marker>
+        <marker type="LOCATION" frame="3">751.3351,394.8691,803.6389,376.4921,844.6334,390.6283,838.9791,394.8691,812.1204,384.9738,758.4031,407.5916</marker>
+        <marker type="LOCATION" frame="4">755.5759,394.8691,807.8797,376.4922,848.8743,390.6283,843.2199,394.8691,816.3613,384.9739,762.644,407.5917</marker>
+        <marker type="LOCATION" frame="5">758.4031,396.2827,810.7071,377.9058,851.7016,392.042,846.0471,396.2827,819.1885,386.3875,765.4711,409.0054</marker>
+        <marker type="LOCATION" frame="8">766.885,392.0419,819.1888,373.6649,860.1833,387.8011,854.529,392.0419,827.6703,382.1467,773.9527,404.7645</marker>
+        <marker type="LOCATION" frame="10">762.6442,390.6283,814.9479,372.2514,855.9425,386.3875,850.2881,390.6283,823.4295,380.7331,769.7117,403.3509</marker>
+        <marker type="LOCATION" frame="12">756.7542,390.5497,809.0577,372.1727,842.2775,399.9738,836.6229,402.801,817.5395,380.6545,763.8215,403.2722</marker>
+        <marker type="LOCATION" frame="17">760.9949,389.1361,813.2988,370.7592,846.5185,398.5602,840.8641,401.3875,821.7803,379.2409,768.0621,401.8587</marker>
+        <marker type="LOCATION" frame="21">755.3405,393.3769,815.6545,371.7801,849.5812,400.0524,842.5131,402.8796,815.6545,383.089,762.4077,406.0995</marker>
+        <marker type="LOCATION" frame="23">755.3405,393.3769,810,373.1937,845.3403,401.466,843.9267,401.466,810,385.9162,756.2827,402.8796</marker>
+        <marker type="LOCATION" frame="25">747.7227,393.3115,802.3823,373.1283,837.7225,401.4006,836.309,401.4006,802.3823,385.8508,748.6649,402.8141</marker>
+        <marker type="LOCATION" frame="32">754.7906,391.8979,809.4505,371.7147,844.7906,399.987,843.377,399.987,809.4505,384.4371,755.733,401.4005</marker>
+        <marker type="LOCATION" frame="44">749.136,393.3115,803.796,373.1283,849.5812,395.8115,849.5812,400.0524,803.796,385.8508,750.0784,402.8141</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+      <links>
+        <link frame="0">
+          <linkTo id="o1" q="True" type="PART_OF" />
+        </link>
+      </links>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text />
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>
