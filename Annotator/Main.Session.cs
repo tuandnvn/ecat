@@ -437,7 +437,7 @@ namespace Annotator
 
             //Check files in current Session folder
             String[] files = Directory.GetFiles(workspace.locationFolder + Path.DirectorySeparatorChar +
-                currentSession.getProject() + Path.DirectorySeparatorChar + currentSession.sessionName);
+                currentSession.project.name + Path.DirectorySeparatorChar + currentSession.sessionName);
 
             TreeNode[] arrayFiles = new TreeNode[files.Length];
             for (int j = 0; j < arrayFiles.Length; j++)
@@ -774,7 +774,7 @@ namespace Annotator
                     // Change the internal frameNo to current one
                     lastLocationMark.frameNo = frameTrackBar.Value;
                     newObject.objectMarks[frameTrackBar.Value] = lastLocationMark;
-                    newObject.addLink(frameTrackBar.Value, previousSession.sessionName, o.id, true, "IDENTITY");
+                    newObject.addLink(frameTrackBar.Value, o, true, new Predicate("IDENTITY", new Combination(new int[] { 1, 2 })));
                     currentSession.addObject(newObject);
                     addObjectAnnotation(newObject);
                 }

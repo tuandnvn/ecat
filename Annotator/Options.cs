@@ -51,7 +51,7 @@ namespace Annotator
         internal Dictionary<string, InterpolationMode> interpolationModes;
 
         [DataMember]
-        internal List<string> objectLinkTypes;
+        internal List<Predicate> objectPredicates;
 
         /// <summary>
         /// List of prototypes, should be set by reading from the glyphPrototypePath. otherwise set to default
@@ -79,8 +79,8 @@ namespace Annotator
                     if (singletonOptions.interpolationModes == null)
                         singletonOptions.interpolationModes = tempOptions.interpolationModes;
 
-                    if (singletonOptions.objectLinkTypes == null)
-                        singletonOptions.objectLinkTypes = tempOptions.objectLinkTypes;
+                    if (singletonOptions.objectPredicates == null)
+                        singletonOptions.objectPredicates = tempOptions.objectPredicates;
 
                     fs.Close();
                 }
@@ -118,7 +118,7 @@ namespace Annotator
             options.interpolationModes[RIG] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[RECTANGLE] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
-            options.objectLinkTypes = new List<string> { "ON", "IN", "ATTACH_TO" };
+            options.objectPredicates = new List<Predicate> ();
 
             return options;
         }

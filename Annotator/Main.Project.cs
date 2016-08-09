@@ -29,7 +29,7 @@ namespace Annotator
         {
             if (currentSession != null && currentSession.getEdited())
             {
-                MessageBox.Show("Cannot select project, session " + currentSession.sessionName + " in project " + currentSession.project + " is editing");
+                MessageBox.Show("Cannot select project, session " + currentSession.sessionName + " in project " + currentSession.project.name + " is editing");
                 return;
             }
 

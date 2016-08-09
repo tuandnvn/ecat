@@ -157,25 +157,26 @@ namespace Annotator
             }
         }
 
-        private void addLinkType_Click(object sender, EventArgs e)
+        private void addPredicate_Click(object sender, EventArgs e)
         {
-            Regex rgx = new Regex(@"[a-zA-Z0-9_]+");
+            Regex rgx = new Regex(@"^([a-zA-Z0-9_]+)\(([X-Y](,[X-Y])?)\)$");
 
             try
             {
                 var newType = objectLinkTypeTxtBox.Text;
 
-                if (!rgx.IsMatch(newType))
-                {
-                    throw new ArgumentException("Type should only be considered of alphanumeric and underscore _");
-                }
+                var newPredicate = Predicate.Parse(newType);
 
-                if (this.options.objectLinkTypes.Contains(newType))
+                if (newPredicate == null)
+                {
+                    throw new ArgumentException("new predicate = null. The predicate form has problem!");
+                }
+                if (this.options.objectPredicates.Contains(newPredicate))
                 {
                     throw new ArgumentException("Type exists!");
                 }
 
-                this.options.objectLinkTypes.Add(newType);
+                this.options.objectPredicates.Add(newPredicate);
 
 
                 renderLinkTypeList();
@@ -192,7 +193,7 @@ namespace Annotator
             var selectIndex = objectLinkTypeListBox.SelectedIndex;
             try
             {
-                this.options.objectLinkTypes.RemoveAt(selectIndex);
+                this.options.objectPredicates.RemoveAt(selectIndex);
                 renderLinkTypeList();
             }
             catch
@@ -207,9 +208,9 @@ namespace Annotator
             {
                 if ( selectIndex > 0)
                 {
-                    var swapItem = this.options.objectLinkTypes[selectIndex];
-                    this.options.objectLinkTypes.RemoveAt(selectIndex);
-                    this.options.objectLinkTypes.Insert(selectIndex - 1, swapItem);
+                    var swapItem = this.options.objectPredicates[selectIndex];
+                    this.options.objectPredicates.RemoveAt(selectIndex);
+                    this.options.objectPredicates.Insert(selectIndex - 1, swapItem);
                     renderLinkTypeList();
                     this.objectLinkTypeListBox.SelectedIndex = selectIndex - 1;
                 }
@@ -224,11 +225,11 @@ namespace Annotator
             var selectIndex = objectLinkTypeListBox.SelectedIndex;
             try
             {
-                if (selectIndex < this.options.objectLinkTypes.Count - 1)
+                if (selectIndex < this.options.objectPredicates.Count - 1)
                 {
-                    var swapItem = this.options.objectLinkTypes[selectIndex];
-                    this.options.objectLinkTypes.RemoveAt(selectIndex);
-                    this.options.objectLinkTypes.Insert(selectIndex + 1, swapItem);
+                    var swapItem = this.options.objectPredicates[selectIndex];
+                    this.options.objectPredicates.RemoveAt(selectIndex);
+                    this.options.objectPredicates.Insert(selectIndex + 1, swapItem);
                     renderLinkTypeList();
                     this.objectLinkTypeListBox.SelectedIndex = selectIndex + 1;
                 }
@@ -241,7 +242,7 @@ namespace Annotator
         private void renderLinkTypeList()
         {
             this.objectLinkTypeListBox.Items.Clear();
-            this.objectLinkTypeListBox.Items.AddRange(this.options.objectLinkTypes.ToArray());
+            this.objectLinkTypeListBox.Items.AddRange(this.options.objectPredicates.ToArray());
         }
 
         private void objectLinkTypeListBox_SelectedIndexChanged(object sender, EventArgs e)

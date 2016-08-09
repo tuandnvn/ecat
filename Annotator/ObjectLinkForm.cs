@@ -47,7 +47,7 @@ namespace Annotator
             this.objectSelectComboBox.SelectedIndex = 0;
             this.qualifiedSelectComboBox.Items.AddRange(new object[] { true, false });
             this.qualifiedSelectComboBox.SelectedIndex = 0;
-            this.linkComboBox.Items.AddRange(Options.getOption().objectLinkTypes.ToArray());
+            this.linkComboBox.Items.AddRange(Options.getOption().objectPredicates.ToArray());
             this.linkComboBox.SelectedIndex = 0;
             renderPredicateList();
         }
@@ -58,8 +58,7 @@ namespace Annotator
             LinkMark lm = this.obj.getLink(frameNo);
             if (lm != null)
             {
-                this.existingPredicateListBox.Items.AddRange(lm.binaryPredicates.Select(s => lm.getLiteralForm(s)).ToArray());
-                this.existingPredicateListBox.Items.AddRange(lm.crossSessionBinaryPredicates.Select(s => lm.getLiteralForm(s)).ToArray());
+                this.existingPredicateListBox.Items.AddRange(lm.predicateMarks.Select(s => s.ToString()).ToArray());
             }
         }
 
@@ -68,26 +67,28 @@ namespace Annotator
             try
             {
                 var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
-                var predicateType = (string)this.linkComboBox.SelectedItem;
+                var predicateType = (Predicate)this.linkComboBox.SelectedItem;
 
                 if (!crossSessionChkBox.Checked)
                 {
-                    var oid = session.getObjects()[this.objectSelectComboBox.SelectedIndex].id;
-                    obj.addLink(frameNo, oid, qualified, predicateType);
-                } else
+                    var otherObject = session.getObjects()[this.objectSelectComboBox.SelectedIndex];
+                    obj.addLink(frameNo, otherObject, qualified, predicateType);
+                }
+                else
                 {
                     var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
                     var tempoSession = project.sessions[sessionIndex];
-                    var oid = tempoSession.getObjects()[this.objectSelectComboBox.SelectedIndex].id;
-                    obj.addLink(frameNo, tempoSession.sessionName, oid, qualified, predicateType);
+                    var otherObject = tempoSession.getObjects()[this.objectSelectComboBox.SelectedIndex];
+                    obj.addLink(frameNo, otherObject, qualified, predicateType);
                 }
-                
+
                 this.main.redrawObjectMarks();
-            } catch (Exception exc)
+            }
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.ToString(), "Problem when adding link");
             }
-            
+
             this.Hide();
         }
 
@@ -133,46 +134,81 @@ namespace Annotator
         {
             try
             {
-                var oid = (string)this.objectSelectComboBox.SelectedItem;
+                
+
                 var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
-                var predicateType = (string)this.linkComboBox.SelectedItem;
+                var predicateType = (Predicate)this.linkComboBox.SelectedItem;
 
                 if (!crossSessionChkBox.Checked)
                 {
-                    this.predicateLbl.Text = getLiteralForm(obj.id, obj.name, oid, qualified, predicateType);
+                    if (predicateType.combination.size == 1)
+                    {
+                        this.predicateLbl.Text = new PredicateMark(qualified, predicateType, new Object[] { obj }).ToString();
+                        this.objectSelectComboBox.Enabled = false;
+                    }
+                    else if (predicateType.combination.size == 2)
+                    {
+                        var otherObject = session.getObjects()[this.objectSelectComboBox.SelectedIndex];
+                        this.predicateLbl.Text = new PredicateMark(qualified, predicateType, new Object[] { obj, otherObject }).ToString();
+                        this.objectSelectComboBox.Enabled = true;
+                    }
                 }
                 else
                 {
                     var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
                     var tempoSession = project.sessions[sessionIndex];
-                    this.predicateLbl.Text = getLiteralForm(obj.id, tempoSession.sessionName, oid, qualified, predicateType);
+                    var otherObject = tempoSession.getObjects()[this.objectSelectComboBox.SelectedIndex];
+                    this.predicateLbl.Text = new PredicateMark(qualified, predicateType, new Object[] { obj, otherObject }).ToString();
                 }
 
-            } catch (Exception exc)
+            }
+            catch (Exception exc)
             {
                 this.predicateLbl.Text = "";
             }
         }
 
-        private String getLiteralForm(string id, string name, string oid, bool qualified, string predicateType)
-        {
-            String q = predicateType + "( " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + ", " + oid + " )";
-            if (!qualified)
-            {
-                q = "NOT( " + q + " )";
-            }
-            return q;
-        }
+        //private String getLiteralForm(string id, string name, bool qualified, Predicate predicateType)
+        //{
+        //    String q = predicateType.predicate + "( " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + " )";
+        //    if (!qualified)
+        //    {
+        //        q = "NOT( " + q + " )";
+        //    }
+        //    return q;
+        //}
 
-        private String getLiteralForm(string id, string name, string osession, string oid, bool qualified, string predicateType)
-        {
-            String q = predicateType + "( " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + ", " + osession + "/" + oid + " )";
-            if (!qualified)
-            {
-                q = "NOT( " + q + " )";
-            }
-            return q;
-        }
+        //private String getLiteralForm(string id, string name, string oidAndName, bool qualified, Predicate predicateType)
+        //{
+        //    String q = "";
+
+        //    if (predicateType.combination.values.SequenceEqual(new int[2] { 1, 2 }))
+        //        q = predicateType.predicate + "( " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + ", " + oidAndName + " )";
+        //    if (predicateType.combination.values.SequenceEqual(new int[2] { 2, 1 }))
+        //        q = predicateType.predicate + "( " + oidAndName + ", " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + " )";
+
+        //    if (!qualified)
+        //    {
+        //        q = "NOT( " + q + " )";
+        //    }
+        //    return q;
+        //}
+
+        //private String getLiteralForm(string id, string name, string osession, string oidAndName, bool qualified, Predicate predicateType)
+        //{
+        //    String q = "";
+
+        //    if (predicateType.combination.values.SequenceEqual(new int[2] { 1, 2 }))
+        //        q = predicateType.predicate + "( " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + ", " + osession + "/" + oidAndName + " )";
+        //    if (predicateType.combination.values.SequenceEqual(new int[2] { 2, 1 }))
+        //        q = predicateType.predicate + "( " + osession + "/" + oidAndName + ", " + id + (name.Equals("") ? "" : (" (\"" + name + "\")")) + " )";
+
+        //    if (!qualified)
+        //    {
+        //        q = "NOT( " + q + " )";
+        //    }
+        //    return q;
+        //}
 
         private void removePredBtn_Click(object sender, EventArgs e)
         {
@@ -181,8 +217,7 @@ namespace Annotator
 
             if (selectIndex != -1 && lm != null)
             {
-                lm.binaryPredicates.RemoveWhere(t => lm.getLiteralForm(t).Equals((string)existingPredicateListBox.SelectedItem));
-                lm.crossSessionBinaryPredicates.RemoveWhere(t => lm.getLiteralForm(t).Equals((string)existingPredicateListBox.SelectedItem));
+                lm.predicateMarks.RemoveWhere(t => t.ToString().Equals((string)existingPredicateListBox.SelectedItem));
             }
             renderPredicateList();
         }

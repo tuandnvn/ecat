@@ -27,7 +27,7 @@ namespace Annotator
         public int objectCount { get; set; } = 0;          // video objects IDs
         private Dictionary<string, Object> objects;  // list of objects in videos
         public String sessionName { get; private set; }     //session name
-        public String project { get; private set; }         //session's project 
+        public Project project { get; private set; }         //session's project 
         public String locationFolder { get; private set; }  //session location folder
         private bool edited;            //true if session is currently edited
         private List<VideoReader> videoReaders;
@@ -68,13 +68,13 @@ namespace Annotator
         private string commonPrefix;
 
         //Constructor
-        public Session(String sessionName, String projectOwner, String locationFolder)
+        public Session(String sessionName, Project project, String locationFolder)
         {
             this.sessionName = sessionName;
-            this.project = projectOwner;
+            this.project = project;
             this.locationFolder = locationFolder;
             //If session file list exist load files list
-            commonPrefix = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
+            commonPrefix = locationFolder + Path.DirectorySeparatorChar + project.name + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
             metadataFile = commonPrefix + "files.param";
             tempMetadataFile = commonPrefix + "~files.param";
 
@@ -158,7 +158,15 @@ namespace Annotator
 
         public Object getObject(string objectRefId)
         {
-            return objects[objectRefId];
+            try
+            {
+                return objects[objectRefId];
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
         }
 
         //Save session
@@ -350,7 +358,8 @@ namespace Annotator
 
                     myFile.Attributes |= FileAttributes.Hidden;
                 }
-            } catch (Exception exc)
+            }
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.ToString());
             }
@@ -365,11 +374,7 @@ namespace Annotator
 
                 XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
                 objectCount = int.Parse(objectsNode.Attributes["no"].Value);
-                List<Object> objects = Object.readFromXml(this, objectsNode);
-                foreach (Object o in objects)
-                {
-                    addObject(o);
-                }
+                Object.readObjectsFromXml(this, objectsNode);
 
                 XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
                 events = Event.readFromXml(this, annotationsNode);
@@ -527,11 +532,6 @@ namespace Annotator
             }
         }
 
-        //Get session's project
-        public String getProject()
-        {
-            return project;
-        }
         //Check if file inside project files list
         public bool checkFileInSession(String fName)
         {

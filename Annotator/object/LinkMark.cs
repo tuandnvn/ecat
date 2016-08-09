@@ -7,68 +7,41 @@ using System.Xml;
 
 namespace Annotator
 {
+
+
     public class LinkMark : ObjectMark
     {
-        public string objectId { get; }
+        public Object o { get; }
 
-        // A set of link to other objects at a certain frame
-        // Each link is of < objectID , qualified, spatialLink >
-        public SortedSet<Tuple<string, bool, string>> binaryPredicates { get; } // By default, there is no spatial configuration attached to an object location
+        //// A set of link to other objects at a certain frame
+        //// Each link is of < objectID , qualified, spatialLink >
+        //public SortedSet<Tuple<string, bool, string>> binaryPredicates { get; } // By default, there is no spatial configuration attached to an object location
 
-        // A set of link to other objects of different session at a certain frame
-        // Each link is of < sessionName, objectID , qualified, spatialLink >
-        public SortedSet<Tuple<string, string, bool, string>> crossSessionBinaryPredicates { get; } // By default, there is no spatial configuration attached to an object location
+        //// A set of link to other objects of different session at a certain frame
+        //// Each link is of < sessionName, objectID , qualified, spatialLink >
+        //public SortedSet<Tuple<string, string, bool, string>> crossSessionBinaryPredicates { get; } // By default, there is no spatial configuration attached to an object location
 
-        public LinkMark(string objectId, int frameNo) : base(frameNo)
+        public SortedSet<PredicateMark> predicateMarks { get; }
+
+        public LinkMark(Object o, int frameNo) : base(frameNo)
         {
-            this.objectId = objectId;
-            binaryPredicates = new SortedSet<Tuple<string, bool, string>>();
-            crossSessionBinaryPredicates = new SortedSet<Tuple<string, string, bool, string>>();
+            this.o = o;
+            predicateMarks = new SortedSet<PredicateMark>();
         }
 
-        public void addLinkToObject(string otherObjectId, bool qualified, string linkType)
+        public void addLinkToObject(bool qualified, Predicate linkType)
         {
-            binaryPredicates.Add(new Tuple<string, bool, string>(otherObjectId, qualified, linkType));
+            predicateMarks.Add(new PredicateMark(qualified, linkType, new Object[] { o }));
         }
 
-        public void addLinkToObject(string sessionName, string otherObjectId, bool qualified, string linkType)
+        public void addLinkToObject(Object otherObject, bool qualified, Predicate linkType)
         {
-            crossSessionBinaryPredicates.Add(new Tuple<string, string, bool, string>(sessionName, otherObjectId, qualified, linkType));
+            predicateMarks.Add(new PredicateMark(qualified, linkType, new Object[] { o, otherObject }));
         }
 
         override public String ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            if (binaryPredicates.Count != 0)
-            {
-                sb.Append(String.Join(",", binaryPredicates.Select(u => getLiteralForm(u))));
-                if (crossSessionBinaryPredicates.Count != 0)
-                    sb.Append("\n");
-            }
-
-            if (crossSessionBinaryPredicates.Count != 0)
-                sb.Append(String.Join(",", crossSessionBinaryPredicates.Select(u => getLiteralForm(u))));
-            return sb.ToString();
-        }
-
-        public String getLiteralForm(Tuple<string, bool, string> t)
-        {
-            String q = t.Item3 + "( " + objectId + ", " + t.Item1 + " )";
-            if (!t.Item2)
-            {
-                q = "NOT( " + q + " )";
-            }
-            return q;
-        }
-
-        public String getLiteralForm(Tuple<string, string, bool, string> t)
-        {
-            String q = t.Item4 + "( " + objectId + ", " + t.Item1 + "/" + t.Item2 + ")";
-            if (!t.Item3)
-            {
-                q = "NOT( " + q + " )";
-            }
-            return q;
+            return String.Join(",", predicateMarks.Select(u => u.ToString()).ToArray());
         }
 
         internal void loadFromHtml(XmlNode linkNode)
@@ -77,18 +50,73 @@ namespace Annotator
             {
                 try
                 {
-                    String linkToObjectId = linkto.Attributes[Object.ID].Value;
                     bool qualified = bool.Parse(linkto.Attributes[Object.QUALIFIED].Value);
-                    string markType = linkto.Attributes[Object.TYPE].Value;
+                    string predicateForm = linkto.Attributes[Object.TYPE].Value;
 
                     if (linkto.Attributes[Object.OTHER_SESSION] != null)
                     {
+                        String linkToObjectId = linkto.Attributes[Object.ID].Value;
                         String otherSessionName = linkto.Attributes[Object.OTHER_SESSION].Value;
-                        this.addLinkToObject(otherSessionName, linkToObjectId, qualified, markType);
+
+                        Predicate pred = Predicate.Parse(predicateForm);
+
+                        // Try with default binary predicate
+                        if (pred == null)
+                        {
+                            pred = Predicate.ParseToBinary(predicateForm);
+                        }
+
+                        if (pred != null)
+                        {
+                            var otherSession = this.o.session.project.getSession(otherSessionName);
+                            if (otherSession != null)
+                            {
+                                var otherObject = otherSession.getObject(linkToObjectId);
+                                if (otherObject == null)
+                                {
+                                    otherSession.loadIfNotLoaded();
+                                    otherObject = otherSession.getObject(linkToObjectId);
+                                }
+
+                                if (otherObject != null)
+                                    this.addLinkToObject(otherObject, qualified, pred);
+                            }
+
+                        }
                     }
                     else
                     {
-                        this.addLinkToObject(linkToObjectId, qualified, markType);
+                        if (linkto.Attributes[Object.ID] != null)
+                        {
+                            String linkToObjectId = linkto.Attributes[Object.ID].Value;
+
+                            Predicate pred = Predicate.Parse(predicateForm);
+
+                            // Try with default binary predicate
+                            if (pred == null)
+                            {
+                                pred = Predicate.ParseToBinary(predicateForm);
+                            }
+
+                            if (pred != null)
+                            {
+                                var otherObject = this.o.session.getObject(linkToObjectId);
+                                if (otherObject != null)
+                                    this.addLinkToObject(otherObject, qualified, pred);
+                            }
+                        }
+                        else
+                        {
+                            Predicate pred = Predicate.Parse(predicateForm);
+
+                            // Try with default binary predicate
+                            if (pred == null)
+                            {
+                                pred = Predicate.ParseToUnary(predicateForm);
+                            }
+
+                            this.addLinkToObject(qualified, pred);
+                        }
                     }
                 }
                 catch (Exception e)
@@ -99,22 +127,22 @@ namespace Annotator
 
         internal void writeToXml(XmlWriter xmlWriter)
         {
-            foreach (Tuple<string, bool, string> link in binaryPredicates)
+            foreach (var predicateMark in predicateMarks)
             {
                 xmlWriter.WriteStartElement(Object.LINKTO);
-                xmlWriter.WriteAttributeString(Object.ID, link.Item1);
-                xmlWriter.WriteAttributeString(Object.QUALIFIED, "" + link.Item2);
-                xmlWriter.WriteAttributeString(Object.TYPE, link.Item3.ToString());
-                xmlWriter.WriteEndElement();
-            }
+                if (predicateMark.predicate.combination.size == 2)
+                {
+                    var otherObject = predicateMark.objects[1];
+                    if (otherObject.session.sessionName != predicateMark.objects[0].session.sessionName)
+                    {
+                        xmlWriter.WriteAttributeString(Object.OTHER_SESSION, otherObject.session.sessionName);
+                    }
 
-            foreach (Tuple<string, string, bool, string> link in crossSessionBinaryPredicates)
-            {
-                xmlWriter.WriteStartElement(Object.LINKTO);
-                xmlWriter.WriteAttributeString(Object.OTHER_SESSION, link.Item1);
-                xmlWriter.WriteAttributeString(Object.ID, link.Item2);
-                xmlWriter.WriteAttributeString(Object.QUALIFIED, "" + link.Item3);
-                xmlWriter.WriteAttributeString(Object.TYPE, link.Item4.ToString());
+                    xmlWriter.WriteAttributeString(Object.ID, otherObject.id);
+                }
+
+                xmlWriter.WriteAttributeString(Object.QUALIFIED, "" + predicateMark.qualified);
+                xmlWriter.WriteAttributeString(Object.TYPE, predicateMark.predicate.ToString());
                 xmlWriter.WriteEndElement();
             }
         }

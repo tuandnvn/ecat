@@ -154,7 +154,8 @@ namespace Annotator
                 }
 
                 return;
-            } catch (InvalidOperationException exc)
+            }
+            catch (InvalidOperationException exc)
             {
                 Console.WriteLine(exc);
             }
@@ -183,35 +184,36 @@ namespace Annotator
             return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
-        public void addLink(int frameNumber, string objectId, bool qualified, string linkType)
+        public void addLink(int frameNumber, Object otherObject, bool qualified, Predicate linkType)
         {
             if (!linkMarks.ContainsKey(frameNumber))
             {
-                linkMarks[frameNumber] = new LinkMark(id, frameNumber);
+                linkMarks[frameNumber] = new LinkMark(this, frameNumber);
             }
 
-            linkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
+            linkMarks[frameNumber].addLinkToObject(otherObject, qualified, linkType);
         }
+
+        //public void addLink(int frameNumber, string sessionName, Object otherObject, bool qualified, Predicate linkType)
+        //{
+        //    if (!linkMarks.ContainsKey(frameNumber))
+        //    {
+        //        linkMarks[frameNumber] = new LinkMark(id, frameNumber);
+        //    }
+
+        //    linkMarks[frameNumber].addLinkToObject(sessionName, objectId, qualified, linkType);
+        //}
 
         public LinkMark getLink(int frameNumber)
         {
             if (!linkMarks.ContainsKey(frameNumber))
             {
-                return null; 
+                return null;
             }
 
             return linkMarks[frameNumber];
         }
 
-        public void addLink(int frameNumber, string sessionName, string objectId, bool qualified, string linkType)
-        {
-            if (!linkMarks.ContainsKey(frameNumber))
-            {
-                linkMarks[frameNumber] = new LinkMark(id, frameNumber);
-            }
-
-            linkMarks[frameNumber].addLinkToObject(sessionName, objectId, qualified, linkType);
-        }
 
         /// <summary>
         /// Linear transformation of bounding to draw into paintBoard.
@@ -258,14 +260,15 @@ namespace Annotator
                     }
                 }
             }
-            catch (Exception exc) {
+            catch (Exception exc)
+            {
             }
-            
+
 
             return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
         }
 
-        public LocationMark3D getLocationMark3D (int frameNo)
+        public LocationMark3D getLocationMark3D(int frameNo)
         {
             int prevMarker = object3DMarks.Keys.LastOrDefault(x => x <= frameNo);
             int nextMarker = object3DMarks.Keys.FirstOrDefault(x => x >= frameNo);
@@ -397,7 +400,7 @@ namespace Annotator
             xmlWriter.WriteEndElement();
         }
 
-        public static List<Object> readFromXml(Session currentSession, XmlNode xmlNode)
+        public static void readObjectsFromXml(Session session, XmlNode xmlNode)
         {
             List<Object> objects = new List<Object>();
             foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
@@ -419,7 +422,7 @@ namespace Annotator
                     Type t = Type.GetType(shape);
                     if (t.IsSubclassOf(typeof(Object)))
                     {
-                        o = (Object)Activator.CreateInstance(t, currentSession, id, color, borderSize, videoFile);
+                        o = (Object)Activator.CreateInstance(t, session, id, color, borderSize, videoFile);
                     }
                     else
                     {
@@ -431,11 +434,11 @@ namespace Annotator
                 {
                     if (shape == "Rectangle")
                     {
-                        o = new RectangleObject(currentSession, id, color, borderSize, videoFile);
+                        o = new RectangleObject(session, id, color, borderSize, videoFile);
                     }
                     else if (shape == "Polygon")
                     {
-                        o = new PolygonObject(currentSession, id, color, borderSize, videoFile);
+                        o = new PolygonObject(session, id, color, borderSize, videoFile);
                     }
                 }
 
@@ -455,9 +458,22 @@ namespace Annotator
                 }
 
                 readMarkers(objectNode, o);
-                o.readLinks(objectNode);
-
                 objects.Add(o);
+            }
+
+            foreach (Object o in objects)
+            {
+                session.addObject(o);
+            }
+
+            // Load predicates later, after adding all objects
+            foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
+            {
+                string id = objectNode.Attributes[ID].Value;
+
+                var ob = objects.Where(o => o.id == id).First();
+                if (ob != null)
+                    ob.readLinks(objectNode);
             }
 
             int performerCount = 1;
@@ -469,8 +485,6 @@ namespace Annotator
                     o.name = "Performer " + performerCount++;
                 }
             }
-
-            return objects;
         }
 
 
@@ -720,7 +734,7 @@ namespace Annotator
 
                 if (!linkMarks.ContainsKey(frame))
                 {
-                    linkMarks[frame] = new LinkMark(id, frame);
+                    linkMarks[frame] = new LinkMark(this, frame);
                 }
 
                 linkMarks[frame].loadFromHtml(linkNode);

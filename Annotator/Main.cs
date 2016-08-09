@@ -282,7 +282,7 @@ namespace Annotator
 
                             if (project.checkSessionInProject(sessionName))
                             {
-                                project.addSession(new Session(sessionName, project.name, project.locationFolder));
+                                project.addSession(new Session(sessionName, project, project.locationFolder));
                                 //Add to treeview session list only files which exists in session filesList
 
                                 Session session = project.getSession(sessionName);
@@ -300,7 +300,7 @@ namespace Annotator
                             Project project = workspace.getProject(prjName);
                             if (project.checkSessionInProject(sessionName))
                             {
-                                project.addSession(new Session(sessionName, project.name, project.locationFolder));
+                                project.addSession(new Session(sessionName, project, project.locationFolder));
                                 array.Add(sessionNode);
                             }
                         }
@@ -564,7 +564,7 @@ namespace Annotator
 
             //1) Update workspace project by adding new session
             Project project = workspace.getProject(projectName);
-            Session newSession = new Session(sessionName, project.name, project.locationFolder);
+            Session newSession = new Session(sessionName, project, project.locationFolder);
 
             project.addSession(newSession);
 

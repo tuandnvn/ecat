@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -66,6 +67,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -374,11 +376,12 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(643, 369);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Object";
+            this.tabPage4.Text = "Predicate";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.richTextBox1);
             this.groupBox7.Controls.Add(this.downObjLinkTypeBtn);
             this.groupBox7.Controls.Add(this.upObjLinkTypeBtn);
             this.groupBox7.Controls.Add(this.removeLinkTypeBtn);
@@ -386,12 +389,12 @@
             this.groupBox7.Controls.Add(this.objectLinkTypeTxtBox);
             this.groupBox7.Controls.Add(this.objectLinkTypeListBox);
             this.groupBox7.Controls.Add(this.label3);
-            this.groupBox7.Location = new System.Drawing.Point(6, 6);
+            this.groupBox7.Location = new System.Drawing.Point(5, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(628, 196);
+            this.groupBox7.Size = new System.Drawing.Size(628, 357);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Object links";
+            this.groupBox7.Text = "Predicates";
             // 
             // downObjLinkTypeBtn
             // 
@@ -434,7 +437,7 @@
             this.addLinkType.TabIndex = 3;
             this.addLinkType.Text = "Add";
             this.addLinkType.UseVisualStyleBackColor = true;
-            this.addLinkType.Click += new System.EventHandler(this.addLinkType_Click);
+            this.addLinkType.Click += new System.EventHandler(this.addPredicate_Click);
             // 
             // objectLinkTypeTxtBox
             // 
@@ -461,9 +464,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(186, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Link labels";
+            this.label3.Text = "Add either predicate form or constraint";
             // 
             // tableLayoutPanel1
             // 
@@ -502,6 +505,15 @@
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox1.Location = new System.Drawing.Point(9, 196);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(613, 155);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // OptionsForm
             // 
@@ -576,5 +588,6 @@
         private System.Windows.Forms.ListBox objectLinkTypeListBox;
         private System.Windows.Forms.Button downObjLinkTypeBtn;
         private System.Windows.Forms.Button upObjLinkTypeBtn;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

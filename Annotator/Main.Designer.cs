@@ -56,6 +56,16 @@ namespace Annotator
             this.middleBottomPanel = new System.Windows.Forms.Panel();
             this.middleBottomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addEventAnnotationBtn = new System.Windows.Forms.Button();
+            this.rightColumnLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.annoRefView = new System.Windows.Forms.DataGridView();
+            this.StartAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TextAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoteAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.annotationText = new System.Windows.Forms.RichTextBox();
+            this.cm3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addObjRefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightTopPanel = new System.Windows.Forms.Panel();
             this.selectObjContextPanel = new System.Windows.Forms.Panel();
             this.cancelSelectObjBtn = new System.Windows.Forms.Button();
@@ -81,17 +91,11 @@ namespace Annotator
             this.objectProperties = new System.Windows.Forms.DataGridView();
             this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PropertyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rightBottomPanel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.annotationText = new System.Windows.Forms.RichTextBox();
-            this.cm3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addObjRefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.annoRefView = new System.Windows.Forms.DataGridView();
-            this.StartAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TextAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoteAnno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,8 +122,8 @@ namespace Annotator
             this.sessionRightClickPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshSessionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sessionDetectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.glyphboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,6 +154,9 @@ namespace Annotator
             this.middleCenterPanel.SuspendLayout();
             this.middleBottomPanel.SuspendLayout();
             this.middleBottomTableLayoutPanel.SuspendLayout();
+            this.rightColumnLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).BeginInit();
+            this.cm3.SuspendLayout();
             this.rightTopPanel.SuspendLayout();
             this.selectObjContextPanel.SuspendLayout();
             this.editObjectContextPanel.SuspendLayout();
@@ -158,10 +165,9 @@ namespace Annotator
             this.drawingButtonTool.SuspendLayout();
             this.rightCenterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectProperties)).BeginInit();
-            this.rightBottomPanel.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.cm3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menu.SuspendLayout();
             this.tabs.SuspendLayout();
             this.annotateTab.SuspendLayout();
@@ -176,14 +182,12 @@ namespace Annotator
             this.annotateTableLayoutPanel.ColumnCount = 3;
             this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 369F));
+            this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 368F));
             this.annotateTableLayoutPanel.Controls.Add(this.leftMostPanel, 0, 0);
             this.annotateTableLayoutPanel.Controls.Add(this.middleTopPanel, 1, 0);
             this.annotateTableLayoutPanel.Controls.Add(this.middleCenterPanel, 1, 2);
             this.annotateTableLayoutPanel.Controls.Add(this.middleBottomPanel, 1, 3);
-            this.annotateTableLayoutPanel.Controls.Add(this.rightTopPanel, 2, 0);
-            this.annotateTableLayoutPanel.Controls.Add(this.rightCenterPanel, 2, 1);
-            this.annotateTableLayoutPanel.Controls.Add(this.rightBottomPanel, 2, 2);
+            this.annotateTableLayoutPanel.Controls.Add(this.rightColumnLayoutPanel, 2, 0);
             this.annotateTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.annotateTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.annotateTableLayoutPanel.Name = "annotateTableLayoutPanel";
@@ -263,7 +267,7 @@ namespace Annotator
             this.middleTopPanel.Location = new System.Drawing.Point(175, 4);
             this.middleTopPanel.Name = "middleTopPanel";
             this.annotateTableLayoutPanel.SetRowSpan(this.middleTopPanel, 2);
-            this.middleTopPanel.Size = new System.Drawing.Size(886, 657);
+            this.middleTopPanel.Size = new System.Drawing.Size(887, 657);
             this.middleTopPanel.TabIndex = 1;
             // 
             // middleTopTableLayoutPanel
@@ -291,7 +295,7 @@ namespace Annotator
             this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.middleTopTableLayoutPanel.Size = new System.Drawing.Size(884, 655);
+            this.middleTopTableLayoutPanel.Size = new System.Drawing.Size(885, 655);
             this.middleTopTableLayoutPanel.TabIndex = 8;
             // 
             // playbackFileComboBox
@@ -317,7 +321,7 @@ namespace Annotator
             this.videoPanel.Location = new System.Drawing.Point(123, 3);
             this.videoPanel.Name = "videoPanel";
             this.middleTopTableLayoutPanel.SetRowSpan(this.videoPanel, 7);
-            this.videoPanel.Size = new System.Drawing.Size(758, 598);
+            this.videoPanel.Size = new System.Drawing.Size(759, 598);
             this.videoPanel.TabIndex = 1;
             // 
             // pictureBoard
@@ -327,7 +331,7 @@ namespace Annotator
             this.pictureBoard.Location = new System.Drawing.Point(0, 0);
             this.pictureBoard.mat = null;
             this.pictureBoard.Name = "pictureBoard";
-            this.pictureBoard.Size = new System.Drawing.Size(758, 598);
+            this.pictureBoard.Size = new System.Drawing.Size(759, 598);
             this.pictureBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoard.TabIndex = 0;
             this.pictureBoard.TabStop = false;
@@ -348,7 +352,7 @@ namespace Annotator
             this.frameTrackBar.MinDragVal = 1;
             this.frameTrackBar.Minimum = 1;
             this.frameTrackBar.Name = "frameTrackBar";
-            this.frameTrackBar.Size = new System.Drawing.Size(748, 49);
+            this.frameTrackBar.Size = new System.Drawing.Size(749, 49);
             this.frameTrackBar.TabIndex = 3;
             this.frameTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.frameTrackBar.Value = 1;
@@ -409,7 +413,7 @@ namespace Annotator
             this.middleCenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.middleCenterPanel.Location = new System.Drawing.Point(175, 668);
             this.middleCenterPanel.Name = "middleCenterPanel";
-            this.middleCenterPanel.Size = new System.Drawing.Size(886, 94);
+            this.middleCenterPanel.Size = new System.Drawing.Size(887, 94);
             this.middleCenterPanel.TabIndex = 3;
             // 
             // middleCenterTableLayoutPanel
@@ -420,7 +424,7 @@ namespace Annotator
             this.middleCenterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.middleCenterTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.middleCenterTableLayoutPanel.Name = "middleCenterTableLayoutPanel";
-            this.middleCenterTableLayoutPanel.Size = new System.Drawing.Size(884, 0);
+            this.middleCenterTableLayoutPanel.Size = new System.Drawing.Size(885, 0);
             this.middleCenterTableLayoutPanel.TabIndex = 0;
             // 
             // middleBottomPanel
@@ -431,7 +435,7 @@ namespace Annotator
             this.middleBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.middleBottomPanel.Location = new System.Drawing.Point(175, 769);
             this.middleBottomPanel.Name = "middleBottomPanel";
-            this.middleBottomPanel.Size = new System.Drawing.Size(886, 94);
+            this.middleBottomPanel.Size = new System.Drawing.Size(887, 94);
             this.middleBottomPanel.TabIndex = 2;
             // 
             // middleBottomTableLayoutPanel
@@ -445,7 +449,7 @@ namespace Annotator
             this.middleBottomTableLayoutPanel.Name = "middleBottomTableLayoutPanel";
             this.middleBottomTableLayoutPanel.RowCount = 1;
             this.middleBottomTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.middleBottomTableLayoutPanel.Size = new System.Drawing.Size(884, 60);
+            this.middleBottomTableLayoutPanel.Size = new System.Drawing.Size(885, 60);
             this.middleBottomTableLayoutPanel.TabIndex = 1;
             // 
             // addEventAnnotationBtn
@@ -459,6 +463,118 @@ namespace Annotator
             this.addEventAnnotationBtn.UseVisualStyleBackColor = true;
             this.addEventAnnotationBtn.Click += new System.EventHandler(this.addEventAnnotationBtn_Click);
             // 
+            // rightColumnLayoutPanel
+            // 
+            this.rightColumnLayoutPanel.ColumnCount = 1;
+            this.rightColumnLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.rightColumnLayoutPanel.Controls.Add(this.annoRefView, 0, 4);
+            this.rightColumnLayoutPanel.Controls.Add(this.annotationText, 0, 3);
+            this.rightColumnLayoutPanel.Controls.Add(this.rightTopPanel, 0, 0);
+            this.rightColumnLayoutPanel.Controls.Add(this.rightCenterPanel, 0, 1);
+            this.rightColumnLayoutPanel.Controls.Add(this.panel1, 0, 2);
+            this.rightColumnLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightColumnLayoutPanel.Location = new System.Drawing.Point(1069, 4);
+            this.rightColumnLayoutPanel.Name = "rightColumnLayoutPanel";
+            this.rightColumnLayoutPanel.RowCount = 5;
+            this.annotateTableLayoutPanel.SetRowSpan(this.rightColumnLayoutPanel, 4);
+            this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.rightColumnLayoutPanel.Size = new System.Drawing.Size(362, 859);
+            this.rightColumnLayoutPanel.TabIndex = 5;
+            // 
+            // annoRefView
+            // 
+            this.annoRefView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.annoRefView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.annoRefView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.annoRefView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StartAnno,
+            this.EndAnno,
+            this.TextAnno,
+            this.NoteAnno});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.annoRefView.DefaultCellStyle = dataGridViewCellStyle1;
+            this.annoRefView.Location = new System.Drawing.Point(1, 759);
+            this.annoRefView.Margin = new System.Windows.Forms.Padding(1);
+            this.annoRefView.Name = "annoRefView";
+            this.annoRefView.RowHeadersVisible = false;
+            this.annoRefView.Size = new System.Drawing.Size(353, 95);
+            this.annoRefView.TabIndex = 24;
+            this.annoRefView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.annoRefView_CellClick);
+            // 
+            // StartAnno
+            // 
+            this.StartAnno.Frozen = true;
+            this.StartAnno.HeaderText = "Start";
+            this.StartAnno.Name = "StartAnno";
+            this.StartAnno.ReadOnly = true;
+            this.StartAnno.Width = 30;
+            // 
+            // EndAnno
+            // 
+            this.EndAnno.Frozen = true;
+            this.EndAnno.HeaderText = "End";
+            this.EndAnno.Name = "EndAnno";
+            this.EndAnno.ReadOnly = true;
+            this.EndAnno.Width = 30;
+            // 
+            // TextAnno
+            // 
+            this.TextAnno.Frozen = true;
+            this.TextAnno.HeaderText = "Text";
+            this.TextAnno.Name = "TextAnno";
+            this.TextAnno.ReadOnly = true;
+            this.TextAnno.Width = 160;
+            // 
+            // NoteAnno
+            // 
+            this.NoteAnno.Frozen = true;
+            this.NoteAnno.HeaderText = "Note";
+            this.NoteAnno.Name = "NoteAnno";
+            this.NoteAnno.ReadOnly = true;
+            // 
+            // annotationText
+            // 
+            this.annotationText.ContextMenuStrip = this.cm3;
+            this.annotationText.Location = new System.Drawing.Point(3, 661);
+            this.annotationText.Name = "annotationText";
+            this.annotationText.Size = new System.Drawing.Size(349, 90);
+            this.annotationText.TabIndex = 23;
+            this.annotationText.Text = "";
+            this.annotationText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.annotationText_MouseDown);
+            // 
+            // cm3
+            // 
+            this.cm3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addObjRefToolStripMenuItem,
+            this.addEventToolStripMenuItem});
+            this.cm3.Name = "cm2";
+            this.cm3.Size = new System.Drawing.Size(185, 48);
+            // 
+            // addObjRefToolStripMenuItem
+            // 
+            this.addObjRefToolStripMenuItem.Enabled = false;
+            this.addObjRefToolStripMenuItem.Name = "addObjRefToolStripMenuItem";
+            this.addObjRefToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.addObjRefToolStripMenuItem.Text = "Add object reference";
+            this.addObjRefToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.addObjRefToolStripMenuItem_Clicked);
+            // 
+            // addEventToolStripMenuItem
+            // 
+            this.addEventToolStripMenuItem.Name = "addEventToolStripMenuItem";
+            this.addEventToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.addEventToolStripMenuItem.Text = "Add event";
+            this.addEventToolStripMenuItem.Click += new System.EventHandler(this.addEventToolStripMenuItem_Click);
+            // 
             // rightTopPanel
             // 
             this.rightTopPanel.BackColor = System.Drawing.SystemColors.Control;
@@ -468,9 +584,9 @@ namespace Annotator
             this.rightTopPanel.Controls.Add(this.newObjectContextPanel);
             this.rightTopPanel.Controls.Add(this.drawingButtonTool);
             this.rightTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightTopPanel.Location = new System.Drawing.Point(1068, 4);
+            this.rightTopPanel.Location = new System.Drawing.Point(3, 3);
             this.rightTopPanel.Name = "rightTopPanel";
-            this.rightTopPanel.Size = new System.Drawing.Size(363, 168);
+            this.rightTopPanel.Size = new System.Drawing.Size(356, 164);
             this.rightTopPanel.TabIndex = 3;
             // 
             // selectObjContextPanel
@@ -552,7 +668,7 @@ namespace Annotator
             this.delAtFrameBtn.Name = "delAtFrameBtn";
             this.delAtFrameBtn.Size = new System.Drawing.Size(87, 22);
             this.delAtFrameBtn.TabIndex = 8;
-            this.delAtFrameBtn.Text = "Delete at &frame";
+            this.delAtFrameBtn.Text = "Delete at frame";
             this.toolTip.SetToolTip(this.delAtFrameBtn, "Add a deletion marker at this frame when the object disappear on the screen");
             this.delAtFrameBtn.UseVisualStyleBackColor = true;
             this.delAtFrameBtn.Click += new System.EventHandler(this.delAtFrameBtn_Click);
@@ -565,7 +681,7 @@ namespace Annotator
             this.delMarkerBtn.Name = "delMarkerBtn";
             this.delMarkerBtn.Size = new System.Drawing.Size(87, 22);
             this.delMarkerBtn.TabIndex = 9;
-            this.delMarkerBtn.Text = "Delete &marker";
+            this.delMarkerBtn.Text = "Delete marker";
             this.toolTip.SetToolTip(this.delMarkerBtn, "Delete the marker at this point");
             this.delMarkerBtn.UseVisualStyleBackColor = true;
             this.delMarkerBtn.Click += new System.EventHandler(this.delMarkerBtn_Click);
@@ -736,13 +852,14 @@ namespace Annotator
             this.rightCenterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rightCenterPanel.Controls.Add(this.objectProperties);
             this.rightCenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightCenterPanel.Location = new System.Drawing.Point(1068, 179);
+            this.rightCenterPanel.Location = new System.Drawing.Point(3, 173);
             this.rightCenterPanel.Name = "rightCenterPanel";
-            this.rightCenterPanel.Size = new System.Drawing.Size(363, 482);
+            this.rightCenterPanel.Size = new System.Drawing.Size(356, 287);
             this.rightCenterPanel.TabIndex = 4;
             // 
             // objectProperties
             // 
+            this.objectProperties.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.objectProperties.BackgroundColor = System.Drawing.SystemColors.Control;
             this.objectProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.objectProperties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -754,7 +871,7 @@ namespace Annotator
             this.objectProperties.Location = new System.Drawing.Point(0, 0);
             this.objectProperties.Name = "objectProperties";
             this.objectProperties.RowHeadersVisible = false;
-            this.objectProperties.Size = new System.Drawing.Size(361, 480);
+            this.objectProperties.Size = new System.Drawing.Size(354, 285);
             this.objectProperties.TabIndex = 0;
             this.objectProperties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellContentClick);
             this.objectProperties.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellValueChanged);
@@ -768,126 +885,63 @@ namespace Annotator
             // 
             this.PropertyValue.HeaderText = "Property Value";
             this.PropertyValue.Name = "PropertyValue";
-            this.PropertyValue.Width = 172;
             // 
-            // rightBottomPanel
+            // panel1
             // 
-            this.rightBottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rightBottomPanel.Controls.Add(this.tableLayoutPanel2);
-            this.rightBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightBottomPanel.Location = new System.Drawing.Point(1068, 668);
-            this.rightBottomPanel.Name = "rightBottomPanel";
-            this.annotateTableLayoutPanel.SetRowSpan(this.rightBottomPanel, 2);
-            this.rightBottomPanel.Size = new System.Drawing.Size(363, 195);
-            this.rightBottomPanel.TabIndex = 0;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 466);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(356, 189);
+            this.panel1.TabIndex = 25;
             // 
-            // tableLayoutPanel2
+            // tableLayoutPanel1
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.annotationText, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.annoRefView, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(361, 193);
-            this.tableLayoutPanel2.TabIndex = 25;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(356, 189);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // annotationText
+            // dataGridView1
             // 
-            this.annotationText.ContextMenuStrip = this.cm3;
-            this.annotationText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.annotationText.Location = new System.Drawing.Point(3, 3);
-            this.annotationText.Name = "annotationText";
-            this.annotationText.Size = new System.Drawing.Size(355, 90);
-            this.annotationText.TabIndex = 23;
-            this.annotationText.Text = "";
-            this.annotationText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.annotationText_MouseDown);
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1});
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(350, 158);
+            this.dataGridView1.TabIndex = 1;
             // 
-            // cm3
+            // dataGridViewTextBoxColumn1
             // 
-            this.cm3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addObjRefToolStripMenuItem,
-            this.addEventToolStripMenuItem});
-            this.cm3.Name = "cm2";
-            this.cm3.Size = new System.Drawing.Size(185, 48);
+            this.dataGridViewTextBoxColumn1.HeaderText = "Property name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // addObjRefToolStripMenuItem
+            // label1
             // 
-            this.addObjRefToolStripMenuItem.Enabled = false;
-            this.addObjRefToolStripMenuItem.Name = "addObjRefToolStripMenuItem";
-            this.addObjRefToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.addObjRefToolStripMenuItem.Text = "Add object reference";
-            this.addObjRefToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.addObjRefToolStripMenuItem_Clicked);
-            // 
-            // addEventToolStripMenuItem
-            // 
-            this.addEventToolStripMenuItem.Name = "addEventToolStripMenuItem";
-            this.addEventToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.addEventToolStripMenuItem.Text = "Add event";
-            this.addEventToolStripMenuItem.Click += new System.EventHandler(this.addEventToolStripMenuItem_Click);
-            // 
-            // annoRefView
-            // 
-            this.annoRefView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.annoRefView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.annoRefView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.annoRefView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StartAnno,
-            this.EndAnno,
-            this.TextAnno,
-            this.NoteAnno});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.annoRefView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.annoRefView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.annoRefView.Location = new System.Drawing.Point(1, 97);
-            this.annoRefView.Margin = new System.Windows.Forms.Padding(1);
-            this.annoRefView.Name = "annoRefView";
-            this.annoRefView.RowHeadersVisible = false;
-            this.annoRefView.Size = new System.Drawing.Size(359, 95);
-            this.annoRefView.TabIndex = 24;
-            this.annoRefView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.annoRefView_CellClick);
-            // 
-            // StartAnno
-            // 
-            this.StartAnno.Frozen = true;
-            this.StartAnno.HeaderText = "Start";
-            this.StartAnno.Name = "StartAnno";
-            this.StartAnno.ReadOnly = true;
-            this.StartAnno.Width = 30;
-            // 
-            // EndAnno
-            // 
-            this.EndAnno.Frozen = true;
-            this.EndAnno.HeaderText = "End";
-            this.EndAnno.Name = "EndAnno";
-            this.EndAnno.ReadOnly = true;
-            this.EndAnno.Width = 30;
-            // 
-            // TextAnno
-            // 
-            this.TextAnno.Frozen = true;
-            this.TextAnno.HeaderText = "Text";
-            this.TextAnno.Name = "TextAnno";
-            this.TextAnno.ReadOnly = true;
-            this.TextAnno.Width = 160;
-            // 
-            // NoteAnno
-            // 
-            this.NoteAnno.Frozen = true;
-            this.NoteAnno.HeaderText = "Note";
-            this.NoteAnno.Name = "NoteAnno";
-            this.NoteAnno.ReadOnly = true;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Predicates hold at frame ";
             // 
             // menu
             // 
@@ -1091,8 +1145,8 @@ namespace Annotator
             this.sessionRightClickPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editSessionMenuItem,
             this.saveSessionMenuItem,
-            this.addSessionMenuItem,
             this.deleteSessionMenuItem,
+            this.addSessionMenuItem,
             this.refreshSessionMenuItem,
             this.sessionDetectToolStripMenuItem,
             this.sessionGenerateToolStripMenuItem});
@@ -1119,15 +1173,6 @@ namespace Annotator
             this.saveSessionMenuItem.Text = "Save";
             this.saveSessionMenuItem.Click += new System.EventHandler(this.saveSessionMenuItem_Click);
             // 
-            // addSessionMenuItem
-            // 
-            this.addSessionMenuItem.Enabled = false;
-            this.addSessionMenuItem.Name = "addSessionMenuItem";
-            this.addSessionMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.addSessionMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.addSessionMenuItem.Text = "Add";
-            this.addSessionMenuItem.Click += new System.EventHandler(this.addFileToSessionMenuItem_Click);
-            // 
             // deleteSessionMenuItem
             // 
             this.deleteSessionMenuItem.Enabled = false;
@@ -1135,6 +1180,14 @@ namespace Annotator
             this.deleteSessionMenuItem.Size = new System.Drawing.Size(138, 22);
             this.deleteSessionMenuItem.Text = "Delete";
             this.deleteSessionMenuItem.Click += new System.EventHandler(this.deleteSessionMenuItem_Click);
+            // 
+            // addSessionMenuItem
+            // 
+            this.addSessionMenuItem.Enabled = false;
+            this.addSessionMenuItem.Name = "addSessionMenuItem";
+            this.addSessionMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.addSessionMenuItem.Text = "Add";
+            this.addSessionMenuItem.Click += new System.EventHandler(this.addFileToSessionMenuItem_Click);
             // 
             // refreshSessionMenuItem
             // 
@@ -1250,10 +1303,9 @@ namespace Annotator
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Enabled = false;
-            this.removeToolStripMenuItem.Image = global::Annotator.Properties.Resources.delete;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.removeToolStripMenuItem.Text = "Delete";
+            this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeFileToolStripMenuItem_Click);
             // 
             // trainingPanel1
@@ -1293,6 +1345,9 @@ namespace Annotator
             this.middleCenterPanel.ResumeLayout(false);
             this.middleBottomPanel.ResumeLayout(false);
             this.middleBottomTableLayoutPanel.ResumeLayout(false);
+            this.rightColumnLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).EndInit();
+            this.cm3.ResumeLayout(false);
             this.rightTopPanel.ResumeLayout(false);
             this.selectObjContextPanel.ResumeLayout(false);
             this.editObjectContextPanel.ResumeLayout(false);
@@ -1302,10 +1357,10 @@ namespace Annotator
             this.drawingButtonTool.ResumeLayout(false);
             this.rightCenterPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectProperties)).EndInit();
-            this.rightBottomPanel.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.cm3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.annoRefView)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.tabs.ResumeLayout(false);
@@ -1329,7 +1384,6 @@ namespace Annotator
         private System.Windows.Forms.Panel leftMostPanel;
         private System.Windows.Forms.Panel middleTopPanel;
         private System.Windows.Forms.Panel middleBottomPanel;
-        private System.Windows.Forms.Panel rightBottomPanel;
         private System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ContextMenuStrip projectRightClickPanel;
@@ -1405,8 +1459,6 @@ namespace Annotator
         private TableLayoutPanel middleTopTableLayoutPanel;
         private TableLayoutPanel middleCenterTableLayoutPanel;
         private TableLayoutPanel middleBottomTableLayoutPanel;
-        private DataGridViewTextBoxColumn PropertyName;
-        private DataGridViewTextBoxColumn PropertyValue;
         private ToolStripMenuItem sessionDetectToolStripMenuItem;
         private ToolStripMenuItem glyphboxToolStripMenuItem;
         private ToolStripMenuItem sessionOnlineModeToolStripMenuItem;
@@ -1420,7 +1472,6 @@ namespace Annotator
         private ToolStripMenuItem sessionEventTemplateToolStripMenuItem;
         private ToolStripMenuItem projectGenerateToolStripMenuItem;
         private ToolStripMenuItem projectEventTemplateToolStripMenuItem;
-        private TableLayoutPanel tableLayoutPanel2;
         private ToolStripMenuItem objectReferencesByNameMatchingToolStripMenuItem;
         private ToolStripMenuItem copyObjectsFromPreviousSessionToolStripMenuItem;
         private ToolStripMenuItem fromPreviousSessionToolStripMenuItem;
@@ -1428,6 +1479,14 @@ namespace Annotator
         private Button zoomDrawing;
         private ToolStripMenuItem switchWorkspaceToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
+        private TableLayoutPanel rightColumnLayoutPanel;
+        private DataGridViewTextBoxColumn PropertyName;
+        private DataGridViewTextBoxColumn PropertyValue;
+        private Panel panel1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }
 

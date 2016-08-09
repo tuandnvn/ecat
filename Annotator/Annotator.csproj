@@ -214,6 +214,7 @@
     <Compile Include="OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PredicateMark.cs" />
     <Compile Include="ProgressForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +348,7 @@
     <Compile Include="TrainingPanel.Designer.cs">
       <DependentUpon>TrainingPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Predicate.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="utils\AtomicBoolean.cs" />
     <Compile Include="VideoReader.cs" />
