@@ -53,6 +53,8 @@ namespace Annotator
         [DataMember]
         internal List<Predicate> objectPredicates;
 
+
+
         /// <summary>
         /// List of prototypes, should be set by reading from the glyphPrototypePath. otherwise set to default
         /// </summary>
@@ -118,7 +120,7 @@ namespace Annotator
             options.interpolationModes[RIG] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[RECTANGLE] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
-            options.objectPredicates = new List<Predicate> ();
+            options.objectPredicates = new List<Predicate>();
 
             return options;
         }
@@ -127,7 +129,10 @@ namespace Annotator
         {
             var s = new DataContractSerializer(typeof(Options));
 
-            using (FileStream fs = new FileStream(Options.TEMP_FILENAME, FileMode.Create))
+            var settings = new XmlWriterSettings { Indent = true };
+
+            //using (FileStream fs = new FileStream(Options.TEMP_FILENAME, FileMode.Create))
+            using (var fs = XmlWriter.Create(Options.TEMP_FILENAME, settings))
             {
                 try
                 {

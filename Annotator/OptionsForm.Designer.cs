@@ -57,6 +57,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.downObjLinkTypeBtn = new System.Windows.Forms.Button();
             this.upObjLinkTypeBtn = new System.Windows.Forms.Button();
             this.removeLinkTypeBtn = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -396,6 +396,15 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Predicates";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox1.Location = new System.Drawing.Point(9, 196);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(613, 155);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // downObjLinkTypeBtn
             // 
             this.downObjLinkTypeBtn.Enabled = false;
@@ -505,15 +514,6 @@
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(9, 196);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(613, 155);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // OptionsForm
             // 

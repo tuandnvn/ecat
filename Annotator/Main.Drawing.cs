@@ -472,7 +472,7 @@ namespace Annotator
 
                 if (videoReader != null)
                 {
-                    lm = o.getScaledLocationMark(frameTrackBar.Value, scale, translation);
+                    lm = o.getScaledLocationMark(frameTrackBar.Value - 1, scale, translation);
                 }
 
                 if (depthReader != null)
@@ -658,7 +658,7 @@ namespace Annotator
 
                             Pen p = new Pen(o.color, o.borderSize);
                             p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-                            LocationMark2D r = o.getScaledLocationMark(frameTrackBar.Value, scale, translation);
+                            LocationMark2D r = o.getScaledLocationMark(frameTrackBar.Value - 1, scale, translation);
 
                             if (r != null)
                             {
@@ -684,7 +684,7 @@ namespace Annotator
                         LocationMark lm = null;
                         if (!editingAtAFrame)
                         {
-                            lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, 1, new PointF());
+                            lm = selectedObject.getScaledLocationMark(frameTrackBar.Value - 1, 1, new PointF());
                         }
                         else
                         {
@@ -854,7 +854,7 @@ namespace Annotator
                     // Selecting other kind of objects
                     if (selectedObject != null && !(selectedObject is PolygonObject) && !(selectedObject is RectangleObject))
                     {
-                        LocationMark2D lm = selectedObject.getScaledLocationMark(frameTrackBar.Value, scale, translation);
+                        LocationMark2D lm = selectedObject.getScaledLocationMark(frameTrackBar.Value - 1, scale, translation);
                         if (lm != null)
                         {
                             selectBoxes = lm.getCornerSelectBoxes(boxSize);

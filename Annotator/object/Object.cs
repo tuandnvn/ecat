@@ -391,11 +391,14 @@ namespace Annotator
             xmlWriter.WriteStartElement(LINKS);
             foreach (int frame in linkMarks.Keys)
             {
-                xmlWriter.WriteStartElement(LINK);
-                xmlWriter.WriteAttributeString(FRAME, "" + frame);
-                linkMarks[frame].writeToXml(xmlWriter);
+                if (!linkMarks[frame].isEmpty())
+                {
+                    xmlWriter.WriteStartElement(LINK);
+                    xmlWriter.WriteAttributeString(FRAME, "" + frame);
+                    linkMarks[frame].writeToXml(xmlWriter);
 
-                xmlWriter.WriteEndElement();
+                    xmlWriter.WriteEndElement();
+                }
             }
             xmlWriter.WriteEndElement();
         }

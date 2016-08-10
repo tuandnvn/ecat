@@ -96,6 +96,7 @@ namespace Annotator
             selectBoxes = new List<RectangleF>();
 
             clearInformation();
+            clearPredicates();
             selectedObject = null;
 
             polygonDrawing.Enabled = true;

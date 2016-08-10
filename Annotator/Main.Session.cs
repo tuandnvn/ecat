@@ -174,7 +174,6 @@ namespace Annotator
             }
         }
 
-
         private void frameTrackBar_ValueChanged(object sender, EventArgs e)
         {
             // Don't allow the track bar value to get out of the range [MinDragValue, MaxDragValue] 
@@ -225,7 +224,10 @@ namespace Annotator
 
                 runGCForImage();
             }
+
+            showPredicates();
         }
+
 
         private void loadVideo(string videoFilename)
         {
@@ -774,7 +776,7 @@ namespace Annotator
                     // Change the internal frameNo to current one
                     lastLocationMark.frameNo = frameTrackBar.Value;
                     newObject.objectMarks[frameTrackBar.Value] = lastLocationMark;
-                    newObject.addLink(frameTrackBar.Value, o, true, new Predicate("IDENTITY", new Combination(new int[] { 1, 2 })));
+                    newObject.addLink(frameTrackBar.Value, o, true, new Predicate("IDENTITY", new Permutation(new int[] { 1, 2 })));
                     currentSession.addObject(newObject);
                     addObjectAnnotation(newObject);
                 }

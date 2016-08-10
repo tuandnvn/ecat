@@ -159,13 +159,11 @@ namespace Annotator
 
         private void addPredicate_Click(object sender, EventArgs e)
         {
-            Regex rgx = new Regex(@"^([a-zA-Z0-9_]+)\(([X-Y](,[X-Y])?)\)$");
-
             try
             {
-                var newType = objectLinkTypeTxtBox.Text;
+                var predicateOrConstraint = objectLinkTypeTxtBox.Text;
 
-                var newPredicate = Predicate.Parse(newType);
+                var newPredicate = Predicate.Parse(predicateOrConstraint);
 
                 if (newPredicate == null)
                 {

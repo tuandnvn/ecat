@@ -26,6 +26,14 @@ namespace Annotator
             this.predicate = predicate;
         }
 
+        public bool isNegateOf(PredicateMark other)
+        {
+            if (!predicate.Equals(other.predicate)) return false;
+            if (!objects.Equals(other.objects)) return false;
+            if (this.qualified == other.qualified) return false;
+            return true;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null || obj.GetType() != typeof(PredicateMark)) return false;

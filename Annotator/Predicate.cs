@@ -14,7 +14,7 @@ namespace Annotator
         [DataMember]
         internal string predicate;
         [DataMember]
-        internal Combination combination;
+        internal Permutation combination;
 
         /// <summary>
         /// Example of Predicate:
@@ -24,7 +24,7 @@ namespace Annotator
         /// </summary>
         /// <param name="predicate">Predicate form</param>
         /// <param name="combination">Combination is the order of X,Y,Z in the predicate formula</param>
-        public Predicate(string predicate, Combination combination)
+        public Predicate(string predicate, Permutation combination)
         {
             this.predicate = predicate;
             this.combination = combination;
@@ -72,18 +72,18 @@ namespace Annotator
             // Unary
             if (argumentForms.Length == 1)
             {
-                newPredicate = new Predicate(pred, new Combination(new int[1] { 1 }));
+                newPredicate = new Predicate(pred, new Permutation(new int[1] { 1 }));
             }
 
             // Binary
             if (argumentForms == "X,Y")
             {
-                newPredicate = new Predicate(pred, new Combination(new int[2] { 1, 2 }));
+                newPredicate = new Predicate(pred, new Permutation(new int[2] { 1, 2 }));
             }
 
             if (argumentForms == "Y,X")
             {
-                newPredicate = new Predicate(pred, new Combination(new int[2] { 2, 1 }));
+                newPredicate = new Predicate(pred, new Permutation(new int[2] { 2, 1 }));
             }
 
             return newPredicate;
@@ -109,7 +109,7 @@ namespace Annotator
 
             Predicate newPredicate = null;
 
-            return new Predicate(value, new Combination(new int[] { 1 }));
+            return new Predicate(value, new Permutation(new int[] { 1 }));
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Annotator
 
             Predicate newPredicate = null;
 
-            return new Predicate(value, new Combination(new int[] { 1, 2 }));
+            return new Predicate(value, new Permutation(new int[] { 1, 2 }));
         }
     }
 
@@ -144,11 +144,11 @@ namespace Annotator
         [DataMember]
         internal int[] values;
 
-        public Combination(int[] values)
+        public Combination(int size, int[] values)
         {
-            this.size = values.Length;
+            this.size = size;
             var v = new HashSet<int>(values);
-            if (v.Count != size || (size > 0 && (v.Max() != size || v.Min() != 1))) throw new ArgumentException("Values should be a combination from 1 to values.Count");
+            if (v.Count >= size || (size > 0 && (v.Max() > size || v.Min() < 1))) throw new ArgumentException("Values should be a combination from 1 to values.Count");
             this.values = values;
         }
 
@@ -165,8 +165,55 @@ namespace Annotator
 
         public override bool Equals(object obj)
         {
-            if (obj == null || obj.GetType() != typeof(Combination)) return false;
-            var casted = obj as Combination;
+            if (obj == null || obj.GetType() != typeof(Permutation)) return false;
+            var casted = obj as Permutation;
+
+            if (size != casted.size) return false;
+            if (!values.SequenceEqual(casted.values)) return false;
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int prime = 31;
+            int result = 1;
+            result = prime * result + size;
+            result = prime * result + values.GetHashCode();
+            return result;
+        }
+    }
+
+    [DataContract]
+    public class Permutation
+    {
+        [DataMember]
+        internal int size;
+        [DataMember]
+        internal int[] values;
+
+        public Permutation(int[] values)
+        {
+            this.size = values.Length;
+            var v = new HashSet<int>(values);
+            if (v.Count != size || (size > 0 && (v.Max() != size || v.Min() != 1))) throw new ArgumentException("Values should be a permutation of 1 to values.Count");
+            this.values = values;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < size; i++)
+            {
+                if (i != 0) sb.Append(',');
+                sb.Append((char)((int)'X' + values[i] - 1));
+            }
+            return sb.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != typeof(Permutation)) return false;
+            var casted = obj as Permutation;
 
             if (size != casted.size) return false;
             if (!values.SequenceEqual(casted.values)) return false;

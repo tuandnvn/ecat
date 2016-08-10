@@ -146,5 +146,11 @@ namespace Annotator
                 xmlWriter.WriteEndElement();
             }
         }
+
+        internal bool isEmpty()
+        {
+            if (predicateMarks.Count != 0) return false;
+            return true;
+        }
     }
 }
