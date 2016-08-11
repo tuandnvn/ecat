@@ -71,8 +71,18 @@ namespace Annotator
 
                 if (!crossSessionChkBox.Checked)
                 {
-                    var otherObject = session.getObjects()[this.objectSelectComboBox.SelectedIndex];
-                    obj.addLink(frameNo, otherObject, qualified, predicateType);
+                    // Binary predicate
+                    if (predicateType.combination.size == 2)
+                    {
+                        var otherObject = session.getObjects()[this.objectSelectComboBox.SelectedIndex];
+                        obj.addLink(frameNo, otherObject, qualified, predicateType);
+                    }
+
+                    // Unary predicate
+                    if (predicateType.combination.size == 1)
+                    {
+                        obj.addLink(frameNo, qualified, predicateType);
+                    }
                 }
                 else
                 {

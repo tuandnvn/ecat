@@ -148,7 +148,7 @@ namespace Annotator
         {
             this.size = size;
             var v = new HashSet<int>(values);
-            if (v.Count >= size || (size > 0 && (v.Max() > size || v.Min() < 1))) throw new ArgumentException("Values should be a combination from 1 to values.Count");
+            if (v.Count > size || (size > 0 && (v.Max() > size || v.Min() < 1))) throw new ArgumentException("Values should be a combination from 1 to values.Count");
             this.values = values;
         }
 
@@ -178,7 +178,10 @@ namespace Annotator
             int prime = 31;
             int result = 1;
             result = prime * result + size;
-            result = prime * result + values.GetHashCode();
+            for (int i = 0; i < values.Length; i++)
+            {
+                result = prime * result + ((values[i] == null) ? 0 : values[i].GetHashCode());
+            }
             return result;
         }
     }
@@ -225,7 +228,10 @@ namespace Annotator
             int prime = 31;
             int result = 1;
             result = prime * result + size;
-            result = prime * result + values.GetHashCode();
+            for (int i = 0; i < values.Length; i++)
+            {
+                result = prime * result + ((values[i] == null) ? 0 : values[i].GetHashCode());
+            }
             return result;
         }
     }

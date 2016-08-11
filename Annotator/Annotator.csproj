@@ -217,8 +217,8 @@
     <Compile Include="OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PredicateConstraint.cs" />
-    <Compile Include="PredicateMark.cs" />
+    <Compile Include="object\PredicateConstraint.cs" />
+    <Compile Include="object\PredicateMark.cs" />
     <Compile Include="ProgressForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,7 +352,7 @@
     <Compile Include="TrainingPanel.Designer.cs">
       <DependentUpon>TrainingPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Predicate.cs" />
+    <Compile Include="object\Predicate.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="utils\AtomicBoolean.cs" />
     <Compile Include="VideoReader.cs" />
@@ -491,7 +491,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="option.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="postproc-52.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

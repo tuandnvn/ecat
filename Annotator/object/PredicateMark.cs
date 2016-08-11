@@ -29,7 +29,11 @@ namespace Annotator
         public bool isNegateOf(PredicateMark other)
         {
             if (!predicate.Equals(other.predicate)) return false;
-            if (!objects.Equals(other.objects)) return false;
+            if (objects.Length != other.objects.Length) return false;
+            for (int i = 0; i < objects.Length; i ++ )
+            {
+                if (objects[i] != other.objects[i]) return false;
+            }
             if (this.qualified == other.qualified) return false;
             return true;
         }
@@ -41,7 +45,11 @@ namespace Annotator
 
             if (qualified != casted.qualified) return false;
             if (!predicate.Equals(casted.predicate)) return false;
-            if (!objects.Equals(casted.objects)) return false;
+            if (objects.Length != casted.objects.Length) return false;
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i] != casted.objects[i]) return false;
+            }
             return true;
         }
 
@@ -51,7 +59,11 @@ namespace Annotator
             int result = 1;
             result = prime * result + (qualified ? 0 : 1);
             result = prime * result + ((predicate == null) ? 0 : predicate.GetHashCode());
-            result = prime * result + ((objects == null) ? 0 : objects.GetHashCode());
+            for (int i = 0; i < objects.Length; i++)
+            {
+                result = prime * result + ((objects[i] == null) ? 0 : objects[i].GetHashCode());
+            }
+            
             return result;
         }
 

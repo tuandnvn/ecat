@@ -184,6 +184,16 @@ namespace Annotator
             return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
+        public void addLink(int frameNumber, bool qualified, Predicate linkType)
+        {
+            if (!linkMarks.ContainsKey(frameNumber))
+            {
+                linkMarks[frameNumber] = new LinkMark(this, frameNumber);
+            }
+
+            linkMarks[frameNumber].addLinkToObject(qualified, linkType);
+        }
+
         public void addLink(int frameNumber, Object otherObject, bool qualified, Predicate linkType)
         {
             if (!linkMarks.ContainsKey(frameNumber))
@@ -193,16 +203,6 @@ namespace Annotator
 
             linkMarks[frameNumber].addLinkToObject(otherObject, qualified, linkType);
         }
-
-        //public void addLink(int frameNumber, string sessionName, Object otherObject, bool qualified, Predicate linkType)
-        //{
-        //    if (!linkMarks.ContainsKey(frameNumber))
-        //    {
-        //        linkMarks[frameNumber] = new LinkMark(id, frameNumber);
-        //    }
-
-        //    linkMarks[frameNumber].addLinkToObject(sessionName, objectId, qualified, linkType);
-        //}
 
         public LinkMark getLink(int frameNumber)
         {

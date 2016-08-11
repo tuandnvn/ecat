@@ -53,13 +53,13 @@ namespace Annotator
         [DataMember]
         internal List<Predicate> objectPredicates;
 
-
+        [DataMember]
+        internal List<PredicateConstraint> predicateConstraints;
 
         /// <summary>
         /// List of prototypes, should be set by reading from the glyphPrototypePath. otherwise set to default
         /// </summary>
         public List<GlyphBoxPrototype> prototypeList { get; private set; }
-
 
         private static Options singletonOptions;
 
@@ -83,6 +83,9 @@ namespace Annotator
 
                     if (singletonOptions.objectPredicates == null)
                         singletonOptions.objectPredicates = tempOptions.objectPredicates;
+
+                    if (singletonOptions.predicateConstraints == null)
+                        singletonOptions.predicateConstraints = tempOptions.predicateConstraints;
 
                     fs.Close();
                 }
@@ -121,6 +124,7 @@ namespace Annotator
             options.interpolationModes[RECTANGLE] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
             options.objectPredicates = new List<Predicate>();
+            options.predicateConstraints = new List<PredicateConstraint>();
 
             return options;
         }
@@ -131,8 +135,8 @@ namespace Annotator
 
             var settings = new XmlWriterSettings { Indent = true };
 
-            //using (FileStream fs = new FileStream(Options.TEMP_FILENAME, FileMode.Create))
-            using (var fs = XmlWriter.Create(Options.TEMP_FILENAME, settings))
+            using (FileStream fs = new FileStream(Options.TEMP_FILENAME, FileMode.Create))
+            //using (var fs = XmlWriter.Create(Options.TEMP_FILENAME, settings))
             {
                 try
                 {

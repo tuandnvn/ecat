@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,14 +55,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.removeConstraintBtn = new System.Windows.Forms.Button();
+            this.addConstraintBtn = new System.Windows.Forms.Button();
+            this.constraintTxtBox = new System.Windows.Forms.TextBox();
+            this.constraintListBox = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.downObjLinkTypeBtn = new System.Windows.Forms.Button();
             this.upObjLinkTypeBtn = new System.Windows.Forms.Button();
             this.removeLinkTypeBtn = new System.Windows.Forms.Button();
-            this.addLinkType = new System.Windows.Forms.Button();
+            this.addLinkTypeBtn = new System.Windows.Forms.Button();
             this.objectLinkTypeTxtBox = new System.Windows.Forms.TextBox();
-            this.objectLinkTypeListBox = new System.Windows.Forms.ListBox();
+            this.predicateFormListBox = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -78,6 +84,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +100,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(651, 395);
+            this.tabControl1.Size = new System.Drawing.Size(647, 545);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -103,7 +110,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(643, 369);
+            this.tabPage1.Size = new System.Drawing.Size(639, 519);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detection";
             // 
@@ -197,7 +204,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(643, 369);
+            this.tabPage2.Size = new System.Drawing.Size(639, 519);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "View";
             // 
@@ -364,20 +371,96 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(643, 369);
+            this.tabPage3.Size = new System.Drawing.Size(639, 519);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Data generator";
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox8);
             this.tabPage4.Controls.Add(this.groupBox7);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(643, 369);
+            this.tabPage4.Size = new System.Drawing.Size(639, 519);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Predicate";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.richTextBox2);
+            this.groupBox8.Controls.Add(this.removeConstraintBtn);
+            this.groupBox8.Controls.Add(this.addConstraintBtn);
+            this.groupBox8.Controls.Add(this.constraintTxtBox);
+            this.groupBox8.Controls.Add(this.constraintListBox);
+            this.groupBox8.Controls.Add(this.label5);
+            this.groupBox8.Location = new System.Drawing.Point(6, 268);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(628, 246);
+            this.groupBox8.TabIndex = 4;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Constraints";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox2.Location = new System.Drawing.Point(9, 157);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(613, 81);
+            this.richTextBox2.TabIndex = 7;
+            this.richTextBox2.Text = "Constraints:\n Unique constraint:\nUNIQUE=\'PREDICATE\'(X, #Y) requires Y to be uniqu" +
+    "e at any time\nMutually exclusive for unary predicates\nEXCLUSIVE=\'PREDICATE1\'(X) " +
+    "# \'PREDICATE2\'(X)";
+            // 
+            // removeConstraintBtn
+            // 
+            this.removeConstraintBtn.Enabled = false;
+            this.removeConstraintBtn.Location = new System.Drawing.Point(510, 95);
+            this.removeConstraintBtn.Name = "removeConstraintBtn";
+            this.removeConstraintBtn.Size = new System.Drawing.Size(112, 22);
+            this.removeConstraintBtn.TabIndex = 4;
+            this.removeConstraintBtn.Text = "Remove";
+            this.removeConstraintBtn.UseVisualStyleBackColor = true;
+            this.removeConstraintBtn.Click += new System.EventHandler(this.removeConstraintBtn_Click);
+            // 
+            // addConstraintBtn
+            // 
+            this.addConstraintBtn.Location = new System.Drawing.Point(510, 59);
+            this.addConstraintBtn.Name = "addConstraintBtn";
+            this.addConstraintBtn.Size = new System.Drawing.Size(112, 22);
+            this.addConstraintBtn.TabIndex = 3;
+            this.addConstraintBtn.Text = "Add";
+            this.addConstraintBtn.UseVisualStyleBackColor = true;
+            this.addConstraintBtn.Click += new System.EventHandler(this.addConstraintBtn_Click);
+            // 
+            // constraintTxtBox
+            // 
+            this.constraintTxtBox.Location = new System.Drawing.Point(9, 60);
+            this.constraintTxtBox.Name = "constraintTxtBox";
+            this.constraintTxtBox.Size = new System.Drawing.Size(494, 20);
+            this.constraintTxtBox.TabIndex = 2;
+            // 
+            // constraintListBox
+            // 
+            this.constraintListBox.FormattingEnabled = true;
+            this.constraintListBox.Items.AddRange(new object[] {
+            "UNIQUE=LOOK_AT(X,#Y)",
+            "EXCLUSIVE=STAND(X) # SIT(X) # WALK (X)"});
+            this.constraintListBox.Location = new System.Drawing.Point(9, 95);
+            this.constraintListBox.Name = "constraintListBox";
+            this.constraintListBox.Size = new System.Drawing.Size(494, 56);
+            this.constraintListBox.TabIndex = 1;
+            this.constraintListBox.SelectedIndexChanged += new System.EventHandler(this.constraintListBox_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Add constraints";
             // 
             // groupBox7
             // 
@@ -385,13 +468,13 @@
             this.groupBox7.Controls.Add(this.downObjLinkTypeBtn);
             this.groupBox7.Controls.Add(this.upObjLinkTypeBtn);
             this.groupBox7.Controls.Add(this.removeLinkTypeBtn);
-            this.groupBox7.Controls.Add(this.addLinkType);
+            this.groupBox7.Controls.Add(this.addLinkTypeBtn);
             this.groupBox7.Controls.Add(this.objectLinkTypeTxtBox);
-            this.groupBox7.Controls.Add(this.objectLinkTypeListBox);
+            this.groupBox7.Controls.Add(this.predicateFormListBox);
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Location = new System.Drawing.Point(5, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(628, 357);
+            this.groupBox7.Size = new System.Drawing.Size(628, 256);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Predicates";
@@ -399,11 +482,12 @@
             // richTextBox1
             // 
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(9, 196);
+            this.richTextBox1.Location = new System.Drawing.Point(9, 183);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(613, 155);
+            this.richTextBox1.Size = new System.Drawing.Size(613, 67);
             this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.richTextBox1.Text = "Predicates\n\'PREDICATE\'(X,Y)   (for binary)\n\'PREDICATE\'(X)    (for unary)\nX stands" +
+    " for the object selected, Y stands for the object linked to";
             // 
             // downObjLinkTypeBtn
             // 
@@ -438,15 +522,15 @@
             this.removeLinkTypeBtn.UseVisualStyleBackColor = true;
             this.removeLinkTypeBtn.Click += new System.EventHandler(this.removeLinkType_Click);
             // 
-            // addLinkType
+            // addLinkTypeBtn
             // 
-            this.addLinkType.Location = new System.Drawing.Point(510, 59);
-            this.addLinkType.Name = "addLinkType";
-            this.addLinkType.Size = new System.Drawing.Size(112, 22);
-            this.addLinkType.TabIndex = 3;
-            this.addLinkType.Text = "Add";
-            this.addLinkType.UseVisualStyleBackColor = true;
-            this.addLinkType.Click += new System.EventHandler(this.addPredicate_Click);
+            this.addLinkTypeBtn.Location = new System.Drawing.Point(510, 59);
+            this.addLinkTypeBtn.Name = "addLinkTypeBtn";
+            this.addLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.addLinkTypeBtn.TabIndex = 3;
+            this.addLinkTypeBtn.Text = "Add";
+            this.addLinkTypeBtn.UseVisualStyleBackColor = true;
+            this.addLinkTypeBtn.Click += new System.EventHandler(this.addPredicate_Click);
             // 
             // objectLinkTypeTxtBox
             // 
@@ -455,18 +539,18 @@
             this.objectLinkTypeTxtBox.Size = new System.Drawing.Size(494, 20);
             this.objectLinkTypeTxtBox.TabIndex = 2;
             // 
-            // objectLinkTypeListBox
+            // predicateFormListBox
             // 
-            this.objectLinkTypeListBox.FormattingEnabled = true;
-            this.objectLinkTypeListBox.Items.AddRange(new object[] {
+            this.predicateFormListBox.FormattingEnabled = true;
+            this.predicateFormListBox.Items.AddRange(new object[] {
             "ON",
             "IN",
             "ATTACH_TO"});
-            this.objectLinkTypeListBox.Location = new System.Drawing.Point(9, 95);
-            this.objectLinkTypeListBox.Name = "objectLinkTypeListBox";
-            this.objectLinkTypeListBox.Size = new System.Drawing.Size(494, 95);
-            this.objectLinkTypeListBox.TabIndex = 1;
-            this.objectLinkTypeListBox.SelectedIndexChanged += new System.EventHandler(this.objectLinkTypeListBox_SelectedIndexChanged);
+            this.predicateFormListBox.Location = new System.Drawing.Point(9, 95);
+            this.predicateFormListBox.Name = "predicateFormListBox";
+            this.predicateFormListBox.Size = new System.Drawing.Size(494, 82);
+            this.predicateFormListBox.TabIndex = 1;
+            this.predicateFormListBox.SelectedIndexChanged += new System.EventHandler(this.objectLinkTypeListBox_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -492,13 +576,13 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(657, 431);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(653, 581);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // cancelBtn
             // 
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Location = new System.Drawing.Point(580, 404);
+            this.cancelBtn.Location = new System.Drawing.Point(576, 554);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(74, 23);
             this.cancelBtn.TabIndex = 1;
@@ -507,7 +591,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(500, 404);
+            this.saveBtn.Location = new System.Drawing.Point(496, 554);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(74, 23);
             this.saveBtn.TabIndex = 1;
@@ -521,7 +605,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelBtn;
-            this.ClientSize = new System.Drawing.Size(657, 431);
+            this.ClientSize = new System.Drawing.Size(653, 581);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "OptionsForm";
@@ -541,6 +625,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -583,11 +669,18 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button removeLinkTypeBtn;
-        private System.Windows.Forms.Button addLinkType;
+        private System.Windows.Forms.Button addLinkTypeBtn;
         private System.Windows.Forms.TextBox objectLinkTypeTxtBox;
-        private System.Windows.Forms.ListBox objectLinkTypeListBox;
+        private System.Windows.Forms.ListBox predicateFormListBox;
         private System.Windows.Forms.Button downObjLinkTypeBtn;
         private System.Windows.Forms.Button upObjLinkTypeBtn;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button removeConstraintBtn;
+        private System.Windows.Forms.Button addConstraintBtn;
+        private System.Windows.Forms.TextBox constraintTxtBox;
+        private System.Windows.Forms.ListBox constraintListBox;
+        private System.Windows.Forms.Label label5;
     }
 }

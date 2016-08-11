@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace Annotator
 {
-    public interface IConstraint
+    [DataContract]
+    [KnownType(typeof(UniqueConstraint))]
+    [KnownType(typeof(ExclusiveConstraint))]
+    public abstract class PredicateConstraint
     {
         /// <summary>
         /// Check if two predicate mark are conflict on the current predicate constraint
@@ -17,17 +20,17 @@ namespace Annotator
         /// <param name="pm1"></param>
         /// <param name="pm2"></param>
         /// <returns></returns>
-        bool isConflict(PredicateMark pm1, PredicateMark pm2);
+        public abstract bool isConflict(PredicateMark pm1, PredicateMark pm2);
     }
 
     [DataContract]
-    public class UniqueConstraint : IConstraint
+    public class UniqueConstraint : PredicateConstraint
     {
         [DataMember]
         /// <summary>
         /// Constraint is set on this predicate
         /// </summary>
-        public Predicate predicate { get; }
+        public Predicate predicate;
 
         [DataMember]
         /// <summary>
@@ -36,7 +39,7 @@ namespace Annotator
         /// and constraint is LOOK_AT(X,#Y)
         /// => constraintedArgumentIndices = [2]
         /// </summary>
-        public Combination constraintedArgumentIndices { get; }
+        public Combination constraintedArgumentIndices;
 
         public UniqueConstraint(Predicate predicate, Combination constraintedArgumentIndices)
         {
@@ -68,12 +71,12 @@ namespace Annotator
             var predicate = new Predicate(predForm, new Permutation(new int[2] { arg1 - (int)'X' + 1, arg2 - (int)'X' + 1 }));
 
             List<int> indices = new List<int>();
-            if (unique1 == "" || unique1 == "#")
+            if (unique1 == "#")
             {
                 indices.Add(1);
             }
 
-            if (unique2 == "" || unique2 == "#")
+            if (unique2 == "#")
             {
                 indices.Add(2);
             }
@@ -81,7 +84,7 @@ namespace Annotator
             return new UniqueConstraint( predicate, new Combination(2, indices.ToArray()));
         }
 
-        public bool isConflict(PredicateMark pm1, PredicateMark pm2)
+        public override bool isConflict(PredicateMark pm1, PredicateMark pm2)
         {
             if (!pm1.qualified || !pm2.qualified)
                 return false;
@@ -94,19 +97,20 @@ namespace Annotator
             if (!pm1.qualified || !pm2.qualified)
                 return false;
 
-            for (int i = 0; i < predicate.combination.size; i ++ )
+            // Object index should be added 1 to match with constraintedArgumentIndices
+            for (int i = 1; i <= predicate.combination.size; i ++ )
             {
                 // On argument that is not uniquely constraint, they need to be the same
-                if (!constraintedArgumentIndices.values.Contains(i) && !pm1.objects[i].Equals(pm2.objects[i]) )
+                if (!constraintedArgumentIndices.values.Contains(i) && !pm1.objects[i - 1].Equals(pm2.objects[i - 1]) )
                 {
                     return false;
                 }
             }
 
-            for (int i = 0; i < predicate.combination.size; i++)
+            for (int i = 1; i <= predicate.combination.size; i++)
             {
                 // On argument that is not uniquely constraint, they need to be the same
-                if (constraintedArgumentIndices.values.Contains(i) && !pm1.objects[i].Equals(pm2.objects[i]))
+                if (constraintedArgumentIndices.values.Contains(i) && !pm1.objects[i - 1].Equals(pm2.objects[i - 1]))
                 {
                     return true;
                 }
@@ -114,16 +118,54 @@ namespace Annotator
 
             return false;
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder("UNIQUE=" + predicate.predicate);
+            sb.Append("(");
+            for (int i = 0; i < predicate.combination.size; i++)
+            {
+                if (i != 0) sb.Append(',');
+                
+                // Index is increased by 1 because combination has value started from 1
+                if (constraintedArgumentIndices.values.Contains(i + 1))
+                {
+                    sb.Append('#');
+                }
+                sb.Append((char)((int)'X' + predicate.combination.values[i] - 1));
+            }
+            sb.Append(")");
+            return sb.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != typeof(UniqueConstraint)) return false;
+            var casted = obj as UniqueConstraint;
+
+            if (!predicate.Equals(casted.predicate)) return false;
+            if (!constraintedArgumentIndices.Equals(casted.constraintedArgumentIndices)) return false;
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int prime = 31;
+            int result = 1;
+            result = prime * result + ((predicate == null) ? 0 : predicate.GetHashCode());
+            result = prime * result + ((constraintedArgumentIndices == null) ? 0 : constraintedArgumentIndices.GetHashCode());
+            return result;
+        }
     }
 
     [DataContract]
-    public class ExclusiveConstraint : IConstraint
+    public class ExclusiveConstraint : PredicateConstraint
     {
         [DataMember]
         /// <summary>
         /// Set of mutual exclusive unary predicate
         /// </summary>
-        public HashSet<Predicate> predicates { get; }
+        public HashSet<Predicate> predicates;
 
         public ExclusiveConstraint(HashSet<Predicate> predicates)
         {
@@ -157,7 +199,7 @@ namespace Annotator
             return new ExclusiveConstraint(predicates);
         }
 
-        public bool isConflict(PredicateMark pm1, PredicateMark pm2)
+        public override bool isConflict(PredicateMark pm1, PredicateMark pm2)
         {
             if (!pm1.qualified || !pm2.qualified)
                 return false;
@@ -175,6 +217,12 @@ namespace Annotator
                 return true;
             }
             return false;
+        }
+
+
+        public override string ToString()
+        {
+            return "EXCLUSIVE=" + String.Join(" # ", predicates);
         }
     }
 

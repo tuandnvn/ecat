@@ -127,7 +127,7 @@ namespace Annotator
                     {
                         //endPoint = startPoint = new Point();
                         boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
-                        label3.Text = "Frame: " + frameTrackBar.Value;
+                        frameNumberLbl.Text = "Frame: " + frameTrackBar.Value;
 
                         Mat m = videoReader.getFrame(0);
                         if (m != null)
@@ -189,7 +189,7 @@ namespace Annotator
                 return;
             }
 
-            label3.Text = "Frame: " + frameTrackBar.Value;
+            frameNumberLbl.Text = "Frame: " + frameTrackBar.Value;
 
             int frameStartWithZero = frameTrackBar.Value - 1;
             if (videoReader != null)

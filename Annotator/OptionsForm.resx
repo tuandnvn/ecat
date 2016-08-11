@@ -117,16 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Predicates
-'PREDICATE'(X,Y)   (for binary)
-'PREDICATE'(X)    (for unary)
-X stands for the object selected, Y stands for the object linked to
-
-Constraints:
- Unique constraint:
-UNIQUE='PREDICATE'(X, #Y) requires Y to be unique at any time
-Mutually exclusive for unary predicates
-EXCLUSIVE='PREDICATE1'(X) # 'PREDICATE2'(X)</value>
-  </data>
 </root>

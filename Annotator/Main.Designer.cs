@@ -47,7 +47,7 @@ namespace Annotator
             this.pictureBoard = new Annotator.MyPictureBox();
             this.frameTrackBar = new Annotator.CustomizedTrackBar();
             this.startInSecondLbl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.frameNumberLbl = new System.Windows.Forms.Label();
             this.startInSecondTextBox = new System.Windows.Forms.TextBox();
             this.endInSecondLbl = new System.Windows.Forms.Label();
             this.endInSecondTextBox = new System.Windows.Forms.TextBox();
@@ -182,7 +182,7 @@ namespace Annotator
             this.annotateTableLayoutPanel.ColumnCount = 3;
             this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 372F));
+            this.annotateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 374F));
             this.annotateTableLayoutPanel.Controls.Add(this.leftMostPanel, 0, 0);
             this.annotateTableLayoutPanel.Controls.Add(this.middleTopPanel, 1, 0);
             this.annotateTableLayoutPanel.Controls.Add(this.middleCenterPanel, 1, 2);
@@ -267,7 +267,7 @@ namespace Annotator
             this.middleTopPanel.Location = new System.Drawing.Point(175, 4);
             this.middleTopPanel.Name = "middleTopPanel";
             this.annotateTableLayoutPanel.SetRowSpan(this.middleTopPanel, 2);
-            this.middleTopPanel.Size = new System.Drawing.Size(883, 657);
+            this.middleTopPanel.Size = new System.Drawing.Size(881, 657);
             this.middleTopPanel.TabIndex = 1;
             // 
             // middleTopTableLayoutPanel
@@ -279,7 +279,7 @@ namespace Annotator
             this.middleTopTableLayoutPanel.Controls.Add(this.videoPanel, 1, 0);
             this.middleTopTableLayoutPanel.Controls.Add(this.frameTrackBar, 1, 7);
             this.middleTopTableLayoutPanel.Controls.Add(this.startInSecondLbl, 0, 2);
-            this.middleTopTableLayoutPanel.Controls.Add(this.label3, 0, 7);
+            this.middleTopTableLayoutPanel.Controls.Add(this.frameNumberLbl, 0, 7);
             this.middleTopTableLayoutPanel.Controls.Add(this.startInSecondTextBox, 0, 3);
             this.middleTopTableLayoutPanel.Controls.Add(this.endInSecondLbl, 0, 4);
             this.middleTopTableLayoutPanel.Controls.Add(this.endInSecondTextBox, 0, 5);
@@ -295,7 +295,7 @@ namespace Annotator
             this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.middleTopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.middleTopTableLayoutPanel.Size = new System.Drawing.Size(881, 655);
+            this.middleTopTableLayoutPanel.Size = new System.Drawing.Size(879, 655);
             this.middleTopTableLayoutPanel.TabIndex = 8;
             // 
             // playbackFileComboBox
@@ -321,7 +321,7 @@ namespace Annotator
             this.videoPanel.Location = new System.Drawing.Point(123, 3);
             this.videoPanel.Name = "videoPanel";
             this.middleTopTableLayoutPanel.SetRowSpan(this.videoPanel, 7);
-            this.videoPanel.Size = new System.Drawing.Size(755, 598);
+            this.videoPanel.Size = new System.Drawing.Size(753, 598);
             this.videoPanel.TabIndex = 1;
             // 
             // pictureBoard
@@ -331,7 +331,7 @@ namespace Annotator
             this.pictureBoard.Location = new System.Drawing.Point(0, 0);
             this.pictureBoard.mat = null;
             this.pictureBoard.Name = "pictureBoard";
-            this.pictureBoard.Size = new System.Drawing.Size(755, 598);
+            this.pictureBoard.Size = new System.Drawing.Size(753, 598);
             this.pictureBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoard.TabIndex = 0;
             this.pictureBoard.TabStop = false;
@@ -352,7 +352,7 @@ namespace Annotator
             this.frameTrackBar.MinDragVal = 1;
             this.frameTrackBar.Minimum = 1;
             this.frameTrackBar.Name = "frameTrackBar";
-            this.frameTrackBar.Size = new System.Drawing.Size(745, 49);
+            this.frameTrackBar.Size = new System.Drawing.Size(743, 49);
             this.frameTrackBar.TabIndex = 3;
             this.frameTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.frameTrackBar.Value = 1;
@@ -367,16 +367,16 @@ namespace Annotator
             this.startInSecondLbl.TabIndex = 4;
             this.startInSecondLbl.Text = "Start:";
             // 
-            // label3
+            // frameNumberLbl
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 621);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Frame:";
+            this.frameNumberLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.frameNumberLbl.AutoSize = true;
+            this.frameNumberLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.frameNumberLbl.Location = new System.Drawing.Point(3, 621);
+            this.frameNumberLbl.Name = "frameNumberLbl";
+            this.frameNumberLbl.Size = new System.Drawing.Size(52, 17);
+            this.frameNumberLbl.TabIndex = 2;
+            this.frameNumberLbl.Text = "Frame:";
             // 
             // startInSecondTextBox
             // 
@@ -413,7 +413,7 @@ namespace Annotator
             this.middleCenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.middleCenterPanel.Location = new System.Drawing.Point(175, 668);
             this.middleCenterPanel.Name = "middleCenterPanel";
-            this.middleCenterPanel.Size = new System.Drawing.Size(883, 94);
+            this.middleCenterPanel.Size = new System.Drawing.Size(881, 94);
             this.middleCenterPanel.TabIndex = 3;
             // 
             // middleCenterTableLayoutPanel
@@ -424,7 +424,7 @@ namespace Annotator
             this.middleCenterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.middleCenterTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.middleCenterTableLayoutPanel.Name = "middleCenterTableLayoutPanel";
-            this.middleCenterTableLayoutPanel.Size = new System.Drawing.Size(881, 0);
+            this.middleCenterTableLayoutPanel.Size = new System.Drawing.Size(879, 0);
             this.middleCenterTableLayoutPanel.TabIndex = 0;
             // 
             // middleBottomPanel
@@ -435,7 +435,7 @@ namespace Annotator
             this.middleBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.middleBottomPanel.Location = new System.Drawing.Point(175, 769);
             this.middleBottomPanel.Name = "middleBottomPanel";
-            this.middleBottomPanel.Size = new System.Drawing.Size(883, 94);
+            this.middleBottomPanel.Size = new System.Drawing.Size(881, 94);
             this.middleBottomPanel.TabIndex = 2;
             // 
             // middleBottomTableLayoutPanel
@@ -449,7 +449,7 @@ namespace Annotator
             this.middleBottomTableLayoutPanel.Name = "middleBottomTableLayoutPanel";
             this.middleBottomTableLayoutPanel.RowCount = 1;
             this.middleBottomTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.middleBottomTableLayoutPanel.Size = new System.Drawing.Size(881, 60);
+            this.middleBottomTableLayoutPanel.Size = new System.Drawing.Size(879, 60);
             this.middleBottomTableLayoutPanel.TabIndex = 1;
             // 
             // addEventAnnotationBtn
@@ -474,7 +474,7 @@ namespace Annotator
             this.rightColumnLayoutPanel.Controls.Add(this.rightCenterPanel, 0, 1);
             this.rightColumnLayoutPanel.Controls.Add(this.panel1, 0, 2);
             this.rightColumnLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightColumnLayoutPanel.Location = new System.Drawing.Point(1065, 4);
+            this.rightColumnLayoutPanel.Location = new System.Drawing.Point(1063, 4);
             this.rightColumnLayoutPanel.Name = "rightColumnLayoutPanel";
             this.rightColumnLayoutPanel.RowCount = 5;
             this.annotateTableLayoutPanel.SetRowSpan(this.rightColumnLayoutPanel, 4);
@@ -483,7 +483,7 @@ namespace Annotator
             this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.rightColumnLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.rightColumnLayoutPanel.Size = new System.Drawing.Size(366, 859);
+            this.rightColumnLayoutPanel.Size = new System.Drawing.Size(368, 859);
             this.rightColumnLayoutPanel.TabIndex = 5;
             // 
             // annoRefView
@@ -509,7 +509,7 @@ namespace Annotator
             this.annoRefView.Margin = new System.Windows.Forms.Padding(1);
             this.annoRefView.Name = "annoRefView";
             this.annoRefView.RowHeadersVisible = false;
-            this.annoRefView.Size = new System.Drawing.Size(364, 99);
+            this.annoRefView.Size = new System.Drawing.Size(366, 99);
             this.annoRefView.TabIndex = 24;
             this.annoRefView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.annoRefView_CellClick);
             // 
@@ -549,7 +549,7 @@ namespace Annotator
             this.annotationText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.annotationText.Location = new System.Drawing.Point(3, 661);
             this.annotationText.Name = "annotationText";
-            this.annotationText.Size = new System.Drawing.Size(360, 94);
+            this.annotationText.Size = new System.Drawing.Size(362, 94);
             this.annotationText.TabIndex = 23;
             this.annotationText.Text = "";
             this.annotationText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.annotationText_MouseDown);
@@ -588,7 +588,7 @@ namespace Annotator
             this.rightTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rightTopPanel.Location = new System.Drawing.Point(3, 3);
             this.rightTopPanel.Name = "rightTopPanel";
-            this.rightTopPanel.Size = new System.Drawing.Size(360, 164);
+            this.rightTopPanel.Size = new System.Drawing.Size(362, 164);
             this.rightTopPanel.TabIndex = 3;
             // 
             // selectObjContextPanel
@@ -856,7 +856,7 @@ namespace Annotator
             this.rightCenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rightCenterPanel.Location = new System.Drawing.Point(3, 173);
             this.rightCenterPanel.Name = "rightCenterPanel";
-            this.rightCenterPanel.Size = new System.Drawing.Size(360, 287);
+            this.rightCenterPanel.Size = new System.Drawing.Size(362, 287);
             this.rightCenterPanel.TabIndex = 4;
             // 
             // objectProperties
@@ -873,7 +873,7 @@ namespace Annotator
             this.objectProperties.Location = new System.Drawing.Point(0, 0);
             this.objectProperties.Name = "objectProperties";
             this.objectProperties.RowHeadersVisible = false;
-            this.objectProperties.Size = new System.Drawing.Size(358, 285);
+            this.objectProperties.Size = new System.Drawing.Size(360, 285);
             this.objectProperties.TabIndex = 0;
             this.objectProperties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellContentClick);
             this.objectProperties.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.objectProperties_CellValueChanged);
@@ -894,7 +894,7 @@ namespace Annotator
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 466);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 189);
+            this.panel1.Size = new System.Drawing.Size(362, 189);
             this.panel1.TabIndex = 25;
             // 
             // tableLayoutPanel1
@@ -910,7 +910,7 @@ namespace Annotator
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(360, 189);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(362, 189);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // predicateView
@@ -923,11 +923,12 @@ namespace Annotator
             this.dataGridViewTextBoxColumn1});
             this.predicateView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.predicateView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.predicateView.Enabled = false;
             this.predicateView.GridColor = System.Drawing.SystemColors.ControlLight;
             this.predicateView.Location = new System.Drawing.Point(3, 28);
             this.predicateView.Name = "predicateView";
             this.predicateView.RowHeadersVisible = false;
-            this.predicateView.Size = new System.Drawing.Size(354, 158);
+            this.predicateView.Size = new System.Drawing.Size(356, 158);
             this.predicateView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -1401,7 +1402,7 @@ namespace Annotator
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ComboBox playbackFileComboBox;
         private System.Windows.Forms.Panel videoPanel;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label frameNumberLbl;
         private CustomizedTrackBar frameTrackBar;
         private System.Windows.Forms.Button addEventAnnotationBtn;
         private System.Windows.Forms.ToolStripMenuItem addSessionMenuItem;
