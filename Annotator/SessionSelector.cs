@@ -34,7 +34,7 @@ namespace Annotator
                 this.Dispose();
                 return;
             }
-            this.sessionSelectComboBox.Items.AddRange(project.sessions.Select(s => (s.sessionName.Equals(session.sessionName) ? "(current session)" : s.sessionName)).ToArray());
+            this.sessionSelectComboBox.Items.AddRange(project.sessions.Select(s => (s.name.Equals(session.name) ? "(current session)" : s.name)).ToArray());
             this.sessionSelectComboBox.SelectedIndex = sessionIndex;
         }
 

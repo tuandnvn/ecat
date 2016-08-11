@@ -28,7 +28,7 @@ namespace Annotator
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
                 currentSession.removeFile(relFileName);
-                var absolutePath = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
+                var absolutePath = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.name + Path.DirectorySeparatorChar + relFileName;
                 File.Delete(absolutePath);
 
                 refreshSessionMenuItem_Click(null, null);

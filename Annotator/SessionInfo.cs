@@ -50,7 +50,7 @@ namespace Annotator
                 if (!Directory.Exists(sessionLocation))
                     Directory.CreateDirectory(sessionLocation);
 
-                main.addNewSessionToWorkspace(projectName, sessionNameTxtBox.Text);
+                main.addNewSessionToProject(projectName, sessionNameTxtBox.Text);
                 main.setNewSession(false);
                 this.Close();
             }

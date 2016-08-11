@@ -50,7 +50,6 @@ namespace Annotator
 
         private void cancelWsBtn_Click(object sender, EventArgs e)
         {
-            main.Close();
             Close();
         }
 

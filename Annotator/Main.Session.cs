@@ -38,39 +38,31 @@ namespace Annotator
                 chosenSession = currentProject.getSession(treeView.SelectedNode.Text);
             }
 
-            // Save current session if it is edited
-            if (currentSession != null && chosenSession != null && currentSession.sessionName != chosenSession.sessionName)
+            if (currentSession != null && chosenSession != null && currentSession.edited && currentSession.name == chosenSession.name)
             {
-                if (currentSession.getEdited())
-                {
-                    currentSession.setEdited(false);
-                    treeView.BeginUpdate();
-                    currentSessionNode.Text = currentSessionNode.Text.Substring(1);
-                    treeView.EndUpdate();
+                return;
+            }
 
-                    var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        saveCurrentSession();
-                    }
-                    else if (result == DialogResult.No)
-                    {
-                        closeWithoutSaveCurrentSession();
-                    }
+            // Save current session if it is edited
+            if (currentSession != null && chosenSession != null && currentSession.edited && currentSession.name != chosenSession.name)
+            {
+                if (currentSession.edited)
+                {
+                    cleanUpCurrentSession();
                 }
             }
 
             // Set current session = chosen session
-            if (chosenSession != null && !chosenSession.getEdited())
+            if (chosenSession != null && !chosenSession.edited)
             {
-                chosenSession.setEdited(true);
+                chosenSession.edited = true;
                 currentSessionNode = treeView.SelectedNode;
                 currentSession = chosenSession;
                 currentSession.loadIfNotLoaded();
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
                 frameTrackBar.Value = frameTrackBar.Minimum;
-                this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.sessionName;
+                this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.name;
             }
 
             //Set comboBox:
@@ -102,6 +94,28 @@ namespace Annotator
 
                 // All toolstrips of file inside session are enables
                 toggleFileToolStripsOfSession(true);
+            }
+        }
+
+        /// <summary>
+        /// Close current session
+        /// Asking for saving it down or revert change
+        /// </summary>
+        private void cleanUpCurrentSession()
+        {
+            currentSession.edited = false;
+            treeView.BeginUpdate();
+            currentSessionNode.Text = currentSessionNode.Text.Substring(1);
+            treeView.EndUpdate();
+
+            var result = MessageBox.Show(("Session " + currentSession.name + " of project " + currentProject.name + "currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                saveCurrentSession();
+            }
+            else if (result == DialogResult.No)
+            {
+                closeWithoutSaveCurrentSession();
             }
         }
 
@@ -249,7 +263,7 @@ namespace Annotator
         {
             TreeNode nodeS = treeView.SelectedNode;
             //MessageBox.Show(selectedProject.getSessionN() + "");
-            if (currentSession.getEdited())
+            if (currentSession.edited)
             {
                 saveCurrentSession();
             }
@@ -275,7 +289,7 @@ namespace Annotator
             TreeNode t = treeView.SelectedNode;
             if (t.Text.Contains("*"))
                 t.Text = t.Text.Substring(1);
-            currentSession.setEdited(false);
+            currentSession.edited = false;
             this.Text = "Project " + currentProject.name + " selected";
 
             if (selectedObject != null)
@@ -439,7 +453,7 @@ namespace Annotator
 
             //Check files in current Session folder
             String[] files = Directory.GetFiles(workspace.locationFolder + Path.DirectorySeparatorChar +
-                currentSession.project.name + Path.DirectorySeparatorChar + currentSession.sessionName);
+                currentSession.project.name + Path.DirectorySeparatorChar + currentSession.name);
 
             TreeNode[] arrayFiles = new TreeNode[files.Length];
             for (int j = 0; j < arrayFiles.Length; j++)
@@ -464,7 +478,7 @@ namespace Annotator
         {
             string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
+            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.name + Path.DirectorySeparatorChar + relFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -498,7 +512,7 @@ namespace Annotator
         internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
         {
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
+            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.name + Path.DirectorySeparatorChar + newRelFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -551,7 +565,7 @@ namespace Annotator
                     currentlySetupKinect = false;
                 }
 
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
                 currentSession.getDepth(0),
                 new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
                 coordinateMapper.MapColorFrameToCameraSpace
@@ -598,7 +612,7 @@ namespace Annotator
 
             Task t = Task.Run(async () =>
             {
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
                 currentSession.getDepth(0),
                 new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
                 (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,

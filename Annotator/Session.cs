@@ -26,10 +26,10 @@ namespace Annotator
         public List<Event> events { get; private set; }
         public int objectCount { get; set; } = 0;          // video objects IDs
         private Dictionary<string, Object> objects;  // list of objects in videos
-        public String sessionName { get; private set; }     //session name
+        public String name { get; private set; }     //session name
         public Project project { get; private set; }         //session's project 
         public String locationFolder { get; private set; }  //session location folder
-        private bool edited;            //true if session is currently edited
+        public bool edited { get; set; }            //true if session is currently edited
         private List<VideoReader> videoReaders;
         private List<BaseDepthReader> depthReaders;
         internal SortedSet<String> filesList;
@@ -70,7 +70,7 @@ namespace Annotator
         //Constructor
         public Session(String sessionName, Project project, String locationFolder)
         {
-            this.sessionName = sessionName;
+            this.name = sessionName;
             this.project = project;
             this.locationFolder = locationFolder;
             //If session file list exist load files list
@@ -166,7 +166,6 @@ namespace Annotator
             {
                 return null;
             }
-
         }
 
         //Save session
@@ -181,7 +180,7 @@ namespace Annotator
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement(SESSION);
-                    writer.WriteAttributeString("name", sessionName);
+                    writer.WriteAttributeString("name", name);
                     writer.WriteAttributeString("length", "" + sessionLength);
                     if (duration != 0)
                     {
@@ -286,17 +285,6 @@ namespace Annotator
         internal void removeObject(string objectId)
         {
             objects.Remove(objectId);
-        }
-
-        //Get edited
-        public bool getEdited()
-        {
-            return edited;
-        }
-        //Set edited
-        public void setEdited(bool edited)
-        {
-            this.edited = edited;
         }
 
         //Load files list

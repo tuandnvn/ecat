@@ -40,7 +40,7 @@ namespace Annotator
                     sessionLabels.Add("None");
                 }
 
-                Console.WriteLine(session.sessionLength + " " + session.sessionName + " " + session.events.Count);
+                Console.WriteLine(session.sessionLength + " " + session.name + " " + session.events.Count);
 
                 // Assume that all events are non-overlapping, this is the simplest case
                 foreach (Event e in session.events)
@@ -225,7 +225,7 @@ namespace Annotator
                     }
                 }
 
-                data[session.sessionName] = new Tuple<List<List<float>>, List<string>>(sessionData, sessionLabels);
+                data[session.name] = new Tuple<List<List<float>>, List<string>>(sessionData, sessionLabels);
             }
 
             return data;

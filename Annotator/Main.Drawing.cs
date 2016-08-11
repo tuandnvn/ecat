@@ -936,19 +936,22 @@ namespace Annotator
             // Save down session
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
             {
-                saveCurrentSession();
+                if (currentSession != null)
+                    saveCurrentSession();
             }
 
             // Edit session
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
             {
-                editSessionMenuItem_Click(null, null);
+                if (currentProject != null)
+                    editSessionMenuItem_Click(null, null);
             }
 
             // Add a file into session
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
             {
-                addFileToSessionMenuItem_Click(null, null);
+                if (currentSession != null)
+                    addFileToSessionMenuItem_Click(null, null);
             }
 
             // While editing a polygon

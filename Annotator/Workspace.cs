@@ -83,7 +83,7 @@ namespace Annotator
             }
             catch (Exception e)
             {
-                throw new Exception("Load workspace failed! Directory might not exist.", e);
+                MessageBox.Show("Load workspace failed! Directory might not exist.");
             }
         }
     }

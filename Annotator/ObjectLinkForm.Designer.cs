@@ -47,12 +47,15 @@
             this.objectSelectComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.sessionSelectComboBox = new System.Windows.Forms.ComboBox();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -165,16 +168,16 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel2.Controls.Add(this.addLinkBtn, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.crossSessionChkBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.linkComboBox, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.predicateLbl, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.qualifiedSelectComboBox, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.objectSelectComboBox, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.sessionSelectComboBox, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.predicateLbl, 1, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -187,11 +190,12 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(467, 155);
             this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // addLinkBtn
             // 
             this.addLinkBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.addLinkBtn.Location = new System.Drawing.Point(389, 130);
+            this.addLinkBtn.Location = new System.Drawing.Point(162, 1);
             this.addLinkBtn.Name = "addLinkBtn";
             this.addLinkBtn.Size = new System.Drawing.Size(75, 20);
             this.addLinkBtn.TabIndex = 6;
@@ -250,7 +254,7 @@
             this.qualifiedSelectComboBox.TabIndex = 3;
             this.qualifiedSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.qualifiedSelectComboBox_SelectedIndexChanged);
             // 
-            // label2
+            // infoLbl
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
@@ -291,9 +295,31 @@
             this.sessionSelectComboBox.TabIndex = 8;
             this.sessionSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.sessionSelectComboBox_SelectedIndexChanged);
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelBtn.Location = new System.Drawing.Point(243, 1);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 19);
+            this.cancelBtn.TabIndex = 12;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.addLinkBtn);
+            this.panel2.Controls.Add(this.cancelBtn);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(143, 128);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(321, 24);
+            this.panel2.TabIndex = 13;
+            // 
             // ObjectLinkForm
             // 
             this.AcceptButton = this.addLinkBtn;
+            this.CancelButton = this.cancelBtn;
             this.ClientSize = new System.Drawing.Size(479, 385);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -307,6 +333,7 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -332,5 +359,7 @@
         private System.Windows.Forms.ListBox existingPredicateListBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button removePredBtn;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Panel panel2;
     }
 }

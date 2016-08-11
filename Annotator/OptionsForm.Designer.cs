@@ -178,7 +178,7 @@
             this.glyphPrototypeTxtBox.Size = new System.Drawing.Size(394, 20);
             this.glyphPrototypeTxtBox.TabIndex = 2;
             // 
-            // label2
+            // infoLbl
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 29);

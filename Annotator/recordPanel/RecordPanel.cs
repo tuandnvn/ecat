@@ -249,7 +249,7 @@ namespace Annotator
             this.videoNameLabel.Size = new System.Drawing.Size(0, 13);
             this.videoNameLabel.TabIndex = 7;
             // 
-            // label2
+            // infoLbl
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 21);

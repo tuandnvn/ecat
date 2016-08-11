@@ -86,7 +86,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Rig source file";
             // 
-            // label2
+            // infoLbl
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;

@@ -64,7 +64,7 @@ namespace Annotator
         }
 
         public string id { get; set; }                //Object's ID
-        public string name { get; set; }           // Object's name
+        public string name { get; set; } = "";           // Object's name
         public Color color { get; set; }           //Object's boudnign box color
         public string semanticType { get; set; }           //Object's type
         public int borderSize { get; set; }        //Object bounding box border size
@@ -94,6 +94,7 @@ namespace Annotator
             this.objectMarks = new SortedList<int, LocationMark2D>();
             this.object3DMarks = null;
             this.linkMarks = new SortedList<int, LinkMark>();
+            this.name = "";
         }
 
         public void setBounding(int frameNumber, LocationMark2D locationMark)
@@ -266,6 +267,27 @@ namespace Annotator
 
 
             return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
+        }
+
+        public bool hasMark(int frameNo)
+        {
+            int prevMarker = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
+
+            if (prevMarker == 0)
+            {
+                if (objectMarks.ContainsKey(0))
+                    return true;
+                else
+                    return false;
+            }
+
+            // The previous marker is not delete marker
+            if (!(objectMarks[prevMarker] is DeleteLocationMark))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public LocationMark3D getLocationMark3D(int frameNo)

@@ -51,7 +51,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Select a workspace";
             // 
-            // label2
+            // infoLbl
             // 
             this.label2.AllowDrop = true;
             this.label2.AutoSize = true;

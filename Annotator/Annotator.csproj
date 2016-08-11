@@ -173,7 +173,16 @@
     <Compile Include="Main.Drawing.Zoom.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Main.Object.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.PaintBoardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.PredicateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Workspace.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="object\GlyphBoxLocationMark3D.cs" />

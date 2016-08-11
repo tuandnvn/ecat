@@ -72,7 +72,7 @@ namespace Annotator
             var pred = predicate.predicate;
 
             String q = predicate.predicate + "( " + String.Join(",", predicate.combination.values.Select(v =>
-                      (objects[v - 1].session.sessionName == objects[0].session.sessionName ? "" : objects[v - 1].session.sessionName + "/") +
+                      (objects[v - 1].session.name == objects[0].session.name ? "" : objects[v - 1].session.name + "/") +
                       objects[v - 1].id + (objects[v - 1].name.Equals("") ? "" : (" (\"" + objects[v - 1].name + "\")")))) + " )";
             if (!qualified)
             {
