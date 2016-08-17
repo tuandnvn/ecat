@@ -12,11 +12,6 @@
         <marker type="LOCATION" frame="6">2.75862,142.0692,146.2069,808.2753</marker>
         <marker type="DELETE" frame="7" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1028_No_Reservations_00.04.51.844-00.04.54.422" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o7" name="women3" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -29,11 +24,6 @@
         <marker type="LOCATION" frame="45">846.8965,220.6896,173.7931,717.2413</marker>
         <marker type="LOCATION" frame="47">835.862,220.6896,184.8275,717.2413</marker>
       </markers>
-      <links>
-        <link frame="45">
-          <linkTo id="o8" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="women2" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -45,14 +35,6 @@
         <marker type="LOCATION" frame="45">1264.828,249.6551,268.9655,666.2068</marker>
         <marker type="LOCATION" frame="47">1310.345,249.6551,223.4481,693.793</marker>
       </markers>
-      <links>
-        <link frame="25">
-          <linkTo id="o8" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="31">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o8" name="women4" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -64,11 +46,6 @@
         <marker type="LOCATION" frame="42">507.5862,317.2414,104.8275,438.6207</marker>
         <marker type="LOCATION" frame="47">532.4138,303.4482,96.55151,452.4136</marker>
       </markers>
-      <links>
-        <link frame="5">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="women1" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -92,4 +69,11 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="5" arguments="2" ids="o8,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="25" arguments="2" ids="o3,o8" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="31" arguments="2" ids="o3,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="45" arguments="2" ids="o7,o8" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

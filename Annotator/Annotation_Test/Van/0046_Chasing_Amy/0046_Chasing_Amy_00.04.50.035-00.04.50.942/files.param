@@ -10,17 +10,6 @@
         <marker type="LOCATION" frame="20">422.0689,60.68963,1059.31,910.3448</marker>
         <marker type="LOCATION" frame="31">529.6552,19.31026,1023.448,935.1722</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="5">
-          <linkTo id="o7" q="True" type="PART_OF" />
-        </link>
-        <link frame="47">
-          <linkTo id="o5" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="fan" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -29,11 +18,6 @@
         <marker type="LOCATION" frame="31">5.517241,521.3793,113.1034,540.6884</marker>
         <marker type="DELETE" frame="46" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="Comic's fan" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -65,4 +49,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o6,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="5" arguments="2" ids="o6,o7" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="47" arguments="2" ids="o6,o5" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

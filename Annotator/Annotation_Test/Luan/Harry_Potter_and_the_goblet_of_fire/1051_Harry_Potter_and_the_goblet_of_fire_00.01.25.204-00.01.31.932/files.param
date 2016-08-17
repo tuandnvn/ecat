@@ -7,15 +7,9 @@
     <object id="o5" name="matches" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="6">1184.414,132.8906,90.70313,73.82813</marker>
-        <marker type="LOCATION" frame="10">1128.516,135,90.70313,189.8438</marker>
         <marker type="LOCATION" frame="14">1161.211,196.1719,90.70313,257.3438</marker>
-        <marker type="LOCATION" frame="16">1178.086,270,90.70313,257.3438</marker>
         <marker type="LOCATION" frame="24">1156.992,396.5625,90.70313,257.3438</marker>
-        <marker type="LOCATION" frame="32">1134.844,445.0781,112.8516,229.9219</marker>
         <marker type="LOCATION" frame="59">1191.006,478.3008,85.95703,182.4609</marker>
-        <marker type="LOCATION" frame="64">1201.553,412.9102,85.95703,182.4609</marker>
-        <marker type="LOCATION" frame="66">1191.006,320.0977,85.95703,182.4609</marker>
-        <marker type="LOCATION" frame="67">1169.912,149.2383,85.95703,228.3398</marker>
         <marker type="DELETE" frame="68" />
       </markers>
     </object>
@@ -24,19 +18,11 @@
         <marker type="LOCATION" frame="0">371.25,139.2188,630.7031,411.3281</marker>
         <marker type="LOCATION" frame="49">337.5,122.3438,615.9375,413.4375</marker>
         <marker type="LOCATION" frame="112">522.6346,101.3685,615.9375,413.4375</marker>
-        <marker type="LOCATION" frame="116">702.5576,135.8743,615.9375,413.4375</marker>
-        <marker type="LOCATION" frame="121">692.6988,170.3801,795.979,536.9883</marker>
-        <marker type="LOCATION" frame="125">713.5894,138.1811,792.3412,657.9165</marker>
-        <marker type="LOCATION" frame="129">699.9743,138.1811,805.9564,749.1104</marker>
+        <marker type="LOCATION" frame="121">707.9596,137.9794,785.6118,563.6533</marker>
         <marker type="LOCATION" frame="133">720.9243,143.0315,789.9358,759.0481</marker>
         <marker type="LOCATION" frame="153">690.1155,143.0315,820.7446,759.0481</marker>
         <marker type="DELETE" frame="154" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="man's hand" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -56,12 +42,6 @@
         <marker type="LOCATION" frame="158">966.1617,416.534,69.01155,49.29397</marker>
         <marker type="LOCATION" frame="161">978.4852,433.7869,69.01155,49.29397</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o9" q="True" type="PART_OF" />
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="match box" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -73,11 +53,6 @@
         <marker type="LOCATION" frame="15">852.1875,900.7031,124.4531,35.85938</marker>
         <marker type="DELETE" frame="16" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="gas" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -99,11 +74,6 @@
         <marker type="LOCATION" frame="67">1193.906,124.4531,137.1094,80.15625</marker>
         <marker type="DELETE" frame="68" />
       </markers>
-      <links>
-        <link frame="10">
-          <linkTo id="o9" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o8" name="men's hand2b" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -116,11 +86,6 @@
         <marker type="LOCATION" frame="95">236.611,123.2349,732.0154,423.312</marker>
         <marker type="DELETE" frame="96" />
       </markers>
-      <links>
-        <link frame="73">
-          <linkTo id="o9" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o9" name="man" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -137,4 +102,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o9" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="10" arguments="2" ids="o7,o9" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="73" arguments="2" ids="o8,o9" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

@@ -11,11 +11,6 @@
         <marker type="LOCATION" frame="19">348.9658,150.3448,703.4476,725.5172</marker>
         <marker type="LOCATION" frame="44">478.621,125.5172,703.4476,725.5172</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="order" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -28,11 +23,6 @@
         <marker type="LOCATION" frame="0">295.1724,513.1034,66.20689,35.86211</marker>
         <marker type="DELETE" frame="9" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -44,4 +34,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

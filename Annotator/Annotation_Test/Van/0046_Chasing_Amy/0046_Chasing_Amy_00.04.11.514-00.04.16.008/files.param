@@ -15,18 +15,6 @@
         <marker type="LOCATION" frame="96">248.2758,104.8276,1519.997,948.2743</marker>
         <marker type="LOCATION" frame="107">248.2758,104.8276,1519.997,948.2743</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o10" q="True" type="PART_OF" />
-          <linkTo id="o9" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="43">
-          <linkTo id="o9" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="86">
-          <linkTo id="o9" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o9" name="boy" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -37,17 +25,6 @@
         <marker type="LOCATION" frame="96">924.1379,22.06887,993.103,1034.482</marker>
         <marker type="LOCATION" frame="107">965.5172,22.06877,951.7238,1034.482</marker>
       </markers>
-      <links>
-        <link frame="25">
-          <linkTo id="o8" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="86">
-          <linkTo id="o8" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="107">
-          <linkTo id="o8" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o10" name="cig" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -74,4 +51,12 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o8,o10" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="25" arguments="2" ids="o9,o8" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="43" arguments="2" ids="o8,o9" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="86" arguments="2" ids="o8,o9" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="86" arguments="2" ids="o9,o8" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="107" arguments="2" ids="o9,o8" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

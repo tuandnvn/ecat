@@ -9,44 +9,24 @@
         <marker type="LOCATION" frame="0">1597.241,248.2758,350.345,697.9305</marker>
         <marker type="LOCATION" frame="43">1467.586,121.3793,479.9991,824.8264</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.04.46.044-00.04.47.798" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="boy" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">444.1379,160,904.8267,788.9655</marker>
         <marker type="LOCATION" frame="43">507.5862,160,766.8965,788.9655</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.04.46.044-00.04.47.798" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="shoe 1" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="43">8.275862,628.9655,289.6552,317.2414</marker>
         <marker type="LOCATION" frame="49">8.275862,524.1379,289.6551,422.0683</marker>
       </markers>
-      <links>
-        <link frame="49">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="shoe 2" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="43">1409.655,639.9999,491.0345,306.2065</marker>
         <marker type="LOCATION" frame="49">1409.655,573.7931,491.0345,372.4127</marker>
       </markers>
-      <links>
-        <link frame="49">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -58,4 +38,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="49" arguments="2" ids="o5,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="49" arguments="2" ids="o6,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

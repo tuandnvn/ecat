@@ -32,11 +32,6 @@
         <marker type="LOCATION" frame="93">490.8691,159.7958,1192.499,955.102,1497.396,953.2653,727.8073,157.9592</marker>
         <marker type="DELETE" frame="95" />
       </markers>
-      <links>
-        <link frame="87">
-          <linkTo id="o6" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="street2" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
       <markers>
@@ -59,11 +54,6 @@
         <marker type="LOCATION" frame="96">595.1021,146.9388,1144.285,929.3878,1563.061,940.4081,852.2449,148.7755</marker>
         <marker type="LOCATION" frame="97">739.2859,145.5617,1288.469,928.0097,1707.244,939.0304,996.4297,147.3983</marker>
       </markers>
-      <links>
-        <link frame="96">
-          <linkTo id="o6" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -75,4 +65,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="87" arguments="2" ids="o7,o6" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="96" arguments="2" ids="o9,o6" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

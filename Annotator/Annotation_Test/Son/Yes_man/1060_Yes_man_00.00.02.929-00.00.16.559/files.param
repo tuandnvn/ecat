@@ -53,11 +53,6 @@
         <marker type="LOCATION" frame="204">721.8,264.5999,435.6,460.8001</marker>
         <marker type="DELETE" frame="320" />
       </markers>
-      <links>
-        <link frame="120">
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="shield" filename="1060_Yes_man_00.00.02.929-00.00.16.559.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -79,11 +74,14 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="326" />
+      <duration startFrame="0" endFrame="327" />
       <text>Rows of film studio buildings reflected in the shiny gold surface of a shield with the letters WB in its center.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="120" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

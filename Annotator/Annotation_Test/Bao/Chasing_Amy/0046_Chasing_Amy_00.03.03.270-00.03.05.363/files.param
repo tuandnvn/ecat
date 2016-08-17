@@ -8,11 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">743.2258,75.48387,807.9765,560.2346</marker>
       </markers>
-      <links>
-        <link frame="32">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="news paper" filename="0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -29,4 +24,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="32" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

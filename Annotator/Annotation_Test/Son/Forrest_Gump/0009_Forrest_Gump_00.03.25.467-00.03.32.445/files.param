@@ -8,36 +8,12 @@
       <markers>
         <marker type="LOCATION" frame="0">823.1016,496.2567,154.0107,335.4011</marker>
       </markers>
-      <links>
-        <link frame="142">
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="155">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-          <linkTo id="o6" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1098.61,499.6791,130.0535,328.5562</marker>
         <marker type="LOCATION" frame="167">1120.856,480.8556,143.7433,355.9358</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="18">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="58">
-          <linkTo id="o5" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="59">
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="book" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -65,11 +41,6 @@
         <marker type="LOCATION" frame="81">1015.477,592.5628,24.1206,24.1206</marker>
         <marker type="LOCATION" frame="167">1020.704,557.1859,23.31658,20.90452</marker>
       </markers>
-      <links>
-        <link frame="167">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -81,4 +52,13 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="18" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="58" arguments="2" ids="o2,o5" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="59" arguments="2" ids="o2,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="142" arguments="2" ids="o1,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="155" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="167" arguments="2" ids="o7,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

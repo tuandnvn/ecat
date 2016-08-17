@@ -12,11 +12,6 @@
         <marker type="LOCATION" frame="528">9.973882,213.6269,379.7575,734.9105</marker>
         <marker type="LOCATION" frame="598">9.973882,213.6269,193.4888,734.9105</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.03.44.974-00.04.06.250" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man" filename="0009_Forrest_Gump_00.04.06.764-00.04.31.733.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -26,15 +21,6 @@
         <marker type="LOCATION" frame="532">890.9105,175.5672,527.597,770.1045</marker>
         <marker type="LOCATION" frame="598">805.097,185.2164,527.597,770.1045</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o7" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0009_Forrest_Gump_00.03.44.974-00.04.06.250" id="o2" q="True" type="IDENTITY" />
-        </link>
-        <link frame="279">
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="book" filename="0009_Forrest_Gump_00.04.06.764-00.04.31.733.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -44,11 +30,6 @@
         <marker type="LOCATION" frame="528">10.93464,469.9702,224.0504,171.9406</marker>
         <marker type="DELETE" frame="598" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.03.44.974-00.04.06.250" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="chocolate box" filename="0009_Forrest_Gump_00.04.06.764-00.04.31.733.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -57,11 +38,6 @@
         <marker type="LOCATION" frame="492">1085.104,701.73,293.2844,69.13564</marker>
         <marker type="LOCATION" frame="598">965.2385,879.5814,370.1645,69.13573</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.03.44.974-00.04.06.250" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="man's hand" filename="0009_Forrest_Gump_00.04.06.764-00.04.31.733.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -70,11 +46,6 @@
         <marker type="LOCATION" frame="492">1104.823,683.0487,90.16153,36.23486</marker>
         <marker type="LOCATION" frame="598">995.1581,821.5244,136.7822,55.37118</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.03.44.974-00.04.06.250" id="o6" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="woman's shoes" filename="0009_Forrest_Gump_00.04.06.764-00.04.31.733.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -82,11 +53,6 @@
         <marker type="LOCATION" frame="147">655.5223,864.7162,103.8807,75.22405</marker>
         <marker type="DELETE" frame="262" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.03.44.974-00.04.06.250" id="o7" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o7" name="man's shoes" filename="0009_Forrest_Gump_00.04.06.764-00.04.31.733.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -94,11 +60,6 @@
         <marker type="LOCATION" frame="262">1248,891.2239,213.4925,60.17919</marker>
         <marker type="DELETE" frame="329" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -110,4 +71,14 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o7" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o7,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="279" arguments="2" ids="o2,o6" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

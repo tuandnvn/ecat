@@ -13,15 +13,6 @@
         <marker type="LOCATION" frame="385">1112.894,308.7289,270.5055,557.1823</marker>
         <marker type="LOCATION" frame="445">1112.894,274.9158,320.4901,608.6371</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o1" q="True" type="IDENTITY" />
-        </link>
-        <link frame="163">
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="women" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -32,12 +23,6 @@
         <marker type="LOCATION" frame="385">680.6738,313.1393,249.9234,564.533</marker>
         <marker type="LOCATION" frame="445">680.6738,313.1393,267.5651,593.9357</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="choco box" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -48,11 +33,6 @@
         <marker type="LOCATION" frame="385">1195.222,575.559,148.4839,28.66769</marker>
         <marker type="LOCATION" frame="445">1220.949,573.7213,148.4839,28.66769</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="book" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -63,11 +43,6 @@
         <marker type="LOCATION" frame="292">745.3599,451.3323,124.9617,74.97703</marker>
         <marker type="LOCATION" frame="510">719.6324,440.3063,124.9617,74.97703</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.03.32.445-00.03.34.862" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="men's hand" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -84,20 +59,6 @@
         <marker type="LOCATION" frame="408">1175.467,547.2588,65.97243,55.13017</marker>
         <marker type="LOCATION" frame="445">1207.81,553.1393,65.97243,55.13017</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-        <link frame="223">
-          <linkTo id="o6" q="True" type="POINT_AT" />
-        </link>
-        <link frame="330">
-          <linkTo id="o6" q="False" type="POINT_AT" />
-        </link>
-        <link frame="385">
-          <linkTo id="o6" q="True" type="POINT_AT" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="women's shoes" filename="0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -108,11 +69,6 @@
         <marker type="LOCATION" frame="385">741.6845,818.8668,74.97703,52.92496</marker>
         <marker type="LOCATION" frame="510">704.196,818.8668,112.4655,76.44717</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -124,4 +80,16 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="163" arguments="2" ids="o1,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="223" arguments="2" ids="o5,o6" q="True" type="POINT_AT(X,Y)" />
+    <predicate frame="330" arguments="2" ids="o5,o6" q="False" type="POINT_AT(X,Y)" />
+    <predicate frame="385" arguments="2" ids="o5,o6" q="True" type="POINT_AT(X,Y)" />
+  </predicates>
 </session>

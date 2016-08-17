@@ -9,14 +9,6 @@
         <marker type="LOCATION" frame="0">364.1379,27.58604,1310.343,885.517</marker>
         <marker type="LOCATION" frame="9">573.7931,27.58594,1100.687,885.517</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="46">
-          <linkTo id="o3" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="fan" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -24,6 +16,7 @@
         <marker type="LOCATION" frame="9">0,19.31031,433.1034,1056.552</marker>
         <marker type="LOCATION" frame="29">0,273.1034,215.1724,802.7578</marker>
         <marker type="LOCATION" frame="34">0,416.5517,74.48275,659.3089</marker>
+        <marker type="DELETE" frame="46" />
       </markers>
     </object>
     <object id="o3" name="book" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
@@ -37,11 +30,15 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
+      <duration startFrame="0" endFrame="48" />
       <text>Holden accepts a comic from another Fan.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="46" arguments="2" ids="o1,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

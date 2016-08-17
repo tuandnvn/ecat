@@ -11,23 +11,11 @@
         <marker type="LOCATION" frame="86">144.9057,154.0493,663.2222,766.3282</marker>
         <marker type="LOCATION" frame="87">376.1974,154.0493,1532.657,766.3282</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="city" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">-2.786626,145.6894,1914.427,792.8011</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-          <linkTo otherSession="1043_Vantage_Point_00.00.32.105-00.00.34.990" id="o4" q="True" type="IDENTITY" />
-        </link>
-        <link frame="4" />
-      </links>
     </object>
     <object id="o4" name="motorcade" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -36,12 +24,6 @@
         <marker type="LOCATION" frame="87">859.6805,166.5893,996.2266,763.5414</marker>
         <marker type="LOCATION" frame="113">672.2787,191.6691,877.0972,724.5284</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-        <link frame="4" />
-      </links>
     </object>
     <object id="o5" name="motorcycles" filename="1043_Vantage_Point_00.00.50.109-00.00.54.863.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -62,4 +44,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

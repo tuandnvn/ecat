@@ -9,37 +9,18 @@
         <marker type="LOCATION" frame="0">180.5758,55.27831,965.5278,1017.121</marker>
         <marker type="DELETE" frame="44" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="PART_OF" />
-          <linkTo otherSession="0017_Pianist_00.02.28.213-00.02.32.276" id="o6" q="True" type="IDENTITY" />
-        </link>
-        <link frame="12">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="chair" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">40.53743,504.8752,128.9827,582.2649</marker>
         <marker type="DELETE" frame="44" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0017_Pianist_00.02.28.213-00.02.32.276" id="o7" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="radio" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">431.1708,143.7236,784.952,913.9348</marker>
         <marker type="DELETE" frame="44" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0017_Pianist_00.02.28.213-00.02.32.276" id="o8" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="men's hand" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -47,11 +28,6 @@
         <marker type="LOCATION" frame="35">995.0096,490.1344,195.3167,398.0038</marker>
         <marker type="DELETE" frame="44" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0017_Pianist_00.02.28.213-00.02.32.276" id="o10" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="women 1" filename="0017_Pianist_00.02.32.435-00.02.34.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -75,4 +51,11 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o10" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="12" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

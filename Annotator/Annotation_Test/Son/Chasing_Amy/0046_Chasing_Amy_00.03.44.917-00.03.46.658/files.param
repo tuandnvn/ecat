@@ -8,11 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">44.13792,24.82758,1354.483,1042.759</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="hand 1" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -20,21 +15,11 @@
         <marker type="LOCATION" frame="29">606.8965,904.8275,400,151.724</marker>
         <marker type="LOCATION" frame="38">508.9655,903.4483,400,151.724</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="hand 2" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1084.138,899.3103,289.6552,160</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="book" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -53,11 +38,16 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
+      <duration startFrame="0" endFrame="48" />
       <text>BANKY signs the book of another COLLECTOR.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

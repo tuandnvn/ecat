@@ -14,11 +14,6 @@
         <marker type="LOCATION" frame="212">336.5517,135.1724,1577.931,799.9999</marker>
         <marker type="DELETE" frame="213" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man's hand" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -30,11 +25,6 @@
         <marker type="LOCATION" frame="212">77.24137,562.7586,824.8275,377.9278</marker>
         <marker type="DELETE" frame="213" />
       </markers>
-      <links>
-        <link frame="9">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="men" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -51,4 +41,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="9" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

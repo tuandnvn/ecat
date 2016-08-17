@@ -10,14 +10,6 @@
         <marker type="LOCATION" frame="16">1770,722.4503,138.5623,217.5079</marker>
         <marker type="LOCATION" frame="61">1054.712,176.7958,627.644,767.4974</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="12">
-          <linkTo id="o3" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="Wife's Ken" filename="1028_No_Reservations_00.04.51.844-00.04.54.422.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -45,4 +37,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="12" arguments="2" ids="o1,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

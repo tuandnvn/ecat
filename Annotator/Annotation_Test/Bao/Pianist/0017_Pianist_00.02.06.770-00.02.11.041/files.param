@@ -11,11 +11,6 @@
         <marker type="DELETE" frame="24" />
         <marker type="LOCATION" frame="80">205.5132,78.29913,867.0967,1002.229</marker>
       </markers>
-      <links>
-        <link frame="88">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="book" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -54,11 +49,6 @@
         <marker type="LOCATION" frame="79">1069.795,921.4662,118.2405,109.7947</marker>
         <marker type="DELETE" frame="80" />
       </markers>
-      <links>
-        <link frame="24">
-          <linkTo id="o4" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="bleed" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -84,4 +74,5 @@
       <link />
     </annotation>
   </annotations>
+  <predicates />
 </session>

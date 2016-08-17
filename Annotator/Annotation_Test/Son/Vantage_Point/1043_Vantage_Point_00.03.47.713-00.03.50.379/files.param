@@ -3,28 +3,26 @@
   <files>
     <file>1043_Vantage_Point_00.03.47.713-00.03.50.379.avi</file>
   </files>
-  <objects no="2">
+  <objects no="4">
     <object id="o1" name="camera" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="38">752.2543,142.0231,683.5838,627.3989</marker>
         <marker type="LOCATION" frame="48">680.4624,149.8265,683.5838,627.3989</marker>
         <marker type="LOCATION" frame="53">605.5491,132.6589,722.6011,730.4047</marker>
       </markers>
-      <links>
-        <link frame="38">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="38">568.0925,156.0694,1354.682,783.4682</marker>
       </markers>
-      <links>
-        <link frame="63">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
+    </object>
+    <object id="o3" name="car police" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1070.636,485.3757,557.1676,375.3468</marker>
+        <marker type="LOCATION" frame="20">937.259,240.6741,515.2129,353.5161</marker>
+        <marker type="LOCATION" frame="37">937.259,240.6741,515.2129,353.5161</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
     </object>
   </objects>
   <annotations>
@@ -36,4 +34,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="38" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="63" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

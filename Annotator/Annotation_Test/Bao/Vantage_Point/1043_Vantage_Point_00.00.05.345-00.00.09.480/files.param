@@ -18,11 +18,6 @@
         <marker type="LOCATION" frame="29">832.61,366.8622,74.6041,166.0997</marker>
         <marker type="LOCATION" frame="43">846.6862,276.7742,74.6041,166.0997</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="woman" filename="1043_Vantage_Point_00.00.05.345-00.00.09.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -43,4 +38,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

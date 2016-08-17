@@ -11,12 +11,6 @@
         <marker type="LOCATION" frame="49">188.2761,262.0689,774.4825,794.4818</marker>
         <marker type="LOCATION" frame="110">98.27602,217.931,801.0342,838.6197</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0017_Pianist_00.02.06.770-00.02.11.041" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="men" filename="0017_Pianist_00.02.11.041-00.02.15.635.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -25,12 +19,6 @@
         <marker type="LOCATION" frame="49">1175.172,13.10398,739.3103,1033.102</marker>
         <marker type="LOCATION" frame="110">1114.483,13.10392,799.9996,1033.102</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0017_Pianist_00.02.06.770-00.02.11.041" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -42,4 +30,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

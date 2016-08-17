@@ -23,11 +23,6 @@
         <marker type="DELETE" frame="20" />
         <marker type="LOCATION" frame="47">408.2762,598.6207,686.8962,449.6543</marker>
       </markers>
-      <links>
-        <link frame="11">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="hand 2" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -38,20 +33,19 @@
         <marker type="DELETE" frame="24" />
         <marker type="LOCATION" frame="47">1467.586,477.2413,455.1717,573.7916</marker>
       </markers>
-      <links>
-        <link frame="12">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
+      <duration startFrame="0" endFrame="48" />
       <text>Across from the barely-managing- to- stand Fan.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="11" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="12" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

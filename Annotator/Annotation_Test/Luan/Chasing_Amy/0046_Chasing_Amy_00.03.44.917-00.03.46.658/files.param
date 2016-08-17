@@ -8,19 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">91.03448,22.06896,1291.034,1037.241</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="25">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-          <linkTo id="o4" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="36">
-          <linkTo id="o3" q="False" type="LOOK_AT" />
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="Men's hand" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -35,11 +22,6 @@
         <marker type="LOCATION" frame="42">576.5517,910.3448,295.1724,143.4472</marker>
         <marker type="LOCATION" frame="44">576.5517,932.4137,295.1724,121.3776</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="Pen" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -80,4 +62,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="25" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="36" arguments="2" ids="o1,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

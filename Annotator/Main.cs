@@ -21,9 +21,7 @@ namespace Annotator
     {
         Size previousSize;
 
-        //Project workspace 
-        private Workspace workspace = null;
-        private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
+        
         private bool newProject = false;//true if new project is creating
         private bool newSession = false;//true if new session is creating     
         internal Project currentProject = null; //currently selected project
@@ -138,6 +136,7 @@ namespace Annotator
 
         private void Main_Load(object sender, EventArgs e)
         {
+            recentWorkspaceLocations = new SortedSet<string>();
             //Parameters hidden file open:
             loadParameters();
 
@@ -431,17 +430,12 @@ namespace Annotator
             annotateTableLayoutPanel.Cursor = Cursors.Default;
         }
 
-        private void switchWorkspaceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
-            workspaceLauncher.Show();
-        }
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InfoForm iff = new InfoForm();
             iff.StartPosition = FormStartPosition.CenterParent;
             iff.ShowDialog();
         }
+
     }
 }

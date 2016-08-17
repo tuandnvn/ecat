@@ -36,12 +36,6 @@
         <marker type="LOCATION" frame="45">1319.302,132.3124,379.0014,820.778</marker>
         <marker type="LOCATION" frame="47">1289.311,132.3124,363.1241,821.072</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o7" q="True" type="PART_OF" />
-          <linkTo otherSession="0009_Forrest_Gump_00.04.49.868-00.04.56.748" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="right leg" filename="0009_Forrest_Gump_00.05.00.328-00.05.01.873.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -54,12 +48,6 @@
         <marker type="LOCATION" frame="45">1005.574,132.3124,335.1914,746.83</marker>
         <marker type="LOCATION" frame="47">1126.126,135.2527,246.9832,764.4717</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o7" q="True" type="PART_OF" />
-          <linkTo otherSession="0009_Forrest_Gump_00.04.49.868-00.04.56.748" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -71,4 +59,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o7" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o7" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

@@ -9,11 +9,6 @@
         <marker type="LOCATION" frame="0">1011.553,592.9463,504.3839,342.7576</marker>
         <marker type="DELETE" frame="2" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="flash light" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -26,11 +21,6 @@
         <marker type="LOCATION" frame="2">195.0653,161.016,730.1022,771.9013</marker>
         <marker type="DELETE" frame="17" />
       </markers>
-      <links>
-        <link frame="2">
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="camera" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -65,4 +55,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="2" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

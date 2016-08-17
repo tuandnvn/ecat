@@ -142,14 +142,14 @@ namespace Annotator
 
                 if (objectMarks[prevMarker].GetType() == typeof(RectangleLocationMark))
                 {
-                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[nextMarker]).boundingBox);
+                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[prevMarker]).boundingBox);
 
                     objectMarks[frameNumber] = ob;
                 }
 
                 if (objectMarks[prevMarker].GetType() == typeof(PolygonLocationMark2D))
                 {
-                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[nextMarker]).boundingPolygon);
+                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[prevMarker]).boundingPolygon);
 
                     objectMarks[frameNumber] = ob;
                 }
@@ -185,7 +185,7 @@ namespace Annotator
             return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
-        public void addLink(int frameNumber, bool qualified, Predicate linkType)
+        internal void addLink(int frameNumber, bool qualified, Predicate linkType)
         {
             if (!linkMarks.ContainsKey(frameNumber))
             {
@@ -195,7 +195,7 @@ namespace Annotator
             linkMarks[frameNumber].addLinkToObject(qualified, linkType);
         }
 
-        public void addLink(int frameNumber, Object otherObject, bool qualified, Predicate linkType)
+        internal void addLink(int frameNumber, Object otherObject, bool qualified, Predicate linkType)
         {
             if (!linkMarks.ContainsKey(frameNumber))
             {
@@ -205,7 +205,7 @@ namespace Annotator
             linkMarks[frameNumber].addLinkToObject(otherObject, qualified, linkType);
         }
 
-        public LinkMark getLink(int frameNumber)
+        internal LinkMark getLink(int frameNumber)
         {
             if (!linkMarks.ContainsKey(frameNumber))
             {
@@ -356,7 +356,7 @@ namespace Annotator
             writeLocationMark(xmlWriter);
             if (objectType == ObjectType._3D)
                 write3DLocationMark(xmlWriter);
-            writeLinks(xmlWriter);
+            //writeLinks(xmlWriter);
 
             xmlWriter.WriteEndElement();
         }

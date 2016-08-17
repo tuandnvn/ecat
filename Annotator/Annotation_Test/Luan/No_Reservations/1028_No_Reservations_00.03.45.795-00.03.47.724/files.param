@@ -13,12 +13,6 @@
         <marker type="LOCATION" frame="39">300.6896,148.9655,435.862,786.2068</marker>
         <marker type="LOCATION" frame="47">267.5862,148.9655,468.9653,786.2068</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-          <linkTo otherSession="1028_No_Reservations_00.03.37.256-00.03.43.316" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="middle-aged couple" filename="1028_No_Reservations_00.03.45.795-00.03.47.724.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -29,12 +23,6 @@
         <marker type="LOCATION" frame="39">979.3103,179.3103,902.0676,759.9999</marker>
         <marker type="LOCATION" frame="47">1006.896,179.3103,893.793,759.9999</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-          <linkTo otherSession="1028_No_Reservations_00.03.37.256-00.03.43.316" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -46,4 +34,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

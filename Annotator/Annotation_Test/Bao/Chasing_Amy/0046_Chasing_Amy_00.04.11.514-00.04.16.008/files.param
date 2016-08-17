@@ -6,36 +6,20 @@
   <objects no="3">
     <object id="o1" name="boy" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">909.3255,103.6364,889.6188,889.6188</marker>
+        <marker type="LOCATION" frame="0">1028.66,37.11339,853.0569,1023.779</marker>
+        <marker type="LOCATION" frame="25">1084.33,37.1134,797.3868,1023.779</marker>
+        <marker type="LOCATION" frame="107">984.1237,37.1134,897.593,1023.779</marker>
       </markers>
     </object>
     <object id="o2" name="man" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">105.5719,95.19062,581.3489,909.3255</marker>
+        <marker type="LOCATION" frame="0">10.56268,163.2755,817.6848,909.3254</marker>
+        <marker type="LOCATION" frame="25">311.2783,142.6211,786.0414,909.3254</marker>
         <marker type="LOCATION" frame="33">407.5073,136.0117,581.3489,909.3255</marker>
+        <marker type="LOCATION" frame="49">407.5073,136.0117,712.0804,909.3256</marker>
+        <marker type="LOCATION" frame="70">93.40204,136.0117,989.0722,909.3256</marker>
+        <marker type="LOCATION" frame="107">227.0103,136.0117,855.464,909.3256</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="33">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="88">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
-    </object>
-    <object id="o3" name="man's hand" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
-      <markers>
-        <marker type="LOCATION" frame="17">1686.334,652.61,222.4047,208.3284</marker>
-        <marker type="LOCATION" frame="49">1518.827,638.5337,222.4047,208.3284</marker>
-      </markers>
-      <links>
-        <link frame="17">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -47,4 +31,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="33" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="88" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

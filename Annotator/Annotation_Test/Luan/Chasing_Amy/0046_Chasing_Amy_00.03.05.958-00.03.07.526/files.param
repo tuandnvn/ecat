@@ -9,21 +9,6 @@
         <marker type="LOCATION" frame="0">209.6551,-2.758652,1566.896,1064.827</marker>
         <marker type="DELETE" frame="34" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0046_Chasing_Amy_00.03.04.140-00.03.07.728" id="o3" q="True" type="IDENTITY" />
-        </link>
-        <link frame="8">
-          <linkTo id="o2" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="13">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="20">
-          <linkTo id="o2" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="Men" filename="0046_Chasing_Amy_00.03.05.958-00.03.07.526.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -42,4 +27,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="8" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="13" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="20" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

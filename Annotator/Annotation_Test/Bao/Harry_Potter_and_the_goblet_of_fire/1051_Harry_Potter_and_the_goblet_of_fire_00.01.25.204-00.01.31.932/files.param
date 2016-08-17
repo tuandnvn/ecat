@@ -25,21 +25,11 @@
         <marker type="LOCATION" frame="67">1100.762,447.0968,135.132,399.7654</marker>
         <marker type="DELETE" frame="122" />
       </markers>
-      <links>
-        <link frame="67">
-          <linkTo id="o4" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="man" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.25.204-00.01.31.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="154">968.4457,238.7683,377.2434,653.1378</marker>
       </markers>
-      <links>
-        <link frame="154">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -51,4 +41,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="67" arguments="2" ids="o5,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="154" arguments="2" ids="o6,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

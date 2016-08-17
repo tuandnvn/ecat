@@ -8,48 +8,24 @@
       <markers>
         <marker type="LOCATION" frame="0">225.2199,75.48387,664.3988,999.4135</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0051_Men_in_black_00.03.51.887-00.03.52.700" id="o1" q="True" type="IDENTITY" />
-        </link>
-        <link frame="42">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1193.666,252.8446,467.3314,633.4311</marker>
         <marker type="LOCATION" frame="34">1021.935,257.0674,467.3314,633.4311</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.03.51.887-00.03.52.700" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="police man's hand" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">563.0499,587.8593,123.871,87.27273</marker>
         <marker type="LOCATION" frame="34">508.1525,473.8416,59.12023,53.48973</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.03.51.887-00.03.52.700" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="flashlight" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">520.8211,489.3255,256.1877,137.9472</marker>
         <marker type="LOCATION" frame="34">481.4077,511.8475,90.0878,45.04399</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.03.51.887-00.03.52.700" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -61,4 +37,11 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="42" arguments="2" ids="o1,o1" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

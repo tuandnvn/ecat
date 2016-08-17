@@ -29,11 +29,6 @@
         <marker type="LOCATION" frame="53">1239.191,134.2197,1137.746,692.948,1615.318,135.7803</marker>
         <marker type="LOCATION" frame="65">1220.462,140.4624,1119.017,752.2543,1655.896,129.5376</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -45,4 +40,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

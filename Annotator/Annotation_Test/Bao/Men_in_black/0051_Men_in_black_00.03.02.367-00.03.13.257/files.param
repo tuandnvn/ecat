@@ -31,11 +31,6 @@
         <marker type="LOCATION" frame="140">450.4399,100.8211,515.1906,898.0645</marker>
         <marker type="DELETE" frame="206" />
       </markers>
-      <links>
-        <link frame="140">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -47,4 +42,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="140" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

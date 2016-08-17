@@ -9,11 +9,6 @@
         <marker type="LOCATION" frame="0">467.1428,47.99998,529.7143,1008</marker>
         <marker type="LOCATION" frame="34">249.4285,102.8571,706.2857,953.1429</marker>
       </markers>
-      <links>
-        <link frame="52">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="w2" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -39,12 +34,6 @@
         <marker type="LOCATION" frame="0">460.2857,541.7143,488.5714,435.4286</marker>
         <marker type="LOCATION" frame="4">325.7143,492,488.5714,435.4286</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-        <link frame="55" />
-      </links>
     </object>
     <object id="o5" name="clothes2" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -54,11 +43,6 @@
         <marker type="LOCATION" frame="36">1701.429,912,216.8567,136.2855</marker>
         <marker type="DELETE" frame="38" />
       </markers>
-      <links>
-        <link frame="16">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -70,4 +54,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="16" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="52" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

@@ -17,11 +17,6 @@
         <marker type="LOCATION" frame="72">148.9655,104.8276,278.6207,742.0687</marker>
         <marker type="LOCATION" frame="85">216.5518,86.89668,278.6205,657.9308</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="packet" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -37,16 +32,6 @@
         <marker type="LOCATION" frame="81">1011.494,198.6207,238.1613,319.7874</marker>
         <marker type="LOCATION" frame="85">1020.905,306.2069,270.129,286.8959</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528" id="o2" q="True" type="IDENTITY" />
-        </link>
-        <link frame="2">
-          <linkTo id="o1" q="False" type="PART_OF" />
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="women" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -59,11 +44,6 @@
         <marker type="LOCATION" frame="72">510.3448,146.2069,1086.896,797.2413</marker>
         <marker type="LOCATION" frame="85">455.1724,146.2069,1028.965,797.2413</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -75,4 +55,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="2" arguments="2" ids="o2,o1" q="False" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

@@ -7,10 +7,6 @@
     <object id="o4" name="bone1" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="30">1286.719,124.4531,381.7969,812.1094</marker>
-        <marker type="LOCATION" frame="45">1286.719,124.4531,396.5625,812.1094</marker>
-        <marker type="LOCATION" frame="158">1286.719,124.4531,383.9063,812.1094</marker>
-        <marker type="LOCATION" frame="172">1286.719,124.4531,354.375,812.1094</marker>
-        <marker type="LOCATION" frame="199">1250.859,129.7266,343.8281,812.1094</marker>
         <marker type="LOCATION" frame="212">1219.219,129.7266,343.8281,812.1094</marker>
       </markers>
     </object>
@@ -21,17 +17,10 @@
         <marker type="LOCATION" frame="172">759.375,132.8906,381.7969,810</marker>
         <marker type="LOCATION" frame="199">759.375,132.8906,362.8125,810</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.05.802-00.00.14.617" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="bone2" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="30">346.9922,135,343.8281,805.7813</marker>
-        <marker type="LOCATION" frame="48">346.9922,135,321.6797,805.7813</marker>
-        <marker type="LOCATION" frame="53">326.9531,135,341.7188,805.7813</marker>
         <marker type="LOCATION" frame="150">244.6875,135,423.9844,805.7813</marker>
         <marker type="LOCATION" frame="192">280.5469,135,388.125,805.7813</marker>
         <marker type="LOCATION" frame="212">343.8281,135,331.1719,805.7813</marker>
@@ -41,7 +30,6 @@
       <markers>
         <marker type="LOCATION" frame="11">1168.594,127.6172,48.51563,816.3281</marker>
         <marker type="LOCATION" frame="23">1168.594,127.6172,88.59375,816.3281</marker>
-        <marker type="LOCATION" frame="35">1189.688,127.6172,88.59375,816.3281</marker>
         <marker type="LOCATION" frame="172">1158.047,136.0547,97.03125,816.3281</marker>
         <marker type="LOCATION" frame="199">1136.953,131.8359,97.03125,816.3281</marker>
         <marker type="LOCATION" frame="212">1130.625,129.7266,78.04688,816.3281</marker>
@@ -50,8 +38,6 @@
     <object id="o7" name="iron railing2" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="11">731.9531,132.8906,46.40625,805.7813</marker>
-        <marker type="LOCATION" frame="23">712.9688,132.8906,65.39063,805.7813</marker>
-        <marker type="LOCATION" frame="35">695.0391,132.8906,65.39063,805.7813</marker>
         <marker type="LOCATION" frame="48">675.5273,135,79.10156,805.7813</marker>
         <marker type="LOCATION" frame="212">685.5469,135,69.08203,805.7813</marker>
       </markers>
@@ -78,4 +64,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

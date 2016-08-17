@@ -10,34 +10,12 @@
         <marker type="LOCATION" frame="98">1112.894,496.9066,135.2527,332.2512</marker>
         <marker type="LOCATION" frame="142">1112.894,467.5038,135.2527,361.6539</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="12">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="60">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="women" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">837.9786,513.0781,132.3124,319.0199</marker>
         <marker type="LOCATION" frame="142">837.9786,489.5559,132.3124,342.5421</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="145">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="151">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="choco box" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -66,4 +44,12 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="12" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="60" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="145" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="151" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

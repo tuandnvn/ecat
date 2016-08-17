@@ -22,6 +22,10 @@ namespace Annotator
         private const string OBJECTS = "objects";
         private const string ANNOTATIONS = "annotations";
         private const string SESSION = "session";
+        internal const string PREDICATES = "predicates";
+        internal const string PREDICATE = "predicate";
+        internal const string ARGUMENTS = "arguments";
+        internal const string IDS = "ids";
 
         public List<Event> events { get; private set; }
         public int objectCount { get; set; } = 0;          // video objects IDs
@@ -33,6 +37,7 @@ namespace Annotator
         private List<VideoReader> videoReaders;
         private List<BaseDepthReader> depthReaders;
         internal SortedSet<String> filesList;
+        private SortedSet<PredicateMark> predicates;
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
         private int annotationID;      // annotation ID
@@ -77,7 +82,7 @@ namespace Annotator
             commonPrefix = locationFolder + Path.DirectorySeparatorChar + project.name + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
             metadataFile = commonPrefix + "files.param";
             tempMetadataFile = commonPrefix + "~files.param";
-
+            predicates = new SortedSet<PredicateMark>( new PredicateMarkComparer());
             resetVariables();
         }
 
@@ -231,6 +236,16 @@ namespace Annotator
                         writer.WriteEndElement();
                     }
 
+                    // Write predicate instead of writing links
+                    {
+                        writer.WriteStartElement(PREDICATES);
+                        foreach (var predicate in predicates)
+                        {
+                            predicate.writeToXml(writer);
+                        }
+                        writer.WriteEndElement();
+                    }
+
                     writer.WriteEndElement();
 
                     writer.WriteEndDocument();
@@ -363,6 +378,16 @@ namespace Annotator
                 XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
                 objectCount = int.Parse(objectsNode.Attributes["no"].Value);
                 Object.readObjectsFromXml(this, objectsNode);
+
+                // Load predicates
+                foreach (var o in objects.Values)
+                {
+                    foreach (var linkMark in o.linkMarks.Values)
+                    {
+                        foreach (var predicateMark in linkMark.predicateMarks)
+                            predicates.Add(predicateMark);
+                    }
+                }
 
                 XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
                 events = Event.readFromXml(this, annotationsNode);

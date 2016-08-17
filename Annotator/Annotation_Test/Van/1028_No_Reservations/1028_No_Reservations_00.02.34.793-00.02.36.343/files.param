@@ -15,12 +15,6 @@
         <marker type="LOCATION" frame="0">300.3806,190.7822,819.9562,750.9501</marker>
         <marker type="DELETE" frame="46" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="PART_OF" />
-          <linkTo id="o6" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="right eyebrows" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -39,4 +33,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

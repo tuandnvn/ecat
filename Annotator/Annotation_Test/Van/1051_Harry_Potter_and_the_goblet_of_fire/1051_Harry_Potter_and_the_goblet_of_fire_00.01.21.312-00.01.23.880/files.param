@@ -9,14 +9,6 @@
         <marker type="LOCATION" frame="0">120.3141,407.1204,661.5709,523.0372</marker>
         <marker type="LOCATION" frame="61">152.0235,387.9765,650.3226,542.181</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.01.17.518-00.01.21.312" id="o3" q="True" type="IDENTITY" />
-        </link>
-        <link frame="9">
-          <linkTo id="o4" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="light" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -34,4 +26,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="9" arguments="2" ids="o2,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

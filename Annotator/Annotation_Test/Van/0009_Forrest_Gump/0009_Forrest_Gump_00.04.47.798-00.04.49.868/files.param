@@ -9,22 +9,12 @@
         <marker type="LOCATION" frame="0">377.931,124.1379,1062.069,822.0688</marker>
         <marker type="LOCATION" frame="34">496.5517,124.1379,753.1027,822.0688</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.04.46.044-00.04.47.798" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="doctor" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1572.414,317.2414,350.3448,634.4827</marker>
         <marker type="LOCATION" frame="34">1393.103,126.8965,529.6543,824.827</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.04.46.044-00.04.47.798" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -36,4 +26,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

@@ -11,14 +11,6 @@
         <marker type="LOCATION" frame="28">2.81526,165.5719,709.4428,774.1935</marker>
         <marker type="LOCATION" frame="45">213.959,178.2405,709.4428,774.1935</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="32">
-          <linkTo id="o2" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="train" filename="0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -35,4 +27,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="32" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

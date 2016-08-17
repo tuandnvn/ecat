@@ -12,12 +12,6 @@
         <marker type="LOCATION" frame="61">1238.325,664.3979,243.1427,275.6559</marker>
         <marker type="DELETE" frame="77" />
       </markers>
-      <links>
-        <link frame="176">
-          <linkTo id="o1" q="True" type="PART_OF" />
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="statue" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -46,17 +40,6 @@
         <marker type="LOCATION" frame="109">5.65444,132.8796,83.05985,129.4061</marker>
         <marker type="DELETE" frame="111" />
       </markers>
-      <links>
-        <link frame="19">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-        <link frame="111">
-          <linkTo id="o3" q="False" type="PART_OF" />
-        </link>
-        <link frame="176">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="wings" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -68,17 +51,6 @@
         <marker type="LOCATION" frame="129">87.64397,142.7143,1821.642,761.7856</marker>
         <marker type="LOCATION" frame="176">22.60775,151.3929,1821.642,761.7857</marker>
       </markers>
-      <links>
-        <link frame="61">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-        <link frame="119">
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-        <link frame="176">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="skeleton" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -89,14 +61,6 @@
         <marker type="LOCATION" frame="167">777.4869,627.644,197.9058,294.0327</marker>
         <marker type="LOCATION" frame="175">805.7592,653.0883,197.9058,294.0328</marker>
       </markers>
-      <links>
-        <link frame="57">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-        <link frame="176">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -108,4 +72,15 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="19" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="57" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="61" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="111" arguments="2" ids="o3,o3" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="119" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o1,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

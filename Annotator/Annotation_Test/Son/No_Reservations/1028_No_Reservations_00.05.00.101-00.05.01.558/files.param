@@ -3,20 +3,13 @@
   <files>
     <file>1028_No_Reservations_00.05.00.101-00.05.01.558.avi</file>
   </files>
-  <objects no="3">
+  <objects no="4">
     <object id="o1" name="wm1" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="5">307.7352,332.6133,205.7143,403.0662</marker>
         <marker type="LOCATION" frame="31">375.4704,291.6376,205.7143,557.77</marker>
+        <marker type="LOCATION" frame="47">399.7752,291.6368,210.3365,634.6547</marker>
       </markers>
-      <links>
-        <link frame="16">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="32">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="wm2" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -31,24 +24,28 @@
         <marker type="LOCATION" frame="5">1170.732,275.7491,160.5575,319.4425</marker>
         <marker type="LOCATION" frame="29">1163.656,263.9775,178.0542,478.4561</marker>
         <marker type="LOCATION" frame="44">1286.132,253.1707,188.9895,577.8397</marker>
+        <marker type="LOCATION" frame="47">1286.132,253.1705,260.3849,577.8391</marker>
       </markers>
-      <links>
-        <link frame="23">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="39">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-        </link>
-      </links>
+    </object>
+    <object id="o4" name="kitchen" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.348287,131.4607,1913.258,806.9663</marker>
+      </markers>
     </object>
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
+      <duration startFrame="0" endFrame="48" />
       <text>In the kitchen.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="16" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="23" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="32" arguments="2" ids="o1,o3" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="39" arguments="2" ids="o3,o1" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

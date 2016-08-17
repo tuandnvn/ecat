@@ -23,17 +23,6 @@
         <marker type="LOCATION" frame="354">304.7143,466.5089,599.7857,490.4738</marker>
         <marker type="LOCATION" frame="384">677.3965,466.5089,635.858,490.4738</marker>
       </markers>
-      <links>
-        <link frame="261">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-          <linkTo id="o7" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="316">
-          <linkTo id="o5" q="False" type="LOOK_AT" />
-          <linkTo id="o7" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="386" />
-      </links>
     </object>
     <object id="o9" name="grass" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -48,11 +37,6 @@
         <marker type="LOCATION" frame="329">257.219,199.357,418.5799,246.7298</marker>
         <marker type="LOCATION" frame="380">52.7219,201.3018,570.355,292.714</marker>
       </markers>
-      <links>
-        <link frame="386">
-          <linkTo id="o9" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o7" name="gravestones" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -65,11 +49,6 @@
         <marker type="LOCATION" frame="374">1280.104,157.7663,633.861,305.5474</marker>
         <marker type="LOCATION" frame="386">1405.917,157.7663,508.0482,564.364</marker>
       </markers>
-      <links>
-        <link frame="386">
-          <linkTo id="o9" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -81,4 +60,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="261" arguments="2" ids="o8,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="316" arguments="2" ids="o8,o5" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="386" arguments="2" ids="o5,o9" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="386" arguments="2" ids="o7,o9" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

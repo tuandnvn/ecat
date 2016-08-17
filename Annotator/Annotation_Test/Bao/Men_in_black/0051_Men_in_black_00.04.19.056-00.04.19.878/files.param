@@ -11,11 +11,6 @@
         <marker type="LOCATION" frame="25">1069.795,300.7038,619.3545,737.5953</marker>
         <marker type="DELETE" frame="29" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.04.18.181-00.04.18.585" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="black man" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -25,22 +20,12 @@
         <marker type="LOCATION" frame="29">921.9941,335.8944,340.6451,441.9941</marker>
         <marker type="LOCATION" frame="39">450.4399,119.1202,1142.991,913.5483</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.04.18.181-00.04.18.585" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="car" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">40.82113,189.5015,1313.314,857.2434</marker>
         <marker type="DELETE" frame="30" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.04.18.181-00.04.18.585" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -52,4 +37,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

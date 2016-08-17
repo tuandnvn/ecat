@@ -12,11 +12,6 @@
         <marker type="LOCATION" frame="59">706.2068,413.793,435.8621,237.2414</marker>
         <marker type="LOCATION" frame="68">670.3448,413.793,562.7586,237.2414</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1043_Vantage_Point_00.00.09.813-00.00.15.480" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -28,4 +23,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

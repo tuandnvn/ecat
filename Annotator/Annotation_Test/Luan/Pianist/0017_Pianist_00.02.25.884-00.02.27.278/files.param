@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.25.884-00.02.27.278" length="0">
+  <files>
+    <file>0017_Pianist_00.02.25.884-00.02.27.278.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Men" filename="0017_Pianist_00.02.25.884-00.02.27.278.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1263.448,11.20151,654.0059,1059.143</marker>
+        <marker type="LOCATION" frame="3">786.2068,77.24137,696.6581,993.0196</marker>
+        <marker type="LOCATION" frame="5">755.1191,80.04192,696.6581,993.0195</marker>
+        <marker type="LOCATION" frame="7">684.1379,80.04191,767.6385,993.0195</marker>
+        <marker type="LOCATION" frame="9">684.1378,113.1034,767.6384,959.958</marker>
+        <marker type="LOCATION" frame="10">584.8276,113.1034,866.9477,959.958</marker>
+        <marker type="LOCATION" frame="12">571.0344,160,880.7403,913.0614</marker>
+        <marker type="LOCATION" frame="13">508.5954,155.8833,880.7401,913.061</marker>
+        <marker type="LOCATION" frame="14">508.5954,102.069,880.7401,966.875</marker>
+        <marker type="LOCATION" frame="15">508.5954,102.069,880.7401,966.875</marker>
+        <marker type="LOCATION" frame="17">508.5954,57.93103,880.7401,1011.013</marker>
+        <marker type="LOCATION" frame="19">508.5954,24.82758,880.7401,1044.116</marker>
+        <marker type="LOCATION" frame="20">833.1034,13.11432,1085.887,1044.116</marker>
+        <marker type="LOCATION" frame="23">788.9655,13.11426,1130.024,1044.116</marker>
+        <marker type="LOCATION" frame="25">717.2413,13.11419,1201.748,1044.116</marker>
+        <marker type="LOCATION" frame="27">598.6207,13.11411,1320.368,1044.116</marker>
+        <marker type="LOCATION" frame="32">598.6207,55.17241,1320.368,1002.057</marker>
+        <marker type="LOCATION" frame="33">598.6207,110.3448,1320.368,946.8843</marker>
+        <marker type="LOCATION" frame="34">598.6207,198.6207,1320.368,858.6081</marker>
+        <marker type="LOCATION" frame="35">598.6207,212.4138,1285.517,844.815</marker>
+        <marker type="LOCATION" frame="36">598.6207,237.2414,1222.069,819.9874</marker>
+        <marker type="LOCATION" frame="37">598.6207,260.6896,1211.034,796.5391</marker>
+        <marker type="LOCATION" frame="38">598.6207,284.1379,1211.034,773.0908</marker>
+        <marker type="LOCATION" frame="40">598.6207,303.4482,1042.759,753.7803</marker>
+        <marker type="LOCATION" frame="42">598.6207,342.0689,1042.759,715.1595</marker>
+        <marker type="LOCATION" frame="43">598.6207,388.9655,957.2413,668.2625</marker>
+        <marker type="LOCATION" frame="44">645.5172,424.8275,871.7241,632.4</marker>
+        <marker type="LOCATION" frame="45">645.5172,446.8965,788.9655,610.3309</marker>
+        <marker type="LOCATION" frame="46">645.5172,446.8965,750.3448,610.3309</marker>
+        <marker type="LOCATION" frame="47">645.5172,446.8965,689.6552,610.3309</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Women" filename="0017_Pianist_00.02.25.884-00.02.27.278.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">289.6551,411.0345,430.3448,667.5862</marker>
+        <marker type="DELETE" frame="3" />
+        <marker type="LOCATION" frame="22">639.9999,524.1379,126.8962,292.4138</marker>
+        <marker type="LOCATION" frame="24">639.9999,524.1379,173.7931,372.4138</marker>
+        <marker type="LOCATION" frame="25">639.9999,524.1379,173.7931,441.3793</marker>
+        <marker type="LOCATION" frame="26">616.5517,524.1379,173.7931,455.1724</marker>
+        <marker type="LOCATION" frame="28">588.9655,508.9655,219.3104,484.1379</marker>
+        <marker type="LOCATION" frame="30">588.9655,508.9655,219.3104,522.7586</marker>
+        <marker type="LOCATION" frame="31">549.6552,511.0345,219.3103,522.7586</marker>
+        <marker type="LOCATION" frame="32">519.3102,494.4827,219.3104,564.8276</marker>
+        <marker type="LOCATION" frame="33">477.931,487.2413,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="34">453.1034,484.4827,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="35">428.2758,484.4827,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="38">381.3793,454.1379,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="40">342.7586,454.1379,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="41">326.2069,451.3793,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="42">315.1724,448.6207,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="43">279.3103,426.5517,219.3103,564.8276</marker>
+        <marker type="LOCATION" frame="44">279.3103,350.3448,219.3103,695.1724</marker>
+        <marker type="LOCATION" frame="45">221.3793,336.5517,219.3103,695.1724</marker>
+        <marker type="LOCATION" frame="47">191.0345,328.2758,219.3103,695.1724</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Man2" filename="0017_Pianist_00.02.25.884-00.02.27.278.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">639.9999,165.5172,557.2414,893.793</marker>
+        <marker type="DELETE" frame="3" />
+        <marker type="LOCATION" frame="23">831.7258,526.8975,122.7569,187.5853</marker>
+        <marker type="LOCATION" frame="25">804.8284,510.3453,122.7569,187.5852</marker>
+        <marker type="LOCATION" frame="26">804.8284,510.3453,122.7569,242.7581</marker>
+        <marker type="LOCATION" frame="28">793.7939,480.0002,122.7569,242.7581</marker>
+        <marker type="LOCATION" frame="29">777.2422,463.4485,235.1716,587.5859</marker>
+        <marker type="LOCATION" frame="30">760.6904,438.6209,237.9303,606.8962</marker>
+        <marker type="LOCATION" frame="32">733.4485,441.3795,237.9303,606.8962</marker>
+        <marker type="LOCATION" frame="33">697.5864,435.8622,262.4135,606.8962</marker>
+        <marker type="LOCATION" frame="34">668.7932,433.1036,262.4135,606.8962</marker>
+        <marker type="LOCATION" frame="35">616.3795,424.8277,354.655,628.9653</marker>
+        <marker type="LOCATION" frame="38">550.9484,419.3104,354.6548,628.9653</marker>
+        <marker type="LOCATION" frame="40">527.888,411.0345,306.9826,628.9653</marker>
+        <marker type="LOCATION" frame="41">508.5776,411.0345,306.9826,628.9653</marker>
+        <marker type="LOCATION" frame="42">480.9914,405.5173,306.9826,628.9653</marker>
+        <marker type="LOCATION" frame="43">442.3708,405.5173,306.9826,628.9653</marker>
+        <marker type="LOCATION" frame="45">423.0604,413.7932,306.9826,628.9653</marker>
+        <marker type="LOCATION" frame="46">395.4742,388.9656,306.9826,628.9653</marker>
+        <marker type="LOCATION" frame="47">367.888,394.4828,306.9826,628.9653</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>And he, too, is carried with the flow into the lobby.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="3" arguments="2" ids="o2,o1" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="3" arguments="2" ids="o3,o1" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="3" arguments="2" ids="o1,o2" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="22" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="23" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="23" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="31" arguments="2" ids="o3,o1" q="False" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

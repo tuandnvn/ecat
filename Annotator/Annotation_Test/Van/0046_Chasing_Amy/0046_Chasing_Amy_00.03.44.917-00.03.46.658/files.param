@@ -16,11 +16,6 @@
       <markers>
         <marker type="LOCATION" frame="0">27.48469,23.55828,1342.822,1036.564</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="Book's fan" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -38,4 +33,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

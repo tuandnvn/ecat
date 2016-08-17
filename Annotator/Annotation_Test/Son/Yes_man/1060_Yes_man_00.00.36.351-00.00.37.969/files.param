@@ -12,11 +12,12 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
+      <duration startFrame="0" endFrame="48" />
       <text>He tenses.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates />
 </session>

@@ -37,11 +37,6 @@
       <markers>
         <marker type="LOCATION" frame="88">180.5758,55.27831,965.5278,1017.121</marker>
       </markers>
-      <links>
-        <link frame="88">
-          <linkTo id="o10" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o7" name="chair" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -68,4 +63,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="88" arguments="2" ids="o6,o10" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

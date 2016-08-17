@@ -3,7 +3,7 @@
   <files>
     <file>1043_Vantage_Point_00.04.02.786-00.04.04.575.avi</file>
   </files>
-  <objects no="4">
+  <objects no="5">
     <object id="o1" name="theconvoy" filename="1043_Vantage_Point_00.04.02.786-00.04.04.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">404,242,1186,688</marker>
@@ -19,11 +19,6 @@
         <marker type="LOCATION" frame="42">1318.201,393.8159,404.7544,538</marker>
         <marker type="DELETE" frame="43" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="mangreen" filename="1043_Vantage_Point_00.04.02.786-00.04.04.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -34,11 +29,6 @@
         <marker type="LOCATION" frame="39">1627.798,319.8268,280.13,608</marker>
         <marker type="DELETE" frame="43" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="manwhite" filename="1043_Vantage_Point_00.04.02.786-00.04.04.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -48,11 +38,11 @@
         <marker type="LOCATION" frame="26">1764.26,694.0073,143.7407,235.9934</marker>
         <marker type="DELETE" frame="31" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
+    </object>
+    <object id="o5" name="woman in red" filename="1043_Vantage_Point_00.04.02.786-00.04.04.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="43">793.1461,160.7867,968.764,775.6176</marker>
+      </markers>
     </object>
   </objects>
   <annotations>
@@ -64,4 +54,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

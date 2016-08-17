@@ -144,8 +144,6 @@ namespace Annotator
         {
             try
             {
-                
-
                 var qualified = (bool)this.qualifiedSelectComboBox.SelectedItem;
                 var predicateType = (Predicate)this.linkComboBox.SelectedItem;
 
@@ -153,13 +151,13 @@ namespace Annotator
                 {
                     if (predicateType.combination.size == 1)
                     {
-                        this.predicateLbl.Text = new PredicateMark(qualified, predicateType, new Object[] { obj }).ToString();
+                        this.predicateLbl.Text = new PredicateMark(0, qualified, predicateType, session, new Object[] { obj }).ToString();
                         this.objectSelectComboBox.Enabled = false;
                     }
                     else if (predicateType.combination.size == 2)
                     {
                         var otherObject = session.getObjects()[this.objectSelectComboBox.SelectedIndex];
-                        this.predicateLbl.Text = new PredicateMark(qualified, predicateType, new Object[] { obj, otherObject }).ToString();
+                        this.predicateLbl.Text = new PredicateMark(0, qualified, predicateType, session, new Object[] { obj, otherObject }).ToString();
                         this.objectSelectComboBox.Enabled = true;
                     }
                 }
@@ -168,7 +166,7 @@ namespace Annotator
                     var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
                     var tempoSession = project.sessions[sessionIndex];
                     var otherObject = tempoSession.getObjects()[this.objectSelectComboBox.SelectedIndex];
-                    this.predicateLbl.Text = new PredicateMark(qualified, predicateType, new Object[] { obj, otherObject }).ToString();
+                    this.predicateLbl.Text = new PredicateMark(0, qualified, predicateType, session, new Object[] { obj, otherObject }).ToString();
                 }
 
             }

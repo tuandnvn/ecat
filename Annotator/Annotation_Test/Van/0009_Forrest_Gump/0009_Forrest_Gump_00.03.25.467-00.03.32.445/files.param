@@ -8,37 +8,11 @@
       <markers>
         <marker type="LOCATION" frame="0">1092.129,497.5484,134.1934,320</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="24">
-          <linkTo id="o2" q="False" type="LOOK_AT" />
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="52">
-          <linkTo id="o4" q="False" type="LOOK_AT" />
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="woman" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">827.871,516.129,138.3224,307.6129</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="140">
-          <linkTo id="o3" q="False" type="LOOK_AT" />
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="152">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-          <linkTo id="o6" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="magazine" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -61,11 +35,6 @@
         <marker type="LOCATION" frame="47">1099.31,648.2758,41.37889,34.48284</marker>
         <marker type="LOCATION" frame="94">1002.759,574.4827,55.17224,34.48276</marker>
       </markers>
-      <links>
-        <link frame="47">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -77,4 +46,13 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="24" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="47" arguments="2" ids="o7,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="52" arguments="2" ids="o1,o4" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="140" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="152" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

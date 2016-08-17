@@ -15,22 +15,12 @@
         <marker type="LOCATION" frame="2">899.2148,214.8691,144.1884,319.4766</marker>
         <marker type="LOCATION" frame="47">837.0157,247.3821,265.7592,685.6022</marker>
       </markers>
-      <links>
-        <link frame="43">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="women 2" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1159.319,257.2775,189.424,305.3403</marker>
         <marker type="LOCATION" frame="47">1193.246,251.623,359.0586,655.9163</marker>
       </markers>
-      <links>
-        <link frame="23">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="kitchen" filename="1028_No_Reservations_00.05.00.101-00.05.01.558.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -47,4 +37,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="23" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="43" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

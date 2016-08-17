@@ -9,47 +9,24 @@
         <marker type="LOCATION" frame="0">187.207,211.4648,399.1992,649.1602</marker>
         <marker type="DELETE" frame="21" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="hobo3" filename="0016_O_Brother_Where_Art_Thou_00.05.30.360-00.05.31.673.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">942.8906,146.0742,371.25,718.7695</marker>
         <marker type="DELETE" frame="21" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916" id="o6" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="hobo2" filename="0016_O_Brother_Where_Art_Thou_00.05.30.360-00.05.31.673.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">599.0625,141.8555,341.7188,720.8789</marker>
         <marker type="DELETE" frame="21" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916" id="o7" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="hobo4" filename="0016_O_Brother_Where_Art_Thou_00.05.30.360-00.05.31.673.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1419.609,147.6563,343.8281,712.9688</marker>
         <marker type="DELETE" frame="21" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="convict" filename="0016_O_Brother_Where_Art_Thou_00.05.30.360-00.05.31.673.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -81,4 +58,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o5" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

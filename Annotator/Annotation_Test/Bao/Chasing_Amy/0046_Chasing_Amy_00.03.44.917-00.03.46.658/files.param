@@ -3,31 +3,23 @@
   <files>
     <file>0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi</file>
   </files>
-  <objects no="3">
+  <objects no="5">
     <object id="o1" name="man" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">343.4604,62.81525,1041.642,650.3226</marker>
+        <marker type="LOCATION" frame="0">39.5876,25.56036,1341.65,1030.316</marker>
+        <marker type="LOCATION" frame="47">15.46389,29.69071,1284.124,1037.32</marker>
       </markers>
-      <links>
-        <link frame="26">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
-    <object id="o2" name="man's hand" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+    <object id="o5" name="book" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">588.3871,922.8739,371.6129,109.7947</marker>
+        <marker type="LOCATION" frame="0">1167.835,992.7836,502.8866,66.80413</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="pencil" filename="0046_Chasing_Amy_00.03.44.917-00.03.46.658.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">912.1407,869.3842,121.0557,47.85924</marker>
+        <marker type="LOCATION" frame="0">912.1407,869.3843,131.3644,73.29608</marker>
         <marker type="LOCATION" frame="26">800.9384,924.2815,121.0557,47.85924</marker>
+        <marker type="LOCATION" frame="47">696.4949,892.7715,113.1959,74.03268</marker>
       </markers>
     </object>
   </objects>
@@ -40,4 +32,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="26" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

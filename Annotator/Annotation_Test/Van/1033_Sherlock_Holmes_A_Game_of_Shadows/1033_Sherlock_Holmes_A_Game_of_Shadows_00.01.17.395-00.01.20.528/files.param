@@ -10,12 +10,6 @@
         <marker type="LOCATION" frame="39">203.7173,132.8796,995.1833,802.9319</marker>
         <marker type="LOCATION" frame="75">130.2094,132.8796,989.5288,802.9319</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="PART_OF" />
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="coat" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -46,4 +40,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

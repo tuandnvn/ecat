@@ -11,11 +11,6 @@
         <marker type="LOCATION" frame="80">1270.711,899.4775,175.5588,37.27294</marker>
         <marker type="DELETE" frame="81" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o8" name="cloak" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -48,20 +43,6 @@
         <marker type="LOCATION" frame="117">41.79973,141.5094,1446.27,794.1945</marker>
         <marker type="LOCATION" frame="176">41.79973,141.5094,1872.627,794.1945</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o8" q="True" type="PART_OF" />
-        </link>
-        <link frame="53">
-          <linkTo id="o9" q="True" type="PART_OF" />
-        </link>
-        <link frame="86">
-          <linkTo id="o10" q="True" type="PART_OF" />
-        </link>
-        <link frame="121">
-          <linkTo id="o11" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o11" name="scythe" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -80,4 +61,11 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o7,o8" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="53" arguments="2" ids="o7,o9" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="86" arguments="2" ids="o7,o10" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="121" arguments="2" ids="o7,o11" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

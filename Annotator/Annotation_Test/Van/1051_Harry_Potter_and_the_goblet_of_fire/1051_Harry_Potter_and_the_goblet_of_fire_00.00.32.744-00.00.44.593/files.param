@@ -12,25 +12,11 @@
         <marker type="LOCATION" frame="201">1050.566,422.9608,830.4209,514.8341</marker>
         <marker type="LOCATION" frame="284">562.9028,448.0406,1109.086,488.7088</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="graveyard" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">11.14661,138.7228,1897.707,791.4079</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o5" q="True" type="PART_OF" />
-          <linkTo id="o6" q="True" type="PART_OF" />
-          <linkTo id="o7" q="True" type="PART_OF" />
-          <linkTo id="o8" q="True" type="PART_OF" />
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o6" name="gravestone 1" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -53,11 +39,6 @@
         <marker type="LOCATION" frame="112">398.4906,141.5094,980.9007,794.1945</marker>
         <marker type="LOCATION" frame="284">557.3295,141.5094,1100.726,794.1945</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o8" name="gravestone 3" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -76,4 +57,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

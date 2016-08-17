@@ -8,14 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">91.03448,22.0689,1208.276,1037.241</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0046_Chasing_Amy_00.03.51.901-00.03.53.494" id="o1" q="True" type="IDENTITY" />
-        </link>
-        <link frame="77">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="Men's hand" filename="0046_Chasing_Amy_00.03.53.138-00.03.59.395.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -40,12 +32,6 @@
         <marker type="LOCATION" frame="95">824.8281,889.4832,308.9649,190.6886</marker>
         <marker type="LOCATION" frame="106">824.8281,889.4832,286.8959,190.6886</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-          <linkTo otherSession="0046_Chasing_Amy_00.03.51.901-00.03.53.494" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="Pen" filename="0046_Chasing_Amy_00.03.53.138-00.03.59.395.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -83,11 +69,6 @@
         <marker type="LOCATION" frame="145">693.8363,855.1724,350.2583,82.75861</marker>
         <marker type="LOCATION" frame="147">693.8363,857.931,329.6119,79.99991</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0046_Chasing_Amy_00.03.51.901-00.03.53.494" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="Comic" filename="0046_Chasing_Amy_00.03.53.138-00.03.59.395.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -98,11 +79,6 @@
         <marker type="LOCATION" frame="86">867.5865,998.6206,830.3441,63.44751</marker>
         <marker type="LOCATION" frame="96">867.5865,979.3103,830.3441,82.75761</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0046_Chasing_Amy_00.03.51.901-00.03.53.494" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -114,4 +90,11 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="77" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

@@ -6,12 +6,12 @@
   <objects no="3">
     <object id="o1" name="man" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">413.617,138.2979,708.0851,803.4043</marker>
+        <marker type="LOCATION" frame="0">305.7303,145.618,997.0787,802.9213</marker>
         <marker type="LOCATION" frame="14">389.7872,119.5744,708.0851,803.4043</marker>
-        <marker type="LOCATION" frame="24">233.1915,100.851,708.0851,803.4043</marker>
-        <marker type="LOCATION" frame="42">388.0851,100.851,553.1915,803.4043</marker>
-        <marker type="LOCATION" frame="55">416.1702,117.8723,553.1915,803.4043</marker>
-        <marker type="LOCATION" frame="75">223.8298,97.44678,553.1915,803.4043</marker>
+        <marker type="LOCATION" frame="24">115.6178,100.851,997.0788,835.5535</marker>
+        <marker type="LOCATION" frame="42">224.8313,100.851,912.1349,825.4411</marker>
+        <marker type="LOCATION" frame="55">289.5505,117.8723,867.6404,803.4033</marker>
+        <marker type="LOCATION" frame="75">131.7974,97.44678,893.9329,871.3172</marker>
       </markers>
     </object>
     <object id="o2" name="package" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
@@ -30,18 +30,6 @@
         <marker type="LOCATION" frame="75">787.5532,227.3404,137.234,308.7234</marker>
       </markers>
     </object>
-    <object id="o3" name="hand" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
-      <markers>
-        <marker type="LOCATION" frame="0">1264.681,133.1915,185.532,400</marker>
-        <marker type="LOCATION" frame="6">1173.617,159.5745,185.5319,400</marker>
-        <marker type="LOCATION" frame="22">1100.426,193.617,185.5319,400</marker>
-        <marker type="LOCATION" frame="24">1054.468,224.2553,185.5319,400</marker>
-        <marker type="LOCATION" frame="33">1008.511,207.234,185.5319,400</marker>
-        <marker type="LOCATION" frame="63">908.0851,180,185.5319,400</marker>
-        <marker type="LOCATION" frame="68">865.5319,185.1064,185.5319,400</marker>
-        <marker type="LOCATION" frame="72">865.5319,185.1064,266.383,400</marker>
-      </markers>
-    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -52,4 +40,5 @@
       <link />
     </annotation>
   </annotations>
+  <predicates />
 </session>

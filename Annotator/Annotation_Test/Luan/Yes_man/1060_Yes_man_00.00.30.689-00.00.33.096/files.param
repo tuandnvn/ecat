@@ -14,12 +14,6 @@
         <marker type="LOCATION" frame="46">1299.31,728.2758,159.9986,190.3448</marker>
         <marker type="DELETE" frame="47" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-          <linkTo otherSession="1060_Yes_man_00.00.20.589-00.00.25.066" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="men's hand" filename="1060_Yes_man_00.00.30.689-00.00.33.096.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -30,22 +24,12 @@
         <marker type="LOCATION" frame="46">1291.034,855.1724,251.0345,79.99763</marker>
         <marker type="DELETE" frame="47" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="men" filename="1060_Yes_man_00.00.30.689-00.00.33.096.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="13">320,146.2069,1001.379,791.7241</marker>
         <marker type="LOCATION" frame="57">320,146.2069,1097.931,794.4827</marker>
       </markers>
-      <links>
-        <link frame="13">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -57,4 +41,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="13" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

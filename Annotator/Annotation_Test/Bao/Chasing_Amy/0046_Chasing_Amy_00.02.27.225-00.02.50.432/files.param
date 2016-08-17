@@ -20,26 +20,8 @@
         <marker type="LOCATION" frame="425">577.1261,106.4516,585.5718,670.0293</marker>
         <marker type="LOCATION" frame="462">532.0821,311.9648,585.5718,670.0293</marker>
         <marker type="LOCATION" frame="484">323.7537,351.3783,585.5718,670.0293</marker>
+        <marker type="LOCATION" frame="556">217.7319,259.7939,595.6703,775.67</marker>
       </markers>
-    </object>
-    <object id="o3" name="man's hand" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
-      <markers>
-        <marker type="LOCATION" frame="396">1582.17,651.2023,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="404">1319.648,616.7155,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="410">1140.88,591.3783,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="415">943.8123,616.7155,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="419">853.7243,608.2698,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="425">715.7771,605.4545,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="441">338.5337,574.4868,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="453">166.8035,718.0645,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="462">687.6246,763.1085,94.31085,94.31085</marker>
-        <marker type="LOCATION" frame="484">459.5894,878.5337,94.31085,94.31085</marker>
-      </markers>
-      <links>
-        <link frame="396">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="paper" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -62,4 +44,5 @@
       <link />
     </annotation>
   </annotations>
+  <predicates />
 </session>

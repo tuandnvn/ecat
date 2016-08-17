@@ -13,26 +13,6 @@
         <marker type="LOCATION" frame="518">228.9655,234.4827,700.6896,784.8259</marker>
         <marker type="LOCATION" frame="556">204.1379,242.7586,609.6552,805.5172</marker>
       </markers>
-      <links>
-        <link frame="390">
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-        <link frame="418">
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="462">
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="473">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="487">
-          <linkTo id="o6" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="545">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="Fan" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -41,11 +21,6 @@
         <marker type="LOCATION" frame="507">783.4482,5.516665,1136.55,1042.759</marker>
         <marker type="LOCATION" frame="556">783.4482,5.516665,1136.55,1042.759</marker>
       </markers>
-      <links>
-        <link frame="398">
-          <linkTo id="o6" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="Book's men" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -84,4 +59,13 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="390" arguments="2" ids="o1,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="398" arguments="2" ids="o2,o6" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="418" arguments="2" ids="o1,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="462" arguments="2" ids="o1,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="473" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="487" arguments="2" ids="o1,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="545" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

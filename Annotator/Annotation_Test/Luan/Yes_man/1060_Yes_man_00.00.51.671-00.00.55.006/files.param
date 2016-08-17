@@ -8,11 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">491.0345,140.6896,863.4474,794.4827</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1060_Yes_man_00.00.48.975-00.00.51.922" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="phone" filename="" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -21,12 +16,6 @@
         <marker type="LOCATION" frame="6">1019.31,487.5863,135.1722,171.724</marker>
         <marker type="LOCATION" frame="9">1017.931,424.4828,69.655,121.724</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-          <linkTo otherSession="1060_Yes_man_00.00.48.975-00.00.51.922" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="men's hand" filename="" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -35,12 +24,6 @@
         <marker type="LOCATION" frame="6">971.0344,507.5862,215.1718,433.0977</marker>
         <marker type="LOCATION" frame="9">971.0344,424.8275,168.2758,377.9309</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-          <linkTo otherSession="1060_Yes_man_00.00.48.975-00.00.51.922" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="ear" filename="1060_Yes_man_00.00.51.671-00.00.55.006.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -48,11 +31,6 @@
         <marker type="LOCATION" frame="6">995.862,413.7931,63.44827,135.1724</marker>
         <marker type="LOCATION" frame="9">995.862,413.7931,63.44827,135.1724</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -64,4 +42,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

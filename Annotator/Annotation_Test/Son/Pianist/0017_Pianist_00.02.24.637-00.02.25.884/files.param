@@ -12,12 +12,6 @@
         <marker type="LOCATION" frame="28">297.0967,369.6774,479.0323,685.1613</marker>
         <marker type="DELETE" frame="35" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0017_Pianist_00.02.23.440-00.02.24.637" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man2" filename="0017_Pianist_00.02.24.637-00.02.25.884.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -25,11 +19,6 @@
         <marker type="LOCATION" frame="35">687.0967,81.29031,880.6452,970.6172</marker>
         <marker type="LOCATION" frame="42">597.0967,81.78812,880.6452,970.6173</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0017_Pianist_00.02.23.440-00.02.24.637" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="man" filename="0017_Pianist_00.02.24.637-00.02.25.884.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -39,38 +28,18 @@
         <marker type="LOCATION" frame="34">701.129,251.129,452.4194,797.9033</marker>
         <marker type="DELETE" frame="35" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0017_Pianist_00.02.23.440-00.02.24.637" id="o3" q="True" type="IDENTITY" />
-        </link>
-        <link frame="27">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="handman" filename="0017_Pianist_00.02.24.637-00.02.25.884.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="29">952.2581,739.3549,232.2581,301.9355</marker>
         <marker type="DELETE" frame="35" />
       </markers>
-      <links>
-        <link frame="29">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="handwomen" filename="0017_Pianist_00.02.24.637-00.02.25.884.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="29">460.6451,952.2581,207.0968,98.70968</marker>
         <marker type="DELETE" frame="35" />
       </markers>
-      <links>
-        <link frame="29">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -82,4 +51,12 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="27" arguments="2" ids="o3,o1" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o5,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

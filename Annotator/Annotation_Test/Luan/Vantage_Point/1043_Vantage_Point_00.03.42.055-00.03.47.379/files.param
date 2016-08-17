@@ -15,11 +15,6 @@
         <marker type="LOCATION" frame="118">708.9655,140.6898,788.9655,513.1033</marker>
         <marker type="LOCATION" frame="127">708.9655,140.6898,628.9655,350.3447</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1043_Vantage_Point_00.01.09.725-00.01.11.818" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="light" filename="1043_Vantage_Point_00.03.42.055-00.03.47.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -47,4 +42,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

@@ -11,12 +11,6 @@
         <marker type="LOCATION" frame="162">615.4838,199.7419,695.2261,654.9678</marker>
         <marker type="LOCATION" frame="195">479.6127,96.00001,923.6133,867.0968</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-        <link frame="211" />
-      </links>
     </object>
     <object id="o3" name="dark" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.05.802-00.00.14.617.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -33,4 +27,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

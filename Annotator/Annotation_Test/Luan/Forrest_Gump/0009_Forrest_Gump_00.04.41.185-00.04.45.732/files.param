@@ -13,11 +13,6 @@
         <marker type="LOCATION" frame="96">308.7289,129.3721,1084.962,829.1577</marker>
         <marker type="DELETE" frame="100" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0009_Forrest_Gump_00.04.06.764-00.04.31.733" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="boy" filename="0009_Forrest_Gump_00.04.41.185-00.04.45.732.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -34,4 +29,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

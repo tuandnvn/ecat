@@ -26,18 +26,6 @@
         <marker type="LOCATION" frame="13">326.0378,141.5094,1329.231,799.7678</marker>
         <marker type="LOCATION" frame="57">326.0378,141.5094,1114.659,799.7678</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-        <link frame="13">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-          <linkTo id="o5" q="True" type="PART_OF" />
-        </link>
-        <link frame="41">
-          <linkTo id="o3" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -49,4 +37,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="13" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="41" arguments="2" ids="o4,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

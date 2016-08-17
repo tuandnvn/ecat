@@ -8,11 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">515.1906,174.0176,892.434,720.7038</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1060_Yes_man_00.00.41.993-00.00.44.046" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -24,4 +19,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

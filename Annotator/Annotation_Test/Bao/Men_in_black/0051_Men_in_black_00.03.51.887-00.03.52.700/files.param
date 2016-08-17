@@ -8,11 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">225.2199,75.48387,664.3988,999.4135</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man" filename="0051_Men_in_black_00.03.51.887-00.03.52.700.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -23,11 +18,6 @@
       <markers>
         <marker type="LOCATION" frame="23">563.0499,587.8593,123.871,87.27273</marker>
       </markers>
-      <links>
-        <link frame="23">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="flashlight" filename="0051_Men_in_black_00.03.51.887-00.03.52.700.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -44,4 +34,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="23" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

@@ -21,12 +21,6 @@
         <marker type="LOCATION" frame="497">471.7058,874.2335,224.2165,119.9412</marker>
         <marker type="LOCATION" frame="556">419.4174,950.6796,233.0097,108.7379</marker>
       </markers>
-      <links>
-        <link frame="391">
-          <linkTo id="o7" q="True" type="PART_OF" />
-        </link>
-        <link frame="556" />
-      </links>
     </object>
     <object id="o7" name="man" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -48,4 +42,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="391" arguments="2" ids="o8,o7" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

@@ -13,11 +13,6 @@
         <marker type="LOCATION" frame="56">1789.028,134.5428,94.74686,41.79971</marker>
         <marker type="DELETE" frame="60" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="iron railing" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -28,11 +23,6 @@
         <marker type="LOCATION" frame="65">1772.308,124.7896,143.5145,111.4659</marker>
         <marker type="DELETE" frame="66" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.19.313-00.00.28.159" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -52,4 +42,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

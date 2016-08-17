@@ -10,23 +10,12 @@
         <marker type="LOCATION" frame="52">843.4482,223.4483,89.65517,93.79301</marker>
         <marker type="LOCATION" frame="109">857.2413,226.2069,89.65517,93.79301</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-          <linkTo otherSession="1043_Vantage_Point_00.00.05.345-00.00.09.480" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="women" filename="1043_Vantage_Point_00.00.09.813-00.00.15.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">844.1379,364.1379,198.6204,526.8958</marker>
         <marker type="LOCATION" frame="52">860.6895,366.8965,162.7587,466.2069</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1043_Vantage_Point_00.00.05.345-00.00.09.480" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -38,4 +27,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

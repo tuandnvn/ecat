@@ -10,24 +10,6 @@
         <marker type="LOCATION" frame="47">342.7576,138.7228,1053.353,799.7681</marker>
         <marker type="LOCATION" frame="70">342.7576,138.7228,986.4731,799.7681</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1060_Yes_man_00.00.46.000-00.00.48.975" id="o1" q="True" type="IDENTITY" />
-        </link>
-        <link frame="26">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-        <link frame="35">
-          <linkTo id="o2" q="False" type="LOOK_AT" />
-        </link>
-        <link frame="56">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="68">
-          <linkTo id="o2" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="cellphone" filename="1060_Yes_man_00.00.48.975-00.00.51.922.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -37,9 +19,6 @@
         <marker type="LOCATION" frame="67">1025.346,785.225,111.7462,122.6125</marker>
         <marker type="LOCATION" frame="70">1025.486,560.8997,107.286,179.7389</marker>
       </markers>
-      <links>
-        <link frame="68" />
-      </links>
     </object>
   </objects>
   <annotations>
@@ -51,4 +30,11 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o1,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="35" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="56" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="68" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

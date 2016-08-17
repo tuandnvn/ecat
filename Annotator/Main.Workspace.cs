@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Annotator
 {
@@ -14,7 +15,11 @@ namespace Annotator
     /// Handle events and routines that are related to workspace and treeview
     /// </summary>
     partial class Main
-    {   
+    {   //Project workspace 
+        private Workspace workspace = null;
+        private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
+        private SortedSet<String> recentWorkspaceLocations;
+
         //Set workspace option: folder and default option
         public void loadWorkspace()
         {
@@ -26,34 +31,42 @@ namespace Annotator
 
         private void loadParameters()
         {
+
             //1)Check if file exists
             if (!File.Exists(parametersFileName))
             {
             }
             else//File already exists:
             {
-                //Set file as hidden                
-                FileInfo myFile = new FileInfo(parametersFileName);
-                // Remove the hidden attribute of the file
-                myFile.Attributes &= ~FileAttributes.Hidden;
-
-                //Read file line by line
-                List<String> list = new List<String>();
-                string line;
-
-                // Read the file and display it line by line.
-                System.IO.StreamReader file =
-                   new System.IO.StreamReader(parametersFileName);
-                while ((line = file.ReadLine()) != null)
+                try
                 {
-                    list.Add(line);
+                    //Set file as hidden                
+                    FileInfo myFile = new FileInfo(parametersFileName);
+                    // Remove the hidden attribute of the file
+                    myFile.Attributes &= ~FileAttributes.Hidden;
+
+                    XmlDocument xmlDocument = new XmlDocument();
+                    xmlDocument.Load(parametersFileName);
+
+                    String defaultWorkspace = xmlDocument.DocumentElement.SelectSingleNode("defaultWorkspace").InnerText;
+
+
+                    var recentWorkspacesNode = xmlDocument.DocumentElement.SelectSingleNode("recentWorkspaces");
+                    foreach (XmlNode recentWorkspaceNode in recentWorkspacesNode.SelectNodes("workspace"))
+                    {
+                        string location = recentWorkspaceNode.InnerText;
+                        recentWorkspaceLocations.Add(location);
+                    }
+
+                    updateRecentWorkspacesToolStripMenuItems();
+
+                    workspace = new Workspace(defaultWorkspace, true);
+                    myFile.Attributes |= FileAttributes.Hidden;
                 }
-                if (list.Count == 1)
+                catch (Exception e)
                 {
-                    workspace = new Workspace(list[0], true);
+                    Console.WriteLine("Exception in loading parameter files");
                 }
-                file.Close();
-                myFile.Attributes |= FileAttributes.Hidden;
             }
         }
 
@@ -65,6 +78,36 @@ namespace Annotator
             clearWorkspaceTreeview();
             workspace = new Workspace(locationFolder, defaultOption);
             loadWorkspace();
+
+            // Add this workspace into recent workspaces
+            recentWorkspaceLocations.Add(locationFolder);
+
+            if (recentWorkspaceLocations.Count != 0)
+            {
+                updateRecentWorkspacesToolStripMenuItems();
+            }
+        }
+
+        private void updateRecentWorkspacesToolStripMenuItems()
+        {
+            this.switchWorkspaceToolStripMenuItem.DropDownItems.Clear();
+            this.switchWorkspaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.othersToolStripMenuItem,
+                new ToolStripSeparator()
+            });
+
+            this.switchWorkspaceToolStripMenuItem.DropDownItems.AddRange(recentWorkspaceLocations.Select(
+                location =>
+                {
+                    var v = new ToolStripMenuItem(location);
+                    v.Click += recentWorkspace_Click;
+                    return v;
+                }).ToArray());
+        }
+
+        private void recentWorkspace_Click(object sender, EventArgs e)
+        {
+            setWorkspace( (sender as ToolStripMenuItem).Text, false);
         }
 
         private void clearWorkspaceTreeview()
@@ -374,6 +417,12 @@ namespace Annotator
         public int getWorkspaceProjectSize()
         {
             return workspace.getProjectCount();
+        }
+
+        private void othersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
+            workspaceLauncher.Show();
         }
     }
 }

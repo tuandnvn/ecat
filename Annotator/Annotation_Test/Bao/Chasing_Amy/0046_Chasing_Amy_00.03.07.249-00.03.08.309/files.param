@@ -7,39 +7,16 @@
     <object id="o3" name="big man" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="9">312.4927,103.6364,1424.516,867.0967</marker>
+        <marker type="LOCATION" frame="47">30.30925,38.96906,1569.897,1024.33</marker>
       </markers>
-      <links>
-        <link frame="9">
-          <linkTo otherSession="0046_Chasing_Amy_00.03.05.958-00.03.07.526" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">377.2434,52.96188,1317.537,917.7712</marker>
+        <marker type="LOCATION" frame="0">349.4845,18.55668,1560.619,1050.309</marker>
         <marker type="LOCATION" frame="5">377.2434,52.96188,1317.537,917.7712</marker>
+        <marker type="LOCATION" frame="8">366.1855,31.54638,1475.258,1035.464</marker>
         <marker type="DELETE" frame="9" />
       </markers>
-    </object>
-    <object id="o4" name="big man's hand 1" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
-      <markers>
-        <marker type="LOCATION" frame="47">335.0147,768.0352,681.2903,205.5132</marker>
-      </markers>
-      <links>
-        <link frame="47">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
-    </object>
-    <object id="o5" name="big man's hand 2" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
-      <markers>
-        <marker type="LOCATION" frame="47">1494.897,554.0762,377.2434,405.3959</marker>
-      </markers>
-      <links>
-        <link frame="47">
-          <linkTo id="o3" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -51,4 +28,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="9" arguments="2" ids="o3,o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

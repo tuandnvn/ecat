@@ -30,11 +30,6 @@
         <marker type="LOCATION" frame="281">575.8594,388.125,1210.781,549.9207</marker>
         <marker type="LOCATION" frame="284">563.2031,405,1223.438,533.0457</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -46,4 +41,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

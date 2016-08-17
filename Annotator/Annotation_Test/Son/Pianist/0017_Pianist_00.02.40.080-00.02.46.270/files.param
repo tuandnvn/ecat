@@ -2,7 +2,6 @@
 <session name="0017_Pianist_00.02.40.080-00.02.46.270" length="0">
   <files>
     <file>0017_Pianist_00.02.40.080-00.02.46.270.avi</file>
-    <file>0017_Pianist_00.02.40.080-00.02.46.270.avi</file>
   </files>
   <objects no="5">
     <object id="o1" name="woman" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
@@ -11,17 +10,6 @@
         <marker type="LOCATION" frame="95">8.571396,22.2857,1071.429,1030.286</marker>
         <marker type="LOCATION" frame="141">8.571396,241.7143,954.8572,810.8572</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0017_Pianist_00.02.32.435-00.02.34.460" id="o4" q="True" type="IDENTITY" />
-        </link>
-        <link frame="95">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="128">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="man" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -43,11 +31,6 @@
         <marker type="LOCATION" frame="119">1589.786,609.8572,309.6423,439.2857</marker>
         <marker type="LOCATION" frame="136">1490.893,551.7857,348.5355,464.7857</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o5" name="photograph" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -71,4 +54,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="95" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="128" arguments="2" ids="o1,o1" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

@@ -8,35 +8,18 @@
       <markers>
         <marker type="LOCATION" frame="0">5.573316,138.7228,1883.774,794.1945</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-          <linkTo id="o3" q="True" type="PART_OF" />
-          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="V" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">774.688,402.061,384.5573,305.1379</marker>
         <marker type="LOCATION" frame="47">574.0494,325.4282,398.4905,381.7707</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727" id="o4" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="word" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">730.1016,743.4254,515.5297,50.15956</marker>
         <marker type="LOCATION" frame="47">523.8897,762.9319,574.0496,50.15965</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727" id="o5" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -48,4 +31,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

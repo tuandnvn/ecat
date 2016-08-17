@@ -17,15 +17,11 @@
         <marker type="LOCATION" frame="34">697.1786,784.9286,333.6429,169.7143</marker>
         <marker type="DELETE" frame="39" />
       </markers>
-      <links>
-        <link frame="29">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-        <link frame="30">
-          <linkTo id="o1" q="False" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations />
+  <predicates>
+    <predicate frame="29" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="30" arguments="2" ids="o2,o1" q="False" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

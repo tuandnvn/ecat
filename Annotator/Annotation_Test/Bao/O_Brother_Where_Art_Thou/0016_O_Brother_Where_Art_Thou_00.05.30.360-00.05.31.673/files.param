@@ -11,22 +11,12 @@
         <marker type="LOCATION" frame="21">692.1994,212.0235,800.2346,650.3224</marker>
         <marker type="DELETE" frame="47" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="4 man" filename="0016_O_Brother_Where_Art_Thou_00.05.30.360-00.05.31.673.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">250.5572,154.3109,1599.062,689.7361</marker>
         <marker type="DELETE" frame="21" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -38,4 +28,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

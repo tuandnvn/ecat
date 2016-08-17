@@ -25,22 +25,12 @@
         <marker type="LOCATION" frame="84">16.55172,30.3447,728.2758,1020.689</marker>
         <marker type="LOCATION" frame="102">99.31034,96.55171,764.1376,954.4809</marker>
       </markers>
-      <links>
-        <link frame="84">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="men" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="84">1594.483,146.2069,320,906.2062</marker>
         <marker type="LOCATION" frame="102">1161.379,19.3103,753.101,1033.102</marker>
       </markers>
-      <links>
-        <link frame="89">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -52,4 +42,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="84" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="89" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

@@ -9,12 +9,6 @@
         <marker type="LOCATION" frame="0">169.7142,63.42855,502.2857,992.5714</marker>
         <marker type="LOCATION" frame="17">169.7142,164.5714,505.7143,661.7143</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-          <linkTo otherSession="0051_Men_in_black_00.03.51.887-00.03.52.700" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="driver" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -33,4 +27,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

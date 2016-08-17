@@ -55,11 +55,6 @@
         <marker type="LOCATION" frame="90">981.0471,254.4503,983.8745,257.2775,2.827225,650.2618,2.827225,322.3037</marker>
         <marker type="LOCATION" frame="92">981.0471,254.4503,983.8745,257.2775,2.827225,687.0157,2.827225,322.3037</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -71,4 +66,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

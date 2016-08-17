@@ -14,28 +14,12 @@
         <marker type="LOCATION" frame="78">457.931,151.7241,380.6896,783.4482</marker>
         <marker type="LOCATION" frame="145">314.4827,190.3448,405.5172,747.5859</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1028_No_Reservations_00.02.50.797-00.02.51.823" id="o1" q="True" type="IDENTITY" />
-        </link>
-        <link frame="12">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="78">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="refrigerator" filename="1028_No_Reservations_00.03.37.256-00.03.43.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">267.5862,140.6896,1139.31,816.5517</marker>
         <marker type="DELETE" frame="78" />
       </markers>
-      <links>
-        <link frame="78">
-          <linkTo id="o4" q="True" type="PART_OF" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="food" filename="1028_No_Reservations_00.03.37.256-00.03.43.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -52,4 +36,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="12" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="78" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="78" arguments="2" ids="o3,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

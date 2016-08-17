@@ -10,11 +10,6 @@
         <marker type="LOCATION" frame="9">193.6994,154.5087,786.5896,672.6589</marker>
         <marker type="LOCATION" frame="30">309.1908,158.4104,786.5896,672.6589</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o4" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="bill3" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -35,26 +30,17 @@
         <marker type="DELETE" frame="9" />
       </markers>
     </object>
-    <object id="o5" name="hand" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
-      <markers>
-        <marker type="LOCATION" frame="0">290.4624,499.422,71.79189,53.06358</marker>
-        <marker type="LOCATION" frame="5">315.4335,482.2543,71.79191,53.06358</marker>
-        <marker type="DELETE" frame="9" />
-      </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-      </links>
-    </object>
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
+      <duration startFrame="0" endFrame="48" />
       <text>She checks some orders attached to a shelf.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

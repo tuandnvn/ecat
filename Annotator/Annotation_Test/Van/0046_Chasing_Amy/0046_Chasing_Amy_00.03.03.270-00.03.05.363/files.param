@@ -8,17 +8,6 @@
       <markers>
         <marker type="LOCATION" frame="0">262.0689,13.7931,1655.172,1039.999</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o8" q="True" type="PART_OF" />
-        </link>
-        <link frame="32">
-          <linkTo id="o8" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="48">
-          <linkTo id="o8" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o8" name="Book's Holder" filename="0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -38,4 +27,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o7,o8" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="32" arguments="2" ids="o7,o8" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="48" arguments="2" ids="o7,o8" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

@@ -38,13 +38,16 @@ namespace Annotator
                 chosenSession = currentProject.getSession(treeView.SelectedNode.Text);
             }
 
-            if (currentSession != null && chosenSession != null && currentSession.edited && currentSession.name == chosenSession.name)
+            if (chosenSession == null)
+                return;
+
+            if (currentSession != null && currentSession.edited && currentSession.name == chosenSession.name)
             {
                 return;
             }
 
             // Save current session if it is edited
-            if (currentSession != null && chosenSession != null && currentSession.edited && currentSession.name != chosenSession.name)
+            if (currentSession != null && currentSession.edited && currentSession.name != chosenSession.name)
             {
                 if (currentSession.edited)
                 {
@@ -53,7 +56,7 @@ namespace Annotator
             }
 
             // Set current session = chosen session
-            if (chosenSession != null && !chosenSession.edited)
+            if (!chosenSession.edited)
             {
                 chosenSession.edited = true;
                 currentSessionNode = treeView.SelectedNode;

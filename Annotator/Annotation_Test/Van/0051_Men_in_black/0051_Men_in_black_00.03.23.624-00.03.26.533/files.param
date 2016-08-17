@@ -18,28 +18,12 @@
         <marker type="LOCATION" frame="16">245.5172,102.069,1302.069,940.6895</marker>
         <marker type="DELETE" frame="17" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.03.21.626-00.03.23.238" id="o2" q="True" type="IDENTITY" />
-        </link>
-        <link frame="4">
-          <linkTo id="o4" q="True" type="PART_OF" />
-        </link>
-        <link frame="8">
-          <linkTo id="o3" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="glass" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1285.517,16.55162,631.7229,910.3448</marker>
         <marker type="DELETE" frame="17" />
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="0051_Men_in_black_00.03.21.626-00.03.23.238" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -51,4 +35,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o2,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="8" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

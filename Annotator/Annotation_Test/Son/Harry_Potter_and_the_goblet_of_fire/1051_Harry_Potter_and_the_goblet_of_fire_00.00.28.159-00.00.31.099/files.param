@@ -27,9 +27,6 @@
         <marker type="LOCATION" frame="37">923.0891,207.8011,144.1885,104.6073</marker>
         <marker type="DELETE" frame="40" />
       </markers>
-      <links>
-        <link frame="70" />
-      </links>
     </object>
     <object id="o3" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -49,15 +46,6 @@
         <marker type="LOCATION" frame="64">592.8338,144.72,1314.446,579.1564</marker>
         <marker type="LOCATION" frame="66">604.1427,261.36,1298.817,486.2646</marker>
       </markers>
-      <links>
-        <link frame="11">
-          <linkTo id="o1" q="True" type="PART_OF" />
-        </link>
-        <link frame="60">
-          <linkTo id="o1" q="False" type="PART_OF" />
-        </link>
-        <link frame="70" />
-      </links>
     </object>
   </objects>
   <annotations>
@@ -69,4 +57,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="11" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="60" arguments="2" ids="o3,o1" q="False" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

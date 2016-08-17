@@ -21,14 +21,6 @@
         <marker type="LOCATION" frame="107">501.8182,197.9473,719.2961,774.1934</marker>
         <marker type="LOCATION" frame="144">487.3902,767.3314,421.5832,181.5836</marker>
       </markers>
-      <links>
-        <link frame="31">
-          <linkTo id="o1" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="72">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="man's hand 2" filename="0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -53,15 +45,6 @@
         <marker type="LOCATION" frame="124">228.0352,168.3871,335.0146,667.2141</marker>
         <marker type="LOCATION" frame="144">470.1468,469.6188,191.4367,365.9824</marker>
       </markers>
-      <links>
-        <link frame="125">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="144">
-          <linkTo id="o2" q="False" type="LOOK_AT" />
-          <linkTo id="o5" q="True" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
   </objects>
   <annotations>
@@ -73,4 +56,10 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="31" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="72" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="125" arguments="2" ids="o5,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="144" arguments="2" ids="o5,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

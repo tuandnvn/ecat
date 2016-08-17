@@ -11,14 +11,6 @@
         <marker type="LOCATION" frame="45">1158.107,151.3929,750.2143,773.3572</marker>
         <marker type="LOCATION" frame="49">1506.214,151.3928,402.1071,773.3572</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="LOOK_AT" />
-        </link>
-        <link frame="10">
-          <linkTo id="o1" q="False" type="LOOK_AT" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="phone" filename="1060_Yes_man_00.00.41.993-00.00.44.046.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -30,11 +22,15 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="49" />
+      <duration startFrame="0" endFrame="50" />
       <text>He hangs up again.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="10" arguments="2" ids="o1,o1" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

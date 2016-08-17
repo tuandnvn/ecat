@@ -7,20 +7,9 @@ using System.Xml;
 
 namespace Annotator
 {
-
-
     public class LinkMark : ObjectMark
     {
         public Object o { get; }
-
-        //// A set of link to other objects at a certain frame
-        //// Each link is of < objectID , qualified, spatialLink >
-        //public SortedSet<Tuple<string, bool, string>> binaryPredicates { get; } // By default, there is no spatial configuration attached to an object location
-
-        //// A set of link to other objects of different session at a certain frame
-        //// Each link is of < sessionName, objectID , qualified, spatialLink >
-        //public SortedSet<Tuple<string, string, bool, string>> crossSessionBinaryPredicates { get; } // By default, there is no spatial configuration attached to an object location
-
         public SortedSet<PredicateMark> predicateMarks { get; }
 
         public LinkMark(Object o, int frameNo) : base(frameNo)
@@ -31,12 +20,12 @@ namespace Annotator
 
         public void addLinkToObject(bool qualified, Predicate linkType)
         {
-            predicateMarks.Add(new PredicateMark(qualified, linkType, new Object[] { o }));
+            predicateMarks.Add(new PredicateMark(frameNo, qualified, linkType, o.session, new Object[] { o }));
         }
 
         public void addLinkToObject(Object otherObject, bool qualified, Predicate linkType)
         {
-            predicateMarks.Add(new PredicateMark(qualified, linkType, new Object[] { o, otherObject }));
+            predicateMarks.Add(new PredicateMark(frameNo, qualified, linkType, o.session, new Object[] { o, otherObject }));
         }
 
         override public String ToString()

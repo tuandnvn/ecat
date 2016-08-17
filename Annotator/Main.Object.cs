@@ -32,7 +32,7 @@ namespace Annotator
                 //    middleCenterTableLayoutPanel.Controls.Remove(oa);
 
                 //    // Move all the object annotations following ot up one step
-                //    for (var i = index; i < this.objectToObjectTracks.Keys.Count; i++)
+                //    for (var i = index; i < this.objectToObj2wsectTracks.Keys.Count; i++)
                 //    {
                 //        var moveObjectAnnotation = this.objectToObjectTracks[this.objectToObjectTracks.Keys.ToList()[i]];
                 //        middleCenterTableLayoutPanel.Controls.Remove(moveObjectAnnotation);

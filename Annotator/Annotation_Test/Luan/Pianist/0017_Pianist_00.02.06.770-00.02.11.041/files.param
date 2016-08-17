@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.06.770-00.02.11.041" length="0">
+  <files>
+    <file>0017_Pianist_00.02.06.770-00.02.11.041.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Women" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">138.534,16.96335,1128.063,1037.592</marker>
+        <marker type="LOCATION" frame="3">89.05752,24.03133,1132.304,1037.592</marker>
+        <marker type="LOCATION" frame="4">4.947558,26.85855,1132.304,1037.592</marker>
+        <marker type="LOCATION" frame="9">4.947558,26.85855,1043.953,1037.592</marker>
+        <marker type="LOCATION" frame="14">4.947558,130.0524,1043.953,934.3984</marker>
+        <marker type="LOCATION" frame="19">48.06283,257.2775,873.6126,807.1738</marker>
+        <marker type="LOCATION" frame="21">104.6073,257.2775,817.0685,807.1738</marker>
+        <marker type="LOCATION" frame="23">104.6073,220.5236,817.0686,843.928</marker>
+        <marker type="DELETE" frame="24" />
+        <marker type="LOCATION" frame="80">59.37173,16.96335,743.5605,1037.592</marker>
+        <marker type="LOCATION" frame="81">59.37173,67.85341,763.3508,986.7025</marker>
+        <marker type="LOCATION" frame="83">59.37173,67.85341,729.4241,986.7025</marker>
+        <marker type="LOCATION" frame="84">59.37173,33.9267,729.4242,1020.629</marker>
+        <marker type="LOCATION" frame="89">2.827225,33.9267,785.9692,1020.629</marker>
+        <marker type="LOCATION" frame="91">2.827225,33.9267,735.0786,1020.629</marker>
+        <marker type="LOCATION" frame="95">33.92671,67.85341,774.6598,986.7031</marker>
+        <marker type="LOCATION" frame="97">33.92671,67.85341,797.2775,986.7031</marker>
+        <marker type="LOCATION" frame="99">67.85341,67.85341,819.8958,986.7031</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Men" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="24">729.4241,240.3142,415.6024,819.8954</marker>
+        <marker type="LOCATION" frame="27">729.4242,262.9319,387.3298,797.2777</marker>
+        <marker type="LOCATION" frame="30">773.2461,274.2407,473.5602,797.2778</marker>
+        <marker type="LOCATION" frame="32">817.0682,274.2407,503.246,797.2778</marker>
+        <marker type="LOCATION" frame="35">795.8639,265.759,607.8534,797.2778</marker>
+        <marker type="LOCATION" frame="38">858.0629,285.5497,607.8533,774.66</marker>
+        <marker type="LOCATION" frame="42">894.8168,288.3768,607.8534,774.66</marker>
+        <marker type="LOCATION" frame="46">788.7958,175.288,713.8751,887.75</marker>
+        <marker type="LOCATION" frame="49">788.7958,274.2408,713.8751,788.798</marker>
+        <marker type="LOCATION" frame="52">834.0314,234.6597,788.7958,828.3792</marker>
+        <marker type="LOCATION" frame="53">834.0314,155.4974,788.7958,907.5417</marker>
+        <marker type="LOCATION" frame="55">862.3038,155.4974,862.3036,907.5417</marker>
+        <marker type="LOCATION" frame="58">1009.319,104.6073,715.2888,958.4319</marker>
+        <marker type="LOCATION" frame="60">1077.173,104.6073,706.8062,958.432</marker>
+        <marker type="LOCATION" frame="61">1077.173,121.5707,706.8062,941.4689</marker>
+        <marker type="LOCATION" frame="62">1119.581,121.5707,718.1152,941.4689</marker>
+        <marker type="LOCATION" frame="65">1167.644,121.5707,723.7696,941.4689</marker>
+        <marker type="LOCATION" frame="71">1167.644,65.02618,749.2146,998.0138</marker>
+        <marker type="LOCATION" frame="72">1136.545,70.68063,784.7136,993.3019</marker>
+        <marker type="LOCATION" frame="74">1130.89,73.50786,799.1652,992.3597</marker>
+        <marker type="LOCATION" frame="76">1139.372,73.50786,799.48,994.2448</marker>
+        <marker type="LOCATION" frame="77">1088.482,73.50786,854.7676,995.1875</marker>
+        <marker type="LOCATION" frame="79">1031.937,62.19896,920.1092,1008.381</marker>
+        <marker type="DELETE" frame="80" />
+        <marker type="LOCATION" frame="84">1611.518,118.7435,344.9253,952.7778</marker>
+        <marker type="LOCATION" frame="85">1447.539,118.7435,508.905,952.7778</marker>
+        <marker type="LOCATION" frame="86">1204.398,16.96335,752.048,1054.559</marker>
+        <marker type="LOCATION" frame="87">1204.398,16.96335,752.048,1054.559</marker>
+        <marker type="LOCATION" frame="88">1119.581,16.96335,836.8655,1054.559</marker>
+        <marker type="LOCATION" frame="89">1029.11,16.96335,927.3371,1054.559</marker>
+        <marker type="LOCATION" frame="91">907.5393,16.96335,1048.908,1054.559</marker>
+        <marker type="LOCATION" frame="95">918.8482,16.96335,1037.6,1054.559</marker>
+        <marker type="LOCATION" frame="96">944.2932,16.96335,1012.155,1054.559</marker>
+        <marker type="LOCATION" frame="97">944.2932,16.96335,1012.155,1054.559</marker>
+      </markers>
+    </object>
+    <object id="o4" name="big man" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">809.3258,244.7191,643.1461,829.2135</marker>
+        <marker type="LOCATION" frame="13">809.3258,673.4832,293.2584,400.4485</marker>
+        <marker type="DELETE" frame="14" />
+      </markers>
+    </object>
+    <object id="o5" name="tall man" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="24">6.404459,70.78648,740.2247,999.1011</marker>
+        <marker type="LOCATION" frame="38">6.404459,305.3932,317.5281,764.4939</marker>
+        <marker type="LOCATION" frame="44">6.404459,649.2134,66.74157,420.6733</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o6" name="woman in brown" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="51">2.359515,127.4157,222.4719,944.4944</marker>
+        <marker type="LOCATION" frame="70">778.9887,208.3146,566.2921,854.4935</marker>
+        <marker type="LOCATION" frame="79">940.7865,357.9775,404.4939,704.8302</marker>
+        <marker type="DELETE" frame="80" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="102" />
+      <text>He turns, to see an extremely pretty young woman gazing adoringly at him while they're jostled and shoved.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="84" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

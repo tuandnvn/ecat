@@ -8,36 +8,18 @@
       <markers>
         <marker type="LOCATION" frame="0">2.126043E-05,147.0828,1917.213,788.6212</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1043_Vantage_Point_00.00.05.345-00.00.09.480" id="o1" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o2" name="light" filename="1043_Vantage_Point_00.00.09.813-00.00.15.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">877.7939,303.135,36.2265,103.106</marker>
         <marker type="LOCATION" frame="135">877.7939,303.135,26.47315,86.38607</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo otherSession="1043_Vantage_Point_00.00.05.345-00.00.09.480" id="o2" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o3" name="women" filename="1043_Vantage_Point_00.00.09.813-00.00.15.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">838.7809,339.3615,231.2917,571.2626</marker>
         <marker type="LOCATION" frame="135">844.3542,337.9681,210.3918,521.103</marker>
       </markers>
-      <links>
-        <link frame="0">
-          <linkTo id="o2" q="True" type="PART_OF" />
-          <linkTo id="o4" q="True" type="PART_OF" />
-          <linkTo id="o5" q="True" type="PART_OF" />
-          <linkTo otherSession="1043_Vantage_Point_00.00.05.345-00.00.09.480" id="o3" q="True" type="IDENTITY" />
-        </link>
-      </links>
     </object>
     <object id="o4" name="robe" filename="1043_Vantage_Point_00.00.09.813-00.00.15.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
@@ -61,4 +43,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>
