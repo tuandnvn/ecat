@@ -78,9 +78,9 @@
     <predicate frame="61" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
     <predicate frame="111" arguments="2" ids="o3,o3" q="False" type="PART_OF(X,Y)" />
     <predicate frame="119" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
-    <predicate frame="176" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
     <predicate frame="176" arguments="2" ids="o1,o1" q="True" type="PART_OF(X,Y)" />
-    <predicate frame="176" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
     <predicate frame="176" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
   </predicates>
 </session>

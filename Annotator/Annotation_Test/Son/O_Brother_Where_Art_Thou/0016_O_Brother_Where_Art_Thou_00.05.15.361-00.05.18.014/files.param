@@ -45,8 +45,8 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="2" ids="o11,o4" q="True" type="PART_OF(X,Y)" />
     <predicate frame="0" arguments="2" ids="o12,o6" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o11,o4" q="True" type="PART_OF(X,Y)" />
     <predicate frame="0" arguments="2" ids="o10,o5" q="True" type="PART_OF(X,Y)" />
   </predicates>
 </session>

@@ -20,7 +20,7 @@
   </objects>
   <annotations />
   <predicates>
-    <predicate frame="0" arguments="2" ids="o2,o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0016_O_Brother_Where_Art_Thou_00.05.41.435-00.05.43.005/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="64" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
   </predicates>

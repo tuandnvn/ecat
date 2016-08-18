@@ -132,23 +132,24 @@ namespace Annotator
                 }
             }
 
-            foreach (var entry in o.linkMarks)
-            {
-                int frameNo = entry.Key;
-                LinkMark objectMark = entry.Value;
+            if (o.session != null)
+                foreach (var entry in o.session.queryLinkMarks(o))
+                {
+                    int frameNo = entry.Key;
+                    LinkMark objectMark = entry.Value;
 
-                RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
-                mark.BorderColor = System.Drawing.Color.Green;
-                mark.FillColor = System.Drawing.Color.Green;
-                mark.BackColor = System.Drawing.Color.Green;
-                mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-                mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
-                mark.Size = new System.Drawing.Size(borderWidth, 20);
-                mark.MouseEnter += Mark_MouseEnter;
-                mark.MouseClick += Mark_MouseClick;
-                mark.Click += Mark_Click;
-                this.shapeContainer1.Shapes.Add(mark);
-            }
+                    RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
+                    mark.BorderColor = System.Drawing.Color.Green;
+                    mark.FillColor = System.Drawing.Color.Green;
+                    mark.BackColor = System.Drawing.Color.Green;
+                    mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+                    mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
+                    mark.Size = new System.Drawing.Size(borderWidth, 20);
+                    mark.MouseEnter += Mark_MouseEnter;
+                    mark.MouseClick += Mark_MouseClick;
+                    mark.Click += Mark_Click;
+                    this.shapeContainer1.Shapes.Add(mark);
+                }
 
             if (!finishOneRectangle)
             {
@@ -161,6 +162,7 @@ namespace Annotator
             var mark = (RectangleShapeWithFrame)sender;
             ShowToolTipMouseAt(mark.frameNo);
 
+            main.selectObject(this.o);
             main.setTrackbarLocation(mark.frameNo);
         }
 
@@ -233,9 +235,12 @@ namespace Annotator
 
         private void ShowToolTipMouseAt(int frameNo)
         {
-            if (o.linkMarks.ContainsKey(frameNo))
+            if (o.session == null) return;
+            var linkMarks = o.session.queryLinkMarks(o);
+
+            if (linkMarks.ContainsKey(frameNo))
             {
-                LinkMark objectMark = o.linkMarks[frameNo];
+                LinkMark objectMark = linkMarks[frameNo];
 
                 int X1 = (int)(minLeftPosition + frameStepX * (objectMark.frameNo - 1));
                 long ms = (long)((DateTime.Now - DateTime.MinValue).TotalMilliseconds);

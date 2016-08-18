@@ -28,7 +28,7 @@ namespace Annotator
         internal const string IDS = "ids";
 
         public List<Event> events { get; private set; }
-        public int objectCount { get; set; } = 0;          // video objects IDs
+        public int objectCount { get; set; } = 0;          // Id for next object added into this session
         private Dictionary<string, Object> objects;  // list of objects in videos
         public String name { get; private set; }     //session name
         public Project project { get; private set; }         //session's project 
@@ -42,7 +42,7 @@ namespace Annotator
         private String tempMetadataFile;
         private int annotationID;      // annotation ID
         private int? _sessionLength;
-        public int sessionLength
+        public int frameLength
         {
             get
             {
@@ -68,8 +68,22 @@ namespace Annotator
         }
 
         public DateTime? startWriteRGB { get; set; }
+
+        /// <summary>
+        /// Different from sessionLength
+        /// Duration could be the time to record the video
+        /// </summary>
         public long duration { get; set; }
-        private bool loaded = false;
+
+        public enum LOAD_STATUS
+        {
+            NOT_LOADED,
+            LOADING,
+            LOADED,
+        }
+
+        private LOAD_STATUS loaded = LOAD_STATUS.NOT_LOADED;
+
         private string commonPrefix;
 
         //Constructor
@@ -82,34 +96,49 @@ namespace Annotator
             commonPrefix = locationFolder + Path.DirectorySeparatorChar + project.name + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
             metadataFile = commonPrefix + "files.param";
             tempMetadataFile = commonPrefix + "~files.param";
-            predicates = new SortedSet<PredicateMark>( new PredicateMarkComparer());
             resetVariables();
         }
 
         private void resetVariables()
         {
             this.filesList = new SortedSet<String>();
-            this.edited = false;
             this.videoReaders = new List<VideoReader>();
             this.depthReaders = new List<BaseDepthReader>();
+            resetAnnotationVariables();
+        }
+
+        private void resetAnnotationVariables()
+        {
+            // Start counting object from 0
+            this.objectCount = 0;
             this.events = new List<Event>();
             this.objects = new Dictionary<string, Object>();
+            this.predicates = new SortedSet<PredicateMark>(new PredicateMarkComparer());
         }
 
         internal void loadIfNotLoaded()
         {
-            if (!loaded)
+            if (loaded == LOAD_STATUS.NOT_LOADED)
             {
-                loadSession();
-                loaded = true;
+                reload();
             }
         }
 
-        internal void reloadAnnotation()
+        internal void reload()
         {
+            loaded = LOAD_STATUS.LOADING;
             resetVariables();
-            loadAnnotation();
-            loaded = true;
+            loadSession();
+            loaded = LOAD_STATUS.LOADED;
+        }
+
+        /// <summary>
+        /// Remove all annotation 
+        /// but remains the files added
+        /// </summary>
+        internal void resetAnnotation()
+        {
+            resetAnnotationVariables();
         }
 
         //Add file to session filesList
@@ -186,7 +215,7 @@ namespace Annotator
                     writer.WriteStartDocument();
                     writer.WriteStartElement(SESSION);
                     writer.WriteAttributeString("name", name);
-                    writer.WriteAttributeString("length", "" + sessionLength);
+                    writer.WriteAttributeString("length", "" + frameLength);
                     if (duration != 0)
                     {
                         writer.WriteAttributeString("duration", "" + duration);
@@ -294,12 +323,16 @@ namespace Annotator
             videoReaders = new List<VideoReader>();
             depthReaders = new List<BaseDepthReader>();
 
-            loaded = false;
+            loaded = LOAD_STATUS.NOT_LOADED;
         }
 
         internal void removeObject(string objectId)
         {
+            var o = objects[objectId];
             objects.Remove(objectId);
+
+            // Remove predicate relate to this object
+            predicates.RemoveWhere(predicate => Array.IndexOf(predicate.objects, o) != -1);
         }
 
         //Load files list
@@ -319,7 +352,7 @@ namespace Annotator
                     XmlDocument xmlDocument = new XmlDocument();
                     xmlDocument.Load(metadataFile);
 
-                    sessionLength = int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value);
+                    frameLength = int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value);
 
                     try
                     {
@@ -368,6 +401,42 @@ namespace Annotator
             }
         }
 
+        /// <summary>
+        /// Query predicate that take o as the 'subject' argument
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        internal SortedList<int, LinkMark> queryLinkMarks(Object o)
+        {
+            var linkMarks = new SortedList<int, LinkMark>();
+
+            foreach (var predicate in predicates)
+            {
+                var indexInObjects = Array.IndexOf(predicate.objects, o);
+                var indexOfX = Array.IndexOf(predicate.predicate.combination.values, 1);
+                if (indexInObjects != -1 && indexOfX != -1 && indexInObjects == indexOfX)
+                {
+                    if (!linkMarks.ContainsKey(predicate.frame))
+                    {
+                        linkMarks[predicate.frame] = new LinkMark(o, predicate.frame);
+                    }
+                    linkMarks[predicate.frame].addPredicate(predicate);
+                }
+            }
+
+            return linkMarks;
+        }
+
+        internal void addPredicate(int frameNumber, bool qualified, Predicate predicate, Object[] os)
+        {
+            PredicateMark pm = new PredicateMark(frameNumber, qualified, predicate, this, os);
+
+            // Remove the previously added predicate at the same frame that is conflict
+            predicates.RemoveWhere(m => Options.getOption().predicateConstraints.Any(constraint => constraint.isConflict(m, pm) && m.frame == frameNumber));
+
+            predicates.Add(pm);
+        }
+
         private void loadAnnotation()
         {
             try
@@ -375,22 +444,32 @@ namespace Annotator
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.Load(metadataFile);
 
-                XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
-                objectCount = int.Parse(objectsNode.Attributes["no"].Value);
-                Object.readObjectsFromXml(this, objectsNode);
-
-                // Load predicates
-                foreach (var o in objects.Values)
                 {
-                    foreach (var linkMark in o.linkMarks.Values)
+                    XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
+                    if (objectsNode != null)
                     {
-                        foreach (var predicateMark in linkMark.predicateMarks)
-                            predicates.Add(predicateMark);
+                        objectCount = int.Parse(objectsNode.Attributes["no"].Value);
+                        Object.readObjectsFromXml(this, objectsNode);
                     }
                 }
 
-                XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
-                events = Event.readFromXml(this, annotationsNode);
+                //// Load predicate
+                {
+                    XmlNode predicatesNode = xmlDocument.DocumentElement.SelectSingleNode(PREDICATES);
+                    if (predicatesNode != null)
+                        foreach (XmlNode predicateNode in predicatesNode.SelectNodes(PREDICATE))
+                        {
+                            var pm = PredicateMark.loadFromXml(this, predicateNode);
+                            if (pm != null)
+                                predicates.Add(pm);
+                        }
+                }
+
+                {
+                    XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
+                    if (annotationsNode != null)
+                        events = Event.readFromXml(this, annotationsNode);
+                }
             }
             catch (Exception e)
             {
@@ -473,7 +552,7 @@ namespace Annotator
                 v = new VideoReader(fullFileName, duration);
 
                 videoReaders.Add(v);
-                //sessionLength = v.frameCount;
+                frameLength = v.frameCount;
             }
         }
 
@@ -651,7 +730,7 @@ namespace Annotator
             Options.OverwriteMode overwriteMode)
         {
             var addedEvents = new List<Event>();
-            int noOfEventTemplate = (this.sessionLength - startFrame - duration) / skipLength + 1;
+            int noOfEventTemplate = (this.frameLength - startFrame - duration) / skipLength + 1;
 
             /// Process before looping through generated event templates
             /// 
@@ -707,5 +786,6 @@ namespace Annotator
 
             return addedEvents;
         }
+
     }
 }

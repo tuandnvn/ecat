@@ -44,12 +44,5 @@
       <link />
     </annotation>
   </annotations>
-  <predicates>
-    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,o6" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="12" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="60" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="145" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="151" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
-  </predicates>
+  <predicates />
 </session>

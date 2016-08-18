@@ -55,10 +55,10 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="2" ids="o1,o11" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o4,o9" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,o10" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,1043_Vantage_Point_00.03.42.055-00.03.47.379/o10" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,1043_Vantage_Point_00.03.42.055-00.03.47.379/o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,1043_Vantage_Point_00.03.42.055-00.03.47.379/o9" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,1043_Vantage_Point_00.03.42.055-00.03.47.379/o11" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="38" arguments="2" ids="o5,o6" q="True" type="PART_OF(X,Y)" />
   </predicates>
 </session>

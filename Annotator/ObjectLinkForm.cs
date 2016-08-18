@@ -75,13 +75,13 @@ namespace Annotator
                     if (predicateType.combination.size == 2)
                     {
                         var otherObject = session.getObjects()[this.objectSelectComboBox.SelectedIndex];
-                        obj.addLink(frameNo, otherObject, qualified, predicateType);
+                        session.addPredicate(frameNo, qualified, predicateType, new Object[] { obj, otherObject });
                     }
 
                     // Unary predicate
                     if (predicateType.combination.size == 1)
                     {
-                        obj.addLink(frameNo, qualified, predicateType);
+                        session.addPredicate(frameNo, qualified, predicateType, new Object[] { obj });
                     }
                 }
                 else
@@ -89,10 +89,11 @@ namespace Annotator
                     var sessionIndex = this.sessionSelectComboBox.SelectedIndex;
                     var tempoSession = project.sessions[sessionIndex];
                     var otherObject = tempoSession.getObjects()[this.objectSelectComboBox.SelectedIndex];
-                    obj.addLink(frameNo, otherObject, qualified, predicateType);
+                    session.addPredicate(frameNo, qualified, predicateType, new Object[] { obj, otherObject });
                 }
 
                 this.main.redrawObjectMarks();
+                this.main.showPredicates();
             }
             catch (Exception exc)
             {

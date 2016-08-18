@@ -112,7 +112,7 @@ namespace Annotator
 
         private void cleanUpCurrentProject()
         {
-            if (currentSession != null && currentSession.edited)
+            if (currentSession != null)
             {
                 cleanUpCurrentSession();
             }
@@ -130,7 +130,7 @@ namespace Annotator
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentSession != null && currentSession.edited)
+            if (currentSession != null)
             {
                 MessageBox.Show("Cannot close project, session " + currentSession.name + " is editing");
                 return;

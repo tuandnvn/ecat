@@ -40,12 +40,12 @@ namespace Annotator
                 if (startFrame < 0)
                     throw new ArgumentOutOfRangeException("startFrame < 0");
 
-                if (!isProjectMode && main.currentSession != null && startFrame >= main.currentSession.sessionLength)
+                if (!isProjectMode && main.currentSession != null && startFrame >= main.currentSession.frameLength)
                     throw new ArgumentOutOfRangeException("startFrame >= session length");
             }
             catch (Exception exc)
             {
-                startFrameTxtBoxTt.Show("Value need to be an integer >=0 and < " + main.currentSession.sessionLength, startFrameTxtBox, 194, 0);
+                startFrameTxtBoxTt.Show("Value need to be an integer >=0 and < " + main.currentSession.frameLength, startFrameTxtBox, 194, 0);
                 satisfied &= false;
             }
 
@@ -56,12 +56,12 @@ namespace Annotator
                 if (skippingLength <= 0)
                     throw new ArgumentOutOfRangeException("skippingLength <= 0");
 
-                if (!isProjectMode && main.currentSession != null && skippingLength >= main.currentSession.sessionLength)
+                if (!isProjectMode && main.currentSession != null && skippingLength >= main.currentSession.frameLength)
                     throw new ArgumentOutOfRangeException("skippingLength >= session length");
             }
             catch (Exception exc)
             {
-                skippingLengthTxtBoxTt.Show("Value need to be an integer >=0 and < " + main.currentSession.sessionLength, skippingLengthTxtBox, 194, 0);
+                skippingLengthTxtBoxTt.Show("Value need to be an integer >=0 and < " + main.currentSession.frameLength, skippingLengthTxtBox, 194, 0);
                 satisfied &= false;
             }
 
@@ -73,12 +73,12 @@ namespace Annotator
                 if (duration <= 0)
                     throw new ArgumentOutOfRangeException("duration <= 0");
 
-                if (!isProjectMode && main.currentSession != null && duration >= main.currentSession.sessionLength)
+                if (!isProjectMode && main.currentSession != null && duration >= main.currentSession.frameLength)
                     throw new ArgumentOutOfRangeException("duration out of range");
             }
             catch (Exception exc)
             {
-                durationTxtBoxTt.Show("Value need to be an integer >=0 and < " + main.currentSession.sessionLength, durationTxtBox, 194, 0);
+                durationTxtBoxTt.Show("Value need to be an integer >=0 and < " + main.currentSession.frameLength, durationTxtBox, 194, 0);
                 satisfied &= false;
             }
 

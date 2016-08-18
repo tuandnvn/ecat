@@ -17,6 +17,11 @@ namespace Annotator
         internal Permutation combination;
 
         /// <summary>
+        /// IdentityPredicate is a special predicate
+        /// </summary>
+        public static Predicate IdentityPredicate = new Predicate("IDENTITY", new Permutation(new int[] { 1, 2 }));
+
+        /// <summary>
         /// Example of Predicate:
         /// PART_OF(A,B) translate to
         /// predicate = PART_OF

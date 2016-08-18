@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_00.04.19.056-00.04.19.878.avi</file>
   </files>
-  <objects no="8">
+  <objects no="7">
     <object id="o1" name="men1" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">461.4057,281.2141,207.0288,148.3706</marker>
@@ -23,11 +23,45 @@
         <marker type="LOCATION" frame="41">440.7029,24.15333,1259.425,1031.694</marker>
       </markers>
     </object>
-    <object id="o8" name="car" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+    <object id="o4" name="ties1" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">24.92,214.0715,1241.484,850.4015</marker>
-        <marker type="LOCATION" frame="14">24.91972,228.5393,1186.878,835.9324</marker>
-        <marker type="LOCATION" frame="47">24.91959,843.3708,572.0467,221.1005</marker>
+        <marker type="LOCATION" frame="0">540.7668,400.2556,44.85618,34.5048</marker>
+        <marker type="LOCATION" frame="6">464.8562,419.2332,44.85623,34.5048</marker>
+        <marker type="LOCATION" frame="12">269.9041,491.6933,56.93291,58.65815</marker>
+        <marker type="LOCATION" frame="16">89.61658,548.6262,71.59743,72.46007</marker>
+        <marker type="LOCATION" frame="18">-5.702923,602.1086,71.59745,72.46007</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o5" name="ties2" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">882.3643,367.4761,56.93291,60.38337</marker>
+        <marker type="LOCATION" frame="6">860.7988,395.9425,56.93291,60.38339</marker>
+        <marker type="LOCATION" frame="12">798.6901,480.4792,56.93291,60.38339</marker>
+        <marker type="LOCATION" frame="16">743.0511,540.4313,68.14697,113.0032</marker>
+        <marker type="LOCATION" frame="20">774.1055,650.8468,96.18206,184.1692</marker>
+        <marker type="LOCATION" frame="25">761.8131,717.053,213.7141,307.7394</marker>
+        <marker type="LOCATION" frame="31">860.0439,816.0384,239.7005,247.033</marker>
+        <marker type="LOCATION" frame="39">945.3894,747.7296,226.8151,296.0405</marker>
+      </markers>
+    </object>
+    <object id="o6" name="blacksuite1" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">454.5048,376.1022,234.6326,62.10863</marker>
+        <marker type="LOCATION" frame="8">328.5623,412.3323,234.6326,62.10863</marker>
+        <marker type="LOCATION" frame="14">90.47919,498.5943,279.4888,93.16295</marker>
+        <marker type="LOCATION" frame="20">11.11817,627.9872,138.0192,93.16295</marker>
+        <marker type="DELETE" frame="22" />
+      </markers>
+    </object>
+    <object id="o7" name="blacksuite2" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">771.949,357.1246,281.214,69.00959</marker>
+        <marker type="LOCATION" frame="8">726.23,377.8275,292.4281,119.0415</marker>
+        <marker type="LOCATION" frame="14">494.6166,486.5176,522.3163,86.26199</marker>
+        <marker type="LOCATION" frame="20">391.7492,555.5272,721.7972,410.6071</marker>
+        <marker type="LOCATION" frame="28">526.6414,588.3067,811.1862,470.9904</marker>
+        <marker type="LOCATION" frame="44">526.6414,583.131,1120.004,476.1664</marker>
       </markers>
     </object>
   </objects>
@@ -41,6 +75,7 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="2" ids="o8,o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
   </predicates>
 </session>

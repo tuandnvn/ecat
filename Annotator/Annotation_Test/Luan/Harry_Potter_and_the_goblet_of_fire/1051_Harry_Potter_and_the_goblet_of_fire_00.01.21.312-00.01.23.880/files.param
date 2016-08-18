@@ -9,6 +9,11 @@
         <marker type="LOCATION" frame="0">1114.541,167.6953,407.6367,301.6406</marker>
       </markers>
     </object>
+    <object id="o2" name="dark sky" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">12.65625,139.2188,1896.328,101.25</marker>
+      </markers>
+    </object>
     <object id="o3" name="small house" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.01.21.312-00.01.23.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">143.4375,400.7813,693.9844,540</marker>
@@ -31,9 +36,5 @@
       <link />
     </annotation>
   </annotations>
-  <predicates>
-    <predicate frame="0" arguments="2" ids="o1,o1" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,o3" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="8" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
-  </predicates>
+  <predicates />
 </session>

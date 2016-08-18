@@ -15,7 +15,7 @@ namespace Annotator
         public LinkMark(Object o, int frameNo) : base(frameNo)
         {
             this.o = o;
-            predicateMarks = new SortedSet<PredicateMark>();
+            predicateMarks = new SortedSet<PredicateMark>(new PredicateMarkComparer());
         }
 
         public void addLinkToObject(bool qualified, Predicate linkType)
@@ -26,6 +26,11 @@ namespace Annotator
         public void addLinkToObject(Object otherObject, bool qualified, Predicate linkType)
         {
             predicateMarks.Add(new PredicateMark(frameNo, qualified, linkType, o.session, new Object[] { o, otherObject }));
+        }
+
+        public void addPredicate(PredicateMark pm)
+        {
+            predicateMarks.Add(pm);
         }
 
         override public String ToString()

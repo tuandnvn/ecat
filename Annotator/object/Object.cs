@@ -9,6 +9,7 @@ using System.Xml;
 
 namespace Annotator
 {
+
     // 2d object
     public class Object
     {
@@ -45,10 +46,10 @@ namespace Annotator
             get; protected set;
         }
 
-        public SortedList<int, LinkMark> linkMarks
-        {
-            get; protected set;
-        }
+        //public SortedList<int, LinkMark> linkMarks
+        //{
+        //    get; protected set;
+        //}
 
         public enum ObjectType
         {
@@ -93,7 +94,7 @@ namespace Annotator
             this.otherProperties = new Dictionary<string, string>();
             this.objectMarks = new SortedList<int, LocationMark2D>();
             this.object3DMarks = null;
-            this.linkMarks = new SortedList<int, LinkMark>();
+            //this.linkMarks = new SortedList<int, LinkMark>();
             this.name = "";
         }
 
@@ -185,34 +186,14 @@ namespace Annotator
             return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
-        internal void addLink(int frameNumber, bool qualified, Predicate linkType)
-        {
-            if (!linkMarks.ContainsKey(frameNumber))
-            {
-                linkMarks[frameNumber] = new LinkMark(this, frameNumber);
-            }
-
-            linkMarks[frameNumber].addLinkToObject(qualified, linkType);
-        }
-
-        internal void addLink(int frameNumber, Object otherObject, bool qualified, Predicate linkType)
-        {
-            if (!linkMarks.ContainsKey(frameNumber))
-            {
-                linkMarks[frameNumber] = new LinkMark(this, frameNumber);
-            }
-
-            linkMarks[frameNumber].addLinkToObject(otherObject, qualified, linkType);
-        }
-
         internal LinkMark getLink(int frameNumber)
         {
-            if (!linkMarks.ContainsKey(frameNumber))
+            var linkMarks = this.session.queryLinkMarks(this);
+            if (linkMarks.ContainsKey(frameNumber))
             {
-                return null;
+                return linkMarks[frameNumber];
             }
-
-            return linkMarks[frameNumber];
+            return null;
         }
 
 
@@ -407,23 +388,23 @@ namespace Annotator
             xmlWriter.WriteEndElement();
         }
 
-        protected virtual void writeLinks(XmlWriter xmlWriter)
-        {
-            if (linkMarks.Count == 0) return;
-            xmlWriter.WriteStartElement(LINKS);
-            foreach (int frame in linkMarks.Keys)
-            {
-                if (!linkMarks[frame].isEmpty())
-                {
-                    xmlWriter.WriteStartElement(LINK);
-                    xmlWriter.WriteAttributeString(FRAME, "" + frame);
-                    linkMarks[frame].writeToXml(xmlWriter);
+        //protected virtual void writeLinks(XmlWriter xmlWriter)
+        //{
+        //    if (linkMarks.Count == 0) return;
+        //    xmlWriter.WriteStartElement(LINKS);
+        //    foreach (int frame in linkMarks.Keys)
+        //    {
+        //        if (!linkMarks[frame].isEmpty())
+        //        {
+        //            xmlWriter.WriteStartElement(LINK);
+        //            xmlWriter.WriteAttributeString(FRAME, "" + frame);
+        //            linkMarks[frame].writeToXml(xmlWriter);
 
-                    xmlWriter.WriteEndElement();
-                }
-            }
-            xmlWriter.WriteEndElement();
-        }
+        //            xmlWriter.WriteEndElement();
+        //        }
+        //    }
+        //    xmlWriter.WriteEndElement();
+        //}
 
         public static void readObjectsFromXml(Session session, XmlNode xmlNode)
         {
@@ -491,15 +472,15 @@ namespace Annotator
                 session.addObject(o);
             }
 
-            // Load predicates later, after adding all objects
-            foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
-            {
-                string id = objectNode.Attributes[ID].Value;
+            //// Load predicates later, after adding all objects
+            //foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
+            //{
+            //    string id = objectNode.Attributes[ID].Value;
 
-                var ob = objects.Where(o => o.id == id).First();
-                if (ob != null)
-                    ob.readLinks(objectNode);
-            }
+            //    var ob = objects.Where(o => o.id == id).First();
+            //    if (ob != null)
+            //        ob.readLinks(objectNode);
+            //}
 
             int performerCount = 1;
             // Add performer names to RigObject
@@ -747,30 +728,31 @@ namespace Annotator
             return cameraSpacePoint;
         }
 
-        private void readLinks(XmlNode objectNode)
-        {
-            XmlNode linksNode = objectNode.SelectSingleNode(LINKS);
+        //private void readLinks(XmlNode objectNode)
+        //{
+        //    XmlNode linksNode = objectNode.SelectSingleNode(LINKS);
 
-            if (linksNode == null) return;
-            foreach (XmlNode linkNode in linksNode.SelectNodes(LINK))
-            {
+        //    if (linksNode == null) return;
+        //    foreach (XmlNode linkNode in linksNode.SelectNodes(LINK))
+        //    {
 
-                int frame = int.Parse(linkNode.Attributes[FRAME].Value);
+        //        int frame = int.Parse(linkNode.Attributes[FRAME].Value);
 
-                if (!linkMarks.ContainsKey(frame))
-                {
-                    linkMarks[frame] = new LinkMark(this, frame);
-                }
+        //        if (!linkMarks.ContainsKey(frame))
+        //        {
+        //            linkMarks[frame] = new LinkMark(this, frame);
+        //        }
 
-                linkMarks[frame].loadFromHtml(linkNode);
-            }
-        }
+        //        linkMarks[frame].loadFromHtml(linkNode);
+        //    }
+        //}
 
         public String queryTooltip(int frameNo)
         {
-            if (linkMarks.ContainsKey(frameNo))
+            var l = getLink(frameNo);
+            if (l != null)
             {
-                return linkMarks[frameNo].ToString();
+                return l.ToString();
             }
             return "";
         }
@@ -781,5 +763,59 @@ namespace Annotator
         protected virtual void loadObjectAdditionalFromXml(XmlNode objectNode)
         {
         }
+
+        internal HashSet<PredicateMark> getHoldingPredicates(int frame)
+        {
+            HashSet<PredicateMark> holdingPredicates = new HashSet<PredicateMark>();
+            SortedList<int, LinkMark> linkMarks = this.session.queryLinkMarks(this);
+
+            foreach (int frameNo in linkMarks.Keys)
+            {
+                if (frameNo <= frame)
+                    foreach (var predicateMark in linkMarks[frameNo].predicateMarks)
+                    {
+                        // Only add predicateMark if it is POSITIVE
+                        // Otherwise remove its negation
+                        if (predicateMark.qualified)
+                        {
+                            holdingPredicates.RemoveWhere(m => Options.getOption().predicateConstraints.Any(constraint => constraint.isConflict(m, predicateMark)));
+
+                            //Except from IDENTITY relationship
+                            // Other relationship only hold when all objects in relationship appears
+                            // We still need to consider predicate mark to remove nullified predicates before it
+                            // However we don't add it if some object disappears
+                            if (!predicateMark.predicate.Equals(Predicate.IdentityPredicate))
+                            {
+                                bool allExist = true;
+                                foreach (var o in predicateMark.objects)
+                                {
+                                    // This object o still appear in the move
+                                    if (!o.hasMark(frame))
+                                    {
+                                        allExist = false;
+                                        break;
+                                    }
+                                }
+
+                                if (allExist)
+                                {
+                                    holdingPredicates.Add(predicateMark);
+                                }
+                            }
+                            else
+                            {
+                                holdingPredicates.Add(predicateMark);
+                            }
+                        }
+                        else
+                        {
+                            holdingPredicates.RemoveWhere(m => m.isNegateOf(predicateMark));
+                        }
+                    }
+            }
+
+            return holdingPredicates;
+        }
+
     }
 }

@@ -27,7 +27,7 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="48" />
+      <duration startFrame="0" endFrame="47" />
       <text>He offers him a patronizingly kind, half- smile in return.</text>
       <refs />
       <events />
@@ -35,7 +35,7 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0046_Chasing_Amy_00.03.04.140-00.03.07.728/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="34" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
   </predicates>
 </session>

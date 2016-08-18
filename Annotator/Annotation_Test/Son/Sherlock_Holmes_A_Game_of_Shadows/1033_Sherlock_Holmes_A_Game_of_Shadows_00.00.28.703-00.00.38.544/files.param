@@ -4,7 +4,7 @@
     <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi</file>
   </files>
   <objects no="2">
-    <object id="o1" name="typewriter" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+    <object id="o1" name="" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.28.703-00.00.38.544.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">6.808472,134.8936,476.5958,316.5958</marker>
         <marker type="LOCATION" frame="16">6.808471,134.8936,716.5958,374.4681</marker>
@@ -21,7 +21,6 @@
         <marker type="LOCATION" frame="27">1.702089,136.5957,417.0213,801.7021</marker>
         <marker type="LOCATION" frame="60">1.702089,136.5957,801.7021,801.7021</marker>
         <marker type="LOCATION" frame="94">1.702089,136.5957,1074.043,801.7021</marker>
-        <marker type="LOCATION" frame="140">-16.90921,366.0674,973.8755,537.9016</marker>
         <marker type="LOCATION" frame="175">1.702089,408.9362,1074.043,529.3617</marker>
         <marker type="LOCATION" frame="212">1.702089,408.9362,1074.043,529.3617</marker>
         <marker type="LOCATION" frame="213">377.0212,147.6596,1132.766,788.9362</marker>

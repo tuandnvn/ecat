@@ -74,5 +74,8 @@
       <link />
     </annotation>
   </annotations>
-  <predicates />
+  <predicates>
+    <predicate frame="24" arguments="2" ids="o5,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="88" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

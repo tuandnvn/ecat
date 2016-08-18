@@ -43,8 +43,8 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
     <predicate frame="39" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
   </predicates>
 </session>

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Emgu.CV;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +17,122 @@ namespace Annotator
     {
         private int sessionStart;
         private int sessionEnd;
+
+        private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string videoFilename = playbackFileComboBox.SelectedItem.ToString();
+
+                if (videoFilename.isVideoFile())
+                {
+                    depthReader = null;
+                    loadVideo(videoFilename);
+
+                    if (videoReader != null)
+                    {
+                        //endPoint = startPoint = new Point();
+                        boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
+                        frameNumberLbl.Text = "Frame: " + frameTrackBar.Value;
+
+                        Mat m = videoReader.getFrame(0);
+                        if (m != null)
+                        {
+                            pictureBoard.mat = m;
+                            pictureBoard.Image = pictureBoard.mat.Bitmap;
+                        }
+
+                        setLeftTopPanel();
+                    }
+                }
+
+                if (videoFilename.isDepthFile())
+                {
+                    videoReader = null;
+                    depthReader = currentSession.getDepth(videoFilename);
+
+                    if (depthReader == null) return;
+
+                    if (depthValuesToByte == null)
+                    {
+                        depthValuesToByte = new byte[depthReader.getWidth() * depthReader.getHeight() * 4];
+                    }
+
+                    if (depthBitmap == null)
+                    {
+                        depthBitmap = new Bitmap(depthReader.getWidth(), depthReader.getHeight(), PixelFormat.Format32bppRgb);
+                    }
+
+                    depthReader.readFrameAtTimeToBitmap(0, depthBitmap, depthValuesToByte, 8000.0f / 256);
+
+                    if (depthBitmap != null)
+                    {
+                        pictureBoard.Image = depthBitmap;
+                    }
+                }
+
+                frameTrackBar_ValueChanged(null, null);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("Select video file exception");
+                MessageBox.Show("Exception in opening this file, please try another file", "File exception", MessageBoxButtons.OK);
+            }
+        }
+
+        private void frameTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't allow the track bar value to get out of the range [MinDragValue, MaxDragValue] 
+            if (frameTrackBar.Value < frameTrackBar.MinDragVal)
+            {
+                frameTrackBar.Value = frameTrackBar.MinDragVal;
+                return;
+            }
+
+            if (frameTrackBar.Value > frameTrackBar.MaxDragVal)
+            {
+                frameTrackBar.Value = frameTrackBar.MaxDragVal;
+                return;
+            }
+
+            frameNumberLbl.Text = "Frame: " + frameTrackBar.Value;
+
+            int frameStartWithZero = frameTrackBar.Value - 1;
+            if (videoReader != null)
+            {
+                Mat m = videoReader.getFrame(frameStartWithZero);
+                if (m != null)
+                {
+                    pictureBoard.mat = m;
+                    pictureBoard.Image = pictureBoard.mat.Bitmap;
+                }
+                else
+                {
+                    Console.WriteLine("Could not get frame for " + frameStartWithZero);
+                }
+                runGCForImage();
+            }
+
+            if (depthReader != null)
+            {
+                int timeStepForFrame = (int)(currentSession.duration / currentSession.frameLength);
+                int timeFromStart = frameStartWithZero * timeStepForFrame;
+                depthReader.readFrameAtTimeToBitmap(timeFromStart, depthBitmap, depthValuesToByte, 8000.0f / 256);
+
+                if (depthBitmap != null)
+                {
+                    pictureBoard.Image = depthBitmap;
+                }
+                else
+                {
+                    Console.WriteLine("Could not get frame for " + frameStartWithZero);
+                }
+
+                runGCForImage();
+            }
+
+            showPredicates();
+        }
 
         private void StartInSecondTextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {

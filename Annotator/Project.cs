@@ -29,6 +29,7 @@ namespace Annotator
             get; set;
         } = false;
 
+
         //constructor
         public Project(String locationFolder, String projectName, List<Session> sessions)
         {

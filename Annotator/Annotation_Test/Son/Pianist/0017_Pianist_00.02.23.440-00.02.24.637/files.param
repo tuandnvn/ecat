@@ -28,9 +28,9 @@
   </objects>
   <annotations />
   <predicates>
-    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="15" arguments="2" ids="o3,o2" q="False" type="LOOK_AT(X,Y)" />
     <predicate frame="16" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
   </predicates>

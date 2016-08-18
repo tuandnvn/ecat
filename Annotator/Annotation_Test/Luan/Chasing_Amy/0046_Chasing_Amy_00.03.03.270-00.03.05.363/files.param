@@ -37,8 +37,5 @@
       <link />
     </annotation>
   </annotations>
-  <predicates>
-    <predicate frame="32" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="48" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
-  </predicates>
+  <predicates />
 </session>

@@ -39,5 +39,7 @@
       <link />
     </annotation>
   </annotations>
-  <predicates />
+  <predicates>
+    <predicate frame="33" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
 </session>

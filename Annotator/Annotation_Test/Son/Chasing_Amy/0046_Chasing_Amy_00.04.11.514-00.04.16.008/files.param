@@ -21,6 +21,21 @@
         <marker type="LOCATION" frame="79">1001.379,16.5517,879.9989,1042.758</marker>
       </markers>
     </object>
+    <object id="o3" name=" man 1's hand 1" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="9">1751.724,612.4138,162.7584,173.7931</marker>
+        <marker type="LOCATION" frame="19">1744.828,682.7585,162.7586,173.7931</marker>
+        <marker type="LOCATION" frame="26">1663.448,593.7932,246.2065,257.9307</marker>
+        <marker type="LOCATION" frame="38">1487.931,591.0345,246.2065,311.0344</marker>
+        <marker type="LOCATION" frame="69">1507.241,540.6896,266.5515,344.8276</marker>
+        <marker type="LOCATION" frame="91">1379.31,536.5517,307.0689,344.8276</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man 1's hand 2" filename="0046_Chasing_Amy_00.04.11.514-00.04.16.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="94">755.8619,846.8965,339.3104,212.4138</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">

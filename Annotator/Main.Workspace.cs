@@ -270,39 +270,48 @@ namespace Annotator
                 return;
 
             TreeNode selectedNode = treeView.SelectedNode;
-            Session choosedSession = null;
+            Session choosenSession = null;
+
+            // Check if session node is inside currently open project
             if (selectedNode != null && currentProject != null && selectedNode.Parent.Text.Equals(currentProject.name))
             {
-                editSessionMenuItem.Enabled = true;
-                saveSessionMenuItem.Enabled = true;
-                deleteSessionMenuItem.Enabled = true;
-                addFileToSessionMenuItem.Enabled = true;
-                refreshSessionMenuItem.Enabled = true;
-                sessionDetectToolStripMenuItem.Enabled = true;
-                sessionGenerateToolStripMenuItem.Enabled = true;
-
                 //Check if session is editing:
-                choosedSession = currentProject.getSession(selectedNode.Text);
-                if (choosedSession == null)
-                    choosedSession = currentProject.getSession(selectedNode.Text);
-                if (choosedSession != null && choosedSession.edited)
+                choosenSession = currentProject.getSession(selectedNode.Text);
+                if (choosenSession == null)
+                    choosenSession = currentProject.getSession(selectedNode.Text.Substring(1));
+
+                if (choosenSession != null)
                 {
-                    //MessageBox.Show("OK1");
-                    editSessionMenuItem.Enabled = false;
-                }
-                else if (choosedSession != null && !choosedSession.edited)
-                {
-                    editSessionMenuItem.Enabled = true;
-                    saveSessionMenuItem.Enabled = false;
-                    addFileToSessionMenuItem.Enabled = false;
-                    sessionDetectToolStripMenuItem.Enabled = false;
-                    sessionGenerateToolStripMenuItem.Enabled = false;
-                    //MessageBox.Show("OK2");
+                    if (choosenSession.edited)
+                    {
+                        editSessionMenuItem.Enabled = false;
+                        reloadToolStripMenuItem.Enabled = true;
+                        resetToolStripMenuItem.Enabled = true;
+                        saveSessionMenuItem.Enabled = true;
+                        deleteSessionMenuItem.Enabled = true;
+                        addFileToSessionMenuItem.Enabled = true;
+                        refreshSessionMenuItem.Enabled = true;
+                        sessionDetectToolStripMenuItem.Enabled = true;
+                        sessionGenerateToolStripMenuItem.Enabled = true;
+                    } else
+                    {
+                        editSessionMenuItem.Enabled = true;
+                        reloadToolStripMenuItem.Enabled = false;
+                        resetToolStripMenuItem.Enabled = false;
+                        saveSessionMenuItem.Enabled = false;
+                        deleteSessionMenuItem.Enabled = false;
+                        addFileToSessionMenuItem.Enabled = false;
+                        refreshSessionMenuItem.Enabled = true;
+                        sessionDetectToolStripMenuItem.Enabled = false;
+                        sessionGenerateToolStripMenuItem.Enabled = false;
+                    }
                 }
             }
             else
             {
                 editSessionMenuItem.Enabled = false;
+                reloadToolStripMenuItem.Enabled = false;
+                resetToolStripMenuItem.Enabled = false;
                 saveSessionMenuItem.Enabled = false;
                 deleteSessionMenuItem.Enabled = false;
                 addFileToSessionMenuItem.Enabled = false;

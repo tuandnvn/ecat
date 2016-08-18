@@ -22,7 +22,7 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="50" />
+      <duration startFrame="0" endFrame="49" />
       <text>He hangs up again.</text>
       <refs />
       <events />
