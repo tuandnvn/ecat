@@ -230,7 +230,6 @@ namespace Annotator
             renderPredicateList();
         }
 
-
         private void existingPredicateListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectIndex = existingPredicateListBox.SelectedIndex;

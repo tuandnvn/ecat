@@ -1,10 +1,12 @@
 ﻿using Emgu.CV;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +19,8 @@ namespace Annotator
     {
         private int sessionStart;
         private int sessionEnd;
+        private bool playStatus = false;
+        private int framePerSecond = 10;
 
         private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -286,6 +290,86 @@ namespace Annotator
         {
             frameTrackBar.Maximum = value;
             this.sessionEnd = value;
+        }
+
+        private void playBtn_Click(object sender, EventArgs e)
+        {
+            switchPlay();
+        }
+
+        private void switchPlay()
+        {
+            if (!playStatus)
+            {
+                handlePlay();
+            }
+            else
+            {
+                handlePause();
+            }
+        }
+
+        private void handlePlay()
+        {
+            if (!playStatus)
+            {
+                playBtn.ImageIndex = 3;
+
+                playStatus = !playStatus;
+
+                Task t = Task.Run( async () =>
+                {
+                    try
+                    {
+                        int currentFrame = -1;
+                        int maxDragVal = -1;
+                        this.Invoke((MethodInvoker)delegate {
+                            currentFrame = frameTrackBar.Value;
+                        });
+
+                        this.Invoke((MethodInvoker)delegate {
+                            maxDragVal = frameTrackBar.MaxDragVal;
+                        });
+
+                        Stopwatch stopwatch = Stopwatch.StartNew();
+
+                        while (currentFrame < maxDragVal && playStatus)
+                        {
+                            
+                            Thread.Sleep(1000 / framePerSecond);
+
+                            this.Invoke((MethodInvoker)delegate {
+                                frameTrackBar.Value = currentFrame + 2;
+                            });
+
+                            currentFrame += 2;
+
+                            stopwatch.Stop();
+                            Console.WriteLine("Time = " + stopwatch.ElapsedMilliseconds);
+                        }
+
+                        // If after running the previous piece of code, the frameTrackBar is at the end of playing
+                        if (currentFrame == maxDragVal && playStatus)
+                        {
+                            this.Invoke((MethodInvoker)delegate {
+                                handlePause();
+                            });
+                        }
+                    } catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                });
+            }
+        }
+
+        private void handlePause()
+        {
+            if (playStatus)
+            {
+                playBtn.ImageIndex = 2;
+                playStatus = !playStatus;
+            }
         }
     }
 }

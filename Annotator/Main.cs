@@ -8,20 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-//using System.Collections.Generic;
 using System.Diagnostics;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using System.Threading;
 using System.Globalization;
+using System.Xml;
 
 namespace Annotator
 {
     public partial class Main : Form
     {
         Size previousSize;
-
-        
         private bool newProject = false;//true if new project is creating
         private bool newSession = false;//true if new session is creating     
         internal Project currentProject = null; //currently selected project
@@ -152,23 +150,6 @@ namespace Annotator
                 try
                 {
                     loadWorkspace();
-
-                    //If default workspace option choosed set parametrs in hidden param file
-                    if (workspace.defaultOption)
-                    {
-                        // Remove the hidden attribute of the file   
-                        if (File.Exists(parametersFileName))
-                        {
-                            FileInfo myFile = new FileInfo(parametersFileName);
-                            myFile.Attributes &= ~FileAttributes.Hidden;
-                        }
-
-                        File.WriteAllText(parametersFileName, workspace.locationFolder);
-
-                        FileInfo myFile1 = new FileInfo(parametersFileName);
-                        // Set the hidden attribute of the file
-                        myFile1.Attributes = FileAttributes.Hidden;
-                    }
                 }
                 catch (Exception exc)
                 {
@@ -435,6 +416,11 @@ namespace Annotator
             InfoForm iff = new InfoForm();
             iff.StartPosition = FormStartPosition.CenterParent;
             iff.ShowDialog();
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saveParameters();
         }
 
     }

@@ -16,7 +16,13 @@ namespace Annotator
     /// </summary>
     partial class Main
     {   //Project workspace 
+        private const string WS = "ws";
+        private const string DEFAULT_WORKSPACE = "defaultWorkspace";
+        private const string RECENT_WORKSPACES = "recentWorkspaces";
+        private const string WORKSPACE = "workspace";
+
         private Workspace workspace = null;
+        private string defaultWorkspace = null;
         private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
         private SortedSet<String> recentWorkspaceLocations;
 
@@ -40,7 +46,6 @@ namespace Annotator
             {
                 try
                 {
-                    //Set file as hidden                
                     FileInfo myFile = new FileInfo(parametersFileName);
                     // Remove the hidden attribute of the file
                     myFile.Attributes &= ~FileAttributes.Hidden;
@@ -48,11 +53,18 @@ namespace Annotator
                     XmlDocument xmlDocument = new XmlDocument();
                     xmlDocument.Load(parametersFileName);
 
-                    String defaultWorkspace = xmlDocument.DocumentElement.SelectSingleNode("defaultWorkspace").InnerText;
+                    try
+                    {
+                        defaultWorkspace = xmlDocument.DocumentElement.SelectSingleNode(DEFAULT_WORKSPACE).InnerText;
+                        workspace = new Workspace(defaultWorkspace, true);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("No default workspace");
+                    }
 
-
-                    var recentWorkspacesNode = xmlDocument.DocumentElement.SelectSingleNode("recentWorkspaces");
-                    foreach (XmlNode recentWorkspaceNode in recentWorkspacesNode.SelectNodes("workspace"))
+                    var recentWorkspacesNode = xmlDocument.DocumentElement.SelectSingleNode(RECENT_WORKSPACES);
+                    foreach (XmlNode recentWorkspaceNode in recentWorkspacesNode.SelectNodes(WORKSPACE))
                     {
                         string location = recentWorkspaceNode.InnerText;
                         recentWorkspaceLocations.Add(location);
@@ -60,13 +72,58 @@ namespace Annotator
 
                     updateRecentWorkspacesToolStripMenuItems();
 
-                    workspace = new Workspace(defaultWorkspace, true);
                     myFile.Attributes |= FileAttributes.Hidden;
                 }
                 catch (Exception e)
                 {
+                    Console.WriteLine(e);
                     Console.WriteLine("Exception in loading parameter files");
                 }
+            }
+        }
+
+
+        private void saveParameters()
+        {
+            try
+            {
+                FileInfo paramFile = new FileInfo(parametersFileName);
+                // Remove the hidden attribute of the file
+                paramFile.Attributes &= ~FileAttributes.Hidden;
+
+                XmlWriterSettings setting = new XmlWriterSettings();
+                setting.Indent = true;
+
+                using (XmlWriter writer = XmlWriter.Create(parametersFileName, setting))
+                {
+                    writer.WriteStartDocument();
+                    writer.WriteStartElement(WS);
+
+                    if (defaultWorkspace != null)
+                    {
+                        writer.WriteElementString(DEFAULT_WORKSPACE, defaultWorkspace);
+                    }
+
+                    if (recentWorkspaceLocations != null)
+                    {
+                        writer.WriteStartElement(RECENT_WORKSPACES);
+
+                        foreach (var location in recentWorkspaceLocations)
+                        {
+                            writer.WriteElementString(WORKSPACE, location);
+                        }
+
+                        writer.WriteEndElement();
+                    }
+
+                    writer.WriteEndElement();
+                }
+
+                paramFile.Attributes |= FileAttributes.Hidden;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
             }
         }
 
@@ -77,6 +134,10 @@ namespace Annotator
 
             clearWorkspaceTreeview();
             workspace = new Workspace(locationFolder, defaultOption);
+            if (defaultOption)
+            {
+                defaultWorkspace = locationFolder;
+            }
             loadWorkspace();
 
             // Add this workspace into recent workspaces
@@ -107,7 +168,7 @@ namespace Annotator
 
         private void recentWorkspace_Click(object sender, EventArgs e)
         {
-            setWorkspace( (sender as ToolStripMenuItem).Text, false);
+            setWorkspace((sender as ToolStripMenuItem).Text, false);
         }
 
         private void clearWorkspaceTreeview()
@@ -293,7 +354,8 @@ namespace Annotator
                         refreshSessionMenuItem.Enabled = true;
                         sessionDetectToolStripMenuItem.Enabled = true;
                         sessionGenerateToolStripMenuItem.Enabled = true;
-                    } else
+                    }
+                    else
                     {
                         editSessionMenuItem.Enabled = true;
                         reloadToolStripMenuItem.Enabled = false;
