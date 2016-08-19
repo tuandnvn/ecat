@@ -1021,18 +1021,6 @@ namespace Annotator
             return new Tuple<float, PointF>(scale, translation);
         }
 
-        private void rectangleDrawing_MouseDown(object sender, MouseEventArgs e)
-        {
-            selectButtonDrawing(rectangleDrawing, drawingButtonGroup, !drawingButtonSelected[rectangleDrawing]);
-            cancelDrawing();
-        }
-
-        private void polygonDrawing_MouseDown(object sender, MouseEventArgs e)
-        {
-            selectButtonDrawing(polygonDrawing, drawingButtonGroup, !drawingButtonSelected[polygonDrawing]);
-            cancelDrawing();
-        }
-
         private void selectButtonDrawing(Button b, List<Button> buttonGroup, bool select)
         {
             drawingButtonSelected[b] = select;

@@ -53,13 +53,8 @@ namespace Annotator
         {
             currentSession.removeEvent(ev);
 
-            mapFromEventToEventAnnotations.Remove(ev);
-
             clearMidleBottomPanel();
-            foreach (EventAnnotation eventAnnotation in mapFromEventToEventAnnotations.Values)
-            {
-                renderEventAnnotation(eventAnnotation);
-            }
+            populateMiddleBottomPanel();
 
             annoRefView.Rows.Clear();
             this.Invalidate();
@@ -71,7 +66,6 @@ namespace Annotator
             Event annotation = new Event(null, frameTrackBar.Minimum, frameTrackBar.Maximum, "");
             addAnnotation(annotation);
         }
-
 
         public int addRightBottomTableReference(int start, int end, String text, String refID, Color? c = null)
         {

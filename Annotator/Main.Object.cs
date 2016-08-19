@@ -100,8 +100,8 @@ namespace Annotator
             this.showInformation(o);
             this.showPredicates();
 
-            polygonDrawing.Enabled = false;
-            rectangleDrawing.Enabled = false;
+            //polygonDrawing.Enabled = false;
+            //rectangleDrawing.Enabled = false;
 
             invalidatePictureBoard();
         }

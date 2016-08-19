@@ -335,6 +335,11 @@ namespace Annotator
             predicates.RemoveWhere(predicate => Array.IndexOf(predicate.objects, o) != -1);
         }
 
+        internal void removePredicate(string predicateStrForm)
+        {
+            predicates.RemoveWhere(t => t.ToString().Equals(predicateStrForm));
+        }
+
         //Load files list
         public void loadSession()
         {

@@ -272,6 +272,7 @@ namespace Annotator
             middleBottomTableLayoutPanel.Controls.Clear();
             middleBottomTableLayoutPanel.Controls.Add(addEventAnnotationBtn, 0, 0);
             lastAnnotationCell = new Point(1, 0);
+            this.mapFromEventToEventAnnotations = new Dictionary<Event, EventAnnotation>();
         }
 
         internal void clearRightCenterPanel()
@@ -297,7 +298,6 @@ namespace Annotator
         {
             foreach (Event ev in currentSession.events)
             {
-                //a.setID(0);
                 addAnnotation(ev);
             }
         }

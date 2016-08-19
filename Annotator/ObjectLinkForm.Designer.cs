@@ -38,17 +38,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.crossSessionChkBox = new System.Windows.Forms.CheckBox();
-            this.linkComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.qualifiedSelectComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.objectSelectComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.sessionSelectComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.addLinkBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.objectSelectComboBox = new System.Windows.Forms.ComboBox();
             this.predicateLbl = new System.Windows.Forms.Label();
+            this.linkComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -204,26 +204,6 @@
             this.crossSessionChkBox.UseVisualStyleBackColor = true;
             this.crossSessionChkBox.CheckedChanged += new System.EventHandler(this.crossSessionChkBox_CheckedChanged);
             // 
-            // linkComboBox
-            // 
-            this.linkComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkComboBox.FormattingEnabled = true;
-            this.linkComboBox.Location = new System.Drawing.Point(143, 28);
-            this.linkComboBox.Name = "linkComboBox";
-            this.linkComboBox.Size = new System.Drawing.Size(321, 21);
-            this.linkComboBox.TabIndex = 5;
-            this.linkComboBox.SelectedIndexChanged += new System.EventHandler(this.linkComboBox_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Predicate type";
-            // 
             // qualifiedSelectComboBox
             // 
             this.qualifiedSelectComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -243,26 +223,6 @@
             this.label2.Size = new System.Drawing.Size(134, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Qualified";
-            // 
-            // objectSelectComboBox
-            // 
-            this.objectSelectComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.objectSelectComboBox.FormattingEnabled = true;
-            this.objectSelectComboBox.Location = new System.Drawing.Point(143, 78);
-            this.objectSelectComboBox.Name = "objectSelectComboBox";
-            this.objectSelectComboBox.Size = new System.Drawing.Size(321, 21);
-            this.objectSelectComboBox.TabIndex = 1;
-            this.objectSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.objectSelectComboBox_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Link to object";
             // 
             // sessionSelectComboBox
             // 
@@ -307,6 +267,16 @@
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             // 
+            // objectSelectComboBox
+            // 
+            this.objectSelectComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.objectSelectComboBox.FormattingEnabled = true;
+            this.objectSelectComboBox.Location = new System.Drawing.Point(143, 78);
+            this.objectSelectComboBox.Name = "objectSelectComboBox";
+            this.objectSelectComboBox.Size = new System.Drawing.Size(321, 21);
+            this.objectSelectComboBox.TabIndex = 1;
+            this.objectSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.objectSelectComboBox_SelectedIndexChanged);
+            // 
             // predicateLbl
             // 
             this.predicateLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -315,6 +285,36 @@
             this.predicateLbl.Name = "predicateLbl";
             this.predicateLbl.Size = new System.Drawing.Size(321, 13);
             this.predicateLbl.TabIndex = 11;
+            // 
+            // linkComboBox
+            // 
+            this.linkComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkComboBox.FormattingEnabled = true;
+            this.linkComboBox.Location = new System.Drawing.Point(143, 28);
+            this.linkComboBox.Name = "linkComboBox";
+            this.linkComboBox.Size = new System.Drawing.Size(321, 21);
+            this.linkComboBox.TabIndex = 5;
+            this.linkComboBox.SelectedIndexChanged += new System.EventHandler(this.linkComboBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Link to object";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Predicate type";
             // 
             // ObjectLinkForm
             // 

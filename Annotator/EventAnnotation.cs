@@ -299,8 +299,6 @@ namespace Annotator
             }
         }
 
-
-
         private void saveAnnotation()
         {
             ev.text = main.getAnnotationText();

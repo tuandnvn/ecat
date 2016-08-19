@@ -222,11 +222,10 @@ namespace Annotator
         private void removePredBtn_Click(object sender, EventArgs e)
         {
             var selectIndex = existingPredicateListBox.SelectedIndex;
-            LinkMark lm = this.obj.getLink(frameNo);
 
-            if (selectIndex != -1 && lm != null)
+            if (selectIndex != -1)
             {
-                lm.predicateMarks.RemoveWhere(t => t.ToString().Equals((string)existingPredicateListBox.SelectedItem));
+                this.obj.session.removePredicate((string)existingPredicateListBox.SelectedItem);
             }
             renderPredicateList();
         }
