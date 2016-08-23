@@ -45,9 +45,10 @@ namespace Annotator
                 newObjectContextPanel.Visible = false;
                 selectBoxes = new List<RectangleF>();
                 invalidatePictureBoard();
-            }
 
-            addObjectAnnotation(objectToAdd);
+                addObjectAnnotation(objectToAdd);
+                this.logSession($"Object {objectToAdd.id} added at location {frameTrackBar.Value}");
+            }
         }
 
         private void cancelObjectBtn_Click(object sender, EventArgs e)

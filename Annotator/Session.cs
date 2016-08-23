@@ -32,7 +32,6 @@ namespace Annotator
         private Dictionary<string, Object> objects;  // list of objects in videos
         public String name { get; private set; }     //session name
         public Project project { get; private set; }         //session's project 
-        public String locationFolder { get; private set; }  //session location folder
         public bool edited { get; set; }            //true if session is currently edited
         private List<VideoReader> videoReaders;
         private List<BaseDepthReader> depthReaders;
@@ -75,6 +74,24 @@ namespace Annotator
         /// </summary>
         public long duration { get; set; }
 
+        //// Memorializable data
+        //private class SessionMemento
+        //{
+        //    public List<Event> events;
+        //    public int objectCount;         
+        //    public Dictionary<string, Object> objects;
+        //    public String name;     //session name
+        //    public bool edited { get; set; }
+        //    public SortedSet<String> filesList;
+        //    public SortedSet<PredicateMark> predicates;
+        //    public String metadataFile;      
+        //    public String tempMetadataFile;
+        //    public int annotationID;
+        //    public int? _sessionLength;
+        //    public DateTime? startWriteRGB { get; set; }
+        //    public long duration { get; set; }
+        //}
+
         public enum LOAD_STATUS
         {
             NOT_LOADED,
@@ -84,18 +101,18 @@ namespace Annotator
 
         private LOAD_STATUS loaded = LOAD_STATUS.NOT_LOADED;
 
-        private string commonPrefix;
+        internal string path;
 
         //Constructor
-        public Session(String sessionName, Project project, String locationFolder)
+        public Session(String sessionName, Project project, String workspaceDir)
         {
             this.name = sessionName;
             this.project = project;
-            this.locationFolder = locationFolder;
+            //this.workspaceDir = workspaceDir;
             //If session file list exist load files list
-            commonPrefix = locationFolder + Path.DirectorySeparatorChar + project.name + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
-            metadataFile = commonPrefix + "files.param";
-            tempMetadataFile = commonPrefix + "~files.param";
+            path = workspaceDir + Path.DirectorySeparatorChar + project.name + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
+            metadataFile = path + "files.param";
+            tempMetadataFile = path + "~files.param";
             resetVariables();
         }
 
@@ -235,9 +252,9 @@ namespace Annotator
                             if (fileName.Contains(Path.DirectorySeparatorChar))
                             {
                                 // Remove prefix
-                                if (fileName.Substring(0, commonPrefix.Length) == commonPrefix)
+                                if (fileName.Substring(0, path.Length) == path)
                                 {
-                                    tempoFileName = fileName.Substring(commonPrefix.Length);
+                                    tempoFileName = fileName.Substring(path.Length);
                                 }
                             }
 
@@ -245,35 +262,7 @@ namespace Annotator
                         }
                         writer.WriteEndElement();
                     }
-
-                    {
-                        writer.WriteStartElement(OBJECTS);
-                        writer.WriteAttributeString("no", objectCount + "");
-                        foreach (Object o in objects.Values)
-                        {
-                            o.writeToXml(writer);
-                        }
-                        writer.WriteEndElement();
-                    }
-
-                    {
-                        writer.WriteStartElement(ANNOTATIONS);
-                        foreach (Event a in events)
-                        {
-                            a.writeToXml(writer);
-                        }
-                        writer.WriteEndElement();
-                    }
-
-                    // Write predicate instead of writing links
-                    {
-                        writer.WriteStartElement(PREDICATES);
-                        foreach (var predicate in predicates)
-                        {
-                            predicate.writeToXml(writer);
-                        }
-                        writer.WriteEndElement();
-                    }
+                    saveAnnotation(writer);
 
                     writer.WriteEndElement();
 
@@ -305,39 +294,36 @@ namespace Annotator
             }
         }
 
-        /// <summary>
-        /// When the resources is scarce, we need to release some of video readers
-        /// </summary>
-        internal void releaseResources()
+        private void saveAnnotation(XmlWriter writer)
         {
-            foreach (var v in videoReaders)
             {
-                v.Dispose();
+                writer.WriteStartElement(OBJECTS);
+                writer.WriteAttributeString("no", objectCount + "");
+                foreach (Object o in objects.Values)
+                {
+                    o.writeToXml(writer);
+                }
+                writer.WriteEndElement();
             }
 
-            foreach (var v in depthReaders)
             {
-                v.Dispose();
+                writer.WriteStartElement(ANNOTATIONS);
+                foreach (Event a in events)
+                {
+                    a.writeToXml(writer);
+                }
+                writer.WriteEndElement();
             }
 
-            videoReaders = new List<VideoReader>();
-            depthReaders = new List<BaseDepthReader>();
-
-            loaded = LOAD_STATUS.NOT_LOADED;
-        }
-
-        internal void removeObject(string objectId)
-        {
-            var o = objects[objectId];
-            objects.Remove(objectId);
-
-            // Remove predicate relate to this object
-            predicates.RemoveWhere(predicate => Array.IndexOf(predicate.objects, o) != -1);
-        }
-
-        internal void removePredicate(string predicateStrForm)
-        {
-            predicates.RemoveWhere(t => t.ToString().Equals(predicateStrForm));
+            // Write predicate instead of writing links
+            {
+                writer.WriteStartElement(PREDICATES);
+                foreach (var predicate in predicates)
+                {
+                    predicate.writeToXml(writer);
+                }
+                writer.WriteEndElement();
+            }
         }
 
         //Load files list
@@ -395,7 +381,7 @@ namespace Annotator
                         }
                     }
 
-                    loadAnnotation();
+                    loadAnnotation(xmlDocument);
 
                     myFile.Attributes |= FileAttributes.Hidden;
                 }
@@ -404,6 +390,105 @@ namespace Annotator
             {
                 MessageBox.Show(exc.ToString());
             }
+        }
+
+        /// <summary>
+        /// Clear out the current session, and load the content of 
+        /// xmlDocument into annotation metadata.
+        /// </summary>
+        /// <param name="xmlDocument"></param>
+        private void loadAnnotation(XmlDocument xmlDocument)
+        {
+            try
+            {
+                var tempoObjects = new List<Object>();
+                var tempoPredicates = new SortedSet<PredicateMark>(new PredicateMarkComparer());
+                var tempoEvents = new List<Event>();
+
+                {
+                    XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
+                    if (objectsNode != null)
+                    {
+                        objectCount = int.Parse(objectsNode.Attributes["no"].Value);
+                        tempoObjects = Object.readObjectsFromXml(this, objectsNode);
+
+                    }
+                }
+
+                //// Load predicate
+                {
+                    XmlNode predicatesNode = xmlDocument.DocumentElement.SelectSingleNode(PREDICATES);
+                    if (predicatesNode != null)
+                    {
+                        foreach (XmlNode predicateNode in predicatesNode.SelectNodes(PREDICATE))
+                        {
+                            var pm = PredicateMark.loadFromXml(this, predicateNode);
+                            if (pm != null)
+                                tempoPredicates.Add(pm);
+                        }
+                    }
+                }
+
+                {
+                    XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
+                    if (annotationsNode != null)
+                        tempoEvents = Event.readFromXml(this, annotationsNode);
+                }
+
+
+
+                // If nothing wrong happen, overwrite the current session
+                {
+                    this.objects = new Dictionary<string, Object>();
+                    foreach (Object o in tempoObjects)
+                    {
+                        this.addObject(o);
+                    }
+
+                    predicates = tempoPredicates;
+                    events = tempoEvents;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception in loading annotation");
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// When the resources is scarce, we need to release some of video readers
+        /// </summary>
+        internal void releaseResources()
+        {
+            foreach (var v in videoReaders)
+            {
+                v.Dispose();
+            }
+
+            foreach (var v in depthReaders)
+            {
+                v.Dispose();
+            }
+
+            videoReaders = new List<VideoReader>();
+            depthReaders = new List<BaseDepthReader>();
+
+            loaded = LOAD_STATUS.NOT_LOADED;
+        }
+
+        internal void removeObject(string objectId)
+        {
+            var o = objects[objectId];
+            objects.Remove(objectId);
+
+            // Remove predicate relate to this object
+            predicates.RemoveWhere(predicate => Array.IndexOf(predicate.objects, o) != -1);
+        }
+
+        internal void removePredicate(string predicateStrForm)
+        {
+            predicates.RemoveWhere(t => t.ToString().Equals(predicateStrForm));
         }
 
         /// <summary>
@@ -442,46 +527,6 @@ namespace Annotator
             predicates.Add(pm);
         }
 
-        private void loadAnnotation()
-        {
-            try
-            {
-                XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(metadataFile);
-
-                {
-                    XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
-                    if (objectsNode != null)
-                    {
-                        objectCount = int.Parse(objectsNode.Attributes["no"].Value);
-                        Object.readObjectsFromXml(this, objectsNode);
-                    }
-                }
-
-                //// Load predicate
-                {
-                    XmlNode predicatesNode = xmlDocument.DocumentElement.SelectSingleNode(PREDICATES);
-                    if (predicatesNode != null)
-                        foreach (XmlNode predicateNode in predicatesNode.SelectNodes(PREDICATE))
-                        {
-                            var pm = PredicateMark.loadFromXml(this, predicateNode);
-                            if (pm != null)
-                                predicates.Add(pm);
-                        }
-                }
-
-                {
-                    XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
-                    if (annotationsNode != null)
-                        events = Event.readFromXml(this, annotationsNode);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception in loading annotation");
-                Console.WriteLine(e);
-            }
-        }
 
         //Get video by index
         public VideoReader getVideo(int index)
@@ -593,7 +638,7 @@ namespace Annotator
             else
             {
                 // Try resolve it by adding the session location
-                fullFileName = commonPrefix + fileName;
+                fullFileName = path + fileName;
             }
 
             return fullFileName;
@@ -792,5 +837,35 @@ namespace Annotator
             return addedEvents;
         }
 
+        public MemoryStream saveToMemento()
+        {
+            MemoryStream ms = new MemoryStream();
+
+            using (XmlWriter writer = XmlWriter.Create(ms))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement(SESSION);
+                saveAnnotation(writer);
+                writer.WriteEndElement();
+                writer.WriteEndDocument();
+            }
+
+            ms.Flush();
+
+            //var sr = new StreamReader(ms);
+            //var myStr = sr.ReadToEnd();
+            //Console.WriteLine(myStr);
+            //Console.WriteLine(ms.ToString());
+
+            return ms;
+        }
+
+        public void restoreFromMemento(MemoryStream memento)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(memento);
+
+            loadAnnotation(xmlDoc);
+        }
     }
 }

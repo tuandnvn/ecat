@@ -41,12 +41,12 @@ namespace Annotator
 
             if (!source.Contains(Path.DirectorySeparatorChar))
             {
-                source = session.locationFolder + Path.DirectorySeparatorChar + session.project.name + Path.DirectorySeparatorChar + session.name + Path.DirectorySeparatorChar + source;
+                source = session.path + source;
             }
 
             if (!sourceScheme.Contains(Path.DirectorySeparatorChar))
             {
-                sourceScheme = session.locationFolder + Path.DirectorySeparatorChar + session.project.name + Path.DirectorySeparatorChar + session.name + Path.DirectorySeparatorChar + sourceScheme;
+                sourceScheme = session.path + sourceScheme;
             }
 
             if (!File.Exists(source) || !File.Exists(sourceScheme))
@@ -54,10 +54,10 @@ namespace Annotator
                 // It's probably a bug from recording, that rig source and scheme path is absolute path from recording machine
                 // Get the relative path and assume the file in inside the session
                 source = source.Split(Path.DirectorySeparatorChar)[source.Split(Path.DirectorySeparatorChar).Length - 1];
-                source = session.locationFolder + Path.DirectorySeparatorChar + session.project.name + Path.DirectorySeparatorChar + session.name + Path.DirectorySeparatorChar + source;
+                source = session.path + source;
 
                 sourceScheme = sourceScheme.Split(Path.DirectorySeparatorChar)[sourceScheme.Split(Path.DirectorySeparatorChar).Length - 1];
-                sourceScheme = session.locationFolder + Path.DirectorySeparatorChar + session.project.name + Path.DirectorySeparatorChar + session.name + Path.DirectorySeparatorChar + sourceScheme;
+                sourceScheme = session.path + sourceScheme;
             }
 
             if (File.Exists(source) && File.Exists(sourceScheme))

@@ -54,6 +54,8 @@ namespace Annotator
 
                 redrawObjectMarks();
                 Invalidate();
+
+                logSession($"Object {selectedObject.id} edited at location {frameTrackBar.Value}");
             }
         }
 
@@ -70,6 +72,8 @@ namespace Annotator
                 }
 
                 redrawObjectMarks();
+
+                logSession($"Object {selectedObject.id} deleted at location {frameTrackBar.Value}");
             }
         }
 
@@ -86,6 +90,8 @@ namespace Annotator
                 }
 
                 redrawObjectMarks();
+
+                logSession($"Object {selectedObject.id} marker deleted at location {frameTrackBar.Value}");
             }
         }
 

@@ -89,6 +89,8 @@ namespace Annotator
                     selectedObject.color = colorDialog1.Color;
                     senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = selectedObject.color;
                     invalidatePictureBoard();
+
+                    this.logSession($"Object {selectedObject.id} changed color to {selectedObject.color}");
                 }
             }
         }
@@ -101,8 +103,10 @@ namespace Annotator
             {
                 if (selectedObject != null)
                 {
-                    selectedObject.addProperty((string)objectProperties.Rows[rowIndex].Cells[0].Value,
-                           (string)objectProperties.Rows[rowIndex].Cells[1].Value);
+                    var propKey = (string)objectProperties.Rows[rowIndex].Cells[0].Value;
+                    var propValue = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
+                    selectedObject.addProperty(propKey, propValue);
+                    this.logSession($"Object {selectedObject.id} added property {propKey}={propValue}");
                     return;
                 }
             }
@@ -111,11 +115,15 @@ namespace Annotator
             {
                 selectedObject.name = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
                 objectToObjectTracks[selectedObject].updateInfo();
+                this.logSession($"Object {selectedObject.id} changed name to {selectedObject.name}");
+                return;
             }
 
             if (rowIndex == Array.FindIndex(defaultRows, t => t == SEMANTIC_TYPE))
             {
                 selectedObject.semanticType = (string)objectProperties.Rows[rowIndex].Cells[1].Value;
+                this.logSession($"Object {selectedObject.id} changed semantic type to {selectedObject.semanticType}");
+                return;
             }
 
             //if (rowIndex == Array.FindIndex(defaultRows, t => t == OBJECT_TYPE))
@@ -134,6 +142,8 @@ namespace Annotator
                         throw new ArgumentOutOfRangeException("Border size need to be an integer between 1 and 10");
                     selectedObject.borderSize = borderSize;
                     invalidatePictureBoard();
+                    this.logSession($"Object {selectedObject.id} changed border size to {selectedObject.borderSize}");
+                    return;
                 }
                 catch (Exception exc)
                 {

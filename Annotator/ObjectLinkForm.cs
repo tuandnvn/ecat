@@ -94,6 +94,8 @@ namespace Annotator
 
                 this.main.redrawObjectMarks();
                 this.main.showPredicates();
+
+                this.main.logSession($"Predicate added at frame {frameNo} for object {obj.id}");
             }
             catch (Exception exc)
             {
@@ -228,6 +230,8 @@ namespace Annotator
                 this.obj.session.removePredicate((string)existingPredicateListBox.SelectedItem);
             }
             renderPredicateList();
+
+            this.main.logSession($"Predicate removed at frame {frameNo} for object {obj.id}");
         }
 
         private void existingPredicateListBox_SelectedIndexChanged(object sender, EventArgs e)

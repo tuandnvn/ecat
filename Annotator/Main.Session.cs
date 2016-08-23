@@ -20,6 +20,67 @@ namespace Annotator
         byte[] depthValuesToByte;
         Bitmap depthBitmap;
 
+        private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
+        {
+            // Click on rectangle
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.R)
+            {
+                if (rectangleDrawing.Enabled)
+                {
+                    rectangleDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Click on polygon
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.P)
+            {
+                if (polygonDrawing.Enabled)
+                {
+                    polygonDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Save down session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
+            {
+                if (currentSession != null)
+                    saveCurrentSession();
+            }
+
+            // Edit session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            {
+                if (currentProject != null)
+                    editSessionMenuItem_Click(null, null);
+            }
+
+            // Add a file into session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            {
+                if (currentSession != null)
+                    addFileToSessionMenuItem_Click(null, null);
+            }
+
+            // Undo in session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Z)
+            {
+                if (currentSession != null)
+                    undoBtn_Click(null, null);
+            }
+
+            // Redo in session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Y)
+            {
+                if (currentSession != null)
+                    redoBtn_Click(null, null);
+            }
+
+            // While editing a polygon
+            handleKeyDownOnDrawingPolygon(e);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -94,6 +155,8 @@ namespace Annotator
                 // All toolstrips of file inside session are enables
                 toggleFileToolStripsOfSession(true);
             }
+
+            logSession($"Session {currentSession.name} loaded");
         }
 
         /// <summary>
@@ -116,6 +179,8 @@ namespace Annotator
             {
                 closeWithoutSaveCurrentSession();
             }
+
+            clearMemento();
         }
 
         private void toggleFileToolStripsOfSession(bool value)
@@ -151,12 +216,14 @@ namespace Annotator
             }
 
             toggleFileToolStripsOfSession(false);
+            
         }
 
         internal void saveCurrentSession()
         {
             currentSession.saveSession();
             cleanSessionUI();
+            logMessage($"Session {currentSession.name} saved");
             currentSession = null;
         }
 
@@ -165,6 +232,8 @@ namespace Annotator
             //Reload session
             currentSession.reload();
             cleanSessionUI();
+            logMessage($"Session {currentSession.name} closed without saved");
+            currentSession = null;
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -748,6 +817,7 @@ namespace Annotator
             }
 
             invalidatePictureBoard();
+            this.logSession($"Session {currentSession.name} copied objects from session {previousSession.name}");
         }
     }
 }

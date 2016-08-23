@@ -406,7 +406,7 @@ namespace Annotator
         //    xmlWriter.WriteEndElement();
         //}
 
-        public static void readObjectsFromXml(Session session, XmlNode xmlNode)
+        public static List<Object> readObjectsFromXml(Session session, XmlNode xmlNode)
         {
             List<Object> objects = new List<Object>();
             foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
@@ -448,8 +448,6 @@ namespace Annotator
                     }
                 }
 
-
-
                 o.name = name;
                 o.semanticType = semanticType;
                 o.genType = (GenType)Enum.Parse(typeof(GenType), generate.ToUpper());
@@ -467,10 +465,10 @@ namespace Annotator
                 objects.Add(o);
             }
 
-            foreach (Object o in objects)
-            {
-                session.addObject(o);
-            }
+            //foreach (Object o in objects)
+            //{
+            //    session.addObject(o);
+            //}
 
             //// Load predicates later, after adding all objects
             //foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
@@ -491,6 +489,8 @@ namespace Annotator
                     o.name = "Performer " + performerCount++;
                 }
             }
+
+            return objects;
         }
 
 

@@ -66,7 +66,8 @@ namespace Annotator
 
             InitDrawingComponent();
             InitEventAnnoComponent();
-
+            InitMemento();
+            
             //Load images to imageList
             //loadImages();
 
@@ -423,5 +424,9 @@ namespace Annotator
             saveParameters();
         }
 
+        private void middleCenterPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

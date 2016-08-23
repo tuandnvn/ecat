@@ -331,11 +331,11 @@ namespace Annotator
                             maxDragVal = frameTrackBar.MaxDragVal;
                         });
 
-                        Stopwatch stopwatch = Stopwatch.StartNew();
+                        Stopwatch stopwatch = null;
 
                         while (currentFrame < maxDragVal && playStatus)
                         {
-                            
+                            stopwatch = Stopwatch.StartNew();
                             Thread.Sleep(1000 / framePerSecond);
 
                             this.Invoke((MethodInvoker)delegate {

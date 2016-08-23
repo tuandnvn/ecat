@@ -80,7 +80,7 @@ namespace Annotator
             {
                 if (objectToObjectTracks[selectedObject] != null)
                 {
-                    objectToObjectTracks[selectedObject].deselectDeco();
+                    objectToObjectTracks[selectedObject]?.deselectDeco();
                 }
             }
 

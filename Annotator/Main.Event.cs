@@ -63,8 +63,9 @@ namespace Annotator
         //Add annotation button
         private void addEventAnnotationBtn_Click(object sender, EventArgs e)
         {
-            Event annotation = new Event(null, frameTrackBar.Minimum, frameTrackBar.Maximum, "");
-            addAnnotation(annotation);
+            Event eventAnnotation = new Event(null, frameTrackBar.Minimum, frameTrackBar.Maximum, "");
+            addAnnotation(eventAnnotation);
+            this.logSession($"Event {eventAnnotation.id} added");
         }
 
         public int addRightBottomTableReference(int start, int end, String text, String refID, Color? c = null)
