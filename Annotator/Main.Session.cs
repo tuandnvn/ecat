@@ -737,27 +737,16 @@ namespace Annotator
             currentSession.findObjectsByNames(ev);
         }
 
-        /// <summary>
-        /// A handful method when annotating movie,
-        /// copy the list of objects from the end of previous session to current session,
-        /// when these two sessions are in continuation.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void fromPreviousSessionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var currentSessionIndex = currentProject.sessions.IndexOf(currentSession);
-            if (currentSessionIndex > 0)
-            {
-                copyFromSession(currentSessionIndex, currentSessionIndex - 1);
-            }
-        }
-
         private void fromSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SessionSelector ss = new SessionSelector(this, currentProject, currentSession);
             ss.StartPosition = FormStartPosition.CenterParent;
             ss.ShowDialog();
+        }
+
+        internal enum ObjectCopyMode {
+            LAST_FRAME,
+            LAST_APPEARANCE
         }
 
         /// <summary>
@@ -766,7 +755,7 @@ namespace Annotator
         /// </summary>
         /// <param name="currentSessionIndex"></param>
         /// <param name="otherSessonIndex"></param>
-        internal void copyFromSession(int currentSessionIndex, int otherSessonIndex)
+        internal void copyFromSession(int currentSessionIndex, int otherSessonIndex, ObjectCopyMode mode = ObjectCopyMode.LAST_FRAME)
         {
             var previousSession = currentProject.getSession(otherSessonIndex);
             previousSession.loadIfNotLoaded();
@@ -777,7 +766,19 @@ namespace Annotator
             {
                 var newObject = (Object)Activator.CreateInstance(prevObject.GetType(), new object[] { currentSession, "", prevObject.color, prevObject.borderSize, this.playbackFileComboBox.Text });
                 newObject.name = prevObject.name;
-                var lastLocationMark = prevObject.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
+
+                LocationMark2D lastLocationMark = null;
+                switch (mode)
+                {
+                    case ObjectCopyMode.LAST_FRAME:
+                        lastLocationMark = prevObject.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
+                        break;
+                    case ObjectCopyMode.LAST_APPEARANCE:
+                        var frameNo = prevObject.objectMarks.Keys.Last(frame => !(prevObject.objectMarks[frame] is DeleteLocationMark));
+                        lastLocationMark = prevObject.getScaledLocationMark(frameNo, 1, new System.Drawing.PointF());
+                        break;
+                }
+                
                 if (lastLocationMark != null)
                 {
                     // Change the internal frameNo to current one
@@ -818,6 +819,31 @@ namespace Annotator
 
             invalidatePictureBoard();
             this.logSession($"Session {currentSession.name} copied objects from session {previousSession.name}");
+        }
+
+        /// <summary>
+        /// A handful method when annotating movie,
+        /// copy the list of objects from the end of previous session to current session,
+        /// when these two sessions are in continuation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lastFrameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var currentSessionIndex = currentProject.sessions.IndexOf(currentSession);
+            if (currentSessionIndex > 0)
+            {
+                copyFromSession(currentSessionIndex, currentSessionIndex - 1);
+            }
+        }
+
+        private void lastAppearanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var currentSessionIndex = currentProject.sessions.IndexOf(currentSession);
+            if (currentSessionIndex > 0)
+            {
+                copyFromSession(currentSessionIndex, currentSessionIndex - 1, ObjectCopyMode.LAST_APPEARANCE);
+            }
         }
     }
 }

@@ -58,6 +58,7 @@ namespace Annotator
 
             annoRefView.Rows.Clear();
             this.Invalidate();
+            this.logSession($"Event {ev.id} removed");
         }
 
         //Add annotation button

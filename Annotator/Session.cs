@@ -401,52 +401,43 @@ namespace Annotator
         {
             try
             {
-                var tempoObjects = new List<Object>();
-                var tempoPredicates = new SortedSet<PredicateMark>(new PredicateMarkComparer());
-                var tempoEvents = new List<Event>();
-
                 {
                     XmlNode objectsNode = xmlDocument.DocumentElement.SelectSingleNode(OBJECTS);
+                    this.objects = new Dictionary<string, Object>();
+
                     if (objectsNode != null)
                     {
                         objectCount = int.Parse(objectsNode.Attributes["no"].Value);
-                        tempoObjects = Object.readObjectsFromXml(this, objectsNode);
+                        var tempoObjects = Object.readObjectsFromXml(this, objectsNode);
 
+                        foreach (Object o in tempoObjects)
+                        {
+                            this.addObject(o);
+                        }
                     }
                 }
 
                 //// Load predicate
                 {
                     XmlNode predicatesNode = xmlDocument.DocumentElement.SelectSingleNode(PREDICATES);
+                    predicates = new SortedSet<PredicateMark>(new PredicateMarkComparer());
                     if (predicatesNode != null)
                     {
                         foreach (XmlNode predicateNode in predicatesNode.SelectNodes(PREDICATE))
                         {
                             var pm = PredicateMark.loadFromXml(this, predicateNode);
                             if (pm != null)
-                                tempoPredicates.Add(pm);
+                                predicates.Add(pm);
                         }
                     }
                 }
 
                 {
                     XmlNode annotationsNode = xmlDocument.DocumentElement.SelectSingleNode(ANNOTATIONS);
+                    events = new List<Event>();
+
                     if (annotationsNode != null)
-                        tempoEvents = Event.readFromXml(this, annotationsNode);
-                }
-
-
-
-                // If nothing wrong happen, overwrite the current session
-                {
-                    this.objects = new Dictionary<string, Object>();
-                    foreach (Object o in tempoObjects)
-                    {
-                        this.addObject(o);
-                    }
-
-                    predicates = tempoPredicates;
-                    events = tempoEvents;
+                        events = Event.readFromXml(this, annotationsNode);
                 }
             }
             catch (Exception e)

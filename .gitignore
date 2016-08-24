@@ -19,6 +19,7 @@ bld/
 Annotator/Annotation_Test/*/*/*/*.avi
 Annotator/Annotation_Test/*/*/*/*.ini
 Annotator/Annotation_Test/**/*.avi
+Annotator/Annotation/**/*.avi
 
 # Ignore video files in Annotator
 Annotator/SampleAnnotation/*/*/*.avi
