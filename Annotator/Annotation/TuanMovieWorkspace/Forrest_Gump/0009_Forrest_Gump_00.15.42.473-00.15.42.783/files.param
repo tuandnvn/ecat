@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.15.42.473-00.15.42.783" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.15.42.473-00.15.42.783.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>THREE YOUNG BOYS get off their bikes and pick up more rocks.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

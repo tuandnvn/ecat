@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.59.09.752-00.59.20.966" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.59.09.752-00.59.20.966.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest begins to hit the ball back to the other player.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

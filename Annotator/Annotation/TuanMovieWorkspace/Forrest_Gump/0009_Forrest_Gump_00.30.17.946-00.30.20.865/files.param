@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.30.17.946-00.30.20.865" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.30.17.946-00.30.20.865.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>BLACK AND WHITE FOOTAGE - President Kennedy shakes hands with the All-American football players.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

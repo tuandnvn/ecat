@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.48.34.976-00.48.40.450" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.48.34.976-00.48.40.450.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>She hugs a hippie guy, then jumps into the back of a Volkswagen bus with another guy.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

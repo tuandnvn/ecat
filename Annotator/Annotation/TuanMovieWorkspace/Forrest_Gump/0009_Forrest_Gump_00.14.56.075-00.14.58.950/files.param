@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.14.56.075-00.14.58.950" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.14.56.075-00.14.58.950.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jenny and Forrest sit on a tree branch and read.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

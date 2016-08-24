@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.11.41.704-00.11.43.294" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.11.41.704-00.11.43.294.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The television reveals Elvis as he thrusts his hips and sings.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

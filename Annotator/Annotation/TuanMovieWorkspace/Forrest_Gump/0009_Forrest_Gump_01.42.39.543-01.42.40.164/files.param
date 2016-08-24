@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.42.39.543-01.42.40.164" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.42.39.543-01.42.40.164.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A postman delivers a letter to Bubba's mom.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

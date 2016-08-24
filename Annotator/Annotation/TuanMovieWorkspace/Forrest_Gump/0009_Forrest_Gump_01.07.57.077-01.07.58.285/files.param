@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.07.57.077-01.07.58.285" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.07.57.077-01.07.58.285.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A Black Panther, named RUBEN, steps over and pulls the shades down.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

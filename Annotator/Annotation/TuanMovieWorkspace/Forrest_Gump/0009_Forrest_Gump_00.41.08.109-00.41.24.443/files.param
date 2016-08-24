@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.41.08.109-00.41.24.443" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.41.08.109-00.41.24.443.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Bubba and Forrest jump out of the helicopter with their gear/ They walk and look around oddly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

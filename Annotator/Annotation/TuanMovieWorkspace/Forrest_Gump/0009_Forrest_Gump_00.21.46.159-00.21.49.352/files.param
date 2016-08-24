@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.21.46.159-00.21.49.352" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.21.46.159-00.21.49.352.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The football coach, the assistants, and Alabama players cheer for Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

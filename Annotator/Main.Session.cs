@@ -208,15 +208,12 @@ namespace Annotator
         /// <param name="e"></param>
         private void saveSessionMenuItem_Click(object sender, EventArgs e)
         {
-            TreeNode nodeS = treeView.SelectedNode;
-            //MessageBox.Show(selectedProject.getSessionN() + "");
             if (currentSession.edited)
             {
                 saveCurrentSession();
             }
 
             toggleFileToolStripsOfSession(false);
-            
         }
 
         internal void saveCurrentSession()
@@ -277,9 +274,8 @@ namespace Annotator
 
         private void cleanSessionUI()
         {
-            TreeNode t = treeView.SelectedNode;
-            if (t.Text.Contains("*"))
-                t.Text = t.Text.Substring(1);
+            if (currentSessionNode.Text.Contains("*"))
+                currentSessionNode.Text = currentSessionNode.Text.Substring(1);
             currentSession.edited = false;
             this.Text = "Project " + currentProject.name + " selected";
 
@@ -288,11 +284,8 @@ namespace Annotator
                 cancelSelectObject();
             }
 
-            // Clean the playbackFileComboBox
-            clearPlaybackFileComboBox();
 
-            // Clean picture board frame
-            pictureBoard.Image = null;
+            clearPaintBoardView();
 
             // Clean object annotations
             clearMiddleCenterPanel();
@@ -317,16 +310,10 @@ namespace Annotator
             depthReader = null;
             addEventAnnotationBtn.Enabled = false;
 
-            startInSecondTextBox.Text = "";
-            endInSecondTextBox.Text = "";
-            setMinimumFrameTrackBar(0);
-            setMaximumFrameTrackBar(100);
-
             // Reset zooming 
             this.pictureBoard.Dock = DockStyle.Fill;
             inZoomIn = true;
         }
-
 
         internal void clearMiddleCenterPanel()
         {
@@ -744,7 +731,8 @@ namespace Annotator
             ss.ShowDialog();
         }
 
-        internal enum ObjectCopyMode {
+        internal enum ObjectCopyMode
+        {
             LAST_FRAME,
             LAST_APPEARANCE
         }
@@ -778,7 +766,7 @@ namespace Annotator
                         lastLocationMark = prevObject.getScaledLocationMark(frameNo, 1, new System.Drawing.PointF());
                         break;
                 }
-                
+
                 if (lastLocationMark != null)
                 {
                     // Change the internal frameNo to current one

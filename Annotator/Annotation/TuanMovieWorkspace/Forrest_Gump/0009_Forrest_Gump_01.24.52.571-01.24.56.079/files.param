@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.24.52.571-01.24.56.079" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.24.52.571-01.24.56.079.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>President Nixon makes a resignation speech on TV.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.18.09.994-01.18.11.963" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.18.09.994-01.18.11.963.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He becomes enraged as he throws the bottle and looks at Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.34.39.409-00.34.42.434" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.34.39.409-00.34.42.434.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The Drill Sergeant walks away as Forrest begins to disassemble his rifle.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

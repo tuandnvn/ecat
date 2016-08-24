@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.29.340-00.05.32.932" length="87">
+  <files>
+    <file>0009_Forrest_Gump_00.05.29.340-00.05.32.932.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="boy's mom" filename="0009_Forrest_Gump_00.05.29.340-00.05.32.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">576.345,126.4065,390.308,813.881</marker>
+        <marker type="LOCATION" frame="41">417.8983,120.8624,533.231,813.8809</marker>
+        <marker type="LOCATION" frame="67">340.0779,125.2977,539.0639,813.8809</marker>
+        <marker type="LOCATION" frame="86">432.1971,131.9507,543.3265,813.8809</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.05.29.340-00.05.32.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1008.789,125.9743,350.3902,818.7486</marker>
+        <marker type="LOCATION" frame="19">1015.712,144.9753,385.3318,796.7025</marker>
+        <marker type="LOCATION" frame="41">1197.29,169.1122,425.7906,771.1753</marker>
+        <marker type="LOCATION" frame="67">1088.378,463.4908,425.7906,479.3597</marker>
+        <marker type="LOCATION" frame="86">1008.789,496.7556,425.7906,447.9673</marker>
+      </markers>
+    </object>
+    <object id="o3" name="street" filename="0009_Forrest_Gump_00.05.29.340-00.05.32.932.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.971251,117.5359,1911.622,824.9692</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="87" />
+      <text>Forrest walks stiffly next to his mother.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.27.081-00.05.29.340/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.27.081-00.05.29.340/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.27.081-00.05.29.340/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

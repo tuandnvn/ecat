@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.19.19.865-00.19.26.408" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.19.19.865-00.19.26.408.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A police officer escorts Jenny to her grandmother's trailer.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

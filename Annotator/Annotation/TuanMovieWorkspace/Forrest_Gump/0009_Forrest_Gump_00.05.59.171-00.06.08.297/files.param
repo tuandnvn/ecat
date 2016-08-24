@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.59.171-00.06.08.297" length="219">
+  <files>
+    <file>0009_Forrest_Gump_00.05.59.171-00.06.08.297.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="boy's mom" filename="0009_Forrest_Gump_00.05.59.171-00.06.08.297.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">735.7377,444.5902,76.72131,334.4262</marker>
+        <marker type="LOCATION" frame="49">859.5739,387.0083,94.62267,414.1801</marker>
+        <marker type="LOCATION" frame="99">912.7869,324.7661,112.8891,495.5618</marker>
+        <marker type="LOCATION" frame="170">821.8694,215.4784,248.2945,724.8495</marker>
+        <marker type="LOCATION" frame="201">690.0132,145.5738,282.3229,789.6722</marker>
+        <marker type="LOCATION" frame="218">617.7049,182.9508,300.9836,749.5082</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.05.59.171-00.06.08.297.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">863.9898,502.5259,96.01019,272.5561</marker>
+        <marker type="LOCATION" frame="49">1003.414,460.6166,113.828,357.4554</marker>
+        <marker type="LOCATION" frame="99">1076.066,419.5192,132.0093,444.0874</marker>
+        <marker type="LOCATION" frame="136">1148.852,352.7538,147.541,581.6724</marker>
+        <marker type="LOCATION" frame="170">1158.688,291.4019,175.0821,654.8277</marker>
+        <marker type="LOCATION" frame="184">1089.605,312.7869,219.4934,632.869</marker>
+        <marker type="LOCATION" frame="201">1005.718,381.6393,273.4214,563.3198</marker>
+        <marker type="LOCATION" frame="218">921.831,546.3449,327.3494,397.9174</marker>
+      </markers>
+    </object>
+    <object id="o3" name="street" filename="0009_Forrest_Gump_00.05.59.171-00.06.08.297.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.971249,131.8033,1911.622,810.7018</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="218" />
+      <text>Mrs. Gump and Forrest walk across the street.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.27.081-00.05.29.340/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.27.081-00.05.29.340/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.27.081-00.05.29.340/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="218" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

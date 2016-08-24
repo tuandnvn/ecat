@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.32.08.759-00.32.11.632" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.32.08.759-00.32.11.632.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Bubba moves his case over, making room for Forrest to sit down.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

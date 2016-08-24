@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.01.52.661-02.01.56.765" length="0">
+  <files>
+    <file>0009_Forrest_Gump_02.01.52.661-02.01.56.765.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The little boy runs into other room and picks up TV remote control.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

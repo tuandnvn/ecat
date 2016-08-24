@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.03.25.467-00.03.32.445" length="168">
+  <files>
+    <file>0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="woman" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">852,527.4,108,298.8</marker>
+        <marker type="LOCATION" frame="84">852,516.6,111.6215,309.6</marker>
+        <marker type="LOCATION" frame="167">852,489.6,115.2,336.6</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1118.4,511.2,120.6,313.2</marker>
+        <marker type="LOCATION" frame="84">1118.4,505.8,125.1269,318.6001</marker>
+        <marker type="LOCATION" frame="167">1118.4,491.4,129.6,333</marker>
+      </markers>
+    </object>
+    <object id="o3" name="box of chocolate" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1131,653.4001,77.4,23.39994</marker>
+        <marker type="LOCATION" frame="41">1142.148,649.4847,78.50478,25.83051</marker>
+        <marker type="LOCATION" frame="84">965.1682,592.4102,79.66362,28.37966</marker>
+        <marker type="LOCATION" frame="167">955.5,558.9,81.9,33.3</marker>
+      </markers>
+    </object>
+    <object id="o4" name="magazine" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">875.4,588.6,84.6,57.59995</marker>
+        <marker type="LOCATION" frame="167">861.9,570.6,84.6,57.6</marker>
+      </markers>
+    </object>
+    <object id="o5" name="park" filename="0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.200046,129.6,1915.2,817.2</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="11" endFrame="44" />
+      <text>He opens a box of chocolates</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+    <annotation id="a2">
+      <duration startFrame="57" endFrame="167" />
+      <text>He holds it out for the nurse.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

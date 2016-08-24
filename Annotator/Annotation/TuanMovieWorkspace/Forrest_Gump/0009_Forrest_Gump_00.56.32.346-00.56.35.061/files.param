@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.56.32.346-00.56.35.061" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.56.32.346-00.56.35.061.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A MAN is sitting next to Forrest on the bus bench.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.49.33.704-00.49.37.142" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.49.33.704-00.49.37.142.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Two soldiers with a machine gun fire into the jungle.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

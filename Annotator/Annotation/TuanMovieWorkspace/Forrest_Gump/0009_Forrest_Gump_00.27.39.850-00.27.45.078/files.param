@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.27.39.850-00.27.45.078" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.27.39.850-00.27.45.078.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jenny takes off her slip and sits on the bed next to him.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

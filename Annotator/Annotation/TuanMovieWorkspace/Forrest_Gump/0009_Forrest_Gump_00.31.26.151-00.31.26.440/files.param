@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.31.26.151-00.31.26.440" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.31.26.151-00.31.26.440.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest and Mrs. Gump have their picure taken in front of a large statue.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

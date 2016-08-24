@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.12.33.150-02.12.53.837" length="0">
+  <files>
+    <file>0009_Forrest_Gump_02.12.33.150-02.12.53.837.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>As Forrest walks away, a flock of birds flies overhead and lands in the tree.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

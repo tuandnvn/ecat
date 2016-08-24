@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.14.45.242-00.14.49.728" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.14.45.242-00.14.49.728.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Young Jenny and Forrest run toward a large oak tree.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

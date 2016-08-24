@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.40.57.532-00.41.08.045" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.40.57.532-00.41.08.045.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The helicopter circles overhead, then lands at the firebase.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

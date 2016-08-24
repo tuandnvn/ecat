@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.46.44.113-00.46.49.629" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.46.44.113-00.46.49.629.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The rain pours down on Forrest and Bubba as they sit in a foxhole.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

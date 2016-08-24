@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.35.52.435-01.35.54.655" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.35.52.435-01.35.54.655.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>An ANCHORMAN over TV, is standing in front of a pier.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

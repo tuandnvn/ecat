@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.10.53.050-01.10.56.576" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.10.53.050-01.10.56.576.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A hippie gives Jenny a sugar cube of acid as they sit in front of a roaring fire.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

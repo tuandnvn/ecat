@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.06.22.052-01.06.26.405" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.06.22.052-01.06.26.405.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Isabel, Hilary and another protester try to plug the tangled mess of wires back into the audio board.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -58,13 +58,15 @@ namespace Annotator
         protected void InitMemento()
         {
             clearMemento();
+            logs = new List<string>();
+            logBindingSource = new System.Windows.Forms.BindingSource();
+            logBindingSource.DataSource = logs;
         }
 
         internal void clearMemento()
         {
             currentSessionIndex = -1;
             savedSessions = new List<MemoryStream>();
-            logs = new List<string>();
         }
 
         /// <summary>

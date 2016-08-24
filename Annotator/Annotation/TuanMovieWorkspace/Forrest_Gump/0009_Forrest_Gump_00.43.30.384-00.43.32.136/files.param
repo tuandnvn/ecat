@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.43.30.384-00.43.32.136" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.43.30.384-00.43.32.136.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Another relative, wearing a World War II, falls down dead on the beach at Normandy.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.06.11.854-01.06.14.052" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.06.11.854-01.06.14.052.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest continues to speak into the microphone, even though no one can hear what he is saying.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

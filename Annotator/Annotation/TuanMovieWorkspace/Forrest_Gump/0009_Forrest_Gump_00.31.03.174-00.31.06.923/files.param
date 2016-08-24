@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.31.03.174-00.31.06.923" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.31.03.174-00.31.06.923.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>ARCHIVAL FOOTAGE - Robert Kennedy stands at a podium as people around him applaud.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

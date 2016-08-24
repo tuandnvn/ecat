@@ -260,24 +260,25 @@ namespace Annotator
             frameTrackBar.MaxDragVal = frameTrackBar.Maximum;
         }
 
+        private void clearPaintBoardView()
+        {
+            // Clean the playbackFileComboBox
+            clearPlaybackFileComboBox();
+            // Clean picture board frame
+            pictureBoard.Image = null;
+            startInSecondTextBox.Text = "";
+            endInSecondTextBox.Text = "";
+            setMinimumFrameTrackBar(0);
+            setMaximumFrameTrackBar(100);
+
+            handlePause();
+        }
+
         private void clearPlaybackFileComboBox()
         {
             playbackFileComboBox.Items.Clear();
             playbackFileComboBox.Enabled = false;
             frameTrackBar.Enabled = false;
-        }
-
-        /// <summary>
-        /// Dirty clean
-        /// </summary>
-        private void runGCForImage()
-        {
-            goToFrameCount++;
-            if (goToFrameCount == GARBAGE_COLLECT_BITMAP_COUNT)
-            {
-                System.GC.Collect();
-                goToFrameCount = 0;
-            }
         }
 
         private void setMinimumFrameTrackBar(int value)
@@ -371,5 +372,19 @@ namespace Annotator
                 playStatus = !playStatus;
             }
         }
+
+        /// <summary>
+        /// Dirty clean
+        /// </summary>
+        private void runGCForImage()
+        {
+            goToFrameCount++;
+            if (goToFrameCount == GARBAGE_COLLECT_BITMAP_COUNT)
+            {
+                System.GC.Collect();
+                goToFrameCount = 0;
+            }
+        }
+
     }
 }
