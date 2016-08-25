@@ -59,8 +59,6 @@ namespace Annotator
         {
             clearMemento();
             logs = new List<string>();
-            logBindingSource = new System.Windows.Forms.BindingSource();
-            logBindingSource.DataSource = logs;
         }
 
         internal void clearMemento()

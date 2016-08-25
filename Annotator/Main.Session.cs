@@ -179,8 +179,6 @@ namespace Annotator
             {
                 closeWithoutSaveCurrentSession();
             }
-
-            clearMemento();
         }
 
         private void toggleFileToolStripsOfSession(bool value)
@@ -222,6 +220,7 @@ namespace Annotator
             cleanSessionUI();
             logMessage($"Session {currentSession.name} saved");
             currentSession = null;
+            clearMemento();
         }
 
         private void closeWithoutSaveCurrentSession()
@@ -231,6 +230,7 @@ namespace Annotator
             cleanSessionUI();
             logMessage($"Session {currentSession.name} closed without saved");
             currentSession = null;
+            clearMemento();
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)

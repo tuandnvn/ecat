@@ -78,16 +78,16 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o2" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o3" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o5" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o6,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o6" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o1" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o5" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,o7" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="18" arguments="2" ids="o4,o6" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="44" arguments="2" ids="o4,o5" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="44" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
