@@ -143,7 +143,7 @@ namespace Annotator
             if (objectToObjectTracks.ContainsKey(selectedObject))
             {
                 objectToObjectTracks[selectedObject].drawObjectMarks();
-                objectToObjectTracks[selectedObject].Invalidate();
+                //objectToObjectTracks[selectedObject].Invalidate();
             }
         }
     }

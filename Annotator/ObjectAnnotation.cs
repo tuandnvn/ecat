@@ -96,64 +96,71 @@ namespace Annotator
 
         public void drawObjectMarks()
         {
-            this.shapeContainer1.Shapes.Clear();
-            int spanStart = start;
-            int spanEnd = end;
-            bool finishOneRectangle = true; // Has just finish drawing one rectangle, or haven't started drawing any rectangle
-
-            foreach (var entry in o.objectMarks)
+            try
             {
-                int frameNo = entry.Key;
-                LocationMark objectMark = entry.Value;
+                this.shapeContainer1.Shapes.Clear();
+                int spanStart = start;
+                int spanEnd = end;
+                bool finishOneRectangle = true; // Has just finish drawing one rectangle, or haven't started drawing any rectangle
 
-                RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
-                mark.FillColor = System.Drawing.Color.Black;
-                mark.BackColor = System.Drawing.Color.Black;
-                mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-                mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
-                mark.Size = new System.Drawing.Size(borderWidth, 20);
-
-                this.shapeContainer1.Shapes.Add(mark);
-                mark.MouseEnter += Mark_MouseEnter;
-                mark.MouseClick += Mark_MouseClick;
-                mark.Click += Mark_Click;
-
-                if (objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
-                {
-                    spanStart = objectMark.frameNo;
-                    finishOneRectangle = false;
-                }
-
-                if (objectMark.GetType() == typeof(DeleteLocationMark))
-                {
-                    spanEnd = objectMark.frameNo;
-                    drawLifeSpan(spanStart, spanEnd);
-                    finishOneRectangle = true;
-                }
-            }
-
-            if (o.session != null)
-                foreach (var entry in o.session.queryLinkMarks(o))
+                foreach (var entry in o.objectMarks)
                 {
                     int frameNo = entry.Key;
-                    LinkMark objectMark = entry.Value;
+                    LocationMark objectMark = entry.Value;
 
                     RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
-                    mark.BorderColor = System.Drawing.Color.Green;
-                    mark.FillColor = System.Drawing.Color.Green;
-                    mark.BackColor = System.Drawing.Color.Green;
+                    mark.FillColor = System.Drawing.Color.Black;
+                    mark.BackColor = System.Drawing.Color.Black;
                     mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
                     mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
                     mark.Size = new System.Drawing.Size(borderWidth, 20);
+
+                    this.shapeContainer1.Shapes.Add(mark);
                     mark.MouseEnter += Mark_MouseEnter;
                     mark.MouseClick += Mark_MouseClick;
                     mark.Click += Mark_Click;
-                    this.shapeContainer1.Shapes.Add(mark);
+
+                    if (objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
+                    {
+                        spanStart = objectMark.frameNo;
+                        finishOneRectangle = false;
+                    }
+
+                    if (objectMark.GetType() == typeof(DeleteLocationMark))
+                    {
+                        spanEnd = objectMark.frameNo;
+                        drawLifeSpan(spanStart, spanEnd);
+                        finishOneRectangle = true;
+                    }
                 }
 
-            if (!finishOneRectangle)
+                if (o.session != null)
+                    foreach (var entry in o.session.queryLinkMarks(o))
+                    {
+                        int frameNo = entry.Key;
+                        LinkMark objectMark = entry.Value;
+
+                        RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
+                        mark.BorderColor = System.Drawing.Color.Green;
+                        mark.FillColor = System.Drawing.Color.Green;
+                        mark.BackColor = System.Drawing.Color.Green;
+                        mark.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+                        mark.Location = new System.Drawing.Point((int)(minLeftPosition + frameStepX * (objectMark.frameNo - start)) - borderWidth, 4);
+                        mark.Size = new System.Drawing.Size(borderWidth, 20);
+                        mark.MouseEnter += Mark_MouseEnter;
+                        mark.MouseClick += Mark_MouseClick;
+                        mark.Click += Mark_Click;
+                        this.shapeContainer1.Shapes.Add(mark);
+                    }
+
+                if (!finishOneRectangle)
+                {
+                    drawLifeSpan(spanStart, end);
+                }
+            }
+            catch (Exception e)
             {
-                drawLifeSpan(spanStart, end);
+                Console.WriteLine(e.StackTrace);
             }
         }
 

@@ -23,7 +23,14 @@ namespace Annotator
 
                     foreach (var holdingPredicate in holdingPredicates)
                     {
-                        predicateView.Rows.Add(holdingPredicate.ToString());
+                        try
+                        {
+                            predicateView.Rows.Add(holdingPredicate.ToString());
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
                     }
                 }
             }

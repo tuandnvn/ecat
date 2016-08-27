@@ -48,8 +48,8 @@
   <predicates>
     <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
     <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o1" q="True" type="IDENTITY(X,Y)" />
   </predicates>
 </session>

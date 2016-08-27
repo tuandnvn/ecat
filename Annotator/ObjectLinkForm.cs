@@ -27,29 +27,35 @@ namespace Annotator
         public ObjectLinkForm(Main main, Project project, Session session, Object obj, int frameNo)
         {
             InitializeComponent();
-
-            this.main = main;
-            this.project = project;
-            this.session = session;
-            this.obj = obj;
-            this.frameNo = frameNo;
-            this.sessionIndex = project.sessions.IndexOf(session);
-            if (sessionIndex == -1)
+            try
             {
-                MessageBox.Show("Cross session only works inside one project!");
-                this.Dispose();
-                return;
+                this.main = main;
+                this.project = project;
+                this.session = session;
+                this.obj = obj;
+                this.frameNo = frameNo;
+                this.sessionIndex = project.sessions.IndexOf(session);
+                if (sessionIndex == -1)
+                {
+                    MessageBox.Show("Cross session only works inside one project!");
+                    this.Dispose();
+                    return;
+                }
+                this.infoLbl.Text = "Link from object " + obj.id + " of session " + session.name + " at frame " + frameNo;
+                this.sessionSelectComboBox.Items.AddRange(project.sessions.Select(s => (s.name.Equals(session.name) ? "(current session)" : s.name)).ToArray());
+                this.sessionSelectComboBox.SelectedIndex = sessionIndex;
+                this.objectSelectComboBox.Items.AddRange(session.getObjects().Select(o => o.id + (o.name.Equals("") ? "" : (" (\"" + o.name + "\")"))).ToArray());
+                Console.WriteLine(this.objectSelectComboBox.Items.Count);
+                this.objectSelectComboBox.SelectedIndex = 0;
+                this.qualifiedSelectComboBox.Items.AddRange(new object[] { true, false });
+                this.qualifiedSelectComboBox.SelectedIndex = 0;
+                this.linkComboBox.Items.AddRange(Options.getOption().objectPredicates.ToArray());
+                this.linkComboBox.SelectedIndex = 0;
+                renderPredicateList();
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
-            this.infoLbl.Text = "Link from object " + obj.id + " of session " + session.name + " at frame " + frameNo;
-            this.sessionSelectComboBox.Items.AddRange(project.sessions.Select(s => (s.name.Equals(session.name) ? "(current session)" : s.name)).ToArray());
-            this.sessionSelectComboBox.SelectedIndex = sessionIndex;
-            this.objectSelectComboBox.Items.AddRange(session.getObjects().Select(o => o.id + (o.name.Equals("") ? "" : (" (\"" + o.name + "\")"))).ToArray());
-            this.objectSelectComboBox.SelectedIndex = 0;
-            this.qualifiedSelectComboBox.Items.AddRange(new object[] { true, false });
-            this.qualifiedSelectComboBox.SelectedIndex = 0;
-            this.linkComboBox.Items.AddRange(Options.getOption().objectPredicates.ToArray());
-            this.linkComboBox.SelectedIndex = 0;
-            renderPredicateList();
         }
 
         private void renderPredicateList()
@@ -99,10 +105,11 @@ namespace Annotator
             }
             catch (Exception exc)
             {
+                Console.WriteLine(exc.StackTrace);
                 MessageBox.Show(exc.ToString(), "Problem when adding link");
             }
 
-            this.Hide();
+            this.Dispose();
         }
 
         private void crossSessionChkBox_CheckedChanged(object sender, EventArgs e)
