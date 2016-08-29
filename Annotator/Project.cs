@@ -31,13 +31,12 @@ namespace Annotator
 
 
         //constructor
-        public Project(String locationFolder, String projectName, List<Session> sessions)
+        public Project(String locationFolder, String projectName)
         {
             this.locationFolder = locationFolder;
             this.sessions = sessions;
             this.name = projectName;
-            if (this.sessions == null)
-                this.sessions = new List<Session>();
+            this.sessions = new List<Session>();
             this.selected = false;
         }
 

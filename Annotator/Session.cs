@@ -16,7 +16,6 @@ namespace Annotator
     //Session class
     public class Session
     {
-
         private const string FILES = "files";
         private const string FILE = "file";
         private const string OBJECTS = "objects";
@@ -28,7 +27,11 @@ namespace Annotator
         internal const string IDS = "ids";
 
         public List<Event> events { get; private set; }
-        public int objectCount { get; set; } = 0;          // Id for next object added into this session
+
+        /// <summary>
+        /// Id for next object added into this session
+        /// </summary>
+        public int nextObjectId { get; set; } = 0;          
         private Dictionary<string, Object> objects;  // list of objects in videos
         public String name { get; private set; }     //session name
         public Project project { get; private set; }         //session's project 
@@ -40,30 +43,33 @@ namespace Annotator
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
         private int annotationID;      // annotation ID
-        private int? _sessionLength;
-        public int frameLength
+        private Lazy<int> _sessionLength;
+
+        private long lastOpenTime;
+
+        public int sessionLength
         {
             get
             {
-                if (_sessionLength.HasValue)
+                if (_sessionLength.IsValueCreated)
                     return _sessionLength.Value;
                 return 0;
             }
-            set
-            {
-                if (_sessionLength.HasValue)
-                {
-                    if (_sessionLength.Value != value)
-                    {
-                        Console.WriteLine("Warning: Length inconsistence, original length = " + _sessionLength.Value + " ; new length = " + value);
-                        _sessionLength = value;
-                    }
-                }
-                else
-                {
-                    _sessionLength = value;
-                }
-            }
+            //set
+            //{
+            //    if (_sessionLength.IsValueCreated)
+            //    {
+            //        if (_sessionLength.Value != value)
+            //        {
+            //            Console.WriteLine("Warning: Length inconsistence, original length = " + _sessionLength.Value + " ; new length = " + value);
+            //            _sessionLength.Value = value;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        _sessionLength = value;
+            //    }
+            //}
         }
 
         public DateTime? startWriteRGB { get; set; }
@@ -114,6 +120,14 @@ namespace Annotator
             metadataFile = path + "files.param";
             tempMetadataFile = path + "~files.param";
             resetVariables();
+
+            // Default
+            lastOpenTime = -1;
+        }
+
+        public void resetLastOpenTime()
+        {
+            lastOpenTime = Environment.TickCount;
         }
 
         private void resetVariables()
@@ -127,7 +141,7 @@ namespace Annotator
         private void resetAnnotationVariables()
         {
             // Start counting object from 0
-            this.objectCount = 0;
+            this.nextObjectId = 0;
             this.events = new List<Event>();
             this.objects = new Dictionary<string, Object>();
             this.predicates = new SortedSet<PredicateMark>(new PredicateMarkComparer());
@@ -197,7 +211,7 @@ namespace Annotator
             {
                 return;
             }
-            if (o.id == "" || o.id == null) { o.id = "o" + ++objectCount; }
+            if (o.id == "" || o.id == null) { o.id = "o" + ++nextObjectId; }
             objects[o.id] = o;
         }
 
@@ -232,7 +246,7 @@ namespace Annotator
                     writer.WriteStartDocument();
                     writer.WriteStartElement(SESSION);
                     writer.WriteAttributeString("name", name);
-                    writer.WriteAttributeString("length", "" + frameLength);
+                    writer.WriteAttributeString("length", "" + sessionLength);
                     if (duration != 0)
                     {
                         writer.WriteAttributeString("duration", "" + duration);
@@ -298,7 +312,7 @@ namespace Annotator
         {
             {
                 writer.WriteStartElement(OBJECTS);
-                writer.WriteAttributeString("no", objectCount + "");
+                writer.WriteAttributeString("no", nextObjectId + "");
                 foreach (Object o in objects.Values)
                 {
                     o.writeToXml(writer);
@@ -343,7 +357,7 @@ namespace Annotator
                     XmlDocument xmlDocument = new XmlDocument();
                     xmlDocument.Load(metadataFile);
 
-                    frameLength = int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value);
+                    _sessionLength = new Lazy<int>(() => int.Parse(xmlDocument.DocumentElement.Attributes["length"].Value));
 
                     try
                     {
@@ -407,7 +421,7 @@ namespace Annotator
 
                     if (objectsNode != null)
                     {
-                        objectCount = int.Parse(objectsNode.Attributes["no"].Value);
+                        nextObjectId = int.Parse(objectsNode.Attributes["no"].Value);
                         var tempoObjects = Object.readObjectsFromXml(this, objectsNode);
 
                         foreach (Object o in tempoObjects)
@@ -593,7 +607,7 @@ namespace Annotator
                 v = new VideoReader(fullFileName, duration);
 
                 videoReaders.Add(v);
-                frameLength = v.frameCount;
+                _sessionLength = new Lazy<int> (() => v.frameCount );
             }
         }
 
@@ -771,7 +785,7 @@ namespace Annotator
             Options.OverwriteMode overwriteMode)
         {
             var addedEvents = new List<Event>();
-            int noOfEventTemplate = (this.frameLength - startFrame - duration) / skipLength + 1;
+            int noOfEventTemplate = (this.sessionLength - startFrame - duration) / skipLength + 1;
 
             /// Process before looping through generated event templates
             /// 

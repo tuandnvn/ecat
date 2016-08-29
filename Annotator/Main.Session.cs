@@ -15,7 +15,6 @@ namespace Annotator
 {
     public partial class Main
     {
-
         BaseDepthReader depthReader;
         byte[] depthValuesToByte;
         Bitmap depthBitmap;
@@ -119,6 +118,7 @@ namespace Annotator
                 currentSessionNode = treeView.SelectedNode;
                 currentSession = chosenSession;
                 currentSession.loadIfNotLoaded();
+                currentSession.resetLastOpenTime();
                 chosenSession.edited = true;
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
@@ -217,6 +217,7 @@ namespace Annotator
         internal void saveCurrentSession()
         {
             currentSession.saveSession();
+            currentSession.resetLastOpenTime();
             cleanSessionUI();
             logMessage($"Session {currentSession.name} saved");
             currentSession = null;
@@ -227,6 +228,7 @@ namespace Annotator
         {
             //Reload session
             currentSession.reload();
+            currentSession.resetLastOpenTime();
             cleanSessionUI();
             logMessage($"Session {currentSession.name} closed without saved");
             currentSession = null;
@@ -787,7 +789,7 @@ namespace Annotator
 
                 // Add all predicates that still hold true of prevObject at the end of the previous session
                 // to new object
-                var toCopyPredicateMarks = prevObject.getHoldingPredicates(prevObject.session.frameLength - 1);
+                var toCopyPredicateMarks = prevObject.getHoldingPredicates(prevObject.session.sessionLength - 1);
                 foreach (var predicateMark in toCopyPredicateMarks)
                 {
                     // All objects in the predicate mark has been copied to current session

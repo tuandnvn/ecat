@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<session name="0009_Forrest_Gump_00.03.44.974-00.04.06.250" length="511">
+<session name="0009_Forrest_Gump_00.03.44.974-00.04.06.250" length="0">
   <files>
     <file>0009_Forrest_Gump_00.03.44.974-00.04.06.250.avi</file>
   </files>
@@ -68,8 +68,8 @@
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.03.32.445-00.03.34.862/o9" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.03.32.445-00.03.34.862/o6" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.03.32.445-00.03.34.862/o10" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.03.32.445-00.03.34.862/o8" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.03.32.445-00.03.34.862/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.03.32.445-00.03.34.862/o8" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />

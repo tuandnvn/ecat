@@ -75,6 +75,7 @@ namespace Annotator
             capture = new Lazy<Capture>(
                 () =>
                 {
+                    Console.WriteLine(" Lazy load " + fileName);
                     return new Capture(fileName);
                 }
             );

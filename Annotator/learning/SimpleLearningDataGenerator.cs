@@ -35,12 +35,12 @@ namespace Annotator
                 Object sub = null;
                 Object obj = null;
 
-                for (int frameNo = 1; frameNo <= session.frameLength; frameNo++)
+                for (int frameNo = 1; frameNo <= session.sessionLength; frameNo++)
                 {
                     sessionLabels.Add("None");
                 }
 
-                Console.WriteLine(session.frameLength + " " + session.name + " " + session.events.Count);
+                Console.WriteLine(session.sessionLength + " " + session.name + " " + session.events.Count);
 
                 // Assume that all events are non-overlapping, this is the simplest case
                 foreach (Event e in session.events)
@@ -113,7 +113,7 @@ namespace Annotator
 
 
 
-                        for (int frameNo = 1; frameNo <= session.frameLength; frameNo++)
+                        for (int frameNo = 1; frameNo <= session.sessionLength; frameNo++)
                         {
                             List<float> frameData = new List<float>();
 

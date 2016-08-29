@@ -127,6 +127,15 @@ namespace Annotator
         }
 
 
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Session s in currentProject.sessions)
+            {
+                s.loadIfNotLoaded();
+                s.getObjects;
+            }
+        }
+
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {

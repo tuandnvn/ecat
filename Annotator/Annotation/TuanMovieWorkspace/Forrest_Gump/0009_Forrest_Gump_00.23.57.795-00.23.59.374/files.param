@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <session name="0009_Forrest_Gump_00.23.57.795-00.23.59.374" length="0">
   <files>
     <file>0009_Forrest_Gump_00.23.57.795-00.23.59.374.avi</file>
@@ -13,4 +13,5 @@
       <link />
     </annotation>
   </annotations>
+  <predicates />
 </session>
