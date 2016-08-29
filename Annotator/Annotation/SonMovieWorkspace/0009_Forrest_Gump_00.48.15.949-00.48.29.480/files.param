@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.48.15.949-00.48.29.480" length="325">
+  <files>
+    <file>0009_Forrest_Gump_00.48.15.949-00.48.29.480.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.48.15.949-00.48.29.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Flash Light" filename="0009_Forrest_Gump_00.48.15.949-00.48.29.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">279.1866,584.3541,190.3349,164.4976</marker>
+        <marker type="LOCATION" frame="71">806.2679,603.3015,190.3349,164.4976</marker>
+        <marker type="LOCATION" frame="103">932.0096,605.0239,190.3349,164.4976</marker>
+        <marker type="LOCATION" frame="129">987.1292,611.9139,190.3349,164.4976</marker>
+        <marker type="LOCATION" frame="324">1069.809,637.7512,190.3349,164.4976</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_00.48.15.949-00.48.29.480.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,408.2297,580.4785,428.7921</marker>
+        <marker type="LOCATION" frame="71">348.797,348.6217,773.1168,493.6749</marker>
+        <marker type="LOCATION" frame="129">529.0868,336.8811,751.5872,542.3144</marker>
+        <marker type="LOCATION" frame="324">444.1148,220.4785,1010.239,713.9177</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="324" />
+      <text>He uses his flashlight to see.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.48.15.352-00.48.29.480/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.48.15.352-00.48.29.480/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.48.15.352-00.48.29.480/o5" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

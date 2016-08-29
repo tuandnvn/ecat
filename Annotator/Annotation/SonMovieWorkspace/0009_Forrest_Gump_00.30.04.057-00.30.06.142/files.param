@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.30.04.057-00.30.06.142" length="50">
+  <files>
+    <file>0009_Forrest_Gump_00.30.04.057-00.30.06.142.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="servant" filename="0009_Forrest_Gump_00.30.04.057-00.30.06.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.042909,133.3791,305.6604,813.2418</marker>
+        <marker type="LOCATION" frame="21">5.042909,131.5266,331.5952,815.0943</marker>
+        <marker type="LOCATION" frame="39">5.042909,129.6741,313.0703,816.9468</marker>
+        <marker type="LOCATION" frame="43">5.042909,177.8388,117.4477,768.7822</marker>
+        <marker type="LOCATION" frame="44">5.042909,251.9383,68.54202,694.6827</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o2" name="room" filename="0009_Forrest_Gump_00.30.04.057-00.30.06.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.337934,127.8216,1911.767,820.6518</marker>
+      </markers>
+    </object>
+    <object id="o3" name="bottle" filename="0009_Forrest_Gump_00.30.04.057-00.30.06.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">816.4323,639.108,118.5592,307.5128</marker>
+        <marker type="LOCATION" frame="32">816.4323,613.1732,155.6089,333.4477</marker>
+        <marker type="LOCATION" frame="49">838.6621,580.7547,155.6089,368.6449</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man" filename="0009_Forrest_Gump_00.30.04.057-00.30.06.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">343.1218,129.211,873.4476,815.5574</marker>
+        <marker type="LOCATION" frame="49">458.9023,129.211,815.0943,815.5574</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="37" />
+      <text>A servant opens the bottle for him.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.30.01.170-00.30.03.412/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.30.01.170-00.30.03.412/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.30.01.170-00.30.03.412/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.30.01.170-00.30.03.412/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="39" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

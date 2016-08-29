@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.22.01.603-00.22.03.756" length="52">
+  <files>
+    <file>0009_Forrest_Gump_00.22.01.603-00.22.03.756.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Stadium" filename="0009_Forrest_Gump_00.22.01.603-00.22.03.756.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.546137,131.5129,1914.908,812.9889</marker>
+      </markers>
+    </object>
+    <object id="o4" name="football coach" filename="0009_Forrest_Gump_00.22.01.603-00.22.03.756.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">387.8304,144.9875,683.0923,791.6223</marker>
+        <marker type="LOCATION" frame="15">416.3342,157.7556,434.3392,779.2126</marker>
+        <marker type="LOCATION" frame="25">632.1615,227.98,437.0237,713.66</marker>
+        <marker type="LOCATION" frame="28">595.1646,152.9676,437.8291,786.079</marker>
+        <marker type="LOCATION" frame="32">545.8354,183.2918,438.9028,752.2963</marker>
+        <marker type="LOCATION" frame="40">412.7458,173.4669,441.7402,769.7745</marker>
+        <marker type="LOCATION" frame="46">303.1531,155.7405,443.8683,782.8831</marker>
+        <marker type="LOCATION" frame="50">350.3242,143.3909,445.2868,791.6222</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="51" />
+      <text>The football coach runs along the sidelines as he yells.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.21.51.868-00.21.56.379/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

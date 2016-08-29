@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.10.26.925-00.10.30.260" length="80">
+  <files>
+    <file>0009_Forrest_Gump_00.10.26.925-00.10.30.260.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="woman" filename="0009_Forrest_Gump_00.10.26.925-00.10.30.260.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">196.3092,149.7756,644.7881,794.813</marker>
+        <marker type="LOCATION" frame="39">151.9037,133.4617,473.7322,812.723</marker>
+        <marker type="LOCATION" frame="47">7.980014,133.6634,525.0873,814.3762</marker>
+        <marker type="LOCATION" frame="55">50.8251,131.1873,635.7064,816.0295</marker>
+        <marker type="LOCATION" frame="59">126.911,133.9661,691.0159,816.856</marker>
+        <marker type="LOCATION" frame="64">175.5611,134.6803,745.3367,817.8884</marker>
+        <marker type="LOCATION" frame="79">483.5909,135.4115,734.1647,809.1771</marker>
+      </markers>
+    </object>
+    <object id="o2" name="guest" filename="0009_Forrest_Gump_00.10.26.925-00.10.30.260.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1144.339,368.4289,767.6807,520.2993</marker>
+        <marker type="LOCATION" frame="39">981.5461,392.3691,930.475,480.399</marker>
+        <marker type="LOCATION" frame="51">1104.439,344.4888,807.584,542.835</marker>
+        <marker type="LOCATION" frame="64">1490.673,422.6933,421.349,480.399</marker>
+        <marker type="LOCATION" frame="70">1718.903,422.6933,193.1207,480.399</marker>
+        <marker type="DELETE" frame="73" />
+      </markers>
+    </object>
+    <object id="o3" name="house" filename="0009_Forrest_Gump_00.10.26.925-00.10.30.260.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-3.652977E-05,130.6234,1913.616,818.7532</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="79" />
+      <text>Mrs. Gump looks into a sitting room and informs the boarders about dinner.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.10.22.856-00.10.25.739/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

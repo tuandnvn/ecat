@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.48.29.980-00.48.33.262" length="79">
+  <files>
+    <file>0009_Forrest_Gump_00.48.29.980-00.48.33.262.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Jenny" filename="0009_Forrest_Gump_00.48.29.980-00.48.33.262.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">910.0479,242.8708,229.0909,218.756</marker>
+        <marker type="LOCATION" frame="14">910.0479,242.8708,249.7608,611.4833</marker>
+        <marker type="LOCATION" frame="30">976.3636,309.1866,249.7608,611.4833</marker>
+        <marker type="LOCATION" frame="44">1105.55,329.8565,249.7608,611.4833</marker>
+        <marker type="LOCATION" frame="60">1105.55,239.4258,362.5836,701.914</marker>
+        <marker type="LOCATION" frame="78">1080.574,149.8565,387.56,791.4837</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Garden" filename="0009_Forrest_Gump_00.48.29.980-00.48.33.262.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,130.9091,1913.684,813.0143</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Trailer" filename="0009_Forrest_Gump_00.48.29.980-00.48.33.262.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.741631,132.6316,1781.053,714.8325</marker>
+        <marker type="LOCATION" frame="78">5.741631,132.6316,1910.239,663.1579</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Guitar" filename="0009_Forrest_Gump_00.48.29.980-00.48.33.262.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="10">1032.344,645.933,67.17703,51.67459</marker>
+        <marker type="LOCATION" frame="25">893.6842,628.7081,176.555,151.5791</marker>
+        <marker type="LOCATION" frame="33">886.7943,658.5646,208.4211,184.8804</marker>
+        <marker type="LOCATION" frame="37">930.7177,632.1531,224.3541,201.5312</marker>
+        <marker type="LOCATION" frame="51">1008.014,679.5215,224.3541,201.5311</marker>
+        <marker type="LOCATION" frame="56">1011.98,568.4211,202.6434,366.4595</marker>
+        <marker type="LOCATION" frame="63">1025.455,552.9186,172.2488,377.225</marker>
+        <marker type="LOCATION" frame="69">1004.785,616.6507,187.4067,319.6939</marker>
+        <marker type="LOCATION" frame="73">991.0048,606.3158,235.9809,334.1631</marker>
+        <marker type="LOCATION" frame="78">973.7799,486.6029,210.1435,459.0431</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Backpack" filename="0009_Forrest_Gump_00.48.29.980-00.48.33.262.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="25">1111.579,409.9521,99.9043,177.4163</marker>
+        <marker type="LOCATION" frame="37">1199.426,412.5359,179.1387,250.622</marker>
+        <marker type="LOCATION" frame="56">1306.798,392.252,146.9786,242.0988</marker>
+        <marker type="LOCATION" frame="78">1430.239,470.6699,77.51196,204.5455</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="78" />
+      <text>Jenny steps out of the trailer with a backpack and a guitar.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="10" arguments="2" ids="o1,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="25" arguments="2" ids="o1,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

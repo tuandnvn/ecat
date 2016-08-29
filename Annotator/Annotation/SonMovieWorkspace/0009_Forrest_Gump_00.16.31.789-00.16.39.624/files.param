@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.31.789-00.16.39.624" length="188">
+  <files>
+    <file>0009_Forrest_Gump_00.16.31.789-00.16.39.624.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_00.16.31.789-00.16.39.624.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.028461,136.4413,1910.178,805.1957</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.16.31.789-00.16.39.624.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">329.1767,248.7282,474.8138,690.2748</marker>
+        <marker type="LOCATION" frame="7">264.9377,216.808,564.9875,723.0681</marker>
+        <marker type="LOCATION" frame="16">314.9247,309.3766,573.9274,631.6218</marker>
+        <marker type="LOCATION" frame="25">364.9117,373.2169,522.4698,568.9033</marker>
+        <marker type="LOCATION" frame="32">403.7905,251.3082,589.8205,691.6844</marker>
+        <marker type="LOCATION" frame="34">1092.519,362.5898,158.7528,253.2207</marker>
+        <marker type="LOCATION" frame="82">1074.076,354.0648,172.4077,277.7057</marker>
+        <marker type="LOCATION" frame="102">1106.035,344.4888,183.542,301.6462</marker>
+        <marker type="LOCATION" frame="103">424.8823,136.3291,575.816,776.3393</marker>
+        <marker type="LOCATION" frame="117">456.8517,136.1761,373.0735,774.1649</marker>
+        <marker type="LOCATION" frame="135">497.9551,135.9795,293.666,771.3691</marker>
+        <marker type="LOCATION" frame="187">266.9323,135.4115,775.2623,763.2926</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="187" />
+      <text>Forrest tries to run even faster to get away.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.16.30.722-00.16.31.177/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.30.722-00.16.31.177/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.10.49.036-01.10.50.721" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.10.49.036-01.10.50.721.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Jenny" filename="0009_Forrest_Gump_01.10.49.036-01.10.50.721.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1007.466,251.5068,486.9863,695.3427</marker>
+        <marker type="LOCATION" frame="12">871.8494,253.9725,486.9863,695.3427</marker>
+        <marker type="LOCATION" frame="25">794.7946,229.3151,564.0411,720.0005</marker>
+        <marker type="LOCATION" frame="26">1231.233,626.3015,98.63014,194.7944</marker>
+        <marker type="LOCATION" frame="47">1253.425,632.4658,123.2884,191.0959</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0009_Forrest_Gump_01.10.49.036-01.10.50.721.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.753418,135.6164,1910.959,811.2329</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Car" filename="0009_Forrest_Gump_01.10.49.036-01.10.50.721.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.753418,241.6438,771.7809,702.7401</marker>
+        <marker type="LOCATION" frame="25">5.753418,241.6438,806.3014,702.7401</marker>
+        <marker type="LOCATION" frame="26">740.548,621.3699,466.0274,244.1096</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Friend Jenny" filename="0009_Forrest_Gump_01.10.49.036-01.10.50.721.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="26">1475.343,717.5344,236.7123,147.9451</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>A car pulls over to pick her up.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.10.47.911-01.10.49.036/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.10.47.911-01.10.49.036/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.10.47.911-01.10.49.036/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="26" arguments="1" ids="o4" q="True" type="SIT(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.13.47.177-00.13.50.365" length="77">
+  <files>
+    <file>0009_Forrest_Gump_00.13.47.177-00.13.50.365.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Bus" filename="0009_Forrest_Gump_00.13.47.177-00.13.50.365.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.787994,133.8154,1912.02,812.3691</marker>
+      </markers>
+    </object>
+    <object id="o2" name="kid" filename="0009_Forrest_Gump_00.13.47.177-00.13.50.365.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">196.3092,135.4115,593.7158,804.3892</marker>
+        <marker type="LOCATION" frame="42">253.7656,135.4115,603.292,804.3892</marker>
+        <marker type="LOCATION" frame="63">272.9177,135.4115,601.6962,804.3892</marker>
+        <marker type="LOCATION" frame="76">196.3092,135.4115,823.5412,804.3892</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="76" />
+      <text>Young Forrest is still standing in the aisle on the bus.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="76" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

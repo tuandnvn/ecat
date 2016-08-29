@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.50.940-00.05.58.671" length="186">
+  <files>
+    <file>0009_Forrest_Gump_00.05.50.940-00.05.58.671.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="man" filename="0009_Forrest_Gump_00.05.50.940-00.05.58.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1026.234,173.7157,308.0298,496.3591</marker>
+        <marker type="LOCATION" frame="26">991.1223,422.6933,234.6134,320.798</marker>
+        <marker type="LOCATION" frame="61">770.0748,543.192,177.9551,189.1272</marker>
+        <marker type="LOCATION" frame="69">816.838,497.3865,185.7754,204.9277</marker>
+        <marker type="LOCATION" frame="81">1064.938,513.2668,197.5061,228.6284</marker>
+        <marker type="LOCATION" frame="86">1304.14,587.6808,285.4863,277.1072</marker>
+        <marker type="LOCATION" frame="88">1411.771,663.9901,285.4863,277.1072</marker>
+        <marker type="LOCATION" frame="91">1718.903,756.2594,197.0075,186.4345</marker>
+        <marker type="DELETE" frame="92" />
+      </markers>
+    </object>
+    <object id="o2" name="man horse" filename="0009_Forrest_Gump_00.05.50.940-00.05.58.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">884.1896,277.4564,622.446,668.7287</marker>
+        <marker type="LOCATION" frame="26">991.1223,561.5461,312.8179,360.6985</marker>
+        <marker type="LOCATION" frame="61">729.3766,657.3066,212.2692,285.6859</marker>
+        <marker type="LOCATION" frame="69">770.2345,659.2219,259.8303,267.4915</marker>
+        <marker type="LOCATION" frame="81">971.1722,704.389,331.172,240.1995</marker>
+        <marker type="LOCATION" frame="86">1216.559,812.1198,414.5636,134.0648</marker>
+        <marker type="DELETE" frame="88" />
+      </markers>
+    </object>
+    <object id="o3" name="member" filename="0009_Forrest_Gump_00.05.50.940-00.05.58.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.384004,129.0274,922.4938,352.7182</marker>
+        <marker type="LOCATION" frame="26">493.1671,133.0174,810.7731,589.7257</marker>
+        <marker type="LOCATION" frame="61">391.0224,132.2194,743.7407,646.3841</marker>
+        <marker type="LOCATION" frame="81">391.0224,132.2194,999.1023,584.1397</marker>
+        <marker type="LOCATION" frame="86">391.0224,132.2194,1067.731,651.1721</marker>
+        <marker type="LOCATION" frame="88">391.0224,132.2194,1067.731,708.6285</marker>
+        <marker type="LOCATION" frame="91">391.0224,132.2194,1133.167,756.5088</marker>
+        <marker type="LOCATION" frame="96">391.0224,132.2194,1291.172,810.7731</marker>
+        <marker type="LOCATION" frame="184">391.0224,132.2194,1519.402,812.3691</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="185" />
+      <text>Followed by a large group of Klan members dressed in full uniform.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="92" />
+      <text>The General rides off,</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.46.334-00.05.50.940/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.46.334-00.05.50.940/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.46.334-00.05.50.940/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="65" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="66" arguments="1" ids="o2" q="True" type="RUN(X)" />
+  </predicates>
+</session>

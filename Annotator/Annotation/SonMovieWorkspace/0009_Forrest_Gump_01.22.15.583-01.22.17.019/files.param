@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.22.15.583-01.22.17.019" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.22.15.583-01.22.17.019.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.22.15.583-01.22.17.019.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.135391,130.0409,1914.831,817.7558</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Carla" filename="0009_Forrest_Gump_01.22.15.583-01.22.17.019.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">151.924,295.0119,600.285,651.5909</marker>
+        <marker type="LOCATION" frame="5">18.52731,415.9484,750.0694,530.6534</marker>
+        <marker type="LOCATION" frame="14">3.135391,633.6342,794.9637,312.966</marker>
+        <marker type="LOCATION" frame="26">205.7957,572.0665,631.6385,374.5338</marker>
+        <marker type="LOCATION" frame="36">190.4038,590.0237,679.8099,356.5777</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o5" name="Bed" filename="0009_Forrest_Gump_01.22.15.583-01.22.17.019.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.135391,587.4584,364.2754,359.1449</marker>
+        <marker type="LOCATION" frame="9">3.135391,548.9786,646.4608,397.6239</marker>
+        <marker type="LOCATION" frame="20">3.135391,548.9786,795.2493,397.6239</marker>
+        <marker type="LOCATION" frame="36">3.135391,548.9786,841.4251,397.6239</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o4" name="Dan" filename="0009_Forrest_Gump_01.22.15.583-01.22.17.019.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">449.5012,407.886,354.0142,510.4986</marker>
+        <marker type="LOCATION" frame="14">632.6365,418.1472,589.0261,478.4316</marker>
+        <marker type="LOCATION" frame="36">885.6057,401.4727,441.2351,510.4986</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o6" name="Wheelchair" filename="0009_Forrest_Gump_01.22.15.583-01.22.17.019.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">423.848,654.1567,574.6318,292.4466</marker>
+        <marker type="LOCATION" frame="18">811.2114,654.1567,556.6736,292.4465</marker>
+        <marker type="LOCATION" frame="36">890.7363,654.1567,543.8467,292.4465</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="37" />
+      <text>Lt. Dan throws Carla back onto the bed.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.22.02.656-01.22.04.840/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.22.02.656-01.22.04.840/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.22.02.656-01.22.04.840/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="6" arguments="2" ids="o4,o2" q="False" type="SUPPORT(X,Y)" />
+    <predicate frame="9" arguments="2" ids="o5,o2" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="23" arguments="1" ids="o2" q="True" type="LIE(X)" />
+  </predicates>
+</session>

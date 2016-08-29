@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.19.33.489-00.19.45.625" length="291">
+  <files>
+    <file>0009_Forrest_Gump_00.19.33.489-00.19.45.625.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_00.19.33.489-00.19.45.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,133.8154,1908.828,815.5612</marker>
+      </markers>
+    </object>
+    <object id="o3" name="girl" filename="0009_Forrest_Gump_00.19.33.489-00.19.45.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1194.999,456.6608,62.65684,151.1696</marker>
+        <marker type="LOCATION" frame="34">1182.643,457.8055,98.2984,180.0222</marker>
+        <marker type="LOCATION" frame="86">1265.23,508.4096,74.22889,160.5374</marker>
+        <marker type="LOCATION" frame="99">1268.238,517.2292,68.21151,155.6662</marker>
+        <marker type="LOCATION" frame="111">1271.016,554.5897,62.65684,151.1697</marker>
+        <marker type="LOCATION" frame="135">1069.918,586.5099,62.65684,174.5374</marker>
+        <marker type="LOCATION" frame="147">945.4297,606.3802,62.65684,172.0776</marker>
+        <marker type="LOCATION" frame="152">897.5494,608.4886,62.65684,171.0527</marker>
+        <marker type="LOCATION" frame="158">844.8811,626.6597,62.65684,169.8229</marker>
+        <marker type="LOCATION" frame="170">753.9085,645.4456,62.65684,167.3633</marker>
+        <marker type="LOCATION" frame="176">728.3724,650.8486,62.65684,196.3834</marker>
+        <marker type="LOCATION" frame="194">712.4122,670.0748,62.65684,174.0139</marker>
+        <marker type="LOCATION" frame="249">801.7888,667.9065,62.65684,151.1697</marker>
+        <marker type="DELETE" frame="264" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="290" />
+      <text>Jenny climbs over a second-floor railing and enters the house.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.19.26.408-00.19.32.989/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="110" arguments="1" ids="o3" q="True" type="RUN(X)" />
+  </predicates>
+</session>

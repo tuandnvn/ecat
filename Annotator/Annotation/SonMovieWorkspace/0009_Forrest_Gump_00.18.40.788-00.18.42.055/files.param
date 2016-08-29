@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.18.40.788-00.18.42.055" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Field" filename="0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,135.4115,1908.828,813.9651</marker>
+      </markers>
+    </object>
+    <object id="o2" name="girl" filename="0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">625.636,363.6409,327.182,574.5637</marker>
+        <marker type="LOCATION" frame="7">676.1253,296.6085,327.1821,642.0261</marker>
+        <marker type="LOCATION" frame="22">784.3164,248.7282,327.182,690.8273</marker>
+        <marker type="LOCATION" frame="26">813.1672,328.5286,327.182,611.2719</marker>
+        <marker type="LOCATION" frame="38">1095.661,354.0648,327.1821,574.5637</marker>
+        <marker type="DELETE" frame="39" />
+      </markers>
+    </object>
+    <object id="o3" name="boy" filename="0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">1123.591,148.1795,335.1621,790.025</marker>
+        <marker type="LOCATION" frame="38">1562.494,194.4638,335.162,746.1349</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="39" />
+      <text>Jenny leads Forrest into the thick tobacco field.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.18.38.787-00.18.39.830/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="7" arguments="1" ids="o3" q="True" type="RUN(X)" />
+  </predicates>
+</session>

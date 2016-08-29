@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.33.43.016-00.33.45.351" length="56">
+  <files>
+    <file>0009_Forrest_Gump_00.33.43.016-00.33.45.351.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Man 2" filename="0009_Forrest_Gump_00.33.43.016-00.33.45.351.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">544.2988,353.9634,320.2134,591.0378</marker>
+        <marker type="LOCATION" frame="13">536.5335,353.9634,327.9787,591.6635</marker>
+        <marker type="LOCATION" frame="28">571.0671,350.6707,329.6646,592.5921</marker>
+        <marker type="LOCATION" frame="54">637.317,344.0854,327.6221,601.7386</marker>
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0009_Forrest_Gump_00.33.43.016-00.33.45.351.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.829242,133.3537,1919.634,811.6464</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Sergeant" filename="0009_Forrest_Gump_00.33.43.016-00.33.45.351.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">920.4879,279.8781,737.561,661.8293</marker>
+        <marker type="LOCATION" frame="28">974.2684,268.7805,412.1341,672.9272</marker>
+        <marker type="LOCATION" frame="41">999.2379,263.6281,373.9939,678.0799</marker>
+        <marker type="LOCATION" frame="54">1024.207,258.4756,401.7072,683.2325</marker>
+      </markers>
+    </object>
+    <object id="o5" name="The recruits" filename="0009_Forrest_Gump_00.33.43.016-00.33.45.351.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">126.9512,192.622,882.4391,752.3782</marker>
+        <marker type="LOCATION" frame="27">126.9512,162.9878,946.2874,782.0128</marker>
+        <marker type="LOCATION" frame="55">126.9512,171.2195,1012.5,773.7809</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="33" />
+      <text>The Drill Sergeant moves down the line to the next man.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="8" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="28" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="44" arguments="2" ids="o3,o1" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

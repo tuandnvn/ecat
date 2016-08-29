@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.13.23.398-00.13.29.152" length="138">
+  <files>
+    <file>0051_Men_in_black_00.13.23.398-00.13.29.152.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="House" filename="0051_Men_in_black_00.13.23.398-00.13.29.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.129133E-05,-0.2790642,1911.07,1080.558</marker>
+        <marker type="DELETE" frame="120" />
+      </markers>
+    </object>
+    <object id="o2" name="Edgar" filename="0051_Men_in_black_00.13.23.398-00.13.29.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">486.6975,200.6512,919.8143,857.3026</marker>
+        <marker type="LOCATION" frame="26">182.0405,93.48838,1094.983,955.5987</marker>
+        <marker type="LOCATION" frame="59">210.6854,111.3488,1066.338,938.6504</marker>
+        <marker type="LOCATION" frame="92">84.2409,80.09303,1134.736,975.6244</marker>
+        <marker type="LOCATION" frame="105">165.2093,13.11629,1330.605,1047.978</marker>
+        <marker type="LOCATION" frame="108">511.5748,4.186052,1390.565,1058.149</marker>
+        <marker type="LOCATION" frame="112">973.3954,169.3954,933.2093,894.5939</marker>
+        <marker type="LOCATION" frame="119">1665.488,673.9536,250.0483,392.9308</marker>
+        <marker type="DELETE" frame="120" />
+      </markers>
+    </object>
+    <object id="o3" name="Door" filename="0051_Men_in_black_00.13.23.398-00.13.29.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">468.8372,13.11629,1067.163,1049.302</marker>
+        <marker type="LOCATION" frame="59">406.3257,15.33007,1035.907,1047.089</marker>
+        <marker type="LOCATION" frame="119">388.4651,17.5814,1067.163,1044.837</marker>
+        <marker type="DELETE" frame="120" />
+      </markers>
+    </object>
+    <object id="o4" name="Yard" filename="0051_Men_in_black_00.13.23.398-00.13.29.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="120">4.465095,13.11629,1906.605,1062.698</marker>
+        <marker type="LOCATION" frame="137">4.465095,13.11629,1906.605,1062.698</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edgar is everything his voice led us to expect -- a nasty, bug-eyed redneck carrying a twelve-gauge shotgun.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.13.21.581-00.13.23.097/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.13.21.581-00.13.23.097/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.13.21.581-00.13.23.097/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

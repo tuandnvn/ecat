@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.04.46.044-00.04.47.798" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.04.46.044-00.04.47.798.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o3" name="office" filename="0009_Forrest_Gump_00.04.46.044-00.04.47.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-3.652977E-05,133.8154,1907.232,812.3691</marker>
+      </markers>
+    </object>
+    <object id="o2" name="kid" filename="0009_Forrest_Gump_00.04.46.044-00.04.47.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">372.6159,139.4702,1083.576,795.6954</marker>
+        <marker type="LOCATION" frame="46">445.2868,162.5436,900.1498,785.2372</marker>
+      </markers>
+    </object>
+    <object id="o4" name="doctor" filename="0009_Forrest_Gump_00.04.46.044-00.04.47.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">1619.95,376.409,311.222,564.9879</marker>
+        <marker type="LOCATION" frame="47">1619.95,274.2643,311.222,667.1329</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>A little boy closes his eyes tightly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.04.41.185-00.04.45.732/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="44" arguments="1" ids="o4" q="True" type="SIT(X)" />
+  </predicates>
+</session>

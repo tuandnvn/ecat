@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.44.639-00.16.46.530" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.16.44.639-00.16.46.530.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_00.16.44.639-00.16.46.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.028461,136.4413,1910.178,805.1957</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.16.44.639-00.16.46.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">409.3766,135.4114,629.626,767.681</marker>
+        <marker type="LOCATION" frame="30">266.5337,133.5268,747.4857,809.4658</marker>
+        <marker type="LOCATION" frame="31">1260.848,266.2843,197.9053,397.4069</marker>
+        <marker type="LOCATION" frame="47">1220.948,258.3042,225.0381,391.0226</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Forrest continues to run faster as the metal braces and straps fly off his legs.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.16.43.378-00.16.44.556/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.43.378-00.16.44.556/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

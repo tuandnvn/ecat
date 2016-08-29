@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.50.30.886-00.50.33.394" length="61">
+  <files>
+    <file>0009_Forrest_Gump_00.50.30.886-00.50.33.394.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.50.30.886-00.50.33.394.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_00.50.30.886-00.50.33.394.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">731.6583,617.9899,157.5879,281.407</marker>
+        <marker type="LOCATION" frame="12">694.6733,540.804,194.5727,358.5929</marker>
+        <marker type="LOCATION" frame="25">656.8845,535.1759,203.417,409.2462</marker>
+        <marker type="LOCATION" frame="34">561.206,490.9548,299.0953,453.4673</marker>
+        <marker type="LOCATION" frame="44">529.0452,357.4874,331.2559,586.9347</marker>
+        <marker type="LOCATION" frame="51">529.0452,261.005,411.6583,683.4171</marker>
+        <marker type="LOCATION" frame="60">196.1809,146.8342,744.5226,797.588</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Rocket" filename="0009_Forrest_Gump_00.50.30.886-00.50.33.394.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">109.3467,162.9146,1419.9,447.0352</marker>
+        <marker type="LOCATION" frame="2">109.3467,162.9146,1431.692,574.0704</marker>
+        <marker type="LOCATION" frame="7">109.3467,162.9146,1461.173,778.2914</marker>
+        <marker type="LOCATION" frame="12">109.3467,162.9146,1490.653,738.0905</marker>
+        <marker type="LOCATION" frame="51">-1.840256E-05,133.9698,1125.628,363.4171</marker>
+        <marker type="LOCATION" frame="56">-1.840256E-05,133.9698,1382.915,521.005</marker>
+        <marker type="LOCATION" frame="58">-1.840256E-05,133.9698,1410.251,566.0302</marker>
+        <marker type="LOCATION" frame="60">-1.840256E-05,133.9698,1177.085,566.0302</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="60" />
+      <text>Rockets explode all around the field.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.50.28.954-00.50.30.886/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.50.28.954-00.50.30.886/o6" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

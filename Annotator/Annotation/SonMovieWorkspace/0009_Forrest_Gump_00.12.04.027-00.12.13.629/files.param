@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.12.04.027-00.12.13.629" length="231">
+  <files>
+    <file>0009_Forrest_Gump_00.12.04.027-00.12.13.629.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Sidewalk" filename="0009_Forrest_Gump_00.12.04.027-00.12.13.629.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,132.2194,1907.232,812.3691</marker>
+      </markers>
+    </object>
+    <object id="o3" name="" filename="0009_Forrest_Gump_00.12.04.027-00.12.13.629.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">724.5938,207.5625,327.375,710.4375</marker>
+        <marker type="LOCATION" frame="106">744.0367,158.625,284.3071,759.7638</marker>
+        <marker type="LOCATION" frame="127">753.0715,175.5,373.1472,744.8604</marker>
+        <marker type="LOCATION" frame="148">689.1245,149.5724,418.5317,768.4276</marker>
+        <marker type="LOCATION" frame="191">790.7828,175.3368,453.5609,740.9758</marker>
+        <marker type="LOCATION" frame="230">766.7813,208.4063,469.125,710.4375</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="230" />
+      <text>Elvis continues to perform over the television.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.12.01.811-00.12.03.851/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

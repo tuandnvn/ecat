@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.31.04.404-01.31.06.282" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.4534795,130.6616,1917.051,816.6351</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">408.4422,487.7387,496.8844,459.8993</marker>
+        <marker type="LOCATION" frame="8">469.9672,476.4824,440.1835,471.1556</marker>
+        <marker type="LOCATION" frame="16">562.814,352.6633,415.0885,594.9747</marker>
+        <marker type="LOCATION" frame="23">585.3266,314.0703,451.8591,633.5676</marker>
+        <marker type="LOCATION" frame="47">500.1005,429.8492,447.0352,517.7888</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Chair" filename="0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">451.8593,698.392,561.2061,249.2462</marker>
+        <marker type="LOCATION" frame="20">672.1608,574.5729,562.8141,373.0652</marker>
+        <marker type="LOCATION" frame="47">591.7588,529.5477,606.2311,418.0903</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>She sits down on a chair.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.31.00.196-01.31.04.404/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.31.00.196-01.31.04.404/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.31.00.196-01.31.04.404/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

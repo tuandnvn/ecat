@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.17.19.549-00.17.24.693" length="124">
+  <files>
+    <file>0009_Forrest_Gump_00.17.19.549-00.17.24.693.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.17.19.549-00.17.24.693.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="1">1.595974,133.8154,1913.616,813.9651</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boys" filename="0009_Forrest_Gump_00.17.19.549-00.17.24.693.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="1">31.92017,307.7805,1070.923,640.0001</marker>
+        <marker type="LOCATION" frame="21">258.5536,307.7805,954.4151,640.0001</marker>
+        <marker type="LOCATION" frame="41">229.8254,400.3491,1009.477,534.601</marker>
+        <marker type="LOCATION" frame="61">201.0972,346.5855,1064.539,575.5338</marker>
+        <marker type="LOCATION" frame="123">520.2993,406.7332,692.6697,475.611</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="21" endFrame="123" />
+      <text>The boys stop the chase and watch in disbelief.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="1" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="1" arguments="2" ids="o1,0009_Forrest_Gump_00.17.15.299-00.17.17.344/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="1" arguments="2" ids="o2,0009_Forrest_Gump_00.17.15.299-00.17.17.344/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="41" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

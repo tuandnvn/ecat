@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.46.334-00.05.50.940" length="111">
+  <files>
+    <file>0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="man" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">892.1696,173.7157,480.399,770.873</marker>
+        <marker type="LOCATION" frame="13">873.0175,155.9589,505.9352,785.4376</marker>
+        <marker type="LOCATION" frame="26">828.1254,138.2021,479.2106,773.2715</marker>
+        <marker type="LOCATION" frame="35">542.6434,141.1668,527.0572,801.8257</marker>
+        <marker type="LOCATION" frame="40">349.5262,142.8138,547.4315,784.9596</marker>
+        <marker type="LOCATION" frame="43">380.0352,143.802,478.4333,774.8399</marker>
+        <marker type="LOCATION" frame="53">517.9343,160.846,477.976,775.7625</marker>
+        <marker type="LOCATION" frame="67">632.5559,171.2693,436.2348,707.1373</marker>
+        <marker type="LOCATION" frame="78">944.2161,214.1892,403.4383,653.2176</marker>
+        <marker type="LOCATION" frame="90">1188.234,184.6304,368.6696,648.4948</marker>
+        <marker type="LOCATION" frame="100">1071.177,167.5606,339.6955,644.5591</marker>
+        <marker type="LOCATION" frame="110">1026.234,173.7157,308.0298,496.3591</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man horse" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">199.5012,580.6983,1307.133,365.4863</marker>
+        <marker type="LOCATION" frame="13">264.9377,576.7836,1246.485,369.4012</marker>
+        <marker type="LOCATION" frame="22">31.92017,574.0734,1482.818,372.1115</marker>
+        <marker type="LOCATION" frame="26">23.94012,572.8688,1492.269,373.3161</marker>
+        <marker type="LOCATION" frame="35">76.60844,603.0424,1351.821,343.1435</marker>
+        <marker type="LOCATION" frame="40">233.2169,751.4714,989.7261,194.7147</marker>
+        <marker type="LOCATION" frame="43">327.182,729.1272,772.4693,217.0585</marker>
+        <marker type="LOCATION" frame="53">378.2544,564.7382,1273.619,381.4471</marker>
+        <marker type="LOCATION" frame="67">645.4904,315.7606,1038.3,630.4252</marker>
+        <marker type="LOCATION" frame="78">855.4614,393.9651,670.3242,552.2205</marker>
+        <marker type="LOCATION" frame="90">1161.895,398.7531,595.3118,546.5641</marker>
+        <marker type="LOCATION" frame="100">1019.85,261.4962,721.3965,683.0923</marker>
+        <marker type="LOCATION" frame="110">884.1896,277.4564,622.446,668.7287</marker>
+      </markers>
+    </object>
+    <object id="o3" name="member" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="84">6.384004,129.0274,539.4514,86.18455</marker>
+        <marker type="LOCATION" frame="103">6.384004,129.0274,727.7806,280.9591</marker>
+        <marker type="LOCATION" frame="110">6.384004,129.0274,922.4938,352.7182</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="110" />
+      <text>The General is in full Ku Klux Klan garb, including his horse.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.37.204-00.05.44.574/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

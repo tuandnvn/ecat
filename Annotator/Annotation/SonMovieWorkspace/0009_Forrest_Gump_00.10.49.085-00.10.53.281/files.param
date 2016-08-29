@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.10.49.085-00.10.53.281" length="101">
+  <files>
+    <file>0009_Forrest_Gump_00.10.49.085-00.10.53.281.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="woman" filename="0009_Forrest_Gump_00.10.49.085-00.10.53.281.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">509.9252,170.5235,572.1696,775.6611</marker>
+        <marker type="LOCATION" frame="21">393.3288,168.9276,502.0328,775.6611</marker>
+        <marker type="LOCATION" frame="36">367.1711,191.2718,555.2338,756.509</marker>
+        <marker type="LOCATION" frame="50">435.7107,170.5236,604.8878,775.6611</marker>
+        <marker type="LOCATION" frame="82">271.1621,170.5236,692.9875,775.6611</marker>
+        <marker type="LOCATION" frame="100">127.2818,172.1196,742.5437,775.6611</marker>
+      </markers>
+    </object>
+    <object id="o2" name="house" filename="0009_Forrest_Gump_00.10.49.085-00.10.53.281.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,132.2194,1907.232,812.3691</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="100" />
+      <text>She hears singing coming from another room and walks over to a closed door.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.10.45.442-00.10.45.836/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.10.45.442-00.10.45.836/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

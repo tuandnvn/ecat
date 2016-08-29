@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.09.35.266-00.09.40.824" length="132">
+  <files>
+    <file>0009_Forrest_Gump_00.09.35.266-00.09.40.824.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="kid" filename="0009_Forrest_Gump_00.09.35.266-00.09.40.824.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">909.0051,287.7571,461.6863,657.4705</marker>
+        <marker type="LOCATION" frame="61">948.0455,212.0932,302.5599,453.655</marker>
+        <marker type="LOCATION" frame="105">999.9716,398.5178,187.7802,306.6406</marker>
+        <marker type="DELETE" frame="120" />
+        <marker type="LOCATION" frame="133">988.2293,449.8482,114.7386,213.086</marker>
+      </markers>
+    </object>
+    <object id="o2" name="house" filename="0009_Forrest_Gump_00.09.35.266-00.09.40.824.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.023459,130.2192,1909.578,811.366</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="0009_Forrest_Gump_00.09.35.266-00.09.40.824.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">296.1551,127.715,670.2192,822.7488</marker>
+        <marker type="LOCATION" frame="61">254.8211,126.5261,712.8198,817.8415</marker>
+        <marker type="LOCATION" frame="105">146.5732,130.1175,834.3712,814.3013</marker>
+        <marker type="LOCATION" frame="123">470.1065,134.484,788.5559,812.8533</marker>
+        <marker type="LOCATION" frame="133">982.7656,134.7723,763.1029,812.049</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="133" />
+      <text>The principal, embarrassed, turns and walks away.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.09.33.468-00.09.40.863/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.09.33.468-00.09.40.863/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.09.33.468-00.09.40.863/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.55.49.516-00.55.52.335" length="68">
+  <files>
+    <file>0009_Forrest_Gump_00.55.49.516-00.55.52.335.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o4" name="Solider" filename="0009_Forrest_Gump_00.55.49.516-00.55.52.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1382.915,642.1105,524.2211,302.3116</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jungle" filename="0009_Forrest_Gump_00.55.49.516-00.55.52.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Smoke" filename="0009_Forrest_Gump_00.55.49.516-00.55.52.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">839.397,132.3618,1077.387,659.2965</marker>
+        <marker type="LOCATION" frame="67">1173.869,132.3618,742.9146,813.6683</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="67" />
+      <text>A soldier releases a smoke canister.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.55.41.061-00.55.45.891/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

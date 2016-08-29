@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.31.52.981-01.31.55.923" length="71">
+  <files>
+    <file>0009_Forrest_Gump_01.31.52.981-01.31.55.923.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.31.52.981-01.31.55.923.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">792.2727,198.4091,648.4091,748.6355</marker>
+        <marker type="LOCATION" frame="65">751.3636,235.2273,627.9545,711.817</marker>
+        <marker type="DELETE" frame="66" />
+      </markers>
+    </object>
+    <object id="o2" name="River" filename="0009_Forrest_Gump_01.31.52.981-01.31.55.923.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.4534795,130.6616,1917.051,816.6351</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="66" />
+      <text>He smiles, surprised.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.31.51.736-01.31.52.981/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.31.51.736-01.31.52.981/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

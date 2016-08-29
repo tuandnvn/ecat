@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.27.25.819-00.27.29.997" length="101">
+  <files>
+    <file>0009_Forrest_Gump_00.27.25.819-00.27.29.997.avi</file>
+  </files>
+  <objects no="10">
+    <object id="o2" name="girl" filename="0009_Forrest_Gump_00.27.25.819-00.27.29.997.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">970.9594,177.3432,532.0295,764.6656</marker>
+        <marker type="LOCATION" frame="19">1084.618,177.1237,605.8666,765.4702</marker>
+        <marker type="LOCATION" frame="21">1096.582,177.1006,613.639,765.5549</marker>
+        <marker type="LOCATION" frame="26">1126.493,177.0429,511.9943,765.7666</marker>
+        <marker type="LOCATION" frame="35">1026.305,174.8597,491.0801,766.1478</marker>
+        <marker type="LOCATION" frame="47">1090.063,174.6056,463.1946,766.6559</marker>
+        <marker type="LOCATION" frame="50">1094.206,174.7606,522.3624,766.783</marker>
+        <marker type="LOCATION" frame="56">1102.491,175.0705,551.9373,767.037</marker>
+        <marker type="LOCATION" frame="100">1163.247,177.3432,385.572,768.9002</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man" filename="0009_Forrest_Gump_00.27.25.819-00.27.29.997.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="54">1787.934,627.6753,121.184,314.1693</marker>
+        <marker type="LOCATION" frame="56">1752.066,480.2214,157.0511,461.6234</marker>
+        <marker type="LOCATION" frame="60">1588.67,446.3469,288.9315,506.8723</marker>
+        <marker type="LOCATION" frame="78">1088.026,411.7253,367.6384,535.5162</marker>
+        <marker type="LOCATION" frame="100">769.2066,403.7548,367.6384,535.5162</marker>
+      </markers>
+    </object>
+    <object id="o5" name="bed" filename="0009_Forrest_Gump_00.27.25.819-00.27.29.997.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="50">1694.28,785.0922,213.6535,156.0521</marker>
+        <marker type="LOCATION" frame="54">1368.819,573.8745,536.7729,368.8518</marker>
+        <marker type="LOCATION" frame="56">1206.089,569.8893,698.3325,373.628</marker>
+        <marker type="LOCATION" frame="60">992.8782,567.8967,920.9888,388.1609</marker>
+        <marker type="LOCATION" frame="78">612.0687,533.5446,1024.645,419.4054</marker>
+        <marker type="LOCATION" frame="100">275.5351,516.0886,980.3687,426.4193</marker>
+      </markers>
+    </object>
+    <object id="o10" name="Room" filename="0009_Forrest_Gump_00.27.25.819-00.27.29.997.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.523996,133.5055,1900.959,814.9815</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="100" />
+      <text>Jenny picks up a towel, then walks back toward Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o10,0009_Forrest_Gump_00.27.09.929-00.27.12.290/o10" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.27.09.929-00.27.12.290/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.27.09.929-00.27.12.290/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.27.09.929-00.27.12.290/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="19" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="54" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="58" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

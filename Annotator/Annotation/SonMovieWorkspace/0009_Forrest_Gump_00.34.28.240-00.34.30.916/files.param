@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.34.28.240-00.34.30.916" length="65">
+  <files>
+    <file>0009_Forrest_Gump_00.34.28.240-00.34.30.916.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Clock" filename="0009_Forrest_Gump_00.34.28.240-00.34.30.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">663.2469,813.2928,102.8963,75.73151</marker>
+        <marker type="LOCATION" frame="50">694.5275,865.9758,102.8963,75.73151</marker>
+        <marker type="LOCATION" frame="51">694.5275,905.4879,102.8963,36.21972</marker>
+        <marker type="DELETE" frame="54" />
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0009_Forrest_Gump_00.34.28.240-00.34.30.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.829242,133.3537,1919.634,811.6464</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_00.34.28.240-00.34.30.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">204.7408,386.8903,666.3568,556.0536</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Sergeant" filename="0009_Forrest_Gump_00.34.28.240-00.34.30.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">678.4756,139.939,1238.049,803.4147</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="44" />
+      <text>The Drill Sergeant looks at his stop watch.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.34.18.958-00.34.22.739/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.34.18.958-00.34.22.739/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.34.18.958-00.34.22.739/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.34.18.958-00.34.22.739/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="44" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

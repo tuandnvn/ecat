@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.54.09.487-00.54.19.125" length="232">
+  <files>
+    <file>0009_Forrest_Gump_00.54.09.487-00.54.19.125.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.54.09.487-00.54.19.125.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_00.54.09.487-00.54.19.125.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">855.7595,334.9367,551.962,608.3544</marker>
+        <marker type="LOCATION" frame="4">666.2183,485.3164,627.0096,457.4049</marker>
+        <marker type="LOCATION" frame="12">620.7911,440.886,617.7532,502.4051</marker>
+        <marker type="LOCATION" frame="16">620.7911,273.4177,795.4747,669.8732</marker>
+        <marker type="LOCATION" frame="19">620.7911,138.4177,795.4747,804.8728</marker>
+        <marker type="LOCATION" frame="32">384.1139,138.4177,1032.152,804.8728</marker>
+        <marker type="LOCATION" frame="60">531.9305,139.2724,958.6707,804.8728</marker>
+        <marker type="LOCATION" frame="65">531.9305,137.5636,958.6707,804.8728</marker>
+        <marker type="LOCATION" frame="80">567.8165,140.9813,958.6707,804.8728</marker>
+        <marker type="LOCATION" frame="81">159.3988,375.9493,458.829,566.4865</marker>
+        <marker type="LOCATION" frame="149">159.3988,341.7721,458.829,600.6636</marker>
+        <marker type="LOCATION" frame="231">54.30377,189.6835,724.5569,752.7514</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="231" />
+      <text>Forrest slows down and looks around carefully.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.53.56.722-00.54.04.792/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.53.56.722-00.54.04.792/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="24" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>
