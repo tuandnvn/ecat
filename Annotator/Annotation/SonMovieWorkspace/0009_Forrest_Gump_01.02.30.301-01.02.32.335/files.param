@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.02.30.301-01.02.32.335" length="49">
+  <files>
+    <file>0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.768097,129.8847,604.942,676.112</marker>
+        <marker type="LOCATION" frame="33">2.768355,129.8847,535.5513,526.6557</marker>
+        <marker type="LOCATION" frame="34">92.61979,133.4432,990.1479,811.3347</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Hospital" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.216104,131.6639,1911.96,817.5823</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Nurse" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="34">951.1038,489.2916,467.9407,460.8237</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Solider" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.105464,467.9405,1653.807,478.6164</marker>
+        <marker type="LOCATION" frame="33">8.105708,345.173,1622.669,601.3842</marker>
+        <marker type="DELETE" frame="34" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="34" />
+      <text>A heavily bandaged soldier with bloodstains lies there.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.02.27.682-01.02.29.327/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.02.27.682-01.02.29.327/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.02.27.682-01.02.29.327/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="34" arguments="1" ids="o5" q="True" type="CROUCH(X)" />
+  </predicates>
+</session>

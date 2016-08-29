@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.37.54.464-00.38.00.052" length="134">
+  <files>
+    <file>0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Club" filename="0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.840256E-05,133.9698,1915.176,812.0603</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">769.4472,133.9698,660.9045,813.6683</marker>
+        <marker type="LOCATION" frame="45">769.4472,133.9698,660.9045,813.6683</marker>
+        <marker type="LOCATION" frame="46">598.9949,244.9246,976.8844,701.1055</marker>
+        <marker type="LOCATION" frame="52">493.9775,300.5876,1022.404,644.9831</marker>
+        <marker type="LOCATION" frame="59">371.4573,365.5276,841.005,579.5067</marker>
+        <marker type="LOCATION" frame="68">212.906,333.3668,838.7523,610.5732</marker>
+        <marker type="LOCATION" frame="79">794.3718,259.397,815.9449,682.8663</marker>
+        <marker type="LOCATION" frame="83">913.3668,206.5103,742.9285,735.9978</marker>
+        <marker type="LOCATION" frame="88">1048.442,248.1407,665.3259,694.6734</marker>
+        <marker type="LOCATION" frame="95">64.32159,278.6935,1499.747,666.1307</marker>
+        <marker type="LOCATION" frame="102">648.0402,138.794,901.9092,805.6282</marker>
+        <marker type="LOCATION" frame="112">820.1005,275.4774,804.0201,668.9447</marker>
+        <marker type="LOCATION" frame="133">590.1508,256.1809,762.2111,688.2412</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.608022,145.2261,770.2513,804.0201</marker>
+        <marker type="LOCATION" frame="24">1.608022,143.5109,864.1608,804.02</marker>
+        <marker type="LOCATION" frame="40">-1.840256E-05,142.3674,928.3753,804.02</marker>
+        <marker type="LOCATION" frame="45">177.6884,142.01,770.2513,804.0201</marker>
+        <marker type="LOCATION" frame="46">841.809,363.9196,917.387,582.1105</marker>
+        <marker type="LOCATION" frame="49">804.886,169.3467,905.6978,776.6834</marker>
+        <marker type="LOCATION" frame="52">767.9629,133.9698,894.0085,812.0603</marker>
+        <marker type="LOCATION" frame="55">731.0398,133.9698,882.3194,812.0603</marker>
+        <marker type="LOCATION" frame="59">681.809,217.5879,866.7337,728.4422</marker>
+        <marker type="LOCATION" frame="63">667.6139,421.8091,713.6926,523.5557</marker>
+        <marker type="LOCATION" frame="68">649.87,479.6985,781.2858,464.8345</marker>
+        <marker type="LOCATION" frame="79">822.8942,205.0203,912.1812,739.4018</marker>
+        <marker type="LOCATION" frame="83">714.4499,132.3618,839.2743,810.6308</marker>
+        <marker type="LOCATION" frame="88">578.8945,135.5779,748.1407,805.6282</marker>
+        <marker type="LOCATION" frame="93">505.5276,136.3819,748.1407,805.6282</marker>
+        <marker type="LOCATION" frame="100">465.3266,139.598,748.1407,805.6282</marker>
+        <marker type="LOCATION" frame="112">493.6683,141.206,605.9296,805.6282</marker>
+        <marker type="LOCATION" frame="124">356.9849,142.8141,628.7437,805.6282</marker>
+        <marker type="LOCATION" frame="133">92.4623,139.598,628.7437,805.6282</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="37" endFrame="133" />
+      <text>Forrest climbs up onto the stage and picks Jenny up, guitar and all, and carries her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.37.51.469-00.37.53.098/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.37.51.469-00.37.53.098/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="50" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="57" arguments="1" ids="o3" q="True" type="CROUCH(X)" />
+    <predicate frame="61" arguments="2" ids="o3,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="74" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="89" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="104" arguments="1" ids="o3" q="True" type="WALK(X)" />
+  </predicates>
+</session>

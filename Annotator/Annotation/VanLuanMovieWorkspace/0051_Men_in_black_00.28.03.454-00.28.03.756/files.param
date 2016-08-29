@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.28.03.454-00.28.03.756" length="48">
+  <files>
+    <file>0051_Men_in_black_00.28.03.454-00.28.03.756.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Room" filename="0051_Men_in_black_00.28.03.454-00.28.03.756.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.403699,2.752287,1906.789,1065.688</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Men #1" filename="0051_Men_in_black_00.28.03.454-00.28.03.756.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">678.1651,59.99999,1233.025,1004.037</marker>
+        <marker type="LOCATION" frame="17">678.1651,59.99999,1233.025,1004.037</marker>
+        <marker type="DELETE" frame="18" />
+      </markers>
+    </object>
+    <object id="o5" name="Men #2" filename="0051_Men_in_black_00.28.03.454-00.28.03.756.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">17.61471,117.2477,893.9447,942.3853</marker>
+        <marker type="LOCATION" frame="17">17.61471,117.2477,893.9447,942.3853</marker>
+        <marker type="DELETE" frame="18" />
+      </markers>
+    </object>
+    <object id="o6" name="Girl" filename="0051_Men_in_black_00.28.03.454-00.28.03.756.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="18">114.4954,33.57797,1404.771,1017.248</marker>
+        <marker type="LOCATION" frame="25">59.95767,15.96329,1490.133,1034.862</marker>
+        <marker type="LOCATION" frame="31">13.21104,23.70768,1682.202,1027.118</marker>
+        <marker type="LOCATION" frame="41">79.26604,16.11515,1686.605,1034.71</marker>
+        <marker type="LOCATION" frame="47">61.6514,11.55963,1699.816,1039.266</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>In the back corner of the gallery, there is a single bullet hole in a pretty eight-year-old girl.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.27.50.856-00.27.51.675/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

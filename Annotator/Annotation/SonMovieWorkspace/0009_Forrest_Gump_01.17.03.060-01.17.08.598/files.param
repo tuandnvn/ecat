@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.17.03.060-01.17.08.598" length="133">
+  <files>
+    <file>0009_Forrest_Gump_01.17.03.060-01.17.08.598.avi</file>
+  </files>
+  <objects no="11">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.17.03.060-01.17.08.598.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9795942,130.0409,1918.946,817.7558</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Tv" filename="0009_Forrest_Gump_01.17.03.060-01.17.08.598.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">284.7458,148.4746,1332.203,776.9492</marker>
+        <marker type="DELETE" frame="128" />
+      </markers>
+    </object>
+    <object id="o9" name="Forrest" filename="0009_Forrest_Gump_01.17.03.060-01.17.08.598.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="128">1320,337.0512,589.8312,610.7454</marker>
+      </markers>
+    </object>
+    <object id="o10" name="Dan" filename="0009_Forrest_Gump_01.17.03.060-01.17.08.598.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="128">8.135613,129.7817,813.33,818.015</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="128" />
+      <text>A Bob Hope Christmas special in Vietnam on television.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="128" arguments="1" ids="o9" q="True" type="SIT(X)" />
+    <predicate frame="128" arguments="1" ids="o10" q="True" type="SIT(X)" />
+    <predicate frame="128" arguments="2" ids="o9,0009_Forrest_Gump_01.16.56.341-01.16.56.891/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="128" arguments="2" ids="o10,0009_Forrest_Gump_01.16.56.341-01.16.56.891/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

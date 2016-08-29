@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.13.17.051-00.13.18.614" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.13.17.051-00.13.18.614.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="bus" filename="0009_Forrest_Gump_00.13.17.051-00.13.18.614.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.586756,135.8438,1895.957,809.1563</marker>
+      </markers>
+    </object>
+    <object id="o2" name="girl" filename="0009_Forrest_Gump_00.13.17.051-00.13.18.614.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">568.4437,140.7156,963.4347,805.438</marker>
+        <marker type="LOCATION" frame="24">664.4875,137.2809,922.3461,803.1907</marker>
+        <marker type="LOCATION" frame="36">987.4776,209.4097,769.1498,734.4744</marker>
+        <marker type="LOCATION" frame="39">1091.455,273.1078,819.9578,671.6294</marker>
+        <marker type="LOCATION" frame="42">1195.433,336.806,709.1105,608.7844</marker>
+        <marker type="LOCATION" frame="47">1368.73,442.9696,543.5421,504.0427</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="45" />
+      <text>She shakes her head.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.13.16.216-00.13.17.051/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.13.16.216-00.13.17.051/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

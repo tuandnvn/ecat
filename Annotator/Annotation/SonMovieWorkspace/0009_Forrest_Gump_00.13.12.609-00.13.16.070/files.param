@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.13.12.609-00.13.16.070" length="83">
+  <files>
+    <file>0009_Forrest_Gump_00.13.12.609-00.13.16.070.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="bus" filename="0009_Forrest_Gump_00.13.12.609-00.13.16.070.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.586756,135.8438,1895.957,809.1563</marker>
+      </markers>
+    </object>
+    <object id="o2" name="kid" filename="0009_Forrest_Gump_00.13.12.609-00.13.16.070.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">580.4651,200.8229,578.7477,745.3309</marker>
+        <marker type="LOCATION" frame="15">551.2701,138.9982,755.6351,807.1554</marker>
+        <marker type="DELETE" frame="16" />
+        <marker type="LOCATION" frame="49">397.5671,193.9535,757.3524,745.3309</marker>
+        <marker type="LOCATION" frame="59">466.2612,195.6708,757.3524,745.3309</marker>
+        <marker type="LOCATION" frame="73">700.6797,200.8229,757.3525,745.3309</marker>
+        <marker type="DELETE" frame="74" />
+      </markers>
+    </object>
+    <object id="o3" name="girl" filename="0009_Forrest_Gump_00.13.12.609-00.13.16.070.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="74">762.5045,147.5849,795.1342,798.5688</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="74" />
+      <text>Forrest looks around.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.13.09.615-00.13.12.195/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.13.09.615-00.13.12.195/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="74" arguments="1" ids="o3" q="True" type="SIT(X)" />
+  </predicates>
+</session>

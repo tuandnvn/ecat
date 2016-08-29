@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.24.14.955-00.24.17.049" length="51">
+  <files>
+    <file>0009_Forrest_Gump_00.24.14.955-00.24.17.049.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="School" filename="0009_Forrest_Gump_00.24.14.955-00.24.17.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,133.8154,1912.02,815.5612</marker>
+      </markers>
+    </object>
+    <object id="o2" name="television" filename="0009_Forrest_Gump_00.24.14.955-00.24.17.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">452.166,132.5632,1374.368,814.874</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o4" name="coach" filename="0009_Forrest_Gump_00.24.14.955-00.24.17.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">13.53786,144.2599,922.0939,795.3791</marker>
+        <marker type="LOCATION" frame="39">13.53786,144.2599,922.0939,795.3791</marker>
+        <marker type="DELETE" frame="40" />
+      </markers>
+    </object>
+    <object id="o5" name="other coach" filename="0009_Forrest_Gump_00.24.14.955-00.24.17.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="40">10.61368,142.3105,632.5993,804.1517</marker>
+      </markers>
+    </object>
+    <object id="o6" name="assisstant" filename="0009_Forrest_Gump_00.24.14.955-00.24.17.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="40">925.8845,159.8556,988.3755,781.7329</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>An assistant coach looks at the television, then at the other coaches.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.24.11.716-00.24.14.758/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.24.11.716-00.24.14.758/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="3" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="40" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="40" arguments="1" ids="o5" q="True" type="STAND(X)" />
+  </predicates>
+</session>

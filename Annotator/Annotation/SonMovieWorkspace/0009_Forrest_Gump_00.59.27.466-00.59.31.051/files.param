@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.59.27.466-00.59.31.051" length="86">
+  <files>
+    <file>0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Balls" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1038.287,210.8402,108.5341,95.18945</marker>
+        <marker type="LOCATION" frame="2">1046.293,254.8764,108.5342,95.18945</marker>
+        <marker type="LOCATION" frame="4">1062.306,361.631,108.5342,95.18945</marker>
+        <marker type="LOCATION" frame="5">1064.085,432.8007,108.5342,95.18945</marker>
+        <marker type="DELETE" frame="8" />
+        <marker type="LOCATION" frame="21">35.6835,770.8567,262.4384,172.1417</marker>
+        <marker type="LOCATION" frame="23">588.5832,780.4201,179.2587,172.1417</marker>
+        <marker type="LOCATION" frame="25">784.6891,364.6891,158.4638,153.126</marker>
+        <marker type="LOCATION" frame="27">905.3995,169.584,137.6689,134.1104</marker>
+        <marker type="LOCATION" frame="30">1016.046,134.6108,90.74135,65.27595</marker>
+        <marker type="LOCATION" frame="32">1037.397,155.9617,90.74135,65.27595</marker>
+        <marker type="LOCATION" frame="35">1071.203,294.7426,90.74135,65.27595</marker>
+        <marker type="LOCATION" frame="38">1064.086,463.7706,90.74135,65.27595</marker>
+        <marker type="DELETE" frame="43" />
+        <marker type="LOCATION" frame="50">192.257,744.8909,221.5156,160.7434</marker>
+        <marker type="LOCATION" frame="51">490.7991,779.0023,201.7956,160.7434</marker>
+        <marker type="LOCATION" frame="52">628.7646,707.8326,160.4281,196.0224</marker>
+        <marker type="LOCATION" frame="53">725.8073,492.5443,162.3559,160.7434</marker>
+        <marker type="LOCATION" frame="55">867.0902,242.6372,128.8839,126.7849</marker>
+        <marker type="LOCATION" frame="57">956.7751,136.8488,95.41186,92.8264</marker>
+        <marker type="LOCATION" frame="61">1042.179,158.1997,95.41186,92.8264</marker>
+        <marker type="LOCATION" frame="64">1065.309,293.4221,95.41186,92.8264</marker>
+        <marker type="LOCATION" frame="67">1091.998,435.7614,95.41186,92.8264</marker>
+        <marker type="LOCATION" frame="69">1193.414,444.6577,95.41186,92.8264</marker>
+        <marker type="DELETE" frame="70" />
+      </markers>
+    </object>
+    <object id="o4" name="Bedpan" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1016.936,403.888,339.8353,208.1713</marker>
+        <marker type="DELETE" frame="83" />
+      </markers>
+    </object>
+    <object id="o3" name="Hospital" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.216062,135.5779,1911.96,813.6683</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Chair" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1008.04,161.9111,411.0049,651.2026</marker>
+        <marker type="DELETE" frame="83" />
+      </markers>
+    </object>
+    <object id="o6" name="Solider" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="83">0.9887191,247.3147,1409.16,642.3068</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="83" />
+      <text>The balls at land in a bed pan positioned on a chair.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.59.21.466-00.59.26.966/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.59.21.466-00.59.26.966/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="83" arguments="1" ids="o6" q="True" type="SIT(X)" />
+  </predicates>
+</session>

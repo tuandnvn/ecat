@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.49.09.210-00.49.15.094" length="142">
+  <files>
+    <file>0009_Forrest_Gump_00.49.09.210-00.49.15.094.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.49.09.210-00.49.15.094.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_00.49.09.210-00.49.15.094.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1078.851,198.0861,427.1775,746.6985</marker>
+        <marker type="LOCATION" frame="34">989.2821,233.189,427.1775,711.8039</marker>
+        <marker type="LOCATION" frame="60">715.4065,260.0957,427.1775,685.1196</marker>
+        <marker type="LOCATION" frame="105">667.1768,253.4211,427.1775,685.1196</marker>
+        <marker type="LOCATION" frame="141">667.1768,432.3445,365.1677,506.1961</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="23" endFrame="141" />
+      <text>Forrest looks up as the sun suddenly appears.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.48.48.470-00.49.09.210/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.48.48.470-00.49.09.210/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="60" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

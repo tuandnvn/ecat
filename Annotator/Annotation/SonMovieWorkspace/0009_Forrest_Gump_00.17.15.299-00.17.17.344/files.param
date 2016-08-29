@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.17.15.299-00.17.17.344" length="50">
+  <files>
+    <file>0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o3" name="street" filename="0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.595974,133.8154,1913.616,813.9651</marker>
+      </markers>
+    </object>
+    <object id="o4" name="boy" filename="0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1362.993,456.2095,164.389,414.9626</marker>
+        <marker type="LOCATION" frame="5">1438.005,462.5935,177.3386,425.2644</marker>
+        <marker type="LOCATION" frame="17">1667.831,445.0374,246.8931,498.344</marker>
+        <marker type="LOCATION" frame="20">1768.379,441.8454,146.1616,502.261</marker>
+        <marker type="LOCATION" frame="22">1750.025,695.611,164.389,248.978</marker>
+        <marker type="LOCATION" frame="24">1848.18,840.8479,66.23637,103.7415</marker>
+        <marker type="DELETE" frame="25" />
+      </markers>
+    </object>
+    <object id="o5" name="boys" filename="0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">710.2244,430.6734,360.6983,194.7132</marker>
+        <marker type="LOCATION" frame="22">587.3317,366.8329,537.6604,293.6659</marker>
+        <marker type="LOCATION" frame="44">76.60844,309.6131,991.3243,568.0614</marker>
+        <marker type="LOCATION" frame="47">3.191984,301.8103,1056.961,605.479</marker>
+        <marker type="LOCATION" frame="48">-3.652977E-05,299.2094,1057.56,617.9515</marker>
+        <marker type="LOCATION" frame="49">269.7257,296.6085,785.2389,630.4241</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="25" />
+      <text>Forrest is already at the far end of the road, clear of the chasing boys.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="24" arguments="1" ids="o5" q="True" type="RUN(X)" />
+  </predicates>
+</session>

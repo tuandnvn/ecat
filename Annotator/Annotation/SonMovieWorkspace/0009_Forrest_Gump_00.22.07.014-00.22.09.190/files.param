@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.22.07.014-00.22.09.190" length="53">
+  <files>
+    <file>0009_Forrest_Gump_00.22.07.014-00.22.09.190.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Stadium" filename="0009_Forrest_Gump_00.22.07.014-00.22.09.190.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.546137,131.5129,1914.908,812.9889</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0009_Forrest_Gump_00.22.07.014-00.22.09.190.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">370.2743,125.8352,421.3466,812.3693</marker>
+        <marker type="LOCATION" frame="23">553.3983,143.3915,369.0955,791.621</marker>
+        <marker type="LOCATION" frame="34">640.9794,270.0381,259.7869,618.1283</marker>
+        <marker type="LOCATION" frame="44">839.5013,354.0648,212.2693,560.9982</marker>
+        <marker type="LOCATION" frame="52">1057.357,372.0197,213.0672,476.8083</marker>
+      </markers>
+    </object>
+    <object id="o3" name="football coach" filename="0009_Forrest_Gump_00.22.07.014-00.22.09.190.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">14.36406,355.6609,1252.868,474.0154</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="52" />
+      <text>The football coach, the assistants and the players all motion for Forrest to run toward the end zone.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.22.06.349-00.22.07.014/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.22.06.349-00.22.07.014/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.41.26.690-00.41.28.055" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.41.26.690-00.41.28.055.avi</file>
+  </files>
+  <objects no="10">
+    <object id="o6" name="Ground" filename="0009_Forrest_Gump_00.41.26.690-00.41.28.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.787328,130.9634,1908.837,814.4851</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Solidar" filename="0009_Forrest_Gump_00.41.26.690-00.41.28.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">202.9233,129.1694,801.9272,815.3826</marker>
+        <marker type="LOCATION" frame="9">179.1118,134.8365,894.4009,813.915</marker>
+        <marker type="LOCATION" frame="16">27.10959,133.717,1058.472,812.7735</marker>
+        <marker type="LOCATION" frame="22">1.993307,132.7575,1027.974,811.7949</marker>
+        <marker type="LOCATION" frame="36">319.5349,148.9036,602.7907,795.6486</marker>
+        <marker type="LOCATION" frame="47">362.5913,287.0432,597.4087,657.509</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Two beers" filename="0009_Forrest_Gump_00.41.26.690-00.41.28.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">990.4984,133.6545,357.9072,156.9768</marker>
+        <marker type="LOCATION" frame="5">922.2047,135.1897,459.39,304.3452</marker>
+        <marker type="LOCATION" frame="6">886.4452,148.9036,470.65,345.5731</marker>
+        <marker type="LOCATION" frame="7">864.9169,218.9345,467.6786,337.2117</marker>
+        <marker type="LOCATION" frame="8">1156.417,278.1372,170.4884,279.7389</marker>
+        <marker type="LOCATION" frame="13">983.3223,639.1196,202.276,239.9502</marker>
+        <marker type="LOCATION" frame="16">939.593,722.9901,90.37387,67.94878</marker>
+        <marker type="DELETE" frame="17" />
+        <marker type="LOCATION" frame="19">787.4377,738.3514,97.21346,133.5423</marker>
+        <marker type="LOCATION" frame="21">756.1985,700.785,95.44353,130.5229</marker>
+        <marker type="LOCATION" frame="23">233.4219,712.5673,594.4015,229.2932</marker>
+        <marker type="LOCATION" frame="24">234.3189,721.196,598.3057,221.5619</marker>
+        <marker type="LOCATION" frame="25">235.2159,800.1329,107.6412,143.5219</marker>
+        <marker type="LOCATION" frame="26">245.8679,850.3655,84.43107,93.36087</marker>
+        <marker type="DELETE" frame="27" />
+        <marker type="LOCATION" frame="34">310.2284,877.2758,99.00745,68.95765</marker>
+        <marker type="LOCATION" frame="37">366.3864,813.312,92.87503,74.10691</marker>
+        <marker type="LOCATION" frame="40">384.1196,796.5449,138.1395,143.5216</marker>
+        <marker type="LOCATION" frame="47">469.5597,853.9535,72.43367,91.27088</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He takes two beers out and walks away.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.41.24.660-00.41.26.690/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,0009_Forrest_Gump_00.41.24.660-00.41.26.690/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.41.24.660-00.41.26.690/o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="12" arguments="1" ids="o4" q="True" type="WALK(X)" />
+  </predicates>
+</session>

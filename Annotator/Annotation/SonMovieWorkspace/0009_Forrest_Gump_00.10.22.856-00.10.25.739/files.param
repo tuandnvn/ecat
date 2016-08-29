@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.10.22.856-00.10.25.739" length="70">
+  <files>
+    <file>0009_Forrest_Gump_00.10.22.856-00.10.25.739.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="man" filename="0009_Forrest_Gump_00.10.22.856-00.10.25.739.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1800.299,154.5636,113.3167,788.429</marker>
+        <marker type="LOCATION" frame="13">1380.845,130.3918,513.6189,812.6008</marker>
+        <marker type="LOCATION" frame="23">1090.075,132.2938,445.2876,812.4722</marker>
+        <marker type="LOCATION" frame="31">538.6534,133.8154,709.4264,812.3691</marker>
+        <marker type="LOCATION" frame="39">411.7706,133.4399,470.823,812.3693</marker>
+        <marker type="LOCATION" frame="48">1.196922,133.0174,571.7707,812.3693</marker>
+        <marker type="LOCATION" frame="51">1.196922,130.6234,415.8177,814.7639</marker>
+        <marker type="LOCATION" frame="55">1.196922,307.7805,207.8804,637.6068</marker>
+        <marker type="DELETE" frame="58" />
+      </markers>
+    </object>
+    <object id="o2" name="woman" filename="0009_Forrest_Gump_00.10.22.856-00.10.25.739.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1002.294,318.9526,234.6135,571.3716</marker>
+        <marker type="LOCATION" frame="13">955.9821,290.8097,258.5816,647.3948</marker>
+        <marker type="LOCATION" frame="23">918.9448,271.0365,236.5665,671.9561</marker>
+        <marker type="LOCATION" frame="31">845.2608,279.0524,208.1058,637.0861</marker>
+        <marker type="LOCATION" frame="48">734.1646,240.2723,331.9706,702.7203</marker>
+        <marker type="LOCATION" frame="58">695.4044,204.0399,399.4585,741.2328</marker>
+        <marker type="LOCATION" frame="69">652.7681,220,580.9477,727.7806</marker>
+      </markers>
+    </object>
+    <object id="o3" name="house" filename="0009_Forrest_Gump_00.10.22.856-00.10.25.739.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,132.2194,1912.02,812.3693</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="58" />
+      <text>A MAN WITH A CANE steps left across the hall.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>

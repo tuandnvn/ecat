@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.07.02.321-00.07.16.856" length="349">
+  <files>
+    <file>0009_Forrest_Gump_00.07.02.321-00.07.16.856.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o5" name="house" filename="0009_Forrest_Gump_00.07.02.321-00.07.16.856.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="275">4.787994,323.7407,57.45637,121.2967</marker>
+        <marker type="LOCATION" frame="282">5.107197,132.2194,209.6031,292.4505</marker>
+        <marker type="LOCATION" frame="292">5.563199,130.6234,426.9555,264.9496</marker>
+        <marker type="LOCATION" frame="310">6.384004,135.4115,745.392,207.7876</marker>
+        <marker type="LOCATION" frame="327">9.576024,133.9834,924.9607,190.5145</marker>
+        <marker type="LOCATION" frame="348">137.2568,132.2194,1023.042,169.1771</marker>
+      </markers>
+    </object>
+    <object id="o2" name="woman" filename="0009_Forrest_Gump_00.07.02.321-00.07.16.856.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">877.9924,311.8545,189.7383,607.1979</marker>
+        <marker type="LOCATION" frame="64">982.2676,165.3287,302.5205,774.4719</marker>
+        <marker type="LOCATION" frame="108">995.9103,176.9077,383.0434,760.139</marker>
+        <marker type="LOCATION" frame="166">941.5497,193.4903,306.5302,739.9262</marker>
+        <marker type="LOCATION" frame="260">1064.539,178.5037,276.6889,751.6157</marker>
+        <marker type="LOCATION" frame="348">1201.091,277.0992,227.3379,649.9332</marker>
+      </markers>
+    </object>
+    <object id="o3" name="kid" filename="0009_Forrest_Gump_00.07.02.321-00.07.16.856.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1099.206,398.4909,158.4501,520.5615</marker>
+        <marker type="LOCATION" frame="20">1107.061,340.8674,218.1971,584.9985</marker>
+        <marker type="LOCATION" frame="28">1158.703,317.3566,242.0961,610.7734</marker>
+        <marker type="LOCATION" frame="64">1301.993,330.1017,282.8452,609.6989</marker>
+        <marker type="LOCATION" frame="108">1379.308,411.5212,331.2598,533.074</marker>
+        <marker type="LOCATION" frame="166">1237.64,408.3292,395.0787,528.2795</marker>
+        <marker type="LOCATION" frame="215">1005.486,394.3646,311.222,544.7399</marker>
+        <marker type="LOCATION" frame="260">839.9671,381.54,366.6165,559.8565</marker>
+        <marker type="LOCATION" frame="309">918.2327,346.0848,265.245,595.3119</marker>
+        <marker type="LOCATION" frame="348">980.5258,361.9138,184.5616,579.4828</marker>
+      </markers>
+    </object>
+    <object id="o4" name="road" filename="0009_Forrest_Gump_00.07.02.321-00.07.16.856.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.686565,132.5373,1912.835,811.3433</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Mrs. Gump and Forrest walk along the Gump Boarding House driveway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.06.50.969-00.06.57.471/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.06.50.969-00.06.57.471/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.06.50.969-00.06.57.471/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

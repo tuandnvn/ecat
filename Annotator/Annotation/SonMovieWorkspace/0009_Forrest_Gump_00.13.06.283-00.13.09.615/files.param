@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.13.06.283-00.13.09.615" length="80">
+  <files>
+    <file>0009_Forrest_Gump_00.13.06.283-00.13.09.615.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="bus" filename="0009_Forrest_Gump_00.13.06.283-00.13.09.615.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.6562576,135.8438,1917,809.1563</marker>
+      </markers>
+    </object>
+    <object id="o2" name="kid" filename="0009_Forrest_Gump_00.13.06.283-00.13.09.615.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">723.7432,166.4758,550.5323,778.7208</marker>
+        <marker type="LOCATION" frame="12">697.6143,137.2809,578.685,808.0951</marker>
+        <marker type="LOCATION" frame="23">606.2338,139.3907,604.4913,806.3705</marker>
+        <marker type="LOCATION" frame="32">654.0664,140.7156,625.606,804.9595</marker>
+        <marker type="LOCATION" frame="43">584.4905,188.8014,651.4124,756.8964</marker>
+        <marker type="LOCATION" frame="55">619.4814,137.2809,679.5651,808.1304</marker>
+        <marker type="LOCATION" frame="64">645.7245,166.4758,700.6796,778.7208</marker>
+        <marker type="DELETE" frame="65" />
+      </markers>
+    </object>
+    <object id="o3" name="two boy" filename="0009_Forrest_Gump_00.13.06.283-00.13.09.615.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="65">604.5081,156.1717,1002.934,781.3953</marker>
+        <marker type="LOCATION" frame="79">604.5081,156.1717,1002.934,781.3953</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="65" />
+      <text>Forrest begins to walk down the aisle.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.13.02.727-00.13.05.027/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.13.02.727-00.13.05.027/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="65" arguments="1" ids="o3" q="True" type="SIT(X)" />
+  </predicates>
+</session>

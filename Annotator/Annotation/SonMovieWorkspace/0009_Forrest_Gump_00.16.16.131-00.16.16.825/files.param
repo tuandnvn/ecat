@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.16.131-00.16.16.825" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.16.16.131-00.16.16.825.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_00.16.16.131-00.16.16.825.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.028461,136.4413,1910.178,805.1957</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.16.16.131-00.16.16.825.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">507.5312,133.4162,613.2669,807.9804</marker>
+        <marker type="LOCATION" frame="22">665.3367,143.1918,700.8479,807.9805</marker>
+        <marker type="LOCATION" frame="33">567.2818,135.2118,700.8479,807.9805</marker>
+        <marker type="LOCATION" frame="36">567.2818,135.2118,700.8479,807.9805</marker>
+        <marker type="LOCATION" frame="37">1311.92,267.8803,130.1758,172.3691</marker>
+        <marker type="LOCATION" frame="47">1303.142,260.6982,79.0022,169.9751</marker>
+      </markers>
+    </object>
+    <object id="o4" name="boys" filename="0009_Forrest_Gump_00.16.16.131-00.16.16.825.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="37">7.980014,137.0075,900.1497,793.2171</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="23" />
+      <text>Blood drips down from a cut on his head.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.16.14.615-00.16.15.111/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.14.615-00.16.15.111/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="37" arguments="1" ids="o4" q="True" type="RUN(X)" />
+  </predicates>
+</session>

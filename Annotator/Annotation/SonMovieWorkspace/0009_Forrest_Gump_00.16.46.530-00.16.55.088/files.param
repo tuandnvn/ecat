@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.46.530-00.16.55.088" length="206">
+  <files>
+    <file>0009_Forrest_Gump_00.16.46.530-00.16.55.088.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_00.16.46.530-00.16.55.088.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.028461,136.4413,1910.178,805.1957</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.16.46.530-00.16.55.088.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1220.948,258.3042,225.0381,391.0226</marker>
+        <marker type="LOCATION" frame="25">1220.948,258.3042,225.0381,391.0226</marker>
+        <marker type="LOCATION" frame="26">210.6733,136.2093,791.6216,801.9952</marker>
+        <marker type="LOCATION" frame="120">256.9576,133.8154,912.9178,800.0928</marker>
+        <marker type="LOCATION" frame="122">387.8304,290.2244,868.2295,643.5917</marker>
+        <marker type="LOCATION" frame="136">387.8304,148.1795,868.2295,785.637</marker>
+        <marker type="LOCATION" frame="145">387.8304,148.1795,828.3292,785.637</marker>
+        <marker type="LOCATION" frame="181">322.394,208.8279,893.7659,724.9888</marker>
+      </markers>
+    </object>
+    <object id="o3" name="boys" filename="0009_Forrest_Gump_00.16.46.530-00.16.55.088.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-3.192057,138.6035,791.621,805.9851</marker>
+        <marker type="DELETE" frame="26" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="205" />
+      <text>Forrest runs free of his braces and begins to pick up speed.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.16.44.639-00.16.46.530/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.44.639-00.16.46.530/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

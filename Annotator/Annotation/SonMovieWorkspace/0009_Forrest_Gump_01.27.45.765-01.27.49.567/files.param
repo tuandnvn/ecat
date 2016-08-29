@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.27.45.765-01.27.49.567" length="92">
+  <files>
+    <file>0009_Forrest_Gump_01.27.45.765-01.27.49.567.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Shrimper " filename="0009_Forrest_Gump_01.27.45.765-01.27.49.567.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5700707,130.8314,1916.294,815.7719</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.27.45.765-01.27.49.567.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.085002,130.8499,1281.157,816.3474</marker>
+        <marker type="LOCATION" frame="34">1.085002,130.8499,1056.564,816.3474</marker>
+        <marker type="LOCATION" frame="47">1.085002,130.8499,1042.893,816.3474</marker>
+        <marker type="LOCATION" frame="50">1.085002,130.8499,771.4286,816.3474</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Old black man" filename="0009_Forrest_Gump_01.27.45.765-01.27.49.567.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">897.5045,130.8499,843.689,816.3472</marker>
+        <marker type="LOCATION" frame="35">903.3635,130.8499,808.5353,816.3475</marker>
+        <marker type="LOCATION" frame="70">1090.85,130.8499,826.1115,816.3477</marker>
+        <marker type="LOCATION" frame="91">1024.448,183.5805,853.4539,763.617</marker>
+      </markers>
+    </object>
+    <object id="o4" name="money" filename="0009_Forrest_Gump_01.27.45.765-01.27.49.567.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">954.1411,564.4123,269.5117,201.1573</marker>
+        <marker type="LOCATION" frame="9">939.9102,546.7134,262.8198,215.0723</marker>
+        <marker type="LOCATION" frame="18">938.2299,589.3129,256.1281,228.9874</marker>
+        <marker type="LOCATION" frame="34">930.7053,763.6166,255.8409,184.557</marker>
+        <marker type="LOCATION" frame="41">965.8589,874.9367,187.4864,73.23713</marker>
+        <marker type="LOCATION" frame="42">975.6239,902.2785,164.0506,45.89536</marker>
+        <marker type="DELETE" frame="43" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="91" />
+      <text>Forrest pays an old black shrimper a large wad of cash.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.27.43.723-01.27.45.739/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.27.43.723-01.27.45.739/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.27.43.723-01.27.45.739/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.27.43.723-01.27.45.739/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="45" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="49" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

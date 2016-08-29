@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.42.46.337-01.42.51.547" length="125">
+  <files>
+    <file>0009_Forrest_Gump_01.42.46.337-01.42.51.547.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.42.46.337-01.42.51.547.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5150583,132.103,1914.335,813.4764</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Bubba's mother" filename="0009_Forrest_Gump_01.42.46.337-01.42.51.547.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">674.9357,132.103,753.2189,813.4774</marker>
+        <marker type="LOCATION" frame="41">674.9357,132.103,803.5268,813.4774</marker>
+        <marker type="LOCATION" frame="53">688.8412,132.103,746.2661,813.4774</marker>
+        <marker type="LOCATION" frame="64">774.5923,132.103,676.7391,813.4774</marker>
+        <marker type="LOCATION" frame="76">869.6138,132.103,628.0729,813.4774</marker>
+        <marker type="LOCATION" frame="85">892.7898,132.103,639.6612,813.4774</marker>
+        <marker type="LOCATION" frame="94">873.8278,192.3605,611.2161,753.2211</marker>
+        <marker type="LOCATION" frame="103">854.8657,345.3219,582.7709,600.259</marker>
+        <marker type="LOCATION" frame="107">846.438,502.9186,570.1287,442.6622</marker>
+        <marker type="LOCATION" frame="110">846.438,848.2404,426.4377,97.34139</marker>
+        <marker type="DELETE" frame="111" />
+      </markers>
+    </object>
+    <object id="o4" name="Letter" filename="0009_Forrest_Gump_01.42.46.337-01.42.51.547.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">708.5409,706.867,367.339,164.5505</marker>
+        <marker type="LOCATION" frame="16">718.97,705.2584,379.3839,175.4284</marker>
+        <marker type="LOCATION" frame="33">749.272,703.549,372.9598,147.009</marker>
+        <marker type="LOCATION" frame="42">692.1676,657.1931,359.5276,154.97</marker>
+        <marker type="LOCATION" frame="50">702.7726,614.2556,347.588,162.0467</marker>
+        <marker type="LOCATION" frame="62">778.6481,564.3342,329.6781,172.6615</marker>
+        <marker type="LOCATION" frame="77">917.8165,493.3582,311.4915,190.6226</marker>
+        <marker type="LOCATION" frame="92">933.2183,449.6137,293.3054,208.5837</marker>
+        <marker type="LOCATION" frame="98">920.4866,477.425,285.1787,217.8539</marker>
+        <marker type="LOCATION" frame="103">909.8764,563.176,262.4794,217.8541</marker>
+        <marker type="LOCATION" frame="108">914.9509,783.3477,248.4675,162.2318</marker>
+        <marker type="LOCATION" frame="109">915.9659,827.382,245.6651,118.7777</marker>
+        <marker type="LOCATION" frame="110">950.7297,894.5923,192.3605,51.56787</marker>
+        <marker type="DELETE" frame="111" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="124" />
+      <text>She looks at the check and faints.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.42.44.547-01.42.48.481/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.42.44.547-01.42.48.481/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.42.44.547-01.42.48.481/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="85" arguments="1" ids="o3" q="False" type="STAND(X)" />
+  </predicates>
+</session>

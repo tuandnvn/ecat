@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.36.22.267-01.36.23.976" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.36.22.267-01.36.23.976.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o3" name="shrimp" filename="0009_Forrest_Gump_01.36.22.267-01.36.23.976.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.2190139,132.0438,1917.591,815.9124</marker>
+        <marker type="LOCATION" frame="21">0.2190139,132.0438,1917.591,815.9136</marker>
+        <marker type="LOCATION" frame="27">0.2190139,132.0438,1917.591,815.9136</marker>
+        <marker type="LOCATION" frame="29">0.2190139,153.7226,1917.591,794.2347</marker>
+        <marker type="LOCATION" frame="36">0.2190139,220.7299,1917.591,727.227</marker>
+        <marker type="LOCATION" frame="46">0.2190139,289.708,1917.591,658.2493</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Gulf" filename="0009_Forrest_Gump_01.36.22.267-01.36.23.976.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.6818237,132.9545,1916.591,814.0909</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Dan" filename="0009_Forrest_Gump_01.36.22.267-01.36.23.976.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="45">0.2190139,472.9927,47.29927,433.5766</marker>
+        <marker type="LOCATION" frame="47">0.2190139,407.9562,108.3942,514.3796</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Forrest" filename="0009_Forrest_Gump_01.36.22.267-01.36.23.976.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="10">1868.54,810,49.27007,135.9854</marker>
+        <marker type="LOCATION" frame="18">1850.803,810,67.0073,135.9854</marker>
+        <marker type="LOCATION" frame="20">1819.27,806.0584,98.54135,139.9275</marker>
+        <marker type="LOCATION" frame="25">1775.912,467.0803,141.9002,478.9063</marker>
+        <marker type="LOCATION" frame="38">1681.314,514.8275,236.5026,431.1599</marker>
+        <marker type="LOCATION" frame="42">1539.416,529.5189,378.3994,416.4686</marker>
+        <marker type="LOCATION" frame="47">1539.416,547.8832,378.3975,398.1046</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Another catch drops open on top of yet another huge catch.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.36.20.462-01.36.21.162/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

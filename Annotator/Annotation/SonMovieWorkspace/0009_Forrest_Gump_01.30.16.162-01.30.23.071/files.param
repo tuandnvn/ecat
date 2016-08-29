@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.30.16.162-01.30.23.071" length="166">
+  <files>
+    <file>0009_Forrest_Gump_01.30.16.162-01.30.23.071.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.30.16.162-01.30.23.071.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.4534795,130.6616,1917.051,816.6351</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.30.16.162-01.30.23.071.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">687.4608,169.279,130.3448,778.6833</marker>
+        <marker type="LOCATION" frame="10">619.5477,164.644,382.772,783.3184</marker>
+        <marker type="LOCATION" frame="19">0.1880858,130.3448,1000.071,817.6176</marker>
+        <marker type="LOCATION" frame="80">3.573666,130.3448,881.9435,817.6176</marker>
+        <marker type="LOCATION" frame="84">116.9906,130.3448,868.4012,817.6176</marker>
+        <marker type="LOCATION" frame="91">340.4389,130.3448,773.6046,817.6171</marker>
+        <marker type="LOCATION" frame="99">404.7649,149.877,692.3505,798.0847</marker>
+        <marker type="LOCATION" frame="110">445.3918,164.2006,666.959,783.7607</marker>
+        <marker type="LOCATION" frame="128">584.2006,148.9655,460.4384,798.9958</marker>
+        <marker type="LOCATION" frame="140">455.5486,192.978,480.7523,754.9834</marker>
+        <marker type="LOCATION" frame="148">445.3918,169.096,517.9937,778.8658</marker>
+        <marker type="LOCATION" frame="165">469.0909,186.2069,688.9651,761.7554</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="165" />
+      <text>Jenny steps out onto the high-rise balcony.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.30.14.394-01.30.16.018/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="82" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>
