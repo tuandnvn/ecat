@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.47.26.084-01.47.33.199" length="171">
+  <files>
+    <file>0009_Forrest_Gump_01.47.26.084-01.47.33.199.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.47.26.084-01.47.33.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5150673,132.103,1916.653,814.5179</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.47.26.084-01.47.33.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">302.3671,177.8388,615.0257,768.7822</marker>
+        <marker type="LOCATION" frame="45">279.0616,173.3569,592.019,773.2639</marker>
+        <marker type="LOCATION" frame="93">254.2024,168.5763,610.4926,778.0446</marker>
+        <marker type="LOCATION" frame="142">201.1539,161.1664,635.7755,785.4545</marker>
+        <marker type="LOCATION" frame="170">170.8405,192.6587,650.223,753.9622</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Vase of flowers" filename="0009_Forrest_Gump_01.47.26.084-01.47.33.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1085.969,238.9709,661.3379,627.9931</marker>
+        <marker type="LOCATION" frame="64">1084.117,237.576,657.6329,646.0603</marker>
+        <marker type="LOCATION" frame="93">1085.969,236.944,668.7479,655.3555</marker>
+        <marker type="LOCATION" frame="170">1004.46,235.2659,698.3876,678.0103</marker>
+      </markers>
+    </object>
+    <object id="o6" name="windows" filename="0009_Forrest_Gump_01.47.26.084-01.47.33.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1061.887,131.5266,855.8491,576.1235</marker>
+        <marker type="LOCATION" frame="93">1091.527,131.5266,826.2092,602.0583</marker>
+        <marker type="LOCATION" frame="170">1091.527,131.5266,826.2092,618.7307</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="170" />
+      <text>Jenny sits by the vase of flowers and look out the window.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.47.21.688-01.47.25.584/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o6" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

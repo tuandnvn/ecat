@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.09.41.579-02.09.46.178" length="111">
+  <files>
+    <file>0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Field" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,131.811,1917.638,816.3779</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1195.984,206.2205,678.189,741.9684</marker>
+        <marker type="LOCATION" frame="110">1247.008,206.2205,642.0472,741.9684</marker>
+      </markers>
+    </object>
+    <object id="o3" name="House" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">109.6063,244.4882,1001.339,414.5669</marker>
+        <marker type="LOCATION" frame="110">20.31499,293.3858,1090.63,365.6692</marker>
+      </markers>
+    </object>
+    <object id="o4" name="bulldozer" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">957.874,372.0472,499.6063,250.8661</marker>
+        <marker type="LOCATION" frame="110">854.7638,374.1732,499.6063,250.8661</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="110" />
+      <text>Forrest watches as Jenny's dad's house is knocked down by a bulldozer.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.09.33.079-02.09.37.326/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

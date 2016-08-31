@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.08.09.179-02.08.13.623" length="107">
+  <files>
+    <file>0009_Forrest_Gump_02.08.09.179-02.08.13.623.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Lawn" filename="0009_Forrest_Gump_02.08.09.179-02.08.13.623.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607306,131.215,1917.328,814.8151</marker>
+        <marker type="DELETE" frame="100" />
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_02.08.09.179-02.08.13.623.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">192.5197,340.1575,663.3071,606.0895</marker>
+        <marker type="LOCATION" frame="51">162.9492,391.1811,644.6887,555.066</marker>
+        <marker type="LOCATION" frame="99">135.1181,346.5354,627.1653,599.7116</marker>
+        <marker type="DELETE" frame="100" />
+      </markers>
+    </object>
+    <object id="o3" name="Stars and clouds" filename="0009_Forrest_Gump_02.08.09.179-02.08.13.623.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,131.811,1917.638,707.9528</marker>
+        <marker type="DELETE" frame="100" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The stars emerge from behind the clouds.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.08.07.594-02.08.09.179/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.08.07.594-02.08.09.179/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.08.07.594-02.08.09.179/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

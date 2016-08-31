@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.38.14.195-00.38.14.878" length="48">
+  <files>
+    <file>0051_Men_in_black_00.38.14.195-00.38.14.878.avi</file>
+  </files>
+  <objects no="12">
+    <object id="o9" name="Tie" filename="0051_Men_in_black_00.38.14.195-00.38.14.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">731.6299,2.907501,638.5903,693.5683</marker>
+        <marker type="LOCATION" frame="11">714.7137,2.907501,598.6678,570.9251</marker>
+        <marker type="LOCATION" frame="15">680.881,19.8238,600.0212,1036.123</marker>
+        <marker type="LOCATION" frame="20">549.7797,15.59473,690.5235,300.2643</marker>
+        <marker type="LOCATION" frame="24">728.2467,125.5507,479.5771,934.6255</marker>
+        <marker type="LOCATION" frame="29">727.4009,324.3172,439.8238,139.5595</marker>
+        <marker type="LOCATION" frame="32">913.4802,437.0171,212.0581,107.212</marker>
+        <marker type="LOCATION" frame="36">837.3568,587.2834,232.5991,133.8032</marker>
+        <marker type="LOCATION" frame="42">919.4393,802.2027,167.4329,102.4963</marker>
+        <marker type="LOCATION" frame="47">943.0837,823.348,156.4758,124.7577</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Word" filename="0051_Men_in_black_00.38.14.195-00.38.14.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-4.229083,258.7666,625.9031,446.1674</marker>
+        <marker type="LOCATION" frame="3">-4.229083,258.7666,625.9031,446.1674</marker>
+        <marker type="DELETE" frame="4" />
+      </markers>
+    </object>
+    <object id="o3" name="Terminal" filename="0051_Men_in_black_00.38.14.195-00.38.14.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.229067,7.136576,1907.313,1048.811</marker>
+        <marker type="LOCATION" frame="3">4.229067,7.136576,1907.313,1048.811</marker>
+        <marker type="DELETE" frame="4" />
+      </markers>
+    </object>
+    <object id="o5" name="James" filename="0051_Men_in_black_00.38.14.195-00.38.14.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">8.458142,2.907501,1898.855,1065.727</marker>
+      </markers>
+    </object>
+    <object id="o10" name="Room" filename="0051_Men_in_black_00.38.14.195-00.38.14.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="27">4.229067,11.36565,1898.855,177.6212</marker>
+        <marker type="LOCATION" frame="36">4.229067,11.36565,1898.855,630.1321</marker>
+        <marker type="LOCATION" frame="47">4.229067,11.36565,1898.855,981.1454</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A tie pushed up.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.38.05.307-00.38.05.578/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.38.05.307-00.38.05.578/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o5,0051_Men_in_black_00.38.05.307-00.38.05.578/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o5,o9" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="27" arguments="2" ids="o10,0051_Men_in_black_00.38.05.307-00.38.05.578/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

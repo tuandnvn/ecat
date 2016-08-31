@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.09.53.728-02.09.55.137" length="48">
+  <files>
+    <file>0009_Forrest_Gump_02.09.53.728-02.09.55.137.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Cemetery" filename="0009_Forrest_Gump_02.09.53.728-02.09.55.137.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,131.811,1917.638,816.3779</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Grave marker" filename="0009_Forrest_Gump_02.09.53.728-02.09.55.137.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">381.7323,131.811,557.0079,816.3779</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Jenny's grave marker.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.09.33.079-02.09.37.326/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

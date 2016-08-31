@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.38.40.989-00.38.41.194" length="48">
+  <files>
+    <file>0051_Men_in_black_00.38.40.989-00.38.41.194.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o2" name="Street" filename="0051_Men_in_black_00.38.40.989-00.38.41.194.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,10.65422,1906.542,1040.748</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Rosenberg" filename="0051_Men_in_black_00.38.40.989-00.38.41.194.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">910.6542,522.0561,134.5794,340.9346</marker>
+        <marker type="LOCATION" frame="24">890.0378,495.1402,164.1678,374.7227</marker>
+        <marker type="LOCATION" frame="47">870.2804,499.6262,134.5794,376.8224</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Cat" filename="0051_Men_in_black_00.38.40.989-00.38.41.194.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">894.9534,663.3645,114.3925,91.96262</marker>
+        <marker type="LOCATION" frame="12">923.6887,602.8038,112.573,108.2781</marker>
+        <marker type="LOCATION" frame="24">888.7731,564.4581,102.6287,98.90639</marker>
+        <marker type="LOCATION" frame="36">861.3084,573.6449,60.56075,89.7199</marker>
+        <marker type="LOCATION" frame="47">840,601.6823,63.92524,79.62617</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The Older Man (ROSENBERG), is carrying a cat and an ornate rosewood jewelry box.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.06.59.564-02.07.02.413" length="69">
+  <files>
+    <file>0009_Forrest_Gump_02.06.59.564-02.07.02.413.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Road" filename="0009_Forrest_Gump_02.06.59.564-02.07.02.413.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607306,131.215,1917.328,814.8151</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_02.06.59.564-02.07.02.413.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="37">714.5192,131.3078,97.75434,32.38898</marker>
+        <marker type="LOCATION" frame="68">727.4312,132.7541,180.6649,374.3069</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Jenny" filename="0009_Forrest_Gump_02.06.59.564-02.07.02.413.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="37">547.7098,132.0569,102.8632,41.62146</marker>
+        <marker type="LOCATION" frame="68">542.7716,132.7538,207.6165,376.3035</marker>
+      </markers>
+    </object>
+    <object id="o4" name="boy" filename="0009_Forrest_Gump_02.06.59.564-02.07.02.413.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="52">1021.885,131.756,89.83364,21.95934</marker>
+        <marker type="LOCATION" frame="68">1041.848,131.756,87.8371,233.5675</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="68" />
+      <text>The wind blows fallen leaves across the ground.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.06.49.446-02.06.59.064/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.06.49.446-02.06.59.064/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="37" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="37" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="52" arguments="1" ids="o4" q="True" type="WALK(X)" />
+  </predicates>
+</session>

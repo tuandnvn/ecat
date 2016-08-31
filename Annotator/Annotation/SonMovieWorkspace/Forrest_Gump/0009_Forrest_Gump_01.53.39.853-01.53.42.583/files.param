@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.53.39.853-01.53.42.583" length="66">
+  <files>
+    <file>0009_Forrest_Gump_01.53.39.853-01.53.42.583.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.53.39.853-01.53.42.583.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1446.656,402.1277,56.62614,121.459</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Beach" filename="0009_Forrest_Gump_01.53.39.853-01.53.42.583.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1823883,131.307,1918.723,815.7447</marker>
+      </markers>
+    </object>
+    <object id="o3" name="lighthouse" filename="0009_Forrest_Gump_01.53.39.853-01.53.42.583.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1473.739,210.0912,182.1884,448.0851</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Pier" filename="0009_Forrest_Gump_01.53.39.853-01.53.42.583.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1823883,456.2918,1616.717,490.7599</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="65" />
+      <text>A lighthouse stands at the end of the pier.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o7,0009_Forrest_Gump_01.53.32.164-01.53.39.853/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.53.32.164-01.53.39.853/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.53.32.164-01.53.39.853/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.53.32.164-01.53.39.853/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -62,10 +62,10 @@
   <predicates>
     <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
-    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.36.19.550-01.36.19.943/o4" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.36.19.550-01.36.19.943/o3" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.36.19.550-01.36.19.943/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_01.36.19.550-01.36.19.943/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.36.19.550-01.36.19.943/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.36.19.550-01.36.19.943/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.36.19.550-01.36.19.943/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="9" arguments="2" ids="o5,o3" q="True" type="SUPPORT(X,Y)" />
   </predicates>
 </session>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.54.01.744-01.54.11.103" length="225">
+  <files>
+    <file>0009_Forrest_Gump_01.54.01.744-01.54.11.103.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.54.01.744-01.54.11.103.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="64">0.2278844,130.4151,126.3382,362.717</marker>
+        <marker type="LOCATION" frame="100">0.2279776,130.4151,914.9419,527.7736</marker>
+        <marker type="LOCATION" frame="119">0.2280554,130.4151,1200.225,817.1321</marker>
+        <marker type="LOCATION" frame="131">0.2269982,130.4151,1128.905,817.1321</marker>
+        <marker type="LOCATION" frame="179">405.7359,130.4151,953.6617,817.1345</marker>
+        <marker type="LOCATION" frame="224">424.0755,130.4151,756.0008,817.1329</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Highway" filename="0009_Forrest_Gump_01.54.01.744-01.54.11.103.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1823883,131.307,1918.723,815.7447</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="224" />
+      <text>Forrest is running along the highway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.53.43.977-01.53.48.977/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.53.43.977-01.53.48.977/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

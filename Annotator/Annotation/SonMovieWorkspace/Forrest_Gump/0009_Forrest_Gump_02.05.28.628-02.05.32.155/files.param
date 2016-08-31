@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.05.28.628-02.05.32.155" length="85">
+  <files>
+    <file>0009_Forrest_Gump_02.05.28.628-02.05.32.155.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_02.05.28.628-02.05.32.155.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607304,131.215,1917.328,817.5703</marker>
+      </markers>
+    </object>
+    <object id="o4" name="woman" filename="0009_Forrest_Gump_02.05.28.628-02.05.32.155.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">835.0555,525.4517,102.6941,287.5436</marker>
+        <marker type="LOCATION" frame="81">809.382,522.0286,102.6941,304.6592</marker>
+        <marker type="DELETE" frame="82" />
+      </markers>
+    </object>
+    <object id="o5" name="Dan" filename="0009_Forrest_Gump_02.05.28.628-02.05.32.155.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">929.1918,503.2013,143.7719,316.6403</marker>
+        <marker type="LOCATION" frame="81">924.0571,481.8067,143.7718,350.0158</marker>
+        <marker type="DELETE" frame="82" />
+      </markers>
+    </object>
+    <object id="o6" name="lawn" filename="0009_Forrest_Gump_02.05.28.628-02.05.32.155.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1901507,597.3377,1916.957,350.8715</marker>
+        <marker type="DELETE" frame="82" />
+      </markers>
+    </object>
+    <object id="o7" name="cane" filename="0009_Forrest_Gump_02.05.28.628-02.05.32.155.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">922.3455,643.5499,47.92403,174.58</marker>
+        <marker type="DELETE" frame="82" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="82" />
+      <text>Lt. Dan is walking across the lawn.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.05.14.787-02.05.24.224/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o7" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>
