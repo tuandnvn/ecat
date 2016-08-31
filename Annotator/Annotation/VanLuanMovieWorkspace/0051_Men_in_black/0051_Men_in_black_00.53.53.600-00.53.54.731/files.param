@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.53.53.600-00.53.54.731" length="48">
+  <files>
+    <file>0051_Men_in_black_00.53.53.600-00.53.54.731.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_00.53.53.600-00.53.54.731.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.590385,22.65446,720.5492,1036.889</marker>
+        <marker type="LOCATION" frame="24">6.590385,22.65446,637.071,1036.889</marker>
+        <marker type="LOCATION" frame="40">6.590385,22.65446,665.6293,1036.889</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dr" filename="0051_Men_in_black_00.53.53.600-00.53.54.731.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">751.3044,24.85126,858.9474,1032.497</marker>
+        <marker type="LOCATION" frame="24">716.1557,24.85126,975.3776,1032.497</marker>
+        <marker type="LOCATION" frame="40">762.2883,24.85126,1006.133,1032.497</marker>
+        <marker type="LOCATION" frame="46">775.4691,24.85126,992.9523,1032.497</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>From the other side of the room, Kay CLEARS HIS THROAT.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.52.33.964-00.52.35.384/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.52.33.964-00.52.35.384/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="24" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

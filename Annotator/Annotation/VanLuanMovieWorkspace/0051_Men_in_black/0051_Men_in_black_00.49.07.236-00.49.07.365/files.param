@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.49.07.236-00.49.07.365" length="48">
+  <files>
+    <file>0051_Men_in_black_00.49.07.236-00.49.07.365.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Kay" filename="0051_Men_in_black_00.49.07.236-00.49.07.365.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.000029,381.0001,1911,674.9999</marker>
+      </markers>
+    </object>
+    <object id="o2" name="pocket" filename="0051_Men_in_black_00.49.07.236-00.49.07.365.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">213,288,1113,567</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Red" filename="0051_Men_in_black_00.49.07.236-00.49.07.365.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">666,563.25,54,55.5</marker>
+        <marker type="LOCATION" frame="47">669,569.25,54,55.5</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Yellow" filename="0051_Men_in_black_00.49.07.236-00.49.07.365.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">760.5,553.5,63,51</marker>
+        <marker type="LOCATION" frame="47">763.5,559.5,63,51</marker>
+      </markers>
+    </object>
+    <object id="o5" name="purple" filename="0051_Men_in_black_00.49.07.236-00.49.07.365.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">960,541.5,57,57</marker>
+        <marker type="LOCATION" frame="13">958.5,544.5,57,57</marker>
+        <marker type="LOCATION" frame="23">961.5,541.5,57,57</marker>
+        <marker type="LOCATION" frame="47">960,547.5,57,57</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Purple.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.49.06.785-00.49.07.034/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.49.06.785-00.49.07.034/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.49.06.785-00.49.07.034/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.49.06.785-00.49.07.034/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="5" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

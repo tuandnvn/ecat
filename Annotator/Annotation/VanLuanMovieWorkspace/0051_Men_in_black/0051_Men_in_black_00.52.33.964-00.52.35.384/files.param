@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.52.33.964-00.52.35.384" length="48">
+  <files>
+    <file>0051_Men_in_black_00.52.33.964-00.52.35.384.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_00.52.33.964-00.52.35.384.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">101.0526,22.65446,1045.675,1036.889</marker>
+        <marker type="LOCATION" frame="18">136.2014,22.65446,1010.526,1036.889</marker>
+        <marker type="LOCATION" frame="28">195.5149,22.65446,1120.366,1036.889</marker>
+        <marker type="LOCATION" frame="33">213.0892,22.65446,1102.792,1036.889</marker>
+        <marker type="LOCATION" frame="34">6.590385,22.65446,1309.292,1036.889</marker>
+        <marker type="LOCATION" frame="39">6.590385,22.65446,1249.977,1036.889</marker>
+        <marker type="LOCATION" frame="47">6.590385,22.65446,1219.222,1036.889</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dr" filename="0051_Men_in_black_00.52.33.964-00.52.35.384.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">836.9794,24.85019,977.575,1032.496</marker>
+        <marker type="LOCATION" frame="18">944.6224,24.85019,955.6064,1032.496</marker>
+        <marker type="LOCATION" frame="28">927.0481,24.85019,973.1813,1032.496</marker>
+        <marker type="LOCATION" frame="33">933.6386,24.85019,979.7711,1032.496</marker>
+        <marker type="LOCATION" frame="34">907.2769,156.659,588.7415,900.6881</marker>
+        <marker type="LOCATION" frame="39">878.7186,156.659,617.2998,900.6881</marker>
+        <marker type="LOCATION" frame="47">878.7186,156.659,595.3318,900.6881</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Just by the look on Jay's face, one can imagine how disgusting it is.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.52.24.246-00.52.33.758/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.52.24.246-00.52.33.758/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

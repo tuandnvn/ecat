@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.08.12.054-01.08.13.779" length="48">
+  <files>
+    <file>0051_Men_in_black_01.08.12.054-01.08.13.779.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="desk" filename="0051_Men_in_black_01.08.12.054-01.08.13.779.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.660762,253.8359,1920.532,807.0067</marker>
+        <marker type="LOCATION" frame="22">-2.660643,526.8293,1920.532,534.0139</marker>
+        <marker type="LOCATION" frame="40">-2.66046,787.8492,1920.532,272.9946</marker>
+        <marker type="LOCATION" frame="47">-2.660424,807.0067,1920.532,253.8373</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dr" filename="0051_Men_in_black_01.08.12.054-01.08.13.779.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">857.0289,21.5521,601.0643,232.2838</marker>
+        <marker type="LOCATION" frame="22">837.8714,21.5521,694.4569,505.2772</marker>
+        <marker type="LOCATION" frame="40">799.5566,21.5521,799.8226,742.3503</marker>
+        <marker type="LOCATION" frame="47">780.3991,136.4967,818.9801,668.1156</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>In the morgue, LAUREL is working at a desk when suddenly ROSENBERG'S CAT leaps up onto it from nowhere, the way cats do, landing right in the middle of the file she's studying.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,o1" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

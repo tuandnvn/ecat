@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.45.42.267-00.45.44.712" length="59">
+  <files>
+    <file>0051_Men_in_black_00.45.42.267-00.45.44.712.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="newspaper1" filename="0051_Men_in_black_00.45.42.267-00.45.44.712.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">533.7759,286.39,762.1577,456.3485,390.3734,501.4937,254.9377,331.5352</marker>
+        <marker type="LOCATION" frame="2">483.3195,302.3236,709.0455,477.5933,435.5186,530.7054,270.8713,328.8796</marker>
+        <marker type="LOCATION" frame="5">414.2738,320.9128,650.6223,490.8713,435.5186,530.7054,302.7386,350.1244</marker>
+        <marker type="LOCATION" frame="7">634.6888,281.0788,616.0995,347.4689,485.9751,443.0705,456.7634,387.3029</marker>
+        <marker type="LOCATION" frame="8">562.9875,265.1452,640,212.0332,496.5975,408.5477,464.7303,350.1244</marker>
+        <marker type="LOCATION" frame="9">616.0995,212.0332,695.7675,180.166,547.0539,368.7137,491.2863,339.502</marker>
+        <marker type="LOCATION" frame="10">703.0707,215.3527,782.7383,183.4855,634.0249,372.0331,539.0871,302.3236</marker>
+        <marker type="LOCATION" frame="12">974.6058,217.3444,950.7052,339.502,704.8962,406.0578,609.9584,336.3484</marker>
+        <marker type="LOCATION" frame="13">1017.095,254.5228,1030.373,342.1577,734.1078,445.8918,639.1702,376.1824</marker>
+        <marker type="LOCATION" frame="14">1017.095,254.5228,1043.651,379.336,734.1078,445.8918,639.1702,376.1824</marker>
+        <marker type="LOCATION" frame="18">1038.34,331.5352,1102.075,432.4481,730.7054,514.3566,634.6888,413.8589</marker>
+        <marker type="LOCATION" frame="22">1195.021,451.0373,1202.988,512.1161,789.025,584.8335,717.0123,451.0373</marker>
+        <marker type="LOCATION" frame="23">1206.893,479.3309,1214.86,540.4098,800.8973,613.1273,728.8848,479.3309</marker>
+        <marker type="LOCATION" frame="25">1287.967,501.4937,1334.362,596.1774,920.3996,668.8948,884.3152,591.7841</marker>
+        <marker type="LOCATION" frame="26">1357.012,493.5269,1425.277,606.3408,1035.685,692.6969,1001.162,623.6514</marker>
+        <marker type="LOCATION" frame="28">1424.261,523.7469,1455.27,605.0622,1157.842,721.9087,1096.763,660.8298</marker>
+        <marker type="LOCATION" frame="29">1444.628,516.8558,1475.636,598.1711,1178.208,715.0176,1117.13,653.9388</marker>
+        <marker type="LOCATION" frame="31">1407.449,447.8103,1457.925,501.4937,1141.03,645.972,1079.951,584.8931</marker>
+        <marker type="LOCATION" frame="32">1346.37,381.4204,1468.547,459.0041,1115.353,618.3402,1018.872,518.5031</marker>
+        <marker type="LOCATION" frame="33">1303.9,323.5685,1455.27,389.9585,1110.041,586.473,958.0185,475.2236</marker>
+        <marker type="LOCATION" frame="35">1303.9,323.5685,1431.369,384.6473,1070.207,549.2945,958.0185,475.2236</marker>
+        <marker type="LOCATION" frame="36">1301.245,347.4689,1434.025,445.7261,1070.207,549.2945,958.0185,475.2236</marker>
+        <marker type="LOCATION" frame="37">1300.08,391.8786,1410.124,554.6058,1102.075,615.6846,956.8543,519.6332</marker>
+        <marker type="LOCATION" frame="38">1332.029,428.6895,1460.581,597.0954,1134.024,652.4954,988.8032,556.444</marker>
+        <marker type="LOCATION" frame="39">1345.991,475.0707,1474.543,643.4764,1147.986,698.8765,1002.766,602.825</marker>
+        <marker type="LOCATION" frame="40">1361.925,509.5939,1487.137,671.4523,1163.92,733.3993,1018.7,637.3478</marker>
+        <marker type="LOCATION" frame="41">1391.535,652.863,1487.137,671.4523,1272.033,759.0871,1157.842,711.2862</marker>
+        <marker type="LOCATION" frame="42">1473.859,745.8091,1426.058,642.2405,1232.199,772.3651,1211.618,822.1577</marker>
+        <marker type="LOCATION" frame="43">1500.415,812.199,1441.991,708.6307,1242.822,801.5767,1277.344,854.6886</marker>
+        <marker type="LOCATION" frame="44">1507.718,832.78,1449.295,729.2117,1250.124,822.1577,1284.647,875.2696</marker>
+        <marker type="LOCATION" frame="46">1495.104,865.3112,1420.747,798.9211,1183.734,875.2696,1218.257,928.3815</marker>
+        <marker type="LOCATION" frame="47">1512.032,903.4856,1437.676,837.0954,1200.664,913.4435,1235.187,966.556</marker>
+        <marker type="LOCATION" frame="48">1493.444,932.6972,1419.086,866.307,1182.075,942.6552,1216.598,995.7675</marker>
+        <marker type="LOCATION" frame="49">1514.688,972.5313,1440.331,906.1411,1203.32,982.4893,1237.51,1027.303</marker>
+        <marker type="LOCATION" frame="51">1511.037,1029.958,1391.535,955.6016,1179.503,1013.775,1224.232,1083.07</marker>
+        <marker type="LOCATION" frame="52">1529.626,1045.892,1407.469,982.1575,1179.503,1013.775,1224.232,1083.07</marker>
+        <marker type="LOCATION" frame="53">1529.626,1045.892,1388.88,1003.402,1205.643,1032.614,1224.232,1083.07</marker>
+        <marker type="LOCATION" frame="55">1463.236,1053.859,1391.535,1016.68,1272.033,1051.203,1274.689,1048.548</marker>
+        <marker type="DELETE" frame="57" />
+      </markers>
+    </object>
+    <object id="o2" name="newspaper2" filename="0051_Men_in_black_00.45.42.267-00.45.44.712.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">647.9668,493.5269,1245.477,358.0912,1577.427,613.0289,905.5601,809.5435</marker>
+        <marker type="LOCATION" frame="2">647.9668,493.5269,1232.199,360.7468,1577.427,613.0289,884.3152,790.9542</marker>
+        <marker type="LOCATION" frame="5">647.9668,493.5269,1213.61,374.0249,1508.382,610.3734,823.2363,780.3319</marker>
+        <marker type="LOCATION" frame="8">647.9668,493.5269,1187.054,395.2697,1465.892,613.0289,849.7924,759.0871</marker>
+        <marker type="LOCATION" frame="9">616.0995,485.5601,1195.021,403.2365,1465.892,613.0289,849.7924,759.0871</marker>
+        <marker type="LOCATION" frame="10">601.4943,496.1831,1180.414,413.859,1451.286,623.6512,835.187,769.7089</marker>
+        <marker type="LOCATION" frame="13">614.7723,501.4945,1165.809,440.4149,1420.747,636.9294,786.058,769.7094</marker>
+        <marker type="LOCATION" frame="14">637.3444,517.4274,1165.809,440.4149,1420.747,636.9294,786.058,769.7094</marker>
+        <marker type="LOCATION" frame="18">650.6223,530.7054,1147.22,451.0373,1380.913,660.8298,807.3028,759.0871</marker>
+        <marker type="LOCATION" frame="20">620.747,511.4522,1117.344,431.7842,1351.037,641.5767,777.4274,739.8337</marker>
+        <marker type="LOCATION" frame="22">679.834,464.3153,1104.73,387.3029,1317.178,634.2737,788.7137,721.9087</marker>
+        <marker type="LOCATION" frame="23">674.5228,461.6597,1104.73,387.3029,1317.178,634.2737,788.7137,721.9087</marker>
+        <marker type="LOCATION" frame="25">666.556,435.1037,1131.286,315.6016,1269.378,636.9294,791.3693,698.0082</marker>
+        <marker type="LOCATION" frame="26">674.5228,395.2697,1131.286,259.834,1240.166,591.7841,791.3693,698.0082</marker>
+        <marker type="LOCATION" frame="28">673.8589,267.137,1115.353,84.56431,1239.502,463.6512,807.3028,599.7509</marker>
+        <marker type="LOCATION" frame="29">668.2156,199.7513,1107.386,-13.69295,1256.099,395.2697,820.5808,557.2613</marker>
+        <marker type="LOCATION" frame="31">685.0624,145.7265,1118.008,-42.90456,1338.423,270.4564,817.9253,459.0041</marker>
+        <marker type="LOCATION" frame="32">679.834,140.3319,1181.743,12.86307,1351.701,273.112,820.5808,400.5808</marker>
+        <marker type="LOCATION" frame="33">698.4232,164.2324,1187.054,71.2863,1351.701,265.1452,820.5808,400.5808</marker>
+        <marker type="LOCATION" frame="35">764.8137,328.8797,1293.278,278.4232,1380.913,387.3029,876.3485,437.7593</marker>
+        <marker type="LOCATION" frame="36">908.2156,445.7261,1221.577,320.9128,1327.801,416.5145,1027.718,509.4605</marker>
+        <marker type="LOCATION" frame="37">947.3859,500.1661,1260.747,375.3528,1349.046,533.361,1099.419,610.3734</marker>
+        <marker type="LOCATION" frame="38">949.046,555.2698,1262.407,430.4567,1350.705,588.4648,1101.079,665.4766</marker>
+        <marker type="LOCATION" frame="39">1015.436,589.7924,1328.797,464.9794,1417.095,622.9877,1167.469,699.9994</marker>
+        <marker type="LOCATION" frame="40">1028.714,626.9708,1342.075,502.1581,1430.373,660.166,1180.747,737.1777</marker>
+        <marker type="LOCATION" frame="41">1163.153,705.975,1394.191,642.2405,1451.617,665.4772,1201.992,742.489</marker>
+        <marker type="LOCATION" frame="42">1277.344,820.1658,1489.792,772.3651,1426.058,639.585,1237.51,769.7094</marker>
+        <marker type="LOCATION" frame="43">1281.992,868.6304,1494.44,820.8298,1455.27,705.975,1242.158,818.1741</marker>
+        <marker type="LOCATION" frame="44">1283.817,885.3939,1496.266,837.5934,1457.095,722.7386,1243.983,834.9378</marker>
+        <marker type="LOCATION" frame="46">1225.394,925.2278,1503.07,865.3112,1426.058,788.2987,1185.56,874.7717</marker>
+        <marker type="LOCATION" frame="47">1236.764,959.0038,1514.44,899.0871,1437.427,822.0749,1196.929,908.5479</marker>
+        <marker type="LOCATION" frame="48">1215.519,993.5264,1493.195,933.6097,1416.182,856.5977,1175.684,943.0707</marker>
+        <marker type="LOCATION" frame="49">1210.208,1017.427,1487.884,957.5103,1407.469,894.5227,1170.373,966.9711</marker>
+        <marker type="LOCATION" frame="51">1224.337,1069.688,1526.971,1024.647,1380.913,960.9127,1184.502,1019.233</marker>
+        <marker type="LOCATION" frame="52">1224.337,1069.688,1537.593,1048.548,1396.846,992.78,1184.502,1019.233</marker>
+        <marker type="LOCATION" frame="53">1224.337,1069.688,1537.593,1048.548,1399.502,1006.058,1208.299,1032.614</marker>
+        <marker type="LOCATION" frame="55">1280,1056.514,1457.925,1056.514,1383.568,1021.992,1274.689,1053.859</marker>
+        <marker type="DELETE" frame="57" />
+      </markers>
+    </object>
+    <object id="o3" name="newspaper3" filename="0051_Men_in_black_00.45.42.267-00.45.44.712.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1739.419,655.5186,1070.207,891.8672,1165.809,1056.514,1912.033,1056.514,1914.689,809.5435</marker>
+        <marker type="LOCATION" frame="2">1728.797,639.585,1046.307,881.2447,1165.809,1056.514,1912.033,1056.514,1914.689,809.5435</marker>
+        <marker type="LOCATION" frame="5">1665.062,636.9294,1017.095,846.7219,1165.809,1056.514,1912.033,1056.514,1920,828.1328</marker>
+        <marker type="LOCATION" frame="8">1598.672,634.2737,979.917,822.8215,1165.809,1056.514,1917.344,1048.548,1917.344,852.0331</marker>
+        <marker type="LOCATION" frame="9">1598.672,634.2737,979.917,822.8215,1165.809,1056.514,1917.344,1048.548,1922.656,867.9667</marker>
+        <marker type="LOCATION" frame="10">1568.93,626.8383,950.1744,815.3858,1136.066,1049.079,1914.689,1035.27,1922.656,870.6224</marker>
+        <marker type="LOCATION" frame="13">1541.63,639.2664,922.8749,827.8138,1108.767,1061.507,1659.751,1061.826,1927.967,889.2115</marker>
+        <marker type="LOCATION" frame="14">1541.63,639.2664,926.8049,793.6099,1155.187,1053.859,1635.851,1051.203,1927.967,889.2115</marker>
+        <marker type="LOCATION" frame="18">1473.859,647.5518,926.8049,793.6099,1155.187,1053.859,1468.547,1053.859,1856.266,897.1782</marker>
+        <marker type="LOCATION" frame="20">1439.336,647.5518,851.9174,793.6097,1080.299,1053.859,1393.66,1053.859,1781.377,897.178</marker>
+        <marker type="LOCATION" frame="22">1439.336,647.5518,851.9174,793.6097,1139.253,1056.514,1375.601,1008.714,1747.385,873.278</marker>
+        <marker type="LOCATION" frame="23">1415.436,652.863,851.9174,793.6097,1139.253,1056.514,1354.357,992.78,1720.83,870.6224</marker>
+        <marker type="LOCATION" frame="25">1393.766,639.585,830.2478,780.3317,1117.583,1043.236,1332.687,979.502,1699.16,857.3444</marker>
+        <marker type="LOCATION" frame="26">1375.177,644.8967,860.4149,759.0871,1098.994,1048.547,1314.098,984.8127,1680.57,862.6553</marker>
+        <marker type="LOCATION" frame="28">1383.568,658.1743,832.0743,748.4646,1070.654,1037.925,1285.757,974.1902,1652.229,852.0329</marker>
+        <marker type="LOCATION" frame="29">1383.568,658.1743,860.4149,780.3319,1070.654,1037.925,1285.757,974.1902,1652.229,852.0329</marker>
+        <marker type="LOCATION" frame="31">1388.88,682.0746,881.6597,775.0206,1086.141,1008.714,1327.801,955.6016,1641.162,867.9667</marker>
+        <marker type="LOCATION" frame="32">1383.568,708.6307,892.282,785.6431,1099.419,1014.025,1285.757,974.1902,1633.195,881.2447</marker>
+        <marker type="LOCATION" frame="33">1362.324,729.8755,892.282,785.6431,1099.419,1014.025,1285.757,974.1902,1614.606,891.8672</marker>
+        <marker type="LOCATION" frame="35">1375.601,753.7758,924.1494,830.7883,1099.419,1014.025,1285.757,974.1902,1593.361,897.1782</marker>
+        <marker type="LOCATION" frame="36">1367.635,767.0539,924.1494,830.7883,1099.419,1014.025,1580.083,910.4563,1428.714,857.3444</marker>
+        <marker type="LOCATION" frame="37">1364.979,798.9211,942.7384,857.3444,1099.419,1027.303,1572.116,931.7011,1444.647,867.9667</marker>
+        <marker type="LOCATION" frame="38">1368.166,815.3858,945.9252,873.8092,1102.606,1043.768,1575.303,948.166,1447.834,884.4315</marker>
+        <marker type="LOCATION" frame="39">1360.199,836.6306,937.9584,895.054,1094.639,1065.012,1567.336,969.4108,1439.868,905.6765</marker>
+        <marker type="LOCATION" frame="40">1354.888,852.5641,932.6475,910.9874,1089.328,1080.946,1562.025,985.3443,1434.556,921.6101</marker>
+        <marker type="LOCATION" frame="41">1354.888,852.5641,932.6475,910.9873,1089.328,1080.946,1562.025,985.3443,1434.556,921.6101</marker>
+        <marker type="LOCATION" frame="42">1383.568,873.278,987.8838,950.2904,1089.328,1080.946,1569.46,1014.025,1441.991,947.6347</marker>
+        <marker type="LOCATION" frame="43">1391.535,905.145,1014.44,979.502,1089.328,1080.946,1492.448,1059.17,1585.394,1014.025</marker>
+        <marker type="LOCATION" frame="44">1402.158,929.0456,1014.44,979.502,1089.328,1080.946,1582.739,1056.514,1588.05,1045.892</marker>
+        <marker type="LOCATION" frame="46">1420.747,968.8796,1027.718,1021.992,1048.963,1059.17,1503.07,1056.514,1452.614,1027.303</marker>
+        <marker type="LOCATION" frame="47">1441.991,990.1243,1051.618,1024.647,1064.896,1059.17,1503.07,1056.514,1452.614,1027.303</marker>
+        <marker type="LOCATION" frame="48">1439.336,1003.402,1051.618,1024.647,1064.896,1059.17,1503.07,1056.514,1452.614,1027.303</marker>
+        <marker type="LOCATION" frame="49">1444.647,1019.336,1120.664,1043.236,1128.631,1064.481,1465.892,1048.548,1452.614,1027.303</marker>
+        <marker type="DELETE" frame="51" />
+        <marker type="LOCATION" frame="55">1521.66,979.502,1192.365,1014.025,1189.709,1053.859,1532.282,1051.203,1529.626,1016.68</marker>
+        <marker type="LOCATION" frame="56">1521.66,915.7675,1197.676,982.1575,1189.709,1053.859,1558.838,1053.859,1556.182,1006.058</marker>
+        <marker type="LOCATION" frame="57">1505.726,846.7219,1213.61,950.2904,1205.643,1051.203,1577.427,1056.514,1566.805,1014.025</marker>
+        <marker type="LOCATION" frame="58">1495.104,788.2987,1224.232,894.5227,1245.477,1053.859,1577.427,1056.514,1566.805,1014.025</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Key hand's" filename="0051_Men_in_black_00.45.42.267-00.45.44.712.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">148.7137,307.6348,284.1494,406.3071</marker>
+        <marker type="LOCATION" frame="7">241.6597,265.1452,233.6929,305.3942</marker>
+        <marker type="LOCATION" frame="10">286.805,2.240662,252.2821,549.7095</marker>
+        <marker type="LOCATION" frame="13">286.805,233.278,594.8547,318.672</marker>
+        <marker type="LOCATION" frame="17">286.805,297.0124,706.39,323.9834</marker>
+        <marker type="LOCATION" frame="22">475.3527,331.5352,517.8412,422.2406</marker>
+        <marker type="LOCATION" frame="25">610.7883,243.9004,408.9622,597.5104</marker>
+        <marker type="LOCATION" frame="30">717.0124,4.896263,578.9189,829.8748</marker>
+        <marker type="LOCATION" frame="33">717.0123,58.00829,549.7097,653.278</marker>
+        <marker type="LOCATION" frame="35">820.5808,214.6888,446.1395,480.6639</marker>
+        <marker type="LOCATION" frame="38">902.9045,416.5145,408.9626,347.8839</marker>
+        <marker type="LOCATION" frame="41">961.3278,563.9004,408.9626,347.8838</marker>
+        <marker type="LOCATION" frame="44">977.2613,751.1203,313.3611,224.3975</marker>
+        <marker type="LOCATION" frame="47">977.2613,822.8215,321.3279,233.6924</marker>
+        <marker type="LOCATION" frame="50">977.2613,913.112,286.8051,143.401</marker>
+        <marker type="LOCATION" frame="52">948.0497,923.7344,366.4731,132.7785</marker>
+        <marker type="LOCATION" frame="55">948.0497,921.0788,446.1411,135.4341</marker>
+        <marker type="LOCATION" frame="57">1054.274,822.8215,371.7844,233.6909</marker>
+        <marker type="LOCATION" frame="58">1096.763,793.6099,334.6058,262.9023</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Key" filename="0051_Men_in_black_00.45.42.267-00.45.44.712.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="9">1.519547E-05,4.896263,116.8465,1051.618</marker>
+        <marker type="LOCATION" frame="11">1.519547E-05,4.896263,132.7801,1051.618</marker>
+        <marker type="LOCATION" frame="14">1.519547E-05,4.896263,276.1826,1051.618</marker>
+        <marker type="LOCATION" frame="18">1.519547E-05,4.896263,355.8506,1051.618</marker>
+        <marker type="LOCATION" frame="22">1.519547E-05,4.896263,366.473,1051.618</marker>
+        <marker type="LOCATION" frame="26">1.519547E-05,4.896263,430.2075,1051.618</marker>
+        <marker type="LOCATION" frame="28">1.519547E-05,4.896263,629.3776,1051.618</marker>
+        <marker type="LOCATION" frame="31">1.519547E-05,4.896263,671.8672,1051.618</marker>
+        <marker type="LOCATION" frame="34">1.519547E-05,4.896263,685.1452,1051.618</marker>
+        <marker type="LOCATION" frame="38">29.21163,4.896263,801.9914,1051.618</marker>
+        <marker type="LOCATION" frame="42">135.4357,4.896263,778.0908,1051.618</marker>
+        <marker type="LOCATION" frame="44">180.5809,4.896263,756.8463,1051.618</marker>
+        <marker type="LOCATION" frame="46">281.4938,4.896263,732.9457,1051.618</marker>
+        <marker type="LOCATION" frame="47">303.2697,4.896263,966.1078,1051.618</marker>
+        <marker type="LOCATION" frame="49">346.8215,4.896263,1002.224,1051.618</marker>
+        <marker type="LOCATION" frame="51">390.3734,4.896263,1003.817,1051.618</marker>
+        <marker type="LOCATION" frame="52">408.9626,4.896263,703.7336,1051.618</marker>
+        <marker type="LOCATION" frame="53">435.5186,4.896263,993.1946,1051.618</marker>
+        <marker type="LOCATION" frame="57">562.9875,4.896263,865.7246,1051.618</marker>
+        <marker type="LOCATION" frame="58">562.9875,4.896263,894.9377,1051.618</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Jay" filename="0051_Men_in_black_00.45.42.267-00.45.44.712.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="46">-7.966789,7.551865,146.0581,1051.618</marker>
+        <marker type="LOCATION" frame="51">-7.966789,15.51867,231.0373,1043.651</marker>
+        <marker type="LOCATION" frame="54">-7.966789,15.51867,284.1494,1043.651</marker>
+        <marker type="LOCATION" frame="57">-7.966789,15.51867,355.8506,1043.651</marker>
+        <marker type="LOCATION" frame="58">-7.966789,15.51867,411.6182,1043.651</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Kay is furiously searching through the tabs; Jay is standing behind him, a little embarrassed.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="9" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="17" arguments="2" ids="o2,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="46" arguments="2" ids="o3,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="47" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="47" arguments="2" ids="o5,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="54" arguments="2" ids="o6,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="57" arguments="2" ids="o5,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

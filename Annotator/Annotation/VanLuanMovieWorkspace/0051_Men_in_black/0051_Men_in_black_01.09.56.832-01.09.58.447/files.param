@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.09.56.832-01.09.58.447" length="48">
+  <files>
+    <file>0051_Men_in_black_01.09.56.832-01.09.58.447.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.09.56.832-01.09.58.447.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="37">439.3593,31.44165,1107.186,1028.101</marker>
+      </markers>
+    </object>
+    <object id="o2" name="fly swatter" filename="0051_Men_in_black_01.09.56.832-01.09.58.447.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">354.5081,6.178287,497.849,548.1009</marker>
+        <marker type="LOCATION" frame="2">180.1373,18.80993,421.7849,682.6546</marker>
+        <marker type="LOCATION" frame="3">52.72311,13.04341,421.7849,1042.105</marker>
+        <marker type="LOCATION" frame="4">70.29748,11.25849,421.7849,1042.105</marker>
+        <marker type="DELETE" frame="5" />
+        <marker type="LOCATION" frame="10">307.5515,11.25849,1159.911,912.0825</marker>
+        <marker type="LOCATION" frame="11">795.2403,11.25849,970.9856,1052.677</marker>
+        <marker type="LOCATION" frame="13">718.3516,5.972471,970.9856,1052.677</marker>
+        <marker type="LOCATION" frame="14">718.3516,13.86728,970.9856,1044.783</marker>
+        <marker type="LOCATION" frame="16">652.4486,13.86728,1241.19,1044.783</marker>
+        <marker type="LOCATION" frame="36">652.4486,13.86728,1263.158,1044.783</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o3" name="Tony" filename="0051_Men_in_black_01.09.56.832-01.09.58.447.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">349.2906,73.18078,1050.069,988.5587</marker>
+        <marker type="LOCATION" frame="4">349.2906,22.65446,1087.414,1039.085</marker>
+        <marker type="DELETE" frame="5" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>WHACK! Tony flicks the fly swatter again, sending another bug to meet its maker.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.09.25.239-01.09.30.132/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.09.25.239-01.09.30.132/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

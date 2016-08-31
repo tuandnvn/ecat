@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.06.40.838-01.06.43.930" length="75">
+  <files>
+    <file>0051_Men_in_black_01.06.40.838-01.06.43.930.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="dog" filename="0051_Men_in_black_01.06.40.838-01.06.43.930.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">509.8004,431.0421,301.7295,538.8027</marker>
+        <marker type="LOCATION" frame="14">509.8004,344.8337,352.0178,625.0115</marker>
+        <marker type="LOCATION" frame="28">509.8004,241.8625,526.8293,792.6386</marker>
+        <marker type="LOCATION" frame="38">509.8004,215.5211,625.0111,818.9803</marker>
+        <marker type="LOCATION" frame="50">581.6408,126.918,636.9848,907.5839</marker>
+        <marker type="LOCATION" frame="64">581.6408,102.9712,701.6408,931.5308</marker>
+        <marker type="DELETE" frame="66" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A voice answers him, but not the Vendor's.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+  </predicates>
+</session>

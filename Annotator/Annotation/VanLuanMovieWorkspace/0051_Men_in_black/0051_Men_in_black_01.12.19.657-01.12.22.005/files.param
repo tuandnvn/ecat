@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.12.19.657-01.12.22.005" length="0">
+  <files>
+    <file>0051_Men_in_black_01.12.19.657-01.12.22.005.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He's dead, a frozen look of terror on his face and the can of Raid still clutched in his hand.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

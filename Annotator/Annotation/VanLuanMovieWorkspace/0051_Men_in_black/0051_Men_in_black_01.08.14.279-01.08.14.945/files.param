@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.08.14.279-01.08.14.945" length="48">
+  <files>
+    <file>0051_Men_in_black_01.08.14.279-01.08.14.945.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="desk" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.660424,807.0067,1920.532,253.8373</marker>
+        <marker type="LOCATION" frame="16">-2.660364,859.6896,1920.532,201.1546</marker>
+        <marker type="LOCATION" frame="40">-2.660323,898.0045,1920.532,162.8399</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dr" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">780.3991,136.4967,818.9801,668.1156</marker>
+        <marker type="LOCATION" frame="16">780.3991,136.4967,823.7694,778.2706</marker>
+        <marker type="LOCATION" frame="29">806.7406,136.4967,797.428,778.2706</marker>
+        <marker type="LOCATION" frame="34">864.2129,136.4967,739.9557,778.2706</marker>
+        <marker type="LOCATION" frame="40">943.2373,136.4967,641.7739,778.2706</marker>
+        <marker type="LOCATION" frame="47">943.2374,148.4701,641.7737,787.8492</marker>
+      </markers>
+    </object>
+    <object id="o3" name="cat" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="8">248.7805,411.8847,79.02439,390.3326</marker>
+        <marker type="LOCATION" frame="13">248.7805,454.9889,294.5455,452.5943</marker>
+        <marker type="LOCATION" frame="29">205.6763,507.6718,821.3748,443.0155</marker>
+        <marker type="LOCATION" frame="34">205.6763,459.7783,900.3992,490.9091</marker>
+        <marker type="LOCATION" frame="40">251.1752,443.0155,890.8206,507.6723</marker>
+        <marker type="LOCATION" frame="47">313.4368,452.5942,883.6364,498.0936</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Laurel jumps.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.08.12.054-01.08.13.779/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.08.12.054-01.08.13.779/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="11" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="41" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

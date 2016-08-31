@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.46.20.893-00.46.25.852" length="119">
+  <files>
+    <file>0051_Men_in_black_00.46.20.893-00.46.25.852.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_00.46.20.893-00.46.25.852.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">856.7507,84.16476,283.3868,973.1814</marker>
+        <marker type="LOCATION" frame="17">846.865,97.34554,310.8467,952.3116</marker>
+        <marker type="LOCATION" frame="41">762.8375,97.89454,310.8467,952.3116</marker>
+        <marker type="LOCATION" frame="55">731.5332,97.89455,300.9612,952.3116</marker>
+        <marker type="LOCATION" frame="71">771.0757,119.3135,270.2061,938.0323</marker>
+        <marker type="LOCATION" frame="83">746.9108,119.3135,305.3548,938.0325</marker>
+        <marker type="LOCATION" frame="95">805.1258,122.6085,305.3548,938.0325</marker>
+        <marker type="LOCATION" frame="117">756.7963,122.6085,305.3548,938.0325</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_00.46.20.893-00.46.25.852.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1175.286,121.5103,283.3866,938.032</marker>
+        <marker type="LOCATION" frame="17">1184.073,121.5103,246.0413,938.032</marker>
+        <marker type="LOCATION" frame="41">1162.106,90.75515,268.0096,968.7874</marker>
+        <marker type="LOCATION" frame="55">1162.106,90.75515,285.5833,968.7874</marker>
+        <marker type="LOCATION" frame="71">1137.941,128.1007,327.3225,928.1469</marker>
+        <marker type="LOCATION" frame="83">1166.499,128.1007,298.7647,928.1472</marker>
+        <marker type="LOCATION" frame="95">1201.647,108.3295,298.7649,951.7625</marker>
+        <marker type="LOCATION" frame="117">1175.286,143.4783,325.1267,916.6138</marker>
+      </markers>
+    </object>
+    <object id="o3" name="card" filename="0051_Men_in_black_00.46.20.893-00.46.25.852.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="34">1315.881,189.611,57.11657,54.9199</marker>
+        <marker type="LOCATION" frame="44">1368.604,159.9542,57.11671,54.91991</marker>
+        <marker type="LOCATION" frame="64">1379.588,206.087,57.11671,54.91991</marker>
+        <marker type="LOCATION" frame="84">1445.492,247.8261,57.11671,54.91991</marker>
+        <marker type="LOCATION" frame="102">1513.593,239.0389,57.11671,54.91991</marker>
+        <marker type="LOCATION" frame="110">1507.002,329.1076,57.11671,54.91991</marker>
+        <marker type="LOCATION" frame="118">1478.444,709.1533,57.11671,54.91991</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Kay pulls a black card from his wallet and extends it to her as she draws close.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="34" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="90" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

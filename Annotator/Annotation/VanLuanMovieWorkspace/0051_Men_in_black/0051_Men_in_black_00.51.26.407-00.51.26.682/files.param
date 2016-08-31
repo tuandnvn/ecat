@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.51.26.407-00.51.26.682" length="48">
+  <files>
+    <file>0051_Men_in_black_00.51.26.407-00.51.26.682.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o2" name="Dr" filename="0051_Men_in_black_00.51.26.407-00.51.26.682.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">402.0137,113.1335,1056.659,942.0154</marker>
+        <marker type="LOCATION" frame="24">393.2266,90.75515,1094.005,964.3942</marker>
+        <marker type="DELETE" frame="25" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>She looks up.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.50.25.087-00.50.28.350/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

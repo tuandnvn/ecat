@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.10.56.377-01.11.01.084" length="0">
+  <files>
+    <file>0051_Men_in_black_01.10.56.377-01.11.01.084.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edgar just starts to turn when they hear the BELL and a VOICE from the corridor outside.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.50.17.315-00.50.18.262" length="48">
+  <files>
+    <file>0051_Men_in_black_00.50.17.315-00.50.18.262.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o2" name="Dr" filename="0051_Men_in_black_00.50.17.315-00.50.18.262.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1152.531,76.5975,339.9162,687.8008</marker>
+        <marker type="LOCATION" frame="12">1131.286,89.87551,347.8831,674.5226</marker>
+        <marker type="LOCATION" frame="22">1131.286,89.87551,347.8831,674.5226</marker>
+        <marker type="LOCATION" frame="32">1131.286,89.87551,342.5728,674.5226</marker>
+        <marker type="LOCATION" frame="42">1131.286,76.5975,337.2616,687.8006</marker>
+        <marker type="LOCATION" frame="46">1123.319,76.5975,345.2282,687.8008</marker>
+      </markers>
+    </object>
+    <object id="o3" name="clipboard" filename="0051_Men_in_black_00.50.17.315-00.50.18.262.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1080.83,440.4149,169.9585,177.9253</marker>
+        <marker type="LOCATION" frame="12">1072.863,486.8879,169.9585,163.3195</marker>
+        <marker type="LOCATION" frame="22">1043.651,517.4274,175.2694,132.7794</marker>
+        <marker type="LOCATION" frame="32">963.9835,501.4937,175.2694,127.4686</marker>
+        <marker type="LOCATION" frame="42">876.3487,498.8383,175.2694,127.4686</marker>
+        <marker type="LOCATION" frame="46">831.2034,512.1163,175.2694,127.4686</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Laurel signs his clipboard.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.50.10.007-00.50.13.314/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="22" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

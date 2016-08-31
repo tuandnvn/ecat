@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.05.24.643-01.05.26.943" length="56">
+  <files>
+    <file>0051_Men_in_black_01.05.24.643-01.05.26.943.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.05.24.643-01.05.26.943.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">912.1064,167.6275,407.0954,890.8204</marker>
+        <marker type="LOCATION" frame="16">912.1064,167.6275,565.1442,890.8204</marker>
+        <marker type="LOCATION" frame="26">1017.472,134.102,557.9601,924.3463</marker>
+        <marker type="LOCATION" frame="36">1244.967,134.102,613.0381,924.3463</marker>
+        <marker type="LOCATION" frame="44">1244.967,134.102,541.1974,924.347</marker>
+        <marker type="LOCATION" frame="52">1007.894,55.0776,644.1685,1003.372</marker>
+        <marker type="LOCATION" frame="55">969.5787,117.3392,639.3792,941.1107</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>EDGAR gets out and walks away, fast, CURSING under his breath.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+  </predicates>
+</session>

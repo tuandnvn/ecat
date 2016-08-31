@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.28.704-01.17.28.908" length="0">
+  <files>
+    <file>0051_Men_in_black_01.17.28.704-01.17.28.908.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>It keeps going, turning all the way over and driving upside down, wheels clinging to the roof of the tunnel.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.21.21.708-01.21.31.881" length="0">
+  <files>
+    <file>0051_Men_in_black_01.21.21.708-01.21.31.881.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A hatch comes up.revealing Edgar, walking slowly toward them, with contained fury.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

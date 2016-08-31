@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.08.21.039-01.08.22.661" length="48">
+  <files>
+    <file>0051_Men_in_black_01.08.21.039-01.08.22.661.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="cat" filename="0051_Men_in_black_01.08.21.039-01.08.22.661.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">311.0421,138.8913,1602.04,914.7672</marker>
+        <marker type="LOCATION" frame="32">232.0177,16.76274,1681.065,1036.897</marker>
+      </markers>
+    </object>
+    <object id="o2" name="nametag" filename="0051_Men_in_black_01.08.21.039-01.08.22.661.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">775.6099,244.2572,165.2327,778.2706</marker>
+        <marker type="LOCATION" frame="46">749.2683,153.2594,205.9424,871.663</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>As it is written across the collar of the cat.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

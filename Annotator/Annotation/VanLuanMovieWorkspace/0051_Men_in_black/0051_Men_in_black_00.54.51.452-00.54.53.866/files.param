@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.54.51.452-00.54.53.866" length="58">
+  <files>
+    <file>0051_Men_in_black_00.54.51.452-00.54.53.866.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="tiny man" filename="0051_Men_in_black_00.54.51.452-00.54.53.866.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">949.0161,338.9931,232.8604,351.4875</marker>
+      </markers>
+    </object>
+    <object id="o2" name="alien1" filename="0051_Men_in_black_00.54.51.452-00.54.53.866.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">221.8764,9.473682,1276.339,1047.872</marker>
+      </markers>
+    </object>
+    <object id="o3" name="alien's head" filename="0051_Men_in_black_00.54.51.452-00.54.53.866.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">65.90388,-7.217358,753.5024,840.4897</marker>
+      </markers>
+    </object>
+    <object id="o4" name="control room" filename="0051_Men_in_black_00.54.51.452-00.54.53.866.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">843.5698,130.2975,496.476,709.5656</marker>
+      </markers>
+    </object>
+    <object id="o5" name="view srceen" filename="0051_Men_in_black_00.54.51.452-00.54.53.866.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">257.0252,13.86728,386.6362,393.2266</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He staggers up out of a small control room inside Rosenberg's head, with gearshifts and viewing screens all around the inside of the skull.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.54.46.786-00.54.50.752/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.54.46.786-00.54.50.752/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.54.46.786-00.54.50.752/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="56" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="56" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

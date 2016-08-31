@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.41.39.264-00.41.43.146" length="94">
+  <files>
+    <file>0051_Men_in_black_00.41.39.264-00.41.43.146.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Alien1" filename="0051_Men_in_black_00.41.39.264-00.41.43.146.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">144.9886,345.5835,505.2632,707.3703</marker>
+        <marker type="LOCATION" frame="52">129.611,312.6316,487.6889,740.3224</marker>
+        <marker type="LOCATION" frame="81">-6.590394,0.6864967,700.7781,1054.462</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Alien2" filename="0051_Men_in_black_00.41.39.264-00.41.43.146.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1320.275,106.1327,557.9891,951.2156</marker>
+        <marker type="LOCATION" frame="36">1280.732,106.1327,564.5767,951.2156</marker>
+        <marker type="LOCATION" frame="72">1377.391,81.96796,514.0509,975.3804</marker>
+        <marker type="LOCATION" frame="79">1353.227,81.96796,522.8375,975.3805</marker>
+        <marker type="LOCATION" frame="81">962.197,53.40961,955.6063,1003.939</marker>
+      </markers>
+    </object>
+    <object id="o3" name="subtile" filename="0051_Men_in_black_00.41.39.264-00.41.43.146.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">428.3753,791.5332,1065.446,193.3181</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>They speak in a bizarre alien tongue, which is subtitled.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.41.34.427-00.41.38.296/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.41.34.427-00.41.38.296/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o1" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="41" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

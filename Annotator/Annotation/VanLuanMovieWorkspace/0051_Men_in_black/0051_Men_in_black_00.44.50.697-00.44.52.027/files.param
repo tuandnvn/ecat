@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.44.50.697-00.44.52.027" length="48">
+  <files>
+    <file>0051_Men_in_black_00.44.50.697-00.44.52.027.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_00.44.50.697-00.44.52.027.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">722.3235,52.69709,679.834,1014.44</marker>
+        <marker type="LOCATION" frame="14">722.3235,31.45228,709.0457,1035.684</marker>
+        <marker type="LOCATION" frame="20">703.7344,20.82987,719.668,1046.306</marker>
+        <marker type="LOCATION" frame="25">730.2903,34.10788,674.5229,1033.028</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+    <object id="o2" name="Alien Baby" filename="0051_Men_in_black_00.44.50.697-00.44.52.027.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">764.8132,536.0165,549.7093,220.4148</marker>
+        <marker type="LOCATION" frame="14">748.8796,567.8838,626.7219,209.7924</marker>
+        <marker type="LOCATION" frame="20">714.3568,520.0829,666.556,257.5929</marker>
+        <marker type="LOCATION" frame="25">714.3568,506.8049,666.556,239.0041</marker>
+        <marker type="LOCATION" frame="28">703.7344,514.7717,677.1784,231.0372</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay looks down at the creature COOING and nestling on his chest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.19.103-01.00.20.190" length="48">
+  <files>
+    <file>0051_Men_in_black_01.00.19.103-01.00.20.190.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="data screen" filename="0051_Men_in_black_01.00.19.103-01.00.20.190.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.523279,19.15742,1901.375,1032.106</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The monitor goes blank, except for a data screen.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

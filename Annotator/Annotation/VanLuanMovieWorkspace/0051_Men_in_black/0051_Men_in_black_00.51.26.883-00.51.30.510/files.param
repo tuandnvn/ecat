@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.51.26.883-00.51.30.510" length="87">
+  <files>
+    <file>0051_Men_in_black_00.51.26.883-00.51.30.510.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Kay" filename="0051_Men_in_black_00.51.26.883-00.51.30.510.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">599.7254,108.3295,448.1465,953.4097</marker>
+        <marker type="LOCATION" frame="86">588.7415,86.36156,459.1306,975.378</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jay" filename="0051_Men_in_black_00.51.26.883-00.51.30.510.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1104.989,53.40961,419.588,1003.936</marker>
+        <marker type="LOCATION" frame="86">1132.449,42.42563,431.6701,1011.625</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay and Kay are standing there.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="78" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.49.06.444-00.49.06.592" length="48">
+  <files>
+    <file>0051_Men_in_black_00.49.06.444-00.49.06.592.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Kay" filename="0051_Men_in_black_00.49.06.444-00.49.06.592.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">882,231,480,747</marker>
+        <marker type="LOCATION" frame="18">894,222,471,756</marker>
+        <marker type="LOCATION" frame="20">9.000029,378.0001,1908,680.9999</marker>
+      </markers>
+    </object>
+    <object id="o2" name="pocket" filename="0051_Men_in_black_00.49.06.444-00.49.06.592.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1026,508.5001,120,63</marker>
+        <marker type="LOCATION" frame="18">1035,508.5,120,63</marker>
+        <marker type="LOCATION" frame="20">213,281.25,1107,588.75</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The analyzer shifts colors.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.48.56.990-00.48.57.537/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.48.56.990-00.48.57.537/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="20" arguments="1" ids="o1" q="False" type="SIT(X)" />
+  </predicates>
+</session>

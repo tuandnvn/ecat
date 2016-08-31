@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.04.30.851-01.04.33.136" length="55">
+  <files>
+    <file>0051_Men_in_black_01.04.30.851-01.04.33.136.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Kay" filename="0051_Men_in_black_01.04.30.851-01.04.33.136.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">294.2794,76.62971,696.8514,1000.976</marker>
+        <marker type="LOCATION" frame="19">133.8359,76.62971,840.5322,984.2129</marker>
+        <marker type="DELETE" frame="20" />
+        <marker type="LOCATION" frame="52">9.312627,33.52549,965.0557,1027.318</marker>
+      </markers>
+    </object>
+    <object id="o2" name="group" filename="0051_Men_in_black_01.04.30.851-01.04.33.136.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">349.357,114.9446,1329.047,945.8981</marker>
+        <marker type="LOCATION" frame="51">349.357,110.1552,1352.993,950.6879</marker>
+        <marker type="DELETE" frame="52" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Kay gestures to a group of ONLOOKERS, drawn by the curious blasts from the store.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="20" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>
