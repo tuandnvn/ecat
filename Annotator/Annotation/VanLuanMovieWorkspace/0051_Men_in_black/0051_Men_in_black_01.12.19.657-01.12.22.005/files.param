@@ -1,9 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.12.19.657-01.12.22.005" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.12.19.657-01.12.22.005" length="57">
   <files>
     <file>0051_Men_in_black_01.12.19.657-01.12.22.005.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="6">
+    <object id="o1" name="Tony" filename="0051_Men_in_black_01.12.19.657-01.12.22.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">720.8663,268.5198,339.639,783.249</marker>
+        <marker type="LOCATION" frame="18">720.8663,268.5198,339.639,783.249</marker>
+        <marker type="LOCATION" frame="19">547.5812,109.0975,822.527,942.6698</marker>
+      </markers>
+    </object>
+    <object id="o2" name="viscous" filename="0051_Men_in_black_01.12.19.657-01.12.22.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">582.2383,162.2383,612.2744,898.7725</marker>
+        <marker type="LOCATION" frame="18">582.2383,162.2383,612.2744,898.7725</marker>
+        <marker type="LOCATION" frame="19">18.48378,30.54152,1901.516,1030.469</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Raid" filename="0051_Men_in_black_01.12.19.657-01.12.22.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">531.408,390.9747,97.0397,150.1805</marker>
+        <marker type="LOCATION" frame="18">531.408,390.9747,97.0397,150.1805</marker>
+        <marker type="LOCATION" frame="19">-9.241841,590.8303,219.4946,373.1408</marker>
+      </markers>
+    </object>
+    <object id="o6" name="House" filename="0051_Men_in_black_01.12.19.657-01.12.22.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +40,11 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_01.12.19.056-01.12.19.494/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.12.19.056-01.12.19.494/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.12.19.056-01.12.19.494/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
 </session>

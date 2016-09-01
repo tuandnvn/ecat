@@ -59,8 +59,8 @@
   <predicates>
     <predicate frame="0" arguments="1" ids="o8" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o5" q="True" type="WALK(X)" />
-    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.41.16.998-00.41.20.533/o5" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.41.16.998-00.41.20.533/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.41.16.998-00.41.20.533/o5" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o8,o5" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,o7" q="True" type="SUPPORT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />

@@ -1,9 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.16.51.679-01.16.52.223" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.16.51.679-01.16.52.223" length="48">
   <files>
     <file>0051_Men_in_black_01.16.51.679-01.16.52.223.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="2">
+    <object id="o1" name="postcard" filename="0051_Men_in_black_01.16.51.679-01.16.52.223.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">702.9749,207.1854,588.7415,478.9016</marker>
+        <marker type="LOCATION" frame="17">702.9749,218.1693,612.9062,514.0504</marker>
+        <marker type="LOCATION" frame="33">702.9749,279.6796,654.6453,485.492</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_01.16.51.679-01.16.52.223.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +26,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.16.49.202-01.16.51.679/o5" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

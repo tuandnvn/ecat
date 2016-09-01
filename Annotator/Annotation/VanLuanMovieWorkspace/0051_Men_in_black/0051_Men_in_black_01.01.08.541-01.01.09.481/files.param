@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_01.01.08.541-01.01.09.481.avi</file>
   </files>
-  <objects no="2">
+  <objects no="5">
     <object id="o1" name="Alien#" filename="0051_Men_in_black_01.01.08.541-01.01.09.481.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">315.8315,95.78713,1283.548,699.2462</marker>
@@ -19,6 +19,11 @@
         <marker type="LOCATION" frame="47">9.3127,26.34146,1898.981,1022.528</marker>
       </markers>
     </object>
+    <object id="o5" name="House" filename="0051_Men_in_black_01.01.08.541-01.01.09.481.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -29,5 +34,7 @@
       <link />
     </annotation>
   </annotations>
-  <predicates />
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.01.01.024-01.01.02.938/o9" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

@@ -1,9 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.17.25.309-01.17.26.746" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.25.309-01.17.26.746" length="48">
   <files>
     <file>0051_Men_in_black_01.17.25.309-01.17.26.746.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="3">
+    <object id="o1" name="car" filename="0051_Men_in_black_01.17.25.309-01.17.26.746.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="17">204.3021,125.9039,1709.109,665.6298</marker>
+        <marker type="LOCATION" frame="23">10.98398,169.8398,1777.209,573.3639</marker>
+        <marker type="LOCATION" frame="26">177.9405,204.9886,1711.306,507.46</marker>
+        <marker type="LOCATION" frame="29">331.7162,194.0046,1561.922,555.7896</marker>
+        <marker type="LOCATION" frame="31">210.8925,110.5263,1700.32,639.2687</marker>
+        <marker type="LOCATION" frame="35">210.8925,110.5264,1704.714,731.5331</marker>
+        <marker type="LOCATION" frame="39">184.5309,75.3776,1647.597,834.7827</marker>
+        <marker type="LOCATION" frame="40">891.8994,130.2975,1030.299,834.7828</marker>
+        <marker type="LOCATION" frame="42">922.6545,0.6864967,999.544,1017.117</marker>
+        <marker type="LOCATION" frame="44">1203.844,0.6864967,718.3554,1054.462</marker>
+        <marker type="LOCATION" frame="46">1186.27,0.6864967,735.9305,1056.659</marker>
+        <marker type="LOCATION" frame="47">1111.579,0.6864967,810.6219,1050.069</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_01.17.25.309-01.17.26.746.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +35,9 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.17.22.729-01.17.23.415/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="17" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="17" arguments="2" ids="o1,0051_Men_in_black_01.17.22.729-01.17.23.415/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_00.44.15.100-00.44.16.469.avi</file>
   </files>
-  <objects no="2">
+  <objects no="4">
     <object id="o1" name="Jay" filename="0051_Men_in_black_00.44.15.100-00.44.16.469.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1136.597,520.0829,124.8134,337.2614</marker>
@@ -35,6 +35,11 @@
         <marker type="LOCATION" frame="40">1121.992,538.6722,221.7426,145.3939</marker>
         <marker type="LOCATION" frame="44">1121.992,532.0331,224.3983,147.386</marker>
         <marker type="LOCATION" frame="47">1132.614,536.0165,213.7758,147.386</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Street" filename="0051_Men_in_black_00.44.15.100-00.44.16.469.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
       </markers>
     </object>
   </objects>

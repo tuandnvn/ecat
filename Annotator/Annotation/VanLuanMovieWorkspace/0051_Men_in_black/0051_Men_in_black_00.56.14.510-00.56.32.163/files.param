@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_00.56.14.510-00.56.32.163.avi</file>
   </files>
-  <objects no="3">
+  <objects no="6">
     <object id="o1" name="Kay" filename="0051_Men_in_black_00.56.14.510-00.56.32.163.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">96.65903,64.39359,817.2083,997.3456</marker>
@@ -62,6 +62,11 @@
         <marker type="DELETE" frame="300" />
       </markers>
     </object>
+    <object id="o6" name="House" filename="0051_Men_in_black_00.56.14.510-00.56.32.163.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -73,12 +78,13 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_00.55.43.407-00.55.48.516/o5" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="16" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="16" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
     <predicate frame="16" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="16" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
     <predicate frame="32" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="62" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
     <predicate frame="130" arguments="1" ids="o3" q="True" type="STAND(X)" />

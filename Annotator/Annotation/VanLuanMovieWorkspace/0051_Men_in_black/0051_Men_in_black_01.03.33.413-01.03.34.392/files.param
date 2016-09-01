@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_01.03.33.413-01.03.34.392.avi</file>
   </files>
-  <objects no="4">
+  <objects no="6">
     <object id="o1" name="alien3" filename="0051_Men_in_black_01.03.33.413-01.03.34.392.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">423.592,155.6541,304.1242,895.6098</marker>
@@ -20,6 +20,17 @@
         <marker type="LOCATION" frame="46">732.5056,38.31485,780.6652,1029.712</marker>
       </markers>
     </object>
+    <object id="o5" name="Street" filename="0051_Men_in_black_01.03.33.413-01.03.34.392.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+    </object>
+    <object id="o6" name="House" filename="0051_Men_in_black_01.03.33.413-01.03.34.392.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -34,5 +45,6 @@
     <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
     <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.03.32.056-01.03.33.271/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="37" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="38" arguments="2" ids="o6,0051_Men_in_black_01.03.32.056-01.03.33.271/o6" q="True" type="IDENTITY(X,Y)" />
   </predicates>
 </session>

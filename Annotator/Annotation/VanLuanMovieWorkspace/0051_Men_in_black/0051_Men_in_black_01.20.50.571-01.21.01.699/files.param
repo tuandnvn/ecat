@@ -1,9 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.20.50.571-01.21.01.699" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.20.50.571-01.21.01.699" length="267">
   <files>
     <file>0051_Men_in_black_01.20.50.571-01.21.01.699.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="2">
+    <object id="o1" name="spaceship" filename="0051_Men_in_black_01.20.50.571-01.21.01.699.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="8">499.5092,374.3559,838.1595,255.092</marker>
+        <marker type="LOCATION" frame="20">499.5092,374.3559,834.8467,327.9754</marker>
+        <marker type="LOCATION" frame="23">499.5092,374.3559,834.8467,327.9754</marker>
+        <marker type="LOCATION" frame="24">804.2945,195.4601,374.3558,99.38654</marker>
+        <marker type="LOCATION" frame="32">804.2945,195.4601,374.3558,99.38654</marker>
+        <marker type="LOCATION" frame="35">802.6381,212.0245,374.3558,99.38651</marker>
+        <marker type="LOCATION" frame="48">767.8528,228.5889,443.9264,99.38651</marker>
+        <marker type="LOCATION" frame="53">761.2271,248.4662,443.9264,99.38651</marker>
+        <marker type="LOCATION" frame="55">754.6013,258.4049,443.9264,99.38651</marker>
+        <marker type="LOCATION" frame="56">1392.331,129.2024,513.4969,904.4172</marker>
+        <marker type="LOCATION" frame="62">1157.117,271.6564,501.9019,636.0737</marker>
+        <marker type="LOCATION" frame="64">678.4049,394.2331,980.6135,586.3804</marker>
+        <marker type="LOCATION" frame="67">413.3742,185.5215,1487.485,795.092</marker>
+        <marker type="LOCATION" frame="69">158.2822,192.1472,1742.577,788.4663</marker>
+        <marker type="LOCATION" frame="74">-10.67486,92.76072,1911.534,887.8528</marker>
+        <marker type="LOCATION" frame="87">-10.67486,92.76072,1543.804,801.7178</marker>
+        <marker type="LOCATION" frame="91">-10.67486,92.76072,1086.626,801.7178</marker>
+        <marker type="LOCATION" frame="93">138.4049,92.76072,1510.675,622.8221</marker>
+        <marker type="LOCATION" frame="98">-4.049095,92.76072,1805.522,775.2148</marker>
+        <marker type="LOCATION" frame="109">-4.049095,26.50305,1894.969,960.7363</marker>
+        <marker type="LOCATION" frame="123">-4.049095,26.50305,1894.969,801.7178</marker>
+        <marker type="LOCATION" frame="126">-4.049095,26.50305,1894.969,586.3804</marker>
+        <marker type="LOCATION" frame="131">-4.049095,26.50305,1894.969,248.4663</marker>
+        <marker type="DELETE" frame="141" />
+        <marker type="LOCATION" frame="144">383.5583,91.10429,1156.196,452.2086</marker>
+        <marker type="LOCATION" frame="154">391.8405,135,1156.196,452.2086</marker>
+        <marker type="LOCATION" frame="166">307.362,152.3926,1308.589,514.3252</marker>
+        <marker type="LOCATION" frame="180">307.362,152.3926,1308.589,514.3252</marker>
+        <marker type="LOCATION" frame="196">307.362,152.3926,1308.589,514.3252</marker>
+        <marker type="LOCATION" frame="214">307.362,152.3926,1308.589,514.3252</marker>
+        <marker type="LOCATION" frame="266">9.20244,13.25151,1769.08,463.8037</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_01.20.50.571-01.21.01.699.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +54,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.20.32.558-01.20.35.882/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

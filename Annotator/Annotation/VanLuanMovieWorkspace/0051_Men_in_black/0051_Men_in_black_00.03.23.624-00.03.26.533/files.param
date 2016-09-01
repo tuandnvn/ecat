@@ -11,7 +11,7 @@
     </object>
     <object id="o7" name="Car" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
-        <marker type="LOCATION" frame="0">15.00003,3.000023,1896,1065</marker>
+        <marker type="LOCATION" frame="0">-0.4026562,18.12082,1917.187,1045.57</marker>
         <marker type="LOCATION" frame="17">-2.999971,3.00008,1914,1065</marker>
       </markers>
     </object>

@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_01.01.01.024-01.01.02.938.avi</file>
   </files>
-  <objects no="5">
+  <objects no="9">
     <object id="o1" name="Jay" filename="0051_Men_in_black_01.01.01.024-01.01.02.938.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">1003.703,359.2018,578.9134,711.2198</marker>
@@ -43,6 +43,11 @@
         <marker type="DELETE" frame="46" />
       </markers>
     </object>
+    <object id="o9" name="House" filename="0051_Men_in_black_01.01.01.024-01.01.02.938.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -54,13 +59,14 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.00.59.243-01.01.00.839/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o9,0051_Men_in_black_01.00.59.243-01.01.00.839/o7" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.00.59.243-01.01.00.839/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.00.59.243-01.01.00.839/o4" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.00.59.243-01.01.00.839/o1" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,o3" q="True" type="PART_OF(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
   </predicates>

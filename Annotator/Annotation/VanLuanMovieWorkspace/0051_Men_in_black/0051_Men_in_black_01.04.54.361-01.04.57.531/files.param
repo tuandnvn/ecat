@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_01.04.54.361-01.04.57.531.avi</file>
   </files>
-  <objects no="1">
+  <objects no="6">
     <object id="o1" name="Zed" filename="0051_Men_in_black_01.04.54.361-01.04.57.531.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">442.7495,71.84035,658.5366,996.1863</marker>
@@ -11,6 +11,11 @@
         <marker type="LOCATION" frame="36">411.6186,43.10421,727.9827,1024.923</marker>
         <marker type="LOCATION" frame="50">519.3792,21.5521,771.0867,1046.475</marker>
         <marker type="LOCATION" frame="76">200.8869,21.5521,965.0555,1046.475</marker>
+      </markers>
+    </object>
+    <object id="o6" name="House" filename="0051_Men_in_black_01.04.54.361-01.04.57.531.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
       </markers>
     </object>
   </objects>
@@ -25,5 +30,6 @@
   </annotations>
   <predicates>
     <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_01.04.39.569-01.04.47.042/o7" q="True" type="IDENTITY(X,Y)" />
   </predicates>
 </session>

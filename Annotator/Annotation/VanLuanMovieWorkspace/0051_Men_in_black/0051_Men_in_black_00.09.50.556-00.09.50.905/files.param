@@ -56,6 +56,7 @@
     <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
     <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.09.50.033-00.09.50.556/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.09.50.033-00.09.50.556/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="42" arguments="1" ids="o6" q="True" type="RUN(X)" />
     <predicate frame="42" arguments="1" ids="o7" q="True" type="RUN(X)" />
   </predicates>

@@ -1,9 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.11.12.973-01.11.16.150" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.11.12.973-01.11.16.150" length="77">
   <files>
     <file>0051_Men_in_black_01.11.12.973-01.11.16.150.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="3">
+    <object id="o1" name="Dr" filename="0051_Men_in_black_01.11.12.973-01.11.16.150.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1548.014,16.67871,367.3646,1044.332</marker>
+        <marker type="LOCATION" frame="24">1226.859,90.61372,455.1624,970.3966</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jay" filename="0051_Men_in_black_01.11.12.973-01.11.16.150.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">251.8412,88.30325,494.4404,968.0865</marker>
+        <marker type="LOCATION" frame="76">330.3971,88.30324,515.2343,968.0863</marker>
+      </markers>
+    </object>
+    <object id="o3" name="House" filename="0051_Men_in_black_01.11.12.973-01.11.16.150.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +31,14 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.10.56.377-01.11.01.084/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="13" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="30" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="37" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

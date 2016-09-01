@@ -1,9 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.24.34.253-01.24.41.374" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.24.34.253-01.24.41.374" length="171">
   <files>
     <file>0051_Men_in_black_01.24.34.253-01.24.41.374.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="5">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.24.34.253-01.24.41.374.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">206.3388,19.7814,1390.164,1038.689</marker>
+        <marker type="LOCATION" frame="36">318.5355,13.86728,1597.967,1044.603</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o2" name="jay" filename="0051_Men_in_black_01.24.34.253-01.24.41.374.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="37">318.5355,158.8558,1034.691,904.86</marker>
+        <marker type="LOCATION" frame="59">144.5492,204.9886,1179.68,870.1184</marker>
+        <marker type="LOCATION" frame="77">2.196792,336.7964,1298.307,738.4628</marker>
+        <marker type="LOCATION" frame="109">219.6797,220.3661,1126.957,855.1631</marker>
+        <marker type="LOCATION" frame="119">221.5627,44.62243,1034.063,1030.993</marker>
+        <marker type="LOCATION" frame="128">223.2573,130.2975,950.4597,945.3933</marker>
+        <marker type="LOCATION" frame="144">226.27,422.4714,801.8307,653.354</marker>
+        <marker type="LOCATION" frame="167">532.7231,159.954,1034.691,916.0646</marker>
+        <marker type="DELETE" frame="168" />
+      </markers>
+    </object>
+    <object id="o5" name="Street" filename="0051_Men_in_black_01.24.34.253-01.24.41.374.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +39,7 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.23.25.810-01.23.28.805/o5" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

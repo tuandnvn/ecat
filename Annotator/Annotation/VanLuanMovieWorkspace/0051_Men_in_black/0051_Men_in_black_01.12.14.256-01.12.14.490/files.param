@@ -1,9 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.12.14.256-01.12.14.490" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.12.14.256-01.12.14.490" length="48">
   <files>
     <file>0051_Men_in_black_01.12.14.256-01.12.14.490.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="7">
+    <object id="o1" name="Kay" filename="0051_Men_in_black_01.12.14.256-01.12.14.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.644122E-05,12.05777,1908.445,1039.711</marker>
+      </markers>
+    </object>
+    <object id="o2" name="box1" filename="0051_Men_in_black_01.12.14.256-01.12.14.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1044.332,62.31047,369.675,560.2888</marker>
+        <marker type="LOCATION" frame="4">1023.538,41.51625,369.675,560.2888</marker>
+        <marker type="LOCATION" frame="6">1058.195,43.36463,404.792,560.2888</marker>
+        <marker type="LOCATION" frame="10">1345.156,73.86282,387.2335,560.2888</marker>
+        <marker type="LOCATION" frame="14">1372.419,50.75815,369.675,560.2888</marker>
+        <marker type="LOCATION" frame="17">1404.765,55.37907,369.675,560.2888</marker>
+        <marker type="LOCATION" frame="22">1349.314,23.0325,369.675,560.2888</marker>
+      </markers>
+    </object>
+    <object id="o3" name="matches" filename="0051_Men_in_black_01.12.14.256-01.12.14.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">820.2165,186.4982,332.7077,242.5992</marker>
+        <marker type="LOCATION" frame="4">912.6353,214.2239,332.7076,242.5992</marker>
+        <marker type="LOCATION" frame="6">845.6317,70.97477,332.7076,242.5992</marker>
+        <marker type="LOCATION" frame="7">607.6534,22.45492,332.7076,242.5992</marker>
+        <marker type="LOCATION" frame="8">471.3357,38.6282,332.7076,242.5992</marker>
+        <marker type="LOCATION" frame="10">291.1192,105.6318,332.7075,242.5992</marker>
+        <marker type="LOCATION" frame="14">515.2346,168.0145,332.7077,242.5992</marker>
+        <marker type="LOCATION" frame="17">598.4114,198.0506,332.7077,242.5992</marker>
+        <marker type="LOCATION" frame="22">603.0324,184.1878,332.7077,242.5992</marker>
+        <marker type="LOCATION" frame="35">614.5848,239.639,332.7077,242.5992</marker>
+      </markers>
+    </object>
+    <object id="o7" name="House" filename="0051_Men_in_black_01.12.14.256-01.12.14.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +49,15 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.12.12.631-01.12.14.084/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.12.12.631-01.12.14.084/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o7,0051_Men_in_black_01.12.12.631-01.12.14.084/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.12.12.631-01.12.14.084/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
 </session>

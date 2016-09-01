@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_00.51.39.197-00.51.43.726.avi</file>
   </files>
-  <objects no="3">
+  <objects no="6">
     <object id="o1" name="Kay" filename="0051_Men_in_black_00.51.39.197-00.51.43.726.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">854.5538,145.6751,407.506,913.868</marker>
@@ -44,6 +44,11 @@
         <marker type="LOCATION" frame="108">541.5104,196.2014,416.2928,859.2225</marker>
       </markers>
     </object>
+    <object id="o6" name="House" filename="0051_Men_in_black_00.51.39.197-00.51.43.726.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -56,13 +61,14 @@
   </annotations>
   <predicates>
     <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
-    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
-    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.51.26.883-00.51.30.510/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_00.51.26.883-00.51.30.510/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.51.26.883-00.51.30.510/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.51.26.883-00.51.30.510/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="5" arguments="1" ids="o3" q="True" type="STAND(X)" />
     <predicate frame="33" arguments="2" ids="o3,o1" q="False" type="LOOK_AT(X,Y)" />
     <predicate frame="84" arguments="2" ids="o1,o3" q="False" type="LOOK_AT(X,Y)" />

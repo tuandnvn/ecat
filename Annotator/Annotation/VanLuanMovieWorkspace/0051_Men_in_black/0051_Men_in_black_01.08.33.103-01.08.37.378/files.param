@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_01.08.33.103-01.08.37.378.avi</file>
   </files>
-  <objects no="3">
+  <objects no="6">
     <object id="o1" name="Dr" filename="0051_Men_in_black_01.08.33.103-01.08.37.378.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">407.8379,21.8919,1311.081,1036.216</marker>
@@ -21,6 +21,11 @@
         <marker type="LOCATION" frame="102">643.6613,387.3227,610.7097,331.7164</marker>
       </markers>
     </object>
+    <object id="o6" name="House" filename="0051_Men_in_black_01.08.33.103-01.08.37.378.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -33,6 +38,7 @@
   </annotations>
   <predicates>
     <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_01.08.26.866-01.08.31.653/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.08.26.866-01.08.31.653/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="92" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
   </predicates>

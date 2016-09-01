@@ -3,7 +3,7 @@
   <files>
     <file>0051_Men_in_black_01.07.20.810-01.07.28.677.avi</file>
   </files>
-  <objects no="3">
+  <objects no="5">
     <object id="o1" name="dog" filename="0051_Men_in_black_01.07.20.810-01.07.28.677.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
       <markers>
         <marker type="LOCATION" frame="0">843.8581,319.6875,147.2727,195.1684</marker>
@@ -56,6 +56,11 @@
         <marker type="LOCATION" frame="169">1103.681,235.8759,299.3348,792.6386</marker>
       </markers>
     </object>
+    <object id="o5" name="Street" filename="0051_Men_in_black_01.07.20.810-01.07.28.677.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
   </objects>
   <annotations>
     <annotation id="a1">
@@ -67,14 +72,15 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
-    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.06.55.417-01.07.01.162/o2" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.06.55.417-01.07.01.162/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.06.55.417-01.07.01.162/o1" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.06.55.417-01.07.01.162/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.06.55.417-01.07.01.162/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.06.55.417-01.07.01.162/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="147" arguments="2" ids="o3,o1" q="False" type="LOOK_AT(X,Y)" />
   </predicates>
 </session>

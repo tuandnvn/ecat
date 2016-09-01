@@ -1,9 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.14.57.361-01.15.05.443" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.14.57.361-01.15.05.443" length="194">
   <files>
     <file>0051_Men_in_black_01.14.57.361-01.15.05.443.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="5">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_01.14.57.361-01.15.05.443.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">856.7507,246.7277,188.9244,511.8536</marker>
+        <marker type="LOCATION" frame="16">812.8147,241.2357,188.9245,511.8536</marker>
+        <marker type="LOCATION" frame="49">863.341,236.8421,188.9245,511.8536</marker>
+        <marker type="LOCATION" frame="61">810.6179,236.8421,241.6477,572.2654</marker>
+        <marker type="LOCATION" frame="73">683.2036,213.7758,241.6477,635.4235</marker>
+        <marker type="LOCATION" frame="89">641.4645,216.7962,241.6477,635.4236</marker>
+        <marker type="LOCATION" frame="103">573.3638,150.0686,309.7488,702.1517</marker>
+        <marker type="LOCATION" frame="133">384.4394,150.0686,432.7689,894.0961</marker>
+        <marker type="LOCATION" frame="141">384.4394,150.0686,325.1259,894.0961</marker>
+        <marker type="LOCATION" frame="147">307.5515,124.8055,276.7964,679.9085</marker>
+        <marker type="LOCATION" frame="153">213.0892,124.8055,318.5355,897.3915</marker>
+        <marker type="LOCATION" frame="159">161.4645,129.7482,318.5356,929.7942</marker>
+        <marker type="LOCATION" frame="179">161.4645,112.7231,343.7987,946.8195</marker>
+        <marker type="LOCATION" frame="184">197.1625,118.215,343.7986,946.8195</marker>
+        <marker type="DELETE" frame="185" />
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.14.57.361-01.15.05.443.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1080.824,251.1213,153.7757,498.6728</marker>
+        <marker type="LOCATION" frame="16">1021.51,250.0229,153.7758,498.6728</marker>
+        <marker type="LOCATION" frame="61">1006.133,224.7598,169.1535,575.5608</marker>
+        <marker type="LOCATION" frame="73">956.7048,211.5789,192.2197,634.8742</marker>
+        <marker type="LOCATION" frame="89">956.7048,211.5789,253.73,634.8742</marker>
+        <marker type="LOCATION" frame="103">1019.314,165.4462,239.451,746.9108</marker>
+        <marker type="LOCATION" frame="130">1154.856,158.5261,286.9016,760.751</marker>
+        <marker type="LOCATION" frame="133">1143.432,153.3638,292.1739,762.2883</marker>
+        <marker type="LOCATION" frame="141">1063.25,128.1007,372.3569,922.6547</marker>
+        <marker type="LOCATION" frame="153">929.7941,103.9359,372.357,951.2134</marker>
+        <marker type="LOCATION" frame="159">929.7941,103.9359,403.6613,942.4257</marker>
+        <marker type="LOCATION" frame="179">808.6957,69.88558,436.8879,998.444</marker>
+        <marker type="LOCATION" frame="184">756.9337,66.04119,436.8879,998.444</marker>
+        <marker type="LOCATION" frame="185">1625.629,132.4943,285.5839,931.9917</marker>
+        <marker type="LOCATION" frame="189">1217.025,139.0847,694.1891,925.4022</marker>
+        <marker type="LOCATION" frame="193">771.0747,268.6956,804.0283,798.8116</marker>
+      </markers>
+    </object>
+    <object id="o3" name="screen" filename="0051_Men_in_black_01.14.57.361-01.15.05.443.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="185">500.8696,145.6751,1003.936,536.0183</marker>
+      </markers>
+    </object>
+    <object id="o5" name="House" filename="0051_Men_in_black_01.14.57.361-01.15.05.443.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="1" />
@@ -13,4 +63,8 @@
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+  </predicates>
 </session>

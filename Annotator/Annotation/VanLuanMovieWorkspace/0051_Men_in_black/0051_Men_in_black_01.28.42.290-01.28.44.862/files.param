@@ -52,9 +52,9 @@
     <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.28.36.084-01.28.42.116/o3" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.28.36.084-01.28.42.116/o1" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.28.36.084-01.28.42.116/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.28.36.084-01.28.42.116/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.28.36.084-01.28.42.116/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.28.36.084-01.28.42.116/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
