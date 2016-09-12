@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.46.09.345-00.46.12.402" length="74">
+  <files>
+    <file>0051_Men_in_black_00.46.09.345-00.46.12.402.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.46.09.345-00.46.12.402.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.996474,20.80559,1916.007,1036.497</marker>
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0051_Men_in_black_00.46.09.345-00.46.12.402.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">298.9492,20.80559,1072.434,597.6883</marker>
+        <marker type="LOCATION" frame="73">121.1558,20.80559,1250.228,711.1734</marker>
+      </markers>
+    </object>
+    <object id="o4" name="car" filename="0051_Men_in_black_00.46.09.345-00.46.12.402.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">698.0385,391.5236,919.2294,476.6375</marker>
+        <marker type="LOCATION" frame="28">556.1821,446.3748,1153.765,550.4028</marker>
+        <marker type="LOCATION" frame="44">582.662,446.3748,1162.811,610.9282</marker>
+        <marker type="LOCATION" frame="51">614.8161,446.3748,1146.2,610.9282</marker>
+        <marker type="LOCATION" frame="57">728.3012,441.7322,1071.402,615.5707</marker>
+        <marker type="LOCATION" frame="73">692.3643,429.352,1210.508,627.951</marker>
+      </markers>
+    </object>
+    <object id="o5" name="" filename="0051_Men_in_black_00.46.09.345-00.46.12.402.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1108.476,444.4833,183.4676,71.87391</marker>
+        <marker type="LOCATION" frame="16">1232.364,348.0209,218.4588,200.4905</marker>
+        <marker type="LOCATION" frame="28">1328.354,346.1295,209.4746,243.9931</marker>
+        <marker type="LOCATION" frame="41">1392.483,347.6016,230.459,318.1777</marker>
+        <marker type="LOCATION" frame="51">1396.067,345.373,219.3099,309.0578</marker>
+        <marker type="LOCATION" frame="73">1324.098,295.0613,213.7296,295.0613</marker>
+      </markers>
+    </object>
+    <object id="o6" name="" filename="0051_Men_in_black_00.46.09.345-00.46.12.402.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">902.3117,469.0718,128.6165,92.67954</marker>
+        <marker type="LOCATION" frame="2">775.5867,464.4612,217.5131,284.5405</marker>
+        <marker type="LOCATION" frame="16">728.3012,432.1891,166.4448,384.9037</marker>
+        <marker type="LOCATION" frame="28">677.2329,385.8493,217.5131,503.1175</marker>
+        <marker type="LOCATION" frame="41">646.2871,398.1609,243.4677,584.4137</marker>
+        <marker type="LOCATION" frame="51">607.9333,376.3082,263.4327,646.9493</marker>
+        <marker type="LOCATION" frame="73">494.711,329.1067,307.3555,688.4766</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="74" />
+      <text>JAY and KAY get out, very undercover cop.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.46.03.586-00.46.05.836/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.46.03.586-00.46.05.836/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

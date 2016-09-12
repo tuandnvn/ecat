@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.38.40.989-00.38.41.194" length="48">
+  <files>
+    <file>0051_Men_in_black_00.38.40.989-00.38.41.194.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.38.40.989-00.38.41.194.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o5" name="bag" filename="0051_Men_in_black_00.38.40.989-00.38.41.194.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">906.5529,643.2082,117.9522,103.2082</marker>
+        <marker type="LOCATION" frame="16">920.8362,593.9078,107.8157,102.2867</marker>
+        <marker type="LOCATION" frame="32">854.9488,562.116,97.67918,101.3652</marker>
+        <marker type="LOCATION" frame="47">832.3719,597.5939,82.01388,91.22867</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Man" filename="0051_Men_in_black_00.38.40.989-00.38.41.194.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">902.8669,516.041,141.9113,353.8567</marker>
+        <marker type="LOCATION" frame="32">888.1229,503.1399,156.6553,379.6587</marker>
+        <marker type="LOCATION" frame="47">888.1229,490.2389,121.6382,392.5597</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="48" />
+      <text>The Older Man (ROSENBERG), is carrying a cat and an ornate rosewood jewelry box.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="40" arguments="1" ids="o4" q="True" type="STAND(X)" />
+  </predicates>
+</session>

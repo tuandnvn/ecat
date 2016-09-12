@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.58.24.766-00.58.27.008" length="54">
+  <files>
+    <file>0009_Forrest_Gump_00.58.24.766-00.58.27.008.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Soldiers" filename="0009_Forrest_Gump_00.58.24.766-00.58.27.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1152.829,403.1534,489.3304,402.2462</marker>
+        <marker type="LOCATION" frame="53">1152.829,403.1534,489.3304,402.2462</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Hospital" filename="0009_Forrest_Gump_00.58.24.766-00.58.27.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.599174E-05,124.9781,1915.808,817.4672</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_00.58.24.766-00.58.27.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">543.2397,452.9158,203.1965,393.9525</marker>
+        <marker type="LOCATION" frame="53">543.2397,452.9158,203.1965,393.9525</marker>
+      </markers>
+    </object>
+    <object id="o4" name="" filename="0009_Forrest_Gump_00.58.24.766-00.58.27.008.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">854.2549,527.5594,223.9309,170.0216</marker>
+        <marker type="LOCATION" frame="53">854.2549,527.5594,223.9309,170.0216</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A group of wounded soldiers hang out in the hospital, recuperating.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.58.11.260-00.58.24.266/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.58.11.260-00.58.24.266/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

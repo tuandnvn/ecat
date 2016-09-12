@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.16.067-01.00.18.408" length="57">
+  <files>
+    <file>0051_Men_in_black_01.00.16.067-01.00.18.408.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.00.16.067-01.00.18.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.00.16.067-01.00.18.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">316.6787,165.7039,916.2455,887.0032</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o3" name="computer" filename="0051_Men_in_black_01.00.16.067-01.00.18.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.714752,251.4801,354.8015,799.2795</marker>
+        <marker type="LOCATION" frame="18">6.714752,251.4801,354.8015,799.2795</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o4" name="Jay" filename="0051_Men_in_black_01.00.16.067-01.00.18.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1199.783,48.73644,460.0722,857.7619</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o5" name="keyboard" filename="0051_Men_in_black_01.00.16.067-01.00.18.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">484.3321,871.408,816.8232,183.2491</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o6" name="Elizabeth" filename="0051_Men_in_black_01.00.16.067-01.00.18.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="19">289.3863,17.5451,1354.874,1039.062</marker>
+        <marker type="DELETE" frame="56" />
+      </markers>
+    </object>
+    <object id="o7" name="Screen" filename="0051_Men_in_black_01.00.16.067-01.00.18.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="19">0.8663764,17.5451,1916.318,1039.061</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="19" />
+      <text>Kay clicks off the picture of her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.00.06.000-01.00.06.131/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.00.06.000-01.00.06.131/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.00.06.000-01.00.06.131/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

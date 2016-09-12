@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.43.23.926-00.43.25.575" length="48">
+  <files>
+    <file>0051_Men_in_black_00.43.23.926-00.43.25.575.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o6" name="documents" filename="0051_Men_in_black_00.43.23.926-00.43.25.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">888.1369,156.0456,164.2586,104.7148</marker>
+        <marker type="LOCATION" frame="11">717.6141,344.6252,197.3193,247.0235</marker>
+        <marker type="LOCATION" frame="17">683.0125,478.9826,225.6568,369.0022</marker>
+        <marker type="LOCATION" frame="23">700.6663,642.2318,318.8774,328.947</marker>
+        <marker type="LOCATION" frame="26">701.9999,629.66,351.7415,325.775</marker>
+        <marker type="LOCATION" frame="29">651.3639,453.5186,384.6057,322.6031</marker>
+        <marker type="LOCATION" frame="35">13.46007,413.7262,652.9277,469.1635</marker>
+        <marker type="LOCATION" frame="36">-0.9125566,433.2319,589.2776,484.5627</marker>
+        <marker type="LOCATION" frame="41">-0.9125566,615.9696,321.0742,439.3916</marker>
+        <marker type="LOCATION" frame="44">-0.9125566,815.1331,160.1521,240.2281</marker>
+        <marker type="LOCATION" frame="47">-0.9125566,765.8555,47.22433,289.5057</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_00.43.23.926-00.43.25.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9125566,16.42585,1917.719,1040.989</marker>
+      </markers>
+    </object>
+    <object id="o5" name="driver" filename="0051_Men_in_black_00.43.23.926-00.43.25.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1031.863,141.673,806.9202,913.6882</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The Driver hands over some documents.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="4" arguments="2" ids="o5,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="24" arguments="2" ids="o5,o6" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.05.700-01.00.05.827" length="48">
+  <files>
+    <file>0051_Men_in_black_01.00.05.700-01.00.05.827.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.00.05.700-01.00.05.827.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+    </object>
+    <object id="o2" name="Elizabeth" filename="0051_Men_in_black_01.00.05.700-01.00.05.827.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">492.1299,56.53427,676.4622,773.9352</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_01.00.05.700-01.00.05.827.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="13">605.1985,38.98914,1286.643,1013.718</marker>
+      </markers>
+    </object>
+    <object id="o4" name="computer" filename="0051_Men_in_black_01.00.05.700-01.00.05.827.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.714752,21.44402,1900.722,1029.315</marker>
+        <marker type="LOCATION" frame="12">6.714752,23.39348,1902.672,1027.365</marker>
+        <marker type="LOCATION" frame="13">6.714752,405.4874,616.0289,645.2711</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>It's more than Kay can bear.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.00.03.236-01.00.05.669/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.00.03.236-01.00.05.669/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.00.03.236-01.00.05.669/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.00.03.236-01.00.05.669/o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="39" arguments="2" ids="o3,o4" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.37.34.464-00.37.35.165" length="48">
+  <files>
+    <file>0051_Men_in_black_00.37.34.464-00.37.35.165.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.37.34.464-00.37.35.165.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Edwards" filename="0051_Men_in_black_00.37.34.464-00.37.35.165.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">726.5677,18.03339,240.4421,260.4824</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o3" name="vest" filename="0051_Men_in_black_00.37.34.464-00.37.35.165.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">523.1913,206.3828,735.3613,769.4237</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o4" name="kay" filename="0051_Men_in_black_00.37.34.464-00.37.35.165.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">496.141,104.1929,945.751,885.6391</marker>
+        <marker type="LOCATION" frame="29">496.141,104.1929,989.833,917.6994</marker>
+        <marker type="LOCATION" frame="30">1309.647,20.03697,599.1058,1041.93</marker>
+      </markers>
+    </object>
+    <object id="o5" name="computer" filename="0051_Men_in_black_00.37.34.464-00.37.35.165.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">3.228197,316.5861,603.1168,643.1912</marker>
+        <marker type="LOCATION" frame="29">3.228197,316.5861,603.1168,643.1912</marker>
+        <marker type="LOCATION" frame="30">179.5547,178.3299,917.6979,705.3065</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>KAY is at a computer terminal.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.37.32.286-00.37.33.233/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.37.32.286-00.37.33.233/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.37.32.286-00.37.33.233/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="3" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="3" arguments="2" ids="o4,o5" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

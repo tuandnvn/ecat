@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.19.29.316-00.19.32.249" length="71">
+  <files>
+    <file>0051_Men_in_black_00.19.29.316-00.19.32.249.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="James" filename="0051_Men_in_black_00.19.29.316-00.19.32.249.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.8531083,59.46717,1404.191,1003.27</marker>
+        <marker type="LOCATION" frame="44">0.8532547,59.46717,1360.07,1003.27</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o2" name="Store" filename="0051_Men_in_black_00.19.29.316-00.19.32.249.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="0051_Men_in_black_00.19.29.316-00.19.32.249.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1431.901,17.26468,483.4108,1045.471</marker>
+        <marker type="LOCATION" frame="44">1406.963,17.26468,508.3486,1045.471</marker>
+        <marker type="LOCATION" frame="45">518.7922,47.9574,1333.215,1014.779</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="70" />
+      <text>Edwards, seeing that Kay is getting somewhere, joins in the routine.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.19.28.159-00.19.29.136/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.19.28.159-00.19.29.136/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.19.28.159-00.19.29.136/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

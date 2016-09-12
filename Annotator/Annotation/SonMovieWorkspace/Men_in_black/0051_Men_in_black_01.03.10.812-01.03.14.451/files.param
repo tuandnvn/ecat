@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.03.10.812-01.03.14.451" length="88">
+  <files>
+    <file>0051_Men_in_black_01.03.10.812-01.03.14.451.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0051_Men_in_black_01.03.10.812-01.03.14.451.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Man" filename="0051_Men_in_black_01.03.10.812-01.03.14.451.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">169.0534,18.58865,869.9483,1039.103</marker>
+        <marker type="LOCATION" frame="9">176.4888,57.62479,1001.928,1000.066</marker>
+        <marker type="LOCATION" frame="20">226.5092,66.91911,1037.415,990.7721</marker>
+        <marker type="LOCATION" frame="26">304.7504,73.42513,964.7504,984.2661</marker>
+        <marker type="LOCATION" frame="32">301.0327,79.93116,974.0447,977.7601</marker>
+        <marker type="LOCATION" frame="44">295.4561,66.91911,953.5967,990.7721</marker>
+        <marker type="LOCATION" frame="54">224.8193,61.34252,987.0566,996.3488</marker>
+        <marker type="LOCATION" frame="62">85.40449,50.18934,1024.234,1007.502</marker>
+        <marker type="LOCATION" frame="71">132.2479,18.58865,913.8174,1039.101</marker>
+        <marker type="LOCATION" frame="77">163.4768,18.58865,840.2065,1039.102</marker>
+        <marker type="LOCATION" frame="87">345.6454,48.33047,737.969,1009.361</marker>
+      </markers>
+    </object>
+    <object id="o3" name="gun" filename="0051_Men_in_black_01.03.10.812-01.03.14.451.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">769.4664,788.1583,76.21342,120.8262</marker>
+        <marker type="LOCATION" frame="11">766.5454,710.2188,157.2067,213.6366</marker>
+        <marker type="LOCATION" frame="14">739.2599,693.3563,206.7986,221.2048</marker>
+        <marker type="LOCATION" frame="21">618.8984,671.0499,327.1601,243.5112</marker>
+        <marker type="LOCATION" frame="35">579.8623,689.6385,342.031,213.7693</marker>
+        <marker type="LOCATION" frame="51">568.7091,689.9485,345.7487,232.048</marker>
+        <marker type="LOCATION" frame="59">529.673,672.9088,336.4544,237.9341</marker>
+        <marker type="LOCATION" frame="64">650.4991,626.4371,197.0394,263.7513</marker>
+        <marker type="LOCATION" frame="68">724.8537,732.3924,107.8141,141.2733</marker>
+        <marker type="LOCATION" frame="70">771.3253,803.0292,61.34223,70.63626</marker>
+        <marker type="DELETE" frame="71" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="87" />
+      <text>The tow truck driver looks at him with disdain, and pulling back his shirt reveals a mean-looking gun.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.03.09.097-01.03.10.812/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.03.09.097-01.03.10.812/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="7" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.41.06.133-00.41.09.400" length="79">
+  <files>
+    <file>0051_Men_in_black_00.41.06.133-00.41.09.400.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.41.06.133-00.41.09.400.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1138411,20.49336,1916.129,1036.964</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Man" filename="0051_Men_in_black_00.41.06.133-00.41.09.400.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">988.7452,285.3992,234.0684,369.5818</marker>
+        <marker type="LOCATION" frame="10">997.3904,293.4972,186.4119,364.1924</marker>
+        <marker type="LOCATION" frame="19">1005.171,300.7853,213.5361,359.3419</marker>
+        <marker type="LOCATION" frame="29">1039.968,311.6929,197.3263,353.9525</marker>
+        <marker type="LOCATION" frame="38">970.2662,326.4113,182.7376,349.1021</marker>
+        <marker type="LOCATION" frame="59">723.8783,349.0494,199.2534,337.8204</marker>
+        <marker type="LOCATION" frame="65">664.3346,373.6882,238.6686,324.5083</marker>
+        <marker type="LOCATION" frame="78">648.9354,369.5818,210.4563,353.1559</marker>
+      </markers>
+    </object>
+    <object id="o4" name="taxi" filename="0051_Men_in_black_00.41.06.133-00.41.09.400.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.247139,431.1787,1845.855,620.076</marker>
+      </markers>
+    </object>
+    <object id="o6" name="bag" filename="0051_Men_in_black_00.41.06.133-00.41.09.400.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1120.152,310.038,125.2471,168.365</marker>
+        <marker type="LOCATION" frame="9">1018.74,330.6056,150.6895,149.8507</marker>
+        <marker type="LOCATION" frame="17">1009.664,335.4946,157.7121,147.0149</marker>
+        <marker type="LOCATION" frame="27">1002.367,342.1373,152.6905,134.2125</marker>
+        <marker type="LOCATION" frame="38">994.339,349.4443,150.4519,137.1717</marker>
+        <marker type="LOCATION" frame="78">993.8783,369.5818,157.0723,149.8859</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Edgar's car" filename="0051_Men_in_black_00.41.06.133-00.41.09.400.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="68">1830.57,917.7947,84.18251,135.5133</marker>
+        <marker type="LOCATION" frame="78">957.9468,476.3498,956.8061,576.9582</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="78" />
+      <text>ROSENBERG, the jewelry store owner, steps out of a cab in the meat-packing district, still carrying the ornate box and his beloved cat.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="23" arguments="2" ids="o5,o6" q="False" type="SUPPORT(X,Y)" />
+    <predicate frame="28" arguments="1" ids="o5" q="True" type="WALK(X)" />
+    <predicate frame="65" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="68" arguments="1" ids="o7" q="True" type="RUN(X)" />
+  </predicates>
+</session>

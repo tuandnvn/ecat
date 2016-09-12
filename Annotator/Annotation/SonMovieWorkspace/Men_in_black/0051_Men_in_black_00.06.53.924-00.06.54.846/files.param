@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.06.53.924-00.06.54.846" length="48">
+  <files>
+    <file>0051_Men_in_black_00.06.53.924-00.06.54.846.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.06.53.924-00.06.54.846.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="gun" filename="0051_Men_in_black_00.06.53.924-00.06.54.846.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="12">622.6321,704.4401,309.7843,258.8605</marker>
+        <marker type="LOCATION" frame="15">635.045,700.1964,310.1023,274.5614</marker>
+        <marker type="LOCATION" frame="17">635.3634,724.8802,295.3718,263.882</marker>
+        <marker type="LOCATION" frame="18">728.723,734.1453,217.6966,236.7935</marker>
+        <marker type="LOCATION" frame="22">645.9722,717.1709,309.7844,258.8605</marker>
+        <marker type="LOCATION" frame="24">638.0912,662.0039,295.8411,258.8605</marker>
+        <marker type="LOCATION" frame="29">711.748,717.1709,260.9828,258.8605</marker>
+        <marker type="LOCATION" frame="33">666.1294,717.1709,260.9828,258.8605</marker>
+        <marker type="DELETE" frame="34" />
+      </markers>
+    </object>
+    <object id="o3" name="Dee" filename="0051_Men_in_black_00.06.53.924-00.06.54.846.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="12">471.9843,76.38508,1444.947,986.6381</marker>
+        <marker type="DELETE" frame="34" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="13" endFrame="34" />
+      <text>Dee struggles to roll over and change the controls on his gun, which fell out of his hand as he hit the ground.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.06.53.301-00.06.53.923/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.06.53.301-00.06.53.923/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.06.53.301-00.06.53.923/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

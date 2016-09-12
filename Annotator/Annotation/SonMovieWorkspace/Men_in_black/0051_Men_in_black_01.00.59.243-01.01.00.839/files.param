@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.59.243-01.01.00.839" length="48">
+  <files>
+    <file>0051_Men_in_black_01.00.59.243-01.01.00.839.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">685.1263,300.2166,179.3502,758.3394</marker>
+        <marker type="LOCATION" frame="28">685.1263,300.2166,179.3502,758.3394</marker>
+        <marker type="LOCATION" frame="29">137.3285,475.6679,448.3755,582.8886</marker>
+        <marker type="LOCATION" frame="47">90.54147,483.4657,495.1625,575.0908</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Zed" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">484.3321,269.0253,286.5704,789.5308</marker>
+        <marker type="LOCATION" frame="28">484.3321,269.0253,286.5704,789.5308</marker>
+        <marker type="LOCATION" frame="29">601.2996,526.3539,446.426,532.2023</marker>
+        <marker type="LOCATION" frame="47">601.2996,534.1516,514.657,524.4046</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Jay" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.083082,222.2383,257.3285,836.3177</marker>
+        <marker type="LOCATION" frame="8">-1.083082,206.6426,411.3358,851.9134</marker>
+        <marker type="LOCATION" frame="13">24.25988,196.8953,424.982,861.6607</marker>
+        <marker type="LOCATION" frame="28">135.379,167.6534,280.722,890.9026</marker>
+        <marker type="LOCATION" frame="29">963.8989,354.8015,631.6248,703.7549</marker>
+        <marker type="LOCATION" frame="47">1108.159,419.1336,561.4441,639.4229</marker>
+      </markers>
+    </object>
+    <object id="o7" name="screen" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="29">279.6389,161.805,1360.722,787.5815</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay and Kay cross back toward the LAD (Landed Alien Display), where each of the thousand or so Aliens who live on earth are represented by a flickering LIGHT.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.00.21.330-01.00.26.030/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.00.21.330-01.00.26.030/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.00.21.330-01.00.26.030/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o4,o7" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o6,o7" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o2,o7" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

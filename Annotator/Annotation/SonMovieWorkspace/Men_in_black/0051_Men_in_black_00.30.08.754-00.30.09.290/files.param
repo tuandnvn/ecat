@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.30.08.754-00.30.09.290" length="48">
+  <files>
+    <file>0051_Men_in_black_00.30.08.754-00.30.09.290.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.30.08.754-00.30.09.290.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edwards" filename="0051_Men_in_black_00.30.08.754-00.30.09.290.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.7792244,14.02595,1272.356,1049.93</marker>
+        <marker type="LOCATION" frame="23">-0.7792244,60.11131,1639.035,1003.843</marker>
+        <marker type="LOCATION" frame="47">-0.7792244,98.18181,1580.928,965.7703</marker>
+      </markers>
+    </object>
+    <object id="o4" name="book" filename="0051_Men_in_black_00.30.08.754-00.30.09.290.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">21.26159,24.04442,1683.117,1033.915</marker>
+        <marker type="LOCATION" frame="11">9.239328,18.29469,1659.072,1039.664</marker>
+        <marker type="LOCATION" frame="23">21.26159,12.02226,1845.417,1045.935</marker>
+        <marker type="LOCATION" frame="47">-0.7792244,12.02226,1703.154,1045.935</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Another picture, this one of the 1964 World's Fair grounds, still under construction.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.29.52.324-00.29.57.320/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.29.52.324-00.29.57.320/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.29.52.324-00.29.57.320/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

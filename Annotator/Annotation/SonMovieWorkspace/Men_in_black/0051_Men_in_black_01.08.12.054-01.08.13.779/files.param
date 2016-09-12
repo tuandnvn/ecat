@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.08.12.054-01.08.13.779" length="48">
+  <files>
+    <file>0051_Men_in_black_01.08.12.054-01.08.13.779.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.08.12.054-01.08.13.779.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Dr" filename="0051_Men_in_black_01.08.12.054-01.08.13.779.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">881.418,18.13432,580.2985,229.7015</marker>
+        <marker type="LOCATION" frame="30">804.8508,18.13435,763.6571,634.7019</marker>
+        <marker type="LOCATION" frame="47">804.8508,139.0298,807.9851,727.3885</marker>
+      </markers>
+    </object>
+    <object id="o4" name="pen" filename="0051_Men_in_black_01.08.12.054-01.08.13.779.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">903.5822,128.9552,76.56711,114.8508</marker>
+        <marker type="LOCATION" frame="13">875.138,247.9869,93.15685,152.8321</marker>
+        <marker type="LOCATION" frame="30">915.6717,412.0522,114.8508,202.5</marker>
+        <marker type="LOCATION" frame="47">898.0411,571.9869,136.0075,262.444</marker>
+      </markers>
+    </object>
+    <object id="o5" name="document" filename="0051_Men_in_black_01.08.12.054-01.08.13.779.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="17">921.7164,419.1045,64.47762,36.26863</marker>
+        <marker type="LOCATION" frame="26">865.2985,537.9851,145.0746,46.34335</marker>
+        <marker type="LOCATION" frame="46">814.9269,766.6791,284.103,75.55971</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>In the morgue, LAUREL is working at a desk when suddenly ROSENBERG'S CAT leaps up onto it from nowhere, the way cats do, landing right in the middle of the file she's studying.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="17" arguments="2" ids="o3,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="17" arguments="2" ids="o3,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

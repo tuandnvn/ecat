@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.09.12.571-01.09.16.209" length="88">
+  <files>
+    <file>0051_Men_in_black_01.09.12.571-01.09.16.209.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.09.12.571-01.09.16.209.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o3" name="cat" filename="0051_Men_in_black_01.09.12.571-01.09.16.209.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">524.7761,161.194,1345.97,880.5225</marker>
+        <marker type="LOCATION" frame="66">464.3284,110.8209,1434.126,930.8983</marker>
+        <marker type="LOCATION" frame="72">345.4478,44.32835,1555.522,997.3889</marker>
+        <marker type="LOCATION" frame="79">399.8512,20.14924,1482.985,884.5523</marker>
+        <marker type="LOCATION" frame="83">550.9702,22.45201,1321.791,982.9958</marker>
+        <marker type="LOCATION" frame="86">990.2239,24.17909,810.0001,981.2687</marker>
+        <marker type="LOCATION" frame="87">1242.09,24.17909,628.6567,981.2722</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="87" />
+      <text>From out in the corridor, a bell rings -- DING, DING.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.08.37.912-01.08.46.775/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="72" arguments="1" ids="o3" q="True" type="WALK(X)" />
+  </predicates>
+</session>

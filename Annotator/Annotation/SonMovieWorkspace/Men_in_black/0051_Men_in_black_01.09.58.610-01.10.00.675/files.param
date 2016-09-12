@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.09.58.610-01.10.00.675" length="50">
+  <files>
+    <file>0051_Men_in_black_01.09.58.610-01.10.00.675.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.09.58.610-01.10.00.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Tony" filename="0051_Men_in_black_01.09.58.610-01.10.00.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="48">176.1942,36.26865,1257.313,1021.568</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Edgar" filename="0051_Men_in_black_01.09.58.610-01.10.00.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">399.8508,50.37317,1176.717,1007.464</marker>
+        <marker type="DELETE" frame="48" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="49" />
+      <text>Edgar grits his teeth.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.09.56.832-01.09.58.447/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.09.56.832-01.09.58.447/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.09.56.832-01.09.58.447/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="48" arguments="1" ids="o4" q="True" type="STAND(X)" />
+  </predicates>
+</session>

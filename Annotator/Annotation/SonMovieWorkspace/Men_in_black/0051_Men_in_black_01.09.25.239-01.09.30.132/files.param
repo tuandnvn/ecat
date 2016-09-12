@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.09.25.239-01.09.30.132" length="118">
+  <files>
+    <file>0051_Men_in_black_01.09.25.239-01.09.30.132.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.09.25.239-01.09.30.132.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Edgar" filename="0051_Men_in_black_01.09.25.239-01.09.30.132.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">405.8955,116.8657,1190.822,940.9708</marker>
+        <marker type="DELETE" frame="11" />
+        <marker type="LOCATION" frame="37">405.8955,116.8657,1190.822,940.9708</marker>
+        <marker type="LOCATION" frame="58">393.806,42.31342,1206.615,1015.524</marker>
+        <marker type="LOCATION" frame="79">405.8955,40.2985,1198.228,1017.539</marker>
+        <marker type="LOCATION" frame="117">405.8955,60.44775,1204.925,997.3891</marker>
+      </markers>
+    </object>
+    <object id="o6" name="fly" filename="0051_Men_in_black_01.09.25.239-01.09.30.132.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="17">500.597,507.7612,94.7015,64.47762</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o4" name="bell" filename="0051_Men_in_black_01.09.25.239-01.09.30.132.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="11">867.3135,356.6418,372.7613,342.5373</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o5" name="battledore" filename="0051_Men_in_black_01.09.25.239-01.09.30.132.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="11">262.8358,132.9851,453.3582,924.8508</marker>
+        <marker type="LOCATION" frame="14">238.6567,156.1567,473.5078,901.6795</marker>
+        <marker type="LOCATION" frame="17">71.4179,179.3284,491.6418,878.5082</marker>
+        <marker type="LOCATION" frame="18">-1.119232,179.3284,435.2237,878.5082</marker>
+        <marker type="LOCATION" frame="19">-1.119079,179.3284,251.8653,878.5082</marker>
+        <marker type="DELETE" frame="20" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="117" />
+      <text>Edgar winces.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.09.24.342-01.09.25.083/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.09.24.342-01.09.25.083/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.09.24.342-01.09.25.083/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.09.24.342-01.09.25.083/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

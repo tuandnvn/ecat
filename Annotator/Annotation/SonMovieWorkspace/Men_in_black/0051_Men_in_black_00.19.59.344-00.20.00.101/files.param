@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.19.59.344-00.20.00.101" length="48">
+  <files>
+    <file>0051_Men_in_black_00.19.59.344-00.20.00.101.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Store" filename="0051_Men_in_black_00.19.59.344-00.20.00.101.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o6" name="point" filename="0051_Men_in_black_00.19.59.344-00.20.00.101.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="18">916.8384,393.2505,414.3517,437.3712</marker>
+        <marker type="LOCATION" frame="32">767.2114,359.9118,563.9786,562.788</marker>
+        <marker type="LOCATION" frame="47">740.3553,324.1918,590.8348,598.5082</marker>
+      </markers>
+    </object>
+    <object id="o5" name="man" filename="0051_Men_in_black_00.19.59.344-00.20.00.101.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">320.2487,72.89523,1319.787,989.8401</marker>
+        <marker type="LOCATION" frame="8">318.3304,47.9574,1432.741,1014.778</marker>
+        <marker type="LOCATION" frame="17">320.2488,155.3819,1555.737,907.3536</marker>
+        <marker type="LOCATION" frame="18">65.11552,17.26468,1055.062,433.5346</marker>
+        <marker type="LOCATION" frame="26">7.566655,17.26468,1392.682,1012.86</marker>
+        <marker type="LOCATION" frame="47">-0.106524,17.26468,1120.285,1047.389</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Jeebs nods, point taken.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.19.53.827-00.19.55.433/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

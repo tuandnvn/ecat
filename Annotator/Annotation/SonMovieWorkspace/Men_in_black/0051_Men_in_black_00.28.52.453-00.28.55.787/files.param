@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.28.52.453-00.28.55.787" length="80">
+  <files>
+    <file>0051_Men_in_black_00.28.52.453-00.28.55.787.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.28.52.453-00.28.55.787.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Zed" filename="0051_Men_in_black_00.28.52.453-00.28.55.787.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">824.2729,451.7774,77.55835,496.3734</marker>
+        <marker type="LOCATION" frame="2">816.7452,372.2801,101.054,582.7141</marker>
+        <marker type="LOCATION" frame="9">790.3982,290.8438,237.4653,701.903</marker>
+        <marker type="LOCATION" frame="17">760.2872,238.4919,277.2711,767.8276</marker>
+        <marker type="LOCATION" frame="30">743.8481,188.0789,375.9051,874.4704</marker>
+        <marker type="LOCATION" frame="40">731.2029,188.0789,451.7774,874.4704</marker>
+        <marker type="LOCATION" frame="52">731.2029,141.544,513.824,921.0054</marker>
+        <marker type="LOCATION" frame="62">704.0574,77.55836,682.5134,984.991</marker>
+        <marker type="LOCATION" frame="71">469.4435,95.00899,964.3467,967.5403</marker>
+        <marker type="LOCATION" frame="79">64.2011,50.41294,1411.562,1012.136</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="79" />
+      <text>Zed reappears on the other side of the glass, coming through a door and into the shooting gallery.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.28.50.897-00.28.52.153/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.28.50.897-00.28.52.153/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

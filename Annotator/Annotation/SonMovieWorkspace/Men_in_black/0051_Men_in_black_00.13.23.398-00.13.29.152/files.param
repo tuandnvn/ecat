@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.13.23.398-00.13.29.152" length="138">
+  <files>
+    <file>0051_Men_in_black_00.13.23.398-00.13.29.152.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="House" filename="0051_Men_in_black_00.13.23.398-00.13.29.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Edgar" filename="0051_Men_in_black_00.13.23.398-00.13.29.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">514.9556,203.3393,916.9449,857.4781</marker>
+        <marker type="LOCATION" frame="11">440.1422,118.9343,1099.183,941.8844</marker>
+        <marker type="LOCATION" frame="19">229.1297,113.1794,1108.774,947.6393</marker>
+        <marker type="LOCATION" frame="28">163.9077,97.83306,1199.895,962.9852</marker>
+        <marker type="LOCATION" frame="56">165.826,128.5258,1129.876,932.2922</marker>
+        <marker type="LOCATION" frame="76">171.5809,122.7709,1103.809,938.0478</marker>
+        <marker type="LOCATION" frame="90">119.7869,103.5879,1141.385,957.2307</marker>
+        <marker type="LOCATION" frame="96">8.526024,59.46717,1177.833,1001.351</marker>
+        <marker type="LOCATION" frame="103">44.97366,47.25984,1264.156,1013.559</marker>
+        <marker type="LOCATION" frame="108">476.5898,28.77445,1440.639,1032.044</marker>
+        <marker type="LOCATION" frame="119">1644.831,663.73,272.3988,397.0875</marker>
+        <marker type="DELETE" frame="120" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="120" />
+      <text>Edgar is everything his voice led us to expect -- a nasty, bug-eyed redneck carrying a twelve-gauge shotgun.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.13.21.581-00.13.23.097/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.13.21.581-00.13.23.097/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="28" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="96" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>

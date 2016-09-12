@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.10.11.853-00.10.14.874" length="73">
+  <files>
+    <file>0051_Men_in_black_00.10.11.853-00.10.14.874.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.10.11.853-00.10.14.874.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+        <marker type="LOCATION" frame="54">-1.288252E-06,27.63781,1916.784,1034.689</marker>
+        <marker type="LOCATION" frame="66">-1.288252E-06,14.8819,1916.784,1047.445</marker>
+        <marker type="LOCATION" frame="72">-1.288252E-06,89.29135,1916.784,973.0358</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.10.11.853-00.10.14.874.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">972.7559,423.0709,484.7244,639.9212</marker>
+        <marker type="LOCATION" frame="11">947.2441,121.1811,542.126,786.6141</marker>
+        <marker type="LOCATION" frame="14">942.9921,14.8819,533.1313,778.1102</marker>
+        <marker type="LOCATION" frame="19">896.2205,14.8819,544.252,733.4645</marker>
+        <marker type="LOCATION" frame="24">900.4725,93.54332,531.496,688.8188</marker>
+        <marker type="LOCATION" frame="35">926.0433,161.9882,548.3859,713.5038</marker>
+        <marker type="LOCATION" frame="42">908.9764,240.2362,559.1339,729.2125</marker>
+        <marker type="LOCATION" frame="52">925.9843,308.2677,562.2047,647.0078</marker>
+        <marker type="LOCATION" frame="60">847.3229,140.315,656.9291,803.622</marker>
+        <marker type="LOCATION" frame="65">823.937,161.5748,680.3149,901.4173</marker>
+        <marker type="LOCATION" frame="72">823.937,263.622,680.3149,799.37</marker>
+      </markers>
+    </object>
+    <object id="o4" name="japanese" filename="0051_Men_in_black_00.10.11.853-00.10.14.874.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,110.5512,1917.638,952.4409</marker>
+        <marker type="LOCATION" frame="3">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="72" />
+      <text>The bus, of course, is completely filled with JAPANESE TOURISTS, and it seems like every single one of them has a video camera.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="KNEEL(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.10.09.415-00.10.11.759/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.10.09.415-00.10.11.759/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="8" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

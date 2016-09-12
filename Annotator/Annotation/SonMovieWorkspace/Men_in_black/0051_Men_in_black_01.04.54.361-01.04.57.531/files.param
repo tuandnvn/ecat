@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.04.54.361-01.04.57.531" length="77">
+  <files>
+    <file>0051_Men_in_black_01.04.54.361-01.04.57.531.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.04.54.361-01.04.57.531.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Zed" filename="0051_Men_in_black_01.04.54.361-01.04.57.531.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">384.6816,57.62479,760.2751,1000.069</marker>
+        <marker type="LOCATION" frame="9">302.7057,35.31842,790.2031,1022.375</marker>
+        <marker type="LOCATION" frame="20">202.5129,27.88296,879.2427,1029.809</marker>
+        <marker type="LOCATION" frame="31">217.3838,33.45956,921.9965,1024.232</marker>
+        <marker type="LOCATION" frame="41">301.0327,27.88296,949.8793,1029.809</marker>
+        <marker type="LOCATION" frame="51">371.6695,25.22745,996.351,1032.465</marker>
+        <marker type="LOCATION" frame="60">325.1979,22.83748,1044.681,1034.855</marker>
+        <marker type="LOCATION" frame="76">-0.1032509,18.58865,1191.532,1039.104</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="76" />
+      <text>ZED is in his office.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="WALK(X)" />
+  </predicates>
+</session>

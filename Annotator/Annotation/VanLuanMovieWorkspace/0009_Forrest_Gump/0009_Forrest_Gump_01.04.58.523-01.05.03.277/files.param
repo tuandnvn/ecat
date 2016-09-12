@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.04.58.523-01.05.03.277" length="114">
+  <files>
+    <file>0009_Forrest_Gump_01.04.58.523-01.05.03.277.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.04.58.523-01.05.03.277.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.196768E-05,125.8823,1915.817,824.0522</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.04.58.523-01.05.03.277.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">309.5426,125.8823,974.6396,821.9573</marker>
+        <marker type="LOCATION" frame="7">382.745,125.8816,1006.013,821.9568</marker>
+        <marker type="LOCATION" frame="16">476.8626,125.8813,840.7844,821.9568</marker>
+        <marker type="LOCATION" frame="17">853.3333,381.0457,330.4575,566.7894</marker>
+        <marker type="LOCATION" frame="28">886.7974,293.2026,401.5682,654.6313</marker>
+        <marker type="LOCATION" frame="41">861.6985,247.9168,426.6675,699.9166</marker>
+        <marker type="LOCATION" frame="53">921.0205,125.8823,529.3406,821.9494</marker>
+        <marker type="LOCATION" frame="63">970.4568,125.8821,614.9026,821.9498</marker>
+        <marker type="LOCATION" frame="71">1010.613,171.8954,716.968,775.9339</marker>
+        <marker type="LOCATION" frame="78">1045.751,142.6131,870.0657,805.2156</marker>
+        <marker type="LOCATION" frame="88">995.5546,133.3175,911.8963,814.5126</marker>
+        <marker type="LOCATION" frame="96">770.7189,125.8823,1027.974,821.9509</marker>
+        <marker type="LOCATION" frame="100">807.3203,125.8823,991.372,821.9503</marker>
+        <marker type="LOCATION" frame="104">762.3527,167.7124,933.9789,780.1207</marker>
+        <marker type="LOCATION" frame="108">819.8693,210.4719,853.3328,737.3615</marker>
+        <marker type="LOCATION" frame="113">752.9412,263.9215,828.2352,683.9127</marker>
+      </markers>
+    </object>
+    <object id="o8" name="men" filename="0009_Forrest_Gump_01.04.58.523-01.05.03.277.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">58.5621,368.4967,455.9473,581.4379</marker>
+        <marker type="LOCATION" frame="16">58.5621,368.4967,493.5947,581.4379</marker>
+        <marker type="LOCATION" frame="17">1070.85,410.3268,146.4053,184.0518</marker>
+        <marker type="LOCATION" frame="36">1213.071,406.144,77.38511,79.47687</marker>
+        <marker type="LOCATION" frame="40">1213.071,406.144,77.38511,79.47687</marker>
+        <marker type="DELETE" frame="41" />
+        <marker type="LOCATION" frame="91">1643.921,552.5483,92.02678,158.9549</marker>
+        <marker type="LOCATION" frame="92">1643.921,552.5483,167.3209,393.2033</marker>
+        <marker type="LOCATION" frame="97">1665.83,627.8427,216.5227,317.9064</marker>
+        <marker type="LOCATION" frame="103">1692.125,560.915,223.692,384.8348</marker>
+        <marker type="LOCATION" frame="108">1777.778,548.366,138.0372,397.3835</marker>
+        <marker type="LOCATION" frame="113">1735.947,422.8758,179.8686,522.8745</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Hilary" filename="0009_Forrest_Gump_01.04.58.523-01.05.03.277.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1405.49,180.2602,510.3255,769.6744</marker>
+        <marker type="LOCATION" frame="7">1401.307,169.2801,514.5072,780.6537</marker>
+        <marker type="LOCATION" frame="16">1271.634,155.1634,644.1802,794.7699</marker>
+        <marker type="LOCATION" frame="17">1079.217,368.4967,447.5803,581.4344</marker>
+        <marker type="LOCATION" frame="40">1246.536,406.1434,334.64,543.7843</marker>
+        <marker type="LOCATION" frame="60">1501.699,594.3786,182.9497,355.5481</marker>
+        <marker type="LOCATION" frame="70">1530.98,678.0392,363.9208,271.8875</marker>
+        <marker type="LOCATION" frame="78">1639.739,857.9084,138.0392,92.01963</marker>
+        <marker type="LOCATION" frame="84">1639.739,878.8235,138.0392,71.10421</marker>
+        <marker type="LOCATION" frame="87">1639.739,878.8235,138.0392,71.10421</marker>
+        <marker type="DELETE" frame="88" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Hilary pulls Forrest up onto the stage.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o7" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o8" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.03.53.533-01.04.00.523/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o7,0009_Forrest_Gump_01.03.53.533-01.04.00.523/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.03.53.533-01.04.00.523/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o7,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o7" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="17" arguments="2" ids="o2,o7" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="32" arguments="2" ids="o7,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="99" arguments="2" ids="o2,o8" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="99" arguments="2" ids="o8,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

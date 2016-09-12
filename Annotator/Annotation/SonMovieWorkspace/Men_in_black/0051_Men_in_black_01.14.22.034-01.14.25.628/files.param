@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.14.22.034-01.14.25.628" length="87">
+  <files>
+    <file>0051_Men_in_black_01.14.22.034-01.14.25.628.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_01.14.22.034-01.14.25.628.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o4" name="taxi" filename="0051_Men_in_black_01.14.22.034-01.14.25.628.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.890318,453.8871,1910.631,604.5848</marker>
+        <marker type="LOCATION" frame="19">2.890318,308.5714,1910.632,749.9008</marker>
+        <marker type="LOCATION" frame="41">2.890318,242.1927,1910.631,816.2798</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Jay" filename="0051_Men_in_black_01.14.22.034-01.14.25.628.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">641.5615,339.0698,437.7409,376.7443</marker>
+        <marker type="LOCATION" frame="8">779.701,314.216,243.9867,225.784</marker>
+        <marker type="LOCATION" frame="13">818.1443,278.1481,490.7925,373.0811</marker>
+        <marker type="LOCATION" frame="15">833.5216,263.7209,531.0299,794.7509</marker>
+        <marker type="LOCATION" frame="19">916.0465,280.0422,482.5914,778.4296</marker>
+        <marker type="LOCATION" frame="23">872.9901,229.6345,434.1529,828.8375</marker>
+        <marker type="LOCATION" frame="27">820.9634,274.485,531.0299,708.6379</marker>
+        <marker type="LOCATION" frame="29">898.1063,265.515,433.3839,421.5947</marker>
+        <marker type="LOCATION" frame="32">890.5459,208.1063,421.9791,323.148</marker>
+        <marker type="LOCATION" frame="35">898.7471,234.1196,350.3464,296.9103</marker>
+        <marker type="LOCATION" frame="41">941.1628,211.6943,267.309,285.2492</marker>
+        <marker type="LOCATION" frame="47">987.8073,218.9825,373.1562,331.7816</marker>
+        <marker type="LOCATION" frame="49">976.7443,202.5373,402.1594,348.2268</marker>
+        <marker type="LOCATION" frame="53">1018.306,294.6678,342.6578,274.0366</marker>
+        <marker type="LOCATION" frame="55">1068.538,331.8937,270.1803,204.5183</marker>
+        <marker type="LOCATION" frame="58">1021.894,339.0698,283.4552,217.6744</marker>
+        <marker type="LOCATION" frame="63">987.8073,292.4252,297.8073,231.4286</marker>
+        <marker type="LOCATION" frame="65">905.2824,260.1329,371.3622,279.8671</marker>
+        <marker type="LOCATION" frame="68">946.5449,258.5952,295.5009,241.9364</marker>
+        <marker type="LOCATION" frame="71">896.3123,303.1894,161.4618,113.0233</marker>
+        <marker type="LOCATION" frame="74">809.8406,271.3583,204.8771,211.233</marker>
+        <marker type="LOCATION" frame="78">718.7043,279.8671,285.2491,231.4286</marker>
+        <marker type="LOCATION" frame="80">698.9701,315.7475,303.1894,199.1362</marker>
+        <marker type="LOCATION" frame="82">706.1462,304.9834,313.0565,298.7044</marker>
+        <marker type="LOCATION" frame="86">740.2325,249.3688,294.2193,446.711</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="86" />
+      <text>And Jay starts running down the street, where DOZENS of cabs are waiting at the intersection.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.13.25.880-01.13.28.057/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

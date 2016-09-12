@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.05.24.643-01.05.26.943" length="56">
+  <files>
+    <file>0051_Men_in_black_01.05.24.643-01.05.26.943.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0051_Men_in_black_01.05.24.643-01.05.26.943.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edgar" filename="0051_Men_in_black_01.05.24.643-01.05.26.943.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">802.926,187.7453,550.2236,869.9483</marker>
+        <marker type="LOCATION" frame="7">806.6437,191.463,855.0775,866.2289</marker>
+        <marker type="LOCATION" frame="9">840.1032,191.8761,1037.246,865.816</marker>
+        <marker type="LOCATION" frame="10">856.8329,192.0826,988.9157,865.6096</marker>
+        <marker type="LOCATION" frame="13">977.6592,130.1205,600.4131,927.5713</marker>
+        <marker type="LOCATION" frame="16">957.2117,193.3219,756.5574,864.3706</marker>
+        <marker type="LOCATION" frame="19">949.7762,152.4268,853.2186,905.2654</marker>
+        <marker type="LOCATION" frame="21">1012.978,98.5198,710.086,959.1724</marker>
+        <marker type="LOCATION" frame="23">949.7762,87.36662,693.3563,970.3256</marker>
+        <marker type="LOCATION" frame="26">916.3167,135.6971,829.9827,921.9946</marker>
+        <marker type="LOCATION" frame="29">882.8571,189.6041,966.6093,868.0879</marker>
+        <marker type="LOCATION" frame="30">882.8571,189.6041,1035.387,868.0879</marker>
+        <marker type="LOCATION" frame="32">873.5628,223.0637,1044.681,834.6276</marker>
+        <marker type="LOCATION" frame="34">972.0826,184.0275,946.1613,873.6636</marker>
+        <marker type="LOCATION" frame="37">1100.344,102.2375,817.8992,955.454</marker>
+        <marker type="LOCATION" frame="40">1237.9,126.4028,680.3433,931.2886</marker>
+        <marker type="LOCATION" frame="46">1087.332,122.685,830.9113,935.0063</marker>
+        <marker type="LOCATION" frame="48">1008.021,44.61274,910.2238,1013.079</marker>
+        <marker type="LOCATION" frame="52">849.3976,72.4957,974.0447,985.1955</marker>
+        <marker type="LOCATION" frame="53">849.3976,72.4957,1068.847,985.1955</marker>
+        <marker type="LOCATION" frame="55">801.0671,120.8262,1117.177,936.8651</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="55" />
+      <text>EDGAR gets out and walks away, fast, CURSING under his breath.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+  </predicates>
+</session>

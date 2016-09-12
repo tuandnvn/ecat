@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.12.12.631-01.12.14.084" length="48">
+  <files>
+    <file>0051_Men_in_black_01.12.12.631-01.12.14.084.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.12.12.631-01.12.14.084.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Kay" filename="0051_Men_in_black_01.12.12.631-01.12.14.084.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">366.1888,35.87414,700.4895,1023.357</marker>
+        <marker type="LOCATION" frame="22">366.1888,35.87414,700.4895,1023.357</marker>
+        <marker type="LOCATION" frame="23">9.335698,28.3217,1891.888,1013.916</marker>
+      </markers>
+    </object>
+    <object id="o6" name="box of matches" filename="0051_Men_in_black_01.12.12.631-01.12.14.084.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">836.3287,860.979,117.0629,66.08392</marker>
+        <marker type="LOCATION" frame="10">819.5931,861.9232,131.6529,70.80408</marker>
+        <marker type="LOCATION" frame="22">738.1469,860.979,149.1608,66.08392</marker>
+        <marker type="LOCATION" frame="23">706.049,94.40561,770.3496,509.7902</marker>
+        <marker type="LOCATION" frame="30">892.972,76.23253,545.6643,523.5577</marker>
+        <marker type="LOCATION" frame="32">598.4266,71.04022,1066.783,586.0227</marker>
+        <marker type="LOCATION" frame="34">303.8811,65.84792,1402.867,576.1101</marker>
+        <marker type="LOCATION" frame="36">294.4406,60.65561,1376.433,535.3584</marker>
+        <marker type="LOCATION" frame="42">587.0979,73.63638,1198.951,558.8813</marker>
+        <marker type="LOCATION" frame="47">549.3357,32.09792,1187.622,556.993</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Kay pulls out a box of matches and strikes one on the side.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.11.55.144-01.11.56.244/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.21.06.483-01.21.08.297" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.21.06.483-01.21.08.297.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Bar" filename="0009_Forrest_Gump_01.21.06.483-01.21.08.297.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.377993E-05,124.4156,1915.844,818.7013</marker>
+      </markers>
+    </object>
+    <object id="o5" name="people" filename="0009_Forrest_Gump_01.21.06.483-01.21.08.297.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="10">1799.48,461.0389,116.3636,265.974</marker>
+        <marker type="LOCATION" frame="13">1483.636,402.8571,432.2073,540.2598</marker>
+        <marker type="LOCATION" frame="26">882.9946,178.4415,1032.849,764.6754</marker>
+        <marker type="LOCATION" frame="30">698.1818,124.4156,1217.661,818.7013</marker>
+        <marker type="LOCATION" frame="40">527.0588,165.974,1388.784,777.1429</marker>
+        <marker type="LOCATION" frame="47">407.2727,128.5714,1508.57,814.5455</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The people in the bar cheer and kiss each other.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.20.17.741-01.20.19.759/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="10" arguments="1" ids="o5" q="True" type="STAND(X)" />
+  </predicates>
+</session>

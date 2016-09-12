@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.06.000-01.00.06.131" length="48">
+  <files>
+    <file>0051_Men_in_black_01.00.06.000-01.00.06.131.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.00.06.000-01.00.06.131.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Elizabeth" filename="0051_Men_in_black_01.00.06.000-01.00.06.131.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">492.1299,56.53427,676.4622,773.9352</marker>
+        <marker type="DELETE" frame="6" />
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_01.00.06.000-01.00.06.131.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="6">605.1985,38.98914,1286.643,1013.718</marker>
+      </markers>
+    </object>
+    <object id="o4" name="computer" filename="0051_Men_in_black_01.00.06.000-01.00.06.131.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.714752,29.24185,1898.773,1021.518</marker>
+        <marker type="LOCATION" frame="5">6.714752,29.24185,1898.773,1021.518</marker>
+        <marker type="LOCATION" frame="6">6.714752,417.1841,608.2311,633.5755</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He reaches out and flicks a switch.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.00.05.700-01.00.05.827/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.00.05.700-01.00.05.827/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.00.05.700-01.00.05.827/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.00.05.700-01.00.05.827/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="6" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="32" arguments="2" ids="o3,o4" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="43" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.43.44.881-00.43.48.044" length="76">
+  <files>
+    <file>0051_Men_in_black_00.43.44.881-00.43.48.044.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o4" name="women" filename="0051_Men_in_black_00.43.44.881-00.43.48.044.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">699.2396,43.11787,1020.456,1014.297</marker>
+        <marker type="LOCATION" frame="74">489.8099,36.95817,1229.886,1020.456</marker>
+        <marker type="DELETE" frame="75" />
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_00.43.44.881-00.43.48.044.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9125566,16.42585,1917.719,1040.989</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Kay" filename="0051_Men_in_black_00.43.44.881-00.43.48.044.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="75">11.40684,32.85171,1199.087,1024.563</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Jay" filename="0051_Men_in_black_00.43.44.881-00.43.48.044.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="75">46.31178,129.3536,418.8593,570.7985</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="75" />
+      <text>MRS. REDGICK is in front, MOANING in pain, holding her swollen belly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.43.32.559-00.43.35.008/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="75" arguments="1" ids="o7" q="True" type="STAND(X)" />
+    <predicate frame="75" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="75" arguments="2" ids="o7,0051_Men_in_black_00.43.32.559-00.43.35.008/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="75" arguments="2" ids="o5,0051_Men_in_black_00.43.32.559-00.43.35.008/o5" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

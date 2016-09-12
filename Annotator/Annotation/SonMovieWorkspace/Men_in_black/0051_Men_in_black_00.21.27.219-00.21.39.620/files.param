@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.21.27.219-00.21.39.620" length="298">
+  <files>
+    <file>0051_Men_in_black_00.21.27.219-00.21.39.620.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Restaurant" filename="0051_Men_in_black_00.21.27.219-00.21.39.620.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o4" name="James" filename="0051_Men_in_black_00.21.27.219-00.21.39.620.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="189">1837.62,918.8632,76.73296,141.9541</marker>
+        <marker type="LOCATION" frame="199">1753.215,506.4298,161.1365,554.3875</marker>
+        <marker type="LOCATION" frame="212">1671.276,387.4956,243.0751,673.322</marker>
+        <marker type="LOCATION" frame="264">1343.522,325.2977,572.7479,735.52</marker>
+        <marker type="LOCATION" frame="297">1135.524,285.826,675.2396,774.9915</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Kay" filename="0051_Men_in_black_00.21.27.219-00.21.39.620.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="106">1.811771,815.2756,237.8686,245.5414</marker>
+        <marker type="LOCATION" frame="114">1.492055,690.5861,514.4227,370.2314</marker>
+        <marker type="LOCATION" frame="134">0.6927652,642.6288,235.151,418.1885</marker>
+        <marker type="LOCATION" frame="154">-0.106524,512.1848,448.881,548.6328</marker>
+        <marker type="LOCATION" frame="189">3.730066,446.9627,659.8935,613.8548</marker>
+        <marker type="LOCATION" frame="216">42.09596,389.414,675.2399,671.4035</marker>
+        <marker type="LOCATION" frame="297">306.8206,366.3943,598.5083,694.423</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="297" />
+      <text>-- the flash dims on EDWARDS and KAY, sitting at a table in a Chinese restaurant.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.20.54.104-00.20.54.917/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="106" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="189" arguments="1" ids="o4" q="True" type="SIT(X)" />
+  </predicates>
+</session>
