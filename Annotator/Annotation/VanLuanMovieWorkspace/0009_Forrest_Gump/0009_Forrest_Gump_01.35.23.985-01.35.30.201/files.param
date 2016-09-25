@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.35.23.985-01.35.30.201" length="150">
+  <files>
+    <file>0009_Forrest_Gump_01.35.23.985-01.35.30.201.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Boat" filename="0009_Forrest_Gump_01.35.23.985-01.35.30.201.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.94793E-05,127.4051,1915.915,817.0218</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Ocean" filename="0009_Forrest_Gump_01.35.23.985-01.35.30.201.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.94793E-05,127.4043,1924.085,817.0213</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Dan" filename="0009_Forrest_Gump_01.35.23.985-01.35.30.201.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1078.468,164.1703,232.8513,416.6807</marker>
+        <marker type="LOCATION" frame="17">1094.808,282.6383,231.9435,364.7057</marker>
+        <marker type="LOCATION" frame="36">1028.998,392.9362,315.0017,328.7222</marker>
+        <marker type="LOCATION" frame="55">907.5327,392.9362,252.6375,309.4691</marker>
+        <marker type="LOCATION" frame="76">876.8583,388.8511,226.1204,321.2708</marker>
+        <marker type="LOCATION" frame="99">998.1646,409.2766,216.2521,308.2126</marker>
+        <marker type="LOCATION" frame="119">1103.648,376.5958,207.671,347.2996</marker>
+        <marker type="LOCATION" frame="149">996.7662,388.8511,214.4684,330.8945</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Lt. Dan on the rigging, shouts and shakes his fist as he is pelted by wind and rain.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.35.00.587-01.35.03.255/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.35.00.587-01.35.03.255/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

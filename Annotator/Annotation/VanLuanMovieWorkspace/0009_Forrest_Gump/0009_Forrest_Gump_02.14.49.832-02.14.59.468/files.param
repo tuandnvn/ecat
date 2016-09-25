@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.14.49.832-02.14.59.468" length="232">
+  <files>
+    <file>0009_Forrest_Gump_02.14.49.832-02.14.59.468.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Bus stop" filename="0009_Forrest_Gump_02.14.49.832-02.14.59.468.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.38576E-05,122.2755,1916.168,823.9521</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Feather" filename="0009_Forrest_Gump_02.14.49.832-02.14.59.468.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">398.8009,253.7473,90.44962,46.25268</marker>
+        <marker type="LOCATION" frame="12">324.7966,194.6467,74.00429,123.3405</marker>
+        <marker type="LOCATION" frame="19">271.349,211.0921,98.67235,128.4797</marker>
+        <marker type="LOCATION" frame="24">279.5718,233.1906,69.89291,121.7987</marker>
+        <marker type="LOCATION" frame="28">279.5718,223.4261,111.0064,131.5632</marker>
+        <marker type="LOCATION" frame="32">249.4219,206.9807,153.4903,118.7723</marker>
+        <marker type="LOCATION" frame="37">211.7345,145.3105,145.9528,143.8972</marker>
+        <marker type="LOCATION" frame="44">116.1456,198.758,188.0942,154.1756</marker>
+        <marker type="LOCATION" frame="55">62.18415,260.4283,155.7173,180.8994</marker>
+        <marker type="LOCATION" frame="64">201.7131,346.7666,192.9765,217.9015</marker>
+        <marker type="LOCATION" frame="73">538.5867,422.8265,211.6061,244.6253</marker>
+        <marker type="LOCATION" frame="81">588.4689,445.439,151.5739,213.7902</marker>
+        <marker type="LOCATION" frame="89">638.3511,323.1263,233.2549,262.0985</marker>
+        <marker type="LOCATION" frame="96">781.1563,380.2056,135.6747,210.7751</marker>
+        <marker type="LOCATION" frame="104">694.818,445.439,168.5655,152.1199</marker>
+        <marker type="LOCATION" frame="110">596.1456,445.439,164.454,139.7859</marker>
+        <marker type="LOCATION" frame="120">526.2527,420.7709,115.1178,143.8972</marker>
+        <marker type="LOCATION" frame="129">497.4732,420.7709,82.22698,139.7859</marker>
+        <marker type="LOCATION" frame="141">386.4668,420.7709,74.00429,131.2056</marker>
+        <marker type="LOCATION" frame="152">337.1306,420.7709,82.22698,123.3405</marker>
+        <marker type="LOCATION" frame="153">349.5136,410.8352,82.12912,126.7665</marker>
+        <marker type="LOCATION" frame="159">267.1533,334.4326,111.0909,135.6745</marker>
+        <marker type="LOCATION" frame="164">198.5194,289.2077,81.0523,164.454</marker>
+        <marker type="LOCATION" frame="165">176.788,291.9486,82.22698,161.2563</marker>
+        <marker type="LOCATION" frame="173">94.56103,313.8758,98.67238,135.6745</marker>
+        <marker type="LOCATION" frame="177">111.6642,313.8758,109.7613,106.3078</marker>
+        <marker type="LOCATION" frame="187">154.4223,239.8715,137.4835,106.8951</marker>
+        <marker type="LOCATION" frame="198">201.4561,229.5931,98.67238,80.17131</marker>
+        <marker type="LOCATION" frame="208">291.9058,182.3126,82.74097,101.1135</marker>
+        <marker type="LOCATION" frame="214">353.576,187.4518,65.78162,80.17131</marker>
+        <marker type="LOCATION" frame="222">386.4668,220.3426,65.78159,80.17131</marker>
+        <marker type="LOCATION" frame="231">513.9186,257.3448,65.78159,80.17131</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The feather floats higher into the air.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.14.45.768-02.14.49.832/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.14.45.768-02.14.49.832/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

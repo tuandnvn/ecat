@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.10.15.898-02.10.19.383" length="84">
+  <files>
+    <file>0009_Forrest_Gump_02.10.15.898-02.10.19.383.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_02.10.15.898-02.10.19.383.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1052.903,143.6129,656.5157,801.0322</marker>
+        <marker type="LOCATION" frame="41">1036.387,143.6129,673.0319,801.0322</marker>
+        <marker type="LOCATION" frame="83">1036.387,143.6129,673.0319,801.0322</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Lawn" filename="0009_Forrest_Gump_02.10.15.898-02.10.19.383.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,122.9677,1915.869,821.6774</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Jenny's grave" filename="0009_Forrest_Gump_02.10.15.898-02.10.19.383.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,490.4516,532.6451,450.0645</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest looks down as he sobs.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.10.05.956-02.10.09.988/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.10.05.956-02.10.09.988/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="12" arguments="2" ids="o1,o4" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="32" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="42" arguments="2" ids="o1,o4" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

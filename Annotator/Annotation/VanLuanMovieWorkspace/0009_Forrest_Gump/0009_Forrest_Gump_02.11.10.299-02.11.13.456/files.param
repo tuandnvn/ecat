@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.11.10.299-02.11.13.456" length="76">
+  <files>
+    <file>0009_Forrest_Gump_02.11.10.299-02.11.13.456.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_02.11.10.299-02.11.13.456.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1729.656,122.069,194.4858,823.3612</marker>
+        <marker type="LOCATION" frame="12">1651.035,122.0697,273.1086,823.3615</marker>
+        <marker type="LOCATION" frame="17">1288.966,122.0695,635.1771,823.3613</marker>
+        <marker type="LOCATION" frame="26">955.8621,122.0703,968.2827,823.3615</marker>
+        <marker type="LOCATION" frame="34">848.2759,122.07,1075.868,823.3615</marker>
+        <marker type="LOCATION" frame="75">806.8966,122.0699,1117.248,823.3615</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Lawn" filename="0009_Forrest_Gump_02.11.10.299-02.11.13.456.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,122.9677,1915.869,821.6774</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Jenny's grave" filename="0009_Forrest_Gump_02.11.10.299-02.11.13.456.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">377.1213,120.4875,1381.5,713.3057</marker>
+        <marker type="LOCATION" frame="34">377.1213,120.4875,1381.5,713.3057</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Letter" filename="0009_Forrest_Gump_02.11.10.299-02.11.13.456.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">1779.31,324.8277,91.03449,119.9999</marker>
+        <marker type="LOCATION" frame="8">1713.104,324.8279,136.5517,281.379</marker>
+        <marker type="LOCATION" frame="12">1400.985,343.7446,423.8423,407.29</marker>
+        <marker type="LOCATION" frame="15">1166.897,357.9311,446.8979,322.7591</marker>
+        <marker type="LOCATION" frame="17">1009.741,252.9435,430.1726,325.8373</marker>
+        <marker type="LOCATION" frame="22">782.069,204.8276,418.4979,326.8967</marker>
+        <marker type="LOCATION" frame="24">733.1939,228.2168,371.6337,336.6109</marker>
+        <marker type="LOCATION" frame="33">583.4485,391.0345,364.1377,302.0694</marker>
+        <marker type="LOCATION" frame="37">606.3682,371.5149,351.4016,295.5911</marker>
+        <marker type="LOCATION" frame="42">574.8635,496.6448,335.4813,287.4932</marker>
+        <marker type="LOCATION" frame="47">546.4207,535.1492,338.8828,282.8053</marker>
+        <marker type="LOCATION" frame="59">529.9251,540.7747,347.0464,271.5543</marker>
+        <marker type="LOCATION" frame="75">531.7241,523.4484,357.9311,256.5526</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest places the letter down at the grave marker, next to fresh flowers.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.10.42.645-02.10.45.035/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.10.42.645-02.10.45.035/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.10.42.645-02.10.45.035/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="7" arguments="2" ids="o1,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="75" arguments="2" ids="o1,o4" q="False" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

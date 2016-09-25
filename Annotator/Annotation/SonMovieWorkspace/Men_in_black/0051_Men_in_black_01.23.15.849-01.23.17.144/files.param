@@ -1,16 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.23.15.849-01.23.17.144" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.23.15.849-01.23.17.144" length="48">
   <files>
     <file>0051_Men_in_black_01.23.15.849-01.23.17.144.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="3">
+    <object id="o1" name="Park" filename="0051_Men_in_black_01.23.15.849-01.23.17.144.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5145563,18.52489,1918.696,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jay" filename="0051_Men_in_black_01.23.15.849-01.23.17.144.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">116.3148,192.7831,1115.239,866.4828</marker>
+        <marker type="LOCATION" frame="11">217.8887,192.7831,953.5508,866.4828</marker>
+        <marker type="LOCATION" frame="12">217.8887,192.7831,953.5508,866.4828</marker>
+        <marker type="LOCATION" frame="13">217.8887,22.80232,1575.432,1036.463</marker>
+        <marker type="LOCATION" frame="39">369.213,22.80231,1191.937,1036.463</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_01.23.15.849-01.23.17.144.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">874.4913,19.17487,709.9808,484.0303</marker>
+        <marker type="LOCATION" frame="4">955.8541,19.17487,561.7657,395.4124</marker>
+        <marker type="LOCATION" frame="10">922.0948,18.65644,304.1294,269.7776</marker>
+        <marker type="LOCATION" frame="11">916.4683,35.23994,261.19,232.1686</marker>
+        <marker type="LOCATION" frame="12">916.4683,95.35509,211.4395,172.0532</marker>
+        <marker type="LOCATION" frame="13">655.2783,246.6794,580.4222,679.9232</marker>
+        <marker type="LOCATION" frame="17">746.4873,114.0118,478.8485,458.1187</marker>
+        <marker type="LOCATION" frame="22">770.3262,275.7006,390.7487,388.6752</marker>
+        <marker type="LOCATION" frame="27">790.0192,335.8157,371.0554,328.5601</marker>
+        <marker type="LOCATION" frame="32">793.1287,159.0981,371.0554,328.5601</marker>
+        <marker type="DELETE" frame="39" />
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
+      <duration startFrame="0" endFrame="47" />
       <text>The Bug straightens up to its full height and throws his head back.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.23.12.941-01.23.15.675/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.23.12.941-01.23.15.675/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.23.12.941-01.23.15.675/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

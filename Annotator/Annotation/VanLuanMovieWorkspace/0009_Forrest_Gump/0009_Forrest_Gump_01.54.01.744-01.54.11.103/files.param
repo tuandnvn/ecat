@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.54.01.744-01.54.11.103" length="225">
+  <files>
+    <file>0009_Forrest_Gump_01.54.01.744-01.54.11.103.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Highway" filename="0009_Forrest_Gump_01.54.01.744-01.54.11.103.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.347506E-05,125.6408,1915.897,820.5121</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Forrest" filename="0009_Forrest_Gump_01.54.01.744-01.54.11.103.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="72">-5.701924,253.8661,225.4859,243.6285</marker>
+        <marker type="LOCATION" frame="94">-5.701924,125.3132,519.9136,372.1814</marker>
+        <marker type="LOCATION" frame="122">45.61555,125.3132,1148.682,821.0799</marker>
+        <marker type="LOCATION" frame="151">422.9806,125.3132,962.0734,821.0799</marker>
+        <marker type="LOCATION" frame="182">290.2808,125.3132,1273.089,821.0799</marker>
+        <marker type="LOCATION" frame="206">356.6307,125.3132,796.1987,821.0799</marker>
+        <marker type="LOCATION" frame="224">443.7149,125.3132,709.1144,821.0799</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest is running along the highway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.53.43.977-01.53.48.977/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="72" arguments="1" ids="o5" q="True" type="RUN(X)" />
+    <predicate frame="72" arguments="2" ids="o5,0009_Forrest_Gump_01.53.43.977-01.53.48.977/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

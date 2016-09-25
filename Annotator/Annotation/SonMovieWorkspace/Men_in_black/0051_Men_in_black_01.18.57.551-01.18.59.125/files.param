@@ -1,16 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.18.57.551-01.18.59.125" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.18.57.551-01.18.59.125" length="48">
   <files>
     <file>0051_Men_in_black_01.18.57.551-01.18.59.125.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="6">
+    <object id="o1" name="Edgar" filename="0051_Men_in_black_01.18.57.551-01.18.59.125.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">31.30875,188.4564,906.0402,873.4228</marker>
+        <marker type="LOCATION" frame="7">179.8994,144.9665,1125.302,916.9127</marker>
+        <marker type="LOCATION" frame="15">257.8188,137.7181,1045.57,924.1611</marker>
+        <marker type="LOCATION" frame="19">286.8121,110.5369,786.3423,951.3423</marker>
+        <marker type="LOCATION" frame="28">188.9598,273.6242,786.4429,788.2552</marker>
+        <marker type="LOCATION" frame="36">22.24835,257.3155,1172.416,804.5637</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o2" name="Park" filename="0051_Men_in_black_01.18.57.551-01.18.59.125.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.514554,18.52489,1917.324,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Dr" filename="0051_Men_in_black_01.18.57.551-01.18.59.125.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5033852,18.12082,1792.148,1043.759</marker>
+        <marker type="LOCATION" frame="37">221.5772,97.85236,1418.859,964.0273</marker>
+        <marker type="LOCATION" frame="47">221.5772,92.41612,1223.154,969.4635</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
+      <duration startFrame="0" endFrame="37" />
       <text>Above, Edgar just keeps climbing.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.18.55.150-01.18.56.429/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.18.55.150-01.18.56.429/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.18.55.150-01.18.56.429/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.42.32.362-01.42.32.762" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.42.32.362-01.42.32.762.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.42.32.362-01.42.32.762.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.854651E-05,125.2116,1911.445,825.3007</marker>
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0009_Forrest_Gump_01.42.32.362-01.42.32.762.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">615.7684,433.0958,431.8926,517.4165</marker>
+        <marker type="LOCATION" frame="35">662.8062,484.4098,414.7884,466.1024</marker>
+        <marker type="DELETE" frame="36" />
+      </markers>
+    </object>
+    <object id="o3" name="Cross" filename="0009_Forrest_Gump_01.42.32.362-01.42.32.762.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">782.5389,227.8396,98.35189,145.3898</marker>
+        <marker type="LOCATION" frame="35">844.5434,287.706,98.35189,145.3898</marker>
+        <marker type="DELETE" frame="36" />
+      </markers>
+    </object>
+    <object id="o4" name="" filename="0009_Forrest_Gump_01.42.32.362-01.42.32.762.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="36">1603.563,360.4009,312.1604,487.4833</marker>
+        <marker type="LOCATION" frame="47">1556.526,360.4009,359.1981,478.931</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A new cross is placed on the steeple.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.42.25.384-01.42.28.384/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.42.25.384-01.42.28.384/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="36" arguments="1" ids="o4" q="True" type="STAND(X)" />
+  </predicates>
+</session>

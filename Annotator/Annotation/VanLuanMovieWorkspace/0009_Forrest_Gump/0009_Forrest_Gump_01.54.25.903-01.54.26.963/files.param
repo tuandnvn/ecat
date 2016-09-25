@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.54.25.903-01.54.26.963" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.54.25.903-01.54.26.963.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="A mountain river" filename="0009_Forrest_Gump_01.54.25.903-01.54.26.963.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.954762E-06,129.4601,1915.853,816.933</marker>
+        <marker type="LOCATION" frame="23">3.954762E-06,129.4601,1915.853,816.933</marker>
+        <marker type="DELETE" frame="24" />
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.54.25.903-01.54.26.963.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1060.562,362.7214,43.54212,72.57019</marker>
+        <marker type="LOCATION" frame="12">1122.765,375.162,43.54212,72.57019</marker>
+        <marker type="LOCATION" frame="23">1209.849,379.3089,43.54212,72.57019</marker>
+        <marker type="LOCATION" frame="24">427.1274,282.8942,190.7559,352.4838</marker>
+        <marker type="LOCATION" frame="36">543.2397,315.3479,170.0216,378.0862</marker>
+        <marker type="LOCATION" frame="47">551.5335,345.0972,190.7559,358.7041</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Bridge" filename="0009_Forrest_Gump_01.54.25.903-01.54.26.963.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">12.44061,442.5486,1899.266,228.0778</marker>
+        <marker type="LOCATION" frame="23">3.954762E-06,452.9158,1911.706,244.6652</marker>
+        <marker type="DELETE" frame="24" />
+      </markers>
+    </object>
+    <object id="o4" name="Street" filename="0009_Forrest_Gump_01.54.25.903-01.54.26.963.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="24">3.954762E-06,133.6069,1915.853,816.933</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The Rocky Mountains are behind him in distance.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.54.20.335-01.54.25.903/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.54.20.335-01.54.25.903/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.54.20.335-01.54.25.903/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

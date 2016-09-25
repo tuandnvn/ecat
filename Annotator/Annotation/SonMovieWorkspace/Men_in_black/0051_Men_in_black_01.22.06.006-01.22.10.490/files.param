@@ -1,16 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.22.06.006-01.22.10.490" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.22.06.006-01.22.10.490" length="108">
   <files>
     <file>0051_Men_in_black_01.22.06.006-01.22.10.490.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="8">
+    <object id="o1" name="Park" filename="0051_Men_in_black_01.22.06.006-01.22.10.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5145563,18.52489,1918.696,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Kay" filename="0051_Men_in_black_01.22.06.006-01.22.10.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="49">454.5455,210.9091,970.9091,849.0905</marker>
+        <marker type="LOCATION" frame="66">412.7273,194.5455,1065.454,865.454</marker>
+        <marker type="LOCATION" frame="94">305.4546,163.6364,1280,896.3632</marker>
+        <marker type="DELETE" frame="95" />
+      </markers>
+    </object>
+    <object id="o6" name="Kay's gun" filename="0051_Men_in_black_01.22.06.006-01.22.10.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="49">610.9091,56.36365,1307.272,1003.636</marker>
+        <marker type="LOCATION" frame="66">634.5455,25.45455,1283.636,1034.545</marker>
+        <marker type="LOCATION" frame="82">649.0908,21.81819,1269.091,1038.181</marker>
+        <marker type="LOCATION" frame="86">652.7273,38.18183,1265.454,1021.818</marker>
+        <marker type="LOCATION" frame="94">660,109.0909,1258.181,950.9088</marker>
+        <marker type="DELETE" frame="95" />
+      </markers>
+    </object>
+    <object id="o8" name="Edgar" filename="0051_Men_in_black_01.22.06.006-01.22.10.490.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">29.09093,118.1818,1887.273,939.9999</marker>
+        <marker type="LOCATION" frame="6">98.18183,52.72728,1818.182,1005.455</marker>
+        <marker type="LOCATION" frame="14">118.1818,50.9091,1798.182,1007.273</marker>
+        <marker type="LOCATION" frame="23">1.859665E-05,50.9091,1916.363,1007.273</marker>
+        <marker type="LOCATION" frame="33">36.36366,118.1818,1880,939.9999</marker>
+        <marker type="LOCATION" frame="43">160,70.9091,1756.363,987.2727</marker>
+        <marker type="DELETE" frame="49" />
+        <marker type="LOCATION" frame="95">47.27273,78.18182,1765.454,979.9999</marker>
+        <marker type="LOCATION" frame="107">14.54547,78.18182,1820,979.9999</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
+      <duration startFrame="0" endFrame="107" />
       <text>Edgar stares at him.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o8" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.21.21.708-01.21.31.881/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_01.21.21.708-01.21.31.881/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o8,0051_Men_in_black_01.21.21.708-01.21.31.881/o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.21.21.708-01.21.31.881/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="49" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="49" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
 </session>

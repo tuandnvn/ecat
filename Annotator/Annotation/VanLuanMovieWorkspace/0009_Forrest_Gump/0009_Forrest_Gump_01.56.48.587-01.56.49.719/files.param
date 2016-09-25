@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.56.48.587-01.56.49.719" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.56.48.587-01.56.49.719.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.56.48.587-01.56.49.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.954762E-06,125.3132,1915.853,821.0799</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Truck" filename="0009_Forrest_Gump_01.56.48.587-01.56.49.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.954762E-06,125.3132,1322.851,821.0799</marker>
+        <marker type="LOCATION" frame="12">153.4341,253.8661,1096.847,692.527</marker>
+        <marker type="LOCATION" frame="24">393.9525,361.6847,783.7581,584.7084</marker>
+        <marker type="LOCATION" frame="37">377.365,413.2501,555.6804,472.2021</marker>
+        <marker type="LOCATION" frame="47">91.2311,452.9158,684.2333,385.6588</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Car" filename="0009_Forrest_Gump_01.56.48.587-01.56.49.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="23">1729.244,697.581,95.37797,174.1685</marker>
+        <marker type="LOCATION" frame="29">1227.473,564.8812,608.6328,323.4557</marker>
+        <marker type="LOCATION" frame="36">945.486,544.1469,904.0173,327.6026</marker>
+        <marker type="LOCATION" frame="42">721.5551,535.0991,1181.857,336.6503</marker>
+        <marker type="LOCATION" frame="47">717.4082,527.5594,1107.214,344.1901</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The truck with the bumper sticker drives into an intersection.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.56.41.204-01.56.46.855/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="23" arguments="1" ids="o5" q="True" type="RUN(X)" />
+  </predicates>
+</session>

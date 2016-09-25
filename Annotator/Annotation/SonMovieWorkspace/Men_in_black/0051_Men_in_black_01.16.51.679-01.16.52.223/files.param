@@ -1,16 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.16.51.679-01.16.52.223" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.16.51.679-01.16.52.223" length="48">
   <files>
     <file>0051_Men_in_black_01.16.51.679-01.16.52.223.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="4">
+    <object id="o1" name="Dr" filename="0051_Men_in_black_01.16.51.679-01.16.52.223.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">640.446,18.52489,874.3739,803.9794</marker>
+        <marker type="LOCATION" frame="4">640.446,18.52489,781.7496,389.0223</marker>
+        <marker type="DELETE" frame="5" />
+      </markers>
+    </object>
+    <object id="o2" name="Park" filename="0051_Men_in_black_01.16.51.679-01.16.52.223.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.367041,18.52489,1919.177,1042.95</marker>
+      </markers>
+    </object>
+    <object id="o4" name="picture" filename="0051_Men_in_black_01.16.51.679-01.16.52.223.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">705.283,247.307,603.9108,473.3105</marker>
+        <marker type="LOCATION" frame="5">675.6432,217.2041,603.9108,473.3105</marker>
+        <marker type="LOCATION" frame="14">703.4305,269.0738,603.9108,473.3105</marker>
+        <marker type="LOCATION" frame="24">708.988,269.0738,603.9108,473.3105</marker>
+        <marker type="LOCATION" frame="47">734.9228,309.8285,603.9108,473.3105</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
+      <duration startFrame="0" endFrame="47" />
       <text>Behind him, abandoned on the front seat of the cab, we finally see the front of the postcard he's been carrying around.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.16.49.202-01.16.51.679/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.16.49.202-01.16.51.679/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.16.49.202-01.16.51.679/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
 </session>

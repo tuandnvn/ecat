@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.34.17.420-01.34.26.501" length="218">
+  <files>
+    <file>0009_Forrest_Gump_01.34.17.420-01.34.26.501.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Church" filename="0009_Forrest_Gump_01.34.17.420-01.34.26.501.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.94793E-05,127.4043,1915.915,817.0213</marker>
+      </markers>
+    </object>
+    <object id="o2" name="All-black gospel" filename="0009_Forrest_Gump_01.34.17.420-01.34.26.501.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.94793E-05,164.1702,1920,780.2553</marker>
+        <marker type="LOCATION" frame="212">1.94793E-05,241.7872,1920,702.6383</marker>
+        <marker type="DELETE" frame="213" />
+      </markers>
+    </object>
+    <object id="o7" name="Forrest" filename="0009_Forrest_Gump_01.34.17.420-01.34.26.501.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="82">1834.213,209.1064,81.70275,294.1278</marker>
+        <marker type="LOCATION" frame="90">1703.489,184.5961,212.4269,706.723</marker>
+        <marker type="LOCATION" frame="112">1564.596,184.5961,339.0638,669.9571</marker>
+        <marker type="LOCATION" frame="137">1536,180.5107,302.2979,641.3617</marker>
+        <marker type="LOCATION" frame="162">1339.915,196.8511,326.8085,614.809</marker>
+        <marker type="LOCATION" frame="186">1364.426,220.3813,261.4468,570.6902</marker>
+        <marker type="LOCATION" frame="212">1250.043,245.8724,285.9575,522.8946</marker>
+        <marker type="DELETE" frame="213" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The all-black gospel choir sings and claps their hands.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="82" arguments="1" ids="o7" q="True" type="STAND(X)" />
+    <predicate frame="82" arguments="2" ids="o7,0009_Forrest_Gump_01.33.53.971-01.33.54.764/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

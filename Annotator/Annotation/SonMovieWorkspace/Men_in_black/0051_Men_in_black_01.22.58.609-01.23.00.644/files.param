@@ -1,16 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.22.58.609-01.23.00.644" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.22.58.609-01.23.00.644" length="49">
   <files>
     <file>0051_Men_in_black_01.22.58.609-01.23.00.644.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="3">
+    <object id="o1" name="Park" filename="0051_Men_in_black_01.22.58.609-01.23.00.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5145563,18.52489,1918.696,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.22.58.609-01.23.00.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">445.9117,24.87525,708.9443,1034.393</marker>
+        <marker type="LOCATION" frame="5">493.5892,18.65644,746.0681,1040.611</marker>
+        <marker type="LOCATION" frame="7">487.3704,49.75049,786.2078,1009.516</marker>
+        <marker type="LOCATION" frame="11">387.8695,161.6891,953.5508,897.5787</marker>
+        <marker type="LOCATION" frame="15">255.2015,194.856,1057.198,864.4114</marker>
+        <marker type="LOCATION" frame="17">441.7658,279.8463,721.3819,779.4206</marker>
+        <marker type="LOCATION" frame="19">506.0269,294.357,657.1204,764.91</marker>
+        <marker type="LOCATION" frame="26">487.3704,364.8369,868.5604,694.4297</marker>
+        <marker type="LOCATION" frame="29">673.9347,294.357,868.5604,764.9094</marker>
+        <marker type="LOCATION" frame="31">718.8484,306.7946,948.0229,752.4716</marker>
+        <marker type="LOCATION" frame="34">864.6449,553.4741,900.8389,505.7916</marker>
+        <marker type="LOCATION" frame="38">1042.917,632.2457,854.0499,427.02</marker>
+        <marker type="LOCATION" frame="42">1084.375,412.5144,833.3214,646.7516</marker>
+        <marker type="LOCATION" frame="46">1125.834,254.9712,769.0601,804.2956</marker>
+        <marker type="LOCATION" frame="48">1146.564,273.6276,708.9421,785.6395</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edgar" filename="0051_Men_in_black_01.22.58.609-01.23.00.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">1849.29,590.7869,68.40691,136.8138</marker>
+        <marker type="LOCATION" frame="5">1760.153,429.0979,157.5427,433.2437</marker>
+        <marker type="LOCATION" frame="11">1405.681,68.40692,512.0121,829.1746</marker>
+        <marker type="LOCATION" frame="16">953.7811,31.09406,963.9117,1028.176</marker>
+        <marker type="LOCATION" frame="21">758.925,18.65644,1158.769,1040.614</marker>
+        <marker type="LOCATION" frame="26">632.476,18.65644,1285.221,856.1228</marker>
+        <marker type="LOCATION" frame="30">242.7639,18.65644,1666.641,1021.957</marker>
+        <marker type="LOCATION" frame="38">0.2303452,18.65644,1797.236,1032.322</marker>
+        <marker type="LOCATION" frame="48">0.2303452,18.65644,951.4778,1036.468</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
+      <duration startFrame="0" endFrame="48" />
       <text>The Bug just keeps moving toward the ladder.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.22.50.039-01.22.52.521/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.22.50.039-01.22.52.521/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="3" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="3" arguments="2" ids="o2,o3" q="True" type="POINT_AT(X,Y)" />
+    <predicate frame="10" arguments="2" ids="o2,o3" q="False" type="POINT_AT(X,Y)" />
+  </predicates>
 </session>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.51.51.692-01.51.59.732" length="193">
+  <files>
+    <file>0009_Forrest_Gump_01.51.51.692-01.51.59.732.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o2" name="Room" filename="0009_Forrest_Gump_01.51.51.692-01.51.59.732.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.347506E-05,125.6408,1915.897,820.5121</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_01.51.51.692-01.51.59.732.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">820.5128,388.2047,205.1282,475.8978</marker>
+        <marker type="LOCATION" frame="93">796.6663,347.1794,236.9231,544.7433</marker>
+        <marker type="LOCATION" frame="192">771.282,277.4357,270.7692,644.1022</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He is still, as if in a trance.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.51.47.547-01.51.51.231/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.51.47.547-01.51.51.231/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

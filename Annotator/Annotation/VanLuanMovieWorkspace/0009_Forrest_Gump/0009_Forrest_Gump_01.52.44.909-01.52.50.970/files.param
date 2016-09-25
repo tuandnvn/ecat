@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.52.44.909-01.52.50.970" length="146">
+  <files>
+    <file>0009_Forrest_Gump_01.52.44.909-01.52.50.970.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="The way" filename="0009_Forrest_Gump_01.52.44.909-01.52.50.970.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.347506E-05,125.6408,1915.897,820.5121</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.52.44.909-01.52.50.970.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">836.9225,445.641,151.7954,361.0254</marker>
+        <marker type="LOCATION" frame="19">619.4872,327.6041,246.1538,581.6266</marker>
+        <marker type="LOCATION" frame="28">348.718,271.6921,426.6666,674.4617</marker>
+        <marker type="LOCATION" frame="35">250.2564,228.2051,615.3846,717.9482</marker>
+        <marker type="LOCATION" frame="45">800,207.6923,459.4864,738.4612</marker>
+        <marker type="LOCATION" frame="54">1078.974,223.0771,414.3587,723.0766</marker>
+        <marker type="LOCATION" frame="66">1083.077,272.9554,270.7687,551.4166</marker>
+        <marker type="LOCATION" frame="73">1009.23,302.0511,205.1292,451.2815</marker>
+        <marker type="LOCATION" frame="84">923.0769,334.769,143.5896,357.0258</marker>
+        <marker type="LOCATION" frame="94">857.4352,364.5127,114.8725,306.7693</marker>
+        <marker type="LOCATION" frame="104">824.6153,394.2563,110.7693,266.2295</marker>
+        <marker type="LOCATION" frame="113">828.7169,421.0256,86.15491,229.7436</marker>
+        <marker type="LOCATION" frame="145">857.4352,474.3589,61.53839,176.4101</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest runs to the end of the drive, then turns right and runs down the highway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.52.37.643-01.52.44.067/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.52.37.643-01.52.44.067/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

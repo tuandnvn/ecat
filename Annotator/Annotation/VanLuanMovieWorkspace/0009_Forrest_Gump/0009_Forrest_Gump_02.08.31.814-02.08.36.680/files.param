@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.08.31.814-02.08.36.680" length="117">
+  <files>
+    <file>0009_Forrest_Gump_02.08.31.814-02.08.36.680.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_02.08.31.814-02.08.36.680.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">578.0645,617.4193,37.16129,64</marker>
+        <marker type="LOCATION" frame="27">660.2603,612.6954,37.16129,64</marker>
+        <marker type="LOCATION" frame="59">757.6774,607.0967,37.16129,64</marker>
+        <marker type="LOCATION" frame="89">838.1935,598.8387,37.16129,64</marker>
+        <marker type="LOCATION" frame="116">908.3871,594.7097,37.16129,64</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Highway" filename="0009_Forrest_Gump_02.08.31.814-02.08.36.680.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,131.2258,1920,817.5483</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A lake reflects the mountains and the sky.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.08.28.367-02.08.31.814/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.08.28.367-02.08.31.814/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,16 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.24.34.253-01.24.41.374" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.24.34.253-01.24.41.374" length="171">
   <files>
     <file>0051_Men_in_black_01.24.34.253-01.24.41.374.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="4">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_01.24.34.253-01.24.41.374.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="37">362.9942,174.1266,995.0095,887.2123</marker>
+        <marker type="LOCATION" frame="57">124.6065,167.9079,1233.397,893.431</marker>
+        <marker type="LOCATION" frame="60">2.303282,186.5643,1348.963,874.7744</marker>
+        <marker type="LOCATION" frame="81">0.2303452,360.691,1303.877,700.6469</marker>
+        <marker type="LOCATION" frame="98">0.2303452,259.1171,1546.411,802.2208</marker>
+        <marker type="LOCATION" frame="112">0.2303452,138.8868,1312.169,922.4505</marker>
+        <marker type="LOCATION" frame="121">0.2303452,41.45874,1106.948,1019.878</marker>
+        <marker type="LOCATION" frame="131">0.2303452,203.1478,1129.75,858.1877</marker>
+        <marker type="LOCATION" frame="138">8.522091,375.2015,1044.76,686.134</marker>
+        <marker type="LOCATION" frame="141">124.6065,393.858,912.0921,667.4776</marker>
+        <marker type="LOCATION" frame="148">294.5873,331.6699,843.6852,729.6657</marker>
+        <marker type="LOCATION" frame="158">414.8177,194.856,974.2802,866.479</marker>
+        <marker type="LOCATION" frame="167">586.8714,250.8252,932.8209,810.5096</marker>
+        <marker type="DELETE" frame="168" />
+      </markers>
+    </object>
+    <object id="o2" name="Park" filename="0051_Men_in_black_01.24.34.253-01.24.41.374.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.2303452,18.65644,1917.466,1042.687</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edgar" filename="0051_Men_in_black_01.24.34.253-01.24.41.374.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">163.9923,18.65644,1413.743,1042.686</marker>
+        <marker type="LOCATION" frame="18">197.1593,18.65644,1380.575,1042.686</marker>
+        <marker type="LOCATION" frame="21">197.1593,18.65644,1716.391,1042.686</marker>
+        <marker type="LOCATION" frame="36">321.5355,18.65644,1592.014,1042.686</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o4" name="Dr" filename="0051_Men_in_black_01.24.34.253-01.24.41.374.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="168">663.5699,503.7236,708.9443,557.6199</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
+      <duration startFrame="0" endFrame="168" />
       <text>Jay watches as the Bug continues its HOWL OF TRIUMPH.He feels totally defeated.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.23.25.810-01.23.28.805/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.23.25.810-01.23.28.805/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.23.25.810-01.23.28.805/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="37" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="76" arguments="1" ids="o1" q="False" type="SIT(X)" />
+    <predicate frame="87" arguments="1" ids="o1" q="True" type="KNEEL(X)" />
+    <predicate frame="121" arguments="1" ids="o1" q="False" type="KNEEL(X)" />
+  </predicates>
 </session>

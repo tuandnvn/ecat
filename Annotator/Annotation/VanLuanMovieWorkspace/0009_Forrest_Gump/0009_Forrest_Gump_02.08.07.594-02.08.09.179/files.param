@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.08.07.594-02.08.09.179" length="48">
+  <files>
+    <file>0009_Forrest_Gump_02.08.07.594-02.08.09.179.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_02.08.07.594-02.08.09.179.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.181326E-05,131.579,1915.871,816.8422</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_02.08.07.594-02.08.09.179.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">359.2258,296.3871,767.9995,652.3868</marker>
+        <marker type="LOCATION" frame="12">296.7514,395.4839,888.2808,553.29</marker>
+        <marker type="LOCATION" frame="23">239.4837,300.5161,862.9669,648.2578</marker>
+        <marker type="LOCATION" frame="33">256.688,329.7634,651.6991,619.0105</marker>
+        <marker type="LOCATION" frame="47">280.7739,370.7097,540.9033,578.0643</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Helmet" filename="0009_Forrest_Gump_02.08.07.594-02.08.09.179.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">297.2903,296.3871,590.4516,536.7742</marker>
+        <marker type="LOCATION" frame="12">188.7971,440.9032,492.4932,450.0645</marker>
+        <marker type="LOCATION" frame="23">89.34534,668,373.1063,279.2365</marker>
+        <marker type="LOCATION" frame="33">143.3009,767.0967,199.4088,180.7795</marker>
+        <marker type="LOCATION" frame="46">213.4431,853.8064,79.71823,94.9031</marker>
+        <marker type="LOCATION" frame="47">218.8386,705.1611,115.613,243.6125</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest removes his helmet.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.08.03.191-02.08.07.594/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.08.03.191-02.08.07.594/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.08.03.191-02.08.07.594/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="15" arguments="2" ids="o2,o3" q="False" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

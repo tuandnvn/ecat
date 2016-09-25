@@ -1,16 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session name="0051_Men_in_black_01.16.49.202-01.16.51.679" length="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.16.49.202-01.16.51.679" length="60">
   <files>
     <file>0051_Men_in_black_01.16.49.202-01.16.51.679.avi</file>
   </files>
-  <objects no="0" />
+  <objects no="6">
+    <object id="o5" name="Dr" filename="0051_Men_in_black_01.16.49.202-01.16.51.679.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">34.6827,155.6089,1511.63,905.8662</marker>
+        <marker type="LOCATION" frame="5">43.94514,35.19727,1508.542,1026.278</marker>
+        <marker type="LOCATION" frame="9">255.2444,50.01717,1302.183,1011.458</marker>
+        <marker type="LOCATION" frame="16">68.02747,18.52489,1380.103,1042.95</marker>
+        <marker type="LOCATION" frame="26">1.337933,18.52489,1215.232,1042.95</marker>
+        <marker type="LOCATION" frame="35">1.337933,18.52489,1215.232,1042.95</marker>
+        <marker type="LOCATION" frame="36">525.5918,18.52489,739.1423,1042.95</marker>
+        <marker type="LOCATION" frame="45">599.6913,18.52489,728.0274,570.566</marker>
+        <marker type="LOCATION" frame="46">684.9056,18.52489,733.585,377.9074</marker>
+        <marker type="DELETE" frame="47" />
+      </markers>
+    </object>
+    <object id="o2" name="Park" filename="0051_Men_in_black_01.16.49.202-01.16.51.679.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.367041,18.52489,1919.177,1042.95</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Edgar" filename="0051_Men_in_black_01.16.49.202-01.16.51.679.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.367041,18.52489,615.0257,1042.95</marker>
+        <marker type="LOCATION" frame="5">-0.514554,18.52489,793.0189,737.2899</marker>
+        <marker type="LOCATION" frame="12">490.3945,18.52489,553.8939,498.319</marker>
+        <marker type="LOCATION" frame="15">386.6552,18.52489,246.3808,231.5609</marker>
+        <marker type="DELETE" frame="16" />
+      </markers>
+    </object>
+    <object id="o6" name="picture" filename="0051_Men_in_black_01.16.49.202-01.16.51.679.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="27">864.5969,803.9794,433.482,257.4957</marker>
+        <marker type="LOCATION" frame="31">910.9091,602.72,400.1372,458.7551</marker>
+        <marker type="LOCATION" frame="34">929.434,496.4666,407.5471,472.3842</marker>
+        <marker type="LOCATION" frame="40">944.2538,337.1527,377.9074,503.8765</marker>
+        <marker type="LOCATION" frame="46">670.7225,259.2686,569.2925,442.824</marker>
+        <marker type="LOCATION" frame="59">705.283,247.307,603.9108,473.3105</marker>
+      </markers>
+    </object>
+  </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
+      <duration startFrame="0" endFrame="59" />
       <text>EDGAR shoves LAUREL out through the driver's door and follows behind her, still holding his weapon on her.</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.16.38.441-01.16.42.915/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
 </session>

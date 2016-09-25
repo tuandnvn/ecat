@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.56.01.097-01.56.06.437" length="129">
+  <files>
+    <file>0009_Forrest_Gump_01.56.01.097-01.56.06.437.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.56.01.097-01.56.06.437.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.954762E-06,125.3132,1915.853,821.0799</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.56.01.097-01.56.06.437.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">447.8618,378.2721,87.08424,190.7559</marker>
+        <marker type="LOCATION" frame="12">332.7965,370.3101,80.3456,190.7559</marker>
+        <marker type="LOCATION" frame="25">208.1425,361.6847,73.04539,190.7559</marker>
+        <marker type="LOCATION" frame="38">66.3499,359.3408,74.64363,180.6592</marker>
+        <marker type="LOCATION" frame="48">2.073438,357.5378,60.12959,190.7559</marker>
+        <marker type="LOCATION" frame="50">2.073438,473.6501,43.54212,74.64363</marker>
+        <marker type="DELETE" frame="51" />
+      </markers>
+    </object>
+    <object id="o3" name="Group" filename="0009_Forrest_Gump_01.56.01.097-01.56.06.437.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1132.095,411.4471,746.4363,211.4903</marker>
+        <marker type="LOCATION" frame="69">373.2181,386.8575,1546.782,236.0799</marker>
+        <marker type="LOCATION" frame="81">244.6652,382.581,1674.491,240.3564</marker>
+        <marker type="LOCATION" frame="104">3.954762E-06,374.3845,1917.54,248.5529</marker>
+        <marker type="LOCATION" frame="128">3.954762E-06,365.8315,1915.853,257.1058</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A large group jogs behind Forrest across the desert road.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.55.58.510-01.56.00.597/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.55.58.510-01.56.00.597/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.55.58.510-01.56.00.597/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.48.01.897-01.48.02.869" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.48.01.897-01.48.02.869.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="River" filename="0009_Forrest_Gump_01.48.01.897-01.48.02.869.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.762367E-05,130.345,1911.724,811.0348</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.48.01.897-01.48.02.869.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">496.5518,399.3106,227.5871,504.8274</marker>
+        <marker type="LOCATION" frame="16">476.4018,399.3106,243.5982,511.8706</marker>
+        <marker type="LOCATION" frame="23">467.5863,399.3106,264.8275,514.9521</marker>
+        <marker type="LOCATION" frame="29">478.9655,399.3106,298.9655,517.5935</marker>
+        <marker type="LOCATION" frame="41">501.7244,399.3106,491.3791,522.876</marker>
+        <marker type="LOCATION" frame="47">513.1035,399.3106,488.276,525.517</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_01.48.01.897-01.48.02.869.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">715.863,370.3449,297.9302,554.4833</marker>
+        <marker type="LOCATION" frame="23">715.863,360.2202,310.0798,564.6086</marker>
+        <marker type="LOCATION" frame="47">715.863,349.6552,322.7578,575.1743</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jenny and Forrest sit on a log together and look at the river.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.47.34.237-01.47.41.126/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.47.34.237-01.47.41.126/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.47.34.237-01.47.41.126/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="16" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>
