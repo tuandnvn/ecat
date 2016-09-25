@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<session name="0009_Forrest_Gump_00.03.25.467-00.03.32.445" length="168">
+<session name="0009_Forrest_Gump_00.03.25.467-00.03.32.445" length="0">
   <files>
     <file>0009_Forrest_Gump_00.03.25.467-00.03.32.445.avi</file>
   </files>
@@ -54,5 +54,15 @@
       <link />
     </annotation>
   </annotations>
-  <predicates />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="10" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="63" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="146" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
 </session>

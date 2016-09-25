@@ -303,6 +303,54 @@ namespace Annotator
             return object3DMarks[prevMarker];
         }
 
+        /// <summary>
+        /// THe difference between this method and getLocationMark3D 
+        /// is that it would return result even before the object has the first mark
+        /// which would be useful for tracking objects
+        /// </summary>
+        /// <param name="frameNo"></param>
+        /// <returns></returns>
+        public LocationMark3D getLocationMark3DLeftExtrapolated(int frameNo)
+        {
+            try
+            {
+                int prevMarker = object3DMarks.Keys.LastOrDefault(x => x <= frameNo);
+                int nextMarker = object3DMarks.Keys.FirstOrDefault(x => x >= frameNo);
+
+                if (prevMarker == 0 && !object3DMarks.ContainsKey(0))
+                {
+                    return object3DMarks[nextMarker];
+                }
+
+                // No marker to the right
+                if (nextMarker == 0)
+                {
+                    return object3DMarks[prevMarker];
+                }
+
+                // Interpolation
+                if (prevMarker != nextMarker && object3DMarks[prevMarker] != null && object3DMarks[nextMarker] != null)
+                {
+                    if (this is RectangleObject && Options.getOption().interpolationModes[Options.RECTANGLE] == Options.InterpolationMode.LINEAR ||
+                        this is GlyphBoxObject && Options.getOption().interpolationModes[Options.GLYPH] == Options.InterpolationMode.LINEAR ||
+                        this is RigObject && Options.getOption().interpolationModes[Options.RIG] == Options.InterpolationMode.LINEAR)
+                    {
+                        LocationMark3D prev = null;
+                        LocationMark3D next = null;
+                        prev = object3DMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new Point3());
+                        next = object3DMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new Point3());
+                        return prev.addLocationMark(frameNo, next);
+                    }
+                }
+
+                return object3DMarks[prevMarker];
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
 
         public void addProperty(string propertyKey, string propertyValue)
         {

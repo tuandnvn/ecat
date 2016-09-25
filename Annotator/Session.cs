@@ -39,7 +39,7 @@ namespace Annotator
         private List<VideoReader> videoReaders;
         private List<BaseDepthReader> depthReaders;
         internal SortedSet<String> filesList;
-        private SortedSet<PredicateMark> predicates;
+        public SortedSet<PredicateMark> predicates { get; private set;  }
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
         private int annotationID;      // annotation ID
@@ -51,25 +51,11 @@ namespace Annotator
         {
             get
             {
-                if (_sessionLength.IsValueCreated)
-                    return _sessionLength.Value;
-                return 0;
+                return _sessionLength.Value;
+                //if (_sessionLength.IsValueCreated)
+                //    return _sessionLength.Value;
+                //return 0;
             }
-            //set
-            //{
-            //    if (_sessionLength.IsValueCreated)
-            //    {
-            //        if (_sessionLength.Value != value)
-            //        {
-            //            Console.WriteLine("Warning: Length inconsistence, original length = " + _sessionLength.Value + " ; new length = " + value);
-            //            _sessionLength.Value = value;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        _sessionLength = value;
-            //    }
-            //}
         }
 
         public DateTime? startWriteRGB { get; set; }
@@ -79,24 +65,6 @@ namespace Annotator
         /// Duration could be the time to record the video
         /// </summary>
         public long duration { get; set; }
-
-        //// Memorializable data
-        //private class SessionMemento
-        //{
-        //    public List<Event> events;
-        //    public int objectCount;         
-        //    public Dictionary<string, Object> objects;
-        //    public String name;     //session name
-        //    public bool edited { get; set; }
-        //    public SortedSet<String> filesList;
-        //    public SortedSet<PredicateMark> predicates;
-        //    public String metadataFile;      
-        //    public String tempMetadataFile;
-        //    public int annotationID;
-        //    public int? _sessionLength;
-        //    public DateTime? startWriteRGB { get; set; }
-        //    public long duration { get; set; }
-        //}
 
         public enum LOAD_STATUS
         {
@@ -457,6 +425,7 @@ namespace Annotator
             catch (Exception e)
             {
                 Console.WriteLine("Exception in loading annotation");
+                Console.WriteLine(e);
                 throw e;
             }
         }

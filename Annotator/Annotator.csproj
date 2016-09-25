@@ -170,6 +170,7 @@
     <Compile Include="InfoForm.Designer.cs">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="learning\EventLearningDataGenerator.cs" />
     <Compile Include="Main.Drawing.Zoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +184,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.PredicateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Session.Kinect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Workspace.cs">
