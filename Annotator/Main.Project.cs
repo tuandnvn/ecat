@@ -189,55 +189,6 @@ namespace Annotator
             this.Text = "No project selected";
         }
 
-        private void projectOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
-            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizerIncluded[objectRecognizer] = true;
-            setupKinectIfNeeded();
-
-            Task t = Task.Run(async () =>
-            {
-                try
-                {
-                    if (currentlySetupKinect)
-                    {
-                        Console.WriteLine("Await");
-                        isAvailable.Wait();
-                        currentlySetupKinect = false;
-                    }
-
-                    foreach (var session in currentProject.sessions)
-                    {
-                        currentSession = session;
-                        currentSession.loadIfNotLoaded();
-                        List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
-                            currentSession.getDepth(0),
-                            new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                            coordinateMapper.MapColorFrameToCameraSpace
-                        );
-                        AddObjectsIntoSession(detectedObjects);
-                        currentSession.saveSession();
-                    }
-                }
-                catch (Exception exc)
-                {
-                    Console.WriteLine(exc);
-                }
-            });
-        }
-
-        private void projectOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var session in currentProject.sessions)
-            {
-                currentSession = session;
-                currentSession.loadIfNotLoaded();
-                sessionOfflineModeGlyphDetectToolStripMenuItem_Click(null, null);
-                currentSession.saveSession();
-            }
-        }
-
         private void projectEventTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (currentProject != null)

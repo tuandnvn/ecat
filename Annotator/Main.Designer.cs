@@ -1133,14 +1133,12 @@ namespace Annotator
             this.simpleToolStripMenuItem.Name = "simpleToolStripMenuItem";
             this.simpleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.simpleToolStripMenuItem.Text = "Simple";
-            this.simpleToolStripMenuItem.Click += new System.EventHandler(this.simpleToolStripMenuItem_Click);
             // 
             // eventToolStripMenuItem
             // 
             this.eventToolStripMenuItem.Name = "eventToolStripMenuItem";
             this.eventToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.eventToolStripMenuItem.Text = "Event";
-            this.eventToolStripMenuItem.Click += new System.EventHandler(this.eventToolStripMenuItem_Click);
             // 
             // switchWorkspaceToolStripMenuItem
             // 
@@ -1269,14 +1267,12 @@ namespace Annotator
             this.onlineModeToolStripMenuItem.Name = "onlineModeToolStripMenuItem";
             this.onlineModeToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.onlineModeToolStripMenuItem.Text = "Online mode";
-            this.onlineModeToolStripMenuItem.Click += new System.EventHandler(this.projectOnlineModeGlyphDetectToolStripMenuItem_Click);
             // 
             // offlineModeToolStripMenuItem1
             // 
             this.offlineModeToolStripMenuItem1.Name = "offlineModeToolStripMenuItem1";
             this.offlineModeToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
             this.offlineModeToolStripMenuItem1.Text = "Offline mode";
-            this.offlineModeToolStripMenuItem1.Click += new System.EventHandler(this.projectOfflineModeGlyphDetectToolStripMenuItem_Click);
             // 
             // projectGenerateToolStripMenuItem
             // 
@@ -1416,7 +1412,6 @@ namespace Annotator
             this.sessionOnlineModeToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.sessionOnlineModeToolStripMenuItem.Text = "Online mode";
             this.sessionOnlineModeToolStripMenuItem.ToolTipText = "Online mode requires a Kinect sensor";
-            this.sessionOnlineModeToolStripMenuItem.Click += new System.EventHandler(this.sessionOnlineModeGlyphDetectToolStripMenuItem_Click);
             // 
             // sessionOfflineModeToolStripMenuItem
             // 
@@ -1424,7 +1419,6 @@ namespace Annotator
             this.sessionOfflineModeToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.sessionOfflineModeToolStripMenuItem.Text = "Offline mode";
             this.sessionOfflineModeToolStripMenuItem.ToolTipText = "Offline mode doesn\'t require Kinect sensor";
-            this.sessionOfflineModeToolStripMenuItem.Click += new System.EventHandler(this.sessionOfflineModeGlyphDetectToolStripMenuItem_Click);
             // 
             // sessionGenerateToolStripMenuItem
             // 
@@ -1663,7 +1657,6 @@ namespace Annotator
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage projectExplorer;
         private System.Windows.Forms.Button addSpatialBtn;
-        private RecordPanel recordPanel;
         private System.Windows.Forms.ContextMenuStrip fileRightClickPanel;
         private System.Windows.Forms.ToolStripMenuItem addObjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;

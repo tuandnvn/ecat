@@ -32,19 +32,19 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="57" />
-      <text>The nurse shakes her head, a bit apprehensive about this strange man next to her.</text>
+      <duration startFrame="4" endFrame="14" />
+      <text>The nurse shakes her head</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o3" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o5" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o2" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.03.25.467-00.03.32.445/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="37" arguments="2" ids="o2,o5" q="True" type="LOOK_AT(X,Y)" />
   </predicates>

@@ -36,9 +36,9 @@
   <predicates>
     <predicate frame="0" arguments="1" ids="o2" q="True" type="CROUCH(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="LIE(X)" />
-    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.09.17.677-01.09.18.040/o6" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.09.17.677-01.09.18.040/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.09.17.677-01.09.18.040/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.09.17.677-01.09.18.040/o6" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="38" arguments="1" ids="o2" q="True" type="STAND(X)" />
   </predicates>
 </session>

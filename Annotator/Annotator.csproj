@@ -120,7 +120,6 @@
     <Reference Include="Emgu.Util">
       <HintPath>..\packages\EmguCV.3.0.0\lib\net451\Emgu.Util.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Kinect, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
@@ -153,7 +152,6 @@
     </Compile>
     <Compile Include="depth\BaseDepthReader.cs" />
     <Compile Include="depth\BaseDepthWriter.cs" />
-    <Compile Include="depth\DepthCoordinateMapping.cs" />
     <Compile Include="depth\IDepthReader.cs" />
     <Compile Include="depth\IDepthWriter.cs" />
     <Compile Include="DrawMatches.cs" />
@@ -186,14 +184,10 @@
     <Compile Include="Main.PredicateView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Session.Kinect.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Main.Workspace.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="object\GlyphBoxLocationMark3D.cs" />
-    <Compile Include="KinectUtils.cs" />
     <Compile Include="learning\SimpleLearningDataGenerator.cs" />
     <Compile Include="learning\LearningDataGenerator.cs" />
     <Compile Include="Main.Drawing.NewObjectPanel.cs">
@@ -203,10 +197,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MappingUtils.cs" />
-    <Compile Include="ObjectRecognitionAlgorithm\GlyphBoxObjectRecognition.cs" />
-    <Compile Include="ObjectRecognitionAlgorithm\IObjectRecogAlgo.cs" />
-    <Compile Include="ObjectRecognitionAlgorithm\PatternMatchingObjectRecognition.cs" />
-    <Compile Include="ObjectRecognitionAlgorithm\Utils.cs" />
     <Compile Include="object\CubeLocationMark.cs" />
     <Compile Include="object\GlyphBoxObject.cs" />
     <Compile Include="object\GlyphBoxPrototype.cs" />
@@ -251,12 +241,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Range.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Range.Designer.cs">
-      <DependentUpon>Range.cs</DependentUpon>
     </Compile>
     <Compile Include="LinkEventForm.cs">
       <SubType>Form</SubType>
@@ -317,27 +301,6 @@
       <DependentUpon>ProjectInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="recordPanel\RecordPanel.Control.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="recordPanel\RecordPanel.Control.Playback.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="recordPanel\RecordPanel.Control.RecordDepth.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="recordPanel\RecordPanel.Control.RecordRgb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="recordPanel\RecordPanel.Control.RecordRig.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="recordPanel\RecordPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="recordPanel\RecordPanel.ObjectDetection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="RectangleShapeWithFrame.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -355,7 +318,6 @@
     <Compile Include="ObjectLinkForm.Designer.cs">
       <DependentUpon>ObjectLinkForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObjectRecognitionAlgorithm\SquareBinaryGlyphRecognizer.cs" />
     <Compile Include="SessionSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,9 +354,6 @@
     <EmbeddedResource Include="OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Range.resx">
-      <DependentUpon>Range.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ObjectAnnotation.resx">
       <DependentUpon>ObjectAnnotation.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,9 +370,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="recordPanel\RecordPanel.resx">
-      <DependentUpon>RecordPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SessionInfo.resx">
       <DependentUpon>SessionInfo.cs</DependentUpon>

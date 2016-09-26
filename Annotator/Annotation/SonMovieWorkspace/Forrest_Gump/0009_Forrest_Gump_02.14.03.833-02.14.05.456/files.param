@@ -45,8 +45,8 @@
     <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.14.01.542-02.14.03.287/o2" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.14.01.542-02.14.03.287/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.14.01.542-02.14.03.287/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.14.01.542-02.14.03.287/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
   </predicates>
 </session>

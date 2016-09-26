@@ -36,21 +36,13 @@
       </markers>
     </object>
   </objects>
-  <annotations>
-    <annotation id="a1">
-      <duration startFrame="0" endFrame="155" />
-      <text>A row of mailboxes stands left.</text>
-      <refs />
-      <events />
-      <link />
-    </annotation>
-  </annotations>
+  <annotations />
   <predicates>
     <predicate frame="0" arguments="1" ids="o5" q="True" type="WALK(X)" />
     <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
-    <predicate frame="0" arguments="2" ids="o7,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o6,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o7,0009_Forrest_Gump_00.06.43.775-00.06.50.969/o4" q="True" type="IDENTITY(X,Y)" />
   </predicates>
 </session>

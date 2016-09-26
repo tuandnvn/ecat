@@ -71,8 +71,15 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="1" />
-      <text>The black woman stares at Forrest as he looks down at his own shoes.</text>
+      <duration startFrame="407" endFrame="598" />
+      <text>The black woman stares at Forrest</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+    <annotation id="a2">
+      <duration startFrame="0" endFrame="18" />
+      <text>he looks down at his own shoes</text>
       <refs />
       <events />
       <link />
@@ -80,13 +87,13 @@
   </annotations>
   <predicates>
     <predicate frame="0" arguments="2" ids="o11,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o4" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o12,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o5" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o9,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o2" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o13,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o6" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o10,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o8,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o1" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o9,o12" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o9,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o13,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o12,0009_Forrest_Gump_00.03.44.974-00.04.06.250/o5" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o10,o14" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o9,o12" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="21" arguments="2" ids="o10,o14" q="False" type="LOOK_AT(X,Y)" />
     <predicate frame="47" arguments="2" ids="o10,o9" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="59" arguments="2" ids="o9,o10" q="True" type="LOOK_AT(X,Y)" />

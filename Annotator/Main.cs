@@ -108,29 +108,6 @@ namespace Annotator
 
         private void InitializeOtherControls()
         {
-            // Record panel only for >= windows 8 
-            if (System.Environment.OSVersion.Version.Major >= 6 && System.Environment.OSVersion.Version.Minor >= 2)
-            {
-                this.recordPanel = new Annotator.RecordPanel(options);
-            }
-
-            if (recordPanel != null)
-            {
-                this.recordTab.Controls.Add(this.recordPanel);
-            }
-
-            // 
-            // recordPanel
-            // 
-            if (recordPanel != null)
-            {
-                this.recordPanel.main = this;
-                this.recordPanel.Location = new System.Drawing.Point(0, 0);
-                this.recordPanel.Name = "recordPanel";
-                this.recordPanel.Size = new System.Drawing.Size(1420, 860);
-                this.recordPanel.Dock = DockStyle.Fill;
-                this.recordPanel.TabIndex = 0;
-            }
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -216,14 +193,10 @@ namespace Annotator
         {
             if (tabs.SelectedIndex == 0)
             {
-                if (recordPanel != null)
-                    recordPanel.releaseKinectViewers();
             }
 
             if (tabs.SelectedIndex == 1)
             {
-                if (recordPanel != null)
-                    recordPanel.initiateKinectViewers();
             }
         }
 
@@ -236,10 +209,6 @@ namespace Annotator
 
             if (tabs.SelectedIndex == 1)
             {
-                if (e.KeyCode == Keys.D && recordPanel.recordMode != RecordPanel.RecordMode.Playingback && recordPanel != null)
-                {
-                    recordPanel.rgbBoard.Image.Save("temp.png");
-                }
             }
         }
 

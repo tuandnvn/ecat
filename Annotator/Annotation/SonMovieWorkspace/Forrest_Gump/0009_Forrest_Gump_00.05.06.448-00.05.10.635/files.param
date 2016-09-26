@@ -47,10 +47,10 @@
     <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.03.530-00.05.06.448/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.03.530-00.05.06.448/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.05.03.530-00.05.06.448/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.03.530-00.05.06.448/o3" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.03.530-00.05.06.448/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="26" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="36" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
   </predicates>

@@ -1,5 +1,4 @@
 ﻿using Emgu.CV;
-using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

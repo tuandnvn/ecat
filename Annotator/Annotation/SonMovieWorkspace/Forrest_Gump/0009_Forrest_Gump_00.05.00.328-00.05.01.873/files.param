@@ -46,7 +46,7 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
+      <duration startFrame="0" endFrame="6" />
       <text>The doctor sets Forrest down on its feet.</text>
       <refs />
       <events />
@@ -56,9 +56,9 @@
   <predicates>
     <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
-    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.04.49.868-00.04.56.748/o4" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.04.49.868-00.04.56.748/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.04.49.868-00.04.56.748/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.04.49.868-00.04.56.748/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.04.49.868-00.04.56.748/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.04.49.868-00.04.56.748/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="4" arguments="1" ids="o2" q="True" type="STAND(X)" />
     <predicate frame="26" arguments="1" ids="o2" q="True" type="WALK(X)" />

@@ -57,25 +57,6 @@ namespace Annotator
             boundingPolygons = (List<List<Point3>>)(object)tempoBoundingPolygons;
         }
 
-
-        /// <summary>
-        /// Should be from a GlyphBoxLocationMark<Point3> to a GlyphBoxLocationMark<PointF>
-        /// so that the result can be rendered to a graphics 
-        /// </summary>
-        /// <param name="scale"> size of image board/ size of depth field view</param>
-        /// <param name="translation"> alignment offset from the top left corner of image board to where to depth image is rendered</param>
-        /// <returns></returns>
-        public override LocationMark2D getDepthViewLocationMark(float scale, PointF translation)
-        {
-            var boundingPolygonInDepthPixels = boundingPolygons.Select(boundingPolygon => boundingPolygon.Select(p => KinectUtils.projectCameraSpacePointToDepthPixel(p)));
-            // Point3 -> PointF
-            var flattenBoundingPolygonInDepthPixels = boundingPolygonInDepthPixels.Select(boundingPolygon => boundingPolygon.Select(p => new PointF(p.X, p.Y)).ToList());
-
-            var scaledBoundingPolygons = flattenBoundingPolygonInDepthPixels.Select(boundingPolygon => boundingPolygon.scaleBound(scale, translation)).ToList();
-
-            return new GlyphBoxLocationMark2D(frameNo, this.glyphSize, scaledBoundingPolygons, faces);
-        }
-
         public override void writeToXml(XmlWriter xmlWriter)
         {
             Sort();

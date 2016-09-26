@@ -10,6 +10,7 @@
         <marker type="LOCATION" frame="22">1061.346,456.6784,332.9819,485.4112</marker>
         <marker type="LOCATION" frame="36">1076.236,434.0334,301.9725,504.474</marker>
         <marker type="LOCATION" frame="41">1046.857,441.0051,295.5311,501.0844</marker>
+        <marker type="LOCATION" frame="42">970.2069,132.8255,449.4625,699.0423</marker>
         <marker type="LOCATION" frame="43">964.9225,144.3152,445.5252,674.1923</marker>
         <marker type="LOCATION" frame="47">1015.522,134.3283,362.6866,614.3284</marker>
       </markers>
@@ -20,6 +21,7 @@
         <marker type="LOCATION" frame="22">692.7722,160.7368,385.7988,779.5617</marker>
         <marker type="LOCATION" frame="36">675.4048,166.6815,446.6847,770.0349</marker>
         <marker type="LOCATION" frame="41">638.0072,191.9579,487.6644,750.1316</marker>
+        <marker type="LOCATION" frame="42">1351.835,120.7283,416.9384,141.685</marker>
         <marker type="LOCATION" frame="43">1334.833,132.4935,458.8981,130.79</marker>
         <marker type="LOCATION" frame="47">1332.089,129.8509,467.0152,122.6865</marker>
       </markers>
@@ -33,8 +35,15 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="47" />
-      <text>Forrest stops suddenly as his brace gets stuck.</text>
+      <duration startFrame="0" endFrame="7" />
+      <text>Forrest stops suddenly</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+    <annotation id="a2">
+      <duration startFrame="43" endFrame="47" />
+      <text>His brace gets stuck</text>
       <refs />
       <events />
       <link />
@@ -43,8 +52,8 @@
   <predicates>
     <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
     <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.59.171-00.06.08.297/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.59.171-00.06.08.297/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.59.171-00.06.08.297/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.59.171-00.06.08.297/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="2" arguments="1" ids="o1" q="True" type="STAND(X)" />
     <predicate frame="2" arguments="1" ids="o2" q="True" type="STAND(X)" />

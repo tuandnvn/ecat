@@ -38,7 +38,7 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="67" />
+      <duration startFrame="0" endFrame="29" />
       <text>Mrs. Gump heads Forrest to the porch.</text>
       <refs />
       <events />
@@ -48,9 +48,9 @@
   <predicates>
     <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
     <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
-    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.07.02.321-00.07.16.856/o5" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.07.02.321-00.07.16.856/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.07.02.321-00.07.16.856/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.07.02.321-00.07.16.856/o5" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.07.02.321-00.07.16.856/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="30" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="38" arguments="1" ids="o3" q="True" type="STAND(X)" />

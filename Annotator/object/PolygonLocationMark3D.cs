@@ -39,16 +39,5 @@ namespace Annotator
         {
             xmlWriter.WriteString(string.Join(",", this.boundingPolygon.ConvertAll(p => p.X + "," + p.Y + "," + p.Z)));
         }
-
-        public override LocationMark2D getDepthViewLocationMark(float scale, PointF translation)
-        {
-            var boundingPolygonInDepthPixels = boundingPolygon.Select(p => KinectUtils.projectCameraSpacePointToDepthPixel(p));
-            // Point3 -> PointF
-            var flattenBoundingPolygonInDepthPixels = boundingPolygonInDepthPixels.Select(p => new PointF(p.X, p.Y)).ToList();
-
-            var scaledBoundingPolygons = flattenBoundingPolygonInDepthPixels.scaleBound(scale, translation).ToList();
-
-            return new PolygonLocationMark2D(frameNo, scaledBoundingPolygons);
-        }
     }
 }

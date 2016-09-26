@@ -21,14 +21,6 @@ namespace Annotator
             return new RigLocationMark3D(frameNo, Rigs.getUpperBody(rigFigure));
         }
 
-        public override LocationMark2D getDepthViewLocationMark(float scale, PointF translation)
-        {
-            var mappedJoints = ((Dictionary<string, Point3>)(object)rigFigure.rigJoints).ToDictionary(k => k.Key, k => KinectUtils.projectCameraSpacePointToDepthPixel(k.Value));
-            var flattenedMappedJoints = mappedJoints.ToDictionary(k => k.Key, k => new PointF(k.Value.X, k.Value.Y));
-
-            return new RigLocationMark2D(frameNo, new RigFigure<PointF>(flattenedMappedJoints, rigFigure.rigBones)).getScaledLocationMark(scale, translation);
-        }
-
         public override LocationMark3D getScaledLocationMark(float scale, Point3 translation)
         {
             var scaledRigFigure = rigFigure.scaleBound(scale, translation);

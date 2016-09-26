@@ -212,18 +212,6 @@ namespace Annotator
             this.BorderStyle = BorderStyle.None;
         }
 
-        private void generate3d_Click(object sender, EventArgs e)
-        {
-            // Current assumption is that the depth field is the first one
-            var depthReader = o.session.getDepth(0);
-            var mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
-
-            if (depthReader != null)
-            {
-                o.generate3d(depthReader, mappingReader);
-            }
-        }
-
         private void remove_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to remove this object?",

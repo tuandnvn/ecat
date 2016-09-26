@@ -22,8 +22,9 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="176" />
-      <text>The photo turns into live action as the General dons a hooded sheet over his head.</text>
+      <duration startFrame="36" endFrame="159" />
+      <text>the General dons a hooded sheet over his head.
+</text>
       <refs />
       <events />
       <link />

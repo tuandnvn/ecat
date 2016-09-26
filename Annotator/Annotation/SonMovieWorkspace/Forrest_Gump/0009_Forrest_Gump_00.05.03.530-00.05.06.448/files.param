@@ -46,7 +46,7 @@
   </objects>
   <annotations>
     <annotation id="a1">
-      <duration startFrame="0" endFrame="69" />
+      <duration startFrame="8" endFrame="53" />
       <text>Forrest's mother, MRS. GUMP, watches him as he clanks around the room awkwardly.</text>
       <refs />
       <events />
@@ -57,8 +57,8 @@
     <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
     <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
-    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.01.873-00.05.03.530/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.01.873-00.05.03.530/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.01.873-00.05.03.530/o2" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.01.873-00.05.03.530/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="55" arguments="2" ids="o4,o2" q="False" type="LOOK_AT(X,Y)" />

@@ -89,7 +89,6 @@ namespace Annotator
             this.generate3d.TabIndex = 6;
             this.generate3d.Text = "Generate3D";
             this.generate3d.UseVisualStyleBackColor = true;
-            this.generate3d.Click += new System.EventHandler(this.generate3d_Click);
             // 
             // shapeContainer1
             // 

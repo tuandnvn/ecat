@@ -1,5 +1,4 @@
 ﻿using Accord.Math;
-using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -93,21 +92,6 @@ namespace Annotator
                                                         boxSize,boxSize)
             };
             return selectBoxes.ToList();
-        }
-
-        public static string ToSString(this ColorSpacePoint scp)
-        {
-            return "( " + scp.X + ", " + scp.Y + " )";
-        }
-
-        public static string ToSString(this DepthSpacePoint dsp)
-        {
-            return "( " + dsp.X + ", " + dsp.Y + " )";
-        }
-
-        public static string ToSString(this CameraSpacePoint csp)
-        {
-            return "( " + csp.X + ", " + csp.Y + ", " + csp.Z + " )";
         }
 
         public static string ToSString(this Point3 p)

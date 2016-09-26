@@ -28,17 +28,17 @@
   <annotations>
     <annotation id="a1">
       <duration startFrame="0" endFrame="49" />
-      <text>It is young Forrest as he sits in a doctor's office.</text>
+      <text>he sits in a doctor's office</text>
       <refs />
       <events />
       <link />
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.04.46.044-00.04.47.798/o4" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.04.46.044-00.04.47.798/o3" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.04.46.044-00.04.47.798/o2" q="True" type="IDENTITY(X,Y)" />
-    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.04.46.044-00.04.47.798/o4" q="True" type="IDENTITY(X,Y)" />
   </predicates>
 </session>
