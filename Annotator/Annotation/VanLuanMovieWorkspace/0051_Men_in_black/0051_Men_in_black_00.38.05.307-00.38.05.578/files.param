@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.38.05.307-00.38.05.578" length="48">
+  <files>
+    <file>0051_Men_in_black_00.38.05.307-00.38.05.578.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Watch" filename="0051_Men_in_black_00.38.05.307-00.38.05.578.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">714.7137,7.136512,405.9912,634.3613</marker>
+        <marker type="LOCATION" frame="6">784.9814,32.51102,454.1375,651.2775</marker>
+        <marker type="LOCATION" frame="10">831.8268,105.0095,458.0411,648.861</marker>
+        <marker type="LOCATION" frame="13">866.9605,159.3833,418.6783,647.0485</marker>
+        <marker type="DELETE" frame="14" />
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.38.05.307-00.38.05.578.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.458142,2.907501,1898.855,1065.727</marker>
+        <marker type="DELETE" frame="14" />
+      </markers>
+    </object>
+    <object id="o3" name="Room" filename="0051_Men_in_black_00.38.05.307-00.38.05.578.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">4.229067,11.36565,1898.855,1044.582</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Word" filename="0051_Men_in_black_00.38.05.307-00.38.05.578.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">359.4714,430.0441,790.837,88.81058</marker>
+        <marker type="LOCATION" frame="21">359.4714,430.0441,790.837,88.81058</marker>
+        <marker type="LOCATION" frame="22">359.4714,430.0441,735.8591,88.81058</marker>
+        <marker type="LOCATION" frame="44">359.4714,430.0441,706.2555,88.81058</marker>
+        <marker type="LOCATION" frame="46">359.4714,430.0441,659.7357,88.81058</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Terminal" filename="0051_Men_in_black_00.38.05.307-00.38.05.578.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">224.141,11.36565,1467.489,1044.582</marker>
+        <marker type="LOCATION" frame="47">224.141,11.36565,1467.489,1044.582</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>More letters are eliminated from his name.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.38.03.020-00.38.03.860/o13" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.38.03.020-00.38.03.860/o14" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o3,0051_Men_in_black_00.38.03.020-00.38.03.860/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o4,0051_Men_in_black_00.38.03.020-00.38.03.860/o11" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o5,0051_Men_in_black_00.38.03.020-00.38.03.860/o9" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

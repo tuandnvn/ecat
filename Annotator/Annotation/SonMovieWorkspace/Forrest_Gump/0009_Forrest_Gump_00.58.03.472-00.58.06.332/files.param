@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.58.03.472-00.58.06.332" length="69">
+  <files>
+    <file>0009_Forrest_Gump_00.58.03.472-00.58.06.332.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Hospital" filename="0009_Forrest_Gump_00.58.03.472-00.58.06.332.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.216062,135.5779,1911.96,813.6683</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Letters" filename="0009_Forrest_Gump_00.58.03.472-00.58.06.332.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">324.8106,756.1779,382.537,142.3394</marker>
+        <marker type="LOCATION" frame="18">304.5193,759.527,396.4309,149.8751</marker>
+        <marker type="LOCATION" frame="24">286.1906,767.1674,401.0621,152.3869</marker>
+        <marker type="LOCATION" frame="30">353.2654,757.0152,405.6933,154.8988</marker>
+        <marker type="LOCATION" frame="42">764.9767,743.8279,414.9559,159.9224</marker>
+        <marker type="LOCATION" frame="53">730.4843,745.0839,423.4466,164.5276</marker>
+        <marker type="LOCATION" frame="62">839.1031,753.8754,430.3935,168.2954</marker>
+        <marker type="LOCATION" frame="68">836.3427,743.7232,435.0247,170.8073</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_00.58.03.472-00.58.06.332.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.9884951,310.5103,1473.772,612.9164</marker>
+        <marker type="LOCATION" frame="68">0.9886919,202.8336,1571.071,720.5933</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="68" />
+      <text>The soldier hands Forrest a large pile of letters.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.57.53.258-00.57.55.023/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.57.53.258-00.57.55.023/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

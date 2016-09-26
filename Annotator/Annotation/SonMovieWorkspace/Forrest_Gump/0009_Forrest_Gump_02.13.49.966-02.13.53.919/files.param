@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.13.49.966-02.13.53.919" length="95">
+  <files>
+    <file>0009_Forrest_Gump_02.13.49.966-02.13.53.919.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_02.13.49.966-02.13.53.919.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448369,131.811,1918.522,816.3781</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_02.13.49.966-02.13.53.919.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1330.621,197.8882,586.9592,749.6277</marker>
+        <marker type="LOCATION" frame="52">1281.988,197.8882,622.6049,749.6279</marker>
+        <marker type="LOCATION" frame="85">1146.269,197.8882,771.3088,749.6278</marker>
+        <marker type="LOCATION" frame="94">1109.255,197.8882,784.8447,749.6279</marker>
+      </markers>
+    </object>
+    <object id="o4" name="driver" filename="0009_Forrest_Gump_02.13.49.966-02.13.53.919.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">349.5652,132.4845,853.6026,815.0311</marker>
+      </markers>
+    </object>
+    <object id="o8" name="bus" filename="0009_Forrest_Gump_02.13.49.966-02.13.53.919.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9282936,132.4845,1918.564,814.5106</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="94" />
+      <text>Forrest Jr. looks into the bus and at the bus driver.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.13.33.485-02.13.35.356/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o8,0009_Forrest_Gump_02.13.33.485-02.13.35.356/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

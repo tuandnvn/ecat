@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.59.17.074-00.59.19.368" length="56">
+  <files>
+    <file>0051_Men_in_black_00.59.17.074-00.59.19.368.avi</file>
+  </files>
+  <objects no="11">
+    <object id="o1" name="Men" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">925.277,462.173,427.4503,601.0649</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jay" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">437.9601,440.6208,411.8847,614.2355</marker>
+      </markers>
+    </object>
+    <object id="o3" name="screen" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">239.2018,158.0488,1432.018,778.2706</marker>
+      </markers>
+    </object>
+    <object id="o4" name="pen" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="15">1027.051,591.4856,81.41908,112.5499</marker>
+        <marker type="LOCATION" frame="18">933.6586,525.632,81.41908,112.5499</marker>
+        <marker type="LOCATION" frame="26">861.8182,506.4745,81.41908,112.5499</marker>
+        <marker type="LOCATION" frame="30">955.2107,446.6075,81.41908,112.5499</marker>
+        <marker type="LOCATION" frame="33">1067.761,432.2395,81.41908,112.5499</marker>
+        <marker type="LOCATION" frame="39">1261.729,472.949,81.41908,112.5499</marker>
+        <marker type="LOCATION" frame="45">1278.492,499.2905,81.41908,112.5499</marker>
+        <marker type="LOCATION" frame="50">1256.94,597.4723,81.41908,112.5499</marker>
+        <marker type="DELETE" frame="51" />
+      </markers>
+    </object>
+    <object id="o5" name="star1" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="26">591.2196,411.8847,98.18175,74.23504</marker>
+        <marker type="LOCATION" frame="33">612.7716,426.2528,55.07761,59.86697</marker>
+      </markers>
+    </object>
+    <object id="o6" name="star2" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="33">931.2639,397.5166,57.47229,52.68293</marker>
+      </markers>
+    </object>
+    <object id="o7" name="star3" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="39">1290.466,414.2794,40.70954,62.26164</marker>
+      </markers>
+    </object>
+    <object id="o11" name="House" filename="0051_Men_in_black_00.59.17.074-00.59.19.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He indicates the three stars that make up the belt.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o11,0051_Men_in_black_00.59.13.639-00.59.14.238/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.59.13.639-00.59.14.238/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.59.13.639-00.59.14.238/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.59.13.639-00.59.14.238/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="15" arguments="2" ids="o4,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="18" arguments="2" ids="o4,o3" q="True" type="POINT_AT(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o5,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="33" arguments="2" ids="o6,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="39" arguments="2" ids="o7,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

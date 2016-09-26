@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.05.42.033-01.06.03.153" length="507">
+  <files>
+    <file>0009_Forrest_Gump_01.05.42.033-01.06.03.153.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Stage" filename="0009_Forrest_Gump_01.05.42.033-01.06.03.153.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.7907131,129.8847,1914.465,818.4515</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.05.42.033-01.06.03.153.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">537.2074,131.8237,741.277,814.7332</marker>
+        <marker type="LOCATION" frame="469">537.2074,131.8237,741.277,814.7332</marker>
+        <marker type="LOCATION" frame="470">568.5668,190.3789,261.5486,606.7217</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Police man" filename="0009_Forrest_Gump_01.05.42.033-01.06.03.153.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="488">1454.629,202.8336,459.0444,743.7232</marker>
+        <marker type="LOCATION" frame="494">1156.31,179.1104,755.5848,767.4465</marker>
+        <marker type="LOCATION" frame="506">559.6705,131.6639,882.5041,814.8931</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Audio" filename="0009_Forrest_Gump_01.05.42.033-01.06.03.153.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="470">2.767737,546.2274,649.4234,398.5502</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest looks at the crowd as he speaks.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.05.07.810-01.05.09.625/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.05.07.810-01.05.09.625/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="488" arguments="1" ids="o4" q="True" type="WALK(X)" />
+  </predicates>
+</session>

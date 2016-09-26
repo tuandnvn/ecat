@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.57.03.835-00.57.08.454" length="111">
+  <files>
+    <file>0009_Forrest_Gump_00.57.03.835-00.57.08.454.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o5" name="Hospital" filename="0009_Forrest_Gump_00.57.03.835-00.57.08.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.216062,135.5779,1911.96,813.6683</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_00.57.03.835-00.57.08.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">159.196,170.9548,1527.638,773.4672</marker>
+        <marker type="LOCATION" frame="61">178.7702,172.5628,1440.249,770.6678</marker>
+        <marker type="LOCATION" frame="87">392.3618,166.1306,1269.138,702.2698</marker>
+        <marker type="LOCATION" frame="110">46.63315,188.6432,1370.05,656.0804</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Ice cream" filename="0009_Forrest_Gump_00.57.03.835-00.57.08.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">566.0302,494.1708,770.2513,352.1608</marker>
+        <marker type="LOCATION" frame="48">531.2526,477.5788,593.7761,325.8475</marker>
+        <marker type="LOCATION" frame="61">611.4318,468.2777,545.9807,318.7209</marker>
+        <marker type="LOCATION" frame="77">750.191,437.3521,568.402,309.9498</marker>
+        <marker type="LOCATION" frame="91">903.6937,389.6665,482.4619,302.2751</marker>
+        <marker type="LOCATION" frame="110">1036.382,373.5678,365.8292,291.8593</marker>
+      </markers>
+    </object>
+    <object id="o6" name="stretcher" filename="0009_Forrest_Gump_00.57.03.835-00.57.08.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">382.7136,791.6583,1223.719,151.1558</marker>
+        <marker type="LOCATION" frame="42">317.5685,791.6583,1191.597,151.1558</marker>
+        <marker type="LOCATION" frame="75">400.402,786.3517,1238.094,159.6785</marker>
+        <marker type="LOCATION" frame="82">504.9246,785.2261,1161.005,151.1558</marker>
+        <marker type="LOCATION" frame="93">398.7939,510.2513,1316.985,426.1302</marker>
+        <marker type="LOCATION" frame="110">14.47234,542.412,1564.623,405.2261</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Forrest's Butt" filename="0009_Forrest_Gump_00.57.03.835-00.57.08.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="65">640,360.7035,122.2111,106.1307</marker>
+        <marker type="LOCATION" frame="90">652.8643,299.1513,221.6414,148.3864</marker>
+        <marker type="LOCATION" frame="103">511.0419,303.1781,235.4036,140.7795</marker>
+        <marker type="LOCATION" frame="110">382.7136,322.1105,242.8141,136.6834</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="110" />
+      <text>Forrest holds two ice cream cones in his hands as he is wheeled on a rolling stretcher.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.56.32.346-00.56.35.061/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="65" arguments="2" ids="o7,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

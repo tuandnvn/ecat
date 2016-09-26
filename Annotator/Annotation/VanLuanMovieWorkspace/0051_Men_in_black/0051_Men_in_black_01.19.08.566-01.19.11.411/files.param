@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.19.08.566-01.19.11.411" length="69">
+  <files>
+    <file>0051_Men_in_black_01.19.08.566-01.19.11.411.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="car" filename="0051_Men_in_black_01.19.08.566-01.19.11.411.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.196801,534.5081,140.595,90.06865</marker>
+        <marker type="LOCATION" frame="8">81.28146,561.968,140.595,90.06865</marker>
+        <marker type="LOCATION" frame="16">184.5309,612.4943,140.595,90.06865</marker>
+        <marker type="LOCATION" frame="26">322.9291,687.1854,140.595,90.06865</marker>
+        <marker type="LOCATION" frame="44">604.119,810.206,140.595,90.06865</marker>
+        <marker type="LOCATION" frame="68">628.2838,816.7964,140.595,90.06865</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_01.19.08.566-01.19.11.411.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Over at the fence, the LTD comes to a looooong, skidding stop at the fairgrounds.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.18.57.551-01.18.59.125/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

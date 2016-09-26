@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.29.15.488-01.29.19.161" length="0">
+  <files>
+    <file>0051_Men_in_black_01.29.15.488-01.29.19.161.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay raises the neuralyzer.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

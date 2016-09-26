@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.24.48.723-00.24.49.419" length="48">
+  <files>
+    <file>0051_Men_in_black_00.24.48.723-00.24.49.419.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Room" filename="0051_Men_in_black_00.24.48.723-00.24.49.419.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.403699,20.36696,1906.789,1048.073</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Another man" filename="0051_Men_in_black_00.24.48.723-00.24.49.419.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">92.47709,20.36696,1779.078,1039.261</marker>
+        <marker type="LOCATION" frame="9">92.47709,20.36696,1779.078,1039.261</marker>
+        <marker type="DELETE" frame="10" />
+        <marker type="LOCATION" frame="38">1034.862,945.1375,427.156,114.4888</marker>
+        <marker type="LOCATION" frame="40">321.4679,482.7523,1078.899,576.8732</marker>
+        <marker type="LOCATION" frame="42">145.3211,200.9174,1130.762,858.7077</marker>
+        <marker type="LOCATION" frame="45">92.47709,64.40366,1008.44,995.2217</marker>
+        <marker type="LOCATION" frame="47">154.1285,68.80733,889.5409,990.8184</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Men" filename="0051_Men_in_black_00.24.48.723-00.24.49.419.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="10">717.7982,46.78898,1193.394,1008.44</marker>
+        <marker type="LOCATION" frame="37">717.7982,33.57797,1193.394,1021.651</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Zed calls on him.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.24.47.911-00.24.48.248/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.24.47.911-00.24.48.248/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="10" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="10" arguments="2" ids="o5,0051_Men_in_black_00.24.47.911-00.24.48.248/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="38" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.33.53.971-01.33.54.764" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="15">1156.364,130.9091,550.2272,816.1362</marker>
+        <marker type="LOCATION" frame="23">1108.807,130.9091,710.2839,816.1362</marker>
+        <marker type="LOCATION" frame="31">1061.25,130.9091,641.25,816.1362</marker>
+        <marker type="LOCATION" frame="47">966.1364,130.9091,609.5455,816.1362</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Net" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="15">407.7273,130.9091,822.2727,816.1363</marker>
+        <marker type="LOCATION" frame="19">407.7273,130.9091,1004.318,814.0909</marker>
+        <marker type="LOCATION" frame="26">407.7273,130.9091,869.3182,662.7272</marker>
+        <marker type="LOCATION" frame="35">407.7273,130.9091,703.6364,386.5909</marker>
+        <marker type="LOCATION" frame="36">340.2273,130.9091,773.1818,357.9545</marker>
+        <marker type="LOCATION" frame="39">221.5909,130.9091,765,167.7273</marker>
+        <marker type="LOCATION" frame="40">174.5455,130.9091,812.0454,114.5455</marker>
+        <marker type="LOCATION" frame="41">174.5455,130.9091,812.0454,92.04546</marker>
+        <marker type="DELETE" frame="42" />
+      </markers>
+    </object>
+    <object id="o3" name="Gulf" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.6818237,130.9091,1916.591,816.1364</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="16" endFrame="42" />
+      <text>Forrest empties the net.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.33.31.721-01.33.37.330/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="15" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="15" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.05.07.810-01.05.09.625" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.05.07.810-01.05.09.625.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Stage" filename="0009_Forrest_Gump_01.05.07.810-01.05.09.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.7907131,129.8847,1914.465,818.4515</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.05.07.810-01.05.09.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">976.0132,188.5997,527.5455,757.3182</marker>
+        <marker type="LOCATION" frame="21">1038.022,210.0642,448.634,736.7914</marker>
+        <marker type="LOCATION" frame="47">1114.794,236.6392,468.386,711.3774</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Abbie" filename="0009_Forrest_Gump_01.05.07.810-01.05.09.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1301.615,338.056,131.6642,233.0807</marker>
+        <marker type="LOCATION" frame="7">1301.615,325.8844,225.6414,618.8932</marker>
+        <marker type="LOCATION" frame="22">1427.94,299.8023,300.6921,648.5338</marker>
+        <marker type="LOCATION" frame="25">1457.832,378.9786,310.4526,569.1976</marker>
+        <marker type="LOCATION" frame="29">1497.687,366.5239,323.4664,581.4386</marker>
+        <marker type="LOCATION" frame="36">1567.433,355.1011,346.2407,592.4878</marker>
+        <marker type="LOCATION" frame="47">1677.035,398.5503,237.5288,548.4516</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Abbie raises his fist as the crowd cheers wildly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.05.03.277-01.05.07.810/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.05.03.277-01.05.07.810/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.05.03.277-01.05.07.810/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

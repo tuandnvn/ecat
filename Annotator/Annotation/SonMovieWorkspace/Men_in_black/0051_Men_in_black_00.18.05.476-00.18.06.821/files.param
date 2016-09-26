@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.18.05.476-00.18.06.821" length="48">
+  <files>
+    <file>0051_Men_in_black_00.18.05.476-00.18.06.821.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.18.05.476-00.18.06.821.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.18.05.476-00.18.06.821.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">303.9432,126.6075,406.6788,936.129</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_00.18.05.476-00.18.06.821.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1305.293,103.5879,372.1494,957.2294</marker>
+        <marker type="LOCATION" frame="32">1155.667,107.4246,464.2266,953.3931</marker>
+        <marker type="LOCATION" frame="41">1042.487,99.7514,510.2664,961.0662</marker>
+        <marker type="LOCATION" frame="47">946.572,115.0977,448.881,945.72</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man" filename="0051_Men_in_black_00.18.05.476-00.18.06.821.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">791.1901,328.0284,364.4763,728.952</marker>
+        <marker type="LOCATION" frame="17">722.1315,337.6199,379.8224,719.3605</marker>
+        <marker type="LOCATION" frame="24">725.9686,356.8029,222.5217,700.1776</marker>
+        <marker type="LOCATION" frame="28">725.9686,550.5507,70.97638,510.2664</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Edwards looks at the Inspector, then at Kay.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.18.04.432-00.18.05.310/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.18.04.432-00.18.05.310/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.18.04.432-00.18.05.310/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.18.04.432-00.18.05.310/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="20" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="20" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="32" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

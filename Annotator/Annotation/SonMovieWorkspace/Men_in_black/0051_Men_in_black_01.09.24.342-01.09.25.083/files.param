@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.09.24.342-01.09.25.083" length="48">
+  <files>
+    <file>0051_Men_in_black_01.09.24.342-01.09.25.083.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.09.24.342-01.09.25.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edgar" filename="0051_Men_in_black_01.09.24.342-01.09.25.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1157.463,153.1343,451.3432,630.6717</marker>
+        <marker type="LOCATION" frame="11">1162.08,112.8358,446.7261,670.9708</marker>
+        <marker type="LOCATION" frame="24">1167.537,120.8955,441.2695,662.911</marker>
+        <marker type="LOCATION" frame="25">377.6866,42.31342,1219.03,1015.522</marker>
+        <marker type="LOCATION" frame="37">399.8508,118.8806,1196.868,938.9566</marker>
+        <marker type="LOCATION" frame="46">405.8955,116.8657,1190.822,940.9708</marker>
+        <marker type="DELETE" frame="47" />
+      </markers>
+    </object>
+    <object id="o4" name="Tony" filename="0051_Men_in_black_01.09.24.342-01.09.25.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">573.1343,124.9254,473.5075,932.9105</marker>
+        <marker type="LOCATION" frame="17">573.1343,143.0597,467.7986,914.7772</marker>
+        <marker type="LOCATION" frame="21">573.1343,179.3284,466.4553,878.509</marker>
+        <marker type="LOCATION" frame="24">573.1343,249.8508,465.4478,807.9861</marker>
+        <marker type="DELETE" frame="25" />
+      </markers>
+    </object>
+    <object id="o5" name="bell" filename="0051_Men_in_black_01.09.24.342-01.09.25.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">1185.672,741.4926,88.65857,58.43388</marker>
+        <marker type="LOCATION" frame="24">1184.938,743.7819,89.39006,58.15847</marker>
+        <marker type="DELETE" frame="25" />
+        <marker type="LOCATION" frame="47">867.3135,356.6418,372.7613,342.5373</marker>
+      </markers>
+    </object>
+    <object id="o6" name="battledore" filename="0051_Men_in_black_01.09.24.342-01.09.25.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">945.8956,977.2388,143.0607,80.5985</marker>
+        <marker type="LOCATION" frame="15">1010.709,841.5369,181.0079,200.1796</marker>
+        <marker type="LOCATION" frame="16">1054.644,620.0051,189.5188,222.8256</marker>
+        <marker type="LOCATION" frame="17">1083.258,272.4579,188.7079,208.6663</marker>
+        <marker type="LOCATION" frame="18">1011.879,87.5825,187.8972,194.507</marker>
+        <marker type="LOCATION" frame="20">846.8233,36.74129,167.5797,154.6766</marker>
+        <marker type="LOCATION" frame="21">917.2614,39.36931,178.164,183.2017</marker>
+        <marker type="LOCATION" frame="22">1038.909,194.3605,188.7485,211.7267</marker>
+        <marker type="LOCATION" frame="23">1057.797,560.1493,137.949,173.2837</marker>
+        <marker type="LOCATION" frame="24">1043.634,725.8348,99.72455,78.12042</marker>
+        <marker type="DELETE" frame="25" />
+        <marker type="LOCATION" frame="47">262.8358,132.9851,453.3582,924.8508</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="25" />
+      <text>Suddenly, quick as a gunfighter, Tony SNAPS the fly swatter down on a BUZZING FLY.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.09.12.571-01.09.16.209/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="11" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="11" arguments="2" ids="o4,o3" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o4,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

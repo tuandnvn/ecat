@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.24.59.509-00.25.05.454" length="143">
+  <files>
+    <file>0051_Men_in_black_00.24.59.509-00.25.05.454.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.24.59.509-00.25.05.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Zed" filename="0051_Men_in_black_00.24.59.509-00.25.05.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="63">700.1795,38.77919,1215.727,1023.77</marker>
+        <marker type="DELETE" frame="117" />
+      </markers>
+    </object>
+    <object id="o5" name="James" filename="0051_Men_in_black_00.24.59.509-00.25.05.454.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">356.9839,73.68044,1246.75,988.8689</marker>
+        <marker type="DELETE" frame="63" />
+        <marker type="LOCATION" frame="117">333.7163,73.68044,1227.361,988.8689</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="63" />
+      <text>Edwards tries to stifle a laugh, but can't.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.24.48.723-00.24.49.419/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.24.48.723-00.24.49.419/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="63" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

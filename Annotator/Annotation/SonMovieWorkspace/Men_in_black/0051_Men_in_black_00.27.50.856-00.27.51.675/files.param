@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.27.50.856-00.27.51.675" length="48">
+  <files>
+    <file>0051_Men_in_black_00.27.50.856-00.27.51.675.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.27.50.856-00.27.51.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.27.50.856-00.27.51.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="38">190.2334,40.71814,771.7056,1021.831</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Zed" filename="0051_Men_in_black_00.27.50.856-00.27.51.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+      </markers>
+    </object>
+    <object id="o4" name="picture" filename="0051_Men_in_black_00.27.50.856-00.27.51.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">116.553,38.77919,1752.819,1023.77</marker>
+        <marker type="LOCATION" frame="2">116.553,15.51168,1752.819,1047.038</marker>
+        <marker type="LOCATION" frame="5">0.2154627,15.51168,1869.156,1047.038</marker>
+        <marker type="LOCATION" frame="23">-1.723496,15.51168,1871.095,1047.038</marker>
+        <marker type="LOCATION" frame="25">331.7774,15.51168,1537.594,1047.038</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="38" />
+      <text>Next to it is a massively deformed humanoid creature with a large hook for a head, which also has three holes in it.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.27.41.218-00.27.42.683/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.27.41.218-00.27.42.683/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.27.41.218-00.27.42.683/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

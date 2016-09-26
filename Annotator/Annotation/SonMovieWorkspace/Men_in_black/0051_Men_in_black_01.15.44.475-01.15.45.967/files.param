@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.15.44.475-01.15.45.967" length="0">
+  <files>
+    <file>0051_Men_in_black_01.15.44.475-01.15.45.967.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Viewing the screen, it now reads.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

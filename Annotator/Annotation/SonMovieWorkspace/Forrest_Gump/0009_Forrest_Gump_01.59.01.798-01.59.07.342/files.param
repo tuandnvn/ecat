@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.59.01.798-01.59.07.342" length="133">
+  <files>
+    <file>0009_Forrest_Gump_01.59.01.798-01.59.07.342.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_01.59.01.798-01.59.07.342.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607316,131.215,459.2523,817.5702</marker>
+        <marker type="LOCATION" frame="62">268.5981,248.972,518.1309,699.8133</marker>
+        <marker type="LOCATION" frame="132">482.243,301.1215,494.5794,647.6638</marker>
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0009_Forrest_Gump_01.59.01.798-01.59.07.342.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607316,131.215,1917.757,817.5701</marker>
+      </markers>
+    </object>
+    <object id="o4" name="sandwich" filename="0009_Forrest_Gump_01.59.01.798-01.59.07.342.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">90.28039,368.4112,111.028,55.51402</marker>
+        <marker type="LOCATION" frame="31">271.9626,426.4486,111.028,55.51402</marker>
+        <marker type="LOCATION" frame="62">435.1402,470.1869,111.028,55.51402</marker>
+        <marker type="LOCATION" frame="132">628.5981,532.4299,111.028,55.51402</marker>
+      </markers>
+    </object>
+    <object id="o5" name="tv" filename="0009_Forrest_Gump_01.59.01.798-01.59.07.342.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">791.7757,301.1215,775.514,573.6448</marker>
+        <marker type="LOCATION" frame="31">948.5397,355.8708,742.9205,549.9407</marker>
+        <marker type="LOCATION" frame="75">1136.635,433.254,720.1052,516.2958</marker>
+        <marker type="LOCATION" frame="98">1224.112,460.9346,693.0841,488.3068</marker>
+        <marker type="LOCATION" frame="132">1281.308,476.0748,636.7294,472.7105</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="132" />
+      <text>Forrest sits eating a sandwich, watching the news of the assassination attempt.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

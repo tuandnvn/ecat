@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.10.00.927-00.10.02.509" length="48">
+  <files>
+    <file>0051_Men_in_black_00.10.00.927-00.10.02.509.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.10.00.927-00.10.02.509.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0051_Men_in_black_00.10.00.927-00.10.02.509.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">721.8898,276.378,546.3779,786.6141</marker>
+        <marker type="LOCATION" frame="4">728.2676,340.1575,487.9135,722.8344</marker>
+        <marker type="LOCATION" frame="8">734.6457,514.4882,429.4488,548.5038</marker>
+        <marker type="LOCATION" frame="9">583.7008,199.8425,425.1968,433.7008</marker>
+        <marker type="LOCATION" frame="15">551.811,218.9764,414.5669,454.9606</marker>
+        <marker type="LOCATION" frame="21">625.613,123.3071,523.5996,792.9921</marker>
+        <marker type="LOCATION" frame="23">632.5984,110.5512,597.4016,952.4409</marker>
+        <marker type="LOCATION" frame="26">534.8032,174.3307,746.2205,888.6613</marker>
+        <marker type="LOCATION" frame="30">460.3937,484.7244,960.9448,578.2676</marker>
+        <marker type="LOCATION" frame="31">490.1575,535.748,289.1339,365.6693</marker>
+        <marker type="LOCATION" frame="36">456.1418,680.3149,297.6378,221.1024</marker>
+        <marker type="LOCATION" frame="47">498.6614,544.252,270,357.1653</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>seemingly oblivious to the fact that it's a thirty-foot drop, he hurdles the guard rail, and drops to Forty-first Street below.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.09.59.303-00.09.59.513/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.09.59.303-00.09.59.513/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

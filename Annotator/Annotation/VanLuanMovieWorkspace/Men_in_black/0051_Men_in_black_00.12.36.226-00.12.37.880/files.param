@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.12.36.226-00.12.37.880" length="48">
+  <files>
+    <file>0051_Men_in_black_00.12.36.226-00.12.37.880.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Perpetrator" filename="0051_Men_in_black_00.12.36.226-00.12.37.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">647.442,289.9535,500.0939,765.7675</marker>
+        <marker type="LOCATION" frame="11">567.0698,392.6512,504.5582,642.9768</marker>
+        <marker type="LOCATION" frame="25">709.9535,414.9768,446.5117,567.0698</marker>
+        <marker type="LOCATION" frame="36">805.9535,365.8605,471.0698,442.0465</marker>
+        <marker type="LOCATION" frame="47">901.9535,441.7675,379.5349,370.6047</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Museum" filename="0051_Men_in_black_00.12.36.226-00.12.37.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.205152,6.666651,1915.897,1062.559</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He decides.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.12.06.984-00.12.08.366/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.12.06.984-00.12.08.366/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

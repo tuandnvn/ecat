@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.52.17.030-00.52.18.191" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.52.17.030-00.52.18.191.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.52.17.030-00.52.18.191.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_00.52.17.030-00.52.18.191.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1367.563,135.0001,549.3989,808.291</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Solider" filename="0009_Forrest_Gump_00.52.17.030-00.52.18.191.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">367.0253,285.3797,1546.519,531.4557</marker>
+        <marker type="LOCATION" frame="12">367.8797,274.2721,1546.519,667.3101</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="8" />
+      <text>Forrest grabs the third wounded soldier up from the ground</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+    <annotation id="a1">
+      <duration startFrame="9" endFrame="47" />
+      <text>He turns him over.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.52.10.728-00.52.16.106/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.52.10.728-00.52.16.106/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

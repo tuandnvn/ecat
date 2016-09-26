@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.23.01.816-01.23.05.187" length="81">
+  <files>
+    <file>0009_Forrest_Gump_01.23.01.816-01.23.05.187.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.23.01.816-01.23.05.187.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.377993E-05,124.4156,1915.844,818.7013</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dan" filename="0009_Forrest_Gump_01.23.01.816-01.23.05.187.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">282.5974,124.4156,806.2338,818.7013</marker>
+        <marker type="LOCATION" frame="19">354.7429,124.4162,780.9969,818.7014</marker>
+        <marker type="LOCATION" frame="40">434.4828,124.4169,753.1035,818.7015</marker>
+        <marker type="LOCATION" frame="63">444.0004,124.4173,780.8273,818.7015</marker>
+        <marker type="LOCATION" frame="80">451.0345,124.4169,777.9311,818.7015</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Wheelchair" filename="0009_Forrest_Gump_01.23.01.816-01.23.05.187.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1063.896,768.5714,187.013,174.5455</marker>
+        <marker type="LOCATION" frame="19">1080.497,780.0001,185.7101,163.1173</marker>
+        <marker type="LOCATION" frame="40">1098.845,829.6553,152.0648,113.4623</marker>
+        <marker type="LOCATION" frame="55">1150.345,832.7593,128.2764,110.3589</marker>
+        <marker type="LOCATION" frame="80">1133.794,837.9311,117.1167,105.1866</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He breathes heavily.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.22.42.011-01.23.01.816/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.22.42.011-01.23.01.816/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.22.42.011-01.23.01.816/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

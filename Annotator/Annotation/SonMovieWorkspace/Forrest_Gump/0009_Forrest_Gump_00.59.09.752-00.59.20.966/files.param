@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.59.09.752-00.59.20.966" length="269">
+  <files>
+    <file>0009_Forrest_Gump_00.59.09.752-00.59.20.966.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o4" name="Player" filename="0009_Forrest_Gump_00.59.09.752-00.59.20.966.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="217">-2.569989,218.8468,106.7545,241.9769</marker>
+        <marker type="LOCATION" frame="220">-1.201811,135.2224,242.3882,715.2554</marker>
+        <marker type="LOCATION" frame="230">3.357354,544.4481,276.9722,403.4433</marker>
+        <marker type="LOCATION" frame="243">1.607134,133.4432,714.6367,816.3761</marker>
+        <marker type="LOCATION" frame="245">1.337829,135.2224,732.6986,814.8934</marker>
+        <marker type="LOCATION" frame="268">4.546979,135.2224,663.6574,816.6722</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_00.59.09.752-00.59.20.966.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">108.6326,160.1318,823.7891,789.2053</marker>
+        <marker type="LOCATION" frame="60">299.0799,231.3015,713.3395,716.188</marker>
+        <marker type="LOCATION" frame="130">720.692,176.145,584.4811,771.8021</marker>
+        <marker type="LOCATION" frame="223">870.8203,225.6092,459.4797,641.2363</marker>
+        <marker type="LOCATION" frame="268">1135.7,199.4695,398.9951,578.0593</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Hospital" filename="0009_Forrest_Gump_00.59.09.752-00.59.20.966.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.216062,135.5779,1911.96,813.6683</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="268" />
+      <text>Forrest begins to hit the ball back to the other player.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.59.07.684-00.59.08.756/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.59.07.684-00.59.08.756/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

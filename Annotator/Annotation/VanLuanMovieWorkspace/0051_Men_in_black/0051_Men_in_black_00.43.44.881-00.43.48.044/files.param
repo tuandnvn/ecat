@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.43.44.881-00.43.48.044" length="76">
+  <files>
+    <file>0051_Men_in_black_00.43.44.881-00.43.48.044.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="women" filename="0051_Men_in_black_00.43.44.881-00.43.48.044.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">872.1282,42.42563,716.1556,1014.92</marker>
+        <marker type="LOCATION" frame="30">764.4853,22.65446,716.1556,1036.888</marker>
+        <marker type="LOCATION" frame="74">753.5012,22.65446,612.9063,1036.888</marker>
+        <marker type="DELETE" frame="75" />
+      </markers>
+    </object>
+    <object id="o2" name="belly" filename="0051_Men_in_black_00.43.44.881-00.43.48.044.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">977.5744,598.2153,454.7373,270.2059</marker>
+        <marker type="LOCATION" frame="14">892.9975,564.1648,454.7374,270.206</marker>
+        <marker type="LOCATION" frame="34">875.4231,647.0941,454.7374,311.3957</marker>
+        <marker type="LOCATION" frame="48">860.0455,620.4578,454.7374,311.3956</marker>
+        <marker type="LOCATION" frame="62">825.9954,681.9683,495.3779,311.3956</marker>
+        <marker type="LOCATION" frame="74">822.7003,733.4555,467.9176,283.1119</marker>
+        <marker type="DELETE" frame="75" />
+      </markers>
+    </object>
+    <object id="o4" name="Street" filename="0051_Men_in_black_00.43.44.881-00.43.48.044.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="75" />
+      <text>MRS. REDGICK is in front, MOANING in pain, holding her swollen belly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.43.32.559-00.43.35.008/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.19.103-01.00.20.190" length="48">
+  <files>
+    <file>0051_Men_in_black_01.00.19.103-01.00.20.190.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Screen" filename="0051_Men_in_black_01.00.19.103-01.00.20.190.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.8663764,17.5451,1916.318,1039.061</marker>
+      </markers>
+    </object>
+    <object id="o2" name="" filename="0051_Men_in_black_01.00.19.103-01.00.20.190.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">556.4621,485.4152,99.42239,115.0181</marker>
+        <marker type="LOCATION" frame="25">556.4621,485.4152,781.7329,115.0181</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The monitor goes blank, except for a data screen.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.00.16.067-01.00.18.408/o7" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

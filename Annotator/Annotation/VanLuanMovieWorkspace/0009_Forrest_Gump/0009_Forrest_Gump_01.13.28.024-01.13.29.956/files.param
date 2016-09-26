@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.13.28.024-01.13.29.956" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.13.28.024-01.13.29.956.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.13.28.024-01.13.29.956.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">470.6291,169.3275,566.4205,778.8286</marker>
+        <marker type="LOCATION" frame="23">503.239,169.3275,517.5057,778.8286</marker>
+        <marker type="LOCATION" frame="47">537.2668,169.3275,466.4642,778.8287</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0009_Forrest_Gump_01.13.28.024-01.13.29.956.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-8.06632E-06,125.5507,1915.771,824.6696</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest gives Jenny the peace sign.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.13.23.188-01.13.24.173/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

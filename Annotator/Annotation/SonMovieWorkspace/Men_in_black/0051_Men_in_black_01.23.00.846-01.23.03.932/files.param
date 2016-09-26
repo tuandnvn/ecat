@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.23.00.846-01.23.03.932" length="0">
+  <files>
+    <file>0051_Men_in_black_01.23.00.846-01.23.03.932.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Kay steps up to him, the small human facing off against the giant alien hug.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

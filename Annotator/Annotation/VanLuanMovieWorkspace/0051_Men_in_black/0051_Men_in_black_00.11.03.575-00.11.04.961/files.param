@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.11.03.575-00.11.04.961" length="48">
+  <files>
+    <file>0051_Men_in_black_00.11.03.575-00.11.04.961.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.11.03.575-00.11.04.961.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.146872,5.053998,1915.853,1057.451</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.11.03.575-00.11.04.961.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">406.1536,306.1538,430.7688,750.7692</marker>
+        <marker type="LOCATION" frame="12">460.5128,269.2307,581.5385,787.6918</marker>
+        <marker type="LOCATION" frame="24">406.1536,166.6664,648.2053,890.2559</marker>
+        <marker type="LOCATION" frame="29">434.8718,117.4354,598.9741,939.4863</marker>
+        <marker type="LOCATION" frame="35">406.1536,121.5384,644.1028,935.3834</marker>
+        <marker type="LOCATION" frame="41">307.6923,277.4359,804.1025,779.4849</marker>
+        <marker type="LOCATION" frame="47">406.1536,183.0769,951.795,873.8456</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edwards staggers after him, in pain.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.11.00.444-00.11.02.587/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.11.00.444-00.11.02.587/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.11.02.585-01.11.08.937" length="153">
+  <files>
+    <file>0009_Forrest_Gump_01.11.02.585-01.11.08.937.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Sidewalk" filename="0009_Forrest_Gump_01.11.02.585-01.11.08.937.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.846107,132.9231,1913.538,811.3846</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.11.02.585-01.11.08.937.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="6">1070.769,135.6923,434.7693,66.46154</marker>
+        <marker type="LOCATION" frame="35">997.149,132.1053,418.6251,430.0485</marker>
+        <marker type="LOCATION" frame="81">951.9056,236.6933,393.0175,486.0759</marker>
+        <marker type="LOCATION" frame="152">966.923,224.3077,353.0769,481.8462</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Two girl" filename="0009_Forrest_Gump_01.11.02.585-01.11.08.937.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="16">599.9999,137.0769,456.9232,159.2308</marker>
+        <marker type="LOCATION" frame="29">192.923,137.0769,839.077,375.2308</marker>
+        <marker type="LOCATION" frame="68">198.1913,181.4184,806.5893,502.5816</marker>
+        <marker type="LOCATION" frame="152">209.5384,276.9231,736.6154,434.7693</marker>
+      </markers>
+    </object>
+    <object id="o4" name="guitar" filename="0009_Forrest_Gump_01.11.02.585-01.11.08.937.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">1389.231,135.6923,138.4615,69.23077</marker>
+        <marker type="LOCATION" frame="17">1034.769,141.2308,429.6773,188.0398</marker>
+        <marker type="LOCATION" frame="36">1001.943,231.9325,362.3643,294.2213</marker>
+        <marker type="LOCATION" frame="55">971.7246,337.4517,362.1216,332.7022</marker>
+        <marker type="LOCATION" frame="75">957.1313,386.5,343.484,305.8076</marker>
+        <marker type="LOCATION" frame="110">961.7443,383.2835,358.2557,339.4857</marker>
+        <marker type="LOCATION" frame="152">971.0769,422.3077,318.4615,220.1539</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="152" />
+      <text>Jenny and two other girls sing on the sidewalk and collect change from the passersby.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="6" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="6" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="16" arguments="1" ids="o3" q="True" type="SIT(X)" />
+  </predicates>
+</session>

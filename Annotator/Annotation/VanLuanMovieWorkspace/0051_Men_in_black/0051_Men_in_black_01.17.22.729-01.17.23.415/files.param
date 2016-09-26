@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.22.729-01.17.23.415" length="48">
+  <files>
+    <file>0051_Men_in_black_01.17.22.729-01.17.23.415.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="car" filename="0051_Men_in_black_01.17.22.729-01.17.23.415.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">28.55835,121.5103,1856.295,916.0641</marker>
+        <marker type="LOCATION" frame="16">6.590385,35.83524,1770.619,909.4741</marker>
+        <marker type="LOCATION" frame="38">404.2106,224.7597,1036.889,612.9073</marker>
+        <marker type="LOCATION" frame="46">529.4279,330.206,817.2086,470.1148</marker>
+        <marker type="LOCATION" frame="47">529.4279,330.206,799.6339,461.3272</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_01.17.22.729-01.17.23.415.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>It becomes a larger, wirier machine, held together by an elaborate series of mechanical muscles and metallic tendons.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.17.18.664-01.17.19.133/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.17.18.664-01.17.19.133/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.58.26.908-01.58.35.796" length="214">
+  <files>
+    <file>0009_Forrest_Gump_01.58.26.908-01.58.35.796.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.58.26.908-01.58.35.796.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.811204,130.4151,1919.547,817.1325</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.58.26.908-01.58.35.796.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.242975,201.7364,999.2523,747.8487</marker>
+        <marker type="LOCATION" frame="47">319.0654,302.8037,746.9161,645.8625</marker>
+        <marker type="LOCATION" frame="105">674.0187,376.8224,418.8785,570.7098</marker>
+        <marker type="LOCATION" frame="166">808.5981,407.1028,287.6635,539.2367</marker>
+        <marker type="LOCATION" frame="213">852.3365,477.757,208.5981,467.6635</marker>
+      </markers>
+    </object>
+    <object id="o3" name="People" filename="0009_Forrest_Gump_01.58.26.908-01.58.35.796.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">873.6505,370.6552,478.8673,311.7736</marker>
+        <marker type="LOCATION" frame="47">826.5477,370.6552,478.8673,311.7736</marker>
+        <marker type="LOCATION" frame="105">808.043,374.0197,478.8673,311.7736</marker>
+        <marker type="LOCATION" frame="213">789.5383,414.3936,478.8673,311.7736</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="213" />
+      <text>Forrest walks toward the group.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.57.59.636-01.58.05.069/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.57.59.636-01.58.05.069/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.57.59.636-01.58.05.069/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

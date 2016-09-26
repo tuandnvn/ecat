@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.00.03.643-02.00.04.984" length="48">
+  <files>
+    <file>0009_Forrest_Gump_02.00.03.643-02.00.04.984.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o5" name="Jenny" filename="0009_Forrest_Gump_02.00.03.643-02.00.04.984.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">149.1589,385.2336,107.6636,563.5514</marker>
+        <marker type="LOCATION" frame="12">195.9753,245.6075,871.6882,703.178</marker>
+        <marker type="LOCATION" frame="18">219.3836,190.6542,1226.785,758.1315</marker>
+        <marker type="LOCATION" frame="21">231.0877,163.1776,1250.408,785.6081</marker>
+        <marker type="LOCATION" frame="24">242.7918,171.5888,1210.105,777.1967</marker>
+        <marker type="LOCATION" frame="47">332.5234,168.2243,1046.355,780.5607</marker>
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0009_Forrest_Gump_02.00.03.643-02.00.04.984.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607316,131.215,1917.757,817.5701</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Door" filename="0009_Forrest_Gump_02.00.03.643-02.00.04.984.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">204.6729,131.215,1712.523,817.5701</marker>
+        <marker type="LOCATION" frame="12">1002.056,131.215,915.1406,817.5701</marker>
+        <marker type="LOCATION" frame="18">1373.832,131.215,543.3649,817.5701</marker>
+        <marker type="LOCATION" frame="24">1394.019,131.215,523.178,817.5701</marker>
+        <marker type="LOCATION" frame="47">1330.094,131.215,587.1028,817.5701</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Jenny opens the door.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o5,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

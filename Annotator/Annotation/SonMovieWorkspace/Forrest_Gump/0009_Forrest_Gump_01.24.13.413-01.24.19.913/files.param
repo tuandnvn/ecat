@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.24.13.413-01.24.19.913" length="156">
+  <files>
+    <file>0009_Forrest_Gump_01.24.13.413-01.24.19.913.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.24.13.413-01.24.19.913.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5700707,130.8314,1911.164,815.7719</marker>
+      </markers>
+    </object>
+    <object id="o2" name="President" filename="0009_Forrest_Gump_01.24.13.413-01.24.19.913.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5700707,130.8314,887.6009,815.7719</marker>
+        <marker type="LOCATION" frame="46">0.5700707,130.8314,974.7407,815.7719</marker>
+        <marker type="LOCATION" frame="65">95.48693,130.8314,915.8182,815.7719</marker>
+        <marker type="LOCATION" frame="155">95.48693,130.8314,877.3396,815.7719</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Plaque" filename="0009_Forrest_Gump_01.24.13.413-01.24.19.913.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">303.2779,602.8503,926.0807,343.753</marker>
+        <marker type="LOCATION" frame="14">508.5035,746.5083,710.657,200.0934</marker>
+        <marker type="LOCATION" frame="26">603.4204,828.5985,607.0008,118.0022</marker>
+        <marker type="LOCATION" frame="51">718.8598,874.7743,473.3568,71.82733</marker>
+        <marker type="LOCATION" frame="155">667.5533,851.6863,448.9312,94.91545</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.24.13.413-01.24.19.913.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1257.577,133.3967,654.1567,813.2061</marker>
+        <marker type="LOCATION" frame="26">1147.268,133.3967,764.4656,813.2061</marker>
+        <marker type="LOCATION" frame="65">1108.789,133.3967,618.2422,813.2061</marker>
+        <marker type="LOCATION" frame="155">1060.047,133.3967,579.7625,813.2061</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="155" />
+      <text>President NIXON holds the plaque.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.23.58.419-01.24.03.185/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o6" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="19" arguments="2" ids="o2,o4" q="True" type="POINT_AT(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="150" arguments="2" ids="o4,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

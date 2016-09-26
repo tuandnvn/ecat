@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.24.18.558-00.24.21.442" length="70">
+  <files>
+    <file>0051_Men_in_black_00.24.18.558-00.24.21.442.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.24.18.558-00.24.21.442.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.24.18.558-00.24.21.442.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">754.4704,252.0646,310.2334,777.5224</marker>
+        <marker type="LOCATION" frame="14">645.8887,304.4165,337.3788,732.2518</marker>
+        <marker type="LOCATION" frame="33">624.5601,422.693,353.9019,623.5859</marker>
+        <marker type="LOCATION" frame="55">599.3537,473.1059,321.6141,584.3009</marker>
+        <marker type="LOCATION" frame="69">669.1562,641.7953,215.2244,422.693</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Chair" filename="0051_Men_in_black_00.24.18.558-00.24.21.442.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">622.6212,511.8851,217.1634,478.9228</marker>
+        <marker type="LOCATION" frame="33">475.2603,455.3181,314.4485,568.8736</marker>
+        <marker type="LOCATION" frame="69">170.8438,393.6086,564.2369,667.0018</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Zed" filename="0051_Men_in_black_00.24.18.558-00.24.21.442.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1136.445,409.1203,120.2154,327.684</marker>
+        <marker type="LOCATION" frame="69">1150.018,350.9515,141.544,381.9749</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Recruits" filename="0051_Men_in_black_00.24.18.558-00.24.21.442.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">744.7756,482.8007,409.1203,269.5153</marker>
+        <marker type="LOCATION" frame="69">595.4758,455.6553,558.4201,302.4775</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="69" />
+      <text>Edwards takes the remaining chair.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.21.27.219-00.21.39.620/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="49" arguments="1" ids="o2" q="True" type="SIT(X)" />
+  </predicates>
+</session>

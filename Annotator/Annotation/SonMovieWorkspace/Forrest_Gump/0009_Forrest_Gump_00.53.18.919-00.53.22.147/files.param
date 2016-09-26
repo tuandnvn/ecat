@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.53.18.919-00.53.22.147" length="78">
+  <files>
+    <file>0009_Forrest_Gump_00.53.18.919-00.53.22.147.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.53.18.919-00.53.22.147.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_00.53.18.919-00.53.22.147.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">938.6392,239.6677,474.2089,705.3323</marker>
+        <marker type="LOCATION" frame="6">937.7848,165.7595,558.4413,778.9556</marker>
+        <marker type="LOCATION" frame="36">1318.861,134.3592,594.2563,808.9319</marker>
+        <marker type="LOCATION" frame="47">1696.519,134.3592,216.5966,808.9319</marker>
+        <marker type="DELETE" frame="52" />
+        <marker type="LOCATION" frame="76">392.0182,130.4075,708.1083,808.9318</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Dan" filename="0009_Forrest_Gump_00.53.18.919-00.53.22.147.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">210.8781,557.0886,785.0079,316.9933</marker>
+        <marker type="LOCATION" frame="36">358.481,408.8451,891.4912,498.56</marker>
+        <marker type="LOCATION" frame="48">610.798,413.9716,985.3857,529.3196</marker>
+        <marker type="LOCATION" frame="59">842.0886,418.6708,1071.456,528.0381</marker>
+        <marker type="LOCATION" frame="66">1149.683,581.0126,765.3026,360.3556</marker>
+        <marker type="LOCATION" frame="71">1334.24,796.3291,580.7452,145.0386</marker>
+        <marker type="LOCATION" frame="75">1535.886,796.3291,379.0997,145.0386</marker>
+        <marker type="LOCATION" frame="76">6.589383,194.0629,468.0941,745.8105</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Gun's Dan" filename="0009_Forrest_Gump_00.53.18.919-00.53.22.147.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">744.6835,543.4177,68.35443,73.48101</marker>
+        <marker type="LOCATION" frame="6">729.3038,564.7784,68.35443,73.48101</marker>
+        <marker type="DELETE" frame="9" />
+        <marker type="LOCATION" frame="27">780.5696,542.5633,68.35443,73.48101</marker>
+        <marker type="LOCATION" frame="32">755.3047,474.1673,81.28916,76.98176</marker>
+        <marker type="LOCATION" frame="36">794.2405,469.0823,68.35443,73.48101</marker>
+        <marker type="LOCATION" frame="39">834.3133,482.8813,83.90502,73.22464</marker>
+        <marker type="LOCATION" frame="42">876.095,530.8575,99.45561,72.96838</marker>
+        <marker type="LOCATION" frame="45">934.9651,563.454,115.0064,72.7121</marker>
+        <marker type="LOCATION" frame="48">975.0379,551.6202,130.557,72.45573</marker>
+        <marker type="LOCATION" frame="52">1038.152,515.905,151.2913,72.11395</marker>
+        <marker type="LOCATION" frame="58">1172.981,497.3639,128.7912,64.85129</marker>
+        <marker type="LOCATION" frame="62">1297.343,526.5641,176.326,67.88445</marker>
+        <marker type="LOCATION" frame="66">1534.177,556.2342,223.8609,70.91772</marker>
+        <marker type="LOCATION" frame="69">1768.291,583.1487,147.8165,70.91772</marker>
+        <marker type="DELETE" frame="71" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="9" />
+      <text>Lt. Dan fires his pistol at the unseen enemy.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+    <annotation id="a1">
+      <duration startFrame="10" endFrame="76" />
+      <text>Forrest pulls him away.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.53.15.598-00.53.17.383/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.53.15.598-00.53.17.383/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.53.15.598-00.53.17.383/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.53.15.598-00.53.17.383/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="76" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>

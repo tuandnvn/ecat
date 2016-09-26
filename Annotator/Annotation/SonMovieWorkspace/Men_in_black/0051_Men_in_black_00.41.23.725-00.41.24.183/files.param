@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.41.23.725-00.41.24.183" length="48">
+  <files>
+    <file>0051_Men_in_black_00.41.23.725-00.41.24.183.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Man" filename="0051_Men_in_black_00.41.23.725-00.41.24.183.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">775.2091,381.9012,209.4297,607.7567</marker>
+        <marker type="LOCATION" frame="20">713.6122,400.3802,228.2145,657.0342</marker>
+        <marker type="LOCATION" frame="47">613.0038,531.787,271.0266,525.6274</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Restaurant" filename="0051_Men_in_black_00.41.23.725-00.41.24.183.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9125566,16.42585,1917.719,1040.989</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Man 1" filename="0051_Men_in_black_00.41.23.725-00.41.24.183.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1629.354,427.0722,287.4525,628.289</marker>
+        <marker type="LOCATION" frame="11">1442.51,371.635,469.9718,683.7263</marker>
+        <marker type="LOCATION" frame="28">1362.433,133.4601,543.3638,921.9011</marker>
+        <marker type="LOCATION" frame="47">1323.422,28.74524,574.905,1026.616</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Rosenberg walks carefully over to the table, but does not sit down.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.41.23.271-00.41.23.565/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.41.23.271-00.41.23.565/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.41.23.271-00.41.23.565/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="11" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

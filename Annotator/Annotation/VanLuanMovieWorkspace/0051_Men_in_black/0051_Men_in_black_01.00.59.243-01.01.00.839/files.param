@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.59.243-01.01.00.839" length="48">
+  <files>
+    <file>0051_Men_in_black_01.00.59.243-01.01.00.839.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.266083,198.7583,270.5987,862.0843</marker>
+        <marker type="LOCATION" frame="24">135.0332,174.8115,270.5987,886.0313</marker>
+        <marker type="LOCATION" frame="28">124.2572,153.2594,294.5455,907.5834</marker>
+        <marker type="LOCATION" frame="29">1003.703,359.2018,578.9134,711.2198</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">658.2705,287.3614,172.4169,768.6921</marker>
+        <marker type="LOCATION" frame="24">703.7694,283.7693,172.4169,768.6921</marker>
+        <marker type="LOCATION" frame="28">684.612,234.4387,191.5743,819.2198</marker>
+        <marker type="LOCATION" frame="29">109.8891,450.1996,476.5413,610.0449</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Alien#" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">962.3947,423.8581,665.7206,634.5898</marker>
+        <marker type="LOCATION" frame="28">962.3947,352.0177,665.7206,706.4305</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+    <object id="o4" name="screen" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="29">301.4634,241.8625,1336.231,663.326</marker>
+      </markers>
+    </object>
+    <object id="o7" name="House" filename="0051_Men_in_black_01.00.59.243-01.01.00.839.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay and Kay cross back toward the LAD (Landed Alien Display), where each of the thousand or so Aliens who live on earth are represented by a flickering LIGHT.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o7,0051_Men_in_black_01.00.21.330-01.00.26.030/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

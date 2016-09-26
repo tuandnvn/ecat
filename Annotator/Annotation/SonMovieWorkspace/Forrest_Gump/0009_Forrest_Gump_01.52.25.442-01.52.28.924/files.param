@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.52.25.442-01.52.28.924" length="84">
+  <files>
+    <file>0009_Forrest_Gump_01.52.25.442-01.52.28.924.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Porch" filename="0009_Forrest_Gump_01.52.25.442-01.52.28.924.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.4115939,131.5266,1917.362,815.0939</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.52.25.442-01.52.28.924.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">643.2219,324.9848,267.538,569.5441</marker>
+        <marker type="LOCATION" frame="8">623.5258,312.5836,284.316,583.4043</marker>
+        <marker type="LOCATION" frame="18">676.0486,297.0821,228.1459,600.7295</marker>
+        <marker type="LOCATION" frame="22">620.2432,295.5189,310.2128,602.2927</marker>
+        <marker type="LOCATION" frame="30">612.0364,272.462,246.2007,625.3495</marker>
+        <marker type="LOCATION" frame="39">525.0456,288.8754,310.8455,608.9362</marker>
+        <marker type="LOCATION" frame="50">544.7416,259.3313,218.2978,672.9483</marker>
+        <marker type="LOCATION" frame="58">528.3282,289.696,236.3525,629.4529</marker>
+        <marker type="LOCATION" frame="66">552.9483,320.0608,213.3739,585.9575</marker>
+        <marker type="LOCATION" frame="82">618.6018,298.7234,268.5825,581.0334</marker>
+        <marker type="LOCATION" frame="83">638.2979,313.4954,252.766,553.1307</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="83" />
+      <text>He walks off the porch.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.52.20.789-01.52.23.889/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.52.20.789-01.52.23.889/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.50.37.465-00.50.40.288" length="68">
+  <files>
+    <file>0009_Forrest_Gump_00.50.37.465-00.50.40.288.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Solider" filename="0009_Forrest_Gump_00.50.37.465-00.50.40.288.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">472.7638,154.8744,871.5578,746.1307</marker>
+        <marker type="LOCATION" frame="6">575.6784,132.3618,1016.281,813.6683</marker>
+        <marker type="LOCATION" frame="12">786.3317,132.3618,1128.844,813.6683</marker>
+        <marker type="LOCATION" frame="16">918.1909,132.3618,996.9849,813.6683</marker>
+        <marker type="LOCATION" frame="32">474.3719,135.5779,1437.588,622.3116</marker>
+        <marker type="LOCATION" frame="47">397.1859,135.5779,1514.774,807.2362</marker>
+        <marker type="LOCATION" frame="58">918.1909,135.5779,993.7684,807.2362</marker>
+        <marker type="LOCATION" frame="61">918.1909,133.9698,988.9447,812.0603</marker>
+        <marker type="LOCATION" frame="63">918.1909,135.5779,992.1608,738.6263</marker>
+        <marker type="LOCATION" frame="64">918.1909,368.7437,270.1508,316.7839</marker>
+        <marker type="LOCATION" frame="67">918.1909,314.0703,316.7839,416.4822</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jungle" filename="0009_Forrest_Gump_00.50.37.465-00.50.40.288.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="6">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Bullet 1" filename="0009_Forrest_Gump_00.50.37.465-00.50.40.288.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="28">463.1156,386.4322,239.598,221.9095</marker>
+        <marker type="LOCATION" frame="30">332.8643,228.8442,369.8492,379.4975</marker>
+        <marker type="LOCATION" frame="32">332.8643,169.3467,369.8492,438.995</marker>
+        <marker type="LOCATION" frame="42">218.6935,137.1859,369.8492,516.9849</marker>
+        <marker type="LOCATION" frame="50">4.824102,132.7638,384.3215,523.8191</marker>
+        <marker type="LOCATION" frame="56">-1.840256E-05,132.7638,146.3316,516.9849</marker>
+        <marker type="DELETE" frame="60" />
+      </markers>
+    </object>
+    <object id="o5" name="Bullet 2" filename="0009_Forrest_Gump_00.50.37.465-00.50.40.288.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="64">250.8542,278.6935,368.2412,545.1256</marker>
+        <marker type="LOCATION" frame="66">35.37687,133.9698,1072.563,733.2664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="67" />
+      <text>The soldiers run through the jungle as bullets explode all around.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="6" arguments="2" ids="o2,0009_Forrest_Gump_00.50.32.965-00.50.36.536/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.29.21.135-00.29.24.292" length="76">
+  <files>
+    <file>0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o3" name="Stadium" filename="0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.538757,133.5055,1910.922,810.9963</marker>
+      </markers>
+    </object>
+    <object id="o2" name="crowd" filename="0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">14.50186,139.4834,1898.967,280.9594</marker>
+        <marker type="LOCATION" frame="62">14.50186,139.4834,1898.967,209.2251</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man" filename="0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">484.7601,504.1328,37.85978,49.8155</marker>
+        <marker type="LOCATION" frame="4">513.6531,501.1439,37.85978,49.8155</marker>
+        <marker type="LOCATION" frame="22">722.8782,499.1513,37.85978,49.8155</marker>
+        <marker type="LOCATION" frame="44">973.9483,497.1587,37.85978,49.8155</marker>
+        <marker type="LOCATION" frame="61">1169.225,499.1512,38.85609,62.76762</marker>
+        <marker type="LOCATION" frame="62">371.679,169.3727,1091.458,774.6309</marker>
+        <marker type="LOCATION" frame="75">281.762,149.4465,1127.574,795.8026</marker>
+      </markers>
+    </object>
+    <object id="o5" name="defen man" filename="0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">568.1796,481.7456,303.2419,110.1247</marker>
+        <marker type="LOCATION" frame="12">694.2643,480.9476,264.9382,110.1247</marker>
+        <marker type="LOCATION" frame="37">775.6606,480.9476,371.8705,110.1247</marker>
+        <marker type="LOCATION" frame="50">867.4313,484.9377,374.2645,92.56853</marker>
+        <marker type="LOCATION" frame="59">894.9627,478.5536,404.1895,103.7407</marker>
+        <marker type="LOCATION" frame="61">894.9627,478.5536,404.1895,103.7407</marker>
+        <marker type="LOCATION" frame="62">8.279217,314.5636,739.9503,631.222</marker>
+        <marker type="LOCATION" frame="75">1.09722,299.8005,667.631,642.7932</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="75" />
+      <text>The crowd yells for Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.29.11.692-00.29.20.488/o5" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

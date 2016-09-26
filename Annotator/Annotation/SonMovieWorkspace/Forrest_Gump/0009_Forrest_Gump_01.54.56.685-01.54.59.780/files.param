@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.54.56.685-01.54.59.780" length="75">
+  <files>
+    <file>0009_Forrest_Gump_01.54.56.685-01.54.59.780.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.54.56.685-01.54.59.780.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.811204,130.4151,1919.547,817.1325</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Three men" filename="0009_Forrest_Gump_01.54.56.685-01.54.59.780.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">426.1133,165.0566,1228.758,782.4913</marker>
+        <marker type="DELETE" frame="63" />
+      </markers>
+    </object>
+    <object id="o4" name="Tv" filename="0009_Forrest_Gump_01.54.56.685-01.54.59.780.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">187.6993,130.4151,1075.923,817.1335</marker>
+        <marker type="DELETE" frame="7" />
+      </markers>
+    </object>
+    <object id="o6" name="Jenny" filename="0009_Forrest_Gump_01.54.56.685-01.54.59.780.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="63">1214.717,187.4717,299.5471,760.0755</marker>
+      </markers>
+    </object>
+    <object id="o7" name="customer" filename="0009_Forrest_Gump_01.54.56.685-01.54.59.780.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="63">1510.189,466.6416,301.5849,340.3019</marker>
+      </markers>
+    </object>
+    <object id="o8" name="Coffee" filename="0009_Forrest_Gump_01.54.56.685-01.54.59.780.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="63">1585.585,641.8869,142.6414,160.9811</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="62" />
+      <text>The three men in the barber shop watch the news on television.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="7" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="63" arguments="1" ids="o7" q="True" type="SIT(X)" />
+    <predicate frame="63" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="63" arguments="2" ids="o6,o8" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

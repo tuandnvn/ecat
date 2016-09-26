@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.46.12.584-00.46.13.584" length="48">
+  <files>
+    <file>0051_Men_in_black_00.46.12.584-00.46.13.584.avi</file>
+  </files>
+  <objects no="20">
+    <object id="o13" name="Kay" filename="0051_Men_in_black_00.46.12.584-00.46.13.584.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">548.3817,320.9128,241.6597,722.3236</marker>
+        <marker type="LOCATION" frame="14">547.0539,312.946,209.7924,722.3236</marker>
+        <marker type="LOCATION" frame="17">547.0539,312.946,225.7262,722.3236</marker>
+        <marker type="LOCATION" frame="23">598.8381,299.668,225.7261,722.3236</marker>
+        <marker type="LOCATION" frame="27">598.8381,265.1452,225.7262,756.8461</marker>
+        <marker type="LOCATION" frame="31">573.6099,265.1452,250.9543,756.8461</marker>
+        <marker type="LOCATION" frame="45">573.6099,265.1452,233.693,756.8461</marker>
+        <marker type="LOCATION" frame="47">597.5104,270.4564,209.7919,751.5348</marker>
+      </markers>
+    </object>
+    <object id="o14" name="driveway" filename="0051_Men_in_black_00.46.12.584-00.46.13.584.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">454.1079,732.531,185.8921,1048.548,1909.377,1051.203,1906.722,817.5103,1763.319,700.6639</marker>
+        <marker type="LOCATION" frame="14">454.1079,732.531,47.80084,1045.892,1909.377,1051.203,1917.344,790.9542,1898.755,745.8091</marker>
+        <marker type="LOCATION" frame="17">454.1079,732.531,47.80084,1045.892,1909.377,1051.203,1917.344,790.9542,1914.689,751.1203</marker>
+        <marker type="LOCATION" frame="27">454.1079,732.531,47.80084,1045.892,1909.377,1051.203,1917.344,790.9542,1912.033,698.0082</marker>
+        <marker type="LOCATION" frame="31">454.1079,732.531,47.80084,1045.892,1909.377,1051.203,1917.344,790.9542,1909.377,729.8755</marker>
+        <marker type="LOCATION" frame="33">454.1079,732.531,47.80084,1045.892,1909.377,1051.203,1917.344,790.9542,1914.689,735.1866</marker>
+      </markers>
+    </object>
+    <object id="o10" name="car" filename="0051_Men_in_black_00.46.12.584-00.46.13.584.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">738.2571,416.5145,1157.842,639.9993</marker>
+        <marker type="LOCATION" frame="14">738.2571,421.8257,1176.432,634.688</marker>
+        <marker type="LOCATION" frame="23">738.2571,403.2365,1176.432,653.277</marker>
+        <marker type="LOCATION" frame="33">738.2571,397.9253,1176.432,658.5881</marker>
+        <marker type="LOCATION" frame="45">794.0248,397.9253,1120.663,658.5881</marker>
+      </markers>
+    </object>
+    <object id="o11" name="Jay" filename="0051_Men_in_black_00.46.12.584-00.46.13.584.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1353.361,302.3238,162.9875,345.2279</marker>
+        <marker type="LOCATION" frame="14">1322.49,294.357,174.4395,345.2279</marker>
+        <marker type="LOCATION" frame="27">1322.49,310.2904,161.9918,329.2943</marker>
+        <marker type="LOCATION" frame="31">1307.884,307.635,161.9917,329.2943</marker>
+        <marker type="LOCATION" frame="45">1307.884,307.635,150.0415,329.2943</marker>
+        <marker type="LOCATION" frame="47">1307.884,315.6016,150.0415,321.3276</marker>
+      </markers>
+    </object>
+    <object id="o12" name="house" filename="0051_Men_in_black_00.46.12.584-00.46.13.584.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">122.1577,10.20755,1410.124,764.8132</marker>
+        <marker type="LOCATION" frame="14">122.1577,10.20755,1426.058,764.8132</marker>
+        <marker type="LOCATION" frame="17">122.1577,10.20755,1447.303,711.7011</marker>
+        <marker type="LOCATION" frame="27">177.9253,10.20755,1449.957,711.701</marker>
+        <marker type="LOCATION" frame="31">154.0249,10.20755,1473.857,711.701</marker>
+        <marker type="LOCATION" frame="47">154.0249,10.20755,1566.805,711.701</marker>
+      </markers>
+    </object>
+    <object id="o20" name="Street" filename="0051_Men_in_black_00.46.12.584-00.46.13.584.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay starts up the driveway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o13" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o11" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o10,0051_Men_in_black_00.46.09.345-00.46.12.402/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o13,0051_Men_in_black_00.46.09.345-00.46.12.402/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o11,0051_Men_in_black_00.46.09.345-00.46.12.402/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o14,0051_Men_in_black_00.46.09.345-00.46.12.402/o9" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o12,0051_Men_in_black_00.46.09.345-00.46.12.402/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o20,0051_Men_in_black_00.46.09.345-00.46.12.402/o11" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o13,o11" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o11,o12" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o14,o10" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o13,o12" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o11,o13" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o11,o13" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o11,o13" q="False" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

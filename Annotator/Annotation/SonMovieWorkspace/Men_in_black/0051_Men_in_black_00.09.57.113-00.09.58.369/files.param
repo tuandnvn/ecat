@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.09.57.113-00.09.58.369" length="48">
+  <files>
+    <file>0051_Men_in_black_00.09.57.113-00.09.58.369.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.09.57.113-00.09.58.369.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.09.57.113-00.09.58.369.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1387.323,610.1575,138.189,225.3543</marker>
+        <marker type="LOCATION" frame="8">1109.275,591.631,147.9077,232.6434</marker>
+        <marker type="LOCATION" frame="14">840.9449,569.7638,155.1968,238.1102</marker>
+        <marker type="DELETE" frame="15" />
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="0051_Men_in_black_00.09.57.113-00.09.58.369.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="15">985.5118,97.79529,931.1811,965.1968</marker>
+        <marker type="LOCATION" frame="22">1217.244,225.3543,699.4488,837.6377</marker>
+        <marker type="LOCATION" frame="28">1058.858,351.8504,857.8345,711.1415</marker>
+        <marker type="LOCATION" frame="29">1068.425,372.0472,816.3778,690.9446</marker>
+        <marker type="LOCATION" frame="31">1087.559,412.4409,620.7874,650.551</marker>
+        <marker type="LOCATION" frame="34">806.9291,391.1811,720.7086,671.8108</marker>
+        <marker type="LOCATION" frame="41">777.1653,333.7795,654.8031,729.2124</marker>
+        <marker type="LOCATION" frame="47">830.3149,187.0866,631.4173,875.9054</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>As they run down the bridge that traverses Park Avenue in the low Forties.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.09.50.905-00.09.51.480/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.09.50.905-00.09.51.480/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.09.50.905-00.09.51.480/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

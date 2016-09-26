@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.39.22.665-00.39.25.079" length="58">
+  <files>
+    <file>0051_Men_in_black_00.39.22.665-00.39.25.079.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o5" name="Van" filename="0051_Men_in_black_00.39.22.665-00.39.25.079.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.711266E-05,1.68226,1911.028,1076.635</marker>
+        <marker type="LOCATION" frame="49">-1.711266E-05,1.68226,1911.028,1076.635</marker>
+        <marker type="DELETE" frame="50" />
+      </markers>
+    </object>
+    <object id="o6" name="Edgar" filename="0051_Men_in_black_00.39.22.665-00.39.25.079.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">44.8598,42.05609,1623.925,1022.804</marker>
+        <marker type="LOCATION" frame="6">4.485964,33.40472,1581.481,1032.491</marker>
+        <marker type="LOCATION" frame="13">8.971946,23.31112,1480.374,1043.792</marker>
+        <marker type="LOCATION" frame="19">8.232498,14.65971,1216.44,1053.479</marker>
+        <marker type="LOCATION" frame="26">7.369809,4.566154,436.7423,1064.78</marker>
+        <marker type="LOCATION" frame="27">5.927887,3.124207,269.96,1052.764</marker>
+        <marker type="LOCATION" frame="28">4.485964,1.68226,103.1776,641.4954</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+    <object id="o7" name="Office" filename="0051_Men_in_black_00.39.22.665-00.39.25.079.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="50">8.971946,15.14038,1902.056,1045.234</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edgar drops the truck into gear and follows him, slowly, trolling along behind him.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

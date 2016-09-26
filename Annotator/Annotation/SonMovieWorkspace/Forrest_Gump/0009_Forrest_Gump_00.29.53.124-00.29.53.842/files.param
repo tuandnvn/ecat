@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.29.53.124-00.29.53.842" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.29.53.124-00.29.53.842.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="team football" filename="0009_Forrest_Gump_00.29.53.124-00.29.53.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">438.5249,203.7736,1470.875,740.9948</marker>
+        <marker type="LOCATION" frame="6">3.190422,138.9366,1906.209,805.8319</marker>
+        <marker type="LOCATION" frame="26">-2.36704,131.5266,1911.767,813.2418</marker>
+      </markers>
+    </object>
+    <object id="o2" name="room" filename="0009_Forrest_Gump_00.29.53.124-00.29.53.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.337934,127.8216,1911.767,820.6518</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="0009_Forrest_Gump_00.29.53.124-00.29.53.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">921.5609,255.1801,456.6381,675.2316</marker>
+        <marker type="LOCATION" frame="26">806.7067,171.8182,456.6381,675.2316</marker>
+        <marker type="LOCATION" frame="39">883.1218,129.211,530.2744,463.5849</marker>
+        <marker type="LOCATION" frame="47">1094.305,129.211,319.0909,369.1081</marker>
+      </markers>
+    </object>
+    <object id="o4" name="president" filename="0009_Forrest_Gump_00.29.53.124-00.29.53.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.190422,140.789,514.9914,802.1268</marker>
+        <marker type="LOCATION" frame="5">3.190422,140.789,389.0223,802.1268</marker>
+        <marker type="DELETE" frame="6" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="7" endFrame="47" />
+      <text>The All-American players mingle around the food table.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.29.49.608-00.29.53.089/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.29.46.151-00.29.49.608/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.29.49.608-00.29.53.089/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.29.49.608-00.29.53.089/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

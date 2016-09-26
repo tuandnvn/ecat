@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.13.34.459-01.13.39.029" length="110">
+  <files>
+    <file>0009_Forrest_Gump_01.13.34.459-01.13.39.029.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.13.34.459-01.13.39.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">7.943838E-06,123.5141,1915.835,820.4772</marker>
+      </markers>
+    </object>
+    <object id="o2" name="TV" filename="0009_Forrest_Gump_01.13.34.459-01.13.39.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">333.1887,136.0086,1516.009,703.8611</marker>
+        <marker type="LOCATION" frame="26">426.8981,147.4616,1369.197,754.881</marker>
+        <marker type="LOCATION" frame="51">517.0032,158.4745,1228.033,673.0656</marker>
+        <marker type="LOCATION" frame="78">614.3167,170.3683,1039.132,598.699</marker>
+        <marker type="LOCATION" frame="104">708.026,181.8218,928.7635,508.1131</marker>
+        <marker type="LOCATION" frame="109">733.0151,181.8218,903.7741,508.1131</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Neil Armstrong" filename="0009_Forrest_Gump_01.13.34.459-01.13.39.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">807.9825,223.4707,270.7159,512.2776</marker>
+        <marker type="LOCATION" frame="26">912.1039,256.7894,170.7594,434.1855</marker>
+        <marker type="LOCATION" frame="51">970.412,260.9542,154.0999,386.9712</marker>
+        <marker type="LOCATION" frame="78">986.0303,265.1193,173.8829,336.3122</marker>
+        <marker type="LOCATION" frame="104">1045.38,265.1193,141.6053,291.54</marker>
+        <marker type="DELETE" frame="105" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A footage of Neil Armstrong's first step on the moon on television.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

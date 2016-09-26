@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.38.03.936-00.38.05.719" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.38.03.936-00.38.05.719.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Club" filename="0009_Forrest_Gump_00.38.03.936-00.38.05.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.840256E-05,133.9698,1915.176,812.0603</marker>
+        <marker type="DELETE" frame="39" />
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_00.38.03.936-00.38.05.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">893.2663,330.1508,233.1658,553.1658</marker>
+        <marker type="LOCATION" frame="15">566.695,355.199,267.8779,491.1326</marker>
+        <marker type="LOCATION" frame="18">523.4761,369.5196,226.6156,461.5639</marker>
+        <marker type="LOCATION" frame="22">511.3863,351.0553,171.5993,467.5518</marker>
+        <marker type="LOCATION" frame="26">499.2965,423.4171,116.5829,382.7136</marker>
+        <marker type="DELETE" frame="29" />
+        <marker type="LOCATION" frame="39">1321.407,439.4975,116.5829,382.7136</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Ghita" filename="0009_Forrest_Gump_00.38.03.936-00.38.05.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">858.6935,550.7224,151.1558,173.1281</marker>
+        <marker type="LOCATION" frame="15">537.0854,534.642,151.1558,173.1281</marker>
+        <marker type="LOCATION" frame="18">538.6935,611.8279,82.01005,128.3731</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o4" name="Jenny" filename="0009_Forrest_Gump_00.38.03.936-00.38.05.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="39">1188.342,447.5377,165.6281,440.603</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Street" filename="0009_Forrest_Gump_00.38.03.936-00.38.05.719.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="39">1.608022,137.1859,1907.136,812.0603</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He follows after her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.38.02.413-00.38.03.936/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.38.02.413-00.38.03.936/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.38.02.413-00.38.03.936/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="39" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="39" arguments="1" ids="o4" q="True" type="WALK(X)" />
+  </predicates>
+</session>

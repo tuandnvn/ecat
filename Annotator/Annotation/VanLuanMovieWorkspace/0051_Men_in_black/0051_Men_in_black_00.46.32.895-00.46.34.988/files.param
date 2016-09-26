@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.46.32.895-00.46.34.988" length="51">
+  <files>
+    <file>0051_Men_in_black_00.46.32.895-00.46.34.988.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="women1" filename="0051_Men_in_black_00.46.32.895-00.46.34.988.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">342.7002,57.8032,786.4531,1014.92</marker>
+        <marker type="LOCATION" frame="18">342.7002,57.8032,755.698,1014.92</marker>
+        <marker type="LOCATION" frame="46">342.7002,57.8032,729.3364,1014.92</marker>
+        <marker type="DELETE" frame="50" />
+      </markers>
+    </object>
+    <object id="o5" name="Street" filename="0051_Men_in_black_00.46.32.895-00.46.34.988.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Beatrice looks much better than the last time we saw her -- more nicely dressed, a touch of makeup, a smile on her face.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.46.20.893-00.46.25.852/o9" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

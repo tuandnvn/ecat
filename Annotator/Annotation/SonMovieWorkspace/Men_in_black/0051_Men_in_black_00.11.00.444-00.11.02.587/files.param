@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.11.00.444-00.11.02.587" length="52">
+  <files>
+    <file>0051_Men_in_black_00.11.00.444-00.11.02.587.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="man" filename="0051_Men_in_black_00.11.00.444-00.11.02.587.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">826.4944,237.1215,745.2391,825.868</marker>
+        <marker type="LOCATION" frame="11">1119.41,348.7085,456.3094,714.2803</marker>
+        <marker type="LOCATION" frame="23">920.1476,167.3801,524.059,895.6092</marker>
+        <marker type="LOCATION" frame="30">673.0627,13.94834,743.2469,1048.118</marker>
+        <marker type="LOCATION" frame="31">718.893,13.94834,693.4315,902.6568</marker>
+        <marker type="LOCATION" frame="34">653.1365,37.85978,848.8561,705.3875</marker>
+        <marker type="LOCATION" frame="38">694.9816,103.6162,850.8487,731.2915</marker>
+        <marker type="LOCATION" frame="41">922.1402,37.85978,575.8671,948.4866</marker>
+        <marker type="LOCATION" frame="44">1007.823,115.572,691.4391,882.7306</marker>
+        <marker type="LOCATION" frame="46">1047.106,470.2583,869.3516,591.8081</marker>
+        <marker type="LOCATION" frame="51">1145.314,733.2841,607.7487,329.7054</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.11.00.444-00.11.02.587.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1107.454,276.9742,713.3575,786.0151</marker>
+        <marker type="LOCATION" frame="11">1107.454,308.8561,691.4387,754.1329</marker>
+        <marker type="LOCATION" frame="23">1059.631,354.6863,836.8996,708.3027</marker>
+        <marker type="LOCATION" frame="31">834.465,267.0111,874.7601,795.9777</marker>
+        <marker type="LOCATION" frame="38">525.6089,502.1402,828.6437,560.8486</marker>
+        <marker type="LOCATION" frame="46">296.4576,543.9852,689.4465,519.0037</marker>
+        <marker type="LOCATION" frame="51">326.3469,545.9778,557.9336,517.0112</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_00.11.00.444-00.11.02.587.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="51" />
+      <text>WHOMP! The Perp kicks him in the nuts, then scrambles to his feet and takes off again.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.10.54.122-00.10.55.100/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.10.54.122-00.10.55.100/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.10.54.122-00.10.55.100/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

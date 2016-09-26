@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.57.48.202-00.57.50.620" length="58">
+  <files>
+    <file>0009_Forrest_Gump_00.57.48.202-00.57.50.620.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Hospital" filename="0009_Forrest_Gump_00.57.48.202-00.57.50.620.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.599174E-05,124.9781,1915.808,817.4672</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dan" filename="0009_Forrest_Gump_00.57.48.202-00.57.50.620.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">733.9957,291.1879,675.9395,290.2808</marker>
+        <marker type="LOCATION" frame="14">756.9125,281.9719,677.9039,290.133</marker>
+        <marker type="LOCATION" frame="31">784.7402,270.7809,645.9294,289.9534</marker>
+        <marker type="LOCATION" frame="46">783.7581,295.3348,663.4989,279.7542</marker>
+        <marker type="LOCATION" frame="57">800.3456,357.5378,725.702,228.0778</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Nurse" filename="0009_Forrest_Gump_00.57.48.202-00.57.50.620.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">887.4298,129.4601,356.6307,688.3801</marker>
+        <marker type="LOCATION" frame="14">893.0482,127.5873,345.394,569.9937</marker>
+        <marker type="LOCATION" frame="31">899.8704,125.3132,331.7495,526.6523</marker>
+        <marker type="LOCATION" frame="46">887.4298,134.8829,356.6307,512.2977</marker>
+        <marker type="LOCATION" frame="57">916.4579,141.9007,410.5399,501.7711</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Wheel bed" filename="0009_Forrest_Gump_00.57.48.202-00.57.50.620.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1277.235,668.5529,634.4708,145.1404</marker>
+        <marker type="LOCATION" frame="14">962.0734,647.8186,951.5057,167.7475</marker>
+        <marker type="LOCATION" frame="31">739.5612,614.6436,1176.292,203.1965</marker>
+        <marker type="LOCATION" frame="46">729.8488,607.4663,1183.612,206.227</marker>
+        <marker type="LOCATION" frame="57">680.0864,602.203,1231.62,194.9028</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Another nurse wheels the rolling bed under Lt. Dan.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.57.37.182-00.57.46.037/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.57.37.182-00.57.46.037/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.57.37.182-00.57.46.037/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="21" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="29" arguments="2" ids="o2,o5" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

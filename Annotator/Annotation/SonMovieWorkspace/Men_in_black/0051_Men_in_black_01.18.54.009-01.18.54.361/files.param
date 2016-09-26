@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.18.54.009-01.18.54.361" length="0">
+  <files>
+    <file>0051_Men_in_black_01.18.54.009-01.18.54.361.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edgar flails, but she is beyond his reach.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

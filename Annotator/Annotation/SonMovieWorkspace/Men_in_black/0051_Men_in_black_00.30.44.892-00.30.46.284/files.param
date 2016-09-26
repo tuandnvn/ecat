@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.30.44.892-00.30.46.284" length="48">
+  <files>
+    <file>0051_Men_in_black_00.30.44.892-00.30.46.284.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.30.44.892-00.30.46.284.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Aliens" filename="0051_Men_in_black_00.30.44.892-00.30.46.284.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">355.8813,414.768,711.3173,649.2022</marker>
+      </markers>
+    </object>
+    <object id="o4" name="kay" filename="0051_Men_in_black_00.30.44.892-00.30.46.284.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1139.332,20.03705,446.8262,1041.929</marker>
+        <marker type="LOCATION" frame="22">1077.217,34.06308,486.4313,1027.901</marker>
+        <marker type="LOCATION" frame="47">1001.076,118.2188,536.9944,943.7443</marker>
+      </markers>
+    </object>
+    <object id="o6" name="cup" filename="0051_Men_in_black_00.30.44.892-00.30.46.284.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1205.454,194.3599,76.14112,86.15957</marker>
+        <marker type="LOCATION" frame="9">1221.484,107.1985,76.141,86.15955</marker>
+        <marker type="LOCATION" frame="13">1183.414,225.4174,76.141,86.15955</marker>
+        <marker type="LOCATION" frame="16">1133.321,415.7699,76.141,86.15955</marker>
+        <marker type="LOCATION" frame="19">1111.28,574.063,76.141,86.15955</marker>
+        <marker type="LOCATION" frame="22">1113.284,638.1818,76.141,86.15955</marker>
+        <marker type="LOCATION" frame="29">985.0463,665.9832,84.15584,94.67545</marker>
+        <marker type="LOCATION" frame="36">904.8979,693.7847,92.17068,103.1913</marker>
+        <marker type="LOCATION" frame="43">875.9352,693.1927,81.96991,92.35291</marker>
+        <marker type="LOCATION" frame="47">882.8571,692.282,76.141,86.15955</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>One of the Worm Aliens answers him in their native tongue and points to the counter.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.30.09.471-00.30.13.120/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o4,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

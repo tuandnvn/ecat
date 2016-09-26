@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.08.14.279-01.08.14.945" length="48">
+  <files>
+    <file>0051_Men_in_black_01.08.14.279-01.08.14.945.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dr" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">795.7842,96.71642,807.9845,702.2031</marker>
+        <marker type="LOCATION" frame="8">800.3174,150.8672,811.007,721.8478</marker>
+        <marker type="LOCATION" frame="20">804.3475,158.9269,818.563,822.3419</marker>
+      </markers>
+    </object>
+    <object id="o3" name="pen" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">898.0411,517.584,136.0075,262.444</marker>
+        <marker type="LOCATION" frame="8">898.0411,582.0616,136.0075,262.444</marker>
+        <marker type="LOCATION" frame="20">941.8657,707.2388,213.5826,149.1045</marker>
+        <marker type="LOCATION" frame="32">929.7759,816.0448,213.5826,68.50808</marker>
+        <marker type="LOCATION" frame="37">931.7908,840.2236,213.5826,68.50808</marker>
+        <marker type="LOCATION" frame="39">978.1341,864.4027,122.9107,68.50808</marker>
+      </markers>
+    </object>
+    <object id="o4" name="document" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">809.8889,703.7127,284.103,75.55971</marker>
+        <marker type="LOCATION" frame="8">819.9634,790.3545,284.103,75.55971</marker>
+        <marker type="LOCATION" frame="20">793.7694,842.7426,367.7232,112.3321</marker>
+        <marker type="LOCATION" frame="32">818.4519,866.6698,367.7232,112.3321</marker>
+      </markers>
+    </object>
+    <object id="o5" name="cat" filename="0051_Men_in_black_01.08.14.279-01.08.14.945.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="8">248.7313,447.3134,76.5672,171.2687</marker>
+        <marker type="LOCATION" frame="10">244.3657,415.0746,160.5225,425.1497</marker>
+        <marker type="LOCATION" frame="20">222.5373,477.5373,580.2991,473.5082</marker>
+        <marker type="LOCATION" frame="32">192.3134,453.3582,912.7615,511.7911</marker>
+        <marker type="LOCATION" frame="47">309.1791,453.3582,902.6873,511.7911</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Laurel jumps.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.08.12.054-01.08.13.779/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.08.12.054-01.08.13.779/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.08.12.054-01.08.13.779/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.08.12.054-01.08.13.779/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="8" arguments="1" ids="o5" q="True" type="WALK(X)" />
+    <predicate frame="11" arguments="2" ids="o2,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="39" arguments="2" ids="o2,o3" q="False" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

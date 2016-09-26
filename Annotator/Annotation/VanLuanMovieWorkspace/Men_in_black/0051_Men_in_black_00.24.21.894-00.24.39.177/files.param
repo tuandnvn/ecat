@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.24.21.894-00.24.39.177" length="415">
+  <files>
+    <file>0051_Men_in_black_00.24.21.894-00.24.39.177.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Room" filename="0051_Men_in_black_00.24.21.894-00.24.39.177.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.403699,20.36696,1906.789,1048.073</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.24.21.894-00.24.39.177.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">493.2109,451.9266,325.8707,603.2992</marker>
+        <marker type="LOCATION" frame="63">176.1468,368.2568,453.5779,694.9264</marker>
+        <marker type="LOCATION" frame="98">4.403699,337.4312,396.3302,730.1735</marker>
+        <marker type="LOCATION" frame="109">-1.651162,901.1008,309.908,167.8915</marker>
+        <marker type="LOCATION" frame="122">-8.806906,993.5778,158.5317,77.06045</marker>
+        <marker type="DELETE" frame="123" />
+      </markers>
+    </object>
+    <object id="o3" name="Men" filename="0051_Men_in_black_00.24.21.894-00.24.39.177.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1162.569,350.642,136.5135,369.908</marker>
+        <marker type="LOCATION" frame="123">1215.413,236.1469,193.7612,532.8439</marker>
+        <marker type="LOCATION" frame="249">1281.467,183.3027,273.027,761.8348</marker>
+        <marker type="LOCATION" frame="250">717.7982,55.59632,924.7706,1004.037</marker>
+        <marker type="LOCATION" frame="334">898.3483,42.38531,805.1166,1017.248</marker>
+        <marker type="LOCATION" frame="414">413.9449,55.59632,1347.523,1004.037</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Another man" filename="0051_Men_in_black_00.24.21.894-00.24.39.177.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">563.6696,451.9266,607.7062,273.0272</marker>
+        <marker type="LOCATION" frame="123">8.807432,372.6606,1237.43,686.9723</marker>
+        <marker type="LOCATION" frame="249">8.807432,407.8898,1290.275,651.7429</marker>
+        <marker type="LOCATION" frame="250">101.2844,597.2477,546.0541,462.3838</marker>
+        <marker type="LOCATION" frame="290">215.7798,601.4413,550.4587,458.1888</marker>
+        <marker type="LOCATION" frame="334">8.807367,606.0549,1906.789,453.5749</marker>
+        <marker type="LOCATION" frame="414">8.807367,451.9266,1867.156,607.7037</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Zed continues addressing the Recruits.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.24.18.558-00.24.21.442/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.24.18.558-00.24.21.442/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.24.18.558-00.24.21.442/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.24.18.558-00.24.21.442/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

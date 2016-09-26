@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.22.58.609-01.23.00.644" length="49">
+  <files>
+    <file>0051_Men_in_black_01.22.58.609-01.23.00.644.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.22.58.609-01.23.00.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="16">1092.515,6.625744,801.718,1030.307</marker>
+        <marker type="LOCATION" frame="24">883.8037,6.625744,1010.43,811.6565</marker>
+        <marker type="LOCATION" frame="30">304.0491,6.625744,1590.185,1013.742</marker>
+        <marker type="LOCATION" frame="38">19.14109,6.625744,1709.448,907.7301</marker>
+        <marker type="LOCATION" frame="46">19.14109,6.625744,1043.558,1070.061</marker>
+        <marker type="LOCATION" frame="48">19.14109,6.625744,937.5461,1060.123</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_01.22.58.609-01.23.00.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The Bug just keeps moving toward the ladder.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.22.50.039-01.22.52.521/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="16" arguments="1" ids="o1" q="True" type="WALK(X)" />
+  </predicates>
+</session>

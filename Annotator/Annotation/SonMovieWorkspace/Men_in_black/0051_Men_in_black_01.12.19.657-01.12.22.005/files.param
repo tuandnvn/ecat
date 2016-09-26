@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.12.19.657-01.12.22.005" length="57">
+  <files>
+    <file>0051_Men_in_black_01.12.19.657-01.12.22.005.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.12.19.657-01.12.22.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Tony" filename="0051_Men_in_black_01.12.19.657-01.12.22.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">511.5735,281.3287,657.0629,777.9021</marker>
+        <marker type="LOCATION" frame="18">511.5735,281.3287,657.0629,777.9021</marker>
+        <marker type="LOCATION" frame="19">-0.104861,134.056,1797.482,925.1749</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="56" />
+      <text>He's dead, a frozen look of terror on his face and the can of Raid still clutched in his hand.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.12.19.056-01.12.19.494/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.12.19.056-01.12.19.494/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

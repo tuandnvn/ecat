@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.54.20.335-01.54.25.903" length="134">
+  <files>
+    <file>0009_Forrest_Gump_01.54.20.335-01.54.25.903.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="River" filename="0009_Forrest_Gump_01.54.20.335-01.54.25.903.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.2264385,132.4528,1917.51,813.0566</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Cobble stone bridge" filename="0009_Forrest_Gump_01.54.20.335-01.54.25.903.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">108.2264,132.4528,1809.517,228.2264</marker>
+        <marker type="LOCATION" frame="56">0.2269205,307.6981,1917.532,248.6042</marker>
+        <marker type="LOCATION" frame="133">0.2276667,429.9623,1917.532,277.1339</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_01.54.20.335-01.54.25.903.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">470.9435,132.4528,34.64157,20.37736</marker>
+        <marker type="LOCATION" frame="12">517.4449,132.4528,39.08345,57.65828</marker>
+        <marker type="LOCATION" frame="26">571.6951,173.2076,43.31874,60.39731</marker>
+        <marker type="LOCATION" frame="43">637.9945,224.842,48.99223,71.97646</marker>
+        <marker type="LOCATION" frame="61">707.3208,258.1029,54.99959,84.2367</marker>
+        <marker type="LOCATION" frame="97">903.7131,314.1483,51.44189,84.91093</marker>
+        <marker type="LOCATION" frame="133">1124.041,364.7545,47.88406,85.58513</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Mountain" filename="0009_Forrest_Gump_01.54.20.335-01.54.25.903.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1192.302,197.6604,218.0379,44.83021</marker>
+        <marker type="LOCATION" frame="7">281.434,132.4528,1477.366,120.7632</marker>
+        <marker type="LOCATION" frame="133">53.20829,256.7549,1602.688,189.5093</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="133" />
+      <text>Forrest runs across a cobble-stone bridge.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.54.18.838-01.54.19.835/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.54.18.838-01.54.19.835/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

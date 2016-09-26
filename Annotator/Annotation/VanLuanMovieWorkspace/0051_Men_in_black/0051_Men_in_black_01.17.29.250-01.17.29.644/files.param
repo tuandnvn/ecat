@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.29.250-01.17.29.644" length="48">
+  <files>
+    <file>0051_Men_in_black_01.17.29.250-01.17.29.644.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="car" filename="0051_Men_in_black_01.17.29.250-01.17.29.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-8.787189,7.276886,1922.197,828.1923</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jay" filename="0051_Men_in_black_01.17.29.250-01.17.29.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">876.522,53.40961,909.4735,566.7735</marker>
+        <marker type="LOCATION" frame="12">810.618,77.5743,909.4734,566.7736</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Street" filename="0051_Men_in_black_01.17.29.250-01.17.29.644.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay falls from his seat with a CLUNK, onto the upside down ceiling of the car.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.17.28.704-01.17.28.908/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.17.28.704-01.17.28.908/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

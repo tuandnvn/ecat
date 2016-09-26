@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.52.700-00.03.53.513" length="48">
+  <files>
+    <file>0051_Men_in_black_00.03.52.700-00.03.53.513.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="police" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">131.3455,64.80003,789.3818,997.5272</marker>
+        <marker type="LOCATION" frame="14">42.98187,94.04567,669.6,968.2816</marker>
+        <marker type="LOCATION" frame="16">41.01823,98.22362,673.8247,964.1036</marker>
+        <marker type="LOCATION" frame="17">239.3455,162.9818,476.6281,730.4727</marker>
+        <marker type="LOCATION" frame="23">39.0546,162.9818,663.2473,657.8182</marker>
+        <marker type="LOCATION" frame="34">80.29095,162.9818,596.9454,559.6364</marker>
+        <marker type="LOCATION" frame="47">225.6,162.9818,524.2909,536.0727</marker>
+      </markers>
+    </object>
+    <object id="o4" name="driver" filename="0051_Men_in_black_00.03.52.700-00.03.53.513.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1138.691,172.8,449.6732,638.1818</marker>
+        <marker type="LOCATION" frame="2">1134.179,169.5412,456.2743,652.1361</marker>
+        <marker type="LOCATION" frame="3">1177.964,167.9118,473.2366,894.4154</marker>
+        <marker type="LOCATION" frame="18">1060.146,166.9091,586.3688,895.4184</marker>
+        <marker type="LOCATION" frame="23">1036.582,235.6364,608.3704,826.691</marker>
+        <marker type="LOCATION" frame="30">963.9273,302.4,678.8381,759.9275</marker>
+        <marker type="LOCATION" frame="38">963.9273,241.5273,676.3388,820.8002</marker>
+        <marker type="LOCATION" frame="47">1032.655,96.2182,604.8,966.1091</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Agent Janus looks at the Driver, who's now held by two other Agents, and shakes his head.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.03.51.887-00.03.52.700/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.03.51.887-00.03.52.700/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.03.51.887-00.03.52.700/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="47" arguments="1" ids="o4" q="True" type="STAND(X)" />
+  </predicates>
+</session>

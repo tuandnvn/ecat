@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.09.02.697-00.09.03.671" length="48">
+  <files>
+    <file>0051_Men_in_black_00.09.02.697-00.09.03.671.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.09.02.697-00.09.03.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dee" filename="0051_Men_in_black_00.09.02.697-00.09.03.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">378.4615,88.74127,638.1818,974.2657</marker>
+        <marker type="LOCATION" frame="47">378.4615,124.6154,615.5245,938.3916</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_00.09.02.697-00.09.03.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1027.972,15.10491,889.3007,1047.902</marker>
+        <marker type="LOCATION" frame="15">1075.175,15.10491,842.0979,1047.902</marker>
+        <marker type="LOCATION" frame="20">1065.734,15.10491,743.9161,1047.902</marker>
+        <marker type="LOCATION" frame="27">1086.504,15.10491,555.105,1047.902</marker>
+        <marker type="LOCATION" frame="34">1037.413,15.10491,700.4896,1047.902</marker>
+        <marker type="LOCATION" frame="47">944.8951,15.10491,849.6503,1047.902</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Kay steps away from the group and finds him.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.09.00.014-00.09.02.696/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.09.00.014-00.09.02.696/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.09.00.014-00.09.02.696/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

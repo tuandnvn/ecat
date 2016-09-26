@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.11.46.117-00.11.47.928" length="48">
+  <files>
+    <file>0051_Men_in_black_00.11.46.117-00.11.47.928.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Museum" filename="0051_Men_in_black_00.11.46.117-00.11.47.928.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.205152,6.666651,1915.897,1062.559</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.11.46.117-00.11.47.928.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">742.5641,544.1025,86.15384,102.5641</marker>
+        <marker type="LOCATION" frame="23">914.4321,511.282,86.15384,69.74352</marker>
+        <marker type="LOCATION" frame="42">1056.41,488.7179,86.15384,102.5641</marker>
+        <marker type="DELETE" frame="43" />
+      </markers>
+    </object>
+    <object id="o3" name="Perpetrator" filename="0051_Men_in_black_00.11.46.117-00.11.47.928.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="43">574.3587,158.4614,611.2823,898.4616</marker>
+        <marker type="LOCATION" frame="47">525.1282,211.7948,660.5123,845.1276</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>He runs from the rotunda up the grand ramp of the Guggenheim.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.11.32.507-00.11.39.505/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.11.32.507-00.11.39.505/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="43" arguments="1" ids="o3" q="True" type="RUN(X)" />
+  </predicates>
+</session>

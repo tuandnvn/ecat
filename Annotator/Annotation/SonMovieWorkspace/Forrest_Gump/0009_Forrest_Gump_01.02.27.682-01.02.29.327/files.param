@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.02.27.682-01.02.29.327" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.02.27.682-01.02.29.327.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.02.27.682-01.02.29.327.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.767737,129.8847,965.6838,818.8962</marker>
+        <marker type="LOCATION" frame="47">2.767914,129.8847,736.6061,818.8962</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Hospital" filename="0009_Forrest_Gump_01.02.27.682-01.02.29.327.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.216104,131.6639,1911.96,817.5823</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Bed" filename="0009_Forrest_Gump_01.02.27.682-01.02.29.327.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="30">1801.582,894.9588,112.0923,56.93575</marker>
+        <marker type="LOCATION" frame="47">844.3493,531.9934,1069.325,419.9012</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Solider" filename="0009_Forrest_Gump_01.02.27.682-01.02.29.327.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="43">1413.707,880.7249,373.6408,71.16969</marker>
+        <marker type="LOCATION" frame="47">1283.822,820.2307,503.5255,131.6644</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Forrest stops in mid-sentence as he looks down at the bed.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.02.22.907-01.02.27.682/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.02.22.907-01.02.27.682/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="43" arguments="1" ids="o4" q="True" type="LIE(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.54.11.603-01.54.18.338" length="162">
+  <files>
+    <file>0009_Forrest_Gump_01.54.11.603-01.54.18.338.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.54.11.603-01.54.18.338.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1689.512,456.4531,79.46959,112.0753</marker>
+        <marker type="LOCATION" frame="19">1504.034,474.6375,89.74346,118.4986</marker>
+        <marker type="LOCATION" frame="39">1360.725,475.8721,100.558,125.26</marker>
+        <marker type="LOCATION" frame="80">1165.527,478.077,69.85116,103.4687</marker>
+        <marker type="LOCATION" frame="108">1049.022,465.319,66.48462,100.4565</marker>
+        <marker type="LOCATION" frame="130">966.7973,458.3514,63.83944,98.08968</marker>
+        <marker type="LOCATION" frame="161">867.2841,449.3209,60.11222,94.7546</marker>
+      </markers>
+    </object>
+    <object id="o2" name="field" filename="0009_Forrest_Gump_01.54.11.603-01.54.18.338.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1823883,131.307,1918.723,815.7447</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Wheat" filename="0009_Forrest_Gump_01.54.11.603-01.54.18.338.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.264174,509.434,1915.472,438.1132</marker>
+        <marker type="LOCATION" frame="36">2.264594,560.3774,1915.475,387.171</marker>
+        <marker type="LOCATION" frame="79">2.264532,531.8491,1915.475,415.6991</marker>
+        <marker type="LOCATION" frame="128">2.264719,472.7547,1915.475,474.7941</marker>
+        <marker type="LOCATION" frame="161">2.264641,452.3774,1915.475,495.1713</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="161" />
+      <text>Forrest runs down a road between field of wheat.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.54.01.744-01.54.11.103/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

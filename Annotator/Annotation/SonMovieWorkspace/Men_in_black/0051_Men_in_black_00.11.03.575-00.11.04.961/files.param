@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.11.03.575-00.11.04.961" length="48">
+  <files>
+    <file>0051_Men_in_black_00.11.03.575-00.11.04.961.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o2" name="James" filename="0051_Men_in_black_00.11.03.575-00.11.04.961.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">394.0959,282.952,490.1845,780.037</marker>
+        <marker type="LOCATION" frame="8">394.0959,278.9668,641.6236,784.021</marker>
+        <marker type="LOCATION" frame="15">394.0959,235.1292,707.3801,827.859</marker>
+        <marker type="LOCATION" frame="21">394.0959,181.3284,659.5572,881.6601</marker>
+        <marker type="LOCATION" frame="29">420,111.5866,633.6531,951.4019</marker>
+        <marker type="LOCATION" frame="36">362.2131,125.5351,729.2997,937.4537</marker>
+        <marker type="LOCATION" frame="40">290.4794,255.0553,848.8563,807.933</marker>
+        <marker type="LOCATION" frame="42">254.6126,269.0037,908.6346,793.985</marker>
+        <marker type="LOCATION" frame="47">394.0959,177.3432,1000.295,885.6458</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_00.11.03.575-00.11.04.961.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Edwards staggers after him, in pain.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.11.00.444-00.11.02.587/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.11.00.444-00.11.02.587/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

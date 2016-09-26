@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.55.02.347-00.55.04.368" length="49">
+  <files>
+    <file>0009_Forrest_Gump_00.55.02.347-00.55.04.368.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.55.02.347-00.55.04.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.954762E-06,133.6069,1915.853,821.0799</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Plane" filename="0009_Forrest_Gump_00.55.02.347-00.55.04.368.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1090.626,202.0302,128.5529,118.1857</marker>
+        <marker type="LOCATION" frame="48">1036.717,226.9115,167.9482,165.8747</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Three planes dive down toward the jungle.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.54.59.246-00.55.02.347/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.54.59.246-00.55.02.347/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

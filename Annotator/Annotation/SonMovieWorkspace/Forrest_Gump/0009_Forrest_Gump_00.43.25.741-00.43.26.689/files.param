@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.43.25.741-00.43.26.689" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.43.25.741-00.43.26.689.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Ground" filename="0009_Forrest_Gump_00.43.25.741-00.43.26.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.787328,130.9634,1908.837,814.4851</marker>
+        <marker type="DELETE" frame="4" />
+      </markers>
+    </object>
+    <object id="o5" name="Relative 1" filename="0009_Forrest_Gump_00.43.25.741-00.43.26.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">552.7574,588.4385,461.0631,357.01</marker>
+        <marker type="LOCATION" frame="22">509.701,281.6612,596.5117,663.7878</marker>
+        <marker type="LOCATION" frame="40">405.6478,252.9568,792.9568,692.4919</marker>
+        <marker type="DELETE" frame="41" />
+      </markers>
+    </object>
+    <object id="o4" name="Snow" filename="0009_Forrest_Gump_00.43.25.741-00.43.26.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">1.993307,132.7575,1914.219,812.6911</marker>
+        <marker type="DELETE" frame="41" />
+      </markers>
+    </object>
+    <object id="o6" name="Weed" filename="0009_Forrest_Gump_00.43.25.741-00.43.26.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="41">0.1992874,139.9335,1914.219,810.8971</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="5" endFrame="41" />
+      <text>A distant relative of Lt. Dan's, wearing a revolutionary war uniform, falls dead in the snow.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.43.05.471-00.43.08.288/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="22" arguments="1" ids="o5" q="True" type="LIE(X)" />
+  </predicates>
+</session>

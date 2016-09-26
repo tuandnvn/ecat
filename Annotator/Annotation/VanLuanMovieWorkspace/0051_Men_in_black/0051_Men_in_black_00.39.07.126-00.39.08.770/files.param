@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.39.07.126-00.39.08.770" length="48">
+  <files>
+    <file>0051_Men_in_black_00.39.07.126-00.39.08.770.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Edgar" filename="0051_Men_in_black_00.39.07.126-00.39.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">112.1495,86.91594,1664.301,968.972</marker>
+        <marker type="LOCATION" frame="1">112.1495,86.91594,1664.301,968.972</marker>
+        <marker type="DELETE" frame="2" />
+      </markers>
+    </object>
+    <object id="o2" name="Van" filename="0051_Men_in_black_00.39.07.126-00.39.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,10.65422,1911.028,1058.692</marker>
+        <marker type="LOCATION" frame="1">4.485964,10.65422,1911.028,1058.692</marker>
+        <marker type="DELETE" frame="2" />
+      </markers>
+    </object>
+    <object id="o6" name="Old Men" filename="0051_Men_in_black_00.39.07.126-00.39.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">843.3645,104.8601,560.7477,955.5138</marker>
+        <marker type="LOCATION" frame="47">883.7383,104.8601,542.8038,955.5138</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Street" filename="0051_Men_in_black_00.39.07.126-00.39.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">-1.711266E-05,10.65422,1915.514,1054.206</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Cat" filename="0051_Men_in_black_00.39.07.126-00.39.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">672.8972,405.4206,278.1309,435.1402</marker>
+        <marker type="LOCATION" frame="47">672.8972,405.4206,296.0748,435.1402</marker>
+      </markers>
+    </object>
+    <object id="o8" name="Box" filename="0051_Men_in_black_00.39.07.126-00.39.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">623.5514,764.2991,98.69173,85.23365</marker>
+        <marker type="LOCATION" frame="47">659.4393,764.2991,80.74773,85.23365</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Across the street, Edgar sees a short, older man come out of one of the jewelry shops on Thirty-Fifth Street.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.39.00.181-00.39.03.268/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.39.00.181-00.39.03.268/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="2" arguments="1" ids="o6" q="True" type="STAND(X)" />
+  </predicates>
+</session>

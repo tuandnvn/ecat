@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.18.57.551-01.18.59.125" length="48">
+  <files>
+    <file>0051_Men_in_black_01.18.57.551-01.18.59.125.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.18.57.551-01.18.59.125.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">221.8764,145.6751,720.5492,920.4577</marker>
+        <marker type="LOCATION" frame="20">303.1579,147.8719,652.4485,918.2612</marker>
+        <marker type="LOCATION" frame="28">303.1579,264.3021,652.4485,801.8315</marker>
+        <marker type="LOCATION" frame="36">171.3501,231.3501,784.2573,834.7844</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_01.18.57.551-01.18.59.125.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Above, Edgar just keeps climbing.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.18.55.150-01.18.56.429/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

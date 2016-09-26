@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.09.56.702-01.10.01.684" length="120">
+  <files>
+    <file>0009_Forrest_Gump_01.09.56.702-01.10.01.684.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.09.56.702-01.10.01.684.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-8.06632E-06,117.0925,1915.771,828.8987</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.09.56.702-01.10.01.684.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-8.06632E-06,282.0264,537.0925,663.9648</marker>
+        <marker type="LOCATION" frame="25">36.45753,296.6094,513.3222,649.3818</marker>
+        <marker type="LOCATION" frame="58">84.58149,315.859,528.6344,630.1321</marker>
+        <marker type="LOCATION" frame="92">29.60352,269.3392,545.5507,676.652</marker>
+        <marker type="LOCATION" frame="119">101.4978,282.0264,541.3216,663.9648</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Protesters" filename="0009_Forrest_Gump_01.09.56.702-01.10.01.684.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-8.458158,260.8811,1924.23,685.1102</marker>
+        <marker type="LOCATION" frame="119">-8.458158,260.8811,1924.23,685.1102</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.09.56.702-01.10.01.684.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">444.0529,159.3833,604.7577,786.608</marker>
+        <marker type="LOCATION" frame="25">460.9336,159.3833,598.5385,786.608</marker>
+        <marker type="LOCATION" frame="92">506.174,159.3833,581.8709,786.6079</marker>
+        <marker type="LOCATION" frame="119">524.4053,159.3833,575.1542,786.608</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest and Jenny walk past the White House.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.09.54.635-01.09.56.702/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.09.54.635-01.09.56.702/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.09.54.635-01.09.56.702/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.09.54.635-01.09.56.702/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

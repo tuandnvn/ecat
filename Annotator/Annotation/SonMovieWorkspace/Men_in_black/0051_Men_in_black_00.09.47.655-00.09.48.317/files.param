@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.09.47.655-00.09.48.317" length="48">
+  <files>
+    <file>0051_Men_in_black_00.09.47.655-00.09.48.317.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.09.47.655-00.09.48.317.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o3" name="James" filename="0051_Men_in_black_00.09.47.655-00.09.48.317.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">755.7789,40.70351,641.608,1021.106</marker>
+        <marker type="LOCATION" frame="11">657.6884,97.61415,812.0603,964.1949</marker>
+        <marker type="LOCATION" frame="17">633.5678,96.98492,923.0151,964.8242</marker>
+        <marker type="LOCATION" frame="23">432.5628,159.6985,1032.499,902.1105</marker>
+        <marker type="LOCATION" frame="30">506.5327,105.0251,1072.562,956.7838</marker>
+        <marker type="LOCATION" frame="37">414.8744,103.4171,1011.457,958.392</marker>
+        <marker type="LOCATION" frame="43">346.3719,93.76884,1231.116,968.0402</marker>
+        <marker type="LOCATION" frame="47">300.7035,124.3216,1234.975,937.4874</marker>
+      </markers>
+    </object>
+    <object id="o4" name="police" filename="0051_Men_in_black_00.09.47.655-00.09.48.317.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.4026562,297.9899,709.5484,763.8192</marker>
+        <marker type="LOCATION" frame="11">-0.4026562,437.8895,762.6135,623.9194</marker>
+        <marker type="LOCATION" frame="19">-0.4026562,558.1208,800.9396,503.6883</marker>
+        <marker type="LOCATION" frame="26">10.46983,652.349,734.0526,409.4596</marker>
+        <marker type="LOCATION" frame="38">-0.4026562,683.1544,750.2014,378.6547</marker>
+        <marker type="LOCATION" frame="47">-0.4026562,777.1859,410.4529,284.6232</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>These belong to JAMES EDWARDS, a NYC COP in undercover street clothes.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+  </predicates>
+</session>

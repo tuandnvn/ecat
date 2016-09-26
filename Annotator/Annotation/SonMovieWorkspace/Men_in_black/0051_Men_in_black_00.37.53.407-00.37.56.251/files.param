@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.37.53.407-00.37.56.251" length="69">
+  <files>
+    <file>0051_Men_in_black_00.37.53.407-00.37.56.251.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.37.53.407-00.37.56.251.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o4" name="computer" filename="0051_Men_in_black_00.37.53.407-00.37.56.251.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">351.3934,86.31147,1367.705,971.5574</marker>
+        <marker type="LOCATION" frame="55">276.1475,59.75409,1467.295,998.1146</marker>
+        <marker type="DELETE" frame="56" />
+      </markers>
+    </object>
+    <object id="o5" name="Edwards" filename="0051_Men_in_black_00.37.53.407-00.37.56.251.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="56">147.7869,17.70491,1469.508,400.5738</marker>
+        <marker type="LOCATION" frame="68">17.21309,17.70491,1881.146,440.4098</marker>
+      </markers>
+    </object>
+    <object id="o6" name="shoes" filename="0051_Men_in_black_00.37.53.407-00.37.56.251.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="56">555,30.9836,599.7541,1031.312</marker>
+        <marker type="LOCATION" frame="68">468.6885,30.9836,781.2295,1031.312</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="56" />
+      <text>One by one, KAY deletes Edwards's identity cards.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.37.47.068-00.37.52.488/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="56" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

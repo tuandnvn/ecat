@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.36.21.873-00.36.25.600" length="90">
+  <files>
+    <file>0051_Men_in_black_00.36.21.873-00.36.25.600.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.36.21.873-00.36.25.600.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="kay" filename="0051_Men_in_black_00.36.21.873-00.36.25.600.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1169.382,338.6271,138.2621,352.653</marker>
+        <marker type="LOCATION" frame="18">1088.516,331.8955,141.7063,374.131</marker>
+        <marker type="LOCATION" frame="41">924.0153,406.3365,146.1068,401.5756</marker>
+        <marker type="LOCATION" frame="68">753.1205,474.3837,151.2728,433.7928</marker>
+        <marker type="LOCATION" frame="89">667.4552,512.949,155.2906,458.8506</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edwards" filename="0051_Men_in_black_00.36.21.873-00.36.25.600.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1051.169,284.5269,158.2912,300.5566</marker>
+        <marker type="LOCATION" frame="18">1050.915,246.3366,156.7967,320.8333</marker>
+        <marker type="LOCATION" frame="32">1005.411,252.4769,155.6342,336.6045</marker>
+        <marker type="LOCATION" frame="41">948.9796,258.3772,154.8868,346.7434</marker>
+        <marker type="LOCATION" frame="68">747.0684,294.1476,175.3993,363.0695</marker>
+        <marker type="LOCATION" frame="89">649.4258,324.6011,191.3534,422.7829</marker>
+      </markers>
+    </object>
+    <object id="o4" name="screen" filename="0051_Men_in_black_00.36.21.873-00.36.25.600.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="29">1842.634,146.2708,74.13754,561.0389</marker>
+        <marker type="LOCATION" frame="34">1799.387,52.09647,117.3841,669.406</marker>
+        <marker type="LOCATION" frame="37">1773.439,14.02597,143.3321,715.9917</marker>
+        <marker type="LOCATION" frame="44">1740.445,14.02594,176.3241,791.4649</marker>
+        <marker type="LOCATION" frame="89">1323.673,14.02594,593.0964,863.5992</marker>
+      </markers>
+    </object>
+    <object id="o5" name="aliens" filename="0051_Men_in_black_00.36.21.873-00.36.25.600.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1215.473,673.2466,438.8127,390.7236</marker>
+        <marker type="LOCATION" frame="46">1085.232,464.8608,386.7823,599.1076</marker>
+        <marker type="LOCATION" frame="89">814.731,376.6969,486.9016,687.2717</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="89" />
+      <text>ON THE MAIN FLOOR, they walk briskly across the room, reaching a giant screen on the far wall.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.36.15.115-00.36.18.091/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.36.15.115-00.36.18.091/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.36.15.115-00.36.18.091/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

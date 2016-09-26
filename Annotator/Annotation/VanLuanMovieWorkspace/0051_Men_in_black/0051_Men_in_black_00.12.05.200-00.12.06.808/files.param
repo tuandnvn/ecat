@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.12.05.200-00.12.06.808" length="48">
+  <files>
+    <file>0051_Men_in_black_00.12.05.200-00.12.06.808.avi</file>
+  </files>
+  <objects no="10">
+    <object id="o6" name="Perpetrator" filename="0051_Men_in_black_00.12.05.200-00.12.06.808.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">294.6977,44.3721,1214.512,1026.906</marker>
+        <marker type="LOCATION" frame="8">343.8139,120.2791,821.5818,951.0229</marker>
+        <marker type="LOCATION" frame="12">232.186,231.907,915.3489,839.4067</marker>
+        <marker type="LOCATION" frame="21">357.2093,160.6079,1028.62,910.5981</marker>
+        <marker type="LOCATION" frame="32">103.3356,71.1628,1111.176,997.6096</marker>
+        <marker type="LOCATION" frame="40">97.33946,41.10802,1117.172,1015.644</marker>
+        <marker type="LOCATION" frame="47">6.697654,35.44187,1073.86,1031.424</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Third Door" filename="0051_Men_in_black_00.12.05.200-00.12.06.808.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1312.744,12.8211,610.3314,1044.102</marker>
+        <marker type="LOCATION" frame="8">1366.326,12.8211,556.7516,1044.102</marker>
+        <marker type="LOCATION" frame="12">1656.558,12.8211,266.5193,1044.102</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+    </object>
+    <object id="o4" name="Museum" filename="0051_Men_in_black_00.12.05.200-00.12.06.808.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.205152,6.666651,1915.897,1062.559</marker>
+      </markers>
+    </object>
+    <object id="o10" name="James" filename="0051_Men_in_black_00.12.05.200-00.12.06.808.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="12">1549.395,526.6047,209.8607,276.8372</marker>
+        <marker type="LOCATION" frame="13">1549.395,272.093,352.7442,794.7907</marker>
+        <marker type="LOCATION" frame="21">1340.71,202.5313,579.2902,862.2513</marker>
+        <marker type="LOCATION" frame="32">1053.767,106.8837,754.6047,955.0098</marker>
+        <marker type="LOCATION" frame="47">924.2792,89.02327,750.1395,968.9303</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>It swings open -- -- revealing EDWARDS on the other side, breathing hard.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.12.04.386-00.12.04.918/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.12.04.386-00.12.04.918/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_00.12.04.386-00.12.04.918/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="12" arguments="1" ids="o10" q="True" type="STAND(X)" />
+    <predicate frame="12" arguments="2" ids="o10,0051_Men_in_black_00.12.04.386-00.12.04.918/o9" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="13" arguments="2" ids="o6,o10" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="13" arguments="2" ids="o10,o6" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

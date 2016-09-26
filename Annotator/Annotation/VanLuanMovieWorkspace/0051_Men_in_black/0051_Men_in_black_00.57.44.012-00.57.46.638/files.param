@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.57.44.012-00.57.46.638" length="63">
+  <files>
+    <file>0051_Men_in_black_00.57.44.012-00.57.46.638.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="van" filename="0051_Men_in_black_00.57.44.012-00.57.46.638.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">667.8492,186.7849,577.1176,799.8226</marker>
+        <marker type="LOCATION" frame="55">663.0599,215.5211,610.6436,783.0599</marker>
+        <marker type="LOCATION" frame="56">-7.450123,23.94678,1920.534,1051.264</marker>
+      </markers>
+    </object>
+    <object id="o2" name="alien3" filename="0051_Men_in_black_00.57.44.012-00.57.46.638.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="56">794.7672,107.7605,711.2195,953.0821</marker>
+        <marker type="LOCATION" frame="62">794.7672,59.86695,835.7429,1000.976</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Street" filename="0051_Men_in_black_00.57.44.012-00.57.46.638.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>From inside, throaty WAILS of frustration can be heard.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.57.43.257-00.57.43.525/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.57.43.257-00.57.43.525/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="56" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.13.21.581-00.13.23.097" length="48">
+  <files>
+    <file>0051_Men_in_black_00.13.21.581-00.13.23.097.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="House" filename="0051_Men_in_black_00.13.21.581-00.13.23.097.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edgar" filename="0051_Men_in_black_00.13.21.581-00.13.23.097.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">641.5635,249.3784,345.2926,811.4387</marker>
+        <marker type="LOCATION" frame="9">645.3997,232.1137,606.1812,828.7036</marker>
+        <marker type="LOCATION" frame="21">812.2913,193.7478,629.2012,867.0697</marker>
+        <marker type="LOCATION" frame="29">593.6057,249.3784,740.4623,811.4394</marker>
+        <marker type="LOCATION" frame="36">292.4334,170.7283,947.6376,890.089</marker>
+        <marker type="LOCATION" frame="47">371.0835,170.7283,989.8402,890.0888</marker>
+      </markers>
+    </object>
+    <object id="o4" name="door" filename="0051_Men_in_black_00.13.21.581-00.13.23.097.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">570.5862,17.26468,957.2291,1041.634</marker>
+        <marker type="LOCATION" frame="33">570.5862,17.26468,987.9218,1041.634</marker>
+        <marker type="LOCATION" frame="40">570.5862,17.26468,1124.121,1041.634</marker>
+        <marker type="LOCATION" frame="47">570.5862,17.26468,1020.533,1041.634</marker>
+      </markers>
+    </object>
+    <object id="o5" name="gun" filename="0051_Men_in_black_00.13.21.581-00.13.23.097.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">735.5596,393.2505,335.7015,665.6483</marker>
+        <marker type="LOCATION" frame="8">660.746,320.3553,521.7764,738.5435</marker>
+        <marker type="LOCATION" frame="16">459.3251,460.3908,688.6678,598.508</marker>
+        <marker type="LOCATION" frame="19">501.5276,458.4725,569.7338,600.4263</marker>
+        <marker type="LOCATION" frame="30">1132.647,565.897,134.2814,493.002</marker>
+        <marker type="LOCATION" frame="34">1194.032,610.0178,99.75145,448.8816</marker>
+        <marker type="LOCATION" frame="37">1172.931,721.2789,105.5075,337.6199</marker>
+        <marker type="LOCATION" frame="40">1195.95,1009.023,82.48902,49.87566</marker>
+        <marker type="DELETE" frame="41" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The silhouette of Edgar leaps to its feet, races to the door, and throws it open.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

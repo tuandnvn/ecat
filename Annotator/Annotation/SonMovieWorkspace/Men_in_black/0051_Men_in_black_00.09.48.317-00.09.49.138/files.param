@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.09.48.317-00.09.49.138" length="48">
+  <files>
+    <file>0051_Men_in_black_00.09.48.317-00.09.49.138.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.09.48.317-00.09.49.138.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.09.48.317-00.09.49.138.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">300.7035,124.3216,1234.975,937.4874</marker>
+        <marker type="LOCATION" frame="17">432.6846,121.4094,1083.624,940.3997</marker>
+        <marker type="LOCATION" frame="29">298.5906,125.0336,1245.676,936.7756</marker>
+        <marker type="LOCATION" frame="35">262.349,92.41612,1295.897,969.3931</marker>
+        <marker type="LOCATION" frame="38">102.8859,43.48995,1462.349,1018.319</marker>
+        <marker type="LOCATION" frame="40">53.95976,16.30874,1511.276,1045.501</marker>
+        <marker type="LOCATION" frame="41">1117.651,16.30874,721.2085,1045.501</marker>
+        <marker type="LOCATION" frame="44">1075.973,25.36914,739.3289,1036.441</marker>
+        <marker type="LOCATION" frame="47">1159.329,67.047,679.5306,994.7629</marker>
+      </markers>
+    </object>
+    <object id="o3" name="police" filename="0051_Men_in_black_00.09.48.317-00.09.49.138.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.4026562,576.2417,777.3826,485.5676</marker>
+        <marker type="LOCATION" frame="37">-0.4026562,712.1476,422.2148,349.6619</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="38" />
+      <text>In the BACKGROUND, about ten feet behind, are two other cops, trying to keep up.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.09.47.655-00.09.48.317/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.09.47.655-00.09.48.317/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.09.47.655-00.09.48.317/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.14.27.709-01.14.31.043" length="80">
+  <files>
+    <file>0009_Forrest_Gump_01.14.27.709-01.14.31.043.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o6" name="Stage" filename="0009_Forrest_Gump_01.14.27.709-01.14.31.043.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9796038,130.0408,1915.347,813.3061</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Dick Cavett" filename="0009_Forrest_Gump_01.14.27.709-01.14.31.043.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">508.1632,132.2449,923.5102,811.102</marker>
+        <marker type="LOCATION" frame="41">340.653,132.2449,1091.019,811.1017</marker>
+        <marker type="LOCATION" frame="66">152.2047,132.245,948.8564,811.1017</marker>
+        <marker type="DELETE" frame="77" />
+      </markers>
+    </object>
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.14.27.709-01.14.31.043.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="77">1169.388,150.4285,308.5688,790.7142</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="77" />
+      <text>Dick Cavett stands up as he introduces Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o7" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.14.11.547-01.14.14.073/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="41" arguments="1" ids="o7" q="True" type="STAND(X)" />
+    <predicate frame="77" arguments="1" ids="o4" q="True" type="STAND(X)" />
+  </predicates>
+</session>

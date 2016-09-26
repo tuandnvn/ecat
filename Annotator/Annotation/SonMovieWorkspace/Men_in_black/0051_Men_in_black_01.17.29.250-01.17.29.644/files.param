@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.29.250-01.17.29.644" length="0">
+  <files>
+    <file>0051_Men_in_black_01.17.29.250-01.17.29.644.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay falls from his seat with a CLUNK, onto the upside down ceiling of the car.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

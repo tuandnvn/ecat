@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.45.40.070-00.45.40.364" length="48">
+  <files>
+    <file>0051_Men_in_black_00.45.40.070-00.45.40.364.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Field" filename="0051_Men_in_black_00.45.40.070-00.45.40.364.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9125566,16.42585,1917.719,1040.989</marker>
+        <marker type="DELETE" frame="12" />
+      </markers>
+    </object>
+    <object id="o2" name="car" filename="0051_Men_in_black_00.45.40.070-00.45.40.364.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.996474,586.3396,1910.333,465.2892</marker>
+        <marker type="LOCATION" frame="2">3.887892,652.8094,1908.441,400.4406</marker>
+        <marker type="LOCATION" frame="3">176.007,641.1909,1736.322,412.8698</marker>
+        <marker type="LOCATION" frame="6">1401.646,673.345,510.683,383.1473</marker>
+        <marker type="LOCATION" frame="7">1834.781,818.9843,77.54816,238.3187</marker>
+        <marker type="DELETE" frame="8" />
+      </markers>
+    </object>
+    <object id="o4" name="Street" filename="0051_Men_in_black_00.45.40.070-00.45.40.364.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="12">1.996474,20.80559,1916.007,1036.497</marker>
+      </markers>
+    </object>
+    <object id="o5" name="newspaper" filename="0051_Men_in_black_00.45.40.070-00.45.40.364.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="12">183.5727,115.3765,1724.974,934.3608</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="13" endFrame="47" />
+      <text>CLOSE ON on various supermarket tabloids as a hand flips through them.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.45.19.138-00.45.20.724/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.45.19.138-00.45.20.724/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

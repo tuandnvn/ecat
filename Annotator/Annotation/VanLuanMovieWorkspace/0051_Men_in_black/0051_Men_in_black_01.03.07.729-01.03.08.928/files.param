@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.03.07.729-01.03.08.928" length="48">
+  <files>
+    <file>0051_Men_in_black_01.03.07.729-01.03.08.928.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.03.07.729-01.03.08.928.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">1027.051,342.439,692.0621,713.6142</marker>
+        <marker type="LOCATION" frame="21">1173.126,205.9424,375.9648,850.111</marker>
+        <marker type="LOCATION" frame="35">1295.255,165.2328,344.8346,890.8207</marker>
+        <marker type="LOCATION" frame="47">1225.809,210.7317,395.122,845.3217</marker>
+      </markers>
+    </object>
+    <object id="o2" name="van" filename="0051_Men_in_black_01.03.07.729-01.03.08.928.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">327.8049,21.5521,921.9512,955.4767</marker>
+        <marker type="LOCATION" frame="21">327.8049,21.5521,1039.291,1039.291</marker>
+        <marker type="LOCATION" frame="47">344.5676,21.5521,1008.161,912.3726</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_01.03.07.729-01.03.08.928.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edgar reaches into the front seat of the van and pulls out his twelve gauge.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

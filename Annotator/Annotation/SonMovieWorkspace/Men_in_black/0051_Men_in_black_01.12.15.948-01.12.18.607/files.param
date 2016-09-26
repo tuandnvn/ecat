@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.12.15.948-01.12.18.607" length="64">
+  <files>
+    <file>0051_Men_in_black_01.12.15.948-01.12.18.607.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.12.15.948-01.12.18.607.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.12.15.948-01.12.18.607.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">375.6294,41.53848,683.4965,1017.692</marker>
+        <marker type="LOCATION" frame="15">337.4176,67.97205,768.9111,991.2587</marker>
+        <marker type="LOCATION" frame="34">289.0161,96.29372,941.928,962.937</marker>
+        <marker type="LOCATION" frame="53">222.6923,37.76226,1170.629,1021.469</marker>
+        <marker type="LOCATION" frame="63">215.1399,16.99302,1189.511,1042.238</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="63" />
+      <text>Kay looks up, sharply.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.12.14.256-01.12.14.490/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.12.14.256-01.12.14.490/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

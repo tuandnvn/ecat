@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.18.181-00.04.18.585" length="48">
+  <files>
+    <file>0051_Men_in_black_00.04.18.181-00.04.18.585.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.04.18.181-00.04.18.585.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="" filename="0051_Men_in_black_00.04.18.181-00.04.18.585.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">308.0728,227.7818,917.0181,563.5637</marker>
+        <marker type="LOCATION" frame="7">-0.2181296,212.0727,1225.309,740.291</marker>
+        <marker type="LOCATION" frame="10">-0.2181296,212.0727,1225.309,850.2545</marker>
+        <marker type="LOCATION" frame="24">-0.2181296,151.2,1317.6,911.1273</marker>
+        <marker type="LOCATION" frame="36">-0.2181296,161.0182,1630.074,901.3091</marker>
+        <marker type="LOCATION" frame="45">-0.2181296,245.4546,1916.509,816.8727</marker>
+        <marker type="LOCATION" frame="47">-0.2181296,284.7273,1916.509,777.6</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>It's a boxy, black 1986 Ford LTD.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.04.17.612-00.04.18.181/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.04.17.612-00.04.18.181/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="24" arguments="1" ids="o2" q="False" type="RUN(X)" />
+  </predicates>
+</session>
