@@ -307,7 +307,7 @@ namespace Annotator
                 // If you have information about the recorded time of the video
                 // It means you recorded using Ecat
                 // Projecting from recorded frame to playback frame
-                int sessionLength = session.frameLength;
+                int sessionLength = session.sessionLength;
                 DateTime startWriteRGB = session.startWriteRGB.Value;
 
                 var tempoFrameToRig = new Dictionary<int, RigFrame<PointF>>();

@@ -32,7 +32,7 @@ namespace Annotator
         /// <returns> Return the created project </returns>
         public Project addProject(String projectName)
         {
-            Project project = new Project(locationFolder, projectName, null);
+            Project project = new Project(locationFolder, projectName);
             //Create new project folder:
             Directory.CreateDirectory(locationFolder + Path.DirectorySeparatorChar + projectName);
             projects.Add(project);

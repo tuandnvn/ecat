@@ -15,7 +15,6 @@ namespace Annotator
 {
     public partial class Main
     {
-
         BaseDepthReader depthReader;
         byte[] depthValuesToByte;
         Bitmap depthBitmap;
@@ -119,6 +118,7 @@ namespace Annotator
                 currentSessionNode = treeView.SelectedNode;
                 currentSession = chosenSession;
                 currentSession.loadIfNotLoaded();
+                currentSession.resetLastOpenTime();
                 chosenSession.edited = true;
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
@@ -179,8 +179,6 @@ namespace Annotator
             {
                 closeWithoutSaveCurrentSession();
             }
-
-            clearMemento();
         }
 
         private void toggleFileToolStripsOfSession(bool value)
@@ -219,18 +217,22 @@ namespace Annotator
         internal void saveCurrentSession()
         {
             currentSession.saveSession();
+            currentSession.resetLastOpenTime();
             cleanSessionUI();
             logMessage($"Session {currentSession.name} saved");
             currentSession = null;
+            clearMemento();
         }
 
         private void closeWithoutSaveCurrentSession()
         {
             //Reload session
             currentSession.reload();
+            currentSession.resetLastOpenTime();
             cleanSessionUI();
             logMessage($"Session {currentSession.name} closed without saved");
             currentSession = null;
+            clearMemento();
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -513,201 +515,7 @@ namespace Annotator
             }
             return dstFileName;
         }
-
-        CountdownEvent isAvailable;
-        volatile bool sensorAvailabel = false;
-        volatile bool colorFrameArrived = false;
-        volatile bool depthFrameArrived = false;
-        volatile bool currentlySetupKinect = false;
-        KinectSensor kinectSensor;
-        CoordinateMapper coordinateMapper;
-        DepthCoordinateMappingReader mappingReader;
-
-
-
-        private void sessionOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
-            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizerIncluded[objectRecognizer] = true;
-            setupKinectIfNeeded();
-
-            Task t = Task.Run(async () =>
-            {
-
-                if (currentlySetupKinect)
-                {
-                    Console.WriteLine("Await");
-                    isAvailable.Wait();
-                    currentlySetupKinect = false;
-                }
-
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
-                currentSession.getDepth(0),
-                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                coordinateMapper.MapColorFrameToCameraSpace
-                    );
-
-                // Run on UI thread
-                this.Invoke((MethodInvoker)delegate
-                {
-                    AddDetectedObjects(detectedObjects);
-                });
-            });
-        }
-
-        private void setupKinectIfNeeded()
-        {
-            if (kinectSensor == null)
-            {
-                isAvailable = new CountdownEvent(3);
-                sensorAvailabel = false;
-                colorFrameArrived = false;
-                depthFrameArrived = false;
-                kinectSensor = KinectSensor.GetDefault();
-                coordinateMapper = kinectSensor.CoordinateMapper;
-                var colorFrameReader = this.kinectSensor.ColorFrameSource.OpenReader();
-                var depthFrameReader = this.kinectSensor.DepthFrameSource.OpenReader();
-                colorFrameReader.FrameArrived += this.Reader_ColorFrameArrived;
-                depthFrameReader.FrameArrived += this.Reader_DepthFrameArrived;
-                kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
-                kinectSensor.Open();
-                currentlySetupKinect = true;
-            }
-        }
-
-        private void sessionOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
-            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizerIncluded[objectRecognizer] = true;
-
-            if (mappingReader == null)
-            {
-                mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
-            }
-
-            Task t = Task.Run(async () =>
-            {
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
-                currentSession.getDepth(0),
-                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,
-                    currentSession.getDepth(0).depthWidth,
-                    currentSession.getDepth(0).depthHeight,
-                    currentSession.getVideo(0).frameWidth,
-                    currentSession.getVideo(0).frameHeight, result)
-                    );
-
-                // Run on UI thread
-                this.Invoke((MethodInvoker)delegate
-                {
-                    AddDetectedObjects(detectedObjects);
-                });
-
-            });
-        }
-
-        private void AddDetectedObjects(List<Object> detectedObjects)
-        {
-            AddObjectsIntoSession(detectedObjects);
-            RefreshUI(detectedObjects);
-        }
-
-        private void RefreshUI(List<Object> detectedObjects)
-        {
-            // Redraw object annotation panel
-            if (detectedObjects.Count != 0)
-            {
-                foreach (Object o in detectedObjects)
-                {
-                    addObjectAnnotation(o);
-                }
-                invalidatePictureBoard();
-            }
-        }
-
-        private void AddObjectsIntoSession(List<Object> detectedObjects)
-        {
-            // Handle adding identical objects or not
-            switch (options.detectionMode)
-            {
-                case Options.OverwriteMode.ADD_SEPARATE:
-                    foreach (var detectedObject in detectedObjects)
-                    {
-                        currentSession.addObject(detectedObject);
-                    }
-                    break;
-                case Options.OverwriteMode.NO_OVERWRITE:
-                    foreach (GlyphBoxObject detectedObject in detectedObjects)
-                    {
-                        bool exist = false;
-                        foreach (var existObject in currentSession.getObjects())
-                        {
-                            if (existObject is GlyphBoxObject && detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype))
-                            {
-                                exist = true;
-                                break;
-                            }
-                        }
-
-                        if (!exist)
-                        {
-                            currentSession.addObject(detectedObject);
-                        }
-                    }
-                    break;
-                case Options.OverwriteMode.OVERWRITE:
-                    foreach (GlyphBoxObject detectedObject in detectedObjects)
-                    {
-                        Object exist = null;
-                        foreach (var existObject in currentSession.getObjects())
-                        {
-
-                            if (existObject is GlyphBoxObject && detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype))
-                            {
-                                exist = existObject;
-                                break;
-                            }
-                        }
-
-                        if (exist != null)
-                        {
-                            currentSession.removeObject(exist.id);
-                        }
-                        currentSession.addObject(detectedObject);
-                    }
-                    break;
-            }
-        }
-
-        private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
-        {
-            if (!sensorAvailabel && currentlySetupKinect)
-            {
-                isAvailable.Signal();
-                sensorAvailabel = true;
-            }
-        }
-
-        private void Reader_DepthFrameArrived(object sender, DepthFrameArrivedEventArgs e)
-        {
-            if (!depthFrameArrived && currentlySetupKinect)
-            {
-                isAvailable.Signal();
-                depthFrameArrived = true;
-            }
-        }
-
-        private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
-        {
-            if (!colorFrameArrived && currentlySetupKinect)
-            {
-                isAvailable.Signal();
-                colorFrameArrived = true;
-            }
-        }
-
+        
         private void sessionEventTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (currentSession != null)
@@ -787,7 +595,7 @@ namespace Annotator
 
                 // Add all predicates that still hold true of prevObject at the end of the previous session
                 // to new object
-                var toCopyPredicateMarks = prevObject.getHoldingPredicates(prevObject.session.frameLength - 1);
+                var toCopyPredicateMarks = prevObject.getHoldingPredicates(prevObject.session.sessionLength - 1);
                 foreach (var predicateMark in toCopyPredicateMarks)
                 {
                     // All objects in the predicate mark has been copied to current session

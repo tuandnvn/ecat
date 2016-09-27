@@ -397,6 +397,7 @@ namespace Annotator
             {
                 selectToolStripMenuItem.Enabled = false;
                 closeToolStripMenuItem.Enabled = true;
+                statisticsToolStripMenuItem.Enabled = true;
                 newSessionToolStripMenuItem.Enabled = true;
                 recordSessionToolStripMenuItem.Enabled = true;
                 projectDetectToolStripMenuItem.Enabled = true;
@@ -406,6 +407,7 @@ namespace Annotator
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
+                statisticsToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
                 projectDetectToolStripMenuItem.Enabled = false;
@@ -416,6 +418,7 @@ namespace Annotator
             {
                 selectToolStripMenuItem.Enabled = true;
                 closeToolStripMenuItem.Enabled = false;
+                statisticsToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
                 projectDetectToolStripMenuItem.Enabled = false;

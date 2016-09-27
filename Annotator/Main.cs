@@ -186,21 +186,6 @@ namespace Annotator
             this.Close();
         }
 
-        private void simpleEventDataCreateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (currentProject != null)
-            {
-                SimpleLearningDataGenerator g = new SimpleLearningDataGenerator();
-
-                System.Windows.Forms.SaveFileDialog saveFileDialog = new SaveFileDialog();
-                DialogResult result = saveFileDialog.ShowDialog();
-                if (result == DialogResult.OK) // Test result.
-                {
-                    String fullFileName = saveFileDialog.FileName;
-                    g.writeExtractedDataIntoFile(currentProject, fullFileName);
-                }
-            }
-        }
 
         private void setLeftTopPanel()
         {
@@ -428,5 +413,6 @@ namespace Annotator
         {
 
         }
+
     }
 }

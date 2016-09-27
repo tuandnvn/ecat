@@ -127,6 +127,47 @@ namespace Annotator
         }
 
 
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int numberOfSessions = 0;
+            int numberOfObjects = 0;
+            int numberOfLocationMarks = 0;
+            Dictionary<String, int> numberOfLinks = new Dictionary<string, int>();
+
+            foreach (Session s in currentProject.sessions)
+            {
+                s.loadIfNotLoaded();
+                var objects = s.getObjects();
+                if (objects.Count !=0 )
+                {
+                    numberOfSessions++;
+                    numberOfObjects += objects.Count;
+                    foreach (var o in objects)
+                    {
+                        numberOfLocationMarks += o.objectMarks.Keys.Count;
+                    }
+                    foreach ( var p in s.predicates )
+                    {
+                        if (!numberOfLinks.ContainsKey(p.predicate.predicate))
+                        {
+                            numberOfLinks[p.predicate.predicate] = 0;
+                        }
+
+                        numberOfLinks[p.predicate.predicate]++;
+                    }
+                }
+            }
+
+            Console.WriteLine("numberOfSessions\t" + numberOfSessions);
+            Console.WriteLine("numberOfObjects\t" + numberOfObjects);
+            Console.WriteLine("numberOfLocationMarks\t" + numberOfLocationMarks);
+            foreach (var pred in numberOfLinks.Keys)
+            {
+                Console.WriteLine( pred + "\t" + numberOfLinks[pred]);
+            }
+        }
+
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {

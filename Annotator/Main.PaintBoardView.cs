@@ -119,7 +119,7 @@ namespace Annotator
 
             if (depthReader != null)
             {
-                int timeStepForFrame = (int)(currentSession.duration / currentSession.frameLength);
+                int timeStepForFrame = (int)(currentSession.duration / currentSession.sessionLength);
                 int timeFromStart = frameStartWithZero * timeStepForFrame;
                 depthReader.readFrameAtTimeToBitmap(timeFromStart, depthBitmap, depthValuesToByte, 8000.0f / 256);
 

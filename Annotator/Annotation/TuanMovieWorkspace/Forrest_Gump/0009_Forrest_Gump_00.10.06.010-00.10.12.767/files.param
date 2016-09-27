@@ -51,10 +51,10 @@
     </annotation>
   </annotations>
   <predicates>
-    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
-    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.08.43.572-00.08.50.779/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
     <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.08.43.572-00.08.50.779/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.08.43.572-00.08.50.779/o1" q="True" type="IDENTITY(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
     <predicate frame="0" arguments="2" ids="o3,o5" q="True" type="SUPPORT(X,Y)" />
     <predicate frame="44" arguments="2" ids="o3,o5" q="True" type="LOOK_AT(X,Y)" />

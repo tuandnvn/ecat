@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.28.52.453-00.28.55.787" length="80">
+  <files>
+    <file>0051_Men_in_black_00.28.52.453-00.28.55.787.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Room" filename="0051_Men_in_black_00.28.52.453-00.28.55.787.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.403699,2.752287,1906.789,1065.688</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Zed" filename="0051_Men_in_black_00.28.52.453-00.28.55.787.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">827.8899,416.6972,79.26605,554.8624</marker>
+        <marker type="LOCATION" frame="8">804.4034,306.6055,212.3546,664.9539</marker>
+        <marker type="LOCATION" frame="18">775.0457,253.7614,378.7153,717.7981</marker>
+        <marker type="LOCATION" frame="27">767.119,205.3211,435.0828,827.8898</marker>
+        <marker type="LOCATION" frame="38">757.431,200.9174,422.7525,863.1192</marker>
+        <marker type="LOCATION" frame="50">759.8327,152.4771,446.7723,910.2705</marker>
+        <marker type="LOCATION" frame="60">761.8348,99.63301,553.0347,962.0402</marker>
+        <marker type="LOCATION" frame="68">594.4954,82.01833,810.2751,978.7956</marker>
+        <marker type="LOCATION" frame="79">74.86241,51.19265,1356.33,1008.44</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Zed reappears on the other side of the glass, coming through a door and into the shooting gallery.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.28.50.897-00.28.52.153/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

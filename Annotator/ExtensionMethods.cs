@@ -52,6 +52,12 @@ namespace Annotator
                 original.rigBones);
         }
 
+        public static RigFigure<Point3> scaleBound(this RigFigure<Point3> original, float scale, Point3 translation)
+        {
+            return new RigFigure<Point3>(original.rigJoints.ToDictionary(k => k.Key, k => scalePoint(k.Value, scale, translation)),
+                original.rigBones);
+        }
+
         public static System.Drawing.PointF getCenter(this Rectangle r)
         {
             return new System.Drawing.PointF(r.X + r.Width * 1.0f / 2, r.Y + r.Height * 1.0f / 2);

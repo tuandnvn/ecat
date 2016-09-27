@@ -29,6 +29,12 @@ namespace Annotator
             return new RigLocationMark2D(frameNo, new RigFigure<PointF>(flattenedMappedJoints, rigFigure.rigBones)).getScaledLocationMark(scale, translation);
         }
 
+        public override LocationMark3D getScaledLocationMark(float scale, Point3 translation)
+        {
+            var scaledRigFigure = rigFigure.scaleBound(scale, translation);
+            return new RigLocationMark3D(frameNo, scaledRigFigure);
+        }
+
         public override LocationMark3D addLocationMark(int resultFrameNo, LocationMark3D added)
         {
             if (added is RigLocationMark3D)
