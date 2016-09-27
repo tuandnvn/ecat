@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.48.48.470-00.49.09.210" length="498">
+  <files>
+    <file>0009_Forrest_Gump_00.48.48.470-00.49.09.210.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="field" filename="0009_Forrest_Gump_00.48.48.470-00.49.09.210.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-3.4386E-05,134.3662,1916.995,805.2582</marker>
+      </markers>
+    </object>
+    <object id="o2" name="4_Platoon" filename="0009_Forrest_Gump_00.48.48.470-00.49.09.210.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="31">1862.911,260.5634,51.07981,679.061</marker>
+        <marker type="LOCATION" frame="45">1733.709,260.5634,180.2817,679.061</marker>
+        <marker type="LOCATION" frame="100">1340.094,131.3615,573.8971,808.2629</marker>
+        <marker type="LOCATION" frame="171">1096.714,179.4366,817.277,760.1878</marker>
+        <marker type="LOCATION" frame="203">982.5352,134.3662,931.4554,805.2582</marker>
+        <marker type="LOCATION" frame="254">42.06569,132.9205,1871.925,806.7039</marker>
+        <marker type="LOCATION" frame="264">9.01405,132.6371,1904.977,806.9872</marker>
+        <marker type="LOCATION" frame="272">-3.004729,132.4103,1916.996,807.2141</marker>
+        <marker type="LOCATION" frame="276">709.108,132.2969,1204.883,807.3275</marker>
+        <marker type="LOCATION" frame="309">736.1502,131.3615,1177.841,808.2629</marker>
+        <marker type="LOCATION" frame="408">781.2206,169.3357,1132.77,770.2888</marker>
+        <marker type="LOCATION" frame="497">1066.667,203.4742,847.324,736.1503</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="31" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.49.22.224-00.49.27.969" length="138">
+  <files>
+    <file>0009_Forrest_Gump_00.49.22.224-00.49.27.969.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="field" filename="0009_Forrest_Gump_00.49.22.224-00.49.27.969.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-3.4386E-05,134.3662,1916.995,805.2582</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.49.22.224-00.49.27.969.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">498.7793,263.5681,633.9907,465.7277</marker>
+        <marker type="LOCATION" frame="29">156.2441,327.5587,793.2394,521.9249</marker>
+        <marker type="LOCATION" frame="64">84.13142,404.7887,1042.629,489.7653</marker>
+        <marker type="LOCATION" frame="100">130.0662,335.1456,1318.197,569.7807</marker>
+        <marker type="LOCATION" frame="137">177.277,263.5681,1451.268,652.0188</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.49.16.840-00.49.22.224/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.49.16.840-00.49.22.224/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

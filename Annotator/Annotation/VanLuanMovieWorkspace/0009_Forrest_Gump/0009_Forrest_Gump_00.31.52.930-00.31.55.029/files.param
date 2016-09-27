@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.31.52.930-00.31.55.029" length="51">
+  <files>
+    <file>0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="bus" filename="0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.288456,132.6579,1913.135,812.3957</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">816.9726,187.5805,347.8427,755.1848</marker>
+        <marker type="LOCATION" frame="9">807.9103,194.4915,350.0396,748.2736</marker>
+        <marker type="LOCATION" frame="25">791.7997,186.4362,342.1216,756.3289</marker>
+        <marker type="LOCATION" frame="38">791.7997,179.8913,330.8167,762.8738</marker>
+        <marker type="LOCATION" frame="50">791.7997,173.8498,320.3814,768.9153</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men#1" filename="0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1320.429,480.5006,196.8057,313.5161</marker>
+        <marker type="LOCATION" frame="9">1320.429,480.5005,213.2825,320.5187</marker>
+        <marker type="LOCATION" frame="25">1320.429,480.5006,242.5745,332.9678</marker>
+        <marker type="LOCATION" frame="38">1320.429,480.5005,272.3242,343.0827</marker>
+        <marker type="LOCATION" frame="50">1320.429,480.5006,288.3433,352.4195</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="42" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="42" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="42" arguments="2" ids="o3,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

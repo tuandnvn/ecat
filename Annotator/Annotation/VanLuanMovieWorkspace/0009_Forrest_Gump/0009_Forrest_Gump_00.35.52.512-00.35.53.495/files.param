@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.35.52.512-00.35.53.495" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.35.52.512-00.35.53.495.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="room" filename="0009_Forrest_Gump_00.35.52.512-00.35.53.495.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.288456,130.3695,1915.423,816.9726</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.35.52.512-00.35.53.495.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1201.43,523.9809,711.7041,421.0727</marker>
+        <marker type="LOCATION" frame="16">1247.199,483.4707,670.5125,461.583</marker>
+        <marker type="LOCATION" frame="17">6.865333,480.9388,1460.024,464.1148</marker>
+        <marker type="LOCATION" frame="22">4.576895,468.2793,1469.178,476.7743</marker>
+        <marker type="LOCATION" frame="47">4.576895,404.9821,1476.043,540.0715</marker>
+      </markers>
+    </object>
+    <object id="o3" name="playboy" filename="0009_Forrest_Gump_00.35.52.512-00.35.53.495.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.865333,132.6579,1206.007,807.8188</marker>
+        <marker type="LOCATION" frame="16">2.288456,132.6579,1240.334,810.1072</marker>
+        <marker type="LOCATION" frame="17">308.9392,132.6579,556.0906,723.1466</marker>
+        <marker type="LOCATION" frame="22">308.9392,132.6579,560.6674,713.9929</marker>
+        <marker type="LOCATION" frame="47">313.5161,132.6579,556.0906,732.3004</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.35.39.530-00.35.51.791/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.35.39.530-00.35.51.791/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.35.39.530-00.35.51.791/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

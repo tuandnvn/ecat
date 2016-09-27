@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.36.07.721-00.36.12.546" length="116">
+  <files>
+    <file>0009_Forrest_Gump_00.36.07.721-00.36.12.546.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="club" filename="0009_Forrest_Gump_00.36.07.721-00.36.12.546.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.865333,132.6579,1906.269,819.261</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.36.07.721-00.36.12.546.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">279.1895,281.4064,370.7271,670.5125</marker>
+        <marker type="LOCATION" frame="22">354.708,248.4881,448.534,703.4308</marker>
+        <marker type="LOCATION" frame="34">375.304,230.5327,471.4183,721.3862</marker>
+        <marker type="LOCATION" frame="52">217.4017,203.5995,572.1096,748.3194</marker>
+        <marker type="LOCATION" frame="61">302.0739,193.465,627.0322,758.4539</marker>
+        <marker type="LOCATION" frame="81">270.7138,132.6579,781.968,819.261</marker>
+        <marker type="LOCATION" frame="115">217.4017,132.6579,791.7997,819.261</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>

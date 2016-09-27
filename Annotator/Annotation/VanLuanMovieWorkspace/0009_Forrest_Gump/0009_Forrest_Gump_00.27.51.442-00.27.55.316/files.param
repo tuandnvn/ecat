@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.27.51.442-00.27.55.316" length="93">
+  <files>
+    <file>0009_Forrest_Gump_00.27.51.442-00.27.55.316.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="inside house" filename="0009_Forrest_Gump_00.27.51.442-00.27.55.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.827682,132.813,1911.517,814.3741</marker>
+      </markers>
+    </object>
+    <object id="o2" name="women" filename="0009_Forrest_Gump_00.27.51.442-00.27.55.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">231.8704,132.813,706.9219,814.3739</marker>
+        <marker type="LOCATION" frame="92">209.2489,132.813,769.131,814.3739</marker>
+      </markers>
+    </object>
+    <object id="o4" name="men" filename="0009_Forrest_Gump_00.27.51.442-00.27.55.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">927.4816,132.813,986.863,814.3739</marker>
+        <marker type="LOCATION" frame="92">952.9308,132.813,961.4138,814.3739</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="KNEEL(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.27.49.214-00.27.51.442/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.27.49.214-00.27.51.442/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.27.49.214-00.27.51.442/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.22.40.569-00.22.46.626" length="146">
+  <files>
+    <file>0009_Forrest_Gump_00.22.40.569-00.22.46.626.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.22.40.569-00.22.46.626.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.496744,133.0299,1907.516,808.9467</marker>
+      </markers>
+    </object>
+    <object id="o2" name="peoples" filename="0009_Forrest_Gump_00.22.40.569-00.22.46.626.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">329.5709,140.5201,1580.442,798.9597</marker>
+        <marker type="LOCATION" frame="3">49.93497,140.5201,1860.076,798.9597</marker>
+        <marker type="LOCATION" frame="4">19.97399,140.5201,1890.036,798.9597</marker>
+        <marker type="LOCATION" frame="145">19.97399,182.9649,1890.036,756.5142</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men" filename="0009_Forrest_Gump_00.22.40.569-00.22.46.626.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">94.87646,143.0169,524.3173,796.4628</marker>
+        <marker type="LOCATION" frame="8">217.2172,170.4811,524.3171,765.2532</marker>
+        <marker type="LOCATION" frame="33">217.2172,153.0039,699.0897,782.7299</marker>
+        <marker type="LOCATION" frame="52">272.1456,153.0039,689.1027,782.7298</marker>
+        <marker type="LOCATION" frame="84">406.97,153.0039,591.7296,782.7298</marker>
+        <marker type="LOCATION" frame="111">544.2609,187.2784,509.3974,755.3781</marker>
+        <marker type="LOCATION" frame="145">923.7971,212.9259,405.7202,720.9354</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="145" />
+      <text>Forrest walks through a crowd of people.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+  </predicates>
+</session>

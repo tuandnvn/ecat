@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.31.789-00.16.39.624" length="188">
+  <files>
+    <file>0009_Forrest_Gump_00.16.31.789-00.16.39.624.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.16.31.789-00.16.39.624.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">141.5029,176.5318,724.1618,774.104</marker>
+        <marker type="LOCATION" frame="15">252.4856,232.0231,686.3268,718.6127</marker>
+        <marker type="LOCATION" frame="33">385.6648,176.5318,640.9249,774.104</marker>
+        <marker type="LOCATION" frame="34">1118.15,334.6821,116.5326,296.8786</marker>
+        <marker type="LOCATION" frame="66">1093.832,331.0098,137.423,312.5468</marker>
+        <marker type="LOCATION" frame="86">1092.853,323.339,150.4796,322.3394</marker>
+        <marker type="LOCATION" frame="102">1118.15,334.6821,160.9249,330.1734</marker>
+        <marker type="LOCATION" frame="103">441.1561,129.3642,568.7861,790.7514</marker>
+        <marker type="LOCATION" frame="112">258.0347,129.3642,756.3667,790.7514</marker>
+        <marker type="LOCATION" frame="144">339.5872,129.3642,690.6688,790.7514</marker>
+        <marker type="LOCATION" frame="187">233.0636,129.3642,818.4971,790.7514</marker>
+      </markers>
+    </object>
+    <object id="o2" name="street" filename="0009_Forrest_Gump_00.16.31.789-00.16.39.624.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">11.0983,137.6879,1900.578,801.8497</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="187" />
+      <text>Forrest tries to run even faster to get away.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.30.722-00.16.31.177/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

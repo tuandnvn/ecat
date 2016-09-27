@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.09.939-00.16.12.217" length="55">
+  <files>
+    <file>0009_Forrest_Gump_00.16.09.939-00.16.12.217.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.16.09.939-00.16.12.217.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.393589,129.1991,1904.622,821.6019</marker>
+      </markers>
+    </object>
+    <object id="o2" name="three boy" filename="0009_Forrest_Gump_00.16.09.939-00.16.12.217.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">879.5376,387.3989,521.6185,455.0289</marker>
+        <marker type="LOCATION" frame="54">763.0058,337.4567,638.1503,563.237</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="54" />
+      <text>The three boys race on their bikes.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.16.09.439-00.16.09.792/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.09.439-00.16.09.792/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

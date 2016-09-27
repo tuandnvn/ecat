@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.24.17.049-00.24.18.438" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.24.17.049-00.24.18.438.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="inside house" filename="0009_Forrest_Gump_00.24.17.049-00.24.18.438.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.205112,132.4787,1898.12,812.3077</marker>
+      </markers>
+    </object>
+    <object id="o2" name="other coach" filename="0009_Forrest_Gump_00.24.17.049-00.24.18.438.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">27.35041,140.6838,1851.624,798.6325</marker>
+        <marker type="LOCATION" frame="47">27.35041,140.6838,1851.624,798.6325</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.24.14.955-00.24.17.049/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.24.14.955-00.24.17.049/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

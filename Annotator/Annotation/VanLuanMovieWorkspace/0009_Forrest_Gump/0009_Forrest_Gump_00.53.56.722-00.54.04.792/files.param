@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.53.56.722-00.54.04.792" length="194">
+  <files>
+    <file>0009_Forrest_Gump_00.53.56.722-00.54.04.792.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="forrest" filename="0009_Forrest_Gump_00.53.56.722-00.54.04.792.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.86151,126.4615,1896.369,827.077</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.53.56.722-00.54.04.792.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">617.3538,150.0923,626.2154,794.5847</marker>
+        <marker type="LOCATION" frame="21">1189.951,147.4435,709.822,808.7438</marker>
+        <marker type="LOCATION" frame="84">1249.477,110.4786,657.7598,851.2214</marker>
+        <marker type="LOCATION" frame="92">915.6923,105.7846,992.4923,856.6154</marker>
+        <marker type="LOCATION" frame="134">877.2923,153.0461,754.5177,797.5385</marker>
+        <marker type="LOCATION" frame="150">920.5487,132.3692,795.6359,818.2154</marker>
+        <marker type="LOCATION" frame="176">1146.092,117.9779,726.6458,832.6068</marker>
+        <marker type="LOCATION" frame="177">1139.663,436.6154,301.8136,369.2308</marker>
+        <marker type="LOCATION" frame="193">1036.8,359.8154,206.7692,401.7231</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.53.50.971-00.53.56.222/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.53.50.971-00.53.56.222/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

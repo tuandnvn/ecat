@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.12.24.526-00.12.25.199" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.12.24.526-00.12.25.199.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.12.24.526-00.12.25.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.452121,128.046,1912.644,823.908</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.12.24.526-00.12.25.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">939.157,157.4713,600.7664,789.5784</marker>
+        <marker type="LOCATION" frame="18">939.157,157.4713,600.7664,789.5784</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o3" name="women" filename="0009_Forrest_Gump_00.12.24.526-00.12.25.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">22.06898,152.567,603.2184,794.4827</marker>
+        <marker type="LOCATION" frame="18">22.06898,152.567,610.5747,794.4827</marker>
+        <marker type="DELETE" frame="19" />
+      </markers>
+    </object>
+    <object id="o4" name="boy" filename="0009_Forrest_Gump_00.12.24.526-00.12.25.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="19">149.5786,221.2261,502.682,728.2758</marker>
+        <marker type="LOCATION" frame="47">186.3602,221.2261,465.9004,728.2758</marker>
+      </markers>
+    </object>
+    <object id="o5" name="boy's mom" filename="0009_Forrest_Gump_00.12.24.526-00.12.25.199.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="19">659.6168,157.4713,907.2797,792.0306</marker>
+        <marker type="LOCATION" frame="47">571.341,191.8008,696.3983,757.701</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Mrs. Gump and Forrest wait for the school bus.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.12.14.969-00.12.19.166/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.12.14.969-00.12.19.166/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.12.14.969-00.12.19.166/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="19" arguments="1" ids="o5" q="True" type="CROUCH(X)" />
+    <predicate frame="19" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="19" arguments="2" ids="o5,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="19" arguments="2" ids="o4,o5" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

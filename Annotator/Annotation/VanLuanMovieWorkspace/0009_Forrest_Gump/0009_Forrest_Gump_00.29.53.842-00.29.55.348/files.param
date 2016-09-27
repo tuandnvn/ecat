@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.29.53.842-00.29.55.348" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.29.53.842-00.29.55.348.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="inside house" filename="0009_Forrest_Gump_00.29.53.842-00.29.55.348.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.634611E-05,131.1367,1911.712,817.7266</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.29.53.842-00.29.55.348.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">823.2518,131.1367,436.489,817.7264</marker>
+        <marker type="LOCATION" frame="9">886.7913,131.1367,447.5394,817.7264</marker>
+        <marker type="LOCATION" frame="19">1013.87,131.1367,403.3381,817.7264</marker>
+        <marker type="LOCATION" frame="23">1013.87,131.1367,403.3381,817.7264</marker>
+        <marker type="LOCATION" frame="30">1113.324,131.1367,350.8489,817.7264</marker>
+        <marker type="LOCATION" frame="47">1113.324,131.1367,461.3525,472.4029</marker>
+      </markers>
+    </object>
+    <object id="o3" name="table" filename="0009_Forrest_Gump_00.29.53.842-00.29.55.348.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="26">-2.634611E-05,912.9496,1906.187,35.91283</marker>
+        <marker type="LOCATION" frame="32">-2.634611E-05,766.5323,1906.187,182.3305</marker>
+        <marker type="LOCATION" frame="33">-2.634611E-05,852.1725,1906.187,96.69073</marker>
+        <marker type="LOCATION" frame="47">-2.634611E-05,517.8992,1911.712,430.9632</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

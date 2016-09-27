@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.22.09.190-00.22.10.000" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.22.09.190-00.22.10.000.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="stadium" filename="0009_Forrest_Gump_00.22.09.190-00.22.10.000.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.993493,133.0299,1907.516,816.4369</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.22.09.190-00.22.10.000.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">652.9001,314.0443,327.0735,571.7552</marker>
+        <marker type="LOCATION" frame="18">1154.747,316.5411,327.0735,571.7552</marker>
+        <marker type="LOCATION" frame="19">553.0302,339.0118,303.3547,488.1143</marker>
+        <marker type="LOCATION" frame="30">509.9611,338.3876,303.3547,488.1143</marker>
+        <marker type="LOCATION" frame="47">417.5813,320.2861,303.3546,506.2155</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Forrest turns up the sidelines and runs toward the end zone.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.22.07.014-00.22.09.190/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.22.07.014-00.22.09.190/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

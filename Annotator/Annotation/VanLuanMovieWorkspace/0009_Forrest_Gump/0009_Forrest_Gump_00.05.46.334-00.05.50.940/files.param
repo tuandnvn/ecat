@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.46.334-00.05.50.940" length="111">
+  <files>
+    <file>0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="photo" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.311218,123.0705,1906.722,823.2365</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">865.726,162.9046,523.1537,783.4018</marker>
+        <marker type="LOCATION" frame="13">866.3901,148.4924,519.1698,798.9489</marker>
+        <marker type="LOCATION" frame="26">786.058,133.6929,515.186,814.496</marker>
+        <marker type="LOCATION" frame="41">387.2602,131.7053,502.3663,805.967</marker>
+        <marker type="LOCATION" frame="55">541.7429,152.2822,414.2735,798.0068</marker>
+        <marker type="LOCATION" frame="72">687.8007,131.0374,544.3984,774.2758</marker>
+        <marker type="LOCATION" frame="83">1035.685,214.9185,483.3195,660.7854</marker>
+        <marker type="LOCATION" frame="98">1125.975,160.249,347.8828,748.8796</marker>
+        <marker type="LOCATION" frame="110">1033.029,162.9046,305.3936,528.4647</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men's horse" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">207.1369,526.722,1319.834,422.2399</marker>
+        <marker type="LOCATION" frame="13">233.6929,562.5726,1299.916,386.3885</marker>
+        <marker type="LOCATION" frame="26">15.93362,598.4232,1524.315,350.5371</marker>
+        <marker type="LOCATION" frame="41">244.3154,717.9253,948.0488,231.0345</marker>
+        <marker type="LOCATION" frame="55">111.5353,502.8216,1590.705,446.1391</marker>
+        <marker type="LOCATION" frame="72">662.952,295.6846,877.2969,653.2749</marker>
+        <marker type="LOCATION" frame="83">1019.751,348.7966,578.9212,600.1638</marker>
+        <marker type="LOCATION" frame="98">1078.174,279.751,685.144,669.2094</marker>
+        <marker type="LOCATION" frame="105">902.9045,250.5394,677.1784,698.4208</marker>
+        <marker type="LOCATION" frame="110">879.0041,269.1286,586.8873,679.8322</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="110" />
+      <text>The General is in full Ku Klux Klan garb, including his horse.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.37.204-00.05.44.574/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.37.204-00.05.44.574/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

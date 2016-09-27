@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.17.25.591-00.17.33.159" length="182">
+  <files>
+    <file>0009_Forrest_Gump_00.17.25.591-00.17.33.159.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.17.25.591-00.17.33.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">746.3584,490.0578,324.6243,432.8324</marker>
+        <marker type="LOCATION" frame="23">1073.599,505.1797,261.1254,352.6463</marker>
+        <marker type="LOCATION" frame="41">1217.753,555.9788,211.4306,289.8921</marker>
+        <marker type="LOCATION" frame="62">1160.738,585.9366,153.4534,216.6788</marker>
+        <marker type="LOCATION" frame="75">1125.443,604.4819,117.5627,171.3562</marker>
+        <marker type="LOCATION" frame="181">1119.538,545.5491,81.84971,108.2081</marker>
+      </markers>
+    </object>
+    <object id="o2" name="field" filename="0009_Forrest_Gump_00.17.25.591-00.17.33.159.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.704446E-05,123.8151,1917.225,824.0462</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="181" />
+      <text>Forrest sprints away from the boys.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.15.02.450-00.15.02.622" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.15.02.450-00.15.02.622.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="big tree" filename="0009_Forrest_Gump_00.15.02.450-00.15.02.622.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.206626E-05,131.9605,1916.837,828.7314</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.15.02.450-00.15.02.622.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">582.0099,131.9605,493.4431,825.5684</marker>
+      </markers>
+    </object>
+    <object id="o3" name="girl" filename="0009_Forrest_Gump_00.15.02.450-00.15.02.622.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">183.4596,745.6013,332.1252,202.4382</marker>
+        <marker type="LOCATION" frame="5">183.4596,900.5931,332.1252,47.44646</marker>
+        <marker type="DELETE" frame="6" />
+        <marker type="LOCATION" frame="16">183.4596,897.43,332.1252,50.60955</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o4" name="tree" filename="0009_Forrest_Gump_00.15.02.450-00.15.02.622.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">6.326206,131.9605,1904.184,183.4596</marker>
+        <marker type="LOCATION" frame="20">6.326206,131.9605,1904.184,303.6573</marker>
+        <marker type="LOCATION" frame="27">6.326206,157.2652,1904.184,351.1038</marker>
+        <marker type="LOCATION" frame="47">18.9786,269.5552,1904.184,351.1038</marker>
+      </markers>
+    </object>
+    <object id="o5" name="braces" filename="0009_Forrest_Gump_00.15.02.450-00.15.02.622.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">711.6969,128.7974,344.7775,82.24052</marker>
+        <marker type="LOCATION" frame="20">715.7349,131.9605,340.7396,461.8122</marker>
+        <marker type="LOCATION" frame="32">718.1577,167.5621,338.3168,603.3439</marker>
+        <marker type="LOCATION" frame="47">721.1862,185.7331,335.2883,752.8171</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Forrest's braces are wedged in the tree.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o5,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

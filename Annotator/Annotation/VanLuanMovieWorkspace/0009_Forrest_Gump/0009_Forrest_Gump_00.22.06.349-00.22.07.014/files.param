@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.22.06.349-00.22.07.014" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.22.06.349-00.22.07.014.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="stadium" filename="0009_Forrest_Gump_00.22.06.349-00.22.07.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.993493,133.0299,1907.516,816.4369</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.22.06.349-00.22.07.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">430.6892,134.2791,626.684,816.4352</marker>
+        <marker type="LOCATION" frame="14">430.6891,134.2791,443.173,816.4352</marker>
+        <marker type="LOCATION" frame="19">430.6891,134.2791,400.7282,816.4352</marker>
+        <marker type="LOCATION" frame="21">4.993493,134.2791,207.2302,816.4352</marker>
+        <marker type="LOCATION" frame="22">4.993493,134.2791,299.6099,816.4352</marker>
+        <marker type="LOCATION" frame="26">4.993493,134.2791,639.1677,816.4352</marker>
+        <marker type="LOCATION" frame="31">184.7594,134.2791,651.6513,816.4352</marker>
+        <marker type="LOCATION" frame="37">384.4993,134.2791,541.7938,816.4352</marker>
+        <marker type="LOCATION" frame="44">464.3953,134.2791,441.9244,816.4352</marker>
+        <marker type="LOCATION" frame="47">464.3953,134.2791,441.9244,816.4352</marker>
+      </markers>
+    </object>
+    <object id="o3" name="player#1" filename="0009_Forrest_Gump_00.22.06.349-00.22.07.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.993493,295.3185,382.0025,654.1481</marker>
+        <marker type="LOCATION" frame="3">4.993493,295.3185,426.9441,654.1481</marker>
+        <marker type="LOCATION" frame="6">4.993493,227.9064,526.814,721.5597</marker>
+        <marker type="LOCATION" frame="7">4.993493,133.0299,526.814,816.4352</marker>
+        <marker type="LOCATION" frame="9">4.993493,133.0299,249.6749,816.4352</marker>
+        <marker type="LOCATION" frame="10">4.993493,133.0299,87.38622,816.4352</marker>
+        <marker type="DELETE" frame="12" />
+      </markers>
+    </object>
+    <object id="o4" name="player#2" filename="0009_Forrest_Gump_00.22.06.349-00.22.07.014.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">1587.932,287.8283,324.5769,661.6385</marker>
+        <marker type="LOCATION" frame="3">1285.826,287.8283,626.6826,661.6385</marker>
+        <marker type="LOCATION" frame="6">459.4018,289.0767,706.58,661.6385</marker>
+        <marker type="LOCATION" frame="7">362.0286,289.0767,521.8205,661.6385</marker>
+        <marker type="LOCATION" frame="9">44.94147,207.9324,484.3693,742.782</marker>
+        <marker type="LOCATION" frame="10">4.993493,133.0299,391.9896,817.6841</marker>
+        <marker type="LOCATION" frame="12">4.993493,133.0299,127.3342,817.6841</marker>
+        <marker type="LOCATION" frame="13">4.993493,133.0299,127.3342,817.6841</marker>
+        <marker type="DELETE" frame="14" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Two opposing players collide.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.22.05.180-00.22.06.349/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.22.05.180-00.22.06.349/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="2" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="5" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="5" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

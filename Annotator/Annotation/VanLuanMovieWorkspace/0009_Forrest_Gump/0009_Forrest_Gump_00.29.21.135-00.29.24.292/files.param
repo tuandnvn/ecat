@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.29.21.135-00.29.24.292" length="76">
+  <files>
+    <file>0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="crowd" filename="0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">656.0236,223.299,622.0913,189.4551</marker>
+        <marker type="LOCATION" frame="61">656.0236,223.299,622.0913,189.4551</marker>
+        <marker type="DELETE" frame="62" />
+      </markers>
+    </object>
+    <object id="o2" name="stadium" filename="0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-5.393386E-06,132.813,1917.172,811.5464</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men" filename="0009_Forrest_Gump_00.29.21.135-00.29.24.292.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">480.7069,496.1709,43.12228,67.86442</marker>
+        <marker type="LOCATION" frame="22">715.4339,493.6213,42.3575,72.96346</marker>
+        <marker type="LOCATION" frame="61">1172.076,484.8601,41.00164,82.00277</marker>
+        <marker type="LOCATION" frame="62">370.4271,163.9175,1085.832,780.4418</marker>
+        <marker type="LOCATION" frame="75">271.458,132.813,1150.868,811.5464</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.29.11.692-00.29.20.488/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="62" arguments="1" ids="o3" q="True" type="RUN(X)" />
+  </predicates>
+</session>

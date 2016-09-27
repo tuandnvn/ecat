@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.26.31.864-00.26.34.081" length="54">
+  <files>
+    <file>0009_Forrest_Gump_00.26.31.864-00.26.34.081.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.26.31.864-00.26.34.081.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.827682,132.813,1911.517,808.7187</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.26.31.864-00.26.34.081.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">376.0825,152.6068,438.2916,788.9249</marker>
+        <marker type="LOCATION" frame="24">376.0825,152.6068,438.2916,788.9249</marker>
+        <marker type="LOCATION" frame="53">449.6024,152.6068,435.4639,788.9249</marker>
+      </markers>
+    </object>
+    <object id="o3" name="women" filename="0009_Forrest_Gump_00.26.31.864-00.26.34.081.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">896.377,200.6775,390.2209,740.8542</marker>
+        <marker type="LOCATION" frame="24">972.7245,200.6775,359.1163,740.8542</marker>
+        <marker type="LOCATION" frame="53">1114.109,200.6775,381.7375,740.8542</marker>
+      </markers>
+    </object>
+    <object id="o4" name="socolabox" filename="0009_Forrest_Gump_00.26.31.864-00.26.34.081.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">636.2297,605.0368,209.2489,110.2798</marker>
+        <marker type="LOCATION" frame="6">723.8881,549.8969,209.2489,110.2798</marker>
+        <marker type="LOCATION" frame="14">780.4418,544.2415,209.2489,110.2798</marker>
+        <marker type="LOCATION" frame="17">786.0972,564.0353,209.2489,110.2798</marker>
+        <marker type="LOCATION" frame="24">780.4418,592.3122,209.2489,110.2798</marker>
+        <marker type="LOCATION" frame="53">918.9985,691.2813,209.2489,110.2798</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o2" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>
