@@ -209,7 +209,7 @@ namespace Annotator
                                 }
                                 else
                                 {
-                                    Console.WriteLine("After elapse " + elapse);
+                                    // Console.WriteLine("After elapse " + elapse);
                                     writer.WriteVideoFrame(bitmap, elapse);
                                 }
 
@@ -228,7 +228,7 @@ namespace Annotator
                             }
                             else
                             {
-                                Console.WriteLine("After elapse " + elapse);
+                                // Console.WriteLine("After elapse " + elapse);
                                 writer.WriteVideoFrame(bitmap, elapse);
                             }
                         }

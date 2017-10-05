@@ -27,6 +27,7 @@ namespace Annotator
             {
                 //Load default workspace location:
                 String defaultLocation = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+                Console.WriteLine("defaultLocation = " + defaultLocation);
                 if (Environment.OSVersion.Version.Major >= 6)
                 {
                     defaultLocation = Directory.GetParent(defaultLocation).ToString();

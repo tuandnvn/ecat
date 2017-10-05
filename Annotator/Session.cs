@@ -41,8 +41,13 @@ namespace Annotator
         {
             get
             {
+                
                 if (_sessionLength.HasValue)
+                {
+                    Console.WriteLine(" Get length " + _sessionLength.Value);
                     return _sessionLength.Value;
+                }
+                    
                 return 0;
             }
             set
@@ -57,6 +62,7 @@ namespace Annotator
                 }
                 else
                 {
+                    Console.WriteLine(" Set length " + value);
                     _sessionLength = value;
                 }
             }
@@ -455,7 +461,8 @@ namespace Annotator
                 v = new VideoReader(fullFileName, duration);
 
                 videoReaders.Add(v);
-                //sessionLength = v.frameCount;
+                // At some point I comment this code, why did I do that
+                sessionLength = v.frameCount;
             }
         }
 

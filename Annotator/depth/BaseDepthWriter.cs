@@ -82,14 +82,12 @@ namespace Annotator
             {
                 if (depthWriter != null)
                 {
-                    Console.WriteLine(  "Write metadata at end depth ");
+                    // Console.WriteLine(  "Write metadata at end depth ");
                     // Write metadata
                     foreach (int elapse in timePoints)
                     {
-                        Console.WriteLine(elapse);
                         depthWriter.Write((UInt32)elapse);
                     }
-                    Console.WriteLine(_depthFrame);
                     depthWriter.Write((UInt32)_depthFrame);
                 }
             }

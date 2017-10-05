@@ -142,6 +142,7 @@ namespace Annotator
             //Parameters hidden file open:
             loadParameters();
 
+            
             //Show workspace launcher at the beginning:
             if (workspace == null)
             {
@@ -158,18 +159,7 @@ namespace Annotator
                     //If default workspace option choosed set parametrs in hidden param file
                     if (workspace.defaultOption)
                     {
-                        // Remove the hidden attribute of the file   
-                        if (File.Exists(parametersFileName))
-                        {
-                            FileInfo myFile = new FileInfo(parametersFileName);
-                            myFile.Attributes &= ~FileAttributes.Hidden;
-                        }
-
-                        File.WriteAllText(parametersFileName, workspace.locationFolder);
-
-                        FileInfo myFile1 = new FileInfo(parametersFileName);
-                        // Set the hidden attribute of the file
-                        myFile1.Attributes = FileAttributes.Hidden;
+                        setDefaultWorkspace();
                     }
                 }
                 catch (Exception exc)
@@ -200,12 +190,21 @@ namespace Annotator
 
         private void loadParameters()
         {
+            Console.WriteLine("Look for " + parametersFileName);
             //1)Check if file exists
             if (!File.Exists(parametersFileName))
             {
+                Console.WriteLine("Create file " + parametersFileName);
+
+                File.WriteAllText(parametersFileName, "");
+
+                FileInfo myFile1 = new FileInfo(parametersFileName);
+                // Set the hidden attribute of the file
+                myFile1.Attributes = FileAttributes.Hidden;
             }
             else//File already exists:
             {
+                Console.WriteLine("File exist " + parametersFileName);
                 //Set file as hidden                
                 FileInfo myFile = new FileInfo(parametersFileName);
                 // Remove the hidden attribute of the file
@@ -235,7 +234,28 @@ namespace Annotator
         {
             clearWorkspaceTreeview();
             workspace = new Workspace(locationFolder, defaultOption);
+
+            if (defaultOption)
+            {
+                setDefaultWorkspace();
+            }
             loadWorkspace();
+        }
+
+        private void setDefaultWorkspace()
+        {
+            if (File.Exists(parametersFileName))
+            {
+                FileInfo myFile = new FileInfo(parametersFileName);
+                myFile.Attributes &= ~FileAttributes.Hidden;
+            }
+
+            Console.WriteLine(" parametersFileName = " + parametersFileName);
+            File.WriteAllText(parametersFileName, workspace.locationFolder);
+
+            FileInfo myFile1 = new FileInfo(parametersFileName);
+            // Set the hidden attribute of the file
+            myFile1.Attributes = FileAttributes.Hidden;
         }
 
         private void clearWorkspaceTreeview()

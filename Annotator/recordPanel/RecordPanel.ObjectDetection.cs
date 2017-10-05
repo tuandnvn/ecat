@@ -39,11 +39,12 @@ namespace Annotator
 
         public void InitializeOptionsTableDetection()
         {
+            
             foreach (var objectRecognizer in objectRecognizers)
             {
-                objectRecognizerIncluded[objectRecognizer] = true;
-                int rowIndex = optionsTable.Rows.Add(objectRecognizer.getName(), "True");
-                changeRowToTrueFall(optionsTable, rowIndex, 1);
+                objectRecognizerIncluded[objectRecognizer] = false;
+                int rowIndex = optionsTable.Rows.Add(objectRecognizer.getName(), "False");
+                changeRowToTrueFalse(optionsTable, rowIndex, 1, false);
             }
         }
 

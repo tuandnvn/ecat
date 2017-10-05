@@ -46,8 +46,10 @@ namespace Annotator
             Task t = Task.Run(() =>
             {
                 int recognizerCounter = 0;
+
+                Console.WriteLine(objectRecognizerIncluded);
                 foreach (var objectRecognizer in objectRecognizers)
-                {
+                {   
                     if (objectRecognizerIncluded[objectRecognizer])
                     {
                         var progress = new Progress<int>(v =>

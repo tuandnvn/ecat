@@ -122,8 +122,8 @@ namespace Annotator
             optionsTable.Rows[5].Cells[1].ReadOnly = true;
             optionsTable.Rows[6].Cells[1].ReadOnly = true;
 
-            changeRowToTrueFall(optionsTable, 7, 1);
-            changeRowToTrueFall(optionsTable, 8, 1);
+            changeRowToTrueFalse(optionsTable, 7, 1);
+            changeRowToTrueFalse(optionsTable, 8, 1);
 
             InitializeOptionsTableDetection();
         }
@@ -189,14 +189,18 @@ namespace Annotator
             }
         }
 
+        private void changeRowToTrueFalse(DataGridView optionsTable, int row, int col)
+        {
+            changeRowToTrueFalse( optionsTable,  row,  col, true);
+        }
 
-        private void changeRowToTrueFall(DataGridView optionsTable, int row, int col)
+        private void changeRowToTrueFalse(DataGridView optionsTable, int row, int col, bool originalValue)
         {
             List<bool> bools = new List<bool>() { true, false };
             DataGridViewComboBoxCell c = new DataGridViewComboBoxCell();
             c.DataSource = bools;
             c.ValueType = typeof(bool);
-            c.Value = true;
+            c.Value = originalValue;
 
             optionsTable.Rows[row].Cells[col] = c;
         }
