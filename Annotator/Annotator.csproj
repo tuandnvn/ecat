@@ -60,6 +60,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Annotator.GlyphBoxPrototype</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accord, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>..\packages\Accord.3.0.2\lib\net45\Accord.dll</HintPath>
@@ -354,6 +357,7 @@
     </Compile>
     <EmbeddedResource Include="AddRigFileForm.resx">
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="EventTemplateGenerator.resx">
       <DependentUpon>EventTemplateGenerator.cs</DependentUpon>
@@ -443,6 +447,15 @@
     <EmbeddedResource Include="zoom-in.cur">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Resources\155.glyph" />
+    <None Include="Resources\303.glyph" />
+    <None Include="Resources\426.glyph" />
+    <None Include="Resources\477.glyph" />
+    <None Include="Resources\5.glyph" />
+    <None Include="Resources\521.glyph" />
+    <None Include="Resources\566.glyph" />
+    <None Include="Resources\6.glyph" />
+    <None Include="Resources\71.glyph" />
     <None Include="Resources\Zoom_in.png" />
     <Content Include="zoomout.cur" />
     <Content Include="cvextern.dll">

@@ -180,6 +180,8 @@ namespace Annotator
         public static GlyphBoxPrototype prototype4;
 
         static GlyphBoxPrototype(){
+            // string _426 = Properties.Resources._426;
+
             var indexToGlyphFaces = new Dictionary<int, GlyphFace>();
             indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { true, true,  true},
                                                                 { true, false, false },
@@ -204,34 +206,96 @@ namespace Annotator
             prototype1 = new GlyphBoxPrototype("", indexToGlyphFaces, 3);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
-            indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { false, false, false, false, true},
-                                                                { false, false, false, false, true},
-                                                                { false, false, false, false, true},
-                                                                { true, true, true, false, true},
-                                                                { true, true, true, false, true}, }, 5);
-            indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
+            indexToGlyphFaces[4] = getGlyphFaceFromByteArrayMirror(Properties.Resources._5);
+            indexToGlyphFaces[3] = getGlyphFaceFromByteArrayMirror(Properties.Resources._477);
+            indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._71);
+
+            //indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
             prototype2 = new GlyphBoxPrototype("Stella Artois", indexToGlyphFaces, 5);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
-            indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { true, true, true, true, false},
-                                                                { false, false, false, false, true},
-                                                                { false, false, false, true, false},
-                                                                { false, false, false, true, false},
-                                                                { false, false, false, true, true}, }, 5);
-            indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
+            indexToGlyphFaces[4] = getGlyphFaceFromByteArrayMirror(Properties.Resources._6);
+            indexToGlyphFaces[1] = getGlyphFaceFromByteArrayMirror(Properties.Resources._566);
+            indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._155);
+            // indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
             prototype3 = new GlyphBoxPrototype("Pepsi", indexToGlyphFaces, 5);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
-            indexToGlyphFaces[0] = new GlyphFace(new bool[,] {  { false, true, false, true, false},
-                                                                { true, true, false, true, false},
-                                                                { true, true, false, true, false},
-                                                                { true, false, false, false, false},
-                                                                { false, true, true, true, true}, }, 5);
-            indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
+            indexToGlyphFaces[4] = getGlyphFaceFromByteArrayMirror(Properties.Resources._426);
+            indexToGlyphFaces[1] = getGlyphFaceFromByteArrayMirror(Properties.Resources._303);
+            indexToGlyphFaces[2] = getGlyphFaceFromByteArrayMirror(Properties.Resources._521);
+            // indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
-            prototype4 = new GlyphBoxPrototype("", indexToGlyphFaces, 5);
+            prototype4 = new GlyphBoxPrototype("Shell", indexToGlyphFaces, 5);
+        }
+
+        /**
+         * byteArray: A resource file that define the glyph face
+         */
+        static GlyphFace getGlyphFaceFromByteArray(byte[] byteArray)
+        {
+            String[] lines = Encoding.Default.GetString(byteArray).Split('\n');
+            int size = lines.Length;
+
+            bool[,] values = new bool[size, size];
+            
+            for (int i = 0; i < size; i ++ )
+            {
+                String line = lines[i];
+
+                if (line.Length != size)
+                {
+                    throw new ArgumentException("Wrong form of byte array");
+                }
+
+                for (int j = 0; j < size; j ++)
+                {
+                    char c = line[j];
+                    bool v = c == '1' ? true : false;
+                    values[i, j] = v;
+                }
+            }
+
+            return new GlyphFace(values, size);
+        }
+
+        /**
+         * 
+         * Because the video is mirror, you might want to get the mirror GlyphFace instead
+         */
+        static GlyphFace getGlyphFaceFromByteArrayMirror(byte[] byteArray)
+        {
+            String[] lines = Encoding.Default.GetString(byteArray).Split('\n');
+            int size = lines.Length;
+
+            bool[,] values = new bool[size, size];
+
+            for (int i = 0; i < size; i++)
+            {
+                String line = lines[i];
+
+                if (line.Length != size)
+                {
+                    throw new ArgumentException("Wrong form of byte array");
+                }
+
+                for (int j = 0; j < size; j++)
+                {
+                    char c = line[j];
+                    bool v = c == '1' ? true : false;
+                    values[i, size - 1 - j] = v;
+                }
+            }
+
+            return new GlyphFace(values, size);
+        }
+
+        static int Main(string[] args)
+        {
+            Console.WriteLine(Encoding.Default.GetString(Properties.Resources._426));
+            return 0;
         }
     }
 }
