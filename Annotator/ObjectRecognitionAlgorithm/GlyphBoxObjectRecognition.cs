@@ -19,7 +19,7 @@ namespace Annotator
     {
         /// <summary>
         /// Recognize multiple box only
-        /// Boxes should have different faces but share the same glyphSize
+        /// Recognize multiple box + different faces of the box
         /// </summary>
         protected List<GlyphBoxPrototype> boxPrototypes;
         protected int glyphSize;
@@ -202,8 +202,13 @@ namespace Annotator
                 CameraSpacePoint[] csps = new CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
                 if (depthReader != null)
                 {
+                    Console.WriteLine("depthValues before read " + recordedTimeForRgbFrame);
                     ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
+                    Console.WriteLine("depthValues " + depthValues.Length);
                     mappingFunction(depthValues, csps);
+                } else
+                {
+                    Console.WriteLine("depthReader == null");
                 }
 
                 stopwatch.Stop();
@@ -368,7 +373,6 @@ namespace Annotator
             }
             else
             {
-
                 Console.WriteLine("previousFrameDetection " + previousFrameDetection);
                 if (previousFrameDetection)
                 {

@@ -112,6 +112,8 @@ namespace Annotator
 
             int appropriateDepthFrame = depthFrameTimePoints.BinarySearch(milisecondFromStart);
 
+            Console.WriteLine(appropriateDepthFrame);
+
             // bitwise complement if it is not found
             if (appropriateDepthFrame < 0)
             {
@@ -130,6 +132,8 @@ namespace Annotator
                     }
                 }
             }
+
+            Console.WriteLine(appropriateDepthFrame);
 
             if (appropriateDepthFrame < 0 || appropriateDepthFrame >= depthFrame) return null;
             return readFrame(appropriateDepthFrame);

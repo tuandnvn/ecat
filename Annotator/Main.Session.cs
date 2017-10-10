@@ -548,6 +548,9 @@ namespace Annotator
                     currentlySetupKinect = false;
                 }
 
+                // Force loading of depthReader
+                depthValuesToByte = new byte[currentSession.getDepth(0).getWidth() * currentSession.getDepth(0).getHeight() * 4];
+
                 List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
                 currentSession.getDepth(0),
                 new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,

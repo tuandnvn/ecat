@@ -206,19 +206,23 @@ namespace Annotator
             prototype1 = new GlyphBoxPrototype("", indexToGlyphFaces, 3);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
-            indexToGlyphFaces[4] = getGlyphFaceFromByteArrayMirror(Properties.Resources._5);
-            indexToGlyphFaces[3] = getGlyphFaceFromByteArrayMirror(Properties.Resources._477);
-            indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._71);
+           
+            //indexToGlyphFaces[4] = getGlyphFaceFromByteArrayMirror(Properties.Resources._5);
+            //indexToGlyphFaces[3] = getGlyphFaceFromByteArrayMirror(Properties.Resources._477);
+            //indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._71);
 
-            //indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
+            indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._5);
+            indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
             prototype2 = new GlyphBoxPrototype("Stella Artois", indexToGlyphFaces, 5);
 
             indexToGlyphFaces = new Dictionary<int, GlyphFace>();
-            indexToGlyphFaces[4] = getGlyphFaceFromByteArrayMirror(Properties.Resources._6);
-            indexToGlyphFaces[1] = getGlyphFaceFromByteArrayMirror(Properties.Resources._566);
-            indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._155);
-            // indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
+            //indexToGlyphFaces[4] = getGlyphFaceFromByteArrayMirror(Properties.Resources._6);
+            //indexToGlyphFaces[1] = getGlyphFaceFromByteArrayMirror(Properties.Resources._566);
+            //indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._155);
+
+            indexToGlyphFaces[0] = getGlyphFaceFromByteArrayMirror(Properties.Resources._6);
+            indexToGlyphFaces[1] = indexToGlyphFaces[2] = indexToGlyphFaces[3] = indexToGlyphFaces[4] = indexToGlyphFaces[5] = indexToGlyphFaces[0];
 
             prototype3 = new GlyphBoxPrototype("Pepsi", indexToGlyphFaces, 5);
 
@@ -267,15 +271,20 @@ namespace Annotator
          */
         static GlyphFace getGlyphFaceFromByteArrayMirror(byte[] byteArray)
         {
-            String[] lines = Encoding.Default.GetString(byteArray).Split('\n');
+            String[] lines = Encoding.Default.GetString(byteArray).Split(new char[] { '\n' });
             int size = lines.Length;
 
             bool[,] values = new bool[size, size];
 
+            Console.WriteLine(lines);
+            Console.WriteLine(size);
+
             for (int i = 0; i < size; i++)
             {
-                String line = lines[i];
+                String line = lines[i].Trim();
 
+
+                Console.WriteLine(line);
                 if (line.Length != size)
                 {
                     throw new ArgumentException("Wrong form of byte array");
