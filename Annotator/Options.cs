@@ -112,7 +112,7 @@ namespace Annotator
             Options options = new Options();
             options.glyphPrototypePath = "";
             options.detectionMode = OverwriteMode.ADD_SEPARATE;
-            options.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3 };
+            options.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 };
             options.showRigOption = ShowRig.SHOW_ALL;
             options.interpolationModes = new Dictionary<string, InterpolationMode>();
             options.interpolationModes[RIG] = InterpolationMode.LEFT_COPY;

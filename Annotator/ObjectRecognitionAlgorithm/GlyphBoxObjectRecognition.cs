@@ -81,7 +81,7 @@ namespace Annotator
             bool previousFrameDetection = false;
 
             for (int frameNo = 0; frameNo < videoReader.frameCount; frameNo++)
-            //for (int frameNo = 80; frameNo < 81; frameNo++)
+            // for (int frameNo = 100; frameNo < 300; frameNo++)
             {
                 if (progress != null)
                     progress.Report(frameNo);
@@ -258,11 +258,11 @@ namespace Annotator
                         originalCorners.Add(p);
                     }
 
-                    Console.WriteLine("Corner points");
-                    foreach (var corner in originalCorners)
-                    {
-                        Console.WriteLine(corner);
-                    }
+                    //Console.WriteLine("Corner points");
+                    //foreach (var corner in originalCorners)
+                    //{
+                    //    Console.WriteLine(corner);
+                    //}
 
                     for (int boxPrototypeIndex = 0; boxPrototypeIndex < boxPrototypes.Count; boxPrototypeIndex++)
                     {

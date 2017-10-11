@@ -53,19 +53,25 @@ namespace Annotator
             if (markersNode != null)
                 foreach (XmlNode markerNode in markersNode.SelectNodes(MARKER))
                 {
-                    int frame = int.Parse(markerNode.Attributes[FRAME].Value);
-                    String markType = markerNode.Attributes[TYPE].Value;
-
-                    switch (markType)
+                    try
                     {
-                        case "LOCATION":
-                            var lm = new GlyphBoxLocationMark2D(frame);
-                            lm.readFromXml(markerNode);
-                            setBounding(frame, lm);
-                            break;
-                        case "DELETE":
-                            delete(frame);
-                            break;
+                        int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                        String markType = markerNode.Attributes[TYPE].Value;
+
+                        switch (markType)
+                        {
+                            case "LOCATION":
+                                var lm = new GlyphBoxLocationMark2D(frame);
+                                lm.readFromXml(markerNode);
+                                setBounding(frame, lm);
+                                break;
+                            case "DELETE":
+                                delete(frame);
+                                break;
+                        }
+                    } catch (Exception e)
+                    {
+                        System.Windows.Forms.MessageBox.Show(markerNode.InnerText, "Load marker failed!", System.Windows.Forms.MessageBoxButtons.OK);
                     }
                 }
 
@@ -74,10 +80,17 @@ namespace Annotator
             if (markers3DNodes != null)
                 foreach (XmlNode markerNode in markers3DNodes.SelectNodes(MARKER))
                 {
-                    int frame = int.Parse(markerNode.Attributes[FRAME].Value);
-                    var lm = new GlyphBoxLocationMark3D(frame);
-                    lm.readFromXml(markerNode);
-                    set3DBounding(frame, lm);
+                    try
+                    {
+                        int frame = int.Parse(markerNode.Attributes[FRAME].Value);
+                        var lm = new GlyphBoxLocationMark3D(frame);
+                        lm.readFromXml(markerNode);
+                        set3DBounding(frame, lm);
+                    }
+                    catch (Exception e)
+                    {
+                        System.Windows.Forms.MessageBox.Show(markerNode.InnerText, "Load marker failed!", System.Windows.Forms.MessageBoxButtons.OK);
+                    }
                 }
 
             boxPrototype = getPrototype();
