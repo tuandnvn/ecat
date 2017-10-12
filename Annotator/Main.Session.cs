@@ -362,6 +362,11 @@ namespace Annotator
                 //a.setID(0);
                 addAnnotation(ev);
             }
+
+            foreach (Event ev in currentSession.events)
+            {
+                this.mapFromEventToEventAnnotations[ev].firstRendering = false;
+            }
         }
 
         /// <summary>
