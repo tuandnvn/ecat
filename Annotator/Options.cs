@@ -53,11 +53,13 @@ namespace Annotator
         [DataMember]
         internal List<string> objectLinkTypes;
 
+        [DataMember]
+        internal bool showMarkerMode = true;
+
         /// <summary>
         /// List of prototypes, should be set by reading from the glyphPrototypePath. otherwise set to default
         /// </summary>
         public List<GlyphBoxPrototype> prototypeList { get; private set; }
-
 
         private static Options singletonOptions;
 
@@ -119,6 +121,7 @@ namespace Annotator
             options.interpolationModes[RECTANGLE] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
             options.objectLinkTypes = new List<string> { "ON", "IN", "ATTACH_TO" };
+            options.showMarkerMode = true;
 
             return options;
         }

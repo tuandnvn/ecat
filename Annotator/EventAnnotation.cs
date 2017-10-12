@@ -76,8 +76,6 @@ namespace Annotator
 
         Dictionary<int, object> rowIndexToObjs;
 
-        public bool firstRendering;
-
         public EventAnnotation(Event ev, Main mainGUI, int start, int end)
         {
 
@@ -104,8 +102,6 @@ namespace Annotator
 
             //MessageBox.Show("minimum = " + minimum + ", maximum = " + maximum + " stepX = " + frameStepX);
             intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
-
-            firstRendering = true;
         }
 
         private void Rendering()
@@ -229,8 +225,6 @@ namespace Annotator
 
         private void leftMarker_Move(object sender, EventArgs e)
         {
-            if (firstRendering) return;
-
             if (!selected && slider1Move)
             {
                 // Exact point
@@ -244,14 +238,13 @@ namespace Annotator
                 }
 
                 intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
-                Console.WriteLine(this.ev.id + "leftMarker_Move " + intervalLbl.Text);
+                // Console.WriteLine(this.ev.id + "leftMarker_Move " + intervalLbl.Text);
                 main.Invalidate();
             }
         }
 
         private void rightMarker_Move(object sender, EventArgs e)
         {
-            if (firstRendering) return;
             if (!selected && slider2Move)
             {
                 if ((int)((rightMarker.X1 - minLeftPosition) / frameStepX) * frameStepX == rightMarker.X1 - minLeftPosition)
@@ -264,7 +257,7 @@ namespace Annotator
                 }
 
                 intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
-                Console.WriteLine(this.ev.id + "rightMarker_Move " + intervalLbl.Text);
+                // Console.WriteLine(this.ev.id + "rightMarker_Move " + intervalLbl.Text);
                 main.Invalidate();
             }
         }

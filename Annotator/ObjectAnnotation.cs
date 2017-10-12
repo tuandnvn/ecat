@@ -15,7 +15,6 @@ namespace Annotator
     public partial class ObjectAnnotation : UserControl
     {
         private const int TOOLTIP_TIME = 3000;
-        private const bool SHOW_MARKERS = false;
         int minLeftPosition;
         int maxLeftPosition;
         private double frameStepX;
@@ -102,13 +101,14 @@ namespace Annotator
             int spanEnd = end;
             bool finishOneRectangle = true; // Has just finish drawing one rectangle, or haven't started drawing any rectangle
 
-            if (SHOW_MARKERS)
-            {
-                foreach (var entry in o.objectMarks)
-                {
-                    int frameNo = entry.Key;
-                    LocationMark objectMark = entry.Value;
 
+            foreach (var entry in o.objectMarks)
+            {
+                int frameNo = entry.Key;
+                LocationMark objectMark = entry.Value;
+
+                if (Options.getOption().showMarkerMode)
+                {
                     RectangleShapeWithFrame mark = new RectangleShapeWithFrame(frameNo);
                     mark.FillColor = System.Drawing.Color.Black;
                     mark.BackColor = System.Drawing.Color.Black;
@@ -120,21 +120,24 @@ namespace Annotator
                     mark.MouseEnter += Mark_MouseEnter;
                     mark.MouseClick += Mark_MouseClick;
                     mark.Click += Mark_Click;
-
-                    if (objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
-                    {
-                        spanStart = objectMark.frameNo;
-                        finishOneRectangle = false;
-                    }
-
-                    if (objectMark.GetType() == typeof(DeleteLocationMark))
-                    {
-                        spanEnd = objectMark.frameNo;
-                        drawLifeSpan(spanStart, spanEnd);
-                        finishOneRectangle = true;
-                    }
                 }
 
+                if (objectMark.GetType() != typeof(DeleteLocationMark) && finishOneRectangle)
+                {
+                    spanStart = objectMark.frameNo;
+                    finishOneRectangle = false;
+                }
+
+                if (objectMark.GetType() == typeof(DeleteLocationMark))
+                {
+                    spanEnd = objectMark.frameNo;
+                    drawLifeSpan(spanStart, spanEnd);
+                    finishOneRectangle = true;
+                }
+            }
+
+            if (Options.getOption().showMarkerMode)
+            {
                 foreach (var entry in o.linkMarks)
                 {
                     int frameNo = entry.Key;

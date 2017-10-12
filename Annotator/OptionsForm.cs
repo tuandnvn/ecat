@@ -83,6 +83,12 @@ namespace Annotator
                         break;
                 }
 
+                if (options.showMarkerMode)
+                    showMarker.Checked = true;
+                else
+                    donShowMarker.Checked = true;
+
+
                 renderLinkTypeList();
             }
         }
@@ -138,6 +144,14 @@ namespace Annotator
             else if (interpolateLinearRectRb.Checked)
             {
                 options.interpolationModes[Options.RECTANGLE] = Options.InterpolationMode.LINEAR;
+            }
+
+            if (showMarker.Checked)
+            {
+                options.showMarkerMode = true;
+            } else
+            {
+                options.showMarkerMode = false;
             }
         }
 
@@ -260,5 +274,6 @@ namespace Annotator
                 removeLinkTypeBtn.Enabled = false;
             }
         }
+        
     }
 }
