@@ -74,6 +74,15 @@ namespace Annotator
                         int frameNo = int.Parse(dataFrame.SelectSingleNode(rc.frameNoPath).Value);
                         string frameStr = dataFrame.SelectSingleNode(rc.frameTimePath).Value;
 
+                        //long timeFromBegin = 0;
+                        //try
+                        //{
+                        //    timeFromBegin = long.Parse(dataFrame.SelectSingleNode(rc.timeFromBeginPath).Value);
+                        //} catch (Exception e)
+                        //{
+                        //}
+                        
+
                         DateTime dt = DateTime.ParseExact(frameStr.Substring(0, frameStr.Length - 1), @"yyyy-MM-ddTHH:mm:ssss.ffffff", provider);
 
                         if (!frameToRig.ContainsKey(frameNo))
@@ -286,7 +295,10 @@ namespace Annotator
 
             if (rigs == null) return;
 
+            Console.WriteLine("Before normalize " + rigs.frameToRig.Keys.Min() + " " + rigs.frameToRig.Keys.Max());
             rigs.normalizeFrames(o.session);
+
+            Console.WriteLine("After normalize " + rigs.frameToRig.Keys.Min() + " " + rigs.frameToRig.Keys.Max());
 
             foreach (int frame in rigs.frameToRig.Keys)
             {
@@ -302,6 +314,7 @@ namespace Annotator
 
         private void normalizeFrames(Session session)
         {
+
             if (session.duration != 0 && session.startWriteRGB.HasValue)
             {
                 // If you have information about the recorded time of the video
@@ -315,10 +328,10 @@ namespace Annotator
 
                 foreach (int frame in frameToRig.Keys)
                 {
-                    DateTime dt = frameToRig[frame].dt;
-                    long timeFromStart = (long)dt.Subtract(startWriteRGB).TotalMilliseconds;
+                        DateTime dt = frameToRig[frame].dt;
+                        long timeFromStart = (long)dt.Subtract(startWriteRGB).TotalMilliseconds;
 
-                    long timeStepForFrame = session.duration / sessionLength;
+                    float timeStepForFrame = ((float) session.duration) / sessionLength;
                     int rgbFrame = (int) (timeFromStart / timeStepForFrame) + 1;
 
                     tempoFrameToRig[rgbFrame] = frameToRig[frame];
@@ -349,6 +362,7 @@ namespace Annotator
         /// </summary>
         public Dictionary<int, Dictionary<string, T>> joints { get; }
         public DateTime dt { get; }
+        //public long timeFromBegin { get; }
 
         public RigFrame(DateTime dt)
         {

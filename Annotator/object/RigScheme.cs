@@ -149,12 +149,12 @@ namespace Annotator
                 string frameNoPath = rigPointInput.SelectNodes("frameNoPath").Item(0).InnerText;
                 string frameTimePath = rigPointInput.SelectNodes("frameTimePath").Item(0).InnerText;
                 //// For session captured from CwC apparatus, there is no timeFromBegin
-                //string timeFromBegin = "";
+                //string timeFromBeginPath = "";
                 //try
                 //{
-                //    timeFromBegin = rigPointInput.SelectNodes("frameTimePath").Item(0).InnerText;
+                //    timeFromBeginPath = rigPointInput.SelectNodes("timeFromBeginPath").Item(0).InnerText;
                 //}
-                //catch (Exception e) { } 
+                //catch (Exception e) { }
 
                 string rigNoPath = rigPointInput.SelectNodes("rigNoPath").Item(0).InnerText;
                 string rigPointFormatType = rigPointInput.SelectNodes("rigPointFormat").Item(0).Attributes["type"].Value;
@@ -195,7 +195,7 @@ namespace Annotator
                     rigNoPath = rigNoPath,
                     rigPointFormatType = rigPointFormatType,
                     rigPointFormatSeparated = rigPointFormatSeparated,
-                    rigPointPath = rigPointPath
+                    rigPointPath = rigPointPath,
                 };
             }
             catch (NullReferenceException e)
