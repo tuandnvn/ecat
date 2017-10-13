@@ -202,9 +202,7 @@ namespace Annotator
                 CameraSpacePoint[] csps = new CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
                 if (depthReader != null)
                 {
-                    Console.WriteLine("depthValues before read " + recordedTimeForRgbFrame);
                     ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
-                    Console.WriteLine("depthValues " + depthValues.Length);
                     mappingFunction(depthValues, csps);
                 } else
                 {
