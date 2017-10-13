@@ -543,54 +543,61 @@ namespace Annotator
 
             foreach (var entry in locationMarkers2dToProjected)
             {
-                int frameNo = entry.Key;
-                var toBeProjected = entry.Value;
-
-                // Mapping depth image
-                // At this point we use video frameNo
-                // It's actually just an approximation for the depth frameNo
-                var csps = new Microsoft.Kinect.CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
-                ushort[] depthValues = depthReader.readFrame(frameNo);
-                mappingFunction(depthValues, csps);
-
-                GlyphBoxLocationMark2D objectMark = (GlyphBoxLocationMark2D)objectMarks[frameNo];
-
-
-                var boundingPolygons = objectMark.boundingPolygons;
-
-                var boundingPolygons3D = new List<List<Point3>>();
-                if (object3DMarks.ContainsKey(frameNo))
+                try
                 {
-                    boundingPolygons3D = ((GlyphBoxLocationMark3D)object3DMarks[frameNo]).boundingPolygons;
-                }
+                    int frameNo = entry.Key;
+                    var toBeProjected = entry.Value;
 
-                for (int i = 0; i < objectMark.faces.Count; i ++ )
-                {
-                    if (toBeProjected.Contains(objectMark.faces[i]))
+                    // Mapping depth image
+                    // At this point we use video frameNo
+                    // It's actually just an approximation for the depth frameNo
+                    var csps = new Microsoft.Kinect.CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
+                    Console.WriteLine(frameNo);
+                    ushort[] depthValues = depthReader.readFrame(frameNo);
+                    mappingFunction(depthValues, csps);
+
+                    GlyphBoxLocationMark2D objectMark = (GlyphBoxLocationMark2D)objectMarks[frameNo];
+
+
+                    var boundingPolygons = objectMark.boundingPolygons;
+
+                    var boundingPolygons3D = new List<List<Point3>>();
+                    if (object3DMarks.ContainsKey(frameNo))
                     {
-                        var boundingPolygon = boundingPolygons[i];
-
-                        List<Point3> boundingPolygon3D = new List<Point3>();
-                        foreach (PointF p in boundingPolygon)
-                        {
-                            Point3 cameraSpacePoint = getCameraSpacePoint(p, videoReader, csps);
-
-                            if (cameraSpacePoint != null && !cameraSpacePoint.Equals(nullCameraSpacePoint))
-                            {
-                                boundingPolygon3D.Add(cameraSpacePoint);
-                            }
-                            else
-                            {
-                                boundingPolygon3D.Add(nullCameraSpacePoint);
-                            }
-                        }
-                        boundingPolygons3D.Insert(i, boundingPolygon3D);
+                        boundingPolygons3D = ((GlyphBoxLocationMark3D)object3DMarks[frameNo]).boundingPolygons;
                     }
+
+                    for (int i = 0; i < objectMark.faces.Count; i++)
+                    {
+                        if (toBeProjected.Contains(objectMark.faces[i]))
+                        {
+                            var boundingPolygon = boundingPolygons[i];
+
+                            List<Point3> boundingPolygon3D = new List<Point3>();
+                            foreach (PointF p in boundingPolygon)
+                            {
+                                Point3 cameraSpacePoint = getCameraSpacePoint(p, videoReader, csps);
+
+                                if (cameraSpacePoint != null && !cameraSpacePoint.Equals(nullCameraSpacePoint))
+                                {
+                                    boundingPolygon3D.Add(cameraSpacePoint);
+                                }
+                                else
+                                {
+                                    boundingPolygon3D.Add(nullCameraSpacePoint);
+                                }
+                            }
+                            boundingPolygons3D.Insert(i, boundingPolygon3D);
+                        }
+                    }
+
+                    GlyphBoxLocationMark3D objectMark3D = new GlyphBoxLocationMark3D(frameNo, objectMark.glyphSize, boundingPolygons3D, objectMark.faces);
+
+                    set3DBounding(frameNo, objectMark3D);
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e);
                 }
-
-                GlyphBoxLocationMark3D objectMark3D = new GlyphBoxLocationMark3D(frameNo, objectMark.glyphSize, boundingPolygons3D, objectMark.faces);
-
-                set3DBounding(frameNo, objectMark3D);
             }
 
             return true;

@@ -163,6 +163,8 @@ namespace Annotator
                     {
                         pictureBoard.Image = depthBitmap;
                     }
+
+                    Console.WriteLine(" depthFrame = " + depthReader.depthFrame);
                 }
 
                 frameTrackBar_ValueChanged(null, null);
@@ -209,8 +211,8 @@ namespace Annotator
 
             if (depthReader != null)
             {
-                int timeStepForFrame = (int)(currentSession.duration / currentSession.sessionLength);
-                int timeFromStart = frameStartWithZero * timeStepForFrame;
+                float timeStepForFrame = ((float)currentSession.duration) / currentSession.sessionLength;
+                int timeFromStart = (int) (frameStartWithZero * timeStepForFrame);
                 depthReader.readFrameAtTimeToBitmap(timeFromStart, depthBitmap, depthValuesToByte, 8000.0f / 256);
 
                 if (depthBitmap != null)
