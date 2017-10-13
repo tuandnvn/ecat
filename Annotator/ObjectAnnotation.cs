@@ -57,14 +57,14 @@ namespace Annotator
             this.updateInfo();
             Rendering();
 
-            if (this.o.genType == Object.GenType.MANUAL)
-            {
-                this.generate3d.Visible = true;
-            }
-            else
-            {
-                this.generate3d.Visible = false;
-            }
+            //if (this.o.genType == Object.GenType.MANUAL)
+            //{
+            //    this.generate3d.Visible = true;
+            //}
+            //else
+            //{
+            //    this.generate3d.Visible = false;
+            //}
         }
 
         public void updateInfo()
@@ -213,12 +213,20 @@ namespace Annotator
         private void generate3d_Click(object sender, EventArgs e)
         {
             // Current assumption is that the depth field is the first one
+            var videoReader = o.session.getVideo(0);
             var depthReader = o.session.getDepth(0);
             var mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
 
-            if (depthReader != null)
+            main.setupKinectIfNeeded();
+            if (videoReader!=null && depthReader != null)
             {
-                o.generate3d(depthReader, mappingReader);
+                if (o is GlyphBoxObject)
+                {
+                    o.generate3dForGlyph(videoReader, depthReader, main.coordinateMapper.MapColorFrameToCameraSpace);
+                } else
+                {
+                    o.generate3d(videoReader, depthReader, main.coordinateMapper.MapColorFrameToCameraSpace);
+                }
             }
         }
 

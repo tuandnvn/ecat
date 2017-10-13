@@ -526,7 +526,7 @@ namespace Annotator
         volatile bool depthFrameArrived = false;
         volatile bool currentlySetupKinect = false;
         KinectSensor kinectSensor;
-        CoordinateMapper coordinateMapper;
+        internal CoordinateMapper coordinateMapper;
         DepthCoordinateMappingReader mappingReader;
 
 
@@ -565,7 +565,7 @@ namespace Annotator
             });
         }
 
-        private void setupKinectIfNeeded()
+        internal void setupKinectIfNeeded()
         {
             if (kinectSensor == null)
             {
