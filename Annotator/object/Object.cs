@@ -592,6 +592,16 @@ namespace Annotator
                         }
                     }
 
+                    foreach (var boundingPolygon3D in boundingPolygons3D)
+                    {
+                        Console.Write("Face : ");
+                        foreach (var point in boundingPolygon3D)
+                        {
+                            Console.Write(point.X + ", " + point.Y + ", " + point.Z + "; ");
+                        }
+                        Console.WriteLine();
+                    }
+
                     GlyphBoxLocationMark3D objectMark3D = new GlyphBoxLocationMark3D(frameNo, objectMark.glyphSize, boundingPolygons3D, objectMark.faces);
 
                     set3DBounding(frameNo, objectMark3D);
@@ -661,7 +671,9 @@ namespace Annotator
                             // At this point we use video frameNo
                             // It's actually just an approximation for the depth frameNo
                             var csps = new Microsoft.Kinect.CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
-                            ushort[] depthValues = depthReader.readFrame(frameNo);
+
+                            int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
+                            ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
                             mappingFunction(depthValues, csps);
                             
                             //Point3[,] colorSpaceToCameraSpacePoint = mappingHelper.projectDepthImageToColor(depthReader.readFrame(frameNo),
@@ -804,6 +816,13 @@ namespace Annotator
                                     }
                                 }
                             }
+
+                            Console.Write("Polygon : ");
+                            foreach (var point in boundary3d)
+                            {
+                                Console.Write(point.X + ", " + point.Y + ", " + point.Z + "; ");
+                            }
+                            Console.WriteLine();
 
                             set3DBounding(frameNo, new PolygonLocationMark3D(frameNo, boundary3d));
                         }
