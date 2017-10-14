@@ -220,6 +220,7 @@ namespace Annotator
             main.setupKinectIfNeeded();
             if (videoReader!=null && depthReader != null)
             {
+                depthReader.getWidth();
                 if (o is GlyphBoxObject)
                 {
                     o.generate3dForGlyph(videoReader, depthReader, main.coordinateMapper.MapColorFrameToCameraSpace);

@@ -552,8 +552,9 @@ namespace Annotator
                     // At this point we use video frameNo
                     // It's actually just an approximation for the depth frameNo
                     var csps = new Microsoft.Kinect.CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
-                    Console.WriteLine(frameNo);
-                    ushort[] depthValues = depthReader.readFrame(frameNo);
+                    int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
+                    Console.WriteLine("recordedTimeForRgbFrame " + recordedTimeForRgbFrame);
+                    ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
                     mappingFunction(depthValues, csps);
 
                     GlyphBoxLocationMark2D objectMark = (GlyphBoxLocationMark2D)objectMarks[frameNo];
