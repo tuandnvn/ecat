@@ -99,10 +99,10 @@ namespace Annotator
         // override object.GetHashCode
         public override int GetHashCode()
         {
-            int hashCode1 = 0;
-            int hashCode2 = 0;
-            int hashCode3 = 0;
-            int hashCode4 = 0;
+            int hashCode1 = 1;
+            int hashCode2 = 1;
+            int hashCode3 = 1;
+            int hashCode4 = 1;
 
             for (int i = 0; i < glyphSize; i++)
                 for (int j = 0; j < glyphSize; j++)
