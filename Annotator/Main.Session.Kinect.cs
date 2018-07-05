@@ -17,7 +17,7 @@ namespace Annotator
         volatile bool depthFrameArrived = false;
         volatile bool currentlySetupKinect = false;
         KinectSensor kinectSensor;
-        CoordinateMapper coordinateMapper;
+        internal CoordinateMapper coordinateMapper;
         DepthCoordinateMappingReader mappingReader;
 
 
@@ -41,7 +41,7 @@ namespace Annotator
                         currentlySetupKinect = false;
                     }
 
-                    List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
+                    List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
                     currentSession.getDepth(0),
                     new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
                     coordinateMapper.MapColorFrameToCameraSpace
@@ -60,7 +60,7 @@ namespace Annotator
             }
         }
 
-        private void setupKinectIfNeeded()
+        internal void setupKinectIfNeeded()
         {
             if (kinectSensor == null)
             {
@@ -121,7 +121,7 @@ namespace Annotator
 
             Task t = Task.Run(async () =>
             {
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
+                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
                 currentSession.getDepth(0),
                 new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
                 (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,

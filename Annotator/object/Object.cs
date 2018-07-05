@@ -46,11 +46,6 @@ namespace Annotator
             get; protected set;
         }
 
-        //public SortedList<int, LinkMark> linkMarks
-        //{
-        //    get; protected set;
-        //}
-
         public enum ObjectType
         {
             _2D,
@@ -551,23 +546,164 @@ namespace Annotator
         // it means that this value is not initiated
         Point3 nullCameraSpacePoint = new Point3(-1, -1, -1);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="depthReader"></param>
-        /// <param name="mappingHelper"></param>
-        /// <returns> If the object is 3d-generated </returns>
-        internal virtual bool generate3d(BaseDepthReader depthReader, DepthCoordinateMappingReader mappingHelper)
+        /**
+         * 
+         * WHen generate 3d points for glyph, you only need to generate for frame or faces that don't yet have corresponding 3d data
+         */
+        internal virtual bool generate3dForGlyph(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], Microsoft.Kinect.CameraSpacePoint[]> mappingFunction)
         {
+            if (videoReader == null)
+            {
+                Console.WriteLine("videoReader is null ");
+                return false;
+            }
+
             if (depthReader == null)
             {
                 Console.WriteLine("depthReader is null ");
                 return false;
             }
 
-            if (mappingHelper == null)
+            if (mappingFunction == null)
             {
-                Console.WriteLine("mappingHelper is null ");
+                Console.WriteLine("mappingFunction is null ");
+                return false;
+            }
+
+            var locationMarkers2dToProjected = new Dictionary<int, List<GlyphFace>>();
+
+            foreach (var entry in objectMarks)
+            {
+                int frameNo = entry.Key;
+                var faces2d = ((GlyphBoxLocationMark2D)entry.Value).faces;
+
+                if (!object3DMarks.ContainsKey(frameNo))
+                {
+                    locationMarkers2dToProjected[frameNo] = faces2d;
+                }
+                else
+                {
+                    var faces3d = ((GlyphBoxLocationMark3D)object3DMarks[frameNo]).faces;
+                    List<GlyphFace> toBeProjected = faces2d.Except(faces3d).ToList();
+
+                    if (toBeProjected.Count != 0)
+                    {
+                        locationMarkers2dToProjected[frameNo] = toBeProjected;
+                    }
+                }
+            }
+
+            Console.WriteLine("locationMarkers2dToProjected");
+
+            foreach (var key in locationMarkers2dToProjected.Keys)
+            {
+                Console.Write("Frame " + key + " : ");
+                foreach (var item in locationMarkers2dToProjected[key])
+                {
+                    Console.Write("{0}, ", item);
+                }
+                Console.WriteLine();
+            }
+
+            foreach (var entry in locationMarkers2dToProjected)
+            {
+                try
+                {
+                    int frameNo = entry.Key;
+                    var toBeProjected = entry.Value;
+
+                    // Mapping depth image
+                    // At this point we use video frameNo
+                    // It's actually just an approximation for the depth frameNo
+                    var csps = new Microsoft.Kinect.CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
+                    int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
+                    Console.WriteLine("recordedTimeForRgbFrame " + recordedTimeForRgbFrame);
+                    ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
+                    mappingFunction(depthValues, csps);
+
+                    GlyphBoxLocationMark2D objectMark = (GlyphBoxLocationMark2D)objectMarks[frameNo];
+
+
+                    var boundingPolygons = objectMark.boundingPolygons;
+
+                    var boundingPolygons3D = new List<List<Point3>>();
+                    if (object3DMarks.ContainsKey(frameNo))
+                    {
+                        boundingPolygons3D = ((GlyphBoxLocationMark3D)object3DMarks[frameNo]).boundingPolygons;
+                    }
+
+                    for (int i = 0; i < objectMark.faces.Count; i++)
+                    {
+                        if (toBeProjected.Contains(objectMark.faces[i]))
+                        {
+                            var boundingPolygon = boundingPolygons[i];
+
+                            List<Point3> boundingPolygon3D = new List<Point3>();
+                            foreach (PointF p in boundingPolygon)
+                            {
+                                Point3 cameraSpacePoint = getCameraSpacePoint(p, videoReader, csps);
+
+                                if (cameraSpacePoint != null && !cameraSpacePoint.Equals(nullCameraSpacePoint))
+                                {
+                                    boundingPolygon3D.Add(cameraSpacePoint);
+                                }
+                                else
+                                {
+                                    boundingPolygon3D.Add(nullCameraSpacePoint);
+                                }
+                            }
+                            boundingPolygons3D.Insert(i, boundingPolygon3D);
+                        }
+                    }
+
+                    foreach (var boundingPolygon3D in boundingPolygons3D)
+                    {
+                        Console.Write("Face : ");
+                        foreach (var point in boundingPolygon3D)
+                        {
+                            Console.Write(point.X + ", " + point.Y + ", " + point.Z + "; ");
+                        }
+                        Console.WriteLine();
+                    }
+
+                    GlyphBoxLocationMark3D objectMark3D = new GlyphBoxLocationMark3D(frameNo, objectMark.glyphSize, boundingPolygons3D, objectMark.faces);
+
+                    set3DBounding(frameNo, objectMark3D);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="depthReader"></param>
+        /// <param name="mappingHelper"></param>
+        /// <returns> If the object is 3d-generated </returns>
+        internal virtual bool generate3d(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], Microsoft.Kinect.CameraSpacePoint[]> mappingFunction)
+        {
+            if (videoReader == null)
+            {
+                Console.WriteLine("videoReader is null ");
+                return false;
+            }
+
+            if (depthReader == null)
+            {
+                Console.WriteLine("depthReader is null ");
+                return false;
+            }
+
+            if (mappingFunction == null)
+            {
+                Console.WriteLine("mappingFunction is null ");
                 return false;
             }
 
@@ -599,11 +735,17 @@ namespace Annotator
                             // Mapping depth image
                             // At this point we use video frameNo
                             // It's actually just an approximation for the depth frameNo
-                            Point3[,] colorSpaceToCameraSpacePoint = mappingHelper.projectDepthImageToColor(depthReader.readFrame(frameNo),
-                                depthReader.getWidth(),
-                                depthReader.getHeight(),
-                                session.getVideo(videoFile).frameWidth,
-                                session.getVideo(videoFile).frameHeight);
+                            var csps = new Microsoft.Kinect.CameraSpacePoint[videoReader.frameWidth * videoReader.frameHeight];
+
+                            int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
+                            ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
+                            mappingFunction(depthValues, csps);
+
+                            //Point3[,] colorSpaceToCameraSpacePoint = mappingHelper.projectDepthImageToColor(depthReader.readFrame(frameNo),
+                            //    depthReader.getWidth(),
+                            //    depthReader.getHeight(),
+                            //    session.getVideo(videoFile).frameWidth,
+                            //    session.getVideo(videoFile).frameHeight);
 
                             LocationMark objectMark = entry.Value;
 
@@ -662,7 +804,7 @@ namespace Annotator
 
                                 foreach (PointF p in boundary)
                                 {
-                                    Point3 cameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, p);
+                                    Point3 cameraSpacePoint = getCameraSpacePoint(p, videoReader, csps);
 
                                     if (cameraSpacePoint != null && !cameraSpacePoint.Equals(nullCameraSpacePoint))
                                     {
@@ -676,7 +818,7 @@ namespace Annotator
                                 {
                                     foreach (PointF corner in boundary)
                                     {
-                                        Point3 cameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, corner);
+                                        Point3 cameraSpacePoint = getCameraSpacePoint(corner, videoReader, csps);
 
                                         // If point p is out of the depth view 
                                         if (cameraSpacePoint.Equals(nullCameraSpacePoint))
@@ -693,7 +835,7 @@ namespace Annotator
                                                 var p = new PointF((start.X + end.X * (k - 1)) / k,
                                                    (start.Y + end.Y * (k - 1)) / k);
 
-                                                Point3 middleCameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, p);
+                                                Point3 middleCameraSpacePoint = getCameraSpacePoint(p, videoReader, csps);
 
                                                 if (middleCameraSpacePoint != null && !middleCameraSpacePoint.Equals(nullCameraSpacePoint))
                                                 {
@@ -727,7 +869,7 @@ namespace Annotator
                                 // Just mapping to 3d points
                                 foreach (PointF p in boundary)
                                 {
-                                    Point3 cameraSpacePoint = getCameraSpacePoint(colorSpaceToCameraSpacePoint, p);
+                                    Point3 cameraSpacePoint = getCameraSpacePoint(p, videoReader, csps);
 
                                     if (cameraSpacePoint != null && !cameraSpacePoint.Equals(nullCameraSpacePoint))
                                     {
@@ -739,6 +881,13 @@ namespace Annotator
                                     }
                                 }
                             }
+
+                            Console.Write("Polygon : ");
+                            foreach (var point in boundary3d)
+                            {
+                                Console.Write(point.X + ", " + point.Y + ", " + point.Z + "; ");
+                            }
+                            Console.WriteLine();
 
                             set3DBounding(frameNo, new PolygonLocationMark3D(frameNo, boundary3d));
                         }
@@ -752,6 +901,7 @@ namespace Annotator
             this.objectType = ObjectType._3D;
             return true;
         }
+
 
         private Point3 getCameraSpacePoint(Point3[,] colorSpaceToCameraSpacePoint, PointF p)
         {
@@ -776,24 +926,16 @@ namespace Annotator
             return cameraSpacePoint;
         }
 
-        //private void readLinks(XmlNode objectNode)
-        //{
-        //    XmlNode linksNode = objectNode.SelectSingleNode(LINKS);
+        private Point3 getCameraSpacePoint(PointF p, VideoReader videoReader, Microsoft.Kinect.CameraSpacePoint[] csps)
+        {
+            int x = (int)p.X;
+            int y = (int)p.Y;
 
-        //    if (linksNode == null) return;
-        //    foreach (XmlNode linkNode in linksNode.SelectNodes(LINK))
-        //    {
-
-        //        int frame = int.Parse(linkNode.Attributes[FRAME].Value);
-
-        //        if (!linkMarks.ContainsKey(frame))
-        //        {
-        //            linkMarks[frame] = new LinkMark(this, frame);
-        //        }
-
-        //        linkMarks[frame].loadFromHtml(linkNode);
-        //    }
-        //}
+            return x + y * videoReader.frameWidth >= 0 && x + y * videoReader.frameWidth < videoReader.frameWidth * videoReader.frameHeight ?
+                                                                   new Point3(csps[x + y * videoReader.frameWidth].X,
+                                                                   csps[x + y * videoReader.frameWidth].Y,
+                                                                   csps[x + y * videoReader.frameWidth].Z) : new Point3();
+        }
 
         public String queryTooltip(int frameNo)
         {

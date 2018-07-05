@@ -185,10 +185,8 @@ namespace Annotator
         {
             this.Close();
         }
-
-
-         
-
+        
+        
         private void setLeftTopPanel()
         {
             if (videoReader != null)
@@ -416,5 +414,9 @@ namespace Annotator
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            otherWorkspaceToolStripMenuItem_Click(sender, e);
+        }
     }
 }

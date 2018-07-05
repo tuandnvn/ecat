@@ -31,6 +31,8 @@ namespace Annotator
         {
             workspace.load();
 
+            annotationWorkspaceTitle.Text = workspace.locationFolder;
+
             //Load workspace treeView:
             initWorkspaceTreeview();
         }
@@ -493,7 +495,7 @@ namespace Annotator
             return workspace.getProjectCount();
         }
 
-        private void othersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void otherWorkspaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
             workspaceLauncher.Show();

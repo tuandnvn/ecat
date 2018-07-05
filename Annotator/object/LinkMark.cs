@@ -127,9 +127,9 @@ namespace Annotator
                 if (predicateMark.predicate.combination.size == 2)
                 {
                     var otherObject = predicateMark.objects[1];
-                    if (otherObject.session.name != predicateMark.objects[0].session.name)
+                    if (otherObject.session.sessionName != predicateMark.objects[0].session.sessionName)
                     {
-                        xmlWriter.WriteAttributeString(Object.OTHER_SESSION, otherObject.session.name);
+                        xmlWriter.WriteAttributeString(Object.OTHER_SESSION, otherObject.session.sessionName);
                     }
 
                     xmlWriter.WriteAttributeString(Object.ID, otherObject.id);

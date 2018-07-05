@@ -33,7 +33,9 @@ namespace Annotator
         /// </summary>
         public int nextObjectId { get; set; } = 0;          
         private Dictionary<string, Object> objects;  // list of objects in videos
-        public String name { get; private set; }     //session name
+        public String sessionName { get; private set; }     //session name
+        public String projectName { get; private set; }     //workspace path
+        public String workspacePath { get; private set; }     //workspace path
         public Project project { get; private set; }         //session's project 
         public bool edited { get; set; }            //true if session is currently edited
         private List<VideoReader> videoReaders;
@@ -44,6 +46,7 @@ namespace Annotator
         private String tempMetadataFile;
         private int annotationID;      // annotation ID
         private Lazy<int> _sessionLength;
+        internal string path;
 
         private long lastOpenTime;
 
@@ -75,14 +78,14 @@ namespace Annotator
 
         private LOAD_STATUS loaded = LOAD_STATUS.NOT_LOADED;
 
-        internal string path;
+        
 
         //Constructor
         public Session(String sessionName, Project project, String workspaceDir)
         {
-            this.name = sessionName;
+            this.sessionName = sessionName;
             this.project = project;
-            //this.workspaceDir = workspaceDir;
+            this.workspacePath = workspaceDir;
             //If session file list exist load files list
             path = workspaceDir + Path.DirectorySeparatorChar + project.name + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
             metadataFile = path + "files.param";
@@ -213,7 +216,7 @@ namespace Annotator
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement(SESSION);
-                    writer.WriteAttributeString("name", name);
+                    writer.WriteAttributeString("name", sessionName);
                     writer.WriteAttributeString("length", "" + sessionLength);
                     if (duration != 0)
                     {

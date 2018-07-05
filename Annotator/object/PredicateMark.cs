@@ -107,7 +107,7 @@ namespace Annotator
             var pred = predicate.predicate;
 
             String q = predicate.predicate + "( " + String.Join(",", predicate.combination.values.Select(v =>
-                      (objects[v - 1].session.name == session.name ? "" : objects[v - 1].session.name + "/") +
+                      (objects[v - 1].session.sessionName == session.sessionName ? "" : objects[v - 1].session.sessionName + "/") +
                       objects[v - 1].id + (objects[v - 1].name.Equals("") ? "" : (" (\"" + objects[v - 1].name + "\")")))) + " )";
             if (!qualified)
             {
@@ -122,7 +122,7 @@ namespace Annotator
 
             xmlWriter.WriteAttributeString(Object.FRAME, "" + this.frame);
             xmlWriter.WriteAttributeString(Session.ARGUMENTS, "" + this.predicate.combination.size);
-            xmlWriter.WriteAttributeString(Session.IDS, String.Join(",", objects.Select(o => (o.session.name == session.name ? "" : o.session.name + "/") + o.id) ));
+            xmlWriter.WriteAttributeString(Session.IDS, String.Join(",", objects.Select(o => (o.session.sessionName == session.sessionName ? "" : o.session.sessionName + "/") + o.id) ));
             xmlWriter.WriteAttributeString(Object.QUALIFIED, "" + this.qualified);
             xmlWriter.WriteAttributeString(Object.TYPE, this.predicate.ToString());
             xmlWriter.WriteEndElement();

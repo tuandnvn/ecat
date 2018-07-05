@@ -221,14 +221,35 @@ namespace Annotator
 
         private void generate3d_Click(object sender, EventArgs e)
         {
-            // Current assumption is that the depth field is the first one
-            var depthReader = o.session.getDepth(0);
-            var mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
-
-            if (depthReader != null)
+            try
             {
-                o.generate3d(depthReader, mappingReader);
+
+                // Current assumption is that the depth field is the first one
+                var videoReader = o.session.getVideo(0);
+                var depthReader = o.session.getDepth(0);
+                var mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
+
+                main.setupKinectIfNeeded();
+                if (videoReader != null && depthReader != null)
+                {
+                    depthReader.getWidth();
+                    if (o is GlyphBoxObject)
+                    {
+                        o.generate3dForGlyph(videoReader, depthReader, main.coordinateMapper.MapColorFrameToCameraSpace);
+                    }
+                    else
+                    {
+                        o.generate3d(videoReader, depthReader, main.coordinateMapper.MapColorFrameToCameraSpace);
+                    }
+                }
             }
+            catch (Exception exc)
+            {
+                MessageBox.Show("3D coordinations of this object could not be generated. It is very likely that there is no depth file, or the depth file is corrupted or not of the correct format",
+                    "Generation error",
+                    MessageBoxButtons.OK);
+            }
+
         }
 
         private void remove_Click(object sender, EventArgs e)

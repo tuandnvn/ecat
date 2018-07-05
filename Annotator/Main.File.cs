@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Annotator
 {
@@ -15,24 +16,43 @@ namespace Annotator
             // Double guard
             // This method should only work when current Session is not null
             if (currentSession == null) return;
+
             string relFileName = treeView.SelectedNode.Text;
+            string absolutePath = getAbsolutePathFromRelFileName(relFileName);
+            currentSession.removeFile(absolutePath);
 
-            if (relFileName.Equals("files.param"))
-            {
-                System.Windows.Forms.MessageBox.Show("You could not delete file.params");
-                return;
-            }
-            
-            var dr = System.Windows.Forms.MessageBox.Show("Do you want to delete file " + relFileName + "", "Delete file", System.Windows.Forms.MessageBoxButtons.YesNo);
+            Console.WriteLine("Remove file from session" + absolutePath);
 
-            if (dr == System.Windows.Forms.DialogResult.Yes)
+            refreshSessionMenuItem_Click(sender, e);
+            loadViewsFromSession();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to delete this file from the folder", "Delete file", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                currentSession.removeFile(relFileName);
-                var absolutePath = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.name + Path.DirectorySeparatorChar + relFileName;
+                if (currentSession == null) return;
+
+                string relFileName = treeView.SelectedNode.Text;
+                string absolutePath = getAbsolutePathFromRelFileName(relFileName);
+                currentSession.removeFile(absolutePath);
+
+                Console.WriteLine("Remove file from session" + relFileName);
+                loadViewsFromSession();
+
                 File.Delete(absolutePath);
 
-                refreshSessionMenuItem_Click(null, null);
+                refreshSessionMenuItem_Click(sender, e);
+
+                Console.WriteLine("Delete file " + absolutePath);
             }
+        }
+
+        private string getAbsolutePathFromRelFileName(string relFileName)
+        {
+            string absolutePath = Path.Combine(currentSession.workspacePath, currentSession.projectName, currentSession.sessionName, relFileName);
+
+            return absolutePath;
         }
 
         private void addRigsFromFileToolStripMenuItem_Click(object sender, EventArgs e)

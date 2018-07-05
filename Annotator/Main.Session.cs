@@ -98,36 +98,55 @@ namespace Annotator
                 chosenSession = currentProject.getSession(treeView.SelectedNode.Text);
             }
 
-            if (chosenSession == null)
-                return;
-
-            if (currentSession != null && currentSession.name == chosenSession.name)
-            {
-                return;
-            }
-
             // Save current session if it is edited
-            if (currentSession != null && currentSession.name != chosenSession.name)
+            if (currentSession != null && chosenSession != null && currentSession.sessionName != chosenSession.sessionName)
             {
-                cleanUpCurrentSession();
+                closeEditedSession();
             }
 
             // Set current session = chosen session
-            if (!chosenSession.edited)
+            if (chosenSession != null && !chosenSession.edited)
             {
+                chosenSession.edited = true;
                 currentSessionNode = treeView.SelectedNode;
                 currentSession = chosenSession;
                 currentSession.loadIfNotLoaded();
-                currentSession.resetLastOpenTime();
-                chosenSession.edited = true;
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
                 frameTrackBar.Value = frameTrackBar.Minimum;
-                this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.name;
+                this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.sessionName;
             }
 
+            loadViewsFromSession();
+            // All toolstrips of file inside session are enables
+            toggleFileToolStripsOfSession(true);
+        }
+
+        private void closeEditedSession()
+        {
+            if (currentSession != null && currentSession.edited)
+            {
+                currentSession.edited = false;
+                treeView.BeginUpdate();
+                currentSessionNode.Text = currentSessionNode.Text.Substring(1);
+                treeView.EndUpdate();
+
+                var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    saveCurrentSession();
+                }
+                else if (result == DialogResult.No)
+                {
+                    closeWithoutSaveCurrentSession();
+                }
+            }
+        }
+
+        private void loadViewsFromSession()
+        {
             //Set comboBox:
-            String[] viewsList = chosenSession.getViews();
+            String[] viewsList = currentSession.getViews();
 
             playbackFileComboBox.Items.Clear();
 
@@ -136,6 +155,8 @@ namespace Annotator
             {
                 playbackFileComboBox.Items.Add(viewsList[i]);
             }
+
+            Console.WriteLine("playbackFileComboBox.Items.Count " + playbackFileComboBox.Items.Count);
 
             if (playbackFileComboBox.Items.Count > 0)
             {
@@ -151,12 +172,22 @@ namespace Annotator
                 playbackFileComboBox.Enabled = true;
                 frameTrackBar.Enabled = true;
                 addEventAnnotationBtn.Enabled = true;
-
-                // All toolstrips of file inside session are enables
-                toggleFileToolStripsOfSession(true);
             }
+            else
+            {
+                playbackFileComboBox.Enabled = false;
+                frameTrackBar.Enabled = false;
+                addEventAnnotationBtn.Enabled = false;
+                pictureBoard.BackgroundImage = null;
+            }
+        }
 
-            logSession($"Session {currentSession.name} loaded");
+        private void toggleFileToolStripsOfSession(bool value)
+        {
+            addObjectToolStripMenuItem.Enabled = value;
+            addRigsFromFileToolStripMenuItem.Enabled = value;
+            removeToolStripMenuItem.Enabled = value;
+            deleteToolStripMenuItem.Enabled = value;
         }
 
         /// <summary>
@@ -170,7 +201,7 @@ namespace Annotator
             currentSessionNode.Text = currentSessionNode.Text.Substring(1);
             treeView.EndUpdate();
 
-            var result = MessageBox.Show(("Session " + currentSession.name + " of project " + currentProject.name + "currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show(("Session " + currentSession.sessionName + " of project " + currentProject.name + "currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 saveCurrentSession();
@@ -181,12 +212,6 @@ namespace Annotator
             }
         }
 
-        private void toggleFileToolStripsOfSession(bool value)
-        {
-            addObjectToolStripMenuItem.Enabled = value;
-            addRigsFromFileToolStripMenuItem.Enabled = value;
-            removeToolStripMenuItem.Enabled = value;
-        }
 
         private void loadVideo(string videoFilename)
         {
@@ -219,7 +244,7 @@ namespace Annotator
             currentSession.saveSession();
             currentSession.resetLastOpenTime();
             cleanSessionUI();
-            logMessage($"Session {currentSession.name} saved");
+            logMessage($"Session {currentSession.sessionName} saved");
             currentSession = null;
             clearMemento();
         }
@@ -230,7 +255,7 @@ namespace Annotator
             currentSession.reload();
             currentSession.resetLastOpenTime();
             cleanSessionUI();
-            logMessage($"Session {currentSession.name} closed without saved");
+            logMessage($"Session {currentSession.sessionName} closed without saved");
             currentSession = null;
             clearMemento();
         }
@@ -432,7 +457,7 @@ namespace Annotator
 
             //Check files in current Session folder
             String[] files = Directory.GetFiles(workspace.locationFolder + Path.DirectorySeparatorChar +
-                currentSession.project.name + Path.DirectorySeparatorChar + currentSession.name);
+                currentSession.project.name + Path.DirectorySeparatorChar + currentSession.sessionName);
 
             TreeNode[] arrayFiles = new TreeNode[files.Length];
             for (int j = 0; j < arrayFiles.Length; j++)
@@ -457,7 +482,7 @@ namespace Annotator
         {
             string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.name + Path.DirectorySeparatorChar + relFileName;
+            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -491,7 +516,7 @@ namespace Annotator
         internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
         {
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.name + Path.DirectorySeparatorChar + newRelFileName;
+            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -614,7 +639,7 @@ namespace Annotator
             }
 
             invalidatePictureBoard();
-            this.logSession($"Session {currentSession.name} copied objects from session {previousSession.name}");
+            this.logSession($"Session {currentSession.sessionName} copied objects from session {previousSession.sessionName}");
         }
 
         /// <summary>

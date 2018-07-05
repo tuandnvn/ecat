@@ -41,8 +41,8 @@ namespace Annotator
                     this.Dispose();
                     return;
                 }
-                this.infoLbl.Text = "Link from object " + obj.id + " of session " + session.name + " at frame " + frameNo;
-                this.sessionSelectComboBox.Items.AddRange(project.sessions.Select(s => (s.name.Equals(session.name) ? "(current session)" : s.name)).ToArray());
+                this.infoLbl.Text = "Link from object " + obj.id + " of session " + session.sessionName + " at frame " + frameNo;
+                this.sessionSelectComboBox.Items.AddRange(project.sessions.Select(s => (s.sessionName.Equals(session.sessionName) ? "(current session)" : s.sessionName)).ToArray());
                 this.sessionSelectComboBox.SelectedIndex = sessionIndex;
                 this.objectSelectComboBox.Items.AddRange(session.getObjects().Select(o => o.id + (o.name.Equals("") ? "" : (" (\"" + o.name + "\")"))).ToArray());
                 Console.WriteLine(this.objectSelectComboBox.Items.Count);

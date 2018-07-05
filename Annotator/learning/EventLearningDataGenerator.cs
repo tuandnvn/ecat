@@ -38,10 +38,10 @@ namespace Annotator
 
                         session.loadIfNotLoaded();
 
-                        Console.WriteLine("Write learning data for session " + session.name);
+                        Console.WriteLine("Write learning data for session " + session.sessionName);
 
                         writer.WriteStartElement("session");
-                        writer.WriteAttributeString("name", session.name);
+                        writer.WriteAttributeString("name", session.sessionName);
 
                         var objects = session.getObjects().Where(o => o.GetType() == typeof(RigObject) || o.GetType() == typeof(GlyphBoxObject));
 

@@ -75,7 +75,7 @@ namespace Annotator
                 sessions.Add(session);
                 //MessageBox.Show(session.sessionName);
                 //Update project file
-                saveProjectFile(session.name);
+                saveProjectFile(session.sessionName);
             }
             else {
 
@@ -103,7 +103,7 @@ namespace Annotator
 
             foreach (Session s in sessions)
             {
-                if (s.name.Contains(sessionName))
+                if (s.sessionName.Contains(sessionName))
                     return true;
             }
             return false;
@@ -117,7 +117,7 @@ namespace Annotator
                 TextWriter tw = new StreamWriter(projectFileName);
                 foreach (Session s in sessions)
                 {
-                    tw.WriteLine(s.name);
+                    tw.WriteLine(s.sessionName);
                 }
                 tw.Close();
             }
@@ -153,7 +153,7 @@ namespace Annotator
             //1)Remove session from sessions list
             foreach (Session s in sessions)
             {
-                if (s.name.Contains(sessionName))
+                if (s.sessionName.Contains(sessionName))
                 {
                     sessions.Remove(s);
                     break;
@@ -166,7 +166,7 @@ namespace Annotator
                 TextWriter tw = new StreamWriter(projectFileName);
                 foreach (Session s in sessions)
                 {
-                    tw.WriteLine(s.name);
+                    tw.WriteLine(s.sessionName);
                 }
                 tw.Close();
             }
@@ -179,7 +179,7 @@ namespace Annotator
         //Get session by name
         public Session getSession(String sessionName)
         {
-            Session s = sessions.Find(t => t.name.Equals(sessionName));
+            Session s = sessions.Find(t => t.sessionName.Equals(sessionName));
 
             return s;
         }

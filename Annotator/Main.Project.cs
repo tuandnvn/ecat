@@ -64,12 +64,13 @@ namespace Annotator
 
         private void recordSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            closeEditedSession();
             tabs.SelectedIndex = 1;
         }
 
         private void newSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(selectedProjectName);
+            closeEditedSession();
             if (!newSession)
             {
                 showNewSessionPopup();
@@ -173,7 +174,7 @@ namespace Annotator
         {
             if (currentSession != null)
             {
-                MessageBox.Show("Cannot close project, session " + currentSession.name + " is editing");
+                MessageBox.Show("Cannot close project, session " + currentSession.sessionName + " is editing");
                 return;
             }
 
@@ -211,7 +212,7 @@ namespace Annotator
                     {
                         currentSession = session;
                         currentSession.loadIfNotLoaded();
-                        List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.name, currentSession.getVideo(0),
+                        List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
                             currentSession.getDepth(0),
                             new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
                             coordinateMapper.MapColorFrameToCameraSpace
