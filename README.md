@@ -10,11 +10,9 @@
 
 Annotating of objects on an .mp4 file
 
-[a relative link](markdown_file.md)
+[Object annotation demo](miscellanous/Object_annotation.mp4)
 
-[Object annotation demo](miscellanous/Object annotation.mp4)
-
-![Object annotation demo](miscellanous/Object annotation.gif)
+![Object annotation demo](miscellanous/Object_annotation.gif)
 
 
 # Prerequisites
