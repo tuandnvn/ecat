@@ -21,7 +21,7 @@ namespace Annotator
         private const string RECENT_WORKSPACES = "recentWorkspaces";
         private const string WORKSPACE = "workspace";
 
-        private Workspace workspace = null;
+        internal Workspace workspace = null;
         private string defaultWorkspace = null;
         private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
         private SortedSet<String> recentWorkspaceLocations;

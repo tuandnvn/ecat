@@ -25,22 +25,28 @@ namespace Annotator
         {
             try
             {
-                //Load default workspace location:
-                String defaultLocation = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
-                if (Environment.OSVersion.Version.Major >= 6)
+                String annotationLocation = "";
+                if (main.workspace == null)
                 {
-                    defaultLocation = Directory.GetParent(defaultLocation).ToString();
+                    //Load default workspace location:
+                    String defaultLocation = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+                    Console.WriteLine("defaultLocation = " + defaultLocation);
+                    if (Environment.OSVersion.Version.Major >= 6)
+                    {
+                        defaultLocation = Directory.GetParent(defaultLocation).ToString();
+                    }
+
+                    defaultLocation = Path.Combine(defaultLocation, "AnnotatorWorkspace");
+                } else
+                {
+                    annotationLocation = main.workspace.locationFolder;
                 }
-                defaultLocation += Path.DirectorySeparatorChar + "AnnotatorWorkspace";
-                //Create AnnotatorWorkspace folder in default location if it doesn't exists:
-                if(!Directory.Exists(defaultLocation)){
-                    Directory.CreateDirectory(defaultLocation);
-                }
-                workspacePath.Text = defaultLocation;
+
+                workspacePath.Text = annotationLocation;
                 workspacePath.Select(0, 0);
                 //Set default folderBrowser properties:
                 folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.Desktop;
-                folderBrowserDialog1.SelectedPath = defaultLocation;                
+                folderBrowserDialog1.SelectedPath = annotationLocation;                
             }
             catch (Exception exc)
             {
@@ -55,6 +61,12 @@ namespace Annotator
 
         private void selectWsBtn_Click(object sender, EventArgs e)
         {
+            //Create AnnotatorWorkspace folder in default location if it doesn't exists:
+            if (!Directory.Exists(workspacePath.Text))
+            {
+                Directory.CreateDirectory(workspacePath.Text);
+            }
+
             //Set workspace options:
             main.setWorkspace(workspacePath.Text, checkBox1.Checked);
             Close();

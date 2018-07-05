@@ -80,6 +80,12 @@ namespace Annotator
         //Select project from available projects in workspace
         private void selectToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (currentSession != null && currentSession.edited)
+            {
+                MessageBox.Show("Cannot select project, session " + currentSession.sessionName + " in project " + currentSession.project + " is editing");
+                return;
+            }
+
             treeView.BeginUpdate();
             ///////////////////////////////////
             //Release current project
