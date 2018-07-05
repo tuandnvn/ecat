@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-//using System.Collections.Generic;
 using System.Diagnostics;
 using Emgu.CV;
 using Emgu.CV.Structure;
@@ -22,8 +21,8 @@ namespace Annotator
         Size previousSize;
 
         //Project workspace 
-        private Workspace workspace = null;
-        private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
+        internal Workspace workspace = null;
+        private String parametersFileName = Path.Combine(Environment.CurrentDirectory, @"params.param");
         private bool newProject = false;//true if new project is creating
         private bool newSession = false;//true if new session is creating     
         internal Project currentProject = null; //currently selected project
@@ -140,6 +139,7 @@ namespace Annotator
         private void Main_Load(object sender, EventArgs e)
         {
             //Parameters hidden file open:
+            // Load the default workspace from params.param
             loadParameters();
 
             
@@ -183,6 +183,8 @@ namespace Annotator
         public void loadWorkspace()
         {
             workspace.load();
+
+            annotationWorkspaceTitle.Text = workspace.locationFolder;
             
             //Load workspace treeView:
             initWorkspaceTreeview();
@@ -191,7 +193,7 @@ namespace Annotator
         private void loadParameters()
         {
             Console.WriteLine("Look for " + parametersFileName);
-            //1)Check if file exists
+            //1) Check if file exists
             if (!File.Exists(parametersFileName))
             {
                 Console.WriteLine("Create file " + parametersFileName);
@@ -690,7 +692,6 @@ namespace Annotator
             frameTrackBar.Enabled = false;
         }
 
-
         private void setLeftTopPanel()
         {
             if (videoReader != null)
@@ -1143,6 +1144,16 @@ namespace Annotator
             InfoForm iff = new InfoForm();
             iff.StartPosition = FormStartPosition.CenterParent;
             iff.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            switchWorkspaceToolStripMenuItem_Click(sender, e);
+        }
+
+        private void projectRightClickPanel_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

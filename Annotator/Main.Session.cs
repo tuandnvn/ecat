@@ -73,8 +73,13 @@ namespace Annotator
                 this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.sessionName;
             }
 
+            loadViewsFromSession();
+        }
+
+        private void loadViewsFromSession()
+        {
             //Set comboBox:
-            String[] viewsList = chosenSession.getViews();
+            String[] viewsList = currentSession.getViews();
 
             playbackFileComboBox.Items.Clear();
 
@@ -83,6 +88,8 @@ namespace Annotator
             {
                 playbackFileComboBox.Items.Add(viewsList[i]);
             }
+
+            Console.WriteLine("playbackFileComboBox.Items.Count " + playbackFileComboBox.Items.Count);
 
             if (playbackFileComboBox.Items.Count > 0)
             {
@@ -102,6 +109,12 @@ namespace Annotator
 
                 // All toolstrips of file inside session are enables
                 toggleFileToolStripsOfSession(true);
+            } else
+            {
+                playbackFileComboBox.Enabled = false;
+                frameTrackBar.Enabled = false;
+                addEventAnnotationBtn.Enabled = false;
+                pictureBoard.BackgroundImage = null;
             }
         }
 
@@ -110,6 +123,7 @@ namespace Annotator
             addObjectToolStripMenuItem.Enabled = value;
             addRigsFromFileToolStripMenuItem.Enabled = value;
             removeToolStripMenuItem.Enabled = value;
+            deleteToolStripMenuItem.Enabled = value;
         }
 
         private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -422,6 +436,12 @@ namespace Annotator
                 {
                     String fullFileName = openFileDialog.FileName;
                     copyFileIntoLocalSession(fullFileName);
+                    
+                    // If we add video files, it should be loaded into views
+                    loadViewsFromSession();
+
+                    // Usually we would add some param files into the folder, just load it on the file tree
+                    refreshSessionMenuItem_Click(sender, e);
                 }
             }
         }
@@ -472,6 +492,7 @@ namespace Annotator
 
             if (!currentSession.checkFileInSession(relFileName) && !relFileName.Contains("files.param"))
             {
+                Console.WriteLine("Add file in to local session " + dstFileName);
                 currentSession.addFile(dstFileName);
                 //If file didnt exist in treeView update treeView
                 treeView.BeginUpdate();

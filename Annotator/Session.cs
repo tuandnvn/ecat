@@ -27,11 +27,13 @@ namespace Annotator
         public int objectCount { get; set; } = 0;          // video objects IDs
         private Dictionary<string, Object> objects;  // list of objects in videos
         public String sessionName { get; private set; }     //session name
-        public String project { get; private set; }         //session's project 
-        public String locationFolder { get; private set; }  //session location folder
+        public String projectName { get; private set; }         //session's project 
+        public String workspaceName { get; private set; }  //path to project
         private bool edited;            //true if session is currently edited
         private List<VideoReader> videoReaders;
         private List<BaseDepthReader> depthReaders;
+
+        // filesList contains absolute path to files
         internal SortedSet<String> filesList;
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
@@ -74,13 +76,13 @@ namespace Annotator
         private string commonPrefix;
 
         //Constructor
-        public Session(String sessionName, String projectOwner, String locationFolder)
+        public Session(String sessionName, String projectName, String workspaceLocation)
         {
             this.sessionName = sessionName;
-            this.project = projectOwner;
-            this.locationFolder = locationFolder;
+            this.projectName = projectName;
+            this.workspaceName = workspaceLocation;
             //If session file list exist load files list
-            commonPrefix = locationFolder + Path.DirectorySeparatorChar + project + Path.DirectorySeparatorChar + sessionName + Path.DirectorySeparatorChar;
+            commonPrefix = Path.Combine(workspaceLocation, this.projectName, sessionName) + Path.DirectorySeparatorChar;
             metadataFile = commonPrefix + "files.param";
             tempMetadataFile = commonPrefix + "~files.param";
 
@@ -113,7 +115,10 @@ namespace Annotator
             loaded = true;
         }
 
-        //Add file to session filesList
+        /// <summary>
+        /// Add file to session filesList
+        /// fileName is an absolute path
+        /// </summary>
         public void addFile(String fileName)
         {
             Console.WriteLine("Add file " + fileName);
@@ -136,9 +141,18 @@ namespace Annotator
                 addDepth(fileName);
         }
 
+        /// <summary>
+        /// Remove file from session filesList
+        /// fileName is an absolute path
+        /// </summary>
         public void removeFile(String fileName)
         {
+            Console.WriteLine(" removeFile " + fileName);
             filesList.Remove(fileName);
+            foreach (string fn in filesList)
+            {
+                Console.WriteLine(" fl " + fn);
+            }
             removeVideo(fileName);
             removeDepthVideo(fileName);
         }
@@ -339,16 +353,16 @@ namespace Annotator
 
                     foreach (XmlNode node in files.SelectNodes(FILE))
                     {
-                        string filename = node.InnerText;
-                        filesList.Add(node.InnerText);
-                        if (filename.isVideoFile())
+                        string relFileName = node.InnerText;
+                        filesList.Add(commonPrefix + relFileName);
+                        if (relFileName.isVideoFile())
                         {
-                            addVideo(filename);
+                            addVideo(relFileName);
                         }
 
-                        if (filename.isDepthFile())
+                        if (relFileName.isDepthFile())
                         {
-                            addDepth(filename);
+                            addDepth(relFileName);
                         }
                     }
 
@@ -490,7 +504,6 @@ namespace Annotator
         {
             string fullFileName = "";
 
-
             if (fileName.Contains(Path.DirectorySeparatorChar))
             {
                 fullFileName = fileName;
@@ -537,7 +550,7 @@ namespace Annotator
         //Get session's project
         public String getProject()
         {
-            return project;
+            return projectName;
         }
         //Check if file inside project files list
         public bool checkFileInSession(String fName)
