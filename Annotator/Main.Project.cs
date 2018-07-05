@@ -12,12 +12,13 @@ namespace Annotator
     {
         private void recordSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            closeEditedSession();
             tabs.SelectedIndex = 1;
         }
 
         private void newSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(selectedProjectName);
+            closeEditedSession();
             if (!newSession)
             {
                 addNewSession();

@@ -41,23 +41,7 @@ namespace Annotator
             // Save current session if it is edited
             if (currentSession != null && chosenSession != null && currentSession.sessionName != chosenSession.sessionName)
             {
-                if (currentSession.getEdited())
-                {
-                    currentSession.setEdited(false);
-                    treeView.BeginUpdate();
-                    currentSessionNode.Text = currentSessionNode.Text.Substring(1);
-                    treeView.EndUpdate();
-
-                    var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        saveCurrentSession();
-                    }
-                    else if (result == DialogResult.No)
-                    {
-                        closeWithoutSaveCurrentSession();
-                    }
-                }
+                closeEditedSession();
             }
 
             // Set current session = chosen session
@@ -74,6 +58,29 @@ namespace Annotator
             }
 
             loadViewsFromSession();
+            // All toolstrips of file inside session are enables
+            toggleFileToolStripsOfSession(true);
+        }
+
+        private void closeEditedSession()
+        {
+            if (currentSession != null && currentSession.getEdited())
+            {
+                currentSession.setEdited(false);
+                treeView.BeginUpdate();
+                currentSessionNode.Text = currentSessionNode.Text.Substring(1);
+                treeView.EndUpdate();
+
+                var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    saveCurrentSession();
+                }
+                else if (result == DialogResult.No)
+                {
+                    closeWithoutSaveCurrentSession();
+                }
+            }
         }
 
         private void loadViewsFromSession()
@@ -105,10 +112,6 @@ namespace Annotator
                 playbackFileComboBox.Enabled = true;
                 frameTrackBar.Enabled = true;
                 addEventAnnotationBtn.Enabled = true;
-                //pictureBox1.BackgroundImage = null;
-
-                // All toolstrips of file inside session are enables
-                toggleFileToolStripsOfSession(true);
             } else
             {
                 playbackFileComboBox.Enabled = false;

@@ -569,6 +569,10 @@ namespace Annotator
 
         /// <summary>
         /// Add new session to workspace
+        /// 
+        /// This method is called from SessionInfo
+        /// It adds a session into the named project
+        /// 
         /// </summary>
         /// <param name="projectName"></param>
         /// <param name="sessionName"></param>
