@@ -614,8 +614,8 @@ namespace Annotator
             newProject = true;
             //2)Show popup for project name
             ProjectInfo projectInfo = new ProjectInfo(this);
-            projectInfo.Location = new Point(this.Location.X + projectInfo.Width / 4, this.Location.Y + projectInfo.Height / 10);
-            projectInfo.Show();
+            projectInfo.StartPosition = FormStartPosition.CenterParent;
+            projectInfo.ShowDialog();
 
         }
 
