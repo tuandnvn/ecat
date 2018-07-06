@@ -187,6 +187,8 @@ namespace Annotator
         }
 
 
+         
+
         private void setLeftTopPanel()
         {
             if (videoReader != null)
