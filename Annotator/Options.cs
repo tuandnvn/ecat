@@ -56,6 +56,9 @@ namespace Annotator
         [DataMember]
         internal List<PredicateConstraint> predicateConstraints;
 
+        [DataMember]
+        internal bool showMarkerMode = true;
+
         /// <summary>
         /// List of prototypes, should be set by reading from the glyphPrototypePath. otherwise set to default
         /// </summary>
@@ -125,6 +128,7 @@ namespace Annotator
             options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
             options.objectPredicates = new List<Predicate>();
             options.predicateConstraints = new List<PredicateConstraint>();
+            options.showMarkerMode = true;
 
             return options;
         }

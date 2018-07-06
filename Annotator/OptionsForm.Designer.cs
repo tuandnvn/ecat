@@ -53,13 +53,11 @@
             this.upperBodyRb = new System.Windows.Forms.RadioButton();
             this.showAllRigRb = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.showMarker = new System.Windows.Forms.RadioButton();
             this.donShowMarker = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
-
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.removeConstraintBtn = new System.Windows.Forms.Button();
@@ -88,6 +86,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -104,7 +103,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(978, 607);
+            this.tabControl1.Size = new System.Drawing.Size(652, 545);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -114,7 +113,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(970, 574);
+            this.tabPage1.Size = new System.Drawing.Size(644, 602);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detection";
             // 
@@ -182,7 +181,7 @@
             this.glyphPrototypeTxtBox.Size = new System.Drawing.Size(394, 20);
             this.glyphPrototypeTxtBox.TabIndex = 2;
             // 
-            // infoLbl
+            // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 29);
@@ -205,10 +204,11 @@
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.groupBox8);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(970, 574);
+            this.tabPage2.Size = new System.Drawing.Size(644, 519);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "View";
             // 
@@ -369,25 +369,12 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Show rig";
             // 
-            // tabPage4
-            //
-            this.tabPage4.Controls.Add(this.groupBox8);
-            this.tabPage4.Controls.Add(this.groupBox9);
-            this.tabPage4.Controls.Add(this.groupBox7);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage4.Size = new System.Drawing.Size(970, 574);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Predicate";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.showMarker);
             this.groupBox8.Controls.Add(this.donShowMarker);
             this.groupBox8.Controls.Add(this.label5);
-            this.groupBox8.Location = new System.Drawing.Point(9, 207);
+            this.groupBox8.Location = new System.Drawing.Point(6, 351);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(628, 69);
             this.groupBox8.TabIndex = 3;
@@ -424,7 +411,18 @@
             this.label5.Size = new System.Drawing.Size(139, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Show markers on object bar";
-
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox9);
+            this.tabPage4.Controls.Add(this.groupBox7);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage4.Size = new System.Drawing.Size(644, 519);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Predicate";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
@@ -492,14 +490,15 @@
             this.constraintListBox.TabIndex = 1;
             this.constraintListBox.SelectedIndexChanged += new System.EventHandler(this.constraintListBox_SelectedIndexChanged);
             // 
-            // label5
+            // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 27);
-            this.label6.Name = "label5";
+            this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Add constraints";
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.richTextBox1);
@@ -514,7 +513,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox7.Size = new System.Drawing.Size(942, 302);
+            this.groupBox7.Size = new System.Drawing.Size(625, 302);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Predicates";
@@ -597,7 +596,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 20);
+            this.label3.Size = new System.Drawing.Size(186, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Add either predicate form or constraint";
             // 
@@ -615,27 +614,27 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(986, 663);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(658, 587);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // cancelBtn
             // 
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Location = new System.Drawing.Point(870, 622);
+            this.cancelBtn.Location = new System.Drawing.Point(582, 556);
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(74, 23);
+            this.cancelBtn.Size = new System.Drawing.Size(72, 23);
             this.cancelBtn.TabIndex = 1;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(750, 622);
+            this.saveBtn.Location = new System.Drawing.Point(502, 556);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(74, 23);
+            this.saveBtn.Size = new System.Drawing.Size(72, 23);
             this.saveBtn.TabIndex = 1;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
@@ -647,7 +646,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelBtn;
-            this.ClientSize = new System.Drawing.Size(986, 663);
+            this.ClientSize = new System.Drawing.Size(658, 587);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "OptionsForm";
@@ -666,6 +665,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -691,21 +692,6 @@
         private System.Windows.Forms.RadioButton detectIgnoreObjRb;
         private System.Windows.Forms.RadioButton detectOverwriteObjRb;
         private System.Windows.Forms.RadioButton detectSeparatedObjRb;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton upperBodyRb;
-        private System.Windows.Forms.RadioButton showAllRigRb;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton interpolateLinearRectRb;
-        private System.Windows.Forms.RadioButton interpolateLeftRectRb;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton interpolateLeftGlyphRb;
-        private System.Windows.Forms.RadioButton interpolateLinearGlyphRb;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton interpolateLeftRigRb;
-        private System.Windows.Forms.RadioButton interpolateLinearRigRb;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label3;
@@ -717,11 +703,6 @@
         private System.Windows.Forms.Button upObjLinkTypeBtn;
         private System.Windows.Forms.RichTextBox richTextBox1;
 
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.RadioButton showMarker;
-        private System.Windows.Forms.RadioButton donShowMarker;
-        private System.Windows.Forms.Label label5;
-
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button removeConstraintBtn;
@@ -729,5 +710,24 @@
         private System.Windows.Forms.TextBox constraintTxtBox;
         private System.Windows.Forms.ListBox constraintListBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RadioButton interpolateLeftRigRb;
+        private System.Windows.Forms.RadioButton interpolateLinearRigRb;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RadioButton interpolateLeftGlyphRb;
+        private System.Windows.Forms.RadioButton interpolateLinearGlyphRb;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton interpolateLeftRectRb;
+        private System.Windows.Forms.RadioButton interpolateLinearRectRb;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton upperBodyRb;
+        private System.Windows.Forms.RadioButton showAllRigRb;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.RadioButton showMarker;
+        private System.Windows.Forms.RadioButton donShowMarker;
+        private System.Windows.Forms.Label label5;
     }
 }
