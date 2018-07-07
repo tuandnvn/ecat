@@ -50,7 +50,7 @@ namespace Annotator
 
         private string getAbsolutePathFromRelFileName(string relFileName)
         {
-            string absolutePath = Path.Combine(currentSession.workspacePath, currentSession.projectName, currentSession.sessionName, relFileName);
+            string absolutePath = Path.Combine(currentSession.workspacePath, currentSession.project.name, currentSession.sessionName, relFileName);
 
             return absolutePath;
         }

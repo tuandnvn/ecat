@@ -26,12 +26,17 @@ namespace Annotator
         private String parametersFileName = Environment.CurrentDirectory + @"\params.param";
         private SortedSet<String> recentWorkspaceLocations;
 
-        //Set workspace option: folder and default option
+        /// <summary>
+        /// 
+        /// Load workspace by reading contents of the directory
+        /// Set title on the GUI to the path of the workspace
+        /// Populate left panel with sub-directories
+        /// </summary>
         public void loadWorkspace()
         {
             workspace.load();
 
-            annotationWorkspaceTitle.Text = workspace.locationFolder;
+            annotationWorkspaceTitle.Text = workspace.location;
 
             //Load workspace treeView:
             initWorkspaceTreeview();
@@ -189,7 +194,7 @@ namespace Annotator
 
                     String prjName = workspace.getProject(projectIndex).name;
                     List<TreeNode> array = new List<TreeNode>();
-                    String[] sessions = Directory.GetDirectories(workspace.locationFolder + Path.DirectorySeparatorChar + prjName);
+                    String[] sessions = Directory.GetDirectories(workspace.location + Path.DirectorySeparatorChar + prjName);
 
                     // Initiate sessions in project
                     for (int i = 0; i < sessions.Length; i++)
@@ -267,7 +272,7 @@ namespace Annotator
         }
 
         /// <summary>
-        /// Double click on a file open it in a native 
+        /// Double click on a file open it in a native browser
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -281,7 +286,7 @@ namespace Annotator
             List<char> r = p.ToList();
             r.RemoveAll(c => c == '*');
             p = new string(r.ToArray());
-            String fileName = workspace.locationFolder + Path.DirectorySeparatorChar + p;
+            String fileName = workspace.location + Path.DirectorySeparatorChar + p;
             //MessageBox.Show(p); 
             //MessageBox.Show(fileName + " nested level = " + treeView.SelectedNode.Level);
 
@@ -456,8 +461,8 @@ namespace Annotator
             newProject = true;
             //2)Show popup for project name
             ProjectInfo projectInfo = new ProjectInfo(this);
-            projectInfo.Location = new Point(this.Location.X + projectInfo.Width / 4, this.Location.Y + projectInfo.Height / 10);
-            projectInfo.Show();
+            projectInfo.StartPosition = FormStartPosition.CenterParent;
+            projectInfo.ShowDialog();
         }
 
         //Add new project to workspace

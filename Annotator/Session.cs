@@ -34,7 +34,6 @@ namespace Annotator
         public int nextObjectId { get; set; } = 0;          
         private Dictionary<string, Object> objects;  // list of objects in videos
         public String sessionName { get; private set; }     //session name
-        public String projectName { get; private set; }     //workspace path
         public String workspacePath { get; private set; }     //workspace path
         public Project project { get; private set; }         //session's project 
         public bool edited { get; set; }            //true if session is currently edited
@@ -54,10 +53,8 @@ namespace Annotator
         {
             get
             {
+                if (_sessionLength == null) return 0;
                 return _sessionLength.Value;
-                //if (_sessionLength.IsValueCreated)
-                //    return _sessionLength.Value;
-                //return 0;
             }
         }
 

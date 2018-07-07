@@ -117,6 +117,7 @@ namespace Annotator
                 this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.sessionName;
             }
 
+            refreshSessionMenuItem_Click(sender, e);
             loadViewsFromSession();
             // All toolstrips of file inside session are enables
             toggleFileToolStripsOfSession(true);
@@ -456,8 +457,7 @@ namespace Annotator
             { return; }
 
             //Check files in current Session folder
-            String[] files = Directory.GetFiles(workspace.locationFolder + Path.DirectorySeparatorChar +
-                currentSession.project.name + Path.DirectorySeparatorChar + currentSession.sessionName);
+            String[] files = Directory.GetFiles(Path.Combine(workspace.location, currentSession.project.name, currentSession.sessionName));
 
             TreeNode[] arrayFiles = new TreeNode[files.Length];
             for (int j = 0; j < arrayFiles.Length; j++)
