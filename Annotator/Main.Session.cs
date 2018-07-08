@@ -560,12 +560,6 @@ namespace Annotator
             }
         }
 
-        internal void findObjectForEvent(Event ev)
-        {
-            currentSession.resetTempoEmpty(ev);
-            currentSession.findObjectsByNames(ev);
-        }
-
         private void fromSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SessionSelector ss = new SessionSelector(this, currentProject, currentSession);
