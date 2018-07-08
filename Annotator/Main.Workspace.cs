@@ -403,7 +403,7 @@ namespace Annotator
                         reloadToolStripMenuItem.Enabled = false;
                         resetToolStripMenuItem.Enabled = false;
                         saveSessionMenuItem.Enabled = false;
-                        deleteSessionMenuItem.Enabled = false;
+                        deleteSessionMenuItem.Enabled = true;
                         addFileToSessionMenuItem.Enabled = false;
                         refreshSessionMenuItem.Enabled = false;
                         sessionDetectToolStripMenuItem.Enabled = false;
@@ -417,7 +417,7 @@ namespace Annotator
                 reloadToolStripMenuItem.Enabled = false;
                 resetToolStripMenuItem.Enabled = false;
                 saveSessionMenuItem.Enabled = false;
-                deleteSessionMenuItem.Enabled = false;
+                deleteSessionMenuItem.Enabled = true;
                 addFileToSessionMenuItem.Enabled = false;
                 refreshSessionMenuItem.Enabled = false;
                 sessionDetectToolStripMenuItem.Enabled = false;

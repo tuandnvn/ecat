@@ -396,7 +396,7 @@ namespace Annotator
 
             TreeNode projectNode = sessionToDeleteName.Parent;
             Project project = workspace.getProject(projectNode.Text);
-            if (MessageBox.Show("Confirm delete permanently this session from the project: " + sessionName + " from " + project.name, "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Confirm delete permanently session " + sessionName + " from project " + project.name, "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //1)Remove session from project:
                 Session removedSession = project.removeSession(sessionName);
@@ -415,7 +415,7 @@ namespace Annotator
                 //3)Delete folder on the system
                 if (removedSession != null)
                 {
-                    Directory.Delete(removedSession.getPath());
+                    Directory.Delete(removedSession.getPath(), true);
                 }
             }
 
