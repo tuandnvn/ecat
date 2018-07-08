@@ -113,7 +113,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(644, 602);
+            this.tabPage1.Size = new System.Drawing.Size(644, 519);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detection";
             // 
@@ -384,22 +384,22 @@
             // showMarker
             // 
             this.showMarker.AutoSize = true;
+            this.showMarker.Checked = true;
             this.showMarker.Location = new System.Drawing.Point(148, 43);
             this.showMarker.Name = "showMarker";
             this.showMarker.Size = new System.Drawing.Size(52, 17);
             this.showMarker.TabIndex = 5;
+            this.showMarker.TabStop = true;
             this.showMarker.Text = "Show";
             this.showMarker.UseVisualStyleBackColor = true;
             // 
             // donShowMarker
             // 
             this.donShowMarker.AutoSize = true;
-            this.donShowMarker.Checked = true;
             this.donShowMarker.Location = new System.Drawing.Point(29, 43);
             this.donShowMarker.Name = "donShowMarker";
             this.donShowMarker.Size = new System.Drawing.Size(78, 17);
             this.donShowMarker.TabIndex = 4;
-            this.donShowMarker.TabStop = true;
             this.donShowMarker.Text = "Don\'t show";
             this.donShowMarker.UseVisualStyleBackColor = true;
             // 

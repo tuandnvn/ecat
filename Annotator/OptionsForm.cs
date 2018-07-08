@@ -84,9 +84,14 @@ namespace Annotator
                 }
 
                 if (options.showMarkerMode)
+                {
                     showMarker.Checked = true;
+                }
                 else
+                {
                     donShowMarker.Checked = true;
+                }
+                    
 
                 showLinkTypeList();
                 showConstraintList();

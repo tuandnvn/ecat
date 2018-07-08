@@ -212,7 +212,13 @@ namespace Annotator
 
                             for (int i = 0; i < polygonPoints.Count; i++)
                             {
-                                double distance = Math.Pow(polygonPoints[i].X - scaledPointerLocation.X, 2) + Math.Pow(polygonPoints[i].Y - scaledPointerLocation.Y, 2);
+                                float x0 = scaledPointerLocation.X, y0 = scaledPointerLocation.Y;
+                                float x1 = polygonPoints[i].X, y1 = polygonPoints[i].Y;
+                                float x2 = polygonPoints[(i + 1) % polygonPoints.Count].X, y2 = polygonPoints[(i + 1) % polygonPoints.Count].Y;
+
+                                //double distance = Math.Abs((y2 - y1)*x0 - (x2 - x1)*y0 + x2*y1 - y2*x1)/Math.Sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+
+                                double distance = Math.Sqrt((y1 - y0) * (y1 - y0) + (x1 - x0) * (x1 - x0)) + Math.Sqrt((y2 - y0) * (y2 - y0) + (x2 - x0) * (x2 - x0));
                                 if (minDistance > distance)
                                 {
                                     minDistance = distance;
