@@ -93,6 +93,11 @@ namespace Annotator
             lastOpenTime = -1;
         }
 
+        public string getPath()
+        {
+            return Path.Combine(workspacePath, project.name, sessionName);
+        }
+
         public void resetLastOpenTime()
         {
             lastOpenTime = Environment.TickCount;

@@ -114,7 +114,7 @@ namespace Annotator
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
                 frameTrackBar.Value = frameTrackBar.Minimum;
-                this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.sessionName;
+                this.Text = "Project " + currentProject.name + " is selected, edited session = " + chosenSession.sessionName;
             }
 
             refreshSessionMenuItem_Click(sender, e);
@@ -123,25 +123,42 @@ namespace Annotator
             toggleFileToolStripsOfSession(true);
         }
 
-        private void closeEditedSession()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>True if thre is no editing session or the session has been safely handled. False to signal the next action shouldn't be carried out</returns>
+        private bool closeEditedSession()
         {
             if (currentSession != null && currentSession.edited)
             {
-                currentSession.edited = false;
-                treeView.BeginUpdate();
-                currentSessionNode.Text = currentSessionNode.Text.Substring(1);
-                treeView.EndUpdate();
-
-                var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show(("Session " + currentSession.sessionName + " is being edited. Do you want to save this session?"), "Save session", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
+                    closeSessionNode();
                     saveCurrentSession();
+                    return true;
                 }
                 else if (result == DialogResult.No)
                 {
+                    closeSessionNode();
                     closeWithoutSaveCurrentSession();
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
+
+            return true;
+        }
+
+        private void closeSessionNode()
+        {
+            currentSession.edited = false;
+            treeView.BeginUpdate();
+            currentSessionNode.Text = currentSessionNode.Text.Substring(1);
+            treeView.EndUpdate();
         }
 
         private void loadViewsFromSession()
@@ -190,29 +207,6 @@ namespace Annotator
             removeToolStripMenuItem.Enabled = value;
             deleteToolStripMenuItem.Enabled = value;
         }
-
-        /// <summary>
-        /// Close current session
-        /// Asking for saving it down or revert change
-        /// </summary>
-        private void cleanUpCurrentSession()
-        {
-            currentSession.edited = false;
-            treeView.BeginUpdate();
-            currentSessionNode.Text = currentSessionNode.Text.Substring(1);
-            treeView.EndUpdate();
-
-            var result = MessageBox.Show(("Session " + currentSession.sessionName + " of project " + currentProject.name + "currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                saveCurrentSession();
-            }
-            else if (result == DialogResult.No)
-            {
-                closeWithoutSaveCurrentSession();
-            }
-        }
-
 
         private void loadVideo(string videoFilename)
         {
@@ -395,13 +389,17 @@ namespace Annotator
         {
             //MessageBox.Show(item.ToString());     
             TreeNode sessionToDeleteName = treeView.SelectedNode;
+
             String sName = sessionToDeleteName.Text;
+            string sessionName = sName;
+            if (sName[0] == '*') sessionName = sessionName.Substring(1);
+
             TreeNode projectNode = sessionToDeleteName.Parent;
             Project project = workspace.getProject(projectNode.Text);
-            if (MessageBox.Show("Confirm session removal (exclude from project): " + sName + " from " + project.name, "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Confirm delete permanently this session from the project: " + sessionName + " from " + project.name, "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //1)Remove session from project:
-                project.removeSession(sName);
+                Session removedSession = project.removeSession(sessionName);
                 //2)Remove session from treeView:
                 treeView.BeginUpdate();
                 foreach (TreeNode currentSessionNode in currentProjectNode.Nodes)
@@ -414,6 +412,11 @@ namespace Annotator
                     }
                 }
                 treeView.EndUpdate();
+                //3)Delete folder on the system
+                if (removedSession != null)
+                {
+                    Directory.Delete(removedSession.getPath());
+                }
             }
 
             //Disable button2:
@@ -482,7 +485,7 @@ namespace Annotator
         {
             string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
+            string dstFileName = currentProject.path + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -516,7 +519,7 @@ namespace Annotator
         internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
         {
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
+            string dstFileName = currentProject.path + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))

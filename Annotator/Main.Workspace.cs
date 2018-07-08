@@ -183,92 +183,107 @@ namespace Annotator
             treeView.Nodes.Clear();
         }
 
-        //Load workspace treeView:
+        /// <summary>
+        /// Load workspace treeView:
+        /// </summary>
         private void initWorkspaceTreeview()
         {
             try
             {
                 for (int projectIndex = 0; projectIndex < workspace.getProjectCount(); projectIndex++)
                 {
-                    TreeNode projectNode;
-
-                    String prjName = workspace.getProject(projectIndex).name;
-                    List<TreeNode> array = new List<TreeNode>();
-                    String[] sessions = Directory.GetDirectories(workspace.location + Path.DirectorySeparatorChar + prjName);
-
-                    // Initiate sessions in project
-                    for (int i = 0; i < sessions.Length; i++)
-                    {
-                        //Check files in current Session folder
-                        String[] files = Directory.GetFiles(sessions[i]);
-
-                        if (files.Length > 0)
-                        {
-                            TreeNode[] arrayFiles = new TreeNode[files.Length];
-                            for (int j = 0; j < arrayFiles.Length; j++)
-                            {
-                                arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
-                                arrayFiles[j].ImageIndex = 2;
-                                arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
-                            }
-
-                            TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
-
-                            sessionNode.ImageIndex = 1;
-                            sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
-                            //Add session to workspace 
-                            String sessionName = sessionNode.Text;
-                            Project project = workspace.getProject(prjName);
-
-                            if (project.checkSessionInProject(sessionName))
-                            {
-                                project.addSession(new Session(sessionName, project, project.locationFolder));
-                                //Add to treeview session list only files which exists in session filesList
-
-                                Session session = project.getSession(sessionName);
-
-                                array.Add(sessionNode);
-                            }
-
-                        }
-                        else if (files.Length == 0)
-                        {
-                            TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
-                            sessionNode.ImageIndex = 1;
-                            sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
-                            String sessionName = sessionNode.Text;
-                            Project project = workspace.getProject(prjName);
-                            if (project.checkSessionInProject(sessionName))
-                            {
-                                project.addSession(new Session(sessionName, project, project.locationFolder));
-                                array.Add(sessionNode);
-                            }
-                        }
-                    }
-
-                    // If there are sessions in the project
-                    if (array.Count > 0)
-                    {
-                        projectNode = new TreeNode(prjName, array.ToArray());
-                        projectNode.ImageIndex = 0;
-                        projectNode.SelectedImageIndex = projectNode.ImageIndex;
-                        treeView.Nodes.Add(projectNode);
-                    }
-
-                    // If the project is empty
-                    else if (array.Count == 0)
-                    {
-                        projectNode = new TreeNode(prjName);
-                        projectNode.ImageIndex = 0;
-                        projectNode.SelectedImageIndex = projectNode.ImageIndex;
-                        treeView.Nodes.Add(projectNode);
-                    }
+                    addProjectTreeNode(projectIndex);
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        /// <summary>
+        /// Add a treeNode at the projectIndex position in treeView
+        /// </summary>
+        /// <param name="projectIndex"></param>
+        private TreeNode addProjectTreeNode(int projectIndex)
+        {
+            TreeNode projectNode;
+
+            String projectName = workspace.getProject(projectIndex).name;
+            Project project = workspace.getProject(projectName);
+
+            List<TreeNode> sessionTreeNodes = new List<TreeNode>();
+            String[] sessionPaths = Directory.GetDirectories(Path.Combine(workspace.location, projectName));
+
+            // Initiate sessions in project
+            for (int i = 0; i < sessionPaths.Length; i++)
+            {
+                string sessionPath = sessionPaths[i];
+                TreeNode sessionNode = addSessionTreeNode(project, sessionPath);
+                if (sessionNode!= null)
+                    sessionTreeNodes.Add(sessionNode);
+            }
+
+            // If there are sessions in the project
+            if (sessionTreeNodes.Count > 0)
+            {
+                projectNode = new TreeNode(projectName, sessionTreeNodes.ToArray());
+            }
+            // If the project is empty
+            else
+            {
+                projectNode = new TreeNode(projectName);
+            }
+
+            projectNode.ImageIndex = 0;
+            projectNode.SelectedImageIndex = projectNode.ImageIndex;
+            treeView.Nodes.Insert(projectIndex, projectNode);
+
+            return projectNode;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="sessionPath"></param>
+        /// <returns>A treeNode correspond to a sessionPath, = null if the path is not accepted </returns>
+        private TreeNode addSessionTreeNode(Project project, string sessionPath)
+        {
+            //Check files in current Session folder
+            String[] files = Directory.GetFiles(sessionPath);
+
+            //Notice sessionName is # from sessionPath
+            string sessionName = sessionPath.Split(Path.DirectorySeparatorChar)[sessionPath.Split(Path.DirectorySeparatorChar).Length - 1];
+
+            //if (!project.checkSessionInProject(sessionName))
+            //{
+            //    return null;
+            //}
+
+            TreeNode sessionNode = null;
+            if (files.Length > 0)
+            {
+                TreeNode[] arrayFiles = new TreeNode[files.Length];
+                for (int j = 0; j < arrayFiles.Length; j++)
+                {
+                    arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
+                    arrayFiles[j].ImageIndex = 2;
+                    arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
+                }
+
+                sessionNode = new TreeNode(sessionName, arrayFiles);
+            }
+            else if (files.Length == 0)
+            {
+                 sessionNode = new TreeNode(sessionName);
+            }
+
+            sessionNode.ImageIndex = 1;
+            sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
+            project.addSession(new Session(sessionName, project, project.path));
+
+            return sessionNode;
         }
 
         /// <summary>
@@ -300,24 +315,44 @@ namespace Annotator
             }
         }
 
+        private void treeView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                treeView.SelectedNode = treeView.GetNodeAt(e.X, e.Y);
+            }
+        }
+
         private void treeView_MouseUp(object sender, MouseEventArgs e)
         {
-            //Right-click on project(nested level is 0)
-            if (treeView.SelectedNode == null)
-                return;
+            if (e.Button != MouseButtons.Right) return;
 
-            if (treeView.SelectedNode.Level == 0 && e.Button == MouseButtons.Right)
+            if (treeView.SelectedNode == null)
+            {
+                rightClickOut(e);
+                return;
+            }
+
+            if (treeView.SelectedNode.Level == 0)
             {
                 rightClickOnProjectTreeNode(e);
             }
-            else if (treeView.SelectedNode.Level == 1 && e.Button == MouseButtons.Right)
+            else if (treeView.SelectedNode.Level == 1)
             {
                 rightClickOnSessionTreeNode(e);
             }
-            else if (treeView.SelectedNode.Level == 2 && e.Button == MouseButtons.Right)
+            else if (treeView.SelectedNode.Level == 2)
             {
                 rightClickOnFileTreeNode(e);
             }
+        }
+
+        private void rightClickOut(MouseEventArgs e)
+        {
+            Point location = this.Location;
+            location.X += e.Location.X + leftMostPanel.Location.X + 15;
+            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
+            workspaceRightClickPanel.Show(location);
         }
 
         private void rightClickOnFileTreeNode(MouseEventArgs e)
@@ -370,7 +405,7 @@ namespace Annotator
                         saveSessionMenuItem.Enabled = false;
                         deleteSessionMenuItem.Enabled = false;
                         addFileToSessionMenuItem.Enabled = false;
-                        refreshSessionMenuItem.Enabled = true;
+                        refreshSessionMenuItem.Enabled = false;
                         sessionDetectToolStripMenuItem.Enabled = false;
                         sessionGenerateToolStripMenuItem.Enabled = false;
                     }
@@ -406,6 +441,7 @@ namespace Annotator
                 closeToolStripMenuItem.Enabled = true;
                 statisticsToolStripMenuItem.Enabled = true;
                 newSessionToolStripMenuItem.Enabled = true;
+                refreshProjectMenuItem.Enabled = true;
                 recordSessionToolStripMenuItem.Enabled = true;
                 projectDetectToolStripMenuItem.Enabled = true;
                 projectGenerateToolStripMenuItem.Enabled = true;
@@ -416,6 +452,7 @@ namespace Annotator
                 closeToolStripMenuItem.Enabled = false;
                 statisticsToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
+                refreshProjectMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
                 projectDetectToolStripMenuItem.Enabled = false;
                 projectGenerateToolStripMenuItem.Enabled = false;
@@ -427,6 +464,7 @@ namespace Annotator
                 closeToolStripMenuItem.Enabled = false;
                 statisticsToolStripMenuItem.Enabled = false;
                 newSessionToolStripMenuItem.Enabled = false;
+                refreshProjectMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
                 projectDetectToolStripMenuItem.Enabled = false;
                 projectGenerateToolStripMenuItem.Enabled = false;
