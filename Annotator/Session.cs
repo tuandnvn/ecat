@@ -690,24 +690,30 @@ namespace Annotator
         /// Match the object names with text span in text description of event
         /// </summary>
         /// <param name="e"></param>
-        internal void findObjectsByNames(Event e)
+        /// <returns>(startRef, endRef, redId)</returns>
+        internal List<Tuple<int, int, string>> findObjectsByNames(Event e)
         {
             if (events.Find(ev => ev.id == e.id) == null)
-                return;
+                return null;
+
+            var foundObjects = new List<Tuple<int, int, string>>();
 
             // Some text preprocessing 
             foreach (var o in objects.Values)
             {
                 if (o.name != "")
                 {
-                    if (e.text.IndexOf(o.name) != -1)
+                    int findLoc = e.text.ToLowerInvariant().IndexOf(o.name.ToLowerInvariant());
+                    if (findLoc != -1)
                     {
-                        int startRef = e.text.IndexOf(o.name);
-                        int endRef = startRef + o.name.Length - 1;
-                        e.addTempoReference(startRef, endRef, o.id);
+                        int startRef = findLoc;
+                        int endRef = startRef + o.name.Length;
+                        foundObjects.Add(Tuple.Create(startRef, endRef, o.id));
+                        
                     }
                 }
             }
+            return foundObjects;
         }
 
         /// <summary>

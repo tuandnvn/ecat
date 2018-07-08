@@ -115,6 +115,19 @@ namespace Annotator
             }
         }
 
+        internal void findObjectForEvent(Event ev)
+        {
+            string annotationText = ev.text;
+            currentSession.resetTempoEmpty(ev);
+            var foundObjects = currentSession.findObjectsByNames(ev);
+
+            foreach (var o in foundObjects)
+            {
+                ev.addTempoReference(o.Item1, o.Item2, o.Item3);
+                addRightBottomTableReference(o.Item1, o.Item2, annotationText.Substring(o.Item1, o.Item2 - o.Item1), o.Item3);
+            }
+            
+        }
 
         private void addEventToolStripMenuItem_Click(object sender, EventArgs e)
         {
