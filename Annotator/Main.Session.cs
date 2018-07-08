@@ -412,22 +412,26 @@ namespace Annotator
                     }
                 }
                 treeView.EndUpdate();
+
+                //GUI update
+                addEventAnnotationBtn.Enabled = false;
+                newObjectContextPanel.Visible = false;
+                clearPlaybackFileComboBox();
+                clearRightBottomPanel();
+                pictureBoard.Image = null;
+                //startPoint = endPoint;
+                boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
+                videoReader = null;
+
+
                 //3)Delete folder on the system
                 if (removedSession != null)
                 {
                     Directory.Delete(removedSession.getPath(), true);
                 }
-            }
 
-            //Disable button2:
-            addEventAnnotationBtn.Enabled = false;
-            newObjectContextPanel.Visible = false;
-            clearPlaybackFileComboBox();
-            clearRightBottomPanel();
-            pictureBoard.Image = null;
-            //startPoint = endPoint;
-            boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
-            videoReader = null;
+                logMessage($"Session {removedSession.sessionName} is deleted from project {project.name}.");
+            }
         }
 
         /// <summary>
@@ -445,6 +449,8 @@ namespace Annotator
                 {
                     String fullFileName = openFileDialog.FileName;
                     copyFileIntoLocalSession(fullFileName);
+
+                    logMessage($"File {fullFileName} is added to session {currentSession.sessionName} of project {currentProject.name}");
                 }
             }
         }

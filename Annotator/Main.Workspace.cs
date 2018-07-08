@@ -154,6 +154,8 @@ namespace Annotator
             {
                 updateRecentWorkspacesToolStripMenuItems();
             }
+
+            logMessage($"Workspace is set to {locationFolder}.");
         }
 
         private void updateRecentWorkspacesToolStripMenuItems()
@@ -510,6 +512,10 @@ namespace Annotator
             //1)Add new project to tree view:
             TreeNode projectNode = new TreeNode(projectName);
             treeView.Nodes.Add(projectNode);
+
+            //Log 
+            logMessage($"Project {projectName} is added.");
+
             //2)Add new project to the workspace:
             return workspace.addProject(projectName);
         }

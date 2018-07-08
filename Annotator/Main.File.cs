@@ -21,7 +21,7 @@ namespace Annotator
             string absolutePath = getAbsolutePathFromRelFileName(relFileName);
             currentSession.removeFile(absolutePath);
 
-            Console.WriteLine("Remove file from session" + absolutePath);
+            logMessage($"Remove file {relFileName} from session {currentSession.sessionName} of project {currentProject.name}.");
 
             refreshSessionMenuItem_Click(sender, e);
             loadViewsFromSession();
@@ -44,7 +44,7 @@ namespace Annotator
 
                 refreshSessionMenuItem_Click(sender, e);
 
-                Console.WriteLine("Delete file " + absolutePath);
+                logMessage($"Delete file {absolutePath}.");
             }
         }
 

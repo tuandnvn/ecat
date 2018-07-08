@@ -112,6 +112,9 @@ namespace Annotator
             currentProjectNode.Expand();
             treeView.EndUpdate();
 
+            //Log 
+            logMessage($"Session {sessionName} is added to project {projectName}.");
+
             return newSession;
         }
 

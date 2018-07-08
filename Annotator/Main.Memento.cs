@@ -63,7 +63,7 @@ namespace Annotator
 
         internal void clearMemento()
         {
-            currentSessionIndex = -1;
+            currentSessionIndex = 0;
             savedSessions = new List<MemoryStream>();
         }
 
