@@ -434,7 +434,7 @@
             this.groupBox9.Controls.Add(this.label6);
             this.groupBox9.Location = new System.Drawing.Point(6, 268);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(628, 246);
+            this.groupBox9.Size = new System.Drawing.Size(632, 246);
             this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Constraints";
@@ -509,11 +509,11 @@
             this.groupBox7.Controls.Add(this.objectLinkTypeTxtBox);
             this.groupBox7.Controls.Add(this.predicateFormListBox);
             this.groupBox7.Controls.Add(this.label3);
-            this.groupBox7.Location = new System.Drawing.Point(9, 9);
+            this.groupBox7.Location = new System.Drawing.Point(6, 5);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox7.Size = new System.Drawing.Size(625, 302);
+            this.groupBox7.Size = new System.Drawing.Size(632, 264);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Predicates";

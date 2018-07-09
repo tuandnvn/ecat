@@ -20,7 +20,7 @@ namespace Annotator
         private int sessionStart;
         private int sessionEnd;
         private bool playStatus = false;
-        private int framePerSecond = 10;
+        private int framePerSecond = 24;
 
         private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -337,16 +337,24 @@ namespace Annotator
                         while (currentFrame < maxDragVal && playStatus)
                         {
                             stopwatch = Stopwatch.StartNew();
-                            Thread.Sleep(1000 / framePerSecond);
+                            Thread.Sleep(5);
 
-                            this.Invoke((MethodInvoker)delegate {
-                                frameTrackBar.Value = currentFrame + 2;
-                            });
+                            if (currentFrame + 1 <= frameTrackBar.MaxDragVal)
+                            {
+                                this.Invoke((MethodInvoker)delegate {
+                                    frameTrackBar.Value = currentFrame + 1;
+                                });
 
-                            currentFrame += 2;
+                                currentFrame += 1;
+
+                            } else
+                            {
+                                break;
+                            }
 
                             stopwatch.Stop();
                             Console.WriteLine("Time = " + stopwatch.ElapsedMilliseconds);
+
                         }
 
                         // If after running the previous piece of code, the frameTrackBar is at the end of playing
