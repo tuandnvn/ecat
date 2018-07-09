@@ -79,6 +79,7 @@ namespace Annotator
         /// <param name="videoFile"></param>
         public Object(Session session, String id, Color color, int borderSize, string videoFile)
         {
+            Console.WriteLine("Object constructor : SEssion = " + session);
             this.session = session;
             this.id = id;
             this.color = color;

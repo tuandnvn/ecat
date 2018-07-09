@@ -26,7 +26,7 @@ namespace Annotator
         {
             try
             {
-                IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
+                IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
                 var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
                 objectRecognizerIncluded[objectRecognizer] = true;
                 setupKinectIfNeeded();
@@ -110,7 +110,7 @@ namespace Annotator
 
         private void sessionOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
             var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
             objectRecognizerIncluded[objectRecognizer] = true;
 
