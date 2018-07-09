@@ -18,7 +18,9 @@ Annotating of objects on an .mp4 file
 
 ![Object annotation demo](miscellanous/Object_annotation.gif)
 
+# Tutorial
 
+Please refer to the [project's wiki](https://github.com/tuandnvn/ecat/wiki)
 # Prerequisites
 
 1. Microsoft Kinect v2 SDK https://www.microsoft.com/en-us/download/details.aspx?id=44561
