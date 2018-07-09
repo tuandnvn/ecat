@@ -151,6 +151,12 @@
     <Compile Include="AddRigFileForm.Designer.cs">
       <DependentUpon>AddRigFileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionsForm.Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.Object.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CustomizedTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -336,9 +342,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="recordPanel\RecordPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="recordPanel\RecordPanel.ObjectDetection.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RectangleShapeWithFrame.cs">

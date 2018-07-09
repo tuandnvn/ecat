@@ -47,7 +47,6 @@ namespace Annotator
         {
             this.options = options;
             InitializeComponent();
-            InitializeObjectRecognizers();
             InitializeOptionsTable();
             InitializeButtons();
         }
@@ -63,9 +62,9 @@ namespace Annotator
             this.calibrateButton = new System.Windows.Forms.Button();
             this.recordedBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.playBar = new System.Windows.Forms.TrackBar();
             this.endTimeLabel = new System.Windows.Forms.Label();
             this.startTimeLabel = new System.Windows.Forms.Label();
+            this.playBar = new System.Windows.Forms.TrackBar();
             this.saveRecordedSession = new System.Windows.Forms.Button();
             this.videoNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,8 +75,6 @@ namespace Annotator
             this.viewPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.rgbLabel = new System.Windows.Forms.Label();
-            this.depthBoard = new Annotator.MyPictureBox();
-            this.rgbBoard = new Annotator.MyPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.viewBox = new System.Windows.Forms.GroupBox();
             this.optionsTable = new System.Windows.Forms.DataGridView();
@@ -85,6 +82,8 @@ namespace Annotator
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cameraStatusLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.depthBoard = new Annotator.MyPictureBox();
+            this.rgbBoard = new Annotator.MyPictureBox();
             this.recordingButtonGroup.SuspendLayout();
             this.recordedBox.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -92,11 +91,11 @@ namespace Annotator
             this.helpBox.SuspendLayout();
             this.viewPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.depthBoard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgbBoard)).BeginInit();
             this.viewBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.optionsTable)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.depthBoard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgbBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // recordingButtonGroup
@@ -198,18 +197,6 @@ namespace Annotator
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1138, 295);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
-            // playBar
-            // 
-            this.tableLayoutPanel3.SetColumnSpan(this.playBar, 3);
-            this.playBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playBar.Enabled = false;
-            this.playBar.Location = new System.Drawing.Point(3, 3);
-            this.playBar.Maximum = 100;
-            this.playBar.Name = "playBar";
-            this.playBar.Size = new System.Drawing.Size(1132, 29);
-            this.playBar.TabIndex = 1;
-            this.playBar.ValueChanged += new System.EventHandler(this.playBar_ValueChanged);
-            // 
             // endTimeLabel
             // 
             this.endTimeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -230,6 +217,18 @@ namespace Annotator
             this.startTimeLabel.TabIndex = 5;
             this.startTimeLabel.Text = "00:00.000";
             // 
+            // playBar
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.playBar, 3);
+            this.playBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playBar.Enabled = false;
+            this.playBar.Location = new System.Drawing.Point(3, 3);
+            this.playBar.Maximum = 100;
+            this.playBar.Name = "playBar";
+            this.playBar.Size = new System.Drawing.Size(1132, 29);
+            this.playBar.TabIndex = 1;
+            this.playBar.ValueChanged += new System.EventHandler(this.playBar_ValueChanged);
+            // 
             // saveRecordedSession
             // 
             this.saveRecordedSession.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -249,7 +248,7 @@ namespace Annotator
             this.videoNameLabel.Size = new System.Drawing.Size(0, 13);
             this.videoNameLabel.TabIndex = 7;
             // 
-            // infoLbl
+            // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 21);
@@ -340,33 +339,6 @@ namespace Annotator
             this.rgbLabel.TabIndex = 2;
             this.rgbLabel.Text = "Color view";
             // 
-            // depthBoard
-            // 
-            this.depthBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.depthBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.depthBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.depthBoard.Location = new System.Drawing.Point(627, 3);
-            this.depthBoard.mat = null;
-            this.depthBoard.Name = "depthBoard";
-            this.depthBoard.Size = new System.Drawing.Size(506, 387);
-            this.depthBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.depthBoard.TabIndex = 1;
-            this.depthBoard.TabStop = false;
-            // 
-            // rgbBoard
-            // 
-            this.rgbBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.rgbBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rgbBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rgbBoard.Location = new System.Drawing.Point(3, 3);
-            this.rgbBoard.mat = null;
-            this.rgbBoard.Name = "rgbBoard";
-            this.rgbBoard.Size = new System.Drawing.Size(618, 387);
-            this.rgbBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.rgbBoard.TabIndex = 0;
-            this.rgbBoard.TabStop = false;
-            this.rgbBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.rgbBoard_Paint);
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -449,6 +421,33 @@ namespace Annotator
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1420, 860);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
+            // depthBoard
+            // 
+            this.depthBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.depthBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.depthBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.depthBoard.Location = new System.Drawing.Point(627, 3);
+            this.depthBoard.mat = null;
+            this.depthBoard.Name = "depthBoard";
+            this.depthBoard.Size = new System.Drawing.Size(506, 387);
+            this.depthBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.depthBoard.TabIndex = 1;
+            this.depthBoard.TabStop = false;
+            // 
+            // rgbBoard
+            // 
+            this.rgbBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.rgbBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rgbBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rgbBoard.Location = new System.Drawing.Point(3, 3);
+            this.rgbBoard.mat = null;
+            this.rgbBoard.Name = "rgbBoard";
+            this.rgbBoard.Size = new System.Drawing.Size(618, 387);
+            this.rgbBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.rgbBoard.TabIndex = 0;
+            this.rgbBoard.TabStop = false;
+            this.rgbBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.rgbBoard_Paint);
+            // 
             // RecordPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,12 +466,12 @@ namespace Annotator
             this.viewPanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.depthBoard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgbBoard)).EndInit();
             this.viewBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.optionsTable)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.depthBoard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgbBoard)).EndInit();
             this.ResumeLayout(false);
 
         }

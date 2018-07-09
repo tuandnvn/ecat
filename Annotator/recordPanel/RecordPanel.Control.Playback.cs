@@ -81,12 +81,6 @@ namespace Annotator
                 sb.Append("No rig is detected.\n");
             }
 
-            detectedObjects = await Utils.DetectObjects("Progress on capturing", videoReader, depthReader, objectRecognizers, objectRecognizerIncluded, this.coordinateMapper.MapColorFrameToCameraSpace);
-
-            Console.WriteLine("In playback " + detectedObjects.Count);
-
-            sb.Append(detectedObjects.Count + " objects is detected.\n");
-
             helperTextBox.Text = sb.ToString();
 
             main.Invalidate();
@@ -311,13 +305,6 @@ namespace Annotator
                         main.currentSession.addObject(o);
                         main.addObjectAnnotation(o);
                     }
-                }
-
-                // Add objects into current session
-                foreach (var o in detectedObjects)
-                {
-                    o.session = main.currentSession;
-                    main.currentSession.addObject(o);
                 }
 
                 main.saveCurrentSession();

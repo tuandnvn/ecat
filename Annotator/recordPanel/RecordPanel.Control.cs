@@ -118,14 +118,15 @@ namespace Annotator
             mapFileName = new Dictionary<string, string>();
 
             // No change to RGB video file name
+            optionsTable.Rows[0].Cells[1].ReadOnly = true;
+            optionsTable.Rows[1].Cells[1].ReadOnly = true;
             optionsTable.Rows[4].Cells[1].ReadOnly = true;
             optionsTable.Rows[5].Cells[1].ReadOnly = true;
             optionsTable.Rows[6].Cells[1].ReadOnly = true;
+            optionsTable.Rows[9].Cells[1].ReadOnly = true;
 
             changeRowToTrueFalse(optionsTable, 7, 1);
             changeRowToTrueFalse(optionsTable, 8, 1);
-
-            InitializeOptionsTableDetection();
         }
 
 
@@ -171,17 +172,6 @@ namespace Annotator
                 try
                 {
                     recordRig = (bool)optionsTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-                }
-                catch
-                {
-                }
-            }
-
-            if (e.RowIndex >= objectRecognizerStartRow && e.ColumnIndex == 1)
-            {
-                try
-                {
-                    changeObjectRecognizerIncluded(e);
                 }
                 catch
                 {
