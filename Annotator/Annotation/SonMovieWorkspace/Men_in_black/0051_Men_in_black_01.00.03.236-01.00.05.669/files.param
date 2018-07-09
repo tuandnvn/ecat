@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.00.03.236-01.00.05.669" length="59">
+  <files>
+    <file>0051_Men_in_black_01.00.03.236-01.00.05.669.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.00.03.236-01.00.05.669.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Elizabeth" filename="0051_Men_in_black_01.00.03.236-01.00.05.669.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">492.1299,56.53427,623.8268,773.9352</marker>
+        <marker type="LOCATION" frame="48">492.1299,56.53427,676.4622,773.9352</marker>
+        <marker type="DELETE" frame="49" />
+      </markers>
+    </object>
+    <object id="o8" name="Kay" filename="0051_Men_in_black_01.00.03.236-01.00.05.669.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="49">605.1985,38.98914,1286.643,1013.718</marker>
+      </markers>
+    </object>
+    <object id="o7" name="computer" filename="0051_Men_in_black_01.00.03.236-01.00.05.669.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">20.36096,23.39348,1879.278,1027.365</marker>
+        <marker type="LOCATION" frame="48">20.36096,23.39348,1879.278,1027.365</marker>
+        <marker type="LOCATION" frame="49">6.714752,405.4874,616.0289,645.2711</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="49" />
+      <text>Elizabeth looks up, as if she knows she's being watched, but she's just looking at the sky, wondering how many stars'll be out tonight.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.59.17.074-00.59.19.368/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="49" arguments="1" ids="o8" q="True" type="SIT(X)" />
+    <predicate frame="49" arguments="2" ids="o8,o7" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

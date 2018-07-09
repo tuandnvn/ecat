@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.25.884-00.02.27.278" length="0">
+  <files>
+    <file>0017_Pianist_00.02.25.884-00.02.27.278.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="men" filename="0017_Pianist_00.02.25.884-00.02.27.278.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1263.448,11.03444,653.4456,1055.516</marker>
+        <marker type="LOCATION" frame="3">746.3806,113.1034,723.9641,941.5505</marker>
+        <marker type="LOCATION" frame="19">482.1558,44.13792,1123.361,1008.706</marker>
+        <marker type="LOCATION" frame="20">792.802,19.31034,1123.361,1025.732</marker>
+        <marker type="LOCATION" frame="47">641.0779,488.2758,694.0944,565.279</marker>
+      </markers>
+    </object>
+    <object id="o2" name="women" filename="0017_Pianist_00.02.25.884-00.02.27.278.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">308.9655,388.9655,413.793,670.3447</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o3" name="Jurek" filename="0017_Pianist_00.02.25.884-00.02.27.278.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">684.1378,226.2069,491.0345,824.8275</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>And he, too, is carried with the flow into the lobby.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0017_Pianist_00.02.24.637-00.02.25.884/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

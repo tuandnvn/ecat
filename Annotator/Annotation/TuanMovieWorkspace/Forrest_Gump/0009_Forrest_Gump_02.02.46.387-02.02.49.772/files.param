@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.02.46.387-02.02.49.772" length="0">
+  <files>
+    <file>0009_Forrest_Gump_02.02.46.387-02.02.49.772.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jenny turns and looks at Forrest Jr. in the other room.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

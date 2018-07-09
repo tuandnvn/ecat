@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.18.48.286-01.18.56.984" length="209">
+  <files>
+    <file>0009_Forrest_Gump_01.18.48.286-01.18.56.984.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.18.48.286-01.18.56.984.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9795942,130.0409,1918.946,817.7558</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Tv" filename="0009_Forrest_Gump_01.18.48.286-01.18.56.984.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">305.0848,128.1356,1228.475,819.661</marker>
+        <marker type="LOCATION" frame="102">274.1053,131.1864,1180.603,819.661</marker>
+        <marker type="LOCATION" frame="143">86.44057,131.1864,1161.356,819.661</marker>
+        <marker type="LOCATION" frame="152">4.067817,131.1864,1167.458,819.661</marker>
+        <marker type="LOCATION" frame="208">4.067817,131.1864,638.6441,664.0678</marker>
+      </markers>
+    </object>
+    <object id="o5" name="" filename="0009_Forrest_Gump_01.18.48.286-01.18.56.984.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">463.7289,215.5932,681.356,713.8983</marker>
+        <marker type="LOCATION" frame="47">423.7158,212.7666,644.0809,726.8945</marker>
+        <marker type="LOCATION" frame="84">400.6782,270.4474,547.1185,662.4309</marker>
+        <marker type="LOCATION" frame="101">576.7252,296.9492,367.0037,632.8126</marker>
+        <marker type="LOCATION" frame="120">474.4732,235.5553,409.6977,680.0758</marker>
+        <marker type="LOCATION" frame="132">207.4577,173.0993,467.6405,709.9262</marker>
+        <marker type="LOCATION" frame="143">124.0678,129.1526,337.6271,737.2881</marker>
+        <marker type="LOCATION" frame="145">107.1187,130.1695,301.6949,735.7642</marker>
+        <marker type="LOCATION" frame="149">73.22036,569.4916,193.2203,295.4257</marker>
+        <marker type="LOCATION" frame="150">73.22036,650.8475,136.2712,214.0703</marker>
+        <marker type="DELETE" frame="151" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="208" />
+      <text>A television shows DICK CLARK as he emcees the Times Square New York Eve celebration.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

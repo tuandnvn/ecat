@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.15.11.742-00.15.18.931" length="173">
+  <files>
+    <file>0009_Forrest_Gump_00.15.11.742-00.15.18.931.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="tree" filename="0009_Forrest_Gump_00.15.11.742-00.15.18.931.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.326206,125.6343,1910.511,822.4053</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.15.11.742-00.15.18.931.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">654.7611,217.3641,483.9539,727.5123</marker>
+        <marker type="LOCATION" frame="36">637.6192,209.4196,515.6606,735.4568</marker>
+        <marker type="LOCATION" frame="93">610.4778,196.8407,565.8631,748.0357</marker>
+        <marker type="LOCATION" frame="130">550.3789,188.6756,640.9316,756.2009</marker>
+        <marker type="LOCATION" frame="172">759.1433,179.4069,449.1598,765.4695</marker>
+      </markers>
+    </object>
+    <object id="o3" name="girl" filename="0009_Forrest_Gump_00.15.11.742-00.15.18.931.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">967.9077,154.1021,474.4645,793.9374</marker>
+        <marker type="LOCATION" frame="36">1043.822,154.1021,398.5503,793.9374</marker>
+        <marker type="LOCATION" frame="172">1078.616,154.1021,521.9108,793.9374</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="173" />
+      <text>The silhouette of the oak tree, Jenny and Forrest as they sit on a branch.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.15.04.493-00.15.11.742/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.15.04.493-00.15.11.742/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.15.04.493-00.15.11.742/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="62" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="152" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.31.04.404-01.31.06.282" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.057365E-05,130.1124,1911.371,815.4596</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">409.8875,483.9101,478.9215,461.6629</marker>
+        <marker type="LOCATION" frame="10">498.0555,449.3932,451.1579,496.1796</marker>
+        <marker type="LOCATION" frame="23">612.6741,294.0674,483.236,651.5054</marker>
+        <marker type="LOCATION" frame="35">582.4717,341.5281,409.8878,604.0447</marker>
+        <marker type="LOCATION" frame="47">461.6629,423.5056,470.2921,522.0674</marker>
+      </markers>
+    </object>
+    <object id="o3" name="" filename="0009_Forrest_Gump_01.31.04.404-01.31.06.282.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">504.8089,699.6404,509.1237,241.6176</marker>
+        <marker type="LOCATION" frame="10">583.5974,621.9775,546.8295,320.1981</marker>
+        <marker type="LOCATION" frame="23">686.0225,587.4606,513.4382,355.9082</marker>
+        <marker type="LOCATION" frame="35">642.876,574.5168,526.3823,369.9538</marker>
+        <marker type="LOCATION" frame="47">599.7301,540,578.1564,405.573</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>She sits down on a chair.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.31.00.196-01.31.04.404/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.31.00.196-01.31.04.404/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="20" arguments="1" ids="o2" q="True" type="SIT(X)" />
+  </predicates>
+</session>

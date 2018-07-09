@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.33.259-00.05.37.204" length="95">
+  <files>
+    <file>0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1144.564,460.3324,424.8959,478.0073</marker>
+        <marker type="LOCATION" frame="2">1163.153,460.3324,435.5183,478.0073</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o2" name="street" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.655617,133.6929,1914.688,807.3029</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o3" name="boy's mom" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">470.0415,129.7101,493.9413,813.9412</marker>
+        <marker type="LOCATION" frame="2">470.0414,152.2822,512.5311,791.3688</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o4" name="photo" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">5.311218,123.0705,1906.722,823.2365</marker>
+      </markers>
+    </object>
+    <object id="o5" name="men" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">663.9003,128.3817,687.8008,817.9253</marker>
+        <marker type="LOCATION" frame="94">663.9003,128.3817,857.7593,817.9253</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="94" />
+      <text>A black and white photo of General Nathan Bedford Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.29.340-00.05.32.932/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.29.340-00.05.32.932/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.29.340-00.05.32.932/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="3" arguments="2" ids="o5,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

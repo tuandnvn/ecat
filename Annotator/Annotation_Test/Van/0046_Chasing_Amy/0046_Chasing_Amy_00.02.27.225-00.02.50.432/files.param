@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.02.27.225-00.02.50.432" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Men" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="383">1845.517,587.5862,71.72414,259.3103</marker>
+        <marker type="LOCATION" frame="407">1020.69,240,482.7587,468.965</marker>
+        <marker type="LOCATION" frame="428">517.7858,195.2091,553.3939,530.9611</marker>
+        <marker type="LOCATION" frame="464">484.1379,273.1034,674.4827,637.2407</marker>
+        <marker type="LOCATION" frame="518">228.9655,234.4827,700.6896,784.8259</marker>
+        <marker type="LOCATION" frame="556">204.1379,242.7586,609.6552,805.5172</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Fan" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="398">1795.862,413.793,129.6552,471.7242</marker>
+        <marker type="LOCATION" frame="444">1106.207,5.516843,813.7924,1042.759</marker>
+        <marker type="LOCATION" frame="507">783.4482,5.516665,1136.55,1042.759</marker>
+        <marker type="LOCATION" frame="556">783.4482,5.516665,1136.55,1042.759</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Book's men" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="390">1801.379,769.655,118.6208,74.48284</marker>
+        <marker type="LOCATION" frame="401">1388.965,713.1034,208.2758,74.48275</marker>
+        <marker type="LOCATION" frame="418">911.0344,688.2758,250.3448,74.48275</marker>
+        <marker type="LOCATION" frame="428">694.1378,661.2807,250.3447,105.6158</marker>
+        <marker type="LOCATION" frame="453">65.17245,864.8275,250.3447,89.65525</marker>
+        <marker type="LOCATION" frame="469">-1.034441,987.5861,161.0344,66.89638</marker>
+        <marker type="DELETE" frame="478" />
+      </markers>
+    </object>
+    <object id="o6" name="Book's fan" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="396">1795.862,551.7241,121.3793,140.6897</marker>
+        <marker type="LOCATION" frame="398">1713.103,493.7931,160.0002,165.517</marker>
+        <marker type="LOCATION" frame="447">1078.621,518.6207,160,165.5171</marker>
+        <marker type="LOCATION" frame="466">860.6895,681.3793,264.8277,171.0344</marker>
+        <marker type="LOCATION" frame="473">722.7585,913.1034,264.8276,115.8621</marker>
+        <marker type="LOCATION" frame="487">446.8965,973.793,366.8966,85.51673</marker>
+        <marker type="LOCATION" frame="556">446.8965,973.793,366.8966,85.51673</marker>
+      </markers>
+    </object>
+    <object id="o7" name="show" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.882916,18.19822,1911.351,1034.955</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="557" />
+      <text>We're at a Comic Book show, specifically at a book- signing</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="390" arguments="2" ids="o1,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="398" arguments="2" ids="o2,o6" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="418" arguments="2" ids="o1,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="462" arguments="2" ids="o1,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="473" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="487" arguments="2" ids="o1,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="545" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

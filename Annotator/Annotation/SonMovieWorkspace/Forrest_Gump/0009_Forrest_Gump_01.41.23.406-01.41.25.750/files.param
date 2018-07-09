@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.41.23.406-01.41.25.750" length="57">
+  <files>
+    <file>0009_Forrest_Gump_01.41.23.406-01.41.25.750.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.41.23.406-01.41.25.750.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1050.386,132.103,549.2738,813.4801</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Old woman" filename="0009_Forrest_Gump_01.41.23.406-01.41.25.750.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">178.97,266.5236,574.764,679.0558</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Park" filename="0009_Forrest_Gump_01.41.23.406-01.41.25.750.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5150583,132.103,1916.653,813.4764</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Hankie" filename="0009_Forrest_Gump_01.41.23.406-01.41.25.750.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">387.5538,442.6609,129.7853,157.5966</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="56" />
+      <text>The woman is crying and wipes her eyes with a hankie.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.41.21.856-01.41.23.406/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.41.21.856-01.41.23.406/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.41.21.856-01.41.23.406/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.41.21.856-01.41.23.406/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

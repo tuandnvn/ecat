@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.10.07.527-00.10.08.579" length="48">
+  <files>
+    <file>0051_Men_in_black_00.10.07.527-00.10.08.579.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.10.07.527-00.10.08.579.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.10.07.527-00.10.08.579.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="29">254.1732,174.3307,1105.512,888.6613</marker>
+        <marker type="LOCATION" frame="35">207.4016,180.7087,1111.696,882.2834</marker>
+        <marker type="LOCATION" frame="40">264.8032,267.874,1020.472,795.118</marker>
+        <marker type="LOCATION" frame="47">426.378,310.3937,858.8976,752.5983</marker>
+      </markers>
+    </object>
+    <object id="o3" name="bus" filename="0051_Men_in_black_00.10.07.527-00.10.08.579.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">828.189,178.5827,363.5433,608.0315</marker>
+        <marker type="LOCATION" frame="28">728.2677,357.1653,567.6378,482.5984</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+    <object id="o4" name="hurdles" filename="0051_Men_in_black_00.10.07.527-00.10.08.579.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="29">1004.646,729.2126,912.0472,333.7795</marker>
+        <marker type="LOCATION" frame="42">1081.181,833.3858,835.5118,229.6063</marker>
+        <marker type="LOCATION" frame="43">311.5748,739.8425,1605.118,323.1496</marker>
+        <marker type="LOCATION" frame="47">247.7953,790.8661,1668.898,272.126</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="29" />
+      <text>A DOUBLE-DECKER BUS, one of those cheesy sightseers that hold up midtown traffic.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.10.03.079-00.10.05.543/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.10.03.079-00.10.05.543/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

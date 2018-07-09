@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.59.27.466-00.59.31.051" length="86">
+  <files>
+    <file>0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi</file>
+  </files>
+  <objects no="23">
+    <object id="o2" name="Hospital" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.599174E-05,124.9781,1915.808,817.4672</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Ball 1" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1065.745,226.9115,58.05616,55.98272</marker>
+        <marker type="LOCATION" frame="6">1074.039,458.0994,58.05616,55.98272</marker>
+        <marker type="LOCATION" frame="7">1074.039,458.0994,58.05616,55.98272</marker>
+        <marker type="DELETE" frame="8" />
+      </markers>
+    </object>
+    <object id="o11" name="Ball 2" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">78.7905,780.5184,161.7279,106.2635</marker>
+        <marker type="LOCATION" frame="22">400.1728,842.7214,161.7279,86.30669</marker>
+        <marker type="LOCATION" frame="23">613.7365,784.6652,122.3326,157.581</marker>
+        <marker type="LOCATION" frame="24">723.6285,558.6609,103.6717,136.8466</marker>
+        <marker type="LOCATION" frame="25">815.8963,378.2721,85.0108,116.1123</marker>
+        <marker type="LOCATION" frame="26">887.4298,270.4536,66.34989,95.37797</marker>
+        <marker type="LOCATION" frame="27">939.784,187.5162,69.46004,74.64363</marker>
+        <marker type="LOCATION" frame="28">979.6976,139.136,72.57019,71.87909</marker>
+        <marker type="LOCATION" frame="30">1024.276,129.4601,78.79044,66.34989</marker>
+        <marker type="LOCATION" frame="31">1038.791,133.6069,78.7905,66.34989</marker>
+        <marker type="LOCATION" frame="34">1063.672,241.4255,78.7905,66.34989</marker>
+        <marker type="LOCATION" frame="38">1076.112,469.5032,78.7905,66.34989</marker>
+        <marker type="LOCATION" frame="41">1076.112,469.5032,78.7905,66.34989</marker>
+        <marker type="DELETE" frame="42" />
+      </markers>
+    </object>
+    <object id="o22" name="Bedpan" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1069.892,428.0345,252.959,165.8747</marker>
+        <marker type="DELETE" frame="83" />
+      </markers>
+    </object>
+    <object id="o19" name="Ball 3" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="50">200.6048,755.6371,171.0583,94.85961</marker>
+        <marker type="LOCATION" frame="51">478.4449,799.4384,171.0583,94.85961</marker>
+        <marker type="LOCATION" frame="52">646.9114,710.0216,118.7041,178.3153</marker>
+        <marker type="LOCATION" frame="53">752.4714,507.8618,95.74826,138.9201</marker>
+        <marker type="LOCATION" frame="54">841.8143,353.3909,72.79236,99.52484</marker>
+        <marker type="LOCATION" frame="56">939.1472,179.6372,70.73367,90.40168</marker>
+        <marker type="LOCATION" frame="59">1028.423,127.3866,67.64579,76.71706</marker>
+        <marker type="LOCATION" frame="60">1040.216,140.8639,67.64579,76.71706</marker>
+        <marker type="LOCATION" frame="64">1086.479,299.4816,49.76242,62.20302</marker>
+        <marker type="LOCATION" frame="66">1101.253,421.1231,61.68467,71.87897</marker>
+        <marker type="LOCATION" frame="67">1139.741,451.8791,67.64579,76.71706</marker>
+        <marker type="LOCATION" frame="68">1181.209,456.0259,67.64579,76.71706</marker>
+        <marker type="LOCATION" frame="82">1181.209,469.5032,67.64579,63.23974</marker>
+        <marker type="DELETE" frame="83" />
+      </markers>
+    </object>
+    <object id="o23" name="Group" filename="0009_Forrest_Gump_00.59.27.466-00.59.31.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="83">3.954762E-06,133.6069,1401.641,709.1144</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The balls at land in a bed pan positioned on a chair.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o7,0009_Forrest_Gump_00.59.21.466-00.59.26.966/o11" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.59.21.466-00.59.26.966/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="21" arguments="2" ids="o11,0009_Forrest_Gump_00.59.21.466-00.59.26.966/o13" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="50" arguments="2" ids="o19,0009_Forrest_Gump_00.59.21.466-00.59.26.966/o14" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="83" arguments="1" ids="o23" q="True" type="SIT(X)" />
+  </predicates>
+</session>

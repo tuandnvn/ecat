@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.26.20.093-01.26.25.142" length="122">
+  <files>
+    <file>0009_Forrest_Gump_01.26.20.093-01.26.25.142.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.26.20.093-01.26.25.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5700707,130.8314,1916.294,815.7719</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Cardboard 2" filename="0009_Forrest_Gump_01.26.20.093-01.26.25.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">1.44978,770.8549,66.24532,176.6543</marker>
+        <marker type="LOCATION" frame="59">1.449458,419.5539,330.5321,527.9523</marker>
+        <marker type="LOCATION" frame="64">1.449504,421.5608,393.4575,525.945</marker>
+        <marker type="LOCATION" frame="77">85.76176,419.5539,549.9422,527.949</marker>
+        <marker type="LOCATION" frame="86">280.4826,365.3531,521.931,582.1531</marker>
+        <marker type="LOCATION" frame="108">527.3973,325.2044,401.4839,622.2964</marker>
+        <marker type="LOCATION" frame="121">469.1821,365.3531,373.3802,582.1505</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_01.26.20.093-01.26.25.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">940.9188,178.6617,453.6908,767.3585</marker>
+        <marker type="LOCATION" frame="42">912.8225,167.5126,421.564,778.5041</marker>
+        <marker type="LOCATION" frame="61">894.7583,162.4689,621.9882,783.5477</marker>
+        <marker type="LOCATION" frame="74">956.9888,159.018,684.5336,787.0004</marker>
+        <marker type="LOCATION" frame="100">874.684,152.1168,626.3197,793.8993</marker>
+        <marker type="LOCATION" frame="113">908.8103,148.6657,650.4062,797.3499</marker>
+        <marker type="LOCATION" frame="121">854.6096,146.5427,676.5056,799.4757</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Cardboard 1" filename="0009_Forrest_Gump_01.26.20.093-01.26.25.142.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1466.877,146.5427,449.6659,800.9663</marker>
+        <marker type="LOCATION" frame="42">1354.457,221.4868,562.0861,726.0181</marker>
+        <marker type="LOCATION" frame="54">1322.34,242.8993,544.017,704.606</marker>
+        <marker type="LOCATION" frame="78">1322.338,242.8992,393.4609,704.6052</marker>
+        <marker type="LOCATION" frame="93">1322.336,242.8989,289.0761,704.6043</marker>
+        <marker type="LOCATION" frame="103">1266.134,275.0179,238.8848,672.483</marker>
+        <marker type="LOCATION" frame="107">1266.134,275.0161,186.6914,234.8713</marker>
+        <marker type="DELETE" frame="109" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="121" />
+      <text>In the house are stacks of ping-pong paddles and life-sized cardboard cutouts of Forrest playing ping-pong.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.26.12.360-01.26.20.093/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.26.12.360-01.26.20.093/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

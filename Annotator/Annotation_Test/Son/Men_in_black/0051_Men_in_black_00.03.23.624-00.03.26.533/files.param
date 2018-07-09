@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.23.624-00.03.26.533" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.23.624-00.03.26.533.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="man" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">225.4285,131.1429,1078.286,848.5714</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o2" name="mouth" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">522.8571,452.5714,188.5714,84</marker>
+        <marker type="LOCATION" frame="7">816,458.5714,188.5714,84</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o3" name="people" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="17">89.14282,71.99998,1657.714,975.4286</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="69" />
+      <text>He speaks in Spanish, which is subtitled.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.03.21.626-00.03.23.238/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

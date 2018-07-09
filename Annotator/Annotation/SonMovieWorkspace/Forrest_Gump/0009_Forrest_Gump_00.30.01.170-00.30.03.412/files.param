@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.30.01.170-00.30.03.412" length="54">
+  <files>
+    <file>0009_Forrest_Gump_00.30.01.170-00.30.03.412.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o5" name="servant" filename="0009_Forrest_Gump_00.30.01.170-00.30.03.412.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="51">5.042909,692.8302,272.3156,253.7907</marker>
+        <marker type="LOCATION" frame="53">5.042909,535.3688,496.4666,411.2522</marker>
+      </markers>
+    </object>
+    <object id="o2" name="room" filename="0009_Forrest_Gump_00.30.01.170-00.30.03.412.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.337934,127.8216,1911.767,820.6518</marker>
+      </markers>
+    </object>
+    <object id="o3" name="bottle" filename="0009_Forrest_Gump_00.30.01.170-00.30.03.412.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">201.4065,200.0686,1154.099,737.2898</marker>
+        <marker type="LOCATION" frame="11">275.506,303.8079,1135.575,646.518</marker>
+        <marker type="LOCATION" frame="12">670.0858,405.6947,90.77187,164.8713</marker>
+        <marker type="LOCATION" frame="15">686.7582,401.9897,131.5266,263.0532</marker>
+        <marker type="LOCATION" frame="19">708.988,346.4151,144.494,383.4648</marker>
+        <marker type="LOCATION" frame="26">707.1355,179.6913,190.8062,502.024</marker>
+        <marker type="LOCATION" frame="31">734.5798,165.9691,182.2298,501.681</marker>
+        <marker type="LOCATION" frame="53">759.0051,348.2676,144.494,500.1715</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man" filename="0009_Forrest_Gump_00.30.01.170-00.30.03.412.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">36.53519,130.6004,791.012,434.4082</marker>
+        <marker type="LOCATION" frame="26">186.9362,129.9188,914.7791,814.8497</marker>
+        <marker type="LOCATION" frame="53">343.1218,129.211,873.4476,815.5574</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="53" />
+      <text>Forrest takes a bottle of Dr. Pepper from the buffet table.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.29.57.966-00.30.01.170/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.29.57.966-00.30.01.170/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.29.57.966-00.30.01.170/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

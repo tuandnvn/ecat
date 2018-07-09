@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">496.8915,414.7214,1341.466,267.4487</marker>
+        <marker type="LOCATION" frame="11">500.4106,518.8856,1341.466,267.4487</marker>
+        <marker type="LOCATION" frame="44">665.4545,195.8358,206.217,715.7771</marker>
+        <marker type="LOCATION" frame="58">647.5073,145.5132,458.8856,715.7771</marker>
+        <marker type="LOCATION" frame="122">843.1672,179.2962,458.8856,715.7771</marker>
+      </markers>
+    </object>
+    <object id="o2" name="gravestones" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="236">495.4839,235.9531,250.5572,270.2639</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="386" />
+      <text>Flickering its tongue, it slithers down onto a narrow path and moves silently between the gravestones in a dark and overgrown cemetery.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="258" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="288" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

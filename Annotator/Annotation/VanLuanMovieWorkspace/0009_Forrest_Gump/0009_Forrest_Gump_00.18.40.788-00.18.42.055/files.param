@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.18.40.788-00.18.42.055" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="field" filename="0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.704446E-05,129.3642,1917.225,824.0462</marker>
+      </markers>
+    </object>
+    <object id="o2" name="girl" filename="0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">582.659,318.0347,369.0173,629.8266</marker>
+        <marker type="LOCATION" frame="10">582.659,318.0347,599.3063,629.8266</marker>
+        <marker type="LOCATION" frame="38">910.0578,286.1272,599.3063,629.8266</marker>
+        <marker type="DELETE" frame="41" />
+      </markers>
+    </object>
+    <object id="o3" name="boy" filename="0009_Forrest_Gump_00.18.40.788-00.18.42.055.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">1143.121,168.2081,244.1618,765.7803</marker>
+        <marker type="LOCATION" frame="13">1143.121,168.2081,357.9191,765.7803</marker>
+        <marker type="LOCATION" frame="26">1302.659,168.2081,357.9191,765.7803</marker>
+        <marker type="LOCATION" frame="33">1458.035,173.7572,357.9191,765.7803</marker>
+        <marker type="LOCATION" frame="39">1541.272,176.5318,357.9191,765.7803</marker>
+        <marker type="LOCATION" frame="43">1516.301,157.1098,357.9191,765.7803</marker>
+        <marker type="DELETE" frame="44" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Jenny leads Forrest into the thick tobacco field.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.18.38.787-00.18.39.830/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="5" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="5" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

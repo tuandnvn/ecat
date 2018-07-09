@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.57.24.890-00.57.28.735" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.57.24.890-00.57.28.735.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Lt. Dan, annoyed, takes the ice cream cone and drops it into his bed pan.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

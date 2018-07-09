@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.41.57.379-00.41.59.727" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.41.57.379-00.41.59.727.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Shirtless, he holds a roll of toilet paper in his hand.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

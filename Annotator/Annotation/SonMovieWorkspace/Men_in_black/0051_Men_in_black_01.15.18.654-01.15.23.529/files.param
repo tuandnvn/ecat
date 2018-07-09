@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.15.18.654-01.15.23.529" length="117">
+  <files>
+    <file>0051_Men_in_black_01.15.18.654-01.15.23.529.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Screen" filename="0051_Men_in_black_01.15.18.654-01.15.23.529.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o8" name="earth" filename="0051_Men_in_black_01.15.18.654-01.15.23.529.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="47">180.7059,407.9456,1676.742,606.4072</marker>
+        <marker type="LOCATION" frame="60">180.7059,284.5791,1735.819,737.9574</marker>
+        <marker type="LOCATION" frame="116">180.7059,308.905,1739.294,748.8869</marker>
+      </markers>
+    </object>
+    <object id="o6" name="ship" filename="0051_Men_in_black_01.15.18.654-01.15.23.529.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">363.1493,322.8054,1263.204,417.0133</marker>
+        <marker type="LOCATION" frame="46">258.8959,301.9547,1431.747,476.0905</marker>
+        <marker type="DELETE" frame="47" />
+      </markers>
+    </object>
+    <object id="o7" name="greenline" filename="0051_Men_in_black_01.15.18.654-01.15.23.529.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="24">995.6199,427.0588,191.1312,154.6425</marker>
+        <marker type="LOCATION" frame="25">995.6199,427.0588,689.8099,399.638</marker>
+        <marker type="LOCATION" frame="46">995.6199,427.0588,689.8099,399.638</marker>
+        <marker type="LOCATION" frame="47">291.9095,260.2534,1030.371,151.1674</marker>
+        <marker type="LOCATION" frame="54">291.9095,260.2534,1030.371,151.1674</marker>
+        <marker type="LOCATION" frame="55">1226.715,333.2307,95.56264,88.61525</marker>
+        <marker type="DELETE" frame="61" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="116" />
+      <text>AT THE MAIN VIEWING SCREEN, A GREEN LINE shoots out from the Arquillian ship, striking a region of planet earth.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

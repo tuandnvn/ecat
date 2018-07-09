@@ -110,6 +110,7 @@
             // 
             // cancelWsBtn
             // 
+            this.cancelWsBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelWsBtn.Location = new System.Drawing.Point(489, 208);
             this.cancelWsBtn.Name = "cancelWsBtn";
             this.cancelWsBtn.Size = new System.Drawing.Size(87, 23);
@@ -130,8 +131,10 @@
             // 
             // WorkspaceLauncher
             // 
+            this.AcceptButton = this.selectWsBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelWsBtn;
             this.ClientSize = new System.Drawing.Size(585, 239);
             this.Controls.Add(this.selectWsBtn);
             this.Controls.Add(this.cancelWsBtn);

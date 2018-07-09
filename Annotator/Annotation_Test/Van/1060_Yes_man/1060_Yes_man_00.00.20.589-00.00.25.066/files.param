@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.20.589-00.00.25.066" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.20.589-00.00.25.066.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="v" filename="1060_Yes_man_00.00.20.589-00.00.25.066.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">261.9449,135.9362,1510.363,796.9811</marker>
+        <marker type="LOCATION" frame="107">718.955,244.6154,526.6767,395.7042</marker>
+      </markers>
+    </object>
+    <object id="o2" name="name's company" filename="1060_Yes_man_00.00.20.589-00.00.25.066.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="48">437.5037,707.1989,1106.299,75.23948</marker>
+        <marker type="LOCATION" frame="107">437.5037,707.1989,1106.299,75.23948</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="107" />
+      <text>A series of 3D metallic Vs, one inside the other.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="48" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

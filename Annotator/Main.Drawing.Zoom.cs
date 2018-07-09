@@ -13,6 +13,8 @@ namespace Annotator
         bool inZoomIn = true;
         IntPtr zoomInPtr;
         IntPtr zoomOutPtr;
+        IntPtr rectanglePtr;
+        IntPtr polygonPtr;
 
         private void InitializeZooming()
         {
@@ -23,6 +25,14 @@ namespace Annotator
             b = new Bitmap(Properties.Resources.zoom_out, new Size(32, 32));
             b.MakeTransparent(b.GetPixel(0, 0));
             zoomOutPtr = b.GetHicon();
+
+            b = new Bitmap(Properties.Resources.rectangle, new Size(32, 32));
+            b.MakeTransparent(b.GetPixel(0, 0));
+            rectanglePtr = b.GetHicon();
+
+            b = new Bitmap(Properties.Resources.polygon, new Size(32, 32));
+            b.MakeTransparent(b.GetPixel(0, 0));
+            polygonPtr = b.GetHicon();
         }
 
         private void whenZoomButtonAndMouseDown(MouseEventArgs e)
@@ -36,8 +46,6 @@ namespace Annotator
                 this.pictureBoard.Dock = DockStyle.None;
                 this.pictureBoard.Size = new System.Drawing.Size(2 * this.videoPanel.Width, 2 * this.videoPanel.Height);
                 this.videoPanel.AutoScrollPosition = new Point( x, y);
-
-                
             }
             // Zoom out
             else
@@ -71,6 +79,22 @@ namespace Annotator
             {
                 Cursor.Current = new System.Windows.Forms.Cursor(zoomOutPtr);
             }
+            cancelDrawing();
+        }
+
+        private void rectangleDrawing_MouseDown(object sender, MouseEventArgs e)
+        {
+            selectButtonDrawing(rectangleDrawing, drawingButtonGroup, !drawingButtonSelected[rectangleDrawing]);
+            Cursor.Current = new System.Windows.Forms.Cursor(rectanglePtr);
+            cancelSelectObject();
+            cancelDrawing();
+        }
+
+        private void polygonDrawing_MouseDown(object sender, MouseEventArgs e)
+        {
+            selectButtonDrawing(polygonDrawing, drawingButtonGroup, !drawingButtonSelected[polygonDrawing]);
+            Cursor.Current = new System.Windows.Forms.Cursor(polygonPtr);
+            cancelSelectObject();
             cancelDrawing();
         }
     }

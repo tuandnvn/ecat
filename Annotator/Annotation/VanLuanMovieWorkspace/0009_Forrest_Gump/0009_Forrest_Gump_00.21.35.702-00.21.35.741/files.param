@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.21.35.702-00.21.35.741" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.21.35.702-00.21.35.741.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="men" filename="0009_Forrest_Gump_00.21.35.702-00.21.35.741.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">272.4027,142.3799,1032.494,806.2243</marker>
+        <marker type="LOCATION" frame="9">299.4824,142.3799,916.4344,806.2243</marker>
+        <marker type="LOCATION" frame="19">329.5709,142.3799,926.2932,806.2243</marker>
+        <marker type="DELETE" frame="20" />
+      </markers>
+    </object>
+    <object id="o4" name="football" filename="0009_Forrest_Gump_00.21.35.702-00.21.35.741.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">1155.995,190.4551,347.0482,466.8921</marker>
+        <marker type="LOCATION" frame="31">740.2861,94.33029,347.0481,466.8921</marker>
+        <marker type="LOCATION" frame="32">13.73215,104.3173,233.446,238.4395</marker>
+        <marker type="DELETE" frame="34" />
+      </markers>
+    </object>
+    <object id="o3" name="stadium" filename="0009_Forrest_Gump_00.21.35.702-00.21.35.741.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.196792,129.1991,1909.016,815.0115</marker>
+        <marker type="LOCATION" frame="20">2.196792,129.1991,1909.016,815.0115</marker>
+      </markers>
+    </object>
+    <object id="o5" name="crowd" filename="0009_Forrest_Gump_00.21.35.702-00.21.35.741.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="42">219.7139,535.0065,1695.292,411.9636</marker>
+        <marker type="LOCATION" frame="47">197.2432,535.0065,1717.762,411.9636</marker>
+      </markers>
+    </object>
+    <object id="o6" name="crowd_1" filename="0009_Forrest_Gump_00.21.35.702-00.21.35.741.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="42">2.496744,133.0299,1902.523,329.5709</marker>
+        <marker type="LOCATION" frame="47">2.496744,133.0299,1902.523,329.5709</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The crowd roars with excitement as a football is kicked off.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.21.08.776-00.21.35.115/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.21.08.776-00.21.35.115/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

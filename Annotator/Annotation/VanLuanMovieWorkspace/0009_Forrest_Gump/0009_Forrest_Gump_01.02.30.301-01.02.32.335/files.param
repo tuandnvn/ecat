@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.02.30.301-01.02.32.335" length="49">
+  <files>
+    <file>0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Hospital" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.146872,125.3132,1911.706,816.933</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.989227E-06,125.8818,581.4379,690.1961</marker>
+        <marker type="LOCATION" frame="15">3.989227E-06,125.8805,535.4248,602.3543</marker>
+        <marker type="LOCATION" frame="33">3.989227E-06,125.8796,522.8758,564.7078</marker>
+        <marker type="LOCATION" frame="34">121.3072,125.8764,945.3589,815.6915</marker>
+        <marker type="LOCATION" frame="48">121.3072,125.8764,945.3589,815.6915</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Envelope" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">216.4707,345.4898,348.2351,244.7063</marker>
+        <marker type="LOCATION" frame="15">191.04,243.0065,327.6529,242.6142</marker>
+        <marker type="LOCATION" frame="33">160.523,209.5424,348.235,246.7972</marker>
+        <marker type="DELETE" frame="34" />
+      </markers>
+    </object>
+    <object id="o4" name="Soldier" filename="0009_Forrest_Gump_01.02.30.301-01.02.32.335.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.274713,502.3529,1654.379,439.2132</marker>
+        <marker type="LOCATION" frame="15">6.274713,406.1436,1608.366,535.4212</marker>
+        <marker type="LOCATION" frame="33">6.274713,368.4967,1591.634,573.0683</marker>
+        <marker type="DELETE" frame="34" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A heavily bandaged soldier with bloodstains lies there.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.02.27.682-01.02.29.327/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.02.27.682-01.02.29.327/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.02.27.682-01.02.29.327/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.02.27.682-01.02.29.327/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.33.53.971-01.33.54.764" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Boat" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.170232,139.6598,1903.66,800.6806</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Ocean" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.045327E-05,127.4043,1915.686,822.4836</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Dan" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1274.553,278.5532,379.9149,669.9575</marker>
+        <marker type="LOCATION" frame="14">1282.723,270.383,388.0851,678.1277</marker>
+        <marker type="DELETE" frame="15" />
+        <marker type="LOCATION" frame="21">1066.213,817.7872,102.1277,130.7242</marker>
+        <marker type="LOCATION" frame="31">808.8511,503.2344,308.4258,442.1349</marker>
+        <marker type="LOCATION" frame="37">330.8937,196.8511,755.7446,746.633</marker>
+        <marker type="LOCATION" frame="41">453.4471,127.4046,1090.723,814.8226</marker>
+        <marker type="LOCATION" frame="47">627.0638,135.5744,974.2979,804.7661</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="15">1127.489,139.6596,539.2341,796.5958</marker>
+        <marker type="LOCATION" frame="41">1031.234,139.6598,521.1063,796.596</marker>
+        <marker type="LOCATION" frame="47">1009.021,139.6598,547.4042,796.596</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Net" filename="0009_Forrest_Gump_01.33.53.971-01.33.54.764.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="15">461.617,131.4894,845.617,817.0213</marker>
+        <marker type="LOCATION" frame="19">437.8494,132.2323,955.1719,816.2783</marker>
+        <marker type="LOCATION" frame="26">396.2553,133.5324,894.6383,647.489</marker>
+        <marker type="LOCATION" frame="32">400.3405,134.6464,747.9459,507.4813</marker>
+        <marker type="LOCATION" frame="37">310.4681,135.5744,718.9788,245.1065</marker>
+        <marker type="LOCATION" frame="39">208.3404,135.5744,768,130.7235</marker>
+        <marker type="LOCATION" frame="40">208.3404,135.5744,768,93.95757</marker>
+        <marker type="LOCATION" frame="41">208.3404,135.5744,768,40.85119</marker>
+        <marker type="DELETE" frame="42" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest empties the net.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.33.31.721-01.33.37.330/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.33.31.721-01.33.37.330/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.33.31.721-01.33.37.330/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="15" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="15" arguments="2" ids="o4,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="15" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="21" arguments="2" ids="o3,o5" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

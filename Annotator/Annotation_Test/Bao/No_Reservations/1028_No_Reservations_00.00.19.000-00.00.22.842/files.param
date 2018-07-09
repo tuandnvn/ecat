@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.00.19.000-00.00.22.842" length="0">
+  <files>
+    <file>1028_No_Reservations_00.00.19.000-00.00.22.842.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="light house" filename="1028_No_Reservations_00.00.19.000-00.00.22.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">948.3251,125.0246,70.49261,46.55172</marker>
+        <marker type="LOCATION" frame="38">958.3005,160.2709,70.49261,46.55172</marker>
+        <marker type="LOCATION" frame="58">955.6404,192.1921,70.49261,46.55172</marker>
+        <marker type="LOCATION" frame="75">955.6404,224.1133,70.49261,46.55172</marker>
+      </markers>
+    </object>
+    <object id="o2" name="light" filename="1028_No_Reservations_00.00.19.000-00.00.22.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1018.818,196.8473,1130.542,418.9655,1262.217,430.936,1033.448,186.2069</marker>
+        <marker type="LOCATION" frame="6">1017.488,200.8375,1058.719,432.266,1167.783,434.9261,1018.818,195.5172</marker>
+        <marker type="DELETE" frame="10" />
+        <marker type="LOCATION" frame="27">954.9754,214.1379,770.0985,412.3153,860.5419,418.9655,958.9655,218.1281</marker>
+        <marker type="LOCATION" frame="38">954.9754,214.1379,509.4089,461.5271,642.4138,497.4384,958.9655,218.1281</marker>
+        <marker type="LOCATION" frame="58">954.9753,214.1379,55.17241,457.931,419.3103,491.0345,958.9655,218.1281</marker>
+        <marker type="LOCATION" frame="75">954.9753,214.1379,-13.7931,411.0345,85.51723,548.9655,958.9655,218.1281</marker>
+        <marker type="LOCATION" frame="92">957.2413,251.0345,-13.7931,411.0345,168.2758,653.793,957.2413,281.3793</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="92" />
+      <text>A beam of light shines out from a lighthouse and sweeps across a shimmering blue ocean.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

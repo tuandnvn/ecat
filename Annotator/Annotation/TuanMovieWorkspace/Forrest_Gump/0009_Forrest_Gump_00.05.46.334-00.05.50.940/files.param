@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.46.334-00.05.50.940" length="111">
+  <files>
+    <file>0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="general" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">935.6058,179.6302,374.7847,767.3105</marker>
+        <marker type="LOCATION" frame="19">909.3665,175.6401,385.1274,775.2906</marker>
+        <marker type="LOCATION" frame="33">627.3511,163.5522,392.7484,781.1706</marker>
+        <marker type="LOCATION" frame="43">380.0099,150.5411,423.7175,785.5707</marker>
+        <marker type="LOCATION" frame="60">457.0229,142.8013,476.3652,793.0508</marker>
+        <marker type="LOCATION" frame="87">1147.358,233.9193,330.4995,605.5084</marker>
+        <marker type="LOCATION" frame="110">1104.148,179.6302,206.2431,445.7497</marker>
+      </markers>
+    </object>
+    <object id="o2" name="outdoor" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.18891,133.0595,1913.84,813.8809</marker>
+      </markers>
+    </object>
+    <object id="o4" name="horse" filename="0009_Forrest_Gump_00.05.46.334-00.05.50.940.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">259.2197,634.2506,1228.583,317.1252</marker>
+        <marker type="LOCATION" frame="33">0.3080068,685.2567,1438.706,263.292</marker>
+        <marker type="LOCATION" frame="43">288.0493,738.4805,747.3511,207.6997</marker>
+        <marker type="LOCATION" frame="60">35.23614,379.2197,1559.015,562.9331</marker>
+        <marker type="LOCATION" frame="87">1183.984,574.3737,443.5319,361.3834</marker>
+        <marker type="LOCATION" frame="110">897.9056,299.384,707.4333,630.9243</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The General is in full Ku Klux Klan garb, including his horse.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.37.204-00.05.44.574/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.37.204-00.05.44.574/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

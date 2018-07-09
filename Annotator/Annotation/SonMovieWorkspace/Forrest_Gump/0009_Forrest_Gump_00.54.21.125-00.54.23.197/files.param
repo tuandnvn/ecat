@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.54.21.125-00.54.23.197" length="50">
+  <files>
+    <file>0009_Forrest_Gump_00.54.21.125-00.54.23.197.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.54.21.125-00.54.23.197.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_00.54.21.125-00.54.23.197.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">54.30377,146.962,1117.595,795.4727</marker>
+        <marker type="DELETE" frame="7" />
+      </markers>
+    </object>
+    <object id="o3" name="Bubba" filename="0009_Forrest_Gump_00.54.21.125-00.54.23.197.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">286.7088,138.4177,1625.127,804.8734</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Palm" filename="0009_Forrest_Gump_00.54.21.125-00.54.23.197.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">1441.899,141.8354,471.6456,796.3289</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Bubba looks up as he lies on the ground.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.54.09.487-00.54.19.125/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.54.09.487-00.54.19.125/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="7" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="7" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

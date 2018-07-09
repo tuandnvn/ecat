@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.07.33.890-01.07.45.948" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.07.33.890-01.07.45.948.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The massive crowd cheers for the embracing couple in the pool.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

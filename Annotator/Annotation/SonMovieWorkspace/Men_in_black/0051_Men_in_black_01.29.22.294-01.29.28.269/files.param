@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.29.22.294-01.29.28.269" length="144">
+  <files>
+    <file>0051_Men_in_black_01.29.22.294-01.29.28.269.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Street" filename="0051_Men_in_black_01.29.22.294-01.29.28.269.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.2303452,18.65644,1919.539,1040.614</marker>
+      </markers>
+    </object>
+    <object id="o2" name="papers" filename="0051_Men_in_black_01.29.22.294-01.29.28.269.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">251.0557,20.72937,1266.564,1038.541</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="143" />
+      <text>CLOSE ON various tabloid headlines as a hand flicks through them.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.29.21.312-01.29.21.642/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.29.21.312-01.29.21.642/o5" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

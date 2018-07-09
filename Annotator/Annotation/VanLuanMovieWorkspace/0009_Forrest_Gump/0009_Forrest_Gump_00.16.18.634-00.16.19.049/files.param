@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.18.634-00.16.19.049" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.16.18.634-00.16.19.049.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.16.18.634-00.16.19.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.393589,129.1991,1904.622,821.6019</marker>
+      </markers>
+    </object>
+    <object id="o2" name="the boys" filename="0009_Forrest_Gump_00.16.18.634-00.16.19.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.704446E-05,118.2659,954.4509,824.0462</marker>
+        <marker type="DELETE" frame="24" />
+      </markers>
+    </object>
+    <object id="o3" name="boy" filename="0009_Forrest_Gump_00.16.18.634-00.16.19.049.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1220.809,204.2775,158.1503,230.289</marker>
+        <marker type="LOCATION" frame="23">1206.936,193.1792,188.6713,258.0347</marker>
+        <marker type="LOCATION" frame="24">22.19657,134.9133,1137.572,768.5549</marker>
+        <marker type="LOCATION" frame="47">180.3468,129.3642,849.0173,796.3005</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Forrest hobbles along.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.16.17.550-00.16.18.634/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.17.550-00.16.18.634/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

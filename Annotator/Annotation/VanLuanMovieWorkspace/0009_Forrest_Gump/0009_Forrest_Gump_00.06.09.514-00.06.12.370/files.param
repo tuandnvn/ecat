@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.06.09.514-00.06.12.370" length="69">
+  <files>
+    <file>0009_Forrest_Gump_00.06.09.514-00.06.12.370.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.06.09.514-00.06.12.370.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.655617,136.3485,1909.377,807.3029</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy's mom" filename="0009_Forrest_Gump_00.06.09.514-00.06.12.370.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">632.0331,131.0373,475.3525,804.6473</marker>
+        <marker type="LOCATION" frame="1">641.4645,132.5181,489.8856,811.6927</marker>
+        <marker type="LOCATION" frame="2">634.8741,164.3478,505.2632,779.8627</marker>
+        <marker type="LOCATION" frame="3">1324.668,135.4796,492.5048,138.708</marker>
+        <marker type="LOCATION" frame="4">1324.668,135.4796,492.5048,138.708</marker>
+        <marker type="LOCATION" frame="17">1298.307,135.5426,509.6568,143.0387</marker>
+        <marker type="LOCATION" frame="34">1192.86,135.6249,584.3484,358.2424</marker>
+        <marker type="LOCATION" frame="48">1056.659,135.6927,854.5541,810.7147</marker>
+        <marker type="LOCATION" frame="54">626.087,135.7217,1192.861,809.3676</marker>
+        <marker type="LOCATION" frame="58">683.2037,135.7411,1074.233,808.4695</marker>
+        <marker type="LOCATION" frame="62">718.3524,135.7604,881.7944,808.0735</marker>
+        <marker type="LOCATION" frame="68">832.5858,135.7895,531.6248,807.4794</marker>
+      </markers>
+    </object>
+    <object id="o3" name="boy" filename="0009_Forrest_Gump_00.06.09.514-00.06.12.370.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1010.457,448.3819,337.2611,491.2859</marker>
+        <marker type="LOCATION" frame="2">1010.457,448.3819,337.2611,491.2859</marker>
+        <marker type="LOCATION" frame="3">933.6386,135.7895,538.215,711.762</marker>
+        <marker type="LOCATION" frame="4">933.6386,135.7895,538.215,711.762</marker>
+        <marker type="LOCATION" frame="5">933.4697,135.7895,575.7295,694.1877</marker>
+        <marker type="LOCATION" frame="8">932.9628,135.7895,978.2501,641.4645</marker>
+        <marker type="LOCATION" frame="17">931.4417,135.7895,463.524,641.4645</marker>
+        <marker type="LOCATION" frame="29">911.2831,135.7895,518.8314,759.3163</marker>
+        <marker type="LOCATION" frame="34">902.8833,135.7895,1008.33,808.4211</marker>
+        <marker type="LOCATION" frame="68">1226.911,135.7895,684.3021,808.4213</marker>
+      </markers>
+    </object>
+    <object id="o5" name="boy's brace" filename="0009_Forrest_Gump_00.06.09.514-00.06.12.370.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">913.8673,135.7895,531.6248,698.5812</marker>
+        <marker type="LOCATION" frame="8">973.1808,135.7895,432.7689,621.6934</marker>
+        <marker type="LOCATION" frame="20">942.4257,135.7895,437.1625,632.6774</marker>
+        <marker type="LOCATION" frame="34">876.8934,135.7895,531.2531,808.2525</marker>
+        <marker type="LOCATION" frame="37">898.4681,148.4995,443.7745,795.5577</marker>
+        <marker type="LOCATION" frame="43">941.617,140.1831,401.8239,803.9042</marker>
+        <marker type="LOCATION" frame="48">977.5744,195.103,366.865,749.0086</marker>
+        <marker type="LOCATION" frame="54">1032.494,561.968,318.5355,382.1742</marker>
+        <marker type="LOCATION" frame="59">1098.398,847.5515,358.0778,96.61613</marker>
+        <marker type="LOCATION" frame="60">1115.484,873.9131,391.5179,70.26001</marker>
+        <marker type="DELETE" frame="61" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="68" />
+      <text>Forrest's brace is caught in a gutter grate.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.06.08.297-00.06.09.514/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.06.08.297-00.06.09.514/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.06.08.297-00.06.09.514/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

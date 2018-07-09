@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.05.958-00.03.07.526" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.05.958-00.03.07.526.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Men2" filename="0046_Chasing_Amy_00.03.05.958-00.03.07.526.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">209.6551,-2.758652,1566.896,1064.827</marker>
+        <marker type="DELETE" frame="34" />
+      </markers>
+    </object>
+    <object id="o2" name="Men" filename="0046_Chasing_Amy_00.03.05.958-00.03.07.526.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="34">289.6551,35.86206,1597.241,1020.69</marker>
+        <marker type="LOCATION" frame="40">35.86207,35.862,1851.034,1020.689</marker>
+        <marker type="LOCATION" frame="47">35.86207,16.55172,1851.034,1039.999</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He offers him a patronizingly kind, half- smile in return.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

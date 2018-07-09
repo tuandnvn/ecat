@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.51.671-00.00.55.006" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.51.671-00.00.55.006.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="man" filename="1060_Yes_man_00.00.51.671-00.00.55.006.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">320.1429,152.3571,1014.429,790.7143</marker>
+      </markers>
+    </object>
+    <object id="o2" name="phone" filename="1060_Yes_man_00.00.51.671-00.00.55.006.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">975.8572,790.7143,156.2143,146.5714</marker>
+        <marker type="LOCATION" frame="3">1005.75,736.7143,156.2143,175.5</marker>
+        <marker type="LOCATION" frame="4">1009.607,677.8929,156.2143,175.5</marker>
+        <marker type="LOCATION" frame="6">1001.893,504.3214,156.2143,175.5</marker>
+        <marker type="LOCATION" frame="9">980.6786,432.9643,156.2143,175.5</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="79" />
+      <text>He holds it to his ear.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

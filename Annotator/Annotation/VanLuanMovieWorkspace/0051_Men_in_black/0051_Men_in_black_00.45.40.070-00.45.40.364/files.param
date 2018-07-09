@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.45.40.070-00.45.40.364" length="48">
+  <files>
+    <file>0051_Men_in_black_00.45.40.070-00.45.40.364.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o3" name="newspaper1" filename="0051_Men_in_black_00.45.40.070-00.45.40.364.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="12">1088.797,121.7427,185.8921,520.0829,608.1327,1053.859,987.8838,1053.859,1720.83,567.8838</marker>
+        <marker type="LOCATION" frame="20">1078.174,108.4647,167.3029,506.8049,608.1327,1053.859,916.1826,1053.859,1720.83,567.8838</marker>
+        <marker type="LOCATION" frame="26">1072.863,103.1535,175.2697,482.9045,666.556,1059.17,812.6141,1053.859,1678.34,546.639</marker>
+        <marker type="LOCATION" frame="30">1054.274,103.1535,183.2365,466.9709,682.4896,1056.514,698.4232,1056.514,1638.506,520.0829</marker>
+        <marker type="LOCATION" frame="34">1033.029,105.8091,201.8257,448.3817,679.834,1008.714,679.834,1011.369,1596.016,501.4937</marker>
+        <marker type="LOCATION" frame="37">1006.473,108.4647,204.4813,427.1369,669.2116,966.2239,669.2116,963.5684,1558.838,480.2489</marker>
+        <marker type="LOCATION" frame="41">987.8838,103.1535,215.1037,400.5808,637.3444,881.2447,634.6888,881.2447,1497.759,448.3817</marker>
+        <marker type="LOCATION" frame="45">956.0165,105.8091,215.1037,381.9916,613.444,825.4771,616.0995,825.4771,1441.991,427.1369</marker>
+        <marker type="LOCATION" frame="46">956.0165,105.8091,209.7925,376.6805,597.5104,798.9211,600.1659,796.2654,1418.091,416.5145</marker>
+        <marker type="LOCATION" frame="47">937.4274,111.1203,215.1037,371.3692,586.8879,777.6761,594.8547,772.3651,1402.158,411.2033</marker>
+      </markers>
+    </object>
+    <object id="o2" name="newspaper2" filename="0051_Men_in_black_00.45.40.070-00.45.40.364.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="12">1864.232,543.9834,1513.693,761.7426,1011.784,1056.514,1872.199,1053.859,1917.344,1056.514,1920,599.7509</marker>
+        <marker type="LOCATION" frame="20">1835.021,517.4274,1489.792,743.1535,961.3277,1053.859,1872.199,1053.859,1917.344,1056.514,1920,599.7509</marker>
+        <marker type="LOCATION" frame="26">1795.187,498.8381,1447.303,716.5975,841.8256,1056.514,1861.577,1053.859,1917.344,1056.514,1920,610.3734</marker>
+        <marker type="LOCATION" frame="30">1755.353,488.2157,1375.601,705.975,841.8256,1011.369,871.0372,1053.859,1917.344,1056.514,1920,618.3402</marker>
+        <marker type="LOCATION" frame="34">1702.241,464.3152,1333.112,671.4523,820.5808,950.2904,894.9377,1051.203,1917.344,1056.514,1917.344,642.2405</marker>
+        <marker type="LOCATION" frame="37">1659.751,440.4149,1285.311,644.8962,796.6805,897.1782,910.8713,1056.514,1917.344,1056.514,1917.344,660.8298</marker>
+        <marker type="LOCATION" frame="41">1585.394,413.8589,1272.033,575.8506,756.8464,825.4771,948.0497,1061.826,1917.344,1056.514,1914.689,674.1078</marker>
+        <marker type="LOCATION" frame="45">1532.282,392.614,1240.166,530.7054,719.668,764.3983,963.9832,1056.514,1917.344,1056.514,1914.689,684.7302</marker>
+        <marker type="LOCATION" frame="46">1519.004,392.614,1226.888,522.7385,711.7012,748.4646,966.639,1061.826,1917.344,1056.514,1912.033,687.3859</marker>
+        <marker type="LOCATION" frame="47">1503.07,384.6473,701.0787,735.1865,985.228,1064.481,1872.199,1053.859,1914.689,1014.025,1914.689,690.0414</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Street" filename="0051_Men_in_black_00.45.40.070-00.45.40.364.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>CLOSE ON on various supermarket tabloids as a hand flips through them.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_00.45.19.138-00.45.20.724/o5" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

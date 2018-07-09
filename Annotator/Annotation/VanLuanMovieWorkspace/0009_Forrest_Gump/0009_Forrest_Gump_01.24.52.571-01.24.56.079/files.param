@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.24.52.571-01.24.56.079" length="85">
+  <files>
+    <file>0009_Forrest_Gump_01.24.52.571-01.24.56.079.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.24.52.571-01.24.56.079.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.762367E-05,126.2072,1911.724,815.173</marker>
+      </markers>
+    </object>
+    <object id="o5" name="President" filename="0009_Forrest_Gump_01.24.52.571-01.24.56.079.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">318.6209,126.207,931.0348,806.8965</marker>
+        <marker type="LOCATION" frame="84">318.6209,126.207,931.0348,806.8965</marker>
+      </markers>
+    </object>
+    <object id="o4" name="TV" filename="0009_Forrest_Gump_01.24.52.571-01.24.56.079.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">120.0001,126.2069,1737.931,815.1732</marker>
+        <marker type="LOCATION" frame="84">120.0001,126.2069,1737.931,815.1732</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>President Nixon makes a resignation speech on TV.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.24.46.735-01.24.48.677/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

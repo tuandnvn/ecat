@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.13.16.216-00.13.17.051" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.13.16.216-00.13.17.051.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="inside bus" filename="0009_Forrest_Gump_00.13.16.216-00.13.17.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">7.356336,140.3065,1905.287,804.2911</marker>
+      </markers>
+    </object>
+    <object id="o2" name="larger girl" filename="0009_Forrest_Gump_00.13.16.216-00.13.17.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">828.8123,142.7586,701.3027,809.1953</marker>
+        <marker type="LOCATION" frame="23">514.9425,142.7586,909.7318,809.1953</marker>
+        <marker type="LOCATION" frame="47">691.4943,142.7586,892.567,809.1953</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>A larger girl slides over so Forrest can't sit next to her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.13.12.609-00.13.16.070/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

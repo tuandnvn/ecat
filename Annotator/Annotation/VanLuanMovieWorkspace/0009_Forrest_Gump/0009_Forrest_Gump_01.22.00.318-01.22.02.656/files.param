@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.22.00.318-01.22.02.656" length="57">
+  <files>
+    <file>0009_Forrest_Gump_01.22.00.318-01.22.02.656.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.22.00.318-01.22.02.656.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.377993E-05,124.4156,1915.844,818.7013</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.22.00.318-01.22.02.656.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">211.948,328.0519,1147.013,615.0649</marker>
+        <marker type="LOCATION" frame="5">253.5065,294.8052,1122.078,648.3117</marker>
+        <marker type="LOCATION" frame="10">87.27271,199.2208,1130.39,743.8961</marker>
+        <marker type="LOCATION" frame="16">548.5714,240.7792,789.6104,702.3376</marker>
+        <marker type="LOCATION" frame="20">398.961,240.7792,976.6234,702.3376</marker>
+        <marker type="LOCATION" frame="28">797.9221,128.5714,1113.766,814.5455</marker>
+        <marker type="LOCATION" frame="30">1176.104,128.2746,735.8807,814.8423</marker>
+        <marker type="LOCATION" frame="33">1462.857,127.8293,449.5724,815.2876</marker>
+        <marker type="LOCATION" frame="45">1691.429,126.0482,222.7821,817.0687</marker>
+        <marker type="LOCATION" frame="56">1774.545,124.4156,141.2978,818.7013</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Lenore" filename="0009_Forrest_Gump_01.22.00.318-01.22.02.656.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.311665,124.4156,1284.156,818.7013</marker>
+        <marker type="LOCATION" frame="5">5.714262,127.013,1195.325,816.1039</marker>
+        <marker type="LOCATION" frame="16">-2.377993E-05,132.7273,635.8442,810.3896</marker>
+        <marker type="LOCATION" frame="19">-4.155868,386.2338,627.5325,556.8831</marker>
+        <marker type="LOCATION" frame="22">-2.377993E-05,706.2338,216.1039,236.8831</marker>
+        <marker type="LOCATION" frame="25">-2.377993E-05,889.0909,116.3636,54.02597</marker>
+        <marker type="LOCATION" frame="27">-2.377993E-05,897.4026,211.9481,45.71429</marker>
+        <marker type="LOCATION" frame="28">-2.377993E-05,814.2857,1080.52,128.8312</marker>
+        <marker type="LOCATION" frame="29">-2.377993E-05,731.1688,307.5325,211.9481</marker>
+        <marker type="LOCATION" frame="30">-2.077946,662.5974,1132.468,280.5196</marker>
+        <marker type="LOCATION" frame="31">-4.155868,594.0259,1147.013,349.091</marker>
+        <marker type="LOCATION" frame="35">-2.377993E-05,461.0389,1334.026,482.0777</marker>
+        <marker type="LOCATION" frame="44">386.4935,232.4675,1255.065,710.6492</marker>
+        <marker type="LOCATION" frame="56">461.2987,261.5584,1126.233,681.5585</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest stands up nervously, causing Lenore to fall down on the floor.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.21.57.998-01.22.00.318/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.21.57.998-01.22.00.318/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.21.57.998-01.22.00.318/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="32" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="33" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

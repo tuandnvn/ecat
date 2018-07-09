@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.53.38.390-00.53.39.087" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.53.38.390-00.53.39.087.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest drops Lt. Dan down at the bank, next to the other wounded soldiers.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

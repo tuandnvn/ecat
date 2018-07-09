@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.27.278-00.02.28.213" length="0">
+  <files>
+    <file>0017_Pianist_00.02.27.278-00.02.28.213.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o2" name="window" filename="0017_Pianist_00.02.27.278-00.02.28.213.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1252.258,140.3226,421.9355,207.0968</marker>
+        <marker type="LOCATION" frame="30">1240.645,55.16127,421.9355,207.0968</marker>
+      </markers>
+    </object>
+    <object id="o3" name="debris1" filename="0017_Pianist_00.02.27.278-00.02.28.213.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">1107.097,106.4516,110.3226,156.7742</marker>
+        <marker type="LOCATION" frame="46">957.0968,161.6129,110.3226,156.7742</marker>
+        <marker type="LOCATION" frame="47">833.2258,193.5484,165.4839,275.8065</marker>
+      </markers>
+    </object>
+    <object id="o4" name="debris2" filename="0017_Pianist_00.02.27.278-00.02.28.213.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">1714.839,127.7419,133.5484,123.871</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="44" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="44" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

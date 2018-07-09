@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.09.46.467-01.09.48.203" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.09.46.467-01.09.48.203.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.09.46.467-01.09.48.203.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.166277E-05,132.3567,1911.847,815.2866</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Group" filename="0009_Forrest_Gump_01.09.46.467-01.09.48.203.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.166277E-05,140.5096,1907.771,807.1338</marker>
+        <marker type="LOCATION" frame="26">-1.166277E-05,140.5096,1907.771,807.1338</marker>
+        <marker type="LOCATION" frame="27">1259.618,213.8854,648.1529,733.758</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Jenny" filename="0009_Forrest_Gump_01.09.46.467-01.09.48.203.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="27">794.9045,368.7898,167.1338,468.7898</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Forrest" filename="0009_Forrest_Gump_01.09.46.467-01.09.48.203.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="27">778.5988,132.3567,835.6688,815.2866</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The group of Black Panthers glare at Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.09.42.679-01.09.45.300/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="27" arguments="1" ids="o7" q="True" type="STAND(X)" />
+    <predicate frame="27" arguments="2" ids="o7,0009_Forrest_Gump_01.09.42.679-01.09.45.300/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="27" arguments="2" ids="o6,0009_Forrest_Gump_01.09.42.679-01.09.45.300/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="27" arguments="2" ids="o4,o7" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="27" arguments="2" ids="o6,o7" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

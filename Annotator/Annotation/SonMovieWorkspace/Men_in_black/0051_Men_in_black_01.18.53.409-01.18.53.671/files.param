@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.18.53.409-01.18.53.671" length="48">
+  <files>
+    <file>0051_Men_in_black_01.18.53.409-01.18.53.671.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o5" name="Edgar" filename="0051_Men_in_black_01.18.53.409-01.18.53.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">873.4615,244.0385,98.65384,185.1923</marker>
+        <marker type="LOCATION" frame="15">844.0385,236.25,135,196.4423</marker>
+        <marker type="LOCATION" frame="21">854.4231,237.5481,135,196.4423</marker>
+        <marker type="LOCATION" frame="22">721.1539,579.8077,477.6923,479.4231</marker>
+        <marker type="LOCATION" frame="27">729.8077,356.5385,517.5,702.6923</marker>
+        <marker type="LOCATION" frame="31">761.6539,240.5769,606.8077,818.6538</marker>
+        <marker type="LOCATION" frame="33">777.577,171.3462,608.1923,887.8846</marker>
+        <marker type="LOCATION" frame="37">809.4231,162.6923,437.8846,896.5385</marker>
+        <marker type="LOCATION" frame="40">731.5385,209.4231,515.7692,849.8077</marker>
+        <marker type="LOCATION" frame="42">726.3462,330.5769,520.9615,728.6538</marker>
+        <marker type="LOCATION" frame="43">864.8077,214.6154,162.6923,225</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Park" filename="0051_Men_in_black_01.18.53.409-01.18.53.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.514554,18.52489,1917.324,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Dr" filename="0051_Men_in_black_01.18.53.409-01.18.53.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">901.1539,181.7308,105.5769,105.5769</marker>
+        <marker type="LOCATION" frame="15">905.4808,198.1731,105.5769,105.5769</marker>
+        <marker type="LOCATION" frame="21">917.5961,206.8269,105.5769,105.5769</marker>
+        <marker type="LOCATION" frame="22">662.3077,32.88464,531.3462,957.1154</marker>
+        <marker type="LOCATION" frame="25">656.014,19.03849,537.6399,938.0769</marker>
+        <marker type="LOCATION" frame="27">649.7203,19.03849,543.9335,913.8461</marker>
+        <marker type="LOCATION" frame="31">637.1329,19.03849,556.521,870.5769</marker>
+        <marker type="LOCATION" frame="34">627.6923,19.03848,565.9615,508.8461</marker>
+        <marker type="LOCATION" frame="35">549.8077,19.03849,643.8461,444.8077</marker>
+        <marker type="LOCATION" frame="37">503.0769,19.03848,690.5769,252.6923</marker>
+        <marker type="LOCATION" frame="38">489.2308,19.03848,578.0769,242.3077</marker>
+        <marker type="LOCATION" frame="42">681.3462,19.03848,443.0769,275.1923</marker>
+        <marker type="LOCATION" frame="43">1011.923,246.6346,190.3846,149.7115</marker>
+        <marker type="LOCATION" frame="45">1020.577,258.8582,186.9231,167.6683</marker>
+        <marker type="LOCATION" frame="47">1036.154,300.7212,183.4615,185.625</marker>
+      </markers>
+    </object>
+    <object id="o7" name="tree" filename="0051_Men_in_black_01.18.53.409-01.18.53.671.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1012.203,338.2672,721.9907,721.9904</marker>
+        <marker type="DELETE" frame="22" />
+        <marker type="LOCATION" frame="43">1012.203,338.2672,721.9907,721.9904</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He reels, momentarily losing his grip on her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="30" arguments="2" ids="o5,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="35" arguments="2" ids="o5,o6" q="False" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

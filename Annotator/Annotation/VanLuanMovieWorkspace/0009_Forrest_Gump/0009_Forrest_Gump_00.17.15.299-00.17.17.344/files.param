@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.17.15.299-00.17.17.344" length="50">
+  <files>
+    <file>0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1351.214,440.1156,177.5723,418.9595</marker>
+        <marker type="LOCATION" frame="4">1414.777,433.0531,190.6884,487.0625</marker>
+        <marker type="LOCATION" frame="11">1526.012,420.6937,213.6416,516.0693</marker>
+        <marker type="LOCATION" frame="16">1639.307,445.6648,244.6242,496.3006</marker>
+        <marker type="LOCATION" frame="20">1729.942,440.1156,201.1559,506.0117</marker>
+        <marker type="LOCATION" frame="23">1797.919,623.237,127.6302,326.0116</marker>
+        <marker type="DELETE" frame="25" />
+      </markers>
+    </object>
+    <object id="o2" name="three boy" filename="0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">710.2891,426.2428,385.6647,210.8671</marker>
+        <marker type="LOCATION" frame="8">710.2891,379.0752,399.5376,258.0347</marker>
+        <marker type="LOCATION" frame="22">588.2081,379.0752,521.6185,258.0347</marker>
+        <marker type="LOCATION" frame="31">449.4798,315.2601,704.7399,371.7919</marker>
+        <marker type="LOCATION" frame="42">144.2775,284.7399,1009.942,518.8439</marker>
+        <marker type="LOCATION" frame="48">8.323736,284.7399,1145.896,627.052</marker>
+        <marker type="LOCATION" frame="49">238.6127,284.7399,915.6079,627.052</marker>
+      </markers>
+    </object>
+    <object id="o3" name="street" filename="0009_Forrest_Gump_00.17.15.299-00.17.17.344.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.774603,126.5896,1906.127,818.4971</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="49" />
+      <text>Forrest is already at the far end of the road, clear of the chasing boys.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

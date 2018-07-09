@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.17.47.864-01.17.48.768" length="48">
+  <files>
+    <file>0009_Forrest_Gump_01.17.47.864-01.17.48.768.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.17.47.864-01.17.48.768.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9795942,130.0409,1918.946,817.7558</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Dan" filename="0009_Forrest_Gump_01.17.47.864-01.17.48.768.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">482.0339,129.9754,799.3231,818.0153</marker>
+      </markers>
+    </object>
+    <object id="o5" name="bottle" filename="0009_Forrest_Gump_01.17.47.864-01.17.48.768.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1324.32,130.1679,369.9178,557.2897</marker>
+        <marker type="LOCATION" frame="1">1322.034,130.8463,389.8315,556.6115</marker>
+        <marker type="LOCATION" frame="3">1406.535,132.2027,340.5841,555.255</marker>
+        <marker type="LOCATION" frame="4">1480.669,144.4068,313.7946,582.5428</marker>
+        <marker type="LOCATION" frame="5">1554.803,209.8299,287.0051,556.6115</marker>
+        <marker type="LOCATION" frame="6">1645.424,319.3218,260.2153,557.2897</marker>
+        <marker type="LOCATION" frame="8">1645.427,644.7458,272.5394,303.0521</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="9" />
+      <text>He tosses it onto the floor.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.17.44.820-01.17.47.864/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_01.17.44.820-01.17.47.864/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.17.44.820-01.17.47.864/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

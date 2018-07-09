@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.20.589-00.00.25.066" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.20.589-00.00.25.066.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="v1" filename="1060_Yes_man_00.00.20.589-00.00.25.066.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1324.8,127.8,221.4,77.4</marker>
+        <marker type="LOCATION" frame="7">1262.7,130.5,221.4,114.3</marker>
+        <marker type="LOCATION" frame="8">1201.5,126.45,317.6996,138.15</marker>
+        <marker type="LOCATION" frame="12">1158.75,119.925,317.6996,138.15</marker>
+        <marker type="LOCATION" frame="20">1086.75,137.925,317.6996,138.15</marker>
+        <marker type="LOCATION" frame="26">1079.775,155.925,252.4498,138.15</marker>
+        <marker type="LOCATION" frame="31">1079.775,185.4,252.4498,108.675</marker>
+        <marker type="LOCATION" frame="47">1039.387,218.5313,203.625,88.5375</marker>
+        <marker type="LOCATION" frame="77">1039.387,241.2,203.625,65.86877</marker>
+      </markers>
+    </object>
+    <object id="o2" name="v2" filename="1060_Yes_man_00.00.20.589-00.00.25.066.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1092.6,115.2,482.4,316.8</marker>
+        <marker type="LOCATION" frame="8">1011.6,115.2,563.4005,316.8</marker>
+        <marker type="LOCATION" frame="20">989.1,147.6,390.6,262.8</marker>
+        <marker type="LOCATION" frame="26">989.1,171,390.6,239.4</marker>
+        <marker type="LOCATION" frame="38">989.1,207,297.9,185.4</marker>
+        <marker type="LOCATION" frame="77">989.1,237.6,207.9,154.8</marker>
+      </markers>
+    </object>
+    <object id="o3" name="v3" filename="1060_Yes_man_00.00.20.589-00.00.25.066.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">909,118.8,680.4,550.8</marker>
+        <marker type="LOCATION" frame="7">909,118.8,680.4,504</marker>
+        <marker type="LOCATION" frame="8">867.6,118.8,721.8008,504</marker>
+        <marker type="LOCATION" frame="12">867.6,118.8,721.8008,487.8</marker>
+        <marker type="LOCATION" frame="20">905.4,118.8,471.6001,426.6</marker>
+        <marker type="LOCATION" frame="26">905.4,171,471.6001,363.6</marker>
+        <marker type="LOCATION" frame="31">905.4,192.6,471.6001,320.4001</marker>
+        <marker type="LOCATION" frame="38">905.4,192.6,379.8,291.6</marker>
+        <marker type="LOCATION" frame="47">905.4,221.4,354.6,244.8</marker>
+        <marker type="LOCATION" frame="77">923.4,243,280.8001,203.4</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="107" />
+      <text>A series of 3D metallic Vs, one inside the other.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

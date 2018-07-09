@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.08.26.866-01.08.31.653" length="115">
+  <files>
+    <file>0051_Men_in_black_01.08.26.866-01.08.31.653.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.08.26.866-01.08.31.653.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dr" filename="0051_Men_in_black_01.08.26.866-01.08.31.653.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">289.0298,18.13435,1416.493,1039.713</marker>
+        <marker type="LOCATION" frame="46">256.791,18.13435,1495.075,1039.713</marker>
+        <marker type="LOCATION" frame="47">331.3433,451.3433,1192.837,606.5061</marker>
+        <marker type="LOCATION" frame="68">361.5672,582.314,1168.657,475.5372</marker>
+        <marker type="LOCATION" frame="91">363.5821,791.8665,1110.225,265.9854</marker>
+        <marker type="LOCATION" frame="99">363.5821,890.597,1071.94,167.2551</marker>
+        <marker type="LOCATION" frame="100">363.5821,890.597,265.9702,167.2551</marker>
+        <marker type="LOCATION" frame="104">325.2991,965.1493,253.88,92.70391</marker>
+        <marker type="LOCATION" frame="108">367.6119,1033.657,128.9552,24.19682</marker>
+        <marker type="DELETE" frame="109" />
+      </markers>
+    </object>
+    <object id="o4" name="Bell" filename="0051_Men_in_black_01.08.26.866-01.08.31.653.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="47">661.7921,396.9403,503.7304,531.9403</marker>
+        <marker type="LOCATION" frame="114">615.4478,278.0597,622.612,697.1642</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="114" />
+      <text>She peers into the jewel, and her face washes over with amazement.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.08.24.774-01.08.26.157/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.08.24.774-01.08.26.157/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.08.24.774-01.08.26.157/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

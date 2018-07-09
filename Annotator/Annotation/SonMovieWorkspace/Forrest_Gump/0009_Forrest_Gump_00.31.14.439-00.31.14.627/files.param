@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.31.14.439-00.31.14.627" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.31.14.439-00.31.14.627.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="park" filename="0009_Forrest_Gump_00.31.14.439-00.31.14.627.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,133.8154,1908.828,810.7731</marker>
+        <marker type="DELETE" frame="5" />
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0009_Forrest_Gump_00.31.14.439-00.31.14.627.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">167.581,143.3915,880.9977,794.813</marker>
+        <marker type="DELETE" frame="5" />
+      </markers>
+    </object>
+    <object id="o3" name="Podium" filename="0009_Forrest_Gump_00.31.14.439-00.31.14.627.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">1.595974,135.4115,1912.02,810.7731</marker>
+      </markers>
+    </object>
+    <object id="o4" name="students" filename="0009_Forrest_Gump_00.31.14.439-00.31.14.627.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">4.787994,280.6484,1905.636,660.7482</marker>
+      </markers>
+    </object>
+    <object id="o5" name="man" filename="0009_Forrest_Gump_00.31.14.439-00.31.14.627.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="9">485.187,457.8055,62.24439,122.8927</marker>
+        <marker type="LOCATION" frame="16">486.7831,441.4884,105.3371,143.9979</marker>
+        <marker type="LOCATION" frame="28">590.1247,413.5163,78.6035,84.18948</marker>
+        <marker type="LOCATION" frame="47">695.0624,369.2269,155.6109,425.3367</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="6" endFrame="47" />
+      <text>Students in their caps and gowns step forward the podium to receive their diplomas.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.31.07.800-00.31.09.265/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.31.07.800-00.31.09.265/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="5" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="9" arguments="1" ids="o5" q="True" type="WALK(X)" />
+  </predicates>
+</session>

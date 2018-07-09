@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.29.57.966-00.30.01.170" length="77">
+  <files>
+    <file>0009_Forrest_Gump_00.29.57.966-00.30.01.170.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="inside house" filename="0009_Forrest_Gump_00.29.57.966-00.30.01.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.634611E-05,131.1367,1911.712,817.7266</marker>
+      </markers>
+    </object>
+    <object id="o2" name="table" filename="0009_Forrest_Gump_00.29.57.966-00.30.01.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.634611E-05,189.151,1911.712,759.7104</marker>
+      </markers>
+    </object>
+    <object id="o8" name=" Dr.Pepper" filename="0009_Forrest_Gump_00.29.57.966-00.30.01.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="11">-2.634611E-05,189.151,69.06473,721.0358</marker>
+        <marker type="LOCATION" frame="15">-2.634611E-05,189.151,149.1799,721.0358</marker>
+        <marker type="LOCATION" frame="53">-2.634611E-05,189.151,867.4532,739.9664</marker>
+        <marker type="LOCATION" frame="76">187.8561,189.151,867.4528,751.4244</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.29.55.348-00.29.57.966/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.29.55.348-00.29.57.966/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="11" arguments="2" ids="o8,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

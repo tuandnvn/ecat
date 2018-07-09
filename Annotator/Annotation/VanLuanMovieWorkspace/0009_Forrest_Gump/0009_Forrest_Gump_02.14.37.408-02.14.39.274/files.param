@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.14.37.408-02.14.39.274" length="48">
+  <files>
+    <file>0009_Forrest_Gump_02.14.37.408-02.14.39.274.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Bus stop" filename="0009_Forrest_Gump_02.14.37.408-02.14.39.274.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.38576E-05,122.2755,1916.168,823.9521</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_02.14.37.408-02.14.39.274.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">571.4775,120.6424,1348.522,826.3812</marker>
+        <marker type="LOCATION" frame="10">550.9208,120.6424,1364.968,826.3812</marker>
+        <marker type="LOCATION" frame="21">459.4214,120.6424,1345.461,826.3812</marker>
+        <marker type="LOCATION" frame="35">378.2441,120.6424,1142.955,826.3812</marker>
+        <marker type="LOCATION" frame="47">320.6852,120.6424,900.3854,826.3812</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Feather" filename="0009_Forrest_Gump_02.14.37.408-02.14.39.274.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">674.2612,548.2227,222.0128,197.3448</marker>
+        <marker type="LOCATION" frame="10">649.5931,568.7794,197.3448,168.5653</marker>
+        <marker type="LOCATION" frame="15">661.9272,577.9047,172.6767,204.665</marker>
+        <marker type="LOCATION" frame="18">624.925,630.4497,127.452,219.9572</marker>
+        <marker type="LOCATION" frame="21">337.568,588.855,332.5819,329.3891</marker>
+        <marker type="LOCATION" frame="24">156.8436,601.6702,468.0815,269.7245</marker>
+        <marker type="LOCATION" frame="26">357.6874,437.2163,528.3085,275.4604</marker>
+        <marker type="LOCATION" frame="28">787.5421,272.7623,359.5244,435.803</marker>
+        <marker type="LOCATION" frame="31">1200.514,120.6424,217.9017,604.3683</marker>
+        <marker type="LOCATION" frame="33">1340.3,121.1403,123.3405,525.7548</marker>
+        <marker type="LOCATION" frame="35">1237.516,121.6382,193.2334,447.1412</marker>
+        <marker type="LOCATION" frame="37">1093.619,124.7537,308.3512,378.2441</marker>
+        <marker type="LOCATION" frame="40">978.5011,276.8737,386.4668,238.4583</marker>
+        <marker type="LOCATION" frame="44">882.1781,367.3233,301.8904,217.9015</marker>
+        <marker type="LOCATION" frame="47">809.9359,326.2098,238.4582,217.9015</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A gust of wind picks the feather up.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.14.26.674-02.14.35.442/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.14.26.674-02.14.35.442/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.14.26.674-02.14.35.442/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

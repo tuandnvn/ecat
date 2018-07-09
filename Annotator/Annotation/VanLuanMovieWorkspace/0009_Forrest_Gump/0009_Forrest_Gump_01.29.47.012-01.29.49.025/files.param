@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.29.47.012-01.29.49.025" length="49">
+  <files>
+    <file>0009_Forrest_Gump_01.29.47.012-01.29.49.025.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.29.47.012-01.29.49.025.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.057365E-05,130.1124,1915.685,815.4606</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Men" filename="0009_Forrest_Gump_01.29.47.012-01.29.49.025.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1208.09,130.1124,207.1009,159.6404</marker>
+        <marker type="LOCATION" frame="12">1177.888,130.1124,237.3027,197.9091</marker>
+        <marker type="LOCATION" frame="23">1182.202,130.1124,232.989,232.9888</marker>
+        <marker type="LOCATION" frame="35">1190.831,130.1123,238.8559,306.3371</marker>
+        <marker type="LOCATION" frame="48">1113.168,130.1124,332.2251,444.4045</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Syringe" filename="0009_Forrest_Gump_01.29.47.012-01.29.49.025.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1244.764,220.7191,338.6964,30.20225</marker>
+        <marker type="LOCATION" frame="12">1231.579,237.9775,295.7914,64.7191</marker>
+        <marker type="LOCATION" frame="23">1215.978,302.9663,294.1348,81.70786</marker>
+        <marker type="LOCATION" frame="24">1222.82,332.8989,278.6631,112.1798</marker>
+        <marker type="LOCATION" frame="25">1229.662,406.3685,263.1914,137.9461</marker>
+        <marker type="LOCATION" frame="26">1229.53,514.1124,276.3991,43.14606</marker>
+        <marker type="LOCATION" frame="28">1229.267,561.4719,302.8146,69.23595</marker>
+        <marker type="LOCATION" frame="35">1246.921,647.8652,314.9663,51.77528</marker>
+        <marker type="LOCATION" frame="48">1251.236,861.4382,297.7079,56.08989</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A man drops a syringe on the table.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.29.46.512-01.29.47.012/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.29.46.512-01.29.47.012/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.29.46.512-01.29.47.012/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="24" arguments="2" ids="o2,o3" q="False" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

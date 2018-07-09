@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.01.09.725-00.01.11.818" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.01.09.725-00.01.11.818.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="men1" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1126.821,344.9133,333.9884,600.8671</marker>
+        <marker type="LOCATION" frame="25">1204.855,341.0116,333.9884,600.8671</marker>
+        <marker type="LOCATION" frame="31">1271.965,350.3757,333.9884,600.8671</marker>
+        <marker type="LOCATION" frame="35">1312.543,412.0231,415.1445,540.7803</marker>
+        <marker type="LOCATION" frame="49">1374.971,477.5722,377.6879,475.2312</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men2" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1384.335,290.289,360.5202,649.2485</marker>
+        <marker type="LOCATION" frame="31">1452.225,157.6301,360.5202,777.2254</marker>
+        <marker type="LOCATION" frame="36">1519.335,168.5549,360.5202,777.2254</marker>
+        <marker type="LOCATION" frame="39">1596.59,168.5549,283.2661,777.2254</marker>
+        <marker type="LOCATION" frame="44">1673.064,168.5549,206.7921,777.2254</marker>
+        <marker type="LOCATION" frame="49">1758.902,148.2659,151.7775,777.2254</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men3" filename="1043_Vantage_Point_00.01.09.725-00.01.11.818.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">1036.301,302.7746,221.6185,274.6821</marker>
+        <marker type="LOCATION" frame="31">1036.301,209.1329,221.6185,368.3237</marker>
+        <marker type="LOCATION" frame="35">997.2832,227.8613,383.9306,533.7571</marker>
+        <marker type="LOCATION" frame="39">997.2832,159.1908,393.2948,731.9653</marker>
+        <marker type="LOCATION" frame="44">1025.376,140.4624,399.5376,486.9364</marker>
+        <marker type="LOCATION" frame="49">1067.514,140.4624,357.3986,486.9364</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="50" />
+      <text>Men in suits climb stairs.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="22" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="31" arguments="2" ids="o2,o1" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="38" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="42" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

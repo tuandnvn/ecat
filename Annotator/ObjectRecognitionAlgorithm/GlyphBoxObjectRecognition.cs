@@ -203,10 +203,13 @@ namespace Annotator
                 if (depthReader != null)
                 {
                     ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
-                    mappingFunction(depthValues, csps);
-                } else
-                {
-                    Console.WriteLine("depthReader == null");
+                    try
+                    {
+                        mappingFunction(depthValues, csps);
+                    } catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
                 }
 
                 stopwatch.Stop();

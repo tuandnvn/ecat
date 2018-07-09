@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">983.8744,523.0367,661.5707,412.7749</marker>
+        <marker type="LOCATION" frame="23">983.8745,576.754,412.7748,359.058</marker>
+        <marker type="LOCATION" frame="41">1068.691,580.9945,412.7749,359.0581</marker>
+        <marker type="LOCATION" frame="61">1238.325,664.3979,243.1427,275.6559</marker>
+        <marker type="DELETE" frame="77" />
+      </markers>
+    </object>
+    <object id="o2" name="statue" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">497.5917,144.1885,432.5654,494.7644</marker>
+        <marker type="LOCATION" frame="15">350.5759,144.1885,579.5812,670.0524</marker>
+        <marker type="LOCATION" frame="31">350.5759,144.1885,579.5812,802.9319</marker>
+        <marker type="LOCATION" frame="63">350.5759,144.1885,769.0052,802.9319</marker>
+        <marker type="LOCATION" frame="89">279.6429,144.1885,927.6429,802.9319</marker>
+        <marker type="LOCATION" frame="103">171.6429,144.1885,1124.357,802.9319</marker>
+        <marker type="LOCATION" frame="139">7.714288,233.3571,1309.5,713.7632</marker>
+        <marker type="LOCATION" frame="149">7.714288,322.812,1177.745,624.3094</marker>
+        <marker type="LOCATION" frame="154">664.3979,367.5393,455.1843,579.5825</marker>
+        <marker type="LOCATION" frame="164">664.3979,367.5393,455.1843,579.5825</marker>
+        <marker type="LOCATION" frame="167">664.3979,494.7644,455.1843,452.3579</marker>
+        <marker type="LOCATION" frame="175">683.1036,584.2595,435.0786,351.0977</marker>
+      </markers>
+    </object>
+    <object id="o3" name="scythe" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="19">478.2857,138.736,108,56.04976</marker>
+        <marker type="LOCATION" frame="63">271.7746,136.2839,200.7255,388.2875</marker>
+        <marker type="LOCATION" frame="83">76.33508,132.8796,237.487,571.0995</marker>
+        <marker type="LOCATION" frame="89">5.65445,132.8796,260.1048,613.5079</marker>
+        <marker type="LOCATION" frame="97">5.65445,132.8796,144.1885,621.9896</marker>
+        <marker type="LOCATION" frame="104">5.65444,132.8796,144.7741,225.8347</marker>
+        <marker type="LOCATION" frame="109">5.65444,132.8796,83.05985,129.4061</marker>
+        <marker type="DELETE" frame="111" />
+      </markers>
+    </object>
+    <object id="o4" name="wings" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="61">1004.786,138.534,499.5,65.89458</marker>
+        <marker type="LOCATION" frame="73">1045.286,138.534,533.8311,139.1803</marker>
+        <marker type="LOCATION" frame="87">1031.786,138.534,634.633,241.3946</marker>
+        <marker type="LOCATION" frame="109">382.6883,138.534,1354.955,465.1089</marker>
+        <marker type="LOCATION" frame="119">87.64397,138.534,1746.427,613.6088</marker>
+        <marker type="LOCATION" frame="129">87.64397,142.7143,1821.642,761.7856</marker>
+        <marker type="LOCATION" frame="176">22.60775,151.3929,1821.642,761.7857</marker>
+      </markers>
+    </object>
+    <object id="o5" name="skeleton" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="57">738.6429,144.6731,117.6429,129.184</marker>
+        <marker type="LOCATION" frame="120">774.6598,166.8063,197.9059,667.2252</marker>
+        <marker type="LOCATION" frame="140">777.4869,254.4501,197.9058,667.2255</marker>
+        <marker type="LOCATION" frame="154">777.4869,443.8744,197.9058,477.8017</marker>
+        <marker type="LOCATION" frame="167">777.4869,627.644,197.9058,294.0327</marker>
+        <marker type="LOCATION" frame="175">805.7592,653.0883,197.9058,294.0328</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="176" />
+      <text>The snake slides past a stone statue of a skeleton with huge wings, draped in hooded cloak and holding a scythe.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="19" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="57" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="61" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="111" arguments="2" ids="o3,o3" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="119" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o1,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="176" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

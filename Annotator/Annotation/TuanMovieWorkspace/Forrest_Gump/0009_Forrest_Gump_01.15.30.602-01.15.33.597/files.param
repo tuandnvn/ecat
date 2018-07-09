@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.15.30.602-01.15.33.597" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.15.30.602-01.15.33.597.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest steps, an then stops as he hears s man sitting in a wheelchair speak to him.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

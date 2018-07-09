@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.32.03.490-00.32.04.232" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.32.03.490-00.32.04.232.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A large black recruit with a strange look on his face, much like Forrest's, looks up from his seat.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

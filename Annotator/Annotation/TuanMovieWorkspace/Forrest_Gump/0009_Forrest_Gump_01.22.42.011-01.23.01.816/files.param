@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.22.42.011-01.23.01.816" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.22.42.011-01.23.01.816.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest steps back as Lt. Dan flips back over, then pulls himself back up onto his wheelchair.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

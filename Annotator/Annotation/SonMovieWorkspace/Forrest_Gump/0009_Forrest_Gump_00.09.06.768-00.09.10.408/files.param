@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.09.06.768-00.09.10.408" length="88">
+  <files>
+    <file>0009_Forrest_Gump_00.09.06.768-00.09.10.408.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="kid" filename="0009_Forrest_Gump_00.09.06.768-00.09.10.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1118.03,212.1459,711.6164,729.4393</marker>
+      </markers>
+    </object>
+    <object id="o2" name="house" filename="0009_Forrest_Gump_00.09.06.768-00.09.10.408.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.023459,130.2192,784.0474,811.366</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="87" />
+      <text>Forrest sits on the swing as the grunts continue.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.09.01.101-00.09.06.768/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.09.01.101-00.09.06.768/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

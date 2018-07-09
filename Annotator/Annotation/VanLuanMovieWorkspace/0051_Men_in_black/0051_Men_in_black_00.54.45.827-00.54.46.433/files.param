@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.54.45.827-00.54.46.433" length="48">
+  <files>
+    <file>0051_Men_in_black_00.54.45.827-00.54.46.433.avi</file>
+  </files>
+  <objects no="12">
+    <object id="o6" name="tiny man" filename="0051_Men_in_black_00.54.45.827-00.54.46.433.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1025.904,301.6476,112.0368,333.913</marker>
+        <marker type="LOCATION" frame="16">949.0161,336.7964,199.9084,353.6844</marker>
+      </markers>
+    </object>
+    <object id="o2" name="alien1" filename="0051_Men_in_black_00.54.45.827-00.54.46.433.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">221.8764,9.473682,1252.175,1047.872</marker>
+      </markers>
+    </object>
+    <object id="o5" name="alien's head" filename="0051_Men_in_black_00.54.45.827-00.54.46.433.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">340.5035,13.86728,808.4211,990.7552</marker>
+        <marker type="LOCATION" frame="14">237.254,11.52719,737.7858,967.0207</marker>
+        <marker type="LOCATION" frame="26">169.1533,9.5214,656.8421,946.6764</marker>
+        <marker type="LOCATION" frame="46">147.1853,6.847018,674.4166,919.5505</marker>
+      </markers>
+    </object>
+    <object id="o12" name="House" filename="0051_Men_in_black_00.54.45.827-00.54.46.433.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Though not quite dead, the Tiny Little Green Man is gravely wounded.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.54.39.671-00.54.39.968/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o12,0051_Men_in_black_00.54.39.671-00.54.39.968/o11" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.54.39.671-00.54.39.968/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

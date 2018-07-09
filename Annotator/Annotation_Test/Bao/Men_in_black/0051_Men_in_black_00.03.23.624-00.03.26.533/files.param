@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.23.624-00.03.26.533" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.23.624-00.03.26.533.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="man" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">436.3636,95.19062,563.0499,974.0762</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o2" name="glass" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1373.842,89.56012,506.7444,760.1173</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o3" name="people" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="17">194.2522,24.80939,1652.551,957.1848</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="69" />
+      <text>He speaks in Spanish, which is subtitled.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.03.21.626-00.03.23.238/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.03.21.626-00.03.23.238/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="square" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="15">928.0851,541.7021,41.70213,49.3617</marker>
+        <marker type="LOCATION" frame="21">936.1702,538.2979,41.70213,49.3617</marker>
+        <marker type="LOCATION" frame="53">935.7447,558.7234,41.70213,49.3617</marker>
+        <marker type="LOCATION" frame="70">936.5957,549.3617,41.70213,49.3617</marker>
+        <marker type="LOCATION" frame="78">934.8936,562.1276,41.70213,49.3617</marker>
+        <marker type="LOCATION" frame="88">926.8085,557.8723,53.61702,47.65958</marker>
+        <marker type="LOCATION" frame="96">930.6383,550.2128,53.61702,47.65958</marker>
+        <marker type="LOCATION" frame="102">912.7659,540,53.61702,47.65958</marker>
+        <marker type="LOCATION" frame="105">896.5957,536.5957,53.61702,47.65958</marker>
+        <marker type="LOCATION" frame="108">865.9574,530.6383,53.61702,47.65958</marker>
+        <marker type="LOCATION" frame="112">745.9574,509.5319,58.7234,59.23413</marker>
+        <marker type="LOCATION" frame="113">705.1064,505.9574,60,62.12766</marker>
+        <marker type="LOCATION" frame="115">592.9787,494.4681,60,62.12766</marker>
+        <marker type="LOCATION" frame="116">527.4468,485.1063,52.12766,62.12766</marker>
+        <marker type="DELETE" frame="117" />
+      </markers>
+    </object>
+    <object id="o2" name="square2" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="15">875.7447,494.8936,147.234,143.8298</marker>
+        <marker type="LOCATION" frame="22">877.6595,490.4255,154.4681,148.5106</marker>
+        <marker type="LOCATION" frame="40">876.8085,494.6808,154.4681,159.3617</marker>
+        <marker type="LOCATION" frame="76">877.6595,506.2766,154.4681,159.3617</marker>
+        <marker type="LOCATION" frame="94">868.0851,488.9362,178.7234,175.3192</marker>
+        <marker type="LOCATION" frame="101">855.3192,476.1702,178.7234,175.3192</marker>
+        <marker type="LOCATION" frame="105">831.4893,464.2553,188.0852,192.3404</marker>
+        <marker type="LOCATION" frame="108">797.0212,454.0425,188.0851,192.3404</marker>
+        <marker type="LOCATION" frame="112">677.8723,431.0638,189.3617,212.766</marker>
+        <marker type="LOCATION" frame="114">593.8298,414.8936,168.7234,228.9362</marker>
+        <marker type="LOCATION" frame="115">538.617,407.6595,168.7234,228.9362</marker>
+        <marker type="LOCATION" frame="116">529.734,400.851,89.46809,228.9362</marker>
+        <marker type="DELETE" frame="117" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="127" />
+      <text>Another page turn reveals L shapes and a set of two broken squares with a small square in the center.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

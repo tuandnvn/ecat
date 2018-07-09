@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.27.554-01.17.28.025" length="48">
+  <files>
+    <file>0051_Men_in_black_01.17.27.554-01.17.28.025.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="car" filename="0051_Men_in_black_01.17.27.554-01.17.28.025.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1111.579,0.6864967,810.6219,1050.069</marker>
+        <marker type="LOCATION" frame="6">900.6865,0.6864967,979.7712,1069.84</marker>
+        <marker type="LOCATION" frame="12">709.5652,0.6864967,1170.893,1043.478</marker>
+        <marker type="LOCATION" frame="16">637.0712,0.6864967,1192.86,1058.856</marker>
+        <marker type="LOCATION" frame="20">729.3364,79.77116,1100.597,979.7731</marker>
+        <marker type="LOCATION" frame="26">538.2151,167.643,1184.073,650.2519</marker>
+        <marker type="LOCATION" frame="30">-4.190057E-06,5.08009,1904.622,766.6819</marker>
+        <marker type="LOCATION" frame="32">-4.190057E-06,5.08009,1904.622,815.0115</marker>
+        <marker type="LOCATION" frame="34">-4.190057E-06,5.08009,1904.622,920.4577</marker>
+        <marker type="LOCATION" frame="37">-4.190057E-06,5.08009,1904.622,902.8833</marker>
+        <marker type="LOCATION" frame="47">-4.190057E-06,5.08009,1904.622,865.5378</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_01.17.27.554-01.17.28.025.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Instead of banging off the wall of the tunnel, the LTD actually clings to it.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.17.25.309-01.17.26.746/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.17.25.309-01.17.26.746/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

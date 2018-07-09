@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o2" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">670.7813,423.9844,1246.641,512.1826</marker>
+        <marker type="LOCATION" frame="21">670.7813,423.9844,890.1563,512.1826</marker>
+        <marker type="LOCATION" frame="35">571.6406,377.5781,632.8125,559.8413</marker>
+        <marker type="LOCATION" frame="49">531.5625,297.4219,723.5156,639.9976</marker>
+        <marker type="LOCATION" frame="62">749.8828,298.0481,806.8359,639.9976</marker>
+        <marker type="LOCATION" frame="67">992.9883,298.0481,831.6211,639.9976</marker>
+        <marker type="LOCATION" frame="76">992.9883,298.0481,924.4336,639.9976</marker>
+        <marker type="LOCATION" frame="83">992.9883,352.2656,924.4336,585.78</marker>
+        <marker type="LOCATION" frame="102">992.9883,316.4063,546.8555,621.6394</marker>
+        <marker type="LOCATION" frame="122">1050.469,259.4531,371.25,678.5925</marker>
+        <marker type="LOCATION" frame="129">1050.469,242.5781,371.25,695.4675</marker>
+        <marker type="LOCATION" frame="141">1050.469,242.5781,485.1563,695.4675</marker>
+        <marker type="LOCATION" frame="157">980.8594,301.6406,554.7656,636.405</marker>
+        <marker type="LOCATION" frame="179">822.6563,369.1406,575.8594,568.905</marker>
+        <marker type="LOCATION" frame="193">822.6563,432.4219,875.3906,505.6238</marker>
+        <marker type="LOCATION" frame="204">932.3438,432.4219,978.75,505.6238</marker>
+        <marker type="LOCATION" frame="222">763.5938,432.4219,1147.5,505.6238</marker>
+        <marker type="LOCATION" frame="227">723.5156,432.4219,1187.578,505.6238</marker>
+        <marker type="LOCATION" frame="239">675,466.1719,1111.641,471.8738</marker>
+        <marker type="LOCATION" frame="256">639.1406,445.0781,1147.5,492.9675</marker>
+        <marker type="LOCATION" frame="267">609.6094,398.6719,1177.031,539.3738</marker>
+        <marker type="LOCATION" frame="281">575.8594,388.125,1210.781,549.9207</marker>
+        <marker type="LOCATION" frame="284">563.2031,405,1223.438,533.0457</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="284" />
+      <text>The reptile's lithe body shimmers as it glides swiftly along the uneven path.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

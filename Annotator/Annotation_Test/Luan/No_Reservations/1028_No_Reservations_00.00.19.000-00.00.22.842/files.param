@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.00.19.000-00.00.22.842" length="0">
+  <files>
+    <file>1028_No_Reservations_00.00.19.000-00.00.22.842.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="lighthouse" filename="1028_No_Reservations_00.00.19.000-00.00.22.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">927.33,144.1885,186.5968,282.7225</marker>
+        <marker type="LOCATION" frame="4">927.33,135.7068,186.5968,291.2049</marker>
+        <marker type="LOCATION" frame="22">927.33,135.7068,180.9423,291.2049</marker>
+        <marker type="LOCATION" frame="42">928.1377,144.1885,165.9984,292.4165</marker>
+        <marker type="LOCATION" frame="92">930.1571,217.6963,178.1153,243.1414</marker>
+      </markers>
+    </object>
+    <object id="o2" name="shine" filename="1028_No_Reservations_00.00.19.000-00.00.22.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1017.801,203.5602,1139.372,421.2566,1258.115,435.3927,1037.592,189.4241</marker>
+        <marker type="LOCATION" frame="3">1017.801,226.178,1120.288,419.843,1239.032,433.9792,1018.508,188.0105</marker>
+        <marker type="LOCATION" frame="4">1017.801,231.8325,1125.236,424.0838,1204.398,426.911,1017.801,186.5969</marker>
+        <marker type="LOCATION" frame="9">1023.456,239.6074,1034.764,373.1937,1077.173,367.5393,1020.628,231.8325</marker>
+        <marker type="LOCATION" frame="11">1023.456,239.6074,1034.764,373.1937,1065.864,370.3665,1020.628,231.8325</marker>
+        <marker type="DELETE" frame="14" />
+        <marker type="LOCATION" frame="15">961.2565,270.7068,949.9478,418.4293,930.1572,415.6021,961.2565,225.4711</marker>
+        <marker type="LOCATION" frame="17">961.2565,270.7068,949.9478,418.4293,901.8848,415.6021,961.2565,225.4711</marker>
+        <marker type="LOCATION" frame="19">961.2565,270.7068,949.9478,418.4293,879.267,418.4293,961.2565,225.4711</marker>
+        <marker type="LOCATION" frame="20">961.2565,270.7068,949.9478,418.4293,865.1309,409.9477,961.2565,225.4711</marker>
+        <marker type="LOCATION" frame="21">961.2565,270.7068,930.1572,415.6021,865.1309,409.9477,961.2565,225.4711</marker>
+        <marker type="LOCATION" frame="22">961.2565,270.7068,910.3665,421.2566,834.0314,418.4293,961.2565,225.4711</marker>
+        <marker type="LOCATION" frame="23">961.2565,270.7068,896.2305,424.0838,825.5497,407.1204,961.2565,225.4711</marker>
+        <marker type="LOCATION" frame="25">958.4293,248.7958,879.267,415.6021,811.4136,401.466,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="27">958.4293,248.7958,856.6492,418.4293,771.8325,407.1204,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="29">952.775,231.8325,836.8586,409.9477,746.3875,398.6388,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="30">952.775,231.8325,822.7225,409.9477,746.3875,398.6388,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="31">952.775,231.8325,814.2408,415.6021,715.288,395.8115,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="34">952.775,231.8325,788.7958,401.466,616.3351,449.5288,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="36">952.775,226.178,757.6964,398.6388,585.2356,449.5288,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="38">952.775,226.178,735.0786,404.2932,525.864,460.8377,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="40">952.775,226.178,633.2985,455.1833,480.6283,463.665,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="43">952.775,226.178,596.5445,466.4922,424.0838,463.665,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="45">952.775,226.178,596.5445,466.4922,347.7487,472.1466,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="46">952.775,226.178,573.9267,463.665,347.7487,472.1466,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="47">952.775,226.178,573.9267,463.665,302.5131,480.6283,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="49">952.775,226.178,528.6911,474.9739,257.2775,474.9739,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="51">952.775,226.178,500.4189,477.8011,180.9424,477.8011,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="54">952.775,226.178,449.5288,486.2828,101.7801,477.8011,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="56">952.775,226.178,424.0838,480.6283,50.89005,480.6283,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="58">952.775,226.178,412.7749,480.6283,11.3089,469.3194,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="62">952.775,226.178,373.1937,474.9739,-2.827225,458.0105,947.1204,220.5236</marker>
+        <marker type="LOCATION" frame="66">961.2567,240.3142,373.1937,474.9739,-8.481677,483.4555,955.6021,226.178</marker>
+        <marker type="LOCATION" frame="70">961.2567,240.3142,279.8953,486.2828,5.65445,480.6283,0,412.7749</marker>
+        <marker type="LOCATION" frame="76">961.2567,240.3142,279.8953,486.2828,2.827225,480.6283,2.827225,370.3665</marker>
+        <marker type="LOCATION" frame="80">961.2567,240.3142,42.40838,540,0,548.4817,2.827225,370.3665</marker>
+        <marker type="LOCATION" frame="86">975.3927,248.7958,67.85342,588.0629,-2.827225,602.199,2.827225,322.3037</marker>
+        <marker type="LOCATION" frame="90">981.0471,254.4503,983.8745,257.2775,2.827225,650.2618,2.827225,322.3037</marker>
+        <marker type="LOCATION" frame="92">981.0471,254.4503,983.8745,257.2775,2.827225,687.0157,2.827225,322.3037</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="92" />
+      <text>A beam of light shines out from a lighthouse and sweeps across a shimmering blue ocean.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

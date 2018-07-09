@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.02.46.387-02.02.49.772" length="82">
+  <files>
+    <file>0009_Forrest_Gump_02.02.46.387-02.02.49.772.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_02.02.46.387-02.02.49.772.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607316,131.215,1917.757,817.5701</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_02.02.46.387-02.02.49.772.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1900267,131.7908,770.2059,816.4184</marker>
+        <marker type="LOCATION" frame="61">-0.1900267,131.7908,770.2059,816.4184</marker>
+        <marker type="LOCATION" frame="62">384.9129,131.7908,855.7855,816.4184</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Jenny" filename="0009_Forrest_Gump_02.02.46.387-02.02.49.772.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">540.6658,154.0412,818.1298,794.1693</marker>
+        <marker type="LOCATION" frame="61">540.6658,154.0412,744.5323,794.1693</marker>
+        <marker type="LOCATION" frame="62">1254.39,203.6767,486.0868,744.5342</marker>
+      </markers>
+    </object>
+    <object id="o5" name="boy" filename="0009_Forrest_Gump_02.02.46.387-02.02.49.772.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1675.436,669.2234,157.4655,258.4469</marker>
+        <marker type="DELETE" frame="62" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="81" />
+      <text>Jenny turns and looks at Forrest Jr. in the other room.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_02.02.21.931-02.02.28.578/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.02.21.931-02.02.28.578/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_02.02.21.931-02.02.28.578/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.02.21.931-02.02.28.578/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="POINT_AT(X,Y)" />
+  </predicates>
+</session>

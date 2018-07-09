@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.29.24.334-00.29.25.215" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.29.24.334-00.29.25.215.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="stadium" filename="0009_Forrest_Gump_00.29.24.334-00.29.25.215.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-5.393386E-06,132.813,1917.172,811.5464</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.29.24.334-00.29.25.215.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">302.5626,172.4006,1153.696,771.9587</marker>
+        <marker type="LOCATION" frame="47">155.5228,132.813,1300.736,811.5464</marker>
+      </markers>
+    </object>
+    <object id="o3" name="defending player" filename="0009_Forrest_Gump_00.29.24.334-00.29.25.215.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">11.31075,288.3358,738.0265,656.0236</marker>
+        <marker type="LOCATION" frame="47">-2.827693,254.4035,633.402,689.9558</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.29.21.135-00.29.24.292/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.29.21.135-00.29.24.292/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

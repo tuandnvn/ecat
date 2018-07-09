@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.13.25.880-01.13.28.057" length="53">
+  <files>
+    <file>0051_Men_in_black_01.13.25.880-01.13.28.057.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Kay" filename="0051_Men_in_black_01.13.25.880-01.13.28.057.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">964.3936,117.1167,553.5927,507.46</marker>
+        <marker type="LOCATION" frame="22">964.3936,103.9359,553.5927,520.6407</marker>
+        <marker type="DELETE" frame="24" />
+        <marker type="LOCATION" frame="48">964.3936,103.9359,553.5927,520.6407</marker>
+        <marker type="LOCATION" frame="52">953.4099,16.06407,564.5764,547.0023</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jay" filename="0051_Men_in_black_01.13.25.880-01.13.28.057.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">522.8375,-12.49428,373.4554,202.1053</marker>
+        <marker type="LOCATION" frame="8">487.6888,-12.49428,408.6043,525.0344</marker>
+        <marker type="LOCATION" frame="16">487.6889,73.18078,408.6044,439.3595</marker>
+        <marker type="LOCATION" frame="22">428.3754,114.9199,467.918,397.6202</marker>
+        <marker type="DELETE" frame="24" />
+        <marker type="LOCATION" frame="48">557.9863,31.44165,404.2108,481.0989</marker>
+      </markers>
+    </object>
+    <object id="o3" name="air shaft" filename="0051_Men_in_black_01.13.25.880-01.13.28.057.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="24">283.3867,229.1533,1159.909,621.6937</marker>
+        <marker type="LOCATION" frame="47">283.3867,229.1533,1159.909,621.6937</marker>
+        <marker type="DELETE" frame="48" />
+      </markers>
+    </object>
+    <object id="o4" name="House" filename="0051_Men_in_black_01.13.25.880-01.13.28.057.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay and Kay duck into the air shaft and look up -- too far to climb, and the walls are smooth anyway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.13.23.246-01.13.25.692/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

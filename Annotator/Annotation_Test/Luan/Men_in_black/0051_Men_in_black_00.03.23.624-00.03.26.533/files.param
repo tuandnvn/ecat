@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.23.624-00.03.26.533" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.23.624-00.03.26.533.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="driver" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">222.9678,65.03226,843.0425,1009.372</marker>
+        <marker type="LOCATION" frame="16">272.5161,111.4839,860.9033,962.9203</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="69" />
+      <text>He speaks in Spanish, which is subtitled.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

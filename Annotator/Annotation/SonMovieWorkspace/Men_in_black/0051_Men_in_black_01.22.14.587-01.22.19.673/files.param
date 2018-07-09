@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.22.14.587-01.22.19.673" length="122">
+  <files>
+    <file>0051_Men_in_black_01.22.14.587-01.22.19.673.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Park" filename="0051_Men_in_black_01.22.14.587-01.22.19.673.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5145563,18.52489,1918.696,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Edgar" filename="0051_Men_in_black_01.22.14.587-01.22.19.673.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">350.9091,20.00001,1565.454,1038.182</marker>
+        <marker type="LOCATION" frame="10">278.1818,20.00001,1640,1038.182</marker>
+        <marker type="LOCATION" frame="15">165.4546,20.00001,1592.727,1038.182</marker>
+        <marker type="LOCATION" frame="26">165.4546,20.00001,1707.273,1038.182</marker>
+        <marker type="LOCATION" frame="36">120,18.18183,1798.181,1040</marker>
+        <marker type="LOCATION" frame="64">3.636382,23.63638,1907.273,1029.091</marker>
+        <marker type="LOCATION" frame="69">3.636382,23.63638,1907.273,1029.091</marker>
+        <marker type="LOCATION" frame="70">201.8182,190.9091,1716.364,869.0909</marker>
+        <marker type="LOCATION" frame="86">25.45456,238.1818,1892.727,821.8177</marker>
+        <marker type="LOCATION" frame="89">1.859665E-05,280,1918.182,779.9995</marker>
+        <marker type="LOCATION" frame="98">1.859665E-05,280,1918.182,779.9995</marker>
+        <marker type="LOCATION" frame="99">572.7273,301.8182,1229.091,758.1813</marker>
+        <marker type="LOCATION" frame="115">598.1818,18.18183,1178.182,1041.818</marker>
+        <marker type="LOCATION" frame="121">440,18.18183,1420,1041.818</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="121" />
+      <text>His giant pincers RIP free of the rotting skin.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.22.10.669-01.22.14.116/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.22.10.669-01.22.14.116/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

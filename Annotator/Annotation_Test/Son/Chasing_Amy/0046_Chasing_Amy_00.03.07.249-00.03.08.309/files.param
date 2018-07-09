@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.07.249-00.03.08.309" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="man 1" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">306.2069,30.34482,1605.517,1028.965</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+    </object>
+    <object id="o2" name="man 2" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="9">13.7931,27.58618,1900.69,1023.448</marker>
+      </markers>
+    </object>
+    <object id="o3" name="hand 1" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="11">1059.31,987.5861,253.7931,63.44836</marker>
+        <marker type="LOCATION" frame="14">1059.31,943.4482,253.7931,107.5859</marker>
+        <marker type="LOCATION" frame="19">1200,973.793,209.6545,81.37846</marker>
+        <marker type="DELETE" frame="20" />
+        <marker type="LOCATION" frame="47">408.2762,598.6207,686.8962,449.6543</marker>
+      </markers>
+    </object>
+    <object id="o4" name="hand 2" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="12">1362.759,951.724,306.2069,99.31042</marker>
+        <marker type="LOCATION" frame="14">1362.759,794.4827,507.5862,256.5509</marker>
+        <marker type="LOCATION" frame="19">1542.069,857.931,380.6896,193.1024</marker>
+        <marker type="LOCATION" frame="22">1790.345,937.931,132.4119,113.1015</marker>
+        <marker type="DELETE" frame="24" />
+        <marker type="LOCATION" frame="47">1467.586,477.2413,455.1717,573.7916</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Across from the barely-managing- to- stand Fan.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="11" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="12" arguments="2" ids="o4,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

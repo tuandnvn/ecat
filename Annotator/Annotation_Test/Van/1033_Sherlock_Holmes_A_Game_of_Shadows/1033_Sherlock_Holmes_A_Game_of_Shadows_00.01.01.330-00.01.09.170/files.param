@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o5" name="smoke" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">701.309,466.4922,667.2251,243.1415</marker>
+        <marker type="LOCATION" frame="26">93.45552,147.0157,1741.571,661.5707</marker>
+        <marker type="LOCATION" frame="187">0.1570927,147.0157,1908.377,791.623</marker>
+      </markers>
+    </object>
+    <object id="o4" name="cathedral" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.01.330-00.01.09.170.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-5.497371,138.5341,1922.513,802.9319</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="187" />
+      <text />
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.08.45.627-02.08.53.994" length="201">
+  <files>
+    <file>0009_Forrest_Gump_02.08.45.627-02.08.53.994.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Highway" filename="0009_Forrest_Gump_02.08.45.627-02.08.53.994.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607306,131.215,1917.328,814.8151</marker>
+        <marker type="DELETE" frame="191" />
+      </markers>
+    </object>
+    <object id="o2" name="desert" filename="0009_Forrest_Gump_02.08.45.627-02.08.53.994.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,535.748,1870.866,410.3149</marker>
+        <marker type="LOCATION" frame="14">-0.9448471,535.748,1917.638,410.3149</marker>
+        <marker type="LOCATION" frame="82">-0.9448471,680.3149,1917.638,265.748</marker>
+        <marker type="LOCATION" frame="190">-0.9448471,763.2283,1917.638,182.8346</marker>
+        <marker type="DELETE" frame="191" />
+      </markers>
+    </object>
+    <object id="o5" name="Room" filename="0009_Forrest_Gump_02.08.45.627-02.08.53.994.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="191">-0.9448471,131.811,1917.638,816.3779</marker>
+      </markers>
+    </object>
+    <object id="o4" name="The morning" filename="0009_Forrest_Gump_02.08.45.627-02.08.53.994.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,131.811,1917.638,340.1575</marker>
+        <marker type="DELETE" frame="191" />
+      </markers>
+    </object>
+    <object id="o6" name="Jenny" filename="0009_Forrest_Gump_02.08.45.627-02.08.53.994.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="191">983.3859,669.6851,933.3071,278.5039</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Window" filename="0009_Forrest_Gump_02.08.45.627-02.08.53.994.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="191">1264.016,131.811,652.6771,816.3779</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="191" />
+      <text>The morning light casts an orange glow over the desert.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.08.40.680-02.08.45.627/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.08.40.680-02.08.45.627/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_02.08.40.680-02.08.45.627/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="191" arguments="1" ids="o6" q="True" type="LIE(X)" />
+  </predicates>
+</session>

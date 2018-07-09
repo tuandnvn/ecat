@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o2" name="skulls" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">305.8594,132.8906,1331.016,810</marker>
+        <marker type="LOCATION" frame="8">305.8594,132.8906,1293.047,810</marker>
+        <marker type="LOCATION" frame="20">305.8594,132.8906,1240.313,810</marker>
+        <marker type="LOCATION" frame="24">305.8594,132.8906,1240.313,740.3906</marker>
+        <marker type="LOCATION" frame="32">383.9063,132.8906,1162.266,575.8594</marker>
+        <marker type="LOCATION" frame="38">504.1406,132.8906,1042.031,398.6719</marker>
+        <marker type="LOCATION" frame="45">677.1094,138.1641,997.7344,273.1641</marker>
+        <marker type="LOCATION" frame="50">932.3438,139.7461,929.1797,193.5352</marker>
+        <marker type="LOCATION" frame="55">1231.875,143.7012,683.9648,155.8301</marker>
+        <marker type="LOCATION" frame="58">1362.656,143.7012,553.1836,132.627</marker>
+        <marker type="LOCATION" frame="60">1440.703,143.7012,475.1367,115.752</marker>
+        <marker type="DELETE" frame="65" />
+      </markers>
+    </object>
+    <object id="o7" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.28.159-00.00.31.099.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">879.6094,847.9688,139.2188,82.26563</marker>
+        <marker type="LOCATION" frame="13">862.7344,744.6094,168.75,140.2734</marker>
+        <marker type="LOCATION" frame="21">810,645.4688,221.4844,263.6719</marker>
+        <marker type="LOCATION" frame="28">778.3594,508.8867,265.7813,349.1016</marker>
+        <marker type="LOCATION" frame="32">761.4844,407.1094,318.5156,385.4883</marker>
+        <marker type="LOCATION" frame="40">609.6094,234.1406,493.5938,495.7031</marker>
+        <marker type="LOCATION" frame="48">504.1406,145.5469,812.1094,525.2344</marker>
+        <marker type="LOCATION" frame="59">504.1406,329.0625,1212.891,341.7188</marker>
+        <marker type="LOCATION" frame="65">580.0781,274.8214,1305.1,473.7054</marker>
+        <marker type="LOCATION" frame="66">601.1719,265.7813,1312.031,495.7031</marker>
+        <marker type="LOCATION" frame="70">628.5938,457.7344,1284.609,303.75</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="70" />
+      <text>From the grinning mouth of a skull emerges the head of a large snake.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

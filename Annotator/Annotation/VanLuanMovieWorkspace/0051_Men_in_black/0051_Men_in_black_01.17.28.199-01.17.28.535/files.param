@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.28.199-01.17.28.535" length="48">
+  <files>
+    <file>0051_Men_in_black_01.17.28.199-01.17.28.535.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="car" filename="0051_Men_in_black_01.17.28.199-01.17.28.535.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">606.3158,5.08009,1146.728,970.984</marker>
+        <marker type="LOCATION" frame="8">606.3158,46.81922,1179.68,929.2454</marker>
+        <marker type="LOCATION" frame="12">528.3295,143.4783,1179.68,760.0919</marker>
+        <marker type="LOCATION" frame="16">2.196792,7.276886,1893.639,731.5332</marker>
+        <marker type="LOCATION" frame="24">2.196792,7.276886,1893.639,885.309</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_01.17.28.199-01.17.28.535.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>It swerves up, onto the wall and hangs there, racing by the traffic below.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.17.27.554-01.17.28.025/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.17.27.554-01.17.28.025/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

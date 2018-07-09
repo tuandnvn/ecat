@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.03.02.563-01.03.12.526" length="239">
+  <files>
+    <file>0009_Forrest_Gump_01.03.02.563-01.03.12.526.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="TV" filename="0009_Forrest_Gump_01.03.02.563-01.03.12.526.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.196768E-05,134.2449,1915.812,815.6873</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.03.02.563-01.03.12.526.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">301.1765,289.0193,573.0712,661.961</marker>
+        <marker type="LOCATION" frame="39">330.4575,305.7513,639.999,645.142</marker>
+        <marker type="DELETE" frame="40" />
+        <marker type="LOCATION" frame="82">652.549,226.2745,287.5798,721.8275</marker>
+        <marker type="LOCATION" frame="123">698.5621,176.0784,359.1931,771.9495</marker>
+        <marker type="LOCATION" frame="162">874.2484,171.8954,295.3965,776.063</marker>
+        <marker type="LOCATION" frame="199">865.8823,146.7974,309.5425,802.3745</marker>
+        <marker type="LOCATION" frame="217">874.2484,141.4109,312.9192,808.5237</marker>
+        <marker type="LOCATION" frame="218">2.824033,136.1521,695.738,807.6948</marker>
+        <marker type="LOCATION" frame="238">39.73891,159.346,650.4572,791.1099</marker>
+      </markers>
+    </object>
+    <object id="o3" name="President" filename="0009_Forrest_Gump_01.03.02.563-01.03.12.526.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">401.5685,163.5294,1246.534,786.4049</marker>
+        <marker type="LOCATION" frame="39">405.7516,158.731,1260.172,791.2022</marker>
+        <marker type="DELETE" frame="40" />
+        <marker type="LOCATION" frame="82">1066.666,205.3593,384.8368,744.5697</marker>
+        <marker type="LOCATION" frame="123">1045.751,167.7124,384.837,782.2151</marker>
+        <marker type="LOCATION" frame="162">1167.058,168.8904,363.9226,781.0374</marker>
+        <marker type="LOCATION" frame="199">1175.425,152.0236,347.1895,797.9041</marker>
+        <marker type="LOCATION" frame="217">1187.974,143.818,338.8228,806.1099</marker>
+        <marker type="LOCATION" frame="218">506.1435,134.2483,1254.901,815.6776</marker>
+        <marker type="LOCATION" frame="238">514.5098,134.2475,1242.353,815.683</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Mrs Gump" filename="0009_Forrest_Gump_01.03.02.563-01.03.12.526.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="40">271.8954,142.6138,865.8813,803.137</marker>
+        <marker type="LOCATION" frame="81">322.0914,142.6122,903.5295,803.1371</marker>
+        <marker type="DELETE" frame="82" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Color footage revealing President Johnson as he places the award around Forrest's neck and shakes hands.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.02.58.728-01.03.02.345/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.02.58.728-01.03.02.345/o10" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.02.58.728-01.03.02.345/o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="40" arguments="1" ids="o4" q="True" type="SIT(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.30.50.279-01.31.00.196" length="238">
+  <files>
+    <file>0009_Forrest_Gump_01.30.50.279-01.31.00.196.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.30.50.279-01.31.00.196.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.057365E-05,130.1124,647.1909,815.4596</marker>
+        <marker type="LOCATION" frame="29">-2.057365E-05,130.1124,647.1909,815.4596</marker>
+        <marker type="LOCATION" frame="30">-2.057365E-05,130.1124,1911.371,815.4596</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.30.50.279-01.31.00.196.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.057365E-05,133.3483,504.809,678.4719</marker>
+        <marker type="LOCATION" frame="14">-2.057365E-05,133.3483,569.5281,678.4719</marker>
+        <marker type="LOCATION" frame="19">-2.057365E-05,133.3483,651.5056,678.4719</marker>
+        <marker type="LOCATION" frame="23">-2.057365E-05,133.3483,979.4157,678.4719</marker>
+        <marker type="LOCATION" frame="25">-2.057365E-05,133.3483,716.2247,678.4719</marker>
+        <marker type="LOCATION" frame="29">-2.057365E-05,133.3483,569.5281,678.4719</marker>
+        <marker type="LOCATION" frame="30">-2.057365E-05,130.1124,1169.258,815.4606</marker>
+        <marker type="LOCATION" frame="49">36.10913,130.1124,1081.374,815.4604</marker>
+        <marker type="LOCATION" frame="70">76.01924,130.1124,1136.385,815.4606</marker>
+        <marker type="LOCATION" frame="114">159.6404,130.1124,1134.741,815.4606</marker>
+        <marker type="LOCATION" frame="135">114.3371,130.1124,1244.764,815.4604</marker>
+        <marker type="LOCATION" frame="149">84.13481,130.1124,1244.764,815.4604</marker>
+        <marker type="LOCATION" frame="169">40.98874,130.1124,1227.506,815.4604</marker>
+        <marker type="LOCATION" frame="188">-2.057365E-05,130.1124,1044.135,815.4606</marker>
+        <marker type="LOCATION" frame="189">522.0674,130.1124,522.0661,729.1685</marker>
+        <marker type="LOCATION" frame="198">483.2359,130.1124,487.5504,742.1124</marker>
+        <marker type="LOCATION" frame="210">480.539,130.1124,516.1351,815.4606</marker>
+        <marker type="LOCATION" frame="225">450.8759,130.1124,550.1129,815.4606</marker>
+        <marker type="LOCATION" frame="237">427.1458,130.1124,629.9328,815.4606</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0009_Forrest_Gump_01.30.50.279-01.31.00.196.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">414.2022,130.1124,1497.158,815.4606</marker>
+        <marker type="LOCATION" frame="29">435.7752,130.1124,1475.585,815.4606</marker>
+        <marker type="DELETE" frame="30" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>She slips over the edge, regains her balance, turns and looks back at the intersection below, and begins to get down from the edge.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.30.36.652-01.30.40.011/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.30.36.652-01.30.40.011/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.30.36.652-01.30.40.011/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="205" arguments="1" ids="o2" q="True" type="CROUCH(X)" />
+  </predicates>
+</session>

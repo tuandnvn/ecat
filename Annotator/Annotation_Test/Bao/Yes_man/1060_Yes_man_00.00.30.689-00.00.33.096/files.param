@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.30.689-00.00.33.096" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.30.689-00.00.33.096.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="phone" filename="1060_Yes_man_00.00.30.689-00.00.33.096.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1210.557,162.7566,965.6305,903.1671,1379.472,928.5044,1562.463,269.7361</marker>
+        <marker type="LOCATION" frame="13">1447.038,632.9032,1427.331,821.5249,1556.833,804.6334,1590.616,644.1642</marker>
+        <marker type="LOCATION" frame="42">1427.331,570.9677,1413.255,711.7302,1542.757,725.8065,1542.757,590.6745</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+    </object>
+    <object id="o2" name="man's hand" filename="1060_Yes_man_00.00.30.689-00.00.33.096.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">616.5396,233.1378,1010.674,703.8123</marker>
+        <marker type="LOCATION" frame="13">1387.918,787.7419,239.2962,149.2082</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="1060_Yes_man_00.00.30.689-00.00.33.096.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="13">506.7449,131.7889,841.7595,802.346</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="57" />
+      <text>A brown-haired guy in his 40s, Carl, rejects a call from an unknown caller.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

@@ -12,43 +12,43 @@ namespace Annotator
 {
     public partial class ProjectInfo : Form
     {
-        public ProjectInfo(Main frm1)
+        private Main main = null;
+
+        public ProjectInfo(Main main)
         {
             InitializeComponent();
-            this.frm1 = frm1;
-            this.ActiveControl = this.textBox1;
+            this.main = main;
+            this.ActiveControl = this.projectNameTxtBox;
         }
 
-        private Main frm1 = null;
-
-        private void button2_Click(object sender, EventArgs e)
+        private void cancelBtn_Click(object sender, EventArgs e)
         {
-            frm1.setNewProject(false);
+            main.setNewProject(false);
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void okBtn_Click(object sender, EventArgs e)
         {
             if (parseProjectName())
             {
                 //Check if such project already exists in workspace:
                 bool exists = false;
-                for (int i = 0; i < frm1.getWorkspaceProjectSize(); i++)
+                for (int i = 0; i < main.getWorkspaceProjectSize(); i++)
                 {
                     //MessageBox.Show(frm1.getWorkspaceProjectName(i) + ", textBox1.Text = " + textBox1.Text + frm1.getWorkspaceProjectName(i).Contains(textBox1.Text));
-                    if (frm1.getWorkspaceProjectName(i).Contains(textBox1.Text))
+                    if (main.getWorkspaceProjectName(i).Contains(projectNameTxtBox.Text))
                     {
                         exists = true;
                     }
                 }
                 if(exists){
-                    label2.Text = "Project already exists!";
-                    label2.Visible = true;
+                    infoLbl.Text = "Project already exists!";
+                    infoLbl.Visible = true;
                     return;
                 }
 
-                frm1.addNewProjectToWorkspace(textBox1.Text);
-                frm1.setNewProject(false);
+                main.addNewProjectToWorkspace(projectNameTxtBox.Text);
+                main.setNewProject(false);
                 this.Close();
             }
            
@@ -56,26 +56,26 @@ namespace Annotator
         //Parse project name:
         private bool parseProjectName()
         {
-            if(label2.Visible){
+            if(infoLbl.Visible){
                 return false;
             }
 
             return true;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void projectNameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text != null && textBox1.Text.Trim().Length >= 3)
+            if (projectNameTxtBox.Text != null && projectNameTxtBox.Text.Trim().Length >= 3)
             {
-                label2.Visible = false;
+                infoLbl.Visible = false;
             }
             else
-                label2.Visible = true;
+                infoLbl.Visible = true;
         }
 
         private void ProjectInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frm1.setNewProject(false);
+            main.setNewProject(false);
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.38.26.828-01.38.32.041" length="125">
+  <files>
+    <file>0009_Forrest_Gump_01.38.26.828-01.38.32.041.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="TV" filename="0009_Forrest_Gump_01.38.26.828-01.38.32.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.276141,120.9354,1907.172,825.3007</marker>
+      </markers>
+    </object>
+    <object id="o2" name="President" filename="0009_Forrest_Gump_01.38.26.828-01.38.32.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">812.4722,257.7728,209.5323,188.1514</marker>
+        <marker type="LOCATION" frame="15">953.5858,249.2205,200.9799,188.0579</marker>
+        <marker type="LOCATION" frame="24">867.7568,324.3697,299.9428,251.6615</marker>
+        <marker type="LOCATION" frame="29">577.2828,607.9253,354.9221,286.9968</marker>
+        <marker type="LOCATION" frame="33">584.7064,613.3019,420.1934,289.5646</marker>
+        <marker type="LOCATION" frame="43">957.8618,304.8107,437.6566,295.9852</marker>
+        <marker type="LOCATION" frame="52">1336.303,206.4588,357.0602,205.2561</marker>
+        <marker type="LOCATION" frame="56">1663.43,176.5256,242.6723,205.2561</marker>
+        <marker type="LOCATION" frame="57">1791.715,176.5256,114.3865,205.2561</marker>
+        <marker type="DELETE" frame="58" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The television shows an assassination attempt on President Gerald Ford.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>

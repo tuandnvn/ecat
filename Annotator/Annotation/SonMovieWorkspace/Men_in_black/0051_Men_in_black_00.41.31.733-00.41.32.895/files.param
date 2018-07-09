@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.41.31.733-00.41.32.895" length="48">
+  <files>
+    <file>0051_Men_in_black_00.41.31.733-00.41.32.895.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Man" filename="0051_Men_in_black_00.41.31.733-00.41.32.895.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">596.5779,429.1255,318.2509,628.289</marker>
+        <marker type="LOCATION" frame="10">814.2205,410.6464,412.6996,646.7681</marker>
+        <marker type="LOCATION" frame="22">933.308,416.8061,338.7833,640.6084</marker>
+        <marker type="LOCATION" frame="47">937.4144,414.7528,305.9315,642.6616</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Restaurant" filename="0051_Men_in_black_00.41.31.733-00.41.32.895.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9125566,16.42585,1917.719,1040.989</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Man 1" filename="0051_Men_in_black_00.41.31.733-00.41.32.895.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1187.909,30.79848,470.1901,1024.563</marker>
+        <marker type="LOCATION" frame="10">1058.555,82.12927,531.787,973.2319</marker>
+        <marker type="LOCATION" frame="22">943.5742,123.1939,636.5019,932.1673</marker>
+        <marker type="LOCATION" frame="47">929.2015,139.6198,665.2471,915.7415</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Rosenberg and the Arquillian stare at each other for a long moment -- -- and then embrace each other.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.41.31.238-00.41.31.556/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.41.31.238-00.41.31.556/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.41.31.238-00.41.31.556/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="22" arguments="1" ids="o1" q="True" type="STAND(X)" />
+  </predicates>
+</session>

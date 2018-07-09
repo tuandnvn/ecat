@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.05.802-00.00.14.617" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.05.802-00.00.14.617.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="shield" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.05.802-00.00.14.617.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">751.9922,352.793,419.7656,361.7578</marker>
+        <marker type="LOCATION" frame="90">670.7813,284.7656,575.8594,493.5938</marker>
+        <marker type="LOCATION" frame="149">607.5,202.5,717.1875,647.5781</marker>
+        <marker type="LOCATION" frame="193">483.0469,137.1094,951.3281,810</marker>
+        <marker type="LOCATION" frame="211">398.6719,137.1094,1103.203,810</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="211" />
+      <text>A metallic shield with the letters WB moves slowly forward out of darkness.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

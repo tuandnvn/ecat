@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.39.26.849-00.39.27.379" length="48">
+  <files>
+    <file>0051_Men_in_black_00.39.26.849-00.39.27.379.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.39.26.849-00.39.27.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1138411,20.49336,1916.129,1036.964</marker>
+      </markers>
+    </object>
+    <object id="o2" name="people" filename="0051_Men_in_black_00.39.26.849-00.39.27.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">44.97215,954.9905,1711.197,94.27133</marker>
+        <marker type="LOCATION" frame="8">44.97247,998.0266,1711.197,51.23653</marker>
+        <marker type="DELETE" frame="11" />
+      </markers>
+    </object>
+    <object id="o3" name="Zed" filename="0051_Men_in_black_00.39.26.849-00.39.27.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="19">1153.664,299.203,92.21799,71.7272</marker>
+        <marker type="LOCATION" frame="21">1153.664,299.203,172.1421,131.1575</marker>
+        <marker type="LOCATION" frame="27">1096.281,344.3676,226.2187,409.7881</marker>
+        <marker type="LOCATION" frame="34">1061.442,397.0588,257.1932,457.5143</marker>
+        <marker type="LOCATION" frame="47">1059.393,436.5085,258.2173,452.9033</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Jay" filename="0051_Men_in_black_00.39.26.849-00.39.27.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="18">254.0038,254.1179,211.0822,77.87448</marker>
+        <marker type="LOCATION" frame="19">241.7078,274.6111,247.9697,122.9601</marker>
+        <marker type="LOCATION" frame="21">241.7098,274.6111,348.3851,213.1308</marker>
+        <marker type="LOCATION" frame="27">247.8558,350.4364,463.1504,409.8674</marker>
+        <marker type="LOCATION" frame="34">251.9545,399.6205,497.9898,473.397</marker>
+        <marker type="LOCATION" frame="47">251.9569,452.904,483.6409,463.1491</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Kay" filename="0051_Men_in_black_00.39.26.849-00.39.27.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">608.5389,379.1271,71.72682,43.03606</marker>
+        <marker type="LOCATION" frame="21">610.5883,399.6205,81.97375,75.82552</marker>
+        <marker type="LOCATION" frame="27">585.9963,439.3465,272.5616,320.9572</marker>
+        <marker type="LOCATION" frame="34">557.3055,485.6931,295.1065,368.8813</marker>
+        <marker type="LOCATION" frame="47">547.0587,507.2106,301.2525,380.1519</marker>
+      </markers>
+    </object>
+    <object id="o6" name="desk" filename="0051_Men_in_black_00.39.26.849-00.39.27.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="21">973.3207,424.2126,582.0115,45.08536</marker>
+        <marker type="LOCATION" frame="22">891.3473,433.6396,690.6262,84.43273</marker>
+        <marker type="LOCATION" frame="24">891.3473,452.4934,682.4289,163.1274</marker>
+        <marker type="LOCATION" frame="26">885.1993,471.3473,666.0347,241.822</marker>
+        <marker type="LOCATION" frame="30">886.9933,494.1461,674.4878,327.6376</marker>
+        <marker type="LOCATION" frame="34">888.7859,516.945,682.941,341.7267</marker>
+        <marker type="LOCATION" frame="47">887.2487,579.9621,649.6398,313.5484</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="19" endFrame="47" />
+      <text>Zed's office is a circular, windowed room elevated above the main floor of MIB headquarters.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.39.22.665-00.39.25.079/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.39.22.665-00.39.25.079/o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="18" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="19" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="19" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="21" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="21" arguments="2" ids="o5,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="21" arguments="2" ids="o3,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

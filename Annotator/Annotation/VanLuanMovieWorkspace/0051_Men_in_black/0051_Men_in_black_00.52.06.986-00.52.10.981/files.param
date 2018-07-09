@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.52.06.986-00.52.10.981" length="96">
+  <files>
+    <file>0051_Men_in_black_00.52.06.986-00.52.10.981.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_00.52.06.986-00.52.10.981.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">729.3365,259.9085,232.8603,795.241</marker>
+        <marker type="LOCATION" frame="32">659.0391,198.3982,232.8603,858.9482</marker>
+        <marker type="LOCATION" frame="46">459.1304,174.2334,296.5675,888.6052</marker>
+        <marker type="LOCATION" frame="58">307.5515,143.4783,286.6819,916.6143</marker>
+        <marker type="LOCATION" frame="68">235.0572,136.8879,265.8124,923.205</marker>
+        <marker type="LOCATION" frame="76">226.27,117.1167,274.5996,942.9765</marker>
+        <marker type="LOCATION" frame="86">226.27,125.9039,342.7003,724.9429</marker>
+        <marker type="LOCATION" frame="94">257.0252,145.6751,351.4875,705.1719</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dr" filename="0051_Men_in_black_00.52.06.986-00.52.10.981.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">534.9198,246.7277,222.9749,810.6181</marker>
+        <marker type="LOCATION" frame="32">516.2471,174.2334,237.2542,883.1131</marker>
+        <marker type="LOCATION" frame="46">500.8696,132.4943,230.6636,924.8525</marker>
+        <marker type="LOCATION" frame="58">500.8696,112.7231,243.8444,944.6238</marker>
+        <marker type="LOCATION" frame="68">640.3661,114.9199,251.5332,933.6395</marker>
+        <marker type="LOCATION" frame="76">742.5172,136.8879,283.3874,911.6721</marker>
+        <marker type="LOCATION" frame="86">972.0823,163.2494,273.5013,465.7208</marker>
+        <marker type="LOCATION" frame="94">1146.178,187.4142,363.0206,426.1786</marker>
+      </markers>
+    </object>
+    <object id="o3" name="alien1" filename="0051_Men_in_black_00.52.06.986-00.52.10.981.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="62">1632.22,396.1099,278.9931,560.1831</marker>
+        <marker type="LOCATION" frame="66">1315.881,396.11,595.3329,560.1832</marker>
+        <marker type="LOCATION" frame="72">960,396.11,951.215,593.1349</marker>
+        <marker type="LOCATION" frame="82">623.8903,455.4233,1287.326,533.822</marker>
+        <marker type="LOCATION" frame="94">465.7208,503.7529,1445.496,485.4926</marker>
+        <marker type="LOCATION" frame="95">452.5402,516.9337,1458.678,472.3118</marker>
+      </markers>
+    </object>
+    <object id="o6" name="House" filename="0051_Men_in_black_00.52.06.986-00.52.10.981.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jay and Laurel cross the room, to where ROSENBERG's corpse lies out on another gurney.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_00.52.05.078-00.52.06.809/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.52.05.078-00.52.06.809/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.52.05.078-00.52.06.809/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="62" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="62" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="62" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="72" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="89" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.23.12.941-01.23.15.675" length="66">
+  <files>
+    <file>0051_Men_in_black_01.23.12.941-01.23.15.675.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.23.12.941-01.23.15.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.889556,3.31286,1199.264,1060.123</marker>
+        <marker type="LOCATION" frame="8">5.889556,3.31286,1159.509,1060.123</marker>
+        <marker type="LOCATION" frame="14">5.889556,3.31286,1560.368,1060.123</marker>
+        <marker type="LOCATION" frame="18">5.889556,3.31286,1769.08,1060.123</marker>
+        <marker type="DELETE" frame="32" />
+        <marker type="LOCATION" frame="43">5.889556,3.312861,1714.02,1060.123</marker>
+        <marker type="LOCATION" frame="50">5.889556,3.312861,1530.762,1060.123</marker>
+        <marker type="LOCATION" frame="60">5.889556,3.312861,1205.785,1060.123</marker>
+        <marker type="LOCATION" frame="62">5.889556,3.312861,1225.332,1060.123</marker>
+        <marker type="LOCATION" frame="65">5.889556,3.312861,1205.785,1060.123</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.23.12.941-01.23.15.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1092.515,192.1472,460.4908,867.9755</marker>
+        <marker type="LOCATION" frame="8">704.908,543.3129,848.0982,516.8101</marker>
+        <marker type="LOCATION" frame="14">704.908,781.8405,848.0982,278.2828</marker>
+        <marker type="DELETE" frame="15" />
+        <marker type="LOCATION" frame="43">864.7059,671.9457,542.4438,388.1792</marker>
+        <marker type="LOCATION" frame="44">864.7059,671.9457,542.4438,388.1792</marker>
+        <marker type="LOCATION" frame="47">864.706,596.1991,542.4438,463.9264</marker>
+        <marker type="LOCATION" frame="50">864.706,464.2534,542.4438,595.8727</marker>
+        <marker type="LOCATION" frame="55">864.706,320.0905,703.7104,740.0363</marker>
+        <marker type="LOCATION" frame="57">864.706,246.7873,703.7104,781.9006</marker>
+        <marker type="LOCATION" frame="60">864.706,163.7104,703.7104,373.8464</marker>
+        <marker type="LOCATION" frame="62">864.706,34.20815,703.7104,474.0272</marker>
+        <marker type="LOCATION" frame="65">864.706,7.330317,632.8506,500.9052</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Street" filename="0051_Men_in_black_01.23.12.941-01.23.15.675.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The Bug reacts -- cranks open its massive jaws with a deafening HISS, lunges forward, and sucks Kay into his mouth.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.23.07.886-01.23.12.779/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.23.07.886-01.23.12.779/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.23.07.886-01.23.12.779/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

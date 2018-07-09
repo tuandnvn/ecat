@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.48.11.371-00.48.15.352" length="96">
+  <files>
+    <file>0009_Forrest_Gump_00.48.11.371-00.48.15.352.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Jungle" filename="0009_Forrest_Gump_00.48.11.371-00.48.15.352.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.019142,132.6316,1910.239,811.2919</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Some solider" filename="0009_Forrest_Gump_00.48.11.371-00.48.15.352.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="6">1397.512,134.3541,461.6268,316.9378</marker>
+        <marker type="LOCATION" frame="34">846.3158,132.6618,759.6172,688.965</marker>
+        <marker type="LOCATION" frame="63">307.177,130.9091,813.0143,695.8852</marker>
+        <marker type="LOCATION" frame="85">10.90909,130.909,647.6555,513.3015</marker>
+        <marker type="LOCATION" frame="95">10.90909,130.909,444.4019,297.9905</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_00.48.11.371-00.48.15.352.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="81">3.411188,439.2345,300.3209,308.3253</marker>
+        <marker type="LOCATION" frame="85">5.741631,396.1722,358.2775,378.5168</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Tent" filename="0009_Forrest_Gump_00.48.11.371-00.48.15.352.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="41">4.019142,391.0048,382.3923,411.6747</marker>
+        <marker type="LOCATION" frame="95">4.019142,213.5885,818.1818,589.0909</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="95" />
+      <text>ANOTHER NIGHT - Some soldiers patrol the area.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.47.10.519-00.47.18.371/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.47.10.519-00.47.18.371/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="6" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="81" arguments="1" ids="o3" q="True" type="LIE(X)" />
+    <predicate frame="81" arguments="2" ids="o3,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

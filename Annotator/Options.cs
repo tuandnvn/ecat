@@ -51,7 +51,10 @@ namespace Annotator
         internal Dictionary<string, InterpolationMode> interpolationModes;
 
         [DataMember]
-        internal List<string> objectLinkTypes;
+        internal List<Predicate> objectPredicates;
+
+        [DataMember]
+        internal List<PredicateConstraint> predicateConstraints;
 
         [DataMember]
         internal bool showMarkerMode = true;
@@ -81,8 +84,11 @@ namespace Annotator
                     if (singletonOptions.interpolationModes == null)
                         singletonOptions.interpolationModes = tempOptions.interpolationModes;
 
-                    if (singletonOptions.objectLinkTypes == null)
-                        singletonOptions.objectLinkTypes = tempOptions.objectLinkTypes;
+                    if (singletonOptions.objectPredicates == null)
+                        singletonOptions.objectPredicates = tempOptions.objectPredicates;
+
+                    if (singletonOptions.predicateConstraints == null)
+                        singletonOptions.predicateConstraints = tempOptions.predicateConstraints;
 
                     fs.Close();
                 }
@@ -114,13 +120,18 @@ namespace Annotator
             Options options = new Options();
             options.glyphPrototypePath = "";
             options.detectionMode = OverwriteMode.ADD_SEPARATE;
+            var u = GlyphBoxPrototype.prototype2;
+             u = GlyphBoxPrototype.prototype3;
+             u = GlyphBoxPrototype.prototype4;
+
             options.prototypeList = new List<GlyphBoxPrototype> { GlyphBoxPrototype.prototype2, GlyphBoxPrototype.prototype3, GlyphBoxPrototype.prototype4 };
             options.showRigOption = ShowRig.SHOW_ALL;
             options.interpolationModes = new Dictionary<string, InterpolationMode>();
             options.interpolationModes[RIG] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[RECTANGLE] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
-            options.objectLinkTypes = new List<string> { "ON", "IN", "ATTACH_TO" };
+            options.objectPredicates = new List<Predicate>();
+            options.predicateConstraints = new List<PredicateConstraint>();
             options.showMarkerMode = true;
 
             return options;
@@ -130,7 +141,10 @@ namespace Annotator
         {
             var s = new DataContractSerializer(typeof(Options));
 
+            var settings = new XmlWriterSettings { Indent = true };
+
             using (FileStream fs = new FileStream(Options.TEMP_FILENAME, FileMode.Create))
+            //using (var fs = XmlWriter.Create(Options.TEMP_FILENAME, settings))
             {
                 try
                 {

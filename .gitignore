@@ -15,7 +15,14 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+# Added on August 1st, 2016
+Annotator/Annotation_Test/*/*/*/*.avi
+Annotator/Annotation_Test/*/*/*/*.ini
+Annotator/Annotation_Test/**/*.avi
+Annotator/Annotation/**/*.avi
 
+# Ignore video files in Annotator
+Annotator/SampleAnnotation/*/*/*.avi
 # Roslyn cache directories
 *.ide/
 

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.12.02.123-00.12.03.748" length="48">
+  <files>
+    <file>0051_Men_in_black_00.12.02.123-00.12.03.748.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Musium" filename="0051_Men_in_black_00.12.02.123-00.12.03.748.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0051_Men_in_black_00.12.02.123-00.12.03.748.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1031.23,192.5134,515.9358,870.16</marker>
+        <marker type="LOCATION" frame="11">1071.658,128.984,543.9241,933.6893</marker>
+        <marker type="LOCATION" frame="19">1102.46,75.08023,648.77,987.5931</marker>
+        <marker type="LOCATION" frame="26">1031.23,98.18183,677.647,964.4915</marker>
+        <marker type="LOCATION" frame="32">933.0481,213.6898,652.6203,848.9832</marker>
+        <marker type="LOCATION" frame="38">919.5722,209.8396,542.8877,852.8335</marker>
+        <marker type="LOCATION" frame="47">844.4919,15.40109,625.6685,1047.272</marker>
+      </markers>
+    </object>
+    <object id="o5" name="door" filename="0051_Men_in_black_00.12.02.123-00.12.03.748.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.340794,939.2179,376.0894,122.6816</marker>
+        <marker type="LOCATION" frame="22">0.8175443,975.419,301.5288,86.48155</marker>
+        <marker type="LOCATION" frame="34">1.994815,901.0056,416.9996,160.8951</marker>
+        <marker type="LOCATION" frame="41">2.681553,707.933,764.2458,353.9677</marker>
+        <marker type="LOCATION" frame="47">250.0559,424.3575,844.693,637.5425</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He scrambles up and over the ledge.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.11.59.429-00.12.00.157/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.11.59.429-00.12.00.157/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.23.12.611-00.23.18.317" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.23.12.611-00.23.18.317.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A football coach looks at a black and white television as a newsman outside the schoolhouse speaks to the camera.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

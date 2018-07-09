@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.41.56.917-01.42.01.089" length="101">
+  <files>
+    <file>0009_Forrest_Gump_01.41.56.917-01.42.01.089.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.41.56.917-01.42.01.089.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.854651E-05,535.7238,111.1804,239.4652</marker>
+        <marker type="LOCATION" frame="10">-2.854651E-05,420.2672,300.8192,427.6169</marker>
+        <marker type="LOCATION" frame="23">239.4655,420.2672,307.8842,427.6169</marker>
+        <marker type="LOCATION" frame="48">641.0832,403.1626,312.5025,448.9978</marker>
+        <marker type="LOCATION" frame="64">962.513,401.0245,307.5093,434.0312</marker>
+        <marker type="LOCATION" frame="77">1055.562,423.4744,240.7684,386.9933</marker>
+        <marker type="LOCATION" frame="100">1158.842,428.8197,183.8755,337.8172</marker>
+      </markers>
+    </object>
+    <object id="o2" name="A football field" filename="0009_Forrest_Gump_01.41.56.917-01.42.01.089.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.854651E-05,125.2116,1911.445,825.3007</marker>
+      </markers>
+    </object>
+    <object id="o4" name="A lawn tractor" filename="0009_Forrest_Gump_01.41.56.917-01.42.01.089.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.276141,604.1425,183.8753,312.1604</marker>
+        <marker type="LOCATION" frame="10">-2.854651E-05,582.7617,375.9309,340.9775</marker>
+        <marker type="LOCATION" frame="23">124.0089,589.7992,496.0356,343.6084</marker>
+        <marker type="LOCATION" frame="48">496.0356,574.2094,517.4165,350.6459</marker>
+        <marker type="LOCATION" frame="64">825.3007,578.1565,470.3786,330.1838</marker>
+        <marker type="LOCATION" frame="77">1000.624,581.3636,320.7127,313.5584</marker>
+        <marker type="LOCATION" frame="100">1131.047,587.0378,241.6036,262.9844</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest rides a lawn tractor as he moves the football field lawn.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.41.32.946-01.41.36.645/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.41.32.946-01.41.36.645/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="POINT_AT(X,Y)" />
+  </predicates>
+</session>

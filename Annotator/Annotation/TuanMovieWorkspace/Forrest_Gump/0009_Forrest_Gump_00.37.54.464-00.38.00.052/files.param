@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.37.54.464-00.38.00.052" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest climbs up onto the stage and picks Jenny up, guitar and all, and carries her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.08.19.466-02.08.27.760" length="0">
+  <files>
+    <file>0009_Forrest_Gump_02.08.19.466-02.08.27.760.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest stands on his boat and looks at a deep orange and red sunset.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

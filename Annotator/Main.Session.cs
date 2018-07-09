@@ -15,10 +15,70 @@ namespace Annotator
 {
     public partial class Main
     {
-
         BaseDepthReader depthReader;
         byte[] depthValuesToByte;
         Bitmap depthBitmap;
+
+        private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
+        {
+            // Click on rectangle
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.R)
+            {
+                if (rectangleDrawing.Enabled)
+                {
+                    rectangleDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Click on polygon
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.P)
+            {
+                if (polygonDrawing.Enabled)
+                {
+                    polygonDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Save down session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
+            {
+                if (currentSession != null)
+                    saveCurrentSession();
+            }
+
+            // Edit session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            {
+                if (currentProject != null)
+                    editSessionMenuItem_Click(null, null);
+            }
+
+            // Add a file into session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            {
+                if (currentSession != null)
+                    addFileToSessionMenuItem_Click(null, null);
+            }
+
+            // Undo in session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Z)
+            {
+                if (currentSession != null)
+                    undoBtn_Click(null, null);
+            }
+
+            // Redo in session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Y)
+            {
+                if (currentSession != null)
+                    redoBtn_Click(null, null);
+            }
+
+            // While editing a polygon
+            handleKeyDownOnDrawingPolygon(e);
+        }
 
         /// <summary>
         /// 
@@ -45,42 +105,60 @@ namespace Annotator
             }
 
             // Set current session = chosen session
-            if (chosenSession != null && !chosenSession.getEdited())
+            if (chosenSession != null && !chosenSession.edited)
             {
-                chosenSession.setEdited(true);
+                chosenSession.edited = true;
                 currentSessionNode = treeView.SelectedNode;
                 currentSession = chosenSession;
                 currentSession.loadIfNotLoaded();
                 currentSessionNode.Text = "*" + currentSessionNode.Text;
 
                 frameTrackBar.Value = frameTrackBar.Minimum;
-                this.Text = "Project " + currentProject.name + " selected, edited session = " + chosenSession.sessionName;
+                this.Text = "Project " + currentProject.name + " is selected, edited session = " + chosenSession.sessionName;
             }
 
+            refreshSessionMenuItem_Click(sender, e);
             loadViewsFromSession();
             // All toolstrips of file inside session are enables
             toggleFileToolStripsOfSession(true);
         }
 
-        private void closeEditedSession()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>True if thre is no editing session or the session has been safely handled. False to signal the next action shouldn't be carried out</returns>
+        private bool closeEditedSession()
         {
-            if (currentSession != null && currentSession.getEdited())
+            if (currentSession != null && currentSession.edited)
             {
-                currentSession.setEdited(false);
-                treeView.BeginUpdate();
-                currentSessionNode.Text = currentSessionNode.Text.Substring(1);
-                treeView.EndUpdate();
-
-                var result = MessageBox.Show(("Session " + currentSession.sessionName + " currently editing, Do you want to save this session?"), "Save session", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show(("Session " + currentSession.sessionName + " is being edited. Do you want to save this session?"), "Save session", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
+                    closeSessionNode();
                     saveCurrentSession();
+                    return true;
                 }
                 else if (result == DialogResult.No)
                 {
+                    closeSessionNode();
                     closeWithoutSaveCurrentSession();
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
+
+            return true;
+        }
+
+        private void closeSessionNode()
+        {
+            currentSession.edited = false;
+            treeView.BeginUpdate();
+            currentSessionNode.Text = currentSessionNode.Text.Substring(1);
+            treeView.EndUpdate();
         }
 
         private void loadViewsFromSession()
@@ -112,7 +190,8 @@ namespace Annotator
                 playbackFileComboBox.Enabled = true;
                 frameTrackBar.Enabled = true;
                 addEventAnnotationBtn.Enabled = true;
-            } else
+            }
+            else
             {
                 playbackFileComboBox.Enabled = false;
                 frameTrackBar.Enabled = false;
@@ -127,122 +206,6 @@ namespace Annotator
             addRigsFromFileToolStripMenuItem.Enabled = value;
             removeToolStripMenuItem.Enabled = value;
             deleteToolStripMenuItem.Enabled = value;
-        }
-
-        private void playbackVideoComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string videoFilename = playbackFileComboBox.SelectedItem.ToString();
-
-                if (videoFilename.isVideoFile())
-                {
-                    depthReader = null;
-                    loadVideo(videoFilename);
-
-                    if (videoReader != null)
-                    {
-                        //endPoint = startPoint = new Point();
-                        boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
-                        label3.Text = "Frame: " + frameTrackBar.Value;
-
-                        Mat m = videoReader.getFrame(0);
-                        if (m != null)
-                        {
-                            pictureBoard.mat = m;
-                            pictureBoard.Image = pictureBoard.mat.Bitmap;
-                        }
-
-                        setLeftTopPanel();
-                    }
-                }
-
-                if (videoFilename.isDepthFile())
-                {
-                    videoReader = null;
-                    depthReader = currentSession.getDepth(videoFilename);
-
-                    if (depthReader == null) return;
-
-                    if (depthValuesToByte == null)
-                    {
-                        depthValuesToByte = new byte[depthReader.getWidth() * depthReader.getHeight() * 4];
-                    }
-
-                    if (depthBitmap == null)
-                    {
-                        depthBitmap = new Bitmap(depthReader.getWidth(), depthReader.getHeight(), PixelFormat.Format32bppRgb);
-                    }
-
-                    depthReader.readFrameAtTimeToBitmap(0, depthBitmap, depthValuesToByte, 8000.0f / 256);
-
-                    if (depthBitmap != null)
-                    {
-                        pictureBoard.Image = depthBitmap;
-                    }
-
-                    Console.WriteLine(" depthFrame = " + depthReader.depthFrame);
-                }
-
-                frameTrackBar_ValueChanged(null, null);
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine("Select video file exception");
-                MessageBox.Show("Exception in opening this file, please try another file", "File exception", MessageBoxButtons.OK);
-            }
-        }
-
-
-        private void frameTrackBar_ValueChanged(object sender, EventArgs e)
-        {
-            // Don't allow the track bar value to get out of the range [MinDragValue, MaxDragValue] 
-            if (frameTrackBar.Value < frameTrackBar.MinDragVal) {
-                frameTrackBar.Value = frameTrackBar.MinDragVal;
-                return;
-            }
-
-            if (frameTrackBar.Value > frameTrackBar.MaxDragVal)
-            {
-                frameTrackBar.Value = frameTrackBar.MaxDragVal;
-                return;
-            }
-
-            label3.Text = "Frame: " + frameTrackBar.Value;
-
-            int frameStartWithZero = frameTrackBar.Value - 1;
-            if (videoReader != null)
-            {
-                Mat m = videoReader.getFrame(frameStartWithZero);
-                if (m != null)
-                {
-                    pictureBoard.mat = m;
-                    pictureBoard.Image = pictureBoard.mat.Bitmap;
-                }
-                else
-                {
-                    Console.WriteLine("Could not get frame for " + frameStartWithZero);
-                }
-                runGCForImage();
-            }
-
-            if (depthReader != null)
-            {
-                float timeStepForFrame = ((float)currentSession.duration) / currentSession.sessionLength;
-                int timeFromStart = (int) (frameStartWithZero * timeStepForFrame);
-                depthReader.readFrameAtTimeToBitmap(timeFromStart, depthBitmap, depthValuesToByte, 8000.0f / 256);
-
-                if (depthBitmap != null)
-                {
-                    pictureBoard.Image = depthBitmap;
-                }
-                else
-                {
-                    Console.WriteLine("Could not get frame for " + frameStartWithZero);
-                }
-
-                runGCForImage();
-            }
         }
 
         private void loadVideo(string videoFilename)
@@ -263,9 +226,7 @@ namespace Annotator
         /// <param name="e"></param>
         private void saveSessionMenuItem_Click(object sender, EventArgs e)
         {
-            TreeNode nodeS = treeView.SelectedNode;
-            //MessageBox.Show(selectedProject.getSessionN() + "");
-            if (currentSession.getEdited())
+            if (currentSession.edited)
             {
                 saveCurrentSession();
             }
@@ -276,22 +237,68 @@ namespace Annotator
         internal void saveCurrentSession()
         {
             currentSession.saveSession();
+            currentSession.resetLastOpenTime();
             cleanSessionUI();
+            logMessage($"Session {currentSession.sessionName} saved");
+            currentSession = null;
+            clearMemento();
         }
 
         private void closeWithoutSaveCurrentSession()
         {
             //Reload session
-            currentSession.reloadAnnotation();
+            currentSession.reload();
+            currentSession.resetLastOpenTime();
             cleanSessionUI();
+            logMessage($"Session {currentSession.sessionName} closed without saved");
+            currentSession = null;
+            clearMemento();
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentSession != null)
+            {
+                if (selectedObject != null)
+                {
+                    cancelSelectObject();
+                }
+                currentSession.resetAnnotation();
+                rerenderAnnotation();
+            }
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentSession != null)
+            {
+                if (selectedObject != null)
+                {
+                    cancelSelectObject();
+                }
+                currentSession.reload();
+                rerenderAnnotation();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void rerenderAnnotation()
+        {
+            clearMiddleCenterPanel();
+            clearMidleBottomPanel();
+            clearRightBottomPanel();
+            populateMiddleCenterPanel();
+            populateMiddleBottomPanel();
+            invalidatePictureBoard();
         }
 
         private void cleanSessionUI()
         {
-            TreeNode t = treeView.SelectedNode;
-            if (t.Text.Contains("*"))
-                t.Text = t.Text.Substring(1);
-            currentSession.setEdited(false);
+            if (currentSessionNode.Text.Contains("*"))
+                currentSessionNode.Text = currentSessionNode.Text.Substring(1);
+            currentSession.edited = false;
             this.Text = "Project " + currentProject.name + " selected";
 
             if (selectedObject != null)
@@ -299,11 +306,8 @@ namespace Annotator
                 cancelSelectObject();
             }
 
-            // Clean the playbackFileComboBox
-            clearPlaybackFileComboBox();
 
-            // Clean picture board frame
-            pictureBoard.Image = null;
+            clearPaintBoardView();
 
             // Clean object annotations
             clearMiddleCenterPanel();
@@ -324,21 +328,14 @@ namespace Annotator
                 selectButtonDrawing(b, drawingButtonGroup, false);
             }
 
-
             videoReader = null;
             depthReader = null;
             addEventAnnotationBtn.Enabled = false;
-
-            startInSecondTextBox.Text = "";
-            endInSecondTextBox.Text = "";
-            setMinimumFrameTrackBar(0);
-            setMaximumFrameTrackBar(100);
 
             // Reset zooming 
             this.pictureBoard.Dock = DockStyle.Fill;
             inZoomIn = true;
         }
-
 
         internal void clearMiddleCenterPanel()
         {
@@ -353,6 +350,7 @@ namespace Annotator
             middleBottomTableLayoutPanel.Controls.Clear();
             middleBottomTableLayoutPanel.Controls.Add(addEventAnnotationBtn, 0, 0);
             lastAnnotationCell = new Point(1, 0);
+            this.mapFromEventToEventAnnotations = new Dictionary<Event, EventAnnotation>();
         }
 
         internal void clearRightCenterPanel()
@@ -378,7 +376,6 @@ namespace Annotator
         {
             foreach (Event ev in currentSession.events)
             {
-                //a.setID(0);
                 addAnnotation(ev);
             }
         }
@@ -392,13 +389,17 @@ namespace Annotator
         {
             //MessageBox.Show(item.ToString());     
             TreeNode sessionToDeleteName = treeView.SelectedNode;
+
             String sName = sessionToDeleteName.Text;
+            string sessionName = sName;
+            if (sName[0] == '*') sessionName = sessionName.Substring(1);
+
             TreeNode projectNode = sessionToDeleteName.Parent;
             Project project = workspace.getProject(projectNode.Text);
-            if (MessageBox.Show("Confirm session removal (exclude from project): " + sName + " from " + project.name, "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Confirm delete permanently session " + sessionName + " from project " + project.name, "Delete session", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //1)Remove session from project:
-                project.removeSession(sName);
+                Session removedSession = project.removeSession(sessionName);
                 //2)Remove session from treeView:
                 treeView.BeginUpdate();
                 foreach (TreeNode currentSessionNode in currentProjectNode.Nodes)
@@ -411,17 +412,26 @@ namespace Annotator
                     }
                 }
                 treeView.EndUpdate();
-            }
 
-            //Disable button2:
-            addEventAnnotationBtn.Enabled = false;
-            newObjectContextPanel.Visible = false;
-            clearPlaybackFileComboBox();
-            clearRightBottomPanel();
-            pictureBoard.Image = null;
-            //startPoint = endPoint;
-            boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
-            videoReader = null;
+                //GUI update
+                addEventAnnotationBtn.Enabled = false;
+                newObjectContextPanel.Visible = false;
+                clearPlaybackFileComboBox();
+                clearRightBottomPanel();
+                pictureBoard.Image = null;
+                //startPoint = endPoint;
+                boundingBoxLocationMark = new RectangleLocationMark(-1, new RectangleF());
+                videoReader = null;
+
+
+                //3)Delete folder on the system
+                if (removedSession != null)
+                {
+                    Directory.Delete(removedSession.getPath(), true);
+                }
+
+                logMessage($"Session {removedSession.sessionName} is deleted from project {project.name}.");
+            }
         }
 
         /// <summary>
@@ -439,12 +449,8 @@ namespace Annotator
                 {
                     String fullFileName = openFileDialog.FileName;
                     copyFileIntoLocalSession(fullFileName);
-                    
-                    // If we add video files, it should be loaded into views
-                    loadViewsFromSession();
 
-                    // Usually we would add some param files into the folder, just load it on the file tree
-                    refreshSessionMenuItem_Click(sender, e);
+                    logMessage($"File {fullFileName} is added to session {currentSession.sessionName} of project {currentProject.name}");
                 }
             }
         }
@@ -460,8 +466,7 @@ namespace Annotator
             { return; }
 
             //Check files in current Session folder
-            String[] files = Directory.GetFiles(workspace.locationFolder + Path.DirectorySeparatorChar +
-                currentSession.getProject() + Path.DirectorySeparatorChar + currentSession.sessionName);
+            String[] files = Directory.GetFiles(Path.Combine(workspace.location, currentSession.project.name, currentSession.sessionName));
 
             TreeNode[] arrayFiles = new TreeNode[files.Length];
             for (int j = 0; j < arrayFiles.Length; j++)
@@ -486,7 +491,7 @@ namespace Annotator
         {
             string relFileName = fileName.Split(Path.DirectorySeparatorChar)[fileName.Split(Path.DirectorySeparatorChar).Length - 1];
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
+            string dstFileName = currentProject.path + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + relFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -495,7 +500,6 @@ namespace Annotator
 
             if (!currentSession.checkFileInSession(relFileName) && !relFileName.Contains("files.param"))
             {
-                Console.WriteLine("Add file in to local session " + dstFileName);
                 currentSession.addFile(dstFileName);
                 //If file didnt exist in treeView update treeView
                 treeView.BeginUpdate();
@@ -521,7 +525,7 @@ namespace Annotator
         internal string copyFileIntoLocalSession(string fileName, string newRelFileName)
         {
             //MessageBox.Show("inputFile = " + openFileDialog1.FileName);
-            string dstFileName = currentProject.locationFolder + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
+            string dstFileName = currentProject.path + Path.DirectorySeparatorChar + currentProject.name + Path.DirectorySeparatorChar + currentSession.sessionName + Path.DirectorySeparatorChar + newRelFileName;
             //MessageBox.Show("outputFile = " + dstFileName);
             //If file doesnt exist in session folder add file to session folder
             if (!File.Exists(dstFileName))
@@ -545,204 +549,7 @@ namespace Annotator
             }
             return dstFileName;
         }
-
-        CountdownEvent isAvailable;
-        volatile bool sensorAvailabel = false;
-        volatile bool colorFrameArrived = false;
-        volatile bool depthFrameArrived = false;
-        volatile bool currentlySetupKinect = false;
-        KinectSensor kinectSensor;
-        internal CoordinateMapper coordinateMapper;
-        DepthCoordinateMappingReader mappingReader;
-
-
-
-        private void sessionOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
-            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizerIncluded[objectRecognizer] = true;
-            setupKinectIfNeeded();
-
-            Task t = Task.Run(async () =>
-            {
-
-                if (currentlySetupKinect)
-                {
-                    Console.WriteLine("Await");
-                    isAvailable.Wait();
-                    currentlySetupKinect = false;
-                }
-
-                // Force loading of depthReader
-                depthValuesToByte = new byte[currentSession.getDepth(0).getWidth() * currentSession.getDepth(0).getHeight() * 4];
-
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
-                currentSession.getDepth(0),
-                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                coordinateMapper.MapColorFrameToCameraSpace
-                    );
-
-                // Run on UI thread
-                this.Invoke((MethodInvoker)delegate
-                {
-                    AddDetectedObjects(detectedObjects);
-                });
-            });
-        }
-
-        internal void setupKinectIfNeeded()
-        {
-            if (kinectSensor == null)
-            {
-                isAvailable = new CountdownEvent(3);
-                sensorAvailabel = false;
-                colorFrameArrived = false;
-                depthFrameArrived = false;
-                kinectSensor = KinectSensor.GetDefault();
-                coordinateMapper = kinectSensor.CoordinateMapper;
-                var colorFrameReader = this.kinectSensor.ColorFrameSource.OpenReader();
-                var depthFrameReader = this.kinectSensor.DepthFrameSource.OpenReader();
-                colorFrameReader.FrameArrived += this.Reader_ColorFrameArrived;
-                depthFrameReader.FrameArrived += this.Reader_DepthFrameArrived;
-                kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
-                kinectSensor.Open();
-                currentlySetupKinect = true;
-            }
-        }
-
-        private void sessionOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(null, options.prototypeList, 5);
-            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizerIncluded[objectRecognizer] = true;
-
-            if (mappingReader == null)
-            {
-                mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
-            }
-
-            Task t = Task.Run(async () =>
-            {
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
-                currentSession.getDepth(0),
-                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,
-                    currentSession.getDepth(0).depthWidth,
-                    currentSession.getDepth(0).depthHeight,
-                    currentSession.getVideo(0).frameWidth,
-                    currentSession.getVideo(0).frameHeight, result)
-                    );
-
-                // Run on UI thread
-                this.Invoke((MethodInvoker)delegate
-                {
-                    AddDetectedObjects(detectedObjects);
-                });
-
-            });
-        }
-
-        private void AddDetectedObjects(List<Object> detectedObjects)
-        {
-            AddObjectsIntoSession(detectedObjects);
-            RefreshUI(detectedObjects);
-        }
-
-        private void RefreshUI(List<Object> detectedObjects)
-        {
-            // Redraw object annotation panel
-            if (detectedObjects.Count != 0)
-            {
-                foreach (Object o in detectedObjects)
-                {
-                    addObjectAnnotation(o);
-                }
-                invalidatePictureBoard();
-            }
-        }
-
-        private void AddObjectsIntoSession(List<Object> detectedObjects)
-        {
-            // Handle adding identical objects or not
-            switch (options.detectionMode)
-            {
-                case Options.OverwriteMode.ADD_SEPARATE:
-                    foreach (var detectedObject in detectedObjects)
-                    {
-                        currentSession.addObject(detectedObject);
-                    }
-                    break;
-                case Options.OverwriteMode.NO_OVERWRITE:
-                    foreach (GlyphBoxObject detectedObject in detectedObjects)
-                    {
-                        bool exist = false;
-                        foreach (var existObject in currentSession.getObjects())
-                        {
-                            if (existObject is GlyphBoxObject && detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype))
-                            {
-                                exist = true;
-                                break;
-                            }
-                        }
-
-                        if (!exist)
-                        {
-                            currentSession.addObject(detectedObject);
-                        }
-                    }
-                    break;
-                case Options.OverwriteMode.OVERWRITE:
-                    foreach (GlyphBoxObject detectedObject in detectedObjects)
-                    {
-                        Object exist = null;
-                        foreach (var existObject in currentSession.getObjects())
-                        {
-
-                            if (existObject is GlyphBoxObject && detectedObject.boxPrototype.Equals(((GlyphBoxObject)existObject).boxPrototype))
-                            {
-                                exist = existObject;
-                                break;
-                            }
-                        }
-
-                        if (exist != null)
-                        {
-                            currentSession.removeObject(exist.id);
-                        }
-                        currentSession.addObject(detectedObject);
-                    }
-                    break;
-            }
-        }
-
-        private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
-        {
-            if (!sensorAvailabel && currentlySetupKinect)
-            {
-                isAvailable.Signal();
-                sensorAvailabel = true;
-            }
-        }
-
-        private void Reader_DepthFrameArrived(object sender, DepthFrameArrivedEventArgs e)
-        {
-            if (!depthFrameArrived && currentlySetupKinect)
-            {
-                isAvailable.Signal();
-                depthFrameArrived = true;
-            }
-        }
-
-        private void Reader_ColorFrameArrived(object sender, ColorFrameArrivedEventArgs e)
-        {
-            if (!colorFrameArrived && currentlySetupKinect)
-            {
-                isAvailable.Signal();
-                colorFrameArrived = true;
-            }
-        }
-
+        
         private void sessionEventTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (currentSession != null)
@@ -753,10 +560,89 @@ namespace Annotator
             }
         }
 
-        internal void findObjectForEvent(Event ev)
+        private void fromSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            currentSession.resetTempoEmpty(ev);
-            currentSession.findObjectsByNames(ev);
+            SessionSelector ss = new SessionSelector(this, currentProject, currentSession);
+            ss.StartPosition = FormStartPosition.CenterParent;
+            ss.ShowDialog();
+        }
+
+        internal enum ObjectCopyMode
+        {
+            LAST_FRAME,
+            LAST_APPEARANCE
+        }
+
+        /// <summary>
+        /// Copy to current Session the objects from the other session
+        /// The form of the objects are taken from the end of the other session
+        /// </summary>
+        /// <param name="currentSessionIndex"></param>
+        /// <param name="otherSessonIndex"></param>
+        internal void copyFromSession(int currentSessionIndex, int otherSessonIndex, ObjectCopyMode mode = ObjectCopyMode.LAST_FRAME)
+        {
+            var previousSession = currentProject.getSession(otherSessonIndex);
+            previousSession.loadIfNotLoaded();
+
+            Dictionary<Object, Object> identicalPairs = new Dictionary<Object, Object>();
+            // Copy objects
+            foreach (var prevObject in previousSession.getObjects())
+            {
+                var newObject = (Object)Activator.CreateInstance(prevObject.GetType(), new object[] { currentSession, "", prevObject.color, prevObject.borderSize, this.playbackFileComboBox.Text });
+                newObject.name = prevObject.name;
+
+                LocationMark2D lastLocationMark = null;
+                switch (mode)
+                {
+                    case ObjectCopyMode.LAST_FRAME:
+                        lastLocationMark = prevObject.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
+                        break;
+                    case ObjectCopyMode.LAST_APPEARANCE:
+                        var frameNo = prevObject.objectMarks.Keys.Last(frame => !(prevObject.objectMarks[frame] is DeleteLocationMark));
+                        lastLocationMark = prevObject.getScaledLocationMark(frameNo, 1, new System.Drawing.PointF());
+                        break;
+                }
+
+                if (lastLocationMark != null)
+                {
+                    // Change the internal frameNo to current one
+                    lastLocationMark.frameNo = frameTrackBar.Value;
+                    newObject.objectMarks[frameTrackBar.Value] = lastLocationMark;
+
+                    currentSession.addObject(newObject);
+                    identicalPairs[prevObject] = newObject;
+                    currentSession.addPredicate(frameTrackBar.Value, true, new Predicate("IDENTITY", new Permutation(new int[] { 1, 2 })), new Object[] { newObject, prevObject });
+                }
+            }
+
+            // Copy object predicates
+            foreach (var identicalPair in identicalPairs)
+            {
+                var prevObject = identicalPair.Key;
+                var currentObject = identicalPair.Value;
+
+                // Add all predicates that still hold true of prevObject at the end of the previous session
+                // to new object
+                var toCopyPredicateMarks = prevObject.getHoldingPredicates(prevObject.session.sessionLength - 1);
+                foreach (var predicateMark in toCopyPredicateMarks)
+                {
+                    // All objects in the predicate mark has been copied to current session
+                    if (predicateMark.objects.All(o => identicalPairs.ContainsKey(o)))
+                    {
+                        currentSession.addPredicate(frameTrackBar.Value, predicateMark.qualified, predicateMark.predicate, predicateMark.objects.Select(o => identicalPairs[o]).ToArray());
+                    }
+                }
+            }
+
+            // Add annotation
+            foreach (var identicalPair in identicalPairs)
+            {
+                var currentObject = identicalPair.Value;
+                addObjectAnnotation(currentObject);
+            }
+
+            invalidatePictureBoard();
+            this.logSession($"Session {currentSession.sessionName} copied objects from session {previousSession.sessionName}");
         }
 
         /// <summary>
@@ -766,36 +652,22 @@ namespace Annotator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void fromPreviousSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lastFrameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var currentSessionIndex = currentProject.sessions.IndexOf(currentSession);
             if (currentSessionIndex > 0)
             {
-                var previousSession = currentProject.getSession(currentSessionIndex - 1);
-                previousSession.loadIfNotLoaded();
-                foreach (var o in previousSession.getObjects())
-                {
-                    var newObject = (Object) Activator.CreateInstance(o.GetType(), new object[] { currentSession, "", o.color, o.borderSize, this.playbackFileComboBox.Text });
-                    newObject.name = o.name;
-                    var lastLocationMark = o.getScaledLocationMark(previousSession.getVideo(0).frameCount - 1, 1, new System.Drawing.PointF());
-                    if (lastLocationMark != null)
-                    {
-                        // Change the internal frameNo to current one
-                        lastLocationMark.frameNo = frameTrackBar.Value;
-                        newObject.objectMarks[frameTrackBar.Value] = lastLocationMark;
-                        newObject.addLink(frameTrackBar.Value, previousSession.sessionName, o.id, true, "IDENTITY");
-                        currentSession.addObject(newObject);
-                        addObjectAnnotation(newObject);
-                    }
-                }
-
-                invalidatePictureBoard();
+                copyFromSession(currentSessionIndex, currentSessionIndex - 1);
             }
         }
 
-        private void fromSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lastAppearanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var currentSessionIndex = currentProject.sessions.IndexOf(currentSession);
+            if (currentSessionIndex > 0)
+            {
+                copyFromSession(currentSessionIndex, currentSessionIndex - 1, ObjectCopyMode.LAST_APPEARANCE);
+            }
         }
     }
 }

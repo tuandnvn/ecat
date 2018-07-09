@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.51.35.618-01.51.39.009" length="82">
+  <files>
+    <file>0009_Forrest_Gump_01.51.35.618-01.51.39.009.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.51.35.618-01.51.39.009.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.347506E-05,125.6408,1915.897,820.5121</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.51.35.618-01.51.39.009.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1025.641,125.6402,890.2559,820.5121</marker>
+        <marker type="LOCATION" frame="20">869.954,125.6393,1045.943,820.5121</marker>
+        <marker type="LOCATION" frame="39">722.0513,125.6399,1029.744,820.5121</marker>
+        <marker type="LOCATION" frame="61">590.7692,125.6401,1025.641,820.512</marker>
+        <marker type="LOCATION" frame="71">541.5385,125.6403,1035.897,820.5117</marker>
+        <marker type="LOCATION" frame="81">551.7951,125.641,986.6664,820.5112</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Milk" filename="0009_Forrest_Gump_01.51.35.618-01.51.39.009.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1472.82,137.9487,180.5129,434.8718</marker>
+        <marker type="LOCATION" frame="14">1360,320.5127,186.6667,389.7437</marker>
+        <marker type="LOCATION" frame="28">1247.179,503.0766,192.8205,344.6156</marker>
+        <marker type="LOCATION" frame="36">1185.915,616.25,184.0681,329.9038</marker>
+        <marker type="LOCATION" frame="43">1132.308,715.2778,176.4099,230.876</marker>
+        <marker type="LOCATION" frame="57">1050.256,913.3333,184.6154,32.81976</marker>
+        <marker type="DELETE" frame="58" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest holds a glass of milk and wears his bathrobe.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.51.29.195-01.51.32.061/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

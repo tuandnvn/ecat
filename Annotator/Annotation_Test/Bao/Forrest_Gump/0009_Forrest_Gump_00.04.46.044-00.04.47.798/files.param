@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.04.46.044-00.04.47.798" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.04.46.044-00.04.47.798.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.04.46.044-00.04.47.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">526.4516,196.5396,731.9648,670.0293</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>A little boy closes his eyes tightly.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.21.46.159-00.21.49.352" length="77">
+  <files>
+    <file>0009_Forrest_Gump_00.21.46.159-00.21.49.352.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="stadium" filename="0009_Forrest_Gump_00.21.46.159-00.21.49.352.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.993493,133.0299,1907.516,816.4369</marker>
+      </markers>
+    </object>
+    <object id="o2" name="people" filename="0009_Forrest_Gump_00.21.46.159-00.21.49.352.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.993493,157.9974,1907.513,791.4672</marker>
+        <marker type="DELETE" frame="61" />
+      </markers>
+    </object>
+    <object id="o3" name="new" filename="0009_Forrest_Gump_00.21.46.159-00.21.49.352.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="62">137.3212,302.8088,239.6879,529.3108</marker>
+        <marker type="LOCATION" frame="64">64.91547,304.2355,349.5446,530.7375</marker>
+        <marker type="LOCATION" frame="70">64.91547,308.5156,359.5316,535.0176</marker>
+        <marker type="LOCATION" frame="76">69.90897,312.7958,319.5839,539.2978</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="76" />
+      <text>The football coach, the assistants, and Alabama players cheer for Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.21.41.180-00.21.44.925/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.21.41.180-00.21.44.925/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="62" arguments="1" ids="o3" q="True" type="RUN(X)" />
+  </predicates>
+</session>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.15.827-00.03.19.916" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.15.827-00.03.19.916.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o6" name="cig" filename="0051_Men_in_black_00.03.15.827-00.03.19.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="85">642.7586,264.8276,154.4827,49.65517</marker>
+        <marker type="LOCATION" frame="98">656.5517,264.8276,168.2756,49.65517</marker>
+      </markers>
+    </object>
+    <object id="o5" name="men" filename="0051_Men_in_black_00.03.15.827-00.03.19.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="85">313.1034,124.1379,1223.448,899.3102</marker>
+        <marker type="LOCATION" frame="98">292.4138,124.1379,1227.586,899.3101</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="98" />
+      <text>It's a grouping of headlights, eight of them, all pointed at him, sealing off the road.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="85" arguments="2" ids="o5,o6" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

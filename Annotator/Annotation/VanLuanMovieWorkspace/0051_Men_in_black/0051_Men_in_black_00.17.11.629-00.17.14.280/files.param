@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.17.11.629-00.17.14.280" length="64">
+  <files>
+    <file>0051_Men_in_black_00.17.11.629-00.17.14.280.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Room" filename="0051_Men_in_black_00.17.11.629-00.17.14.280.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.930213,1.953474,1897.675,1062.698</marker>
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.17.11.629-00.17.14.280.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">245.5814,247.5349,803.7209,823.8143</marker>
+        <marker type="LOCATION" frame="17">325.9535,231.907,629.5814,837.4648</marker>
+        <marker type="LOCATION" frame="34">344.5796,216.2791,727.0483,851.1151</marker>
+        <marker type="LOCATION" frame="35">593.8605,73.39534,1013.581,983.4422</marker>
+        <marker type="LOCATION" frame="63">638.5117,55.53487,879.6279,1001.303</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Women" filename="0051_Men_in_black_00.17.11.629-00.17.14.280.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">759.0698,33.20929,714.4194,1016.372</marker>
+        <marker type="LOCATION" frame="8">553.6741,66.10654,549.2096,979.0427</marker>
+        <marker type="LOCATION" frame="17">116.0927,126.9767,410.791,937.0471</marker>
+        <marker type="LOCATION" frame="25">4.465095,177.4063,433.1163,890.7214</marker>
+        <marker type="LOCATION" frame="34">-0.000430085,234.1395,196.4655,838.605</marker>
+        <marker type="DELETE" frame="35" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edwards twists in his chair, to get a better look.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.17.11.063-00.17.11.461/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.17.11.063-00.17.11.461/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.17.11.063-00.17.11.461/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.00.19.000-00.00.22.842" length="0">
+  <files>
+    <file>1028_No_Reservations_00.00.19.000-00.00.22.842.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="lighthouse" filename="1028_No_Reservations_00.00.19.000-00.00.22.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">930.3468,145.1445,156.0694,293.4104</marker>
+        <marker type="LOCATION" frame="92">930.3468,221.6185,156.0694,216.9364</marker>
+      </markers>
+    </object>
+    <object id="o2" name="light" filename="1028_No_Reservations_00.00.19.000-00.00.22.842.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1047.399,209.1329,190.4046,210.6936</marker>
+        <marker type="LOCATION" frame="5">989.6532,203.6705,190.4046,210.6936</marker>
+        <marker type="LOCATION" frame="25">793.0058,209.9133,190.4046,210.6936</marker>
+        <marker type="LOCATION" frame="39">487.1098,209.9133,496.3006,256.7341</marker>
+        <marker type="LOCATION" frame="56">92.25435,209.9133,891.1561,272.341</marker>
+        <marker type="LOCATION" frame="80">22.02314,209.9133,961.3873,337.8902</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="92" />
+      <text>A beam of light shines out from a lighthouse and sweeps across a shimmering blue ocean.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

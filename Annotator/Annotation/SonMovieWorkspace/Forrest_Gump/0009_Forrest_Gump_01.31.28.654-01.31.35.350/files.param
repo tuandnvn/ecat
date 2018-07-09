@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.31.28.654-01.31.35.350" length="161">
+  <files>
+    <file>0009_Forrest_Gump_01.31.28.654-01.31.35.350.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="" filename="0009_Forrest_Gump_01.31.28.654-01.31.35.350.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1130.452,688.7437,723.6181,257.2864</marker>
+        <marker type="LOCATION" frame="20">738.0905,480.5919,1088.286,465.4383</marker>
+        <marker type="LOCATION" frame="36">594.9749,314.0703,1209.246,631.9598</marker>
+        <marker type="LOCATION" frame="160">91.65827,130.7538,1608.04,815.2762</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Boat" filename="0009_Forrest_Gump_01.31.28.654-01.31.35.350.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.4534795,130.6616,1917.051,816.6351</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Hammock" filename="0009_Forrest_Gump_01.31.28.654-01.31.35.350.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.840256E-05,130.7538,1916.784,816.8842</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="160" />
+      <text>Forrest lies in a hammock on his boat.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="LIE(X)" />
+  </predicates>
+</session>

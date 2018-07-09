@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.03.270-00.03.05.363" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Men" filename="0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">424.8275,35.86192,1478.618,1023.448</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Comic" filename="0046_Chasing_Amy_00.03.03.270-00.03.05.363.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">251.0345,573.7931,877.2413,485.5172</marker>
+        <marker type="LOCATION" frame="14">325.5172,573.7931,802.7583,485.5172</marker>
+        <marker type="LOCATION" frame="25">424.8275,573.7931,703.4477,485.5172</marker>
+        <marker type="LOCATION" frame="32">499.3103,573.7931,628.9648,485.5172</marker>
+        <marker type="LOCATION" frame="36">441.3793,573.7931,686.8957,485.5172</marker>
+        <marker type="LOCATION" frame="38">441.3792,573.7931,651.0345,485.5172</marker>
+        <marker type="LOCATION" frame="41">394.4827,573.7931,697.9308,485.5172</marker>
+        <marker type="LOCATION" frame="42">394.4827,645.5172,631.7241,413.7928</marker>
+        <marker type="LOCATION" frame="44">303.4482,725.5172,626.2068,333.7927</marker>
+        <marker type="LOCATION" frame="46">220.6896,750.3448,708.965,308.9649</marker>
+        <marker type="LOCATION" frame="47">220.6896,780.6896,617.931,278.6195</marker>
+        <marker type="LOCATION" frame="48">220.6896,833.1034,617.9308,226.2054</marker>
+        <marker type="LOCATION" frame="49">220.6896,951.7241,424.8275,107.5838</marker>
+        <marker type="LOCATION" frame="50">220.6896,1009.655,173.7931,49.65205</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="50" />
+      <text>Holden sits at a table.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

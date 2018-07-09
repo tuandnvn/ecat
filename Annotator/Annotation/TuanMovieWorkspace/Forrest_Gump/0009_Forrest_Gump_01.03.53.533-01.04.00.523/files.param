@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.03.53.533-01.04.00.523" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.03.53.533-01.04.00.523.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Hilary leads the line of vets toward the large anti-Vietnam War rally.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

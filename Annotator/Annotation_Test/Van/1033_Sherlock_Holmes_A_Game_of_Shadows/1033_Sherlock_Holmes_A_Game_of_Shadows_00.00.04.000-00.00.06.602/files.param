@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="parchment" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">19.50655,138.7228,1897.707,794.1945</marker>
+        <marker type="LOCATION" frame="62">44.58638,138.7228,1844.76,794.1945</marker>
+      </markers>
+    </object>
+    <object id="o2" name="shield" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">738.4615,311.4949,493.2366,417.9971</marker>
+        <marker type="LOCATION" frame="62">717.5617,325.428,480.6967,437.5038</marker>
+      </markers>
+    </object>
+    <object id="o3" name="name's company" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">897.3005,698.8389,387.344,158.8389</marker>
+        <marker type="LOCATION" frame="62">767.7214,788.0116,387.344,59.91317</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="62" />
+      <text>On a page of parchment, the Warner Brothers shield.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

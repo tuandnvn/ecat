@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.28.30.497-01.28.34.136" length="88">
+  <files>
+    <file>0009_Forrest_Gump_01.28.30.497-01.28.34.136.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Ocean" filename="0009_Forrest_Gump_01.28.30.497-01.28.34.136.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.602674E-05,128.2713,1915.799,823.4573</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Boat" filename="0009_Forrest_Gump_01.28.30.497-01.28.34.136.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">109.2342,132.4727,1714.136,819.256</marker>
+        <marker type="LOCATION" frame="25">218.7365,132.4727,1348.353,819.256</marker>
+        <marker type="LOCATION" frame="47">315.0985,132.4727,1125.952,819.256</marker>
+        <marker type="LOCATION" frame="66">340.3064,132.4727,974.7046,819.256</marker>
+        <marker type="LOCATION" frame="87">390.7224,132.4727,844.4637,819.256</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Forrest" filename="0009_Forrest_Gump_01.28.30.497-01.28.34.136.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">978.9061,443.3698,92.42876,378.1189</marker>
+        <marker type="LOCATION" frame="25">911.685,470.187,63.01963,318.706</marker>
+        <marker type="LOCATION" frame="47">882.2761,493.7856,71.422,266.4225</marker>
+        <marker type="LOCATION" frame="66">836.0613,505.7593,58.81838,229.6755</marker>
+        <marker type="LOCATION" frame="87">823.4581,518.9935,54.61668,189.0604</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The boat is old and rusty.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.28.23.081-01.28.30.497/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.28.23.081-01.28.30.497/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.28.23.081-01.28.30.497/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

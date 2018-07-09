@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="convict1" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">324.8438,126.5625,833.2031,383.9063</marker>
+        <marker type="LOCATION" frame="2">324.8438,126.5625,814.2188,556.875</marker>
+        <marker type="LOCATION" frame="6">4.21875,189.8438,968.2031,750.9375</marker>
+        <marker type="LOCATION" frame="7">4.21875,369.1406,968.2031,571.6406</marker>
+        <marker type="LOCATION" frame="9">4.21875,270,968.2031,670.7813</marker>
+        <marker type="LOCATION" frame="17">4.21875,238.3594,1037.813,702.4219</marker>
+        <marker type="LOCATION" frame="18">326.9531,158.2031,1586.25,785.7422</marker>
+        <marker type="LOCATION" frame="25">466.1719,120.2344,1447.031,823.7109</marker>
+        <marker type="LOCATION" frame="32">506.25,120.2344,1318.359,823.7109</marker>
+        <marker type="LOCATION" frame="34">506.25,120.2344,1126.406,767.8125</marker>
+        <marker type="LOCATION" frame="36">580.0781,310.0781,818.4375,506.25</marker>
+        <marker type="LOCATION" frame="39">580.0781,478.8281,687.6563,337.5</marker>
+        <marker type="LOCATION" frame="41">778.3594,691.875,259.4531,124.4531</marker>
+        <marker type="LOCATION" frame="42">818.4375,736.1719,170.8594,80.15625</marker>
+        <marker type="DELETE" frame="43" />
+        <marker type="LOCATION" frame="46">628.5938,253.125,202.5,267.8906</marker>
+        <marker type="LOCATION" frame="53">558.9844,356.4844,272.1094,208.8281</marker>
+        <marker type="LOCATION" frame="58">560.0391,473.5547,272.1094,208.8281</marker>
+        <marker type="LOCATION" frame="65">602.2266,541.0547,359.6484,247.8516</marker>
+        <marker type="LOCATION" frame="66">623.8477,536.3086,359.6484,247.8516</marker>
+      </markers>
+    </object>
+    <object id="o2" name="hobo1" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">272.1094,219.375,297.4219,611.7188</marker>
+        <marker type="DELETE" frame="18" />
+      </markers>
+    </object>
+    <object id="o3" name="hobo2" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">556.875,145.5469,348.0469,706.6406</marker>
+        <marker type="DELETE" frame="18" />
+      </markers>
+    </object>
+    <object id="o4" name="hobo3" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">972.4219,132.8906,339.6094,710.8594</marker>
+        <marker type="DELETE" frame="18" />
+      </markers>
+    </object>
+    <object id="o5" name="hobo4" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1375.313,168.75,436.6406,727.7344</marker>
+        <marker type="DELETE" frame="18" />
+      </markers>
+    </object>
+    <object id="o6" name="convict2" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="46">795.2344,544.2188,143.4375,151.875</marker>
+        <marker type="LOCATION" frame="53">795.2344,544.2188,213.0469,191.9531</marker>
+        <marker type="LOCATION" frame="58">880.6641,595.8984,213.0469,191.9531</marker>
+        <marker type="LOCATION" frame="65">967.1484,635.9766,365.9766,205.6641</marker>
+        <marker type="LOCATION" frame="66">1012.5,635.9766,320.625,205.6641</marker>
+      </markers>
+    </object>
+    <object id="o7" name="convict3" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="46">949.2188,548.4375,84.375,158.2031</marker>
+        <marker type="LOCATION" frame="53">999.8438,581.1328,143.4375,158.2031</marker>
+        <marker type="LOCATION" frame="58">1077.891,604.3359,143.4375,158.2031</marker>
+        <marker type="LOCATION" frame="65">1084.219,608.5547,215.1563,138.1641</marker>
+        <marker type="LOCATION" frame="66">1075.781,584.8242,270,138.1641</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="66" />
+      <text>Everett, just finishing his speech, flips forward in turn, smashes his chin onto the floor and is sucked out the open doorway, his clawing fingernails leaving parallel grooves on the boxcar floorboards.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0016_O_Brother_Where_Art_Thou_00.05.26.406-00.05.30.128/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

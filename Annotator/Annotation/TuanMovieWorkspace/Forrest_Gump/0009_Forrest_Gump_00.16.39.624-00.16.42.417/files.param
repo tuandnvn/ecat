@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.39.624-00.16.42.417" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Suddenly his braces shatter, sending steel and plastic flying into the air.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

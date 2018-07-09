@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.35.39.530-00.35.51.791" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.35.39.530-00.35.51.791.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest pick up the magazine and turns the page, revealing Jenny as she poses with a school sweater on, and that's all.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

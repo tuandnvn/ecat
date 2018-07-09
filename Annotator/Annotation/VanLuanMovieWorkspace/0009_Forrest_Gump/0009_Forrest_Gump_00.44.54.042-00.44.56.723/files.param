@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.44.54.042-00.44.56.723" length="65">
+  <files>
+    <file>0009_Forrest_Gump_00.44.54.042-00.44.56.723.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="road" filename="0009_Forrest_Gump_00.44.54.042-00.44.56.723.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.196792,132.4943,1920,804.0275</marker>
+      </markers>
+    </object>
+    <object id="o2" name="dan" filename="0009_Forrest_Gump_00.44.54.042-00.44.56.723.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">610.7094,279.6796,230.6636,604.119</marker>
+        <marker type="LOCATION" frame="13">688.554,272.54,230.6636,589.8398</marker>
+        <marker type="LOCATION" frame="31">796.3387,262.6545,230.6636,570.0687</marker>
+        <marker type="LOCATION" frame="49">818.3066,265.9497,230.6636,550.2975</marker>
+        <marker type="LOCATION" frame="64">816.1099,299.4508,230.6636,533.8215</marker>
+      </markers>
+    </object>
+    <object id="o3" name="t4_soldiers" filename="0009_Forrest_Gump_00.44.54.042-00.44.56.723.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">10.98398,189.611,1893.639,746.9111</marker>
+        <marker type="LOCATION" frame="13">9.645308,189.611,1896.762,746.9111</marker>
+        <marker type="LOCATION" frame="31">7.79176,189.611,1901.087,746.9114</marker>
+        <marker type="LOCATION" frame="49">5.938214,189.611,1905.412,746.9116</marker>
+        <marker type="LOCATION" frame="64">4.393589,204.9886,1909.016,731.5341</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="18" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="18" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

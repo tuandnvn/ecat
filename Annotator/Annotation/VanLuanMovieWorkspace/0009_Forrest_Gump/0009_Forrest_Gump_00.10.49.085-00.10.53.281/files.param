@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.10.49.085-00.10.53.281" length="101">
+  <files>
+    <file>0009_Forrest_Gump_00.10.49.085-00.10.53.281.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="inside house" filename="0009_Forrest_Gump_00.10.49.085-00.10.53.281.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.455276,137.3402,1912.634,807.7749</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy's mom" filename="0009_Forrest_Gump_00.10.49.085-00.10.53.281.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">515.601,149.6164,500.8696,793.0435</marker>
+        <marker type="LOCATION" frame="21">351.0998,149.6164,608.9002,793.0435</marker>
+        <marker type="LOCATION" frame="49">417.3913,149.6164,621.1765,793.0435</marker>
+        <marker type="LOCATION" frame="78">254.0455,149.6164,740.3279,793.0435</marker>
+        <marker type="LOCATION" frame="100">130.1279,149.6164,763.5805,793.0435</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="100" />
+      <text>She hears singing coming from another room and walks over to a closed door.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="42" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

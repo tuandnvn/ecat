@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.03.42.055-00.03.47.379" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.03.42.055-00.03.47.379.avi</file>
+  </files>
+  <objects no="11">
+    <object id="o11" name="light of police car" filename="1043_Vantage_Point_00.03.42.055-00.03.47.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="111">8.359963,824.238,1911.64,114.2525</marker>
+        <marker type="LOCATION" frame="127">8.359963,520.4935,1911.64,417.9974</marker>
+      </markers>
+    </object>
+    <object id="o10" name="motorcycles" filename="1043_Vantage_Point_00.03.42.055-00.03.47.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="111">1136.952,824.238,130.9723,86.38607</marker>
+        <marker type="LOCATION" frame="127">1043.599,535.8201,179.7387,221.5384</marker>
+      </markers>
+    </object>
+    <object id="o8" name="bell tower" filename="1043_Vantage_Point_00.03.42.055-00.03.47.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">657.6488,141.5094,562.9031,796.9811</marker>
+        <marker type="LOCATION" frame="127">303.7446,141.5094,1451.845,353.9042</marker>
+      </markers>
+    </object>
+    <object id="o9" name="motorcade" filename="1043_Vantage_Point_00.03.42.055-00.03.47.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="108">1103.512,866.0377,476.5167,72.45283</marker>
+        <marker type="LOCATION" frame="127">1025.486,517.7068,529.463,289.8113</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="127" />
+      <text>The motorcade moves past a tall stone bell tower towards the flashing lights of a parked police car.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="127" arguments="2" ids="o9,o10" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

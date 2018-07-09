@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.58.38.313-00.58.42.184" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.58.38.313-00.58.42.184.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest turns the TV off and he is hit on the back of the head by a ping-pong ball.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

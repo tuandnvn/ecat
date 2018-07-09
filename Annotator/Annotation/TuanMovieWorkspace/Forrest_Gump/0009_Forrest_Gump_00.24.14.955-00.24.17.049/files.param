@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.24.14.955-00.24.17.049" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.24.14.955-00.24.17.049.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>An assistant coach looks at the television, then at the other coaches.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

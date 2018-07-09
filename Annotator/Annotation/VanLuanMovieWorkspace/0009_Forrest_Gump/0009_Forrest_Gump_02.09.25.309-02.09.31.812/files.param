@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.09.25.309-02.09.31.812" length="156">
+  <files>
+    <file>0009_Forrest_Gump_02.09.25.309-02.09.31.812.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_02.09.25.309-02.09.31.812.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1073.548,308.7742,136.2577,474.8387</marker>
+        <marker type="LOCATION" frame="155">1073.548,308.7742,136.2577,474.8387</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Lawn" filename="0009_Forrest_Gump_02.09.25.309-02.09.31.812.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,122.9677,1915.869,821.6774</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Jenny's grave" filename="0009_Forrest_Gump_02.09.25.309-02.09.31.812.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">751.4833,531.7419,441.8062,247.7419</marker>
+        <marker type="LOCATION" frame="155">751.4833,531.7419,441.8062,247.7419</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest stands under the old oak tree where Jenny has been buried.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.09.09.389-02.09.12.124/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.09.09.389-02.09.12.124/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="102" arguments="2" ids="o1,o4" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

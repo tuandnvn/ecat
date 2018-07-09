@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.21.43.198-01.21.49.699" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.21.43.198-01.21.49.699.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Carla removes her top and sits on top of Dan in his wheelchair.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

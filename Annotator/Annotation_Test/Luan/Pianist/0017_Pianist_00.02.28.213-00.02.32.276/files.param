@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.28.213-00.02.32.276" length="0">
+  <files>
+    <file>0017_Pianist_00.02.28.213-00.02.32.276.avi</file>
+  </files>
+  <objects no="10">
+    <object id="o7" name="Debris3" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="18">1216.552,259.3103,99.31042,82.75861</marker>
+        <marker type="LOCATION" frame="19">1164.138,242.7586,99.31034,137.931</marker>
+        <marker type="LOCATION" frame="20">1125.517,179.3103,99.31034,176.5517</marker>
+        <marker type="LOCATION" frame="21">1040,151.7241,99.31034,176.5517</marker>
+        <marker type="LOCATION" frame="22">896.5516,151.7241,176.5518,102.069</marker>
+        <marker type="LOCATION" frame="23">777.931,89.65517,176.5517,102.069</marker>
+        <marker type="LOCATION" frame="24">598.6207,28.96537,135.1724,271.7243</marker>
+        <marker type="DELETE" frame="26" />
+      </markers>
+    </object>
+    <object id="o6" name="Debris2" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="9">1144.828,113.1034,82.75861,151.7241</marker>
+        <marker type="LOCATION" frame="10">1073.103,19.31034,96.55172,281.3792</marker>
+        <marker type="LOCATION" frame="11">995.862,38.6207,106.2065,306.2068</marker>
+        <marker type="LOCATION" frame="12">838.6206,183.4483,135.8618,291.0344</marker>
+        <marker type="LOCATION" frame="13">721.0346,240,164.4826,322.0688</marker>
+        <marker type="LOCATION" frame="14">515.8621,374.138,220.1719,585.8619</marker>
+        <marker type="LOCATION" frame="15">358.8798,457.4138,363.6197,232.7584</marker>
+        <marker type="LOCATION" frame="16">234.7419,471.2069,115.6029,582.5861</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o3" name="Men" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">240,306.2069,358.6207,753.1034</marker>
+        <marker type="LOCATION" frame="2">240,306.2069,292.4138,753.1034</marker>
+        <marker type="LOCATION" frame="3">212.4138,302.0689,292.4138,753.1034</marker>
+        <marker type="LOCATION" frame="4">212.4138,302.0689,240,753.1034</marker>
+        <marker type="LOCATION" frame="5">212.4138,302.0689,217.931,753.1034</marker>
+        <marker type="LOCATION" frame="7">212.4138,537.931,165.5173,517.2407</marker>
+        <marker type="LOCATION" frame="9">212.4138,816.5516,165.5173,238.6191</marker>
+        <marker type="LOCATION" frame="10">212.4138,959.9999,126.8966,95.17022</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+    </object>
+    <object id="o4" name="Bomb" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="7">1280,16.55171,306.207,135.1724</marker>
+        <marker type="LOCATION" frame="8">1164.138,22.06896,422.0684,129.6552</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+    </object>
+    <object id="o5" name="Debris" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="8">1619.31,57.93102,253.7933,198.6207</marker>
+        <marker type="LOCATION" frame="9">1606.896,147.5862,295.1724,201.3793</marker>
+        <marker type="LOCATION" frame="10">1572.414,113.1034,329.6546,235.862</marker>
+        <marker type="LOCATION" frame="11">1551.035,88.96551,329.6545,235.862</marker>
+        <marker type="LOCATION" frame="12">1545.517,119.3103,329.6545,235.862</marker>
+        <marker type="LOCATION" frame="13">1263.448,119.3103,611.7228,235.862</marker>
+        <marker type="LOCATION" frame="14">1310.69,138.6207,611.7228,235.862</marker>
+        <marker type="LOCATION" frame="15">1572.587,174.4827,369.309,235.862</marker>
+        <marker type="LOCATION" frame="17">1630.518,185.5172,369.309,235.862</marker>
+        <marker type="LOCATION" frame="18">1602.759,87.5862,275.8617,387.5862</marker>
+        <marker type="LOCATION" frame="19">1724.138,87.58619,209.6552,387.5862</marker>
+        <marker type="LOCATION" frame="20">1368.276,311.7241,419.3103,209.6552</marker>
+        <marker type="LOCATION" frame="21">1365.517,350.3448,460.6897,223.4483</marker>
+        <marker type="LOCATION" frame="22">1317.241,365.5172,460.6896,223.4483</marker>
+        <marker type="LOCATION" frame="23">1217.931,467.5862,536.5518,280</marker>
+        <marker type="LOCATION" frame="24">1094.483,535.1724,425.5174,206.2065</marker>
+        <marker type="LOCATION" frame="26">1105.862,758.6206,425.5173,141.7237</marker>
+        <marker type="DELETE" frame="27" />
+      </markers>
+    </object>
+    <object id="o8" name="Debris4" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="19">786.2068,242.7586,124.1379,264.8276</marker>
+        <marker type="LOCATION" frame="20">696.5517,369.6552,124.1379,344.8276</marker>
+        <marker type="LOCATION" frame="21">599.9999,564.1379,124.1379,344.8276</marker>
+        <marker type="LOCATION" frame="22">519.3103,785.5175,81.3793,255.1719</marker>
+        <marker type="DELETE" frame="23" />
+      </markers>
+    </object>
+    <object id="o9" name="Men3" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="88">173.7931,38.62068,1009.655,1020.69</marker>
+      </markers>
+    </object>
+    <object id="o10" name="Radio" filename="0017_Pianist_00.02.28.213-00.02.32.276.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="97">468.9655,148.9655,739.3103,595.862</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="97" />
+      <text>Szpilman fights to get to the main door, when another bomb explodes, filling the air with dust and debris, obscuring him and everyone else.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

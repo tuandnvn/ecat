@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.33.18.274-01.33.23.995" length="138">
+  <files>
+    <file>0009_Forrest_Gump_01.33.18.274-01.33.23.995.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.33.18.274-01.33.23.995.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1185,130.9091,732.2727,816.1334</marker>
+        <marker type="LOCATION" frame="1">1185,130.9091,732.2727,816.1334</marker>
+        <marker type="LOCATION" frame="2">491.5909,636.1364,45,67.5</marker>
+        <marker type="LOCATION" frame="54">512.0455,616.7045,45,67.5</marker>
+        <marker type="LOCATION" frame="95">557.0455,635.1136,45,67.5</marker>
+        <marker type="LOCATION" frame="137">620.4545,639.2045,45,67.5</marker>
+      </markers>
+    </object>
+    <object id="o2" name="River" filename="0009_Forrest_Gump_01.33.18.274-01.33.23.995.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.4534795,130.6616,1917.051,816.6351</marker>
+        <marker type="DELETE" frame="2" />
+      </markers>
+    </object>
+    <object id="o5" name="Gulf" filename="0009_Forrest_Gump_01.33.18.274-01.33.23.995.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">0.6818237,130.9091,1916.591,816.1364</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Boat" filename="0009_Forrest_Gump_01.33.18.274-01.33.23.995.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.6818237,130.9091,546.1364,625.9091</marker>
+        <marker type="LOCATION" frame="1">0.6818237,130.9091,546.1364,625.9091</marker>
+        <marker type="LOCATION" frame="2">342.2727,437.7273,603.4091,347.7265</marker>
+        <marker type="LOCATION" frame="54">352.5,440.8789,640.0605,347.7264</marker>
+        <marker type="LOCATION" frame="137">463.9773,445.9095,603.4091,347.7265</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="3" endFrame="137" />
+      <text>Forrest's shrimping boat is alone on the gulf waters.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.33.08.822-01.33.13.969/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.33.08.822-01.33.13.969/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.33.08.822-01.33.13.969/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="2" arguments="1" ids="o1" q="True" type="STAND(X)" />
+  </predicates>
+</session>

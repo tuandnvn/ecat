@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.29.11.692-00.29.20.488" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.29.11.692-00.29.20.488.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest and Jenny hug on the bed as Jenny's roommate pretends to be asleep, but is listening, horrified, with her eyes open.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

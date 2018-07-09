@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.10.55.051-01.10.56.177" length="48">
+  <files>
+    <file>0051_Men_in_black_01.10.55.051-01.10.56.177.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.10.55.051-01.10.56.177.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="cat" filename="0051_Men_in_black_01.10.55.051-01.10.56.177.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="3">397.6735,378.4149,778.5153,433.4731</marker>
+        <marker type="LOCATION" frame="9">314.9033,225.0816,275.9709,439.5338</marker>
+        <marker type="LOCATION" frame="14">160.2314,74.77859,319.2442,448.2284</marker>
+        <marker type="LOCATION" frame="19">-0.104861,107.6224,322.8671,377.6224</marker>
+        <marker type="LOCATION" frame="21">-0.104861,90.62939,292.6573,356.8531</marker>
+        <marker type="LOCATION" frame="24">-0.104861,107.6224,130.2797,283.2168</marker>
+        <marker type="LOCATION" frame="26">-0.104861,77.41261,107.6224,328.5315</marker>
+        <marker type="LOCATION" frame="28">-0.104861,77.41261,58.53147,328.5315</marker>
+        <marker type="DELETE" frame="30" />
+      </markers>
+    </object>
+    <object id="o4" name="Edgar" filename="0051_Men_in_black_01.10.55.051-01.10.56.177.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">482.4627,18.13435,658.8806,1039.703</marker>
+        <marker type="DELETE" frame="3" />
+        <marker type="LOCATION" frame="35">443.6014,18.13435,813.7762,1039.703</marker>
+        <marker type="LOCATION" frame="38">529.5963,18.13435,731.5576,1039.703</marker>
+        <marker type="LOCATION" frame="40">634.3007,16.99302,833.0351,1040.844</marker>
+        <marker type="LOCATION" frame="43">702.2728,69.86015,1074.336,987.9772</marker>
+        <marker type="LOCATION" frame="46">781.5734,43.42659,1136.643,1014.411</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>As they draw close, ORION the cat bolts from underneath it, races between their legs, and leapfrogs over several small cabinets, landing on top of a very tall one with only six inches clearance between it and the ceiling.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.10.50.292-01.10.54.863/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.10.50.292-01.10.54.863/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.10.50.292-01.10.54.863/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

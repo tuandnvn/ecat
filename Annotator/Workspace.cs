@@ -13,13 +13,13 @@ namespace Annotator
     {
         private List<Project> projects;
         private Dictionary<string, Project> projectNameToProject;
-        public String locationFolder { get; } //workspace folder
+        public String location { get; } //workspace folder
         public bool defaultOption { get; } //default workspace folder option
 
         //Constructor
         public Workspace(String locationFolder, bool defaultOption)
         {
-            this.locationFolder = locationFolder;
+            this.location = locationFolder;
             this.defaultOption = defaultOption;
             projects = new List<Project>();
             projectNameToProject = new Dictionary<string, Project>();
@@ -32,9 +32,9 @@ namespace Annotator
         /// <returns> Return the created project </returns>
         public Project addProject(String projectName)
         {
-            Project project = new Project(locationFolder, projectName, null);
+            Project project = new Project(location, projectName);
             //Create new project folder:
-            Directory.CreateDirectory(locationFolder + Path.DirectorySeparatorChar + projectName);
+            Directory.CreateDirectory(location + Path.DirectorySeparatorChar + projectName);
             projects.Add(project);
             projectNameToProject[projectName] = project;
             return project;
@@ -73,7 +73,7 @@ namespace Annotator
             // Load projects
             try
             {
-                String[] projectNames = Directory.GetDirectories(this.locationFolder);
+                String[] projectNames = Directory.GetDirectories(this.location);
 
                 foreach (String projectName in projectNames)
                 {
@@ -83,7 +83,7 @@ namespace Annotator
             }
             catch (Exception e)
             {
-                throw new Exception("Load workspace failed! Directory might not exist.", e);
+                MessageBox.Show("Load workspace failed! Directory might not exist.");
             }
         }
     }

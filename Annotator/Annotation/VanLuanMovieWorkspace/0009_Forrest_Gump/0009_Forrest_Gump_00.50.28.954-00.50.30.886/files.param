@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.50.28.954-00.50.30.886" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.50.28.954-00.50.30.886.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="field" filename="0009_Forrest_Gump_00.50.28.954-00.50.30.886.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.907664,132.3692,1905.231,818.2154</marker>
+      </markers>
+    </object>
+    <object id="o2" name="platoon" filename="0009_Forrest_Gump_00.50.28.954-00.50.30.886.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.817007E-05,141.2308,1473.969,809.3539</marker>
+        <marker type="LOCATION" frame="2">-2.817007E-05,141.2308,1473.969,809.3539</marker>
+        <marker type="LOCATION" frame="3">682.3384,619.7538,1231.754,330.8308</marker>
+        <marker type="LOCATION" frame="22">301.2923,601.8965,1612.8,348.6881</marker>
+        <marker type="LOCATION" frame="31">5.907664,593.4378,1908.185,357.1468</marker>
+        <marker type="LOCATION" frame="33">5.907664,591.558,1908.185,359.0266</marker>
+        <marker type="LOCATION" frame="34">655.7538,590.6182,1258.339,359.9665</marker>
+        <marker type="LOCATION" frame="41">635.0769,584.0392,1279.015,366.5455</marker>
+        <marker type="LOCATION" frame="42">8.86151,583.0993,1905.23,367.4853</marker>
+        <marker type="LOCATION" frame="47">85.66151,578.4,1828.431,372.1846</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="4" arguments="1" ids="o2" q="True" type="RUN(X)" />
+  </predicates>
+</session>

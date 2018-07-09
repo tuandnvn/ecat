@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.03.47.713-00.03.50.379" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.03.47.713-00.03.50.379.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="camera" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">752.2543,142.0231,683.5838,627.3989</marker>
+        <marker type="LOCATION" frame="48">680.4624,149.8265,683.5838,627.3989</marker>
+        <marker type="LOCATION" frame="53">605.5491,132.6589,722.6011,730.4047</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">568.0925,156.0694,1354.682,783.4682</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="63" />
+      <text>A GNN TV camera is fixed on the vehicles.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="38" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="63" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

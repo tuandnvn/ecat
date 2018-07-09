@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.09.41.579-02.09.46.178" length="111">
+  <files>
+    <file>0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1201.548,213.8064,656.5156,730.8387</marker>
+        <marker type="LOCATION" frame="26">1211.308,213.8064,657.4914,730.8387</marker>
+        <marker type="LOCATION" frame="53">1221.443,213.8064,658.5046,730.8386</marker>
+        <marker type="LOCATION" frame="110">1242.839,213.8064,660.6439,730.8387</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Ground" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,122.9677,1915.869,821.6774</marker>
+      </markers>
+    </object>
+    <object id="o4" name="House" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">128,246.8387,924.903,404.6451</marker>
+        <marker type="LOCATION" frame="26">89.51431,262.454,963.3885,389.0298</marker>
+        <marker type="LOCATION" frame="53">49.54839,278.6698,1003.354,372.8139</marker>
+        <marker type="LOCATION" frame="110">41.29032,312.9032,1011.612,338.5806</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Bulldozer" filename="0009_Forrest_Gump_02.09.41.579-02.09.46.178.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1007.484,374.8387,437.6773,247.7419</marker>
+        <marker type="LOCATION" frame="26">975.2773,374.8387,482.0373,247.7419</marker>
+        <marker type="LOCATION" frame="53">941.832,374.8387,478.5551,247.7419</marker>
+        <marker type="LOCATION" frame="110">871.2255,374.8387,478.968,247.7419</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest watches as Jenny's dad's house is knocked down by a bulldozer.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.09.33.079-02.09.37.326/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.09.33.079-02.09.37.326/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

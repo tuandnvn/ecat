@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi</file>
+  </files>
+  <objects no="9">
+    <object id="o8" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">587.929,447.3373,1332.426,287.574</marker>
+        <marker type="LOCATION" frame="18">760.4734,466.5089,1142.308,415.3847</marker>
+        <marker type="LOCATION" frame="49">645.4438,424.9704,1257.338,501.6568</marker>
+        <marker type="LOCATION" frame="64">645.4439,424.9704,667.8106,501.6568</marker>
+        <marker type="LOCATION" frame="82">586.3314,316.3312,667.8107,613.4916</marker>
+        <marker type="LOCATION" frame="99">586.3315,236.4497,915.4437,693.373</marker>
+        <marker type="LOCATION" frame="105">785.2368,241.2424,915.4438,693.3733</marker>
+        <marker type="LOCATION" frame="109">954.5859,241.2424,915.4438,693.3732</marker>
+        <marker type="LOCATION" frame="166">954.5859,241.2424,528.0178,693.3733</marker>
+        <marker type="LOCATION" frame="214">854.3344,241.2424,528.0178,693.3733</marker>
+        <marker type="LOCATION" frame="236">1032.071,263.6093,667.8109,693.3732</marker>
+        <marker type="LOCATION" frame="260">680.5917,453.7278,1217.396,503.2547</marker>
+        <marker type="LOCATION" frame="331">351.4793,466.5089,1121.539,490.4738</marker>
+        <marker type="LOCATION" frame="341">351.4793,466.5089,862.7219,490.4738</marker>
+        <marker type="LOCATION" frame="354">304.7143,466.5089,599.7857,490.4738</marker>
+        <marker type="LOCATION" frame="384">677.3965,466.5089,635.858,490.4738</marker>
+      </markers>
+    </object>
+    <object id="o9" name="grass" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">12.78107,134.2012,1907.574,798.8167</marker>
+      </markers>
+    </object>
+    <object id="o5" name="gravestones" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="209">535.6784,218.3527,209.2147,47.79018</marker>
+        <marker type="LOCATION" frame="240">503.2461,241.7278,209.2147,161.1518</marker>
+        <marker type="LOCATION" frame="291">400.2448,261.3176,293.1281,161.1519</marker>
+        <marker type="LOCATION" frame="329">257.219,199.357,418.5799,246.7298</marker>
+        <marker type="LOCATION" frame="380">52.7219,201.3018,570.355,292.714</marker>
+      </markers>
+    </object>
+    <object id="o7" name="gravestones" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="209">944.2011,228.4615,231.6568,101.3242</marker>
+        <marker type="LOCATION" frame="240">944.2012,228.4615,231.6568,206.0947</marker>
+        <marker type="LOCATION" frame="307">944.2012,228.4615,407.3965,206.0947</marker>
+        <marker type="LOCATION" frame="329">1037.263,176.9379,468.9054,227.6627</marker>
+        <marker type="LOCATION" frame="354">1145.902,167.3521,468.9054,227.6627</marker>
+        <marker type="LOCATION" frame="373">1280.104,157.7663,468.9054,227.6627</marker>
+        <marker type="LOCATION" frame="374">1280.104,157.7663,633.861,305.5474</marker>
+        <marker type="LOCATION" frame="386">1405.917,157.7663,508.0482,564.364</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="70" />
+      <text>Flickering its tongue, it slithers down onto a narrow path and moves silently between the gravestones in a dark and overgrown cemetery.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="261" arguments="2" ids="o8,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="316" arguments="2" ids="o8,o5" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="386" arguments="2" ids="o5,o9" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="386" arguments="2" ids="o7,o9" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

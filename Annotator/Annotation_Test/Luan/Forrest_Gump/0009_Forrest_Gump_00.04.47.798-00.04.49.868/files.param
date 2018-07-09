@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.04.47.798-00.04.49.868" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">429.2802,138.193,937.9479,802.6953</marker>
+        <marker type="LOCATION" frame="20">429.2802,138.193,861.5008,802.6953</marker>
+        <marker type="LOCATION" frame="41">482.2052,138.193,808.5758,802.6953</marker>
+        <marker type="LOCATION" frame="49">482.2052,138.193,835.0383,805.6356</marker>
+      </markers>
+    </object>
+    <object id="o2" name="doctor" filename="0009_Forrest_Gump_00.04.47.798-00.04.49.868.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1605.391,288.147,317.5498,658.6218</marker>
+        <marker type="LOCATION" frame="20">1440.735,147.0138,482.2052,799.755</marker>
+        <marker type="LOCATION" frame="24">1381.93,147.0138,541.0107,799.755</marker>
+        <marker type="LOCATION" frame="41">1381.93,135.2527,541.0107,811.5161</marker>
+        <marker type="LOCATION" frame="49">1340.766,135.2527,582.1746,811.5161</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="49" />
+      <text>It is young Forrest as he sits in a doctor's office.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

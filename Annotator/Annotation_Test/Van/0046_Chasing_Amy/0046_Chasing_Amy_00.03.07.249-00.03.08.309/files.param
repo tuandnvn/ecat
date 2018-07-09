@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.03.07.249-00.03.08.309" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o3" name="" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="9">7.852761,19.6319,1900.369,1036.565</marker>
+        <marker type="LOCATION" frame="26">7.852761,19.6319,1735.46,1036.565</marker>
+        <marker type="LOCATION" frame="41">7.852761,19.6319,1519.509,1036.565</marker>
+        <marker type="LOCATION" frame="47">7.852761,19.6319,1900.368,1036.565</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Holder" filename="0046_Chasing_Amy_00.03.07.249-00.03.08.309.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">349.4479,23.55828,1546.995,1036.565</marker>
+        <marker type="LOCATION" frame="8">349.4479,23.55828,1499.877,1036.565</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Across from the barely-managing- to- stand Fan</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

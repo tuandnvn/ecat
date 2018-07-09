@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.26.406-00.05.30.128" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.26.406-00.05.30.128.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="man1" filename="0016_O_Brother_Where_Art_Thou_00.05.26.406-00.05.30.128.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">748.107,172.1359,605.5336,774.1747</marker>
+        <marker type="LOCATION" frame="85">748.107,325.0486,605.5336,621.2621</marker>
+        <marker type="LOCATION" frame="87">12.37887,133.2524,605.5336,819.1747</marker>
+        <marker type="LOCATION" frame="88">12.37887,133.2524,287.0386,408.4951</marker>
+        <marker type="LOCATION" frame="89">12.37887,133.2524,606.8444,113.1553</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man2" filename="0016_O_Brother_Where_Art_Thou_00.05.26.406-00.05.30.128.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">425.2427,726.9903,491.068,233.301</marker>
+        <marker type="LOCATION" frame="69">462.8156,758.8835,270.8738,159.9029</marker>
+        <marker type="LOCATION" frame="71">589.9515,809.3447,124.9512,86.94175</marker>
+        <marker type="DELETE" frame="74" />
+      </markers>
+    </object>
+    <object id="o3" name="man3" filename="0016_O_Brother_Where_Art_Thou_00.05.26.406-00.05.30.128.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">426.1165,466.6019,270.8738,415.0483</marker>
+        <marker type="LOCATION" frame="29">426.1165,552.233,413.301,329.4172</marker>
+        <marker type="LOCATION" frame="34">636.699,786.4078,202.7183,95.2425</marker>
+        <marker type="DELETE" frame="35" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="89" />
+      <text>The convict running outside the boxcar door stumbles and disappears and the middle convict is yanked out immediately after.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0016_O_Brother_Where_Art_Thou_00.05.18.870-00.05.25.178/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="28" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

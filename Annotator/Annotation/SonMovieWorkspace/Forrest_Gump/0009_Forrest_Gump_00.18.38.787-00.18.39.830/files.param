@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.18.38.787-00.18.39.830" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.18.38.787-00.18.39.830.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Field" filename="0009_Forrest_Gump_00.18.38.787-00.18.39.830.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,135.4115,1908.828,813.9651</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0009_Forrest_Gump_00.18.38.787-00.18.39.830.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1039.801,408.3292,97.35661,233.0175</marker>
+        <marker type="LOCATION" frame="19">957.606,475.3616,85.2827,196.9686</marker>
+        <marker type="LOCATION" frame="46">811.5711,483.3417,97.35661,233.0175</marker>
+        <marker type="DELETE" frame="47" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Jenny's dad steps out toward the field.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.18.34.090-00.18.37.989/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.18.34.090-00.18.37.989/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

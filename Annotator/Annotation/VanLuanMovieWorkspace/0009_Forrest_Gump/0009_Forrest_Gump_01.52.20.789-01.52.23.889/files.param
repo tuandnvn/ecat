@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.52.20.789-01.52.23.889" length="75">
+  <files>
+    <file>0009_Forrest_Gump_01.52.20.789-01.52.23.889.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_01.52.20.789-01.52.23.889.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.347506E-05,125.6408,1915.897,820.5121</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.52.20.789-01.52.23.889.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">562.0513,511.282,201.0249,381.5379</marker>
+        <marker type="LOCATION" frame="8">583.3402,503.0769,220.7623,389.7423</marker>
+        <marker type="LOCATION" frame="19">612.6126,412.266,203.7976,480.5537</marker>
+        <marker type="LOCATION" frame="37">660.5128,318.4615,147.692,574.3582</marker>
+        <marker type="LOCATION" frame="57">658.2952,316.2439,141.0392,576.5758</marker>
+        <marker type="LOCATION" frame="74">656.4102,314.3589,135.3842,578.4608</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest stands.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.52.14.782-01.52.18.398/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.52.14.782-01.52.18.398/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="42" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

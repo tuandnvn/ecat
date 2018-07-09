@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.07.15.535-01.07.16.646" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.07.15.535-01.07.16.646.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest rushes off the stage as Jenny makes her way out into the pool.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -145,7 +145,7 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Start frame";
             // 
-            // label2
+            // infoLbl
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;

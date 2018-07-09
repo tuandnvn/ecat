@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.37.969-00.00.39.897" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.37.969-00.00.39.897.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o2" name="men" filename="1060_Yes_man_00.00.37.969-00.00.39.897.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">303.7446,140.1161,1114.659,799.7678</marker>
+        <marker type="LOCATION" frame="47">309.3179,142.9028,1315.297,799.7678</marker>
+      </markers>
+    </object>
+    <object id="o4" name="cellphone" filename="1060_Yes_man_00.00.37.969-00.00.39.897.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">1404.47,735.0653,158.8389,200.6386</marker>
+        <marker type="LOCATION" frame="47">1373.817,434.1074,158.8391,228.5051</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He takes the phone out again.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,1060_Yes_man_00.00.36.351-00.00.37.969/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="20" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

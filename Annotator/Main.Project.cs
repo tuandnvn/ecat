@@ -10,44 +10,36 @@ namespace Annotator
 {
     public partial class Main
     {
-        private void recordSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        //Add new Session - open poup window:
+        private void showNewSessionPopup()
         {
-            closeEditedSession();
-            tabs.SelectedIndex = 1;
+            //1)Set new session state
+            newSession = true;
+            //2)Show popup for session name
+            SessionInfo sessionInfo = new SessionInfo(this, treeView.SelectedNode.Text);
+            sessionInfo.StartPosition = FormStartPosition.CenterParent;
+            sessionInfo.ShowDialog();
         }
 
-        private void newSessionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            closeEditedSession();
-            if (!newSession)
-            {
-                addNewSession();
-            }
-        }
-
-        //Select project from available projects in workspace
+        /// <summary>
+        /// Select project from available projects in workspace
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentSession != null && currentSession.getEdited())
+            if (currentSession != null && currentSession.edited)
             {
-                MessageBox.Show("Cannot select project, session " + currentSession.sessionName + " in project " + currentSession.projectName + " is editing");
+                MessageBox.Show("Cannot select project, session " + currentSession.sessionName + " in project " + currentSession.project + " is editing");
                 return;
             }
 
             treeView.BeginUpdate();
-
-
             ///////////////////////////////////
             //Release current project
             if (currentProject != null)
             {
-                currentProjectNode.BackColor = Color.White;
-                // Release resources to free memory
-                foreach (Session s in currentProject.sessions)
-                {
-                    s.releaseResources();
-                }
-                currentProject.selected = false;
+                cleanUpCurrentProject();
             }
 
             ///////////////////////////////////
@@ -57,7 +49,7 @@ namespace Annotator
             currentProjectNode.BackColor = Color.Silver;
             treeView.EndUpdate();
             currentProject = workspace.getProject(prjName);
-            currentProject.selected = (true);
+            currentProject.selected = true;
 
             this.simpleEventDataCreateMenuItem.Enabled = true;
             this.Text = "Project " + currentProject.name + " selected";
@@ -73,11 +65,164 @@ namespace Annotator
             }
         }
 
+        /// <summary>
+        /// Add new session by showing a session info popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeEditedSession();
+            if (!newSession)
+            {
+                showNewSessionPopup();
+            }
+        }
+
+        /// <summary>
+        /// Add new session to project
+        /// </summary>
+        /// <param name="projectName"></param>
+        /// <param name="sessionName"></param>
+        /// <returns></returns>
+        public Session addNewSessionToProject(String projectName, String sessionName)
+        {
+            treeView.BeginUpdate();
+            TreeNodeCollection nodes = treeView.Nodes;
+            //MessageBox.Show(projectName);
+
+            TreeNode newSessionNode = new TreeNode(sessionName);
+            newSessionNode.ImageIndex = 1;
+            newSessionNode.SelectedImageIndex = newSessionNode.ImageIndex;
+            newSessionNode.Name = sessionName;
+
+            //1) Update workspace project by adding new session
+            Project project = workspace.getProject(projectName);
+            Session newSession = new Session(sessionName, project, project.path);
+
+            project.addSession(newSession);
+
+            this.currentSession = newSession;
+            //this.currentSession.loadIfNotLoaded();
+            this.currentSessionNode = newSessionNode;
+            this.treeView.SelectedNode = this.currentSessionNode;
+
+            //2) Update treeView
+            currentProjectNode.Nodes.Add(newSessionNode);
+            currentProjectNode.Expand();
+            treeView.EndUpdate();
+
+            //Log 
+            logMessage($"Session {sessionName} is added to project {projectName}.");
+
+            return newSession;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool acceptRefresh = closeEditedSession();
+
+            if (acceptRefresh)
+            {
+                Console.WriteLine("Refresh " + currentProjectNode.Text);
+                for (int projectIndex = 0; projectIndex < workspace.getProjectCount(); projectIndex++)
+                {
+                    string projectName = workspace.getProject(projectIndex).name;
+
+                    if (projectName == currentProjectNode.Text)
+                    {
+                        bool expand = treeView.Nodes[projectIndex].IsExpanded;
+
+                        treeView.Nodes.RemoveAt(projectIndex);
+                        
+                        TreeNode projectNode = addProjectTreeNode(projectIndex);
+
+                        if (expand)
+                        {
+                            projectNode.Expand();
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void setNewSession(bool option)
+        {
+            this.newSession = option;
+        }
+
+        private void recordSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeEditedSession();
+            tabs.SelectedIndex = 1;
+        }
+
+
+        private void cleanUpCurrentProject()
+        {
+            closeEditedSession();
+            currentProjectNode.BackColor = Color.White;
+            // Release resources to free memory
+            foreach (Session s in currentProject.sessions)
+            {
+                s.releaseResources();
+            }
+            currentProject.selected = false;
+            currentProject = null;
+        }
+
+
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int numberOfSessions = 0;
+            int numberOfObjects = 0;
+            int numberOfLocationMarks = 0;
+            Dictionary<String, int> numberOfLinks = new Dictionary<string, int>();
+
+            foreach (Session s in currentProject.sessions)
+            {
+                s.loadIfNotLoaded();
+                var objects = s.getObjects();
+                if (objects.Count !=0 )
+                {
+                    numberOfSessions++;
+                    numberOfObjects += objects.Count;
+                    foreach (var o in objects)
+                    {
+                        numberOfLocationMarks += o.objectMarks.Keys.Count;
+                    }
+                    foreach ( var p in s.predicates )
+                    {
+                        if (!numberOfLinks.ContainsKey(p.predicate.predicate))
+                        {
+                            numberOfLinks[p.predicate.predicate] = 0;
+                        }
+
+                        numberOfLinks[p.predicate.predicate]++;
+                    }
+                }
+            }
+
+            Console.WriteLine("numberOfSessions\t" + numberOfSessions);
+            Console.WriteLine("numberOfObjects\t" + numberOfObjects);
+            Console.WriteLine("numberOfLocationMarks\t" + numberOfLocationMarks);
+            foreach (var pred in numberOfLinks.Keys)
+            {
+                Console.WriteLine( pred + "\t" + numberOfLinks[pred]);
+            }
+        }
 
         //Close project if selected
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentSession != null && currentSession.getEdited())
+            if (currentSession != null)
             {
                 MessageBox.Show("Cannot close project, session " + currentSession.sessionName + " is editing");
                 return;

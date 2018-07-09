@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.02.19.885-01.02.22.407" length="61">
+  <files>
+    <file>0009_Forrest_Gump_01.02.19.885-01.02.22.407.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_01.02.19.885-01.02.22.407.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1184.184,156.5733,444.811,791.7628</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Hospital" filename="0009_Forrest_Gump_01.02.19.885-01.02.22.407.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.216104,131.6639,1911.96,817.5823</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Officer" filename="0009_Forrest_Gump_01.02.19.885-01.02.22.407.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">584.5799,185.0412,344.2836,656.5404</marker>
+        <marker type="LOCATION" frame="60">584.5799,185.0412,344.2836,704.5799</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Envelope" filename="0009_Forrest_Gump_01.02.19.885-01.02.22.407.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">914.6293,662.7677,122.7677,141.4498</marker>
+        <marker type="LOCATION" frame="5">946.2918,586.9073,148.4049,117.9152</marker>
+        <marker type="LOCATION" frame="11">950.2142,507.084,122.7677,78.28665</marker>
+        <marker type="LOCATION" frame="22">955.5519,467.9407,122.7677,88.9621</marker>
+        <marker type="LOCATION" frame="43">976.9028,464.3822,122.7677,88.9621</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="60" />
+      <text>The officer holds up an envelope.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.02.10.596-01.02.13.526/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.02.10.596-01.02.13.526/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.02.10.596-01.02.13.526/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.02.10.596-01.02.13.526/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

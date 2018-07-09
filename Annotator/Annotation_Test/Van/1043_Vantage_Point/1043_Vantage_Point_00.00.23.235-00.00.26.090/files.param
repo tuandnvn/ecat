@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.00.23.235-00.00.26.090" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.00.23.235-00.00.26.090.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o6" name="background" filename="1043_Vantage_Point_00.00.23.235-00.00.26.090.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.359963,133.1495,1906.067,802.5544</marker>
+      </markers>
+    </object>
+    <object id="o7" name="letters" filename="1043_Vantage_Point_00.00.23.235-00.00.26.090.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">877.7939,381.1611,133.7591,273.0914</marker>
+        <marker type="LOCATION" frame="68">688.3019,381.1611,562.9028,273.0914</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="68" />
+      <text>Silver metallic letters on a black background.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

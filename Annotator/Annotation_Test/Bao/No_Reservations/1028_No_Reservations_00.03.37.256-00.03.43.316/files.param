@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.03.37.256-00.03.43.316" length="0">
+  <files>
+    <file>1028_No_Reservations_00.03.37.256-00.03.43.316.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="woman" filename="1028_No_Reservations_00.03.37.256-00.03.43.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">422.0689,295.1724,383.4482,637.2413</marker>
+        <marker type="LOCATION" frame="9">282.7586,315.8622,383.4482,637.241</marker>
+        <marker type="LOCATION" frame="22">153.1035,318.6208,383.4481,637.241</marker>
+        <marker type="LOCATION" frame="36">332.4138,321.3795,383.4481,637.241</marker>
+        <marker type="DELETE" frame="45" />
+        <marker type="LOCATION" frame="63">819.3103,357.2416,331.0345,311.7236</marker>
+        <marker type="LOCATION" frame="71">782.5287,250.9426,404.5976,557.425</marker>
+        <marker type="LOCATION" frame="76">749.426,409.8394,426.665,283.7693</marker>
+        <marker type="LOCATION" frame="77">719.5406,301.4716,447.8152,528.0913</marker>
+        <marker type="LOCATION" frame="78">460.6896,165.5172,468.9655,772.4138</marker>
+      </markers>
+    </object>
+    <object id="o2" name="fridge" filename="1028_No_Reservations_00.03.37.256-00.03.43.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">441.3792,143.4482,863.4482,802.7585</marker>
+        <marker type="LOCATION" frame="22">575.1724,158.6208,863.4482,802.7584</marker>
+        <marker type="LOCATION" frame="36">742.0689,158.6207,747.5862,802.7584</marker>
+        <marker type="LOCATION" frame="45">609.6552,158.6207,879.9996,802.7584</marker>
+        <marker type="DELETE" frame="78" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="146" />
+      <text>Kate steps into a walk-in fridge and leans wearily against a rack.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="13" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="132" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

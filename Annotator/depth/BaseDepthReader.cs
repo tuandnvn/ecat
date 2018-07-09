@@ -18,6 +18,7 @@ namespace Annotator
         private int _depthWidth;
         private int _depthHeight;
         private int _depthFrame;
+        private List<Int32> _depthFrameTimePoints;
 
         public int depthWidth
         {
@@ -45,7 +46,14 @@ namespace Annotator
             }
         }
 
-        private List<Int32> depthFrameTimePoints;
+        public List<Int32> depthFrameTimePoints
+        {
+            get
+            {
+                var v = depthReader.Value;
+                return _depthFrameTimePoints;
+            }
+        }
 
         public BaseDepthReader(string fileName)
         {
@@ -66,10 +74,10 @@ namespace Annotator
                     _depthReader.BaseStream.Seek(-4 * (_depthFrame + 1), SeekOrigin.End);
                     byte[] vals = _depthReader.ReadBytes(4 * _depthFrame);
 
-                    depthFrameTimePoints = new List<Int32>();
+                    _depthFrameTimePoints = new List<Int32>();
                     for (int i = 0; i < _depthFrame; i++)
                     {
-                        depthFrameTimePoints.Add(BitConverter.ToInt32(vals, 4 * i));
+                        _depthFrameTimePoints.Add(BitConverter.ToInt32(vals, 4 * i));
                     }
 
                     return _depthReader;

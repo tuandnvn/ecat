@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.03.29.468-01.03.30.152" length="48">
+  <files>
+    <file>0051_Men_in_black_01.03.29.468-01.03.30.152.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="House" filename="0051_Men_in_black_01.03.29.468-01.03.30.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Jay" filename="0051_Men_in_black_01.03.29.468-01.03.30.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">596.5921,66.91911,1169.225,990.7745</marker>
+        <marker type="LOCATION" frame="26">602.1686,63.83419,1224.991,993.8594</marker>
+        <marker type="LOCATION" frame="42">464.6127,61.93578,1223.132,995.7578</marker>
+        <marker type="LOCATION" frame="47">451.6007,61.34252,1249.157,996.3511</marker>
+      </markers>
+    </object>
+    <object id="o4" name="photo" filename="0051_Men_in_black_01.03.29.468-01.03.30.152.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">7.332205,135.6971,1671.117,773.2874</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>There are several PHOTOS OF A CAT on the wall.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

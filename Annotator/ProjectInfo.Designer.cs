@@ -28,32 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.okBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.projectNameTxtBox = new System.Windows.Forms.TextBox();
+            this.infoLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button3
+            // okBtn
             // 
-            this.button3.Location = new System.Drawing.Point(80, 69);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "OK";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.okBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.okBtn.Location = new System.Drawing.Point(80, 69);
+            this.okBtn.Name = "okBtn";
+            this.okBtn.Size = new System.Drawing.Size(87, 23);
+            this.okBtn.TabIndex = 9;
+            this.okBtn.Text = "OK";
+            this.okBtn.UseVisualStyleBackColor = true;
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
-            // button2
+            // cancelBtn
             // 
-            this.button2.Location = new System.Drawing.Point(173, 69);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelBtn.Location = new System.Drawing.Point(173, 69);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(87, 23);
+            this.cancelBtn.TabIndex = 8;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // label1
             // 
@@ -64,34 +66,36 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Project name: ";
             // 
-            // textBox1
+            // projectNameTxtBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 20);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.projectNameTxtBox.Location = new System.Drawing.Point(94, 25);
+            this.projectNameTxtBox.Name = "projectNameTxtBox";
+            this.projectNameTxtBox.Size = new System.Drawing.Size(166, 20);
+            this.projectNameTxtBox.TabIndex = 11;
+            this.projectNameTxtBox.TextChanged += new System.EventHandler(this.projectNameTxtBox_TextChanged);
             // 
-            // label2
+            // infoLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(91, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Incorrect project name(at least three letters)";
+            this.infoLbl.AutoSize = true;
+            this.infoLbl.ForeColor = System.Drawing.Color.Red;
+            this.infoLbl.Location = new System.Drawing.Point(91, 48);
+            this.infoLbl.Name = "label2";
+            this.infoLbl.Size = new System.Drawing.Size(211, 13);
+            this.infoLbl.TabIndex = 12;
+            this.infoLbl.Text = "Incorrect project name(at least three letters)";
             // 
             // ProjectInfo
             // 
+            this.AcceptButton = this.okBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelBtn;
             this.ClientSize = new System.Drawing.Size(335, 104);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.infoLbl);
+            this.Controls.Add(this.projectNameTxtBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.okBtn);
+            this.Controls.Add(this.cancelBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ProjectInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -105,10 +109,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button okBtn;
+        private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox projectNameTxtBox;
+        private System.Windows.Forms.Label infoLbl;
     }
 }

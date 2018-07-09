@@ -80,7 +80,7 @@ namespace Annotator
             {
                 if (objectToObjectTracks[selectedObject] != null)
                 {
-                    objectToObjectTracks[selectedObject].deselectDeco();
+                    objectToObjectTracks[selectedObject]?.deselectDeco();
                 }
             }
 
@@ -96,6 +96,7 @@ namespace Annotator
             selectBoxes = new List<RectangleF>();
 
             clearInformation();
+            clearPredicates();
             selectedObject = null;
 
             polygonDrawing.Enabled = true;

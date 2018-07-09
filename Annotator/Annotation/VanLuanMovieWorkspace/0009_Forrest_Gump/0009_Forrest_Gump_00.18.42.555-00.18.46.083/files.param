@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.18.42.555-00.18.46.083" length="85">
+  <files>
+    <file>0009_Forrest_Gump_00.18.42.555-00.18.46.083.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="field" filename="0009_Forrest_Gump_00.18.42.555-00.18.46.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.704446E-05,129.3642,1917.225,824.0462</marker>
+      </markers>
+    </object>
+    <object id="o2" name="girl's dad" filename="0009_Forrest_Gump_00.18.42.555-00.18.46.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">682.5434,121.0405,862.8901,832.3699</marker>
+        <marker type="LOCATION" frame="14">648.8406,121.0405,963.1825,832.3699</marker>
+        <marker type="LOCATION" frame="24">585.1501,115.4913,888.4282,832.3701</marker>
+        <marker type="LOCATION" frame="33">603.101,121.0405,821.1493,832.3699</marker>
+        <marker type="LOCATION" frame="57">244.1619,121.0405,946.1271,832.3699</marker>
+        <marker type="LOCATION" frame="68">518.8439,121.0405,776.8786,832.3699</marker>
+        <marker type="LOCATION" frame="74">441.1561,121.0405,743.5838,832.3699</marker>
+        <marker type="LOCATION" frame="80">421.7341,121.0405,763.0057,832.3699</marker>
+        <marker type="DELETE" frame="83" />
+      </markers>
+    </object>
+    <object id="o3" name="bottle" filename="0009_Forrest_Gump_00.18.42.555-00.18.46.083.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1037.688,395.7226,413.4104,310.7514</marker>
+        <marker type="LOCATION" frame="5">778.7045,298.4087,406.984,311.1596</marker>
+        <marker type="LOCATION" frame="19">429.7824,247.8953,388.9902,312.302</marker>
+        <marker type="LOCATION" frame="28">366.202,633.1928,377.4227,313.0364</marker>
+        <marker type="LOCATION" frame="31">344.8235,566.4808,368.24,375.8313</marker>
+        <marker type="LOCATION" frame="33">330.5712,522.0062,370.9963,313.4444</marker>
+        <marker type="LOCATION" frame="42">236.4706,407.8817,359.4288,314.1788</marker>
+        <marker type="LOCATION" frame="45">349.5954,354.1041,296.8786,351.7516</marker>
+        <marker type="LOCATION" frame="50">697.4114,423.4689,392.9932,344.0449</marker>
+        <marker type="LOCATION" frame="54">843.0846,396.0314,383.2738,337.8795</marker>
+        <marker type="LOCATION" frame="57">730.1053,545.3954,371.0033,333.2555</marker>
+        <marker type="LOCATION" frame="62">268.6544,540.925,350.5525,325.5487</marker>
+        <marker type="LOCATION" frame="66">13.2509,233.2563,334.1919,319.3834</marker>
+        <marker type="LOCATION" frame="68">18.03472,265.3179,326.0116,316.3006</marker>
+        <marker type="LOCATION" frame="74">153.2948,406.8208,326.0116,316.3006</marker>
+        <marker type="LOCATION" frame="80">677.6879,434.5665,326.0116,316.3006</marker>
+        <marker type="DELETE" frame="83" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a2">
+      <duration startFrame="0" endFrame="84" />
+      <text>Jenny's dad runs through the field searching for Jenny with a liquor bottle in his hand.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.18.40.788-00.18.42.055/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

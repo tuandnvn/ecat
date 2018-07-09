@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.41.24.660-00.41.26.690" length="49">
+  <files>
+    <file>0009_Forrest_Gump_00.41.24.660-00.41.26.690.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="field" filename="0009_Forrest_Gump_00.41.24.660-00.41.26.690.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-4.190057E-06,127.0023,1909.016,821.6019</marker>
+      </markers>
+    </object>
+    <object id="o2" name="beer#1" filename="0009_Forrest_Gump_00.41.24.660-00.41.26.690.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">17.57437,131.3959,672.2197,700.7782</marker>
+        <marker type="LOCATION" frame="9">366.865,129.1991,698.5814,474.508</marker>
+        <marker type="LOCATION" frame="20">698.5812,173.135,632.6776,538.2151</marker>
+        <marker type="LOCATION" frame="33">847.9634,212.4028,713.9594,555.0443</marker>
+        <marker type="LOCATION" frame="48">1126.957,257.7116,766.6825,574.4623</marker>
+      </markers>
+    </object>
+    <object id="o3" name="beers" filename="0009_Forrest_Gump_00.41.24.660-00.41.26.690.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">667.8261,232.4485,1243.387,711.7621</marker>
+        <marker type="LOCATION" frame="9">676.6133,232.4485,1234.601,711.7621</marker>
+        <marker type="LOCATION" frame="20">727.1396,232.4485,1184.075,711.7621</marker>
+        <marker type="LOCATION" frame="33">865.5378,232.4485,1045.677,711.7621</marker>
+        <marker type="LOCATION" frame="48">1100.595,232.4485,810.6196,711.7621</marker>
+      </markers>
+    </object>
+    <object id="o4" name="men#1" filename="0009_Forrest_Gump_00.41.24.660-00.41.26.690.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-4.393597,133.5927,232.8604,817.2083</marker>
+        <marker type="LOCATION" frame="9">4.393589,133.5927,411.8995,817.2083</marker>
+        <marker type="LOCATION" frame="20">68.10069,133.5927,577.7575,817.2083</marker>
+        <marker type="LOCATION" frame="33">136.4367,133.5927,674.6522,817.2083</marker>
+        <marker type="LOCATION" frame="48">215.286,133.5927,786.4539,817.2083</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o2,o4" q="False" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

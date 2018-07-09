@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.14.22.034-01.14.25.628" length="87">
+  <files>
+    <file>0051_Men_in_black_01.14.22.034-01.14.25.628.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Jay" filename="0051_Men_in_black_01.14.22.034-01.14.25.628.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">656.8421,323.6156,445.9497,373.4555</marker>
+        <marker type="LOCATION" frame="10">850.1603,323.6156,281.1899,373.4555</marker>
+        <marker type="LOCATION" frame="18">850.1603,279.6796,525.0343,775.4691</marker>
+        <marker type="LOCATION" frame="31">850.1603,202.7918,467.9176,459.1305</marker>
+        <marker type="LOCATION" frame="53">934.7369,219.2677,467.9176,459.1306</marker>
+        <marker type="LOCATION" frame="77">635.9725,228.0549,467.9176,459.1306</marker>
+        <marker type="LOCATION" frame="85">618.3982,232.4485,467.9176,459.1306</marker>
+        <marker type="LOCATION" frame="86">618.3982,232.4485,467.9176,563.4783</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Street" filename="0051_Men_in_black_01.14.22.034-01.14.25.628.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>And Jay starts running down the street, where DOZENS of cabs are waiting at the intersection.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+  </predicates>
+</session>

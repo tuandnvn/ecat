@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.06.01.994-02.06.05.313" length="80">
+  <files>
+    <file>0009_Forrest_Gump_02.06.01.994-02.06.05.313.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Dan" filename="0009_Forrest_Gump_02.06.01.994-02.06.05.313.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">718.4516,131.2258,891.871,817.5483</marker>
+        <marker type="LOCATION" frame="17">745.4491,131.2258,870.2044,810.349</marker>
+        <marker type="LOCATION" frame="39">780.3871,131.2258,842.1653,801.0322</marker>
+        <marker type="LOCATION" frame="53">685.4193,131.2258,941.5231,806.8127</marker>
+        <marker type="LOCATION" frame="67">615.2258,131.2258,1016.107,812.5934</marker>
+        <marker type="LOCATION" frame="79">611.0967,131.2258,1023.999,817.5483</marker>
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0009_Forrest_Gump_02.06.01.994-02.06.05.313.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.181326E-05,131.579,1915.871,816.8422</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Forrest" filename="0009_Forrest_Gump_02.06.01.994-02.06.05.313.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,135.3548,90.83871,86.70967</marker>
+        <marker type="LOCATION" frame="8">0,135.3548,817.5483,499.6129</marker>
+        <marker type="LOCATION" frame="17">0,135.3548,999.2258,701.9355</marker>
+        <marker type="LOCATION" frame="39">0,135.3548,949.6774,714.3226</marker>
+        <marker type="LOCATION" frame="79">0,135.3548,933.1613,710.1935</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Lt. Dan lifts his pant leg to display his metal leg.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o7" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o7,0009_Forrest_Gump_02.05.54.899-02.05.59.907/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.05.54.899-02.05.59.907/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.05.54.899-02.05.59.907/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="7" arguments="2" ids="o7,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

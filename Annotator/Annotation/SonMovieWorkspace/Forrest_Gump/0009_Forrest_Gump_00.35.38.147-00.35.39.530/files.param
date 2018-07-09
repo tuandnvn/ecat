@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.35.38.147-00.35.39.530" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.35.38.147-00.35.39.530.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_00.35.38.147-00.35.39.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">119.4089,333.399,1518.03,500.0985</marker>
+        <marker type="LOCATION" frame="47">119.4089,251.8227,1518.03,665.0246</marker>
+      </markers>
+    </object>
+    <object id="o2" name="House" filename="0009_Forrest_Gump_00.35.38.147-00.35.39.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.829242,133.3537,1919.634,811.6464</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Man" filename="0009_Forrest_Gump_00.35.38.147-00.35.39.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">138.0295,192.4138,579.9016,320.0985</marker>
+        <marker type="LOCATION" frame="47">138.0295,192.4138,616.2562,320.0985</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Magazine" filename="0009_Forrest_Gump_00.35.38.147-00.35.39.530.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">7.684762,363.5468,237.6355,163.1527</marker>
+        <marker type="LOCATION" frame="7">5.338539,168.4729,459.1739,256.0789</marker>
+        <marker type="LOCATION" frame="9">3.774387,130.3177,606.866,226.1355</marker>
+        <marker type="LOCATION" frame="14">302.069,136.9906,709.0643,411.0895</marker>
+        <marker type="LOCATION" frame="15">274.5779,138.3251,816.6537,448.0803</marker>
+        <marker type="LOCATION" frame="17">328.8817,201.9939,1017.719,475.4445</marker>
+        <marker type="LOCATION" frame="21">560.9852,226.1588,945.2217,451.2798</marker>
+        <marker type="LOCATION" frame="28">635.468,352.9064,837.0446,313.8916</marker>
+        <marker type="LOCATION" frame="34">586.7615,304.6947,938.9529,372.7437</marker>
+        <marker type="LOCATION" frame="47">459.9015,367.0936,1053.399,336.9458</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="17" />
+      <text>A young private tosses a Playboy magazine onto Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.35.26.875-00.35.35.705/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.35.26.875-00.35.35.705/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.35.26.875-00.35.35.705/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="8" arguments="2" ids="o4,o3" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="18" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

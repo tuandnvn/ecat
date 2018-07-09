@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.37.28.642-00.37.32.891" length="102">
+  <files>
+    <file>0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Club" filename="0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.840256E-05,133.9698,1915.176,812.0603</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Jenny" filename="0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1312.161,291.5578,263.7186,466.3317</marker>
+      </markers>
+    </object>
+    <object id="o4" name="The man" filename="0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">525.8291,725.7286,402.01,217.0854</marker>
+        <marker type="LOCATION" frame="35">511.3568,684.7236,356.9849,214.6734</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Man" filename="0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1148.141,798.0905,226.7337,147.9397</marker>
+        <marker type="LOCATION" frame="52">1148.141,778.7939,226.7337,167.236</marker>
+        <marker type="LOCATION" frame="83">1117.588,700,257.2859,246.03</marker>
+        <marker type="LOCATION" frame="101">1148.141,679.0955,226.7337,266.9345</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="36" />
+      <text>The men laugh.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.36.29.314-00.36.33.105/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.36.29.314-00.36.33.105/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="58" arguments="1" ids="o6" q="True" type="CROUCH(X)" />
+  </predicates>
+</session>

@@ -79,7 +79,7 @@ namespace Annotator
             // 
             // rightMarker
             // 
-            this.rightMarker.BorderWidth = 2;
+            this.rightMarker.BorderWidth = 4;
             this.rightMarker.Enabled = false;
             this.rightMarker.Name = "lineShape3";
             this.rightMarker.X1 = this.axis.X2;
@@ -90,7 +90,7 @@ namespace Annotator
             // 
             // leftMarker
             // 
-            this.leftMarker.BorderWidth = 2;
+            this.leftMarker.BorderWidth = 4;
             this.leftMarker.Enabled = false;
             this.leftMarker.Name = "lineShape2";
             this.leftMarker.X1 = this.axis.X1;

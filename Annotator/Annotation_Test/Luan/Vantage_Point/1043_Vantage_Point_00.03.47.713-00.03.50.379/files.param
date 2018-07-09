@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.03.47.713-00.03.50.379" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.03.47.713-00.03.50.379.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o5" name="men" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">1023.448,165.5172,764.1377,777.931</marker>
+        <marker type="LOCATION" frame="49">946.2068,165.5172,841.3787,777.931</marker>
+        <marker type="LOCATION" frame="62">864.8279,165.5172,841.3786,777.931</marker>
+      </markers>
+    </object>
+    <object id="o4" name="camera" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">772.4138,140.6896,675.862,609.6545</marker>
+        <marker type="LOCATION" frame="49">653.793,140.6896,700.6891,609.6545</marker>
+        <marker type="LOCATION" frame="62">593.1034,140.6896,714.4824,609.6545</marker>
+        <marker type="LOCATION" frame="63">593.1034,140.6896,714.4824,609.6545</marker>
+      </markers>
+    </object>
+    <object id="o3" name="motorcade" filename="1043_Vantage_Point_00.03.47.713-00.03.50.379.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">959.9999,342.0689,576.5517,398.6201</marker>
+        <marker type="LOCATION" frame="11">933.793,272.4141,576.5517,398.62</marker>
+        <marker type="LOCATION" frame="20">911.7241,225.5176,576.5517,398.62</marker>
+        <marker type="LOCATION" frame="32">838.6205,225.5176,649.6552,397.9307</marker>
+        <marker type="LOCATION" frame="37">802.7585,225.5176,615.1725,397.9307</marker>
+        <marker type="DELETE" frame="38" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="63" />
+      <text>A GNN TV camera is fixed on the vehicles.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,1043_Vantage_Point_00.03.42.055-00.03.47.379/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="38" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

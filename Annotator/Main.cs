@@ -13,16 +13,13 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using System.Threading;
 using System.Globalization;
+using System.Xml;
 
 namespace Annotator
 {
     public partial class Main : Form
     {
         Size previousSize;
-
-        //Project workspace 
-        internal Workspace workspace = null;
-        private String parametersFileName = Path.Combine(Environment.CurrentDirectory, @"params.param");
         private bool newProject = false;//true if new project is creating
         private bool newSession = false;//true if new session is creating     
         internal Project currentProject = null; //currently selected project
@@ -69,7 +66,8 @@ namespace Annotator
 
             InitDrawingComponent();
             InitEventAnnoComponent();
-
+            InitMemento();
+            
             //Load images to imageList
             //loadImages();
 
@@ -135,14 +133,12 @@ namespace Annotator
             }
         }
 
-
         private void Main_Load(object sender, EventArgs e)
         {
+            recentWorkspaceLocations = new SortedSet<string>();
             //Parameters hidden file open:
-            // Load the default workspace from params.param
             loadParameters();
 
-            
             //Show workspace launcher at the beginning:
             if (workspace == null)
             {
@@ -155,12 +151,6 @@ namespace Annotator
                 try
                 {
                     loadWorkspace();
-
-                    //If default workspace option choosed set parametrs in hidden param file
-                    if (workspace.defaultOption)
-                    {
-                        setDefaultWorkspace();
-                    }
                 }
                 catch (Exception exc)
                 {
@@ -179,179 +169,6 @@ namespace Annotator
             this.objectToObjectTracks = new Dictionary<Object, ObjectAnnotation>();
         }
 
-        //Set workspace option: folder and default option
-        public void loadWorkspace()
-        {
-            workspace.load();
-
-            annotationWorkspaceTitle.Text = workspace.locationFolder;
-            
-            //Load workspace treeView:
-            initWorkspaceTreeview();
-        }
-
-        private void loadParameters()
-        {
-            Console.WriteLine("Look for " + parametersFileName);
-            //1) Check if file exists
-            if (!File.Exists(parametersFileName))
-            {
-                Console.WriteLine("Create file " + parametersFileName);
-
-                File.WriteAllText(parametersFileName, "");
-
-                FileInfo myFile1 = new FileInfo(parametersFileName);
-                // Set the hidden attribute of the file
-                myFile1.Attributes = FileAttributes.Hidden;
-            }
-            else//File already exists:
-            {
-                Console.WriteLine("File exist " + parametersFileName);
-                //Set file as hidden                
-                FileInfo myFile = new FileInfo(parametersFileName);
-                // Remove the hidden attribute of the file
-                myFile.Attributes &= ~FileAttributes.Hidden;
-
-                //Read file line by line
-                List<String> list = new List<String>();
-                string line;
-
-                // Read the file and display it line by line.
-                System.IO.StreamReader file =
-                   new System.IO.StreamReader(parametersFileName);
-                while ((line = file.ReadLine()) != null)
-                {
-                    list.Add(line);
-                }
-                if (list.Count == 1)
-                {
-                    workspace = new Workspace(list[0], true);
-                }
-                file.Close();
-                myFile.Attributes |= FileAttributes.Hidden;
-            }
-        }
-
-        internal void setWorkspace(string locationFolder, bool defaultOption)
-        {
-            clearWorkspaceTreeview();
-            workspace = new Workspace(locationFolder, defaultOption);
-
-            if (defaultOption)
-            {
-                setDefaultWorkspace();
-            }
-            loadWorkspace();
-        }
-
-        private void setDefaultWorkspace()
-        {
-            if (File.Exists(parametersFileName))
-            {
-                FileInfo myFile = new FileInfo(parametersFileName);
-                myFile.Attributes &= ~FileAttributes.Hidden;
-            }
-
-            Console.WriteLine(" parametersFileName = " + parametersFileName);
-            File.WriteAllText(parametersFileName, workspace.locationFolder);
-
-            FileInfo myFile1 = new FileInfo(parametersFileName);
-            // Set the hidden attribute of the file
-            myFile1.Attributes = FileAttributes.Hidden;
-        }
-
-        private void clearWorkspaceTreeview()
-        {
-            treeView.Nodes.Clear();
-        }
-
-        //Load workspace treeView:
-        private void initWorkspaceTreeview()
-        {
-            try
-            {
-                for (int projectIndex = 0; projectIndex < workspace.getProjectCount(); projectIndex ++ )
-                {
-                    TreeNode projectNode;
-
-                    String prjName = workspace.getProject(projectIndex).name;
-                    List<TreeNode> array = new List<TreeNode>();
-                    String[] sessions = Directory.GetDirectories(workspace.locationFolder + Path.DirectorySeparatorChar + prjName);
-
-                    // Initiate sessions in project
-                    for (int i = 0; i < sessions.Length; i++)
-                    {
-                        //Check files in current Session folder
-                        String[] files = Directory.GetFiles(sessions[i]);
-
-                        if (files.Length > 0)
-                        {
-                            TreeNode[] arrayFiles = new TreeNode[files.Length];
-                            for (int j = 0; j < arrayFiles.Length; j++)
-                            {
-                                arrayFiles[j] = new TreeNode(files[j].Split(Path.DirectorySeparatorChar)[files[j].Split(Path.DirectorySeparatorChar).Length - 1]);
-                                arrayFiles[j].ImageIndex = 2;
-                                arrayFiles[j].SelectedImageIndex = arrayFiles[j].ImageIndex;
-                            }
-
-                            TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1], arrayFiles);
-
-                            sessionNode.ImageIndex = 1;
-                            sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
-                            //Add session to workspace 
-                            String sessionName = sessionNode.Text;
-                            Project project = workspace.getProject(prjName);
-
-                            if (project.checkSessionInProject(sessionName))
-                            {
-                                project.addSession(new Session(sessionName, project.name, project.locationFolder));
-                                //Add to treeview session list only files which exists in session filesList
-
-                                Session session = project.getSession(sessionName);
-
-                                array.Add(sessionNode);
-                            }
-
-                        }
-                        else if (files.Length == 0)
-                        {
-                            TreeNode sessionNode = new TreeNode(sessions[i].Split(Path.DirectorySeparatorChar)[sessions[i].Split(Path.DirectorySeparatorChar).Length - 1]);
-                            sessionNode.ImageIndex = 1;
-                            sessionNode.SelectedImageIndex = sessionNode.ImageIndex;
-                            String sessionName = sessionNode.Text;
-                            Project project = workspace.getProject(prjName);
-                            if (project.checkSessionInProject(sessionName))
-                            {
-                                project.addSession(new Session(sessionName, project.name, project.locationFolder));
-                                array.Add(sessionNode);
-                            }
-                        }
-                    }
-
-                    // If there are sessions in the project
-                    if (array.Count > 0)
-                    {
-                        projectNode = new TreeNode(prjName, array.ToArray());
-                        projectNode.ImageIndex = 0;
-                        projectNode.SelectedImageIndex = projectNode.ImageIndex;
-                        treeView.Nodes.Add(projectNode);
-                    }
-
-                    // If the project is empty
-                    else if (array.Count == 0)
-                    {
-                        projectNode = new TreeNode(prjName);
-                        projectNode.ImageIndex = 0;
-                        projectNode.SelectedImageIndex = projectNode.ImageIndex;
-                        treeView.Nodes.Add(projectNode);
-                    }
-                }
-            } catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
         private void loadImages()
         {
             String folder = Environment.CurrentDirectory + @"\images";
@@ -364,338 +181,12 @@ namespace Annotator
             }
         }
 
-        /// <summary>
-        /// Double click on a file open it in a native 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void treeView_DoubleClick(object sender, EventArgs e)
-        {
-            // Click no nothing
-            if (treeView.SelectedNode == null)
-                return;
-
-            String p = treeView.SelectedNode.FullPath;
-            List<char> r = p.ToList();
-            r.RemoveAll(c => c == '*');
-            p = new string(r.ToArray());
-            String fileName = workspace.locationFolder + Path.DirectorySeparatorChar + p;
-            //MessageBox.Show(p); 
-            //MessageBox.Show(fileName + " nested level = " + treeView.SelectedNode.Level);
-
-            Console.WriteLine(treeView.SelectedNode.Text);
-            if (treeView.SelectedNode.Level == 2)
-            {
-                //Open file only if this inside session folder
-                Process myProcess = new Process();
-                myProcess.StartInfo.FileName = fileName;
-                myProcess.Start();
-            }
-        }
-
-        private void treeView_MouseUp(object sender, MouseEventArgs e)
-        {
-            //Right-click on project(nested level is 0)
-            if (treeView.SelectedNode == null)
-                return;
-
-            if (treeView.SelectedNode.Level == 0 && e.Button == MouseButtons.Right)
-            {
-                rightClickOnProjectTreeNode(e);
-            }
-            else if (treeView.SelectedNode.Level == 1 && e.Button == MouseButtons.Right)
-            {
-                rightClickOnSessionTreeNode(e);
-            }
-            else if (treeView.SelectedNode.Level == 2 && e.Button == MouseButtons.Right)
-            {
-                rightClickOnFileTreeNode(e);
-            }
-        }
-
-        private void rightClickOnFileTreeNode(MouseEventArgs e)
-        {
-            if (treeView.SelectedNode == null)
-                return;
-
-            TreeNode selectedNode = treeView.SelectedNode;
-            Point location = this.Location;
-            location.X += e.Location.X + leftMostPanel.Location.X + 15;
-            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
-            fileRightClickPanel.Show(location);
-        }
-
-        private void rightClickOnSessionTreeNode(MouseEventArgs e)
-        {
-            if (treeView.SelectedNode == null)
-                return;
-
-            TreeNode selectedNode = treeView.SelectedNode;
-            Session choosedSession = null;
-            if (selectedNode != null && currentProject != null && selectedNode.Parent.Text.Equals(currentProject.name))
-            {
-                editSessionMenuItem.Enabled = true;
-                saveSessionMenuItem.Enabled = true;
-                deleteSessionMenuItem.Enabled = true;
-                addSessionMenuItem.Enabled = true;
-                refreshSessionMenuItem.Enabled = true;
-                sessionDetectToolStripMenuItem.Enabled = true;
-                sessionGenerateToolStripMenuItem.Enabled = true;
-
-                //Check if session is editing:
-                choosedSession = currentProject.getSession(selectedNode.Text);
-                if (choosedSession == null)
-                    choosedSession = currentProject.getSession(selectedNode.Text);
-                if (choosedSession != null && choosedSession.getEdited())
-                {
-                    //MessageBox.Show("OK1");
-                    editSessionMenuItem.Enabled = false;
-                }
-                else if (choosedSession != null && !choosedSession.getEdited())
-                {
-                    editSessionMenuItem.Enabled = true;
-                    saveSessionMenuItem.Enabled = false;
-                    addSessionMenuItem.Enabled = false;
-                    sessionDetectToolStripMenuItem.Enabled = false;
-                    sessionGenerateToolStripMenuItem.Enabled = false;
-                    //MessageBox.Show("OK2");
-                }
-            }
-            else
-            {
-                editSessionMenuItem.Enabled = false;
-                saveSessionMenuItem.Enabled = false;
-                deleteSessionMenuItem.Enabled = false;
-                addSessionMenuItem.Enabled = false;
-                refreshSessionMenuItem.Enabled = false;
-                sessionDetectToolStripMenuItem.Enabled = false;
-                sessionGenerateToolStripMenuItem.Enabled = false;
-            }
-
-            Point location = this.Location;
-            location.X += e.Location.X + leftMostPanel.Location.X + 15;
-            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
-            sessionRightClickPanel.Show(location);
-        }
-
-        private void rightClickOnProjectTreeNode(MouseEventArgs e)
-        {
-            if (treeView.SelectedNode == null)
-                return;
-
-            if (currentProject != null && treeView.SelectedNode.Text.Equals(currentProject.name))
-            {
-                selectToolStripMenuItem.Enabled = false;
-                closeToolStripMenuItem.Enabled = true;
-                newSessionToolStripMenuItem.Enabled = true;
-                recordSessionToolStripMenuItem.Enabled = true;
-                projectDetectToolStripMenuItem.Enabled = true;
-                projectGenerateToolStripMenuItem.Enabled = true;
-            }
-            else if (currentProject != null && !(treeView.SelectedNode.Text.Equals(currentProject.name)))
-            {
-                selectToolStripMenuItem.Enabled = true;
-                closeToolStripMenuItem.Enabled = false;
-                newSessionToolStripMenuItem.Enabled = false;
-                recordSessionToolStripMenuItem.Enabled = false;
-                projectDetectToolStripMenuItem.Enabled = false;
-                projectGenerateToolStripMenuItem.Enabled = false;
-            }
-
-            if (currentProject == null)
-            {
-                selectToolStripMenuItem.Enabled = true;
-                closeToolStripMenuItem.Enabled = false;
-                newSessionToolStripMenuItem.Enabled = false;
-                recordSessionToolStripMenuItem.Enabled = false;
-                projectDetectToolStripMenuItem.Enabled = false;
-                projectGenerateToolStripMenuItem.Enabled = false;
-            }
-            Point location = this.Location;
-            location.X += e.Location.X + leftMostPanel.Location.X + 15;
-            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
-            projectRightClickPanel.Show(location);
-        }
-
-
-        private void treeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            //Select node with right click also
-            if (e.Button == MouseButtons.Right)
-            {
-                treeView.SelectedNode = e.Node;
-            }
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (newProject == false)
-            {
-                addNewProject();
-            }
-        }
-
-        private void simpleEventDataCreateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (currentProject != null)
-            {
-                SimpleLearningDataGenerator g = new SimpleLearningDataGenerator();
-
-                System.Windows.Forms.SaveFileDialog saveFileDialog = new SaveFileDialog();
-                DialogResult result = saveFileDialog.ShowDialog();
-                if (result == DialogResult.OK) // Test result.
-                {
-                    String fullFileName = saveFileDialog.FileName;
-                    g.writeExtractedDataIntoFile(currentProject, fullFileName);
-                }
-            }
-        }
-
-        //Add new Session - open poup window:
-        private void addNewSession()
-        {
-            //1)Set new session state
-            newSession = true;
-            //2)Show popup for session name
-            SessionInfo sessionInfo = new SessionInfo(this, treeView.SelectedNode.Text);
-            sessionInfo.StartPosition = FormStartPosition.CenterParent;
-            sessionInfo.ShowDialog();
-        }
-
-        /// <summary>
-        /// Add new session to workspace
-        /// 
-        /// This method is called from SessionInfo
-        /// It adds a session into the named project
-        /// 
-        /// </summary>
-        /// <param name="projectName"></param>
-        /// <param name="sessionName"></param>
-        /// <returns></returns>
-        public Session addNewSessionToWorkspace(String projectName, String sessionName)
-        {
-            treeView.BeginUpdate();
-            TreeNodeCollection nodes = getTreeViewNodes();
-            //MessageBox.Show(projectName);
-
-            TreeNode newSessionNode = new TreeNode(sessionName);
-            newSessionNode.ImageIndex = 1;
-            newSessionNode.SelectedImageIndex = newSessionNode.ImageIndex;
-            newSessionNode.Name = sessionName;
-
-            //1) Update workspace project by adding new session
-            Project project = workspace.getProject(projectName);
-            Session newSession = new Session(sessionName, project.name, project.locationFolder);
-
-            project.addSession(newSession);
-
-            this.currentSession = newSession;
-            //this.currentSession.loadIfNotLoaded();
-            this.currentSessionNode = newSessionNode;
-            this.treeView.SelectedNode = this.currentSessionNode;
-
-            //2) Update treeView
-            currentProjectNode.Nodes.Add(newSessionNode);
-            currentProjectNode.Expand();
-            treeView.EndUpdate();
-
-            return newSession;
-        }
-
-        //Add new project - open popup window:
-        private void addNewProject()
-        {
-            //1)Set new project state
-            newProject = true;
-            //2)Show popup for project name
-            ProjectInfo projectInfo = new ProjectInfo(this);
-            projectInfo.StartPosition = FormStartPosition.CenterParent;
-            projectInfo.ShowDialog();
-
-        }
-
-        //Add new project to workspace
-        public Project addNewProjectToWorkspace(String projectName)
-        {
-            //MessageBox.Show(projectName);
-            //1)Add new project to tree view:
-            TreeNode projectNode = new TreeNode(projectName);
-            treeView.Nodes.Add(projectNode);
-            //2)Add new project to the workspace:
-            return workspace.addProject(projectName);
-        }
-
-        //Set new project as false(not/creating new project currently)
-        public void setNewProject(bool option)
-        {
-            newProject = option;
-        }
-        //get project from workspace by project name
-        public Project getProjectFromWorkspace(String projectName)
-        {
-            return workspace.getProject(projectName);
-        }
-        //Return choosed project name from workspace
-        public String getWorkspaceProjectName(int index)
-        {
-            return workspace.getProjectName(index);
-        }
-        //Get workspace projects list size
-        public int getWorkspaceProjectSize()
-        {
-            return workspace.getProjectCount();
-        }
-
-        public void setTrackbarLocation(int value)
-        {
-            if (value >= frameTrackBar.Minimum && value <= frameTrackBar.Maximum && !editingAtAFrame)
-                frameTrackBar.Value = value;
-        }
-
-        public void setTrackbarMinDragValue(int value)
-        {
-            if (value >= frameTrackBar.Minimum && value <= frameTrackBar.Maximum)
-                frameTrackBar.MinDragVal = value;
-        }
-
-        public void resetTrackbarMinDragValue()
-        {
-            frameTrackBar.MinDragVal = frameTrackBar.Minimum;
-        }
-
-        public void setTrackbarMaxDragValue(int value)
-        {
-            if (value >= frameTrackBar.Minimum && value <= frameTrackBar.Maximum)
-                frameTrackBar.MaxDragVal = value;
-        }
-
-        public void resetTrackbarMaxDragValue()
-        {
-            frameTrackBar.MaxDragVal = frameTrackBar.Maximum;
-        }
-
-        public void setNewSession(bool option)
-        {
-            this.newSession = option;
-        }
-        //Get treeView nodes:
-        public TreeNodeCollection getTreeViewNodes()
-        {
-            return treeView.Nodes;
-        }
-
-        private void clearPlaybackFileComboBox()
-        {
-            playbackFileComboBox.Items.Clear();
-            playbackFileComboBox.Enabled = false;
-            frameTrackBar.Enabled = false;
-        }
-
+        
+        
         private void setLeftTopPanel()
         {
             if (videoReader != null)
@@ -721,19 +212,6 @@ namespace Annotator
         }
 
 
-        /// <summary>
-        /// Dirty clean
-        /// </summary>
-        private void runGCForImage()
-        {
-            goToFrameCount++;
-            if (goToFrameCount == GARBAGE_COLLECT_BITMAP_COUNT)
-            {
-                System.GC.Collect();
-                goToFrameCount = 0;
-            }
-        }
-
         private void tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabs.SelectedIndex == 0)
@@ -747,212 +225,6 @@ namespace Annotator
                 if (recordPanel != null)
                     recordPanel.initiateKinectViewers();
             }
-        }
-
-
-        internal void addObjectAnnotation(Object o)
-        {
-            var objectAnnotation = new ObjectAnnotation(o, this, this.frameTrackBar.Minimum, this.frameTrackBar.Maximum);
-            //objectAnnotations.Add(objectAnnotation);
-            objectToObjectTracks[o] = objectAnnotation;
-
-            //objectAnnotation.Location = lastObjectCell;
-            //if (lastObjectCell.Y >= 0) return;
-
-            renderObjectAnnotation(objectAnnotation);
-        }
-
-        internal void removeObject(Object o)
-        {
-            removeDrawingObject(o);
-            currentSession.removeObject(o.id);
-
-            // Remove the annotation corresponding to this object
-            // and rearrage all object annotations
-            if (this.objectToObjectTracks.ContainsKey(o))
-            {
-                ObjectAnnotation oa = this.objectToObjectTracks[o];
-
-                this.objectToObjectTracks.Remove(o);
-
-                //// BUGGY
-                //if (oa != null)
-                //{
-                //    var index = this.objectToObjectTracks.Keys.ToList().IndexOf(o);
-
-                //    this.objectToObjectTracks.Remove(o);
-
-                //    middleCenterTableLayoutPanel.Controls.Remove(oa);
-
-                //    // Move all the object annotations following ot up one step
-                //    for (var i = index; i < this.objectToObjectTracks.Keys.Count; i ++ )
-                //    {
-                //        var moveObjectAnnotation = this.objectToObjectTracks[this.objectToObjectTracks.Keys.ToList()[i]];
-                //        middleCenterTableLayoutPanel.Controls.Remove(moveObjectAnnotation);
-                //        middleCenterTableLayoutPanel.Controls.Add(moveObjectAnnotation, lastObjectCell.X, i);
-                //    }
-
-                //    middleCenterTableLayoutPanel.RowStyles.RemoveAt(middleCenterTableLayoutPanel.RowStyles.Count - 1);
-                //    middleCenterTableLayoutPanel.RowCount = lastObjectCell.Y - 1;
-                //    middleCenterTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleCenterTableLayoutPanel.RowCount + 4);
-                //    lastObjectCell.Y --;
-                //}
-
-                lastObjectCell.Y = 0;
-                middleCenterTableLayoutPanel.Controls.Clear();
-                foreach (Object obj in this.objectToObjectTracks.Keys)
-                {
-                    renderObjectAnnotation(this.objectToObjectTracks[obj]);
-                }
-
-                middleCenterPanel.Invalidate();
-            }
-        }
-
-        private void renderObjectAnnotation(ObjectAnnotation objectAnnotation)
-        {
-            renderObjectAnnotationWithoutInvalidate(objectAnnotation);
-
-            middleCenterPanel.Invalidate();
-        }
-
-        private void renderObjectAnnotationWithoutInvalidate(ObjectAnnotation objectAnnotation)
-        {
-            middleCenterTableLayoutPanel.RowCount = lastObjectCell.Y + 1;
-            middleCenterTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            middleCenterTableLayoutPanel.Size = new System.Drawing.Size(970, 60 * middleCenterTableLayoutPanel.RowCount + 4);
-            middleCenterTableLayoutPanel.Controls.Add(objectAnnotation, lastObjectCell.X, lastObjectCell.Y);
-            objectAnnotation.Dock = DockStyle.Fill;
-
-            lastObjectCell.Y = lastObjectCell.Y + 1;
-        }
-
-        internal void selectObject(Object o)
-        {
-            cancelSelectObject();
-
-            //Remove any decoration of other objects
-            foreach (Object other in objectToObjectTracks.Keys)
-            {
-                objectToObjectTracks[other].deselectDeco();
-            }
-            objectToObjectTracks[o].selectDeco();
-
-            this.selectedObject = o;
-
-            if (selectedObject != null)
-            {
-                selectObjContextPanel.Visible = true;
-            }
-
-            foreach (Button b in drawingButtonGroup)
-            {
-                selectButtonDrawing(b, drawingButtonGroup, false);
-            }
-
-            this.showInformation(o);
-
-            polygonDrawing.Enabled = false;
-            rectangleDrawing.Enabled = false;
-
-            invalidatePictureBoard();
-        }
-
-        private int sessionStart;
-        private int sessionEnd;
-
-        private void StartInSecondTextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                changeStartInSecond();
-            }
-        }
-
-        private void StartInSecondTextBox_LostFocus(object sender, EventArgs e)
-        {
-            changeStartInSecond();
-        }
-
-        private void changeStartInSecond()
-        {
-            try
-            {
-                var startInSecond = int.Parse(startInSecondTextBox.Text);
-                if (videoReader != null)
-                {
-                    if (startInSecond * videoReader.fps < videoReader.frameCount)
-                    {
-                        // Plus one because frame is counted from 1
-                        setMinimumFrameTrackBar((int)(videoReader.fps * startInSecond));
-                        frameTrackBar_ValueChanged(null, null);
-                        if (frameTrackBar.Value < sessionStart)
-                        {
-                            frameTrackBar.Value = sessionStart;
-                        }
-
-                        rescaleFrameTrackBar();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                startInSecondTextBox.Text = "";
-            }
-        }
-
-        private void EndInSecondTextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                changeEndInSecond();
-            }
-        }
-
-        private void EndInSecondTextBox_LostFocus(object sender, EventArgs e)
-        {
-            changeEndInSecond();
-        }
-
-        private void changeEndInSecond()
-        {
-            try
-            {
-                var endInSecond = int.Parse(endInSecondTextBox.Text);
-                if (videoReader != null)
-                {
-                    if (endInSecond * videoReader.fps < videoReader.frameCount)
-                    {
-                        setMaximumFrameTrackBar((int)(videoReader.fps * endInSecond) - 1);
-                        frameTrackBar_ValueChanged(null, null);
-                        rescaleFrameTrackBar();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                endInSecondTextBox.Text = "";
-            }
-        }
-
-        private void rescaleFrameTrackBar()
-        {
-            if (currentSession != null)
-            {
-                foreach (var objectAnnotation in objectToObjectTracks.Values)
-                {
-                    objectAnnotation.resetStartEnd(frameTrackBar.Minimum, frameTrackBar.Maximum);
-                }
-
-                foreach (var eventAnnotation in mapFromEventToEventAnnotations.Values)
-                {
-                    eventAnnotation.resetStartEnd(frameTrackBar.Minimum, frameTrackBar.Maximum);
-                }
-            }
-
-            frameTrackBar.Invalidate();
-
-            Invalidate();
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
@@ -977,18 +249,6 @@ namespace Annotator
             {
                 handleKeyUpOnAnnotatorTab(e);
             }
-        }
-
-        private void setMinimumFrameTrackBar(int value)
-        {
-            frameTrackBar.Minimum = value;
-            this.sessionStart = value;
-        }
-
-        private void setMaximumFrameTrackBar(int value)
-        {
-            frameTrackBar.Maximum = value;
-            this.sessionEnd = value;
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1137,12 +397,6 @@ namespace Annotator
             annotateTableLayoutPanel.Cursor = Cursors.Default;
         }
 
-        private void switchWorkspaceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            WorkspaceLauncher workspaceLauncher = new WorkspaceLauncher(this);
-            workspaceLauncher.Show();
-        }
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InfoForm iff = new InfoForm();
@@ -1150,14 +404,19 @@ namespace Annotator
             iff.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switchWorkspaceToolStripMenuItem_Click(sender, e);
+            saveParameters();
         }
 
-        private void projectRightClickPanel_Opening(object sender, CancelEventArgs e)
+        private void middleCenterPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            otherWorkspaceToolStripMenuItem_Click(sender, e);
         }
     }
 }

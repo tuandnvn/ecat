@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.31.52.930-00.31.55.029" length="51">
+  <files>
+    <file>0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="man" filename="0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">815.2764,188.1407,344.6231,758.8951</marker>
+        <marker type="LOCATION" frame="49">781.3568,186.7836,344.6231,758.8951</marker>
+      </markers>
+    </object>
+    <object id="o2" name="bus" filename="0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.3014855,130.2513,1915.779,817.6885</marker>
+      </markers>
+    </object>
+    <object id="o5" name="man 2" filename="0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">242.7136,537.2864,329.2462,336.4825</marker>
+        <marker type="LOCATION" frame="50">128.7437,569.8492,397.99,374.4724</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man 1" filename="0009_Forrest_Gump_00.31.52.930-00.31.55.029.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1313.668,483.0151,208.0402,284.0201</marker>
+        <marker type="LOCATION" frame="50">1336.282,536.3819,259.5978,284.0201</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="50" />
+      <text>Forrest is about to sit on the first available seat, but the recruit sitting there refuses Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.31.42.861-00.31.49.320/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.31.42.861-00.31.49.320/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.31.42.861-00.31.49.320/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="31" arguments="2" ids="o4,o1" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="31" arguments="2" ids="o1,o4" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.28.704-01.17.28.908" length="48">
+  <files>
+    <file>0051_Men_in_black_01.17.28.704-01.17.28.908.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Car" filename="0051_Men_in_black_01.17.28.704-01.17.28.908.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">496.1539,19.03848,1187.308,808.2692</marker>
+        <marker type="LOCATION" frame="2">496.1539,19.03848,1187.308,808.2692</marker>
+        <marker type="LOCATION" frame="3">-0.5768814,19.03848,1917.692,811.7307</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Street" filename="0051_Men_in_black_01.17.28.704-01.17.28.908.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.514554,18.52489,1917.324,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_01.17.28.704-01.17.28.908.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="3">218.8864,57.67053,471.458,490.9833</marker>
+        <marker type="LOCATION" frame="7">250.0403,19.31605,464.1905,449.7224</marker>
+        <marker type="LOCATION" frame="9">288.2894,102.2542,464.1905,449.7224</marker>
+        <marker type="LOCATION" frame="12">326.3663,188.7927,464.1905,449.7224</marker>
+        <marker type="LOCATION" frame="15">345.4048,86.67729,464.1905,449.7224</marker>
+        <marker type="LOCATION" frame="23">314.2509,133.4081,464.1905,449.7224</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Jay" filename="0051_Men_in_black_01.17.28.704-01.17.28.908.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="3">859.6154,18.49931,678.4615,533.6161</marker>
+        <marker type="LOCATION" frame="7">743.6539,18.49931,972.6923,544.0007</marker>
+        <marker type="LOCATION" frame="9">672.6923,103.5766,955.3846,521.2311</marker>
+        <marker type="LOCATION" frame="12">703.8462,191.1152,955.3846,521.2311</marker>
+        <marker type="LOCATION" frame="15">719.4231,120.1537,955.3846,521.2311</marker>
+        <marker type="LOCATION" frame="23">677.8846,101.1152,1040.192,596.3848</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>It keeps going, turning all the way over and driving upside down, wheels clinging to the roof of the tunnel.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.17.28.199-01.17.28.535/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.17.28.199-01.17.28.535/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.17.28.199-01.17.28.535/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.17.28.199-01.17.28.535/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

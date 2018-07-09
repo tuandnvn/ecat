@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.17.16.272-01.17.17.232" length="48">
+  <files>
+    <file>0051_Men_in_black_01.17.16.272-01.17.17.232.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Car" filename="0051_Men_in_black_01.17.16.272-01.17.17.232.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.367041,18.52489,1919.177,1042.95</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Jay" filename="0051_Men_in_black_01.17.16.272-01.17.17.232.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">10.60037,48.16468,1906.209,1013.31</marker>
+        <marker type="DELETE" frame="2" />
+        <marker type="LOCATION" frame="9">384.8028,20.37737,1502.367,1041.098</marker>
+        <marker type="LOCATION" frame="12">143.9794,20.37737,1035.54,1041.098</marker>
+        <marker type="LOCATION" frame="15">412.5901,20.37737,1037.393,1041.098</marker>
+        <marker type="LOCATION" frame="17">402.7101,25.93483,1047.273,1035.54</marker>
+        <marker type="LOCATION" frame="18">397.7702,159.3139,983.6707,902.1612</marker>
+        <marker type="LOCATION" frame="21">382.9503,192.6587,1067.033,868.8165</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+    <object id="o4" name="gear stick" filename="0051_Men_in_black_01.17.16.272-01.17.17.232.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">618.2161,259.3482,639.108,802.1269</marker>
+        <marker type="DELETE" frame="8" />
+        <marker type="LOCATION" frame="11">1042.436,490.9091,235.2659,383.4648</marker>
+        <marker type="LOCATION" frame="15">1027.616,301.9554,340.8576,692.8302</marker>
+        <marker type="LOCATION" frame="23">1083.19,453.8593,257.4954,542.7787</marker>
+        <marker type="LOCATION" frame="28">999.8285,440.8919,285.283,553.8936</marker>
+        <marker type="DELETE" frame="29" />
+      </markers>
+    </object>
+    <object id="o5" name="Kay" filename="0051_Men_in_black_01.17.16.272-01.17.17.232.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="29">277.3585,125.9691,1259.691,935.506</marker>
+      </markers>
+    </object>
+    <object id="o6" name="steering wheel" filename="0051_Men_in_black_01.17.16.272-01.17.17.232.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="29">460.7547,894.7513,859.554,166.7238</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="29" />
+      <text>Jay flips back the plastic cover and JAMS his finger down on the red flashing button.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="13" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="29" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="29" arguments="2" ids="o5,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

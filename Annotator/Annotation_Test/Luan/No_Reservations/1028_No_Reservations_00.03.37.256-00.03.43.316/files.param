@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.03.37.256-00.03.43.316" length="0">
+  <files>
+    <file>1028_No_Reservations_00.03.37.256-00.03.43.316.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="women" filename="1028_No_Reservations_00.03.37.256-00.03.43.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">447.5863,281.3793,379.9998,651.0339</marker>
+        <marker type="LOCATION" frame="16">121.3793,284.1382,581.7233,651.0336</marker>
+        <marker type="LOCATION" frame="35">262.0689,284.1382,408.2758,651.0336</marker>
+        <marker type="LOCATION" frame="39">372.4137,350.3448,408.2759,593.1029</marker>
+        <marker type="LOCATION" frame="45">488.2758,350.3448,118.6204,593.103</marker>
+        <marker type="LOCATION" frame="51">925.5171,346.2073,62.06905,273.1024</marker>
+        <marker type="LOCATION" frame="58">874.4827,346.2073,226.2068,299.3099</marker>
+        <marker type="LOCATION" frame="75">857.931,346.2073,275.862,326.8961</marker>
+        <marker type="LOCATION" frame="77">852.4138,346.2073,278.6203,337.9305</marker>
+        <marker type="LOCATION" frame="78">477.2413,148.9655,391.7242,786.2068</marker>
+        <marker type="LOCATION" frame="81">446.8965,148.9655,364.1379,786.2068</marker>
+        <marker type="LOCATION" frame="85">424.8275,148.9655,355.8621,786.2068</marker>
+        <marker type="LOCATION" frame="95">375.1724,148.9655,375.1724,786.2068</marker>
+        <marker type="LOCATION" frame="112">331.0344,148.9655,408.2759,786.2068</marker>
+        <marker type="LOCATION" frame="145">308.9655,148.9655,413.7931,786.2068</marker>
+      </markers>
+    </object>
+    <object id="o2" name="fridge" filename="1028_No_Reservations_00.03.37.256-00.03.43.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">433.1034,140.6896,882.7579,788.9655</marker>
+        <marker type="LOCATION" frame="28">656.5517,140.6896,777.931,788.9655</marker>
+        <marker type="LOCATION" frame="32">711.724,140.6896,744.8276,788.9655</marker>
+        <marker type="LOCATION" frame="38">731.0344,140.6896,703.4476,788.9655</marker>
+        <marker type="LOCATION" frame="39">706.2068,140.6896,808.2755,788.9655</marker>
+        <marker type="LOCATION" frame="49">460.6896,140.6896,1095.172,788.9655</marker>
+        <marker type="LOCATION" frame="55">383.4482,140.6896,1224.828,788.9655</marker>
+        <marker type="LOCATION" frame="62">347.5862,140.6896,1313.103,788.9655</marker>
+        <marker type="LOCATION" frame="74">358.6207,140.6896,1395.862,788.9655</marker>
+        <marker type="DELETE" frame="79" />
+      </markers>
+    </object>
+    <object id="o3" name="rack" filename="1028_No_Reservations_00.03.37.256-00.03.43.316.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="79">2.758621,135.1724,455.1724,797.2413</marker>
+        <marker type="LOCATION" frame="89">2.758621,135.1724,388.9655,797.2413</marker>
+        <marker type="LOCATION" frame="100">2.758621,135.1724,350.3448,797.2413</marker>
+        <marker type="LOCATION" frame="118">2.758621,135.1724,314.4827,797.2413</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="146" />
+      <text />
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,1028_No_Reservations_00.02.50.797-00.02.51.823/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -9,6 +9,7 @@ using System.Xml;
 
 namespace Annotator
 {
+
     // 2d object
     public class Object
     {
@@ -45,11 +46,6 @@ namespace Annotator
             get; protected set;
         }
 
-        public SortedList<int, LinkMark> linkMarks
-        {
-            get; protected set;
-        }
-
         public enum ObjectType
         {
             _2D,
@@ -64,7 +60,7 @@ namespace Annotator
         }
 
         public string id { get; set; }                //Object's ID
-        public string name { get; set; }           // Object's name
+        public string name { get; set; } = "";           // Object's name
         public Color color { get; set; }           //Object's boudnign box color
         public string semanticType { get; set; }           //Object's type
         public int borderSize { get; set; }        //Object bounding box border size
@@ -93,7 +89,8 @@ namespace Annotator
             this.otherProperties = new Dictionary<string, string>();
             this.objectMarks = new SortedList<int, LocationMark2D>();
             this.object3DMarks = null;
-            this.linkMarks = new SortedList<int, LinkMark>();
+            //this.linkMarks = new SortedList<int, LinkMark>();
+            this.name = "";
         }
 
         public void setBounding(int frameNumber, LocationMark2D locationMark)
@@ -141,20 +138,21 @@ namespace Annotator
 
                 if (objectMarks[prevMarker].GetType() == typeof(RectangleLocationMark))
                 {
-                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[nextMarker]).boundingBox);
+                    var ob = new RectangleLocationMark(frameNumber, ((RectangleLocationMark)objectMarks[prevMarker]).boundingBox);
 
                     objectMarks[frameNumber] = ob;
                 }
 
                 if (objectMarks[prevMarker].GetType() == typeof(PolygonLocationMark2D))
                 {
-                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[nextMarker]).boundingPolygon);
+                    var ob = new PolygonLocationMark2D(frameNumber, ((PolygonLocationMark2D)objectMarks[prevMarker]).boundingPolygon);
 
                     objectMarks[frameNumber] = ob;
                 }
 
                 return;
-            } catch (InvalidOperationException exc)
+            }
+            catch (InvalidOperationException exc)
             {
                 Console.WriteLine(exc);
             }
@@ -183,35 +181,16 @@ namespace Annotator
             return (objectMarks.ContainsKey(frameNumber) && objectMarks[frameNumber] != null);
         }
 
-        public void addLink(int frameNumber, string objectId, bool qualified, string linkType)
+        internal LinkMark getLink(int frameNumber)
         {
-            if (!linkMarks.ContainsKey(frameNumber))
+            var linkMarks = this.session.queryLinkMarks(this);
+            if (linkMarks.ContainsKey(frameNumber))
             {
-                linkMarks[frameNumber] = new LinkMark(id, frameNumber);
+                return linkMarks[frameNumber];
             }
-
-            linkMarks[frameNumber].addLinkToObject(objectId, qualified, linkType);
+            return null;
         }
 
-        public LinkMark getLink(int frameNumber)
-        {
-            if (!linkMarks.ContainsKey(frameNumber))
-            {
-                return null; 
-            }
-
-            return linkMarks[frameNumber];
-        }
-
-        public void addLink(int frameNumber, string sessionName, string objectId, bool qualified, string linkType)
-        {
-            if (!linkMarks.ContainsKey(frameNumber))
-            {
-                linkMarks[frameNumber] = new LinkMark(id, frameNumber);
-            }
-
-            linkMarks[frameNumber].addLinkToObject(sessionName, objectId, qualified, linkType);
-        }
 
         /// <summary>
         /// Linear transformation of bounding to draw into paintBoard.
@@ -258,14 +237,36 @@ namespace Annotator
                     }
                 }
             }
-            catch (Exception exc) {
+            catch (Exception exc)
+            {
             }
-            
+
 
             return objectMarks[prevMarker].getScaledLocationMark(scale, translation);
         }
 
-        public LocationMark3D getLocationMark3D (int frameNo)
+        public bool hasMark(int frameNo)
+        {
+            int prevMarker = objectMarks.Keys.LastOrDefault(x => x <= frameNo);
+
+            if (prevMarker == 0)
+            {
+                if (objectMarks.ContainsKey(0))
+                    return true;
+                else
+                    return false;
+            }
+
+            // The previous marker is not delete marker
+            if (!(objectMarks[prevMarker] is DeleteLocationMark))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public LocationMark3D getLocationMark3D(int frameNo)
         {
             int prevMarker = object3DMarks.Keys.LastOrDefault(x => x <= frameNo);
             int nextMarker = object3DMarks.Keys.FirstOrDefault(x => x >= frameNo);
@@ -295,6 +296,54 @@ namespace Annotator
             }
 
             return object3DMarks[prevMarker];
+        }
+
+        /// <summary>
+        /// THe difference between this method and getLocationMark3D 
+        /// is that it would return result even before the object has the first mark
+        /// which would be useful for tracking objects
+        /// </summary>
+        /// <param name="frameNo"></param>
+        /// <returns></returns>
+        public LocationMark3D getLocationMark3DLeftExtrapolated(int frameNo)
+        {
+            try
+            {
+                int prevMarker = object3DMarks.Keys.LastOrDefault(x => x <= frameNo);
+                int nextMarker = object3DMarks.Keys.FirstOrDefault(x => x >= frameNo);
+
+                if (prevMarker == 0 && !object3DMarks.ContainsKey(0))
+                {
+                    return object3DMarks[nextMarker];
+                }
+
+                // No marker to the right
+                if (nextMarker == 0)
+                {
+                    return object3DMarks[prevMarker];
+                }
+
+                // Interpolation
+                if (prevMarker != nextMarker && object3DMarks[prevMarker] != null && object3DMarks[nextMarker] != null)
+                {
+                    if (this is RectangleObject && Options.getOption().interpolationModes[Options.RECTANGLE] == Options.InterpolationMode.LINEAR ||
+                        this is GlyphBoxObject && Options.getOption().interpolationModes[Options.GLYPH] == Options.InterpolationMode.LINEAR ||
+                        this is RigObject && Options.getOption().interpolationModes[Options.RIG] == Options.InterpolationMode.LINEAR)
+                    {
+                        LocationMark3D prev = null;
+                        LocationMark3D next = null;
+                        prev = object3DMarks[prevMarker].getScaledLocationMark((nextMarker - frameNo) * 1.0f / (nextMarker - prevMarker), new Point3());
+                        next = object3DMarks[nextMarker].getScaledLocationMark((frameNo - prevMarker) * 1.0f / (nextMarker - prevMarker), new Point3());
+                        return prev.addLocationMark(frameNo, next);
+                    }
+                }
+
+                return object3DMarks[prevMarker];
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
         }
 
 
@@ -331,7 +380,7 @@ namespace Annotator
             writeLocationMark(xmlWriter);
             if (objectType == ObjectType._3D)
                 write3DLocationMark(xmlWriter);
-            writeLinks(xmlWriter);
+            //writeLinks(xmlWriter);
 
             xmlWriter.WriteEndElement();
         }
@@ -382,22 +431,25 @@ namespace Annotator
             xmlWriter.WriteEndElement();
         }
 
-        protected virtual void writeLinks(XmlWriter xmlWriter)
-        {
-            if (linkMarks.Count == 0) return;
-            xmlWriter.WriteStartElement(LINKS);
-            foreach (int frame in linkMarks.Keys)
-            {
-                xmlWriter.WriteStartElement(LINK);
-                xmlWriter.WriteAttributeString(FRAME, "" + frame);
-                linkMarks[frame].writeToXml(xmlWriter);
+        //protected virtual void writeLinks(XmlWriter xmlWriter)
+        //{
+        //    if (linkMarks.Count == 0) return;
+        //    xmlWriter.WriteStartElement(LINKS);
+        //    foreach (int frame in linkMarks.Keys)
+        //    {
+        //        if (!linkMarks[frame].isEmpty())
+        //        {
+        //            xmlWriter.WriteStartElement(LINK);
+        //            xmlWriter.WriteAttributeString(FRAME, "" + frame);
+        //            linkMarks[frame].writeToXml(xmlWriter);
 
-                xmlWriter.WriteEndElement();
-            }
-            xmlWriter.WriteEndElement();
-        }
+        //            xmlWriter.WriteEndElement();
+        //        }
+        //    }
+        //    xmlWriter.WriteEndElement();
+        //}
 
-        public static List<Object> readFromXml(Session currentSession, XmlNode xmlNode)
+        public static List<Object> readObjectsFromXml(Session session, XmlNode xmlNode)
         {
             List<Object> objects = new List<Object>();
             foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
@@ -419,7 +471,7 @@ namespace Annotator
                     Type t = Type.GetType(shape);
                     if (t.IsSubclassOf(typeof(Object)))
                     {
-                        o = (Object)Activator.CreateInstance(t, currentSession, id, color, borderSize, videoFile);
+                        o = (Object)Activator.CreateInstance(t, session, id, color, borderSize, videoFile);
                     }
                     else
                     {
@@ -431,15 +483,13 @@ namespace Annotator
                 {
                     if (shape == "Rectangle")
                     {
-                        o = new RectangleObject(currentSession, id, color, borderSize, videoFile);
+                        o = new RectangleObject(session, id, color, borderSize, videoFile);
                     }
                     else if (shape == "Polygon")
                     {
-                        o = new PolygonObject(currentSession, id, color, borderSize, videoFile);
+                        o = new PolygonObject(session, id, color, borderSize, videoFile);
                     }
                 }
-
-
 
                 o.name = name;
                 o.semanticType = semanticType;
@@ -455,10 +505,23 @@ namespace Annotator
                 }
 
                 readMarkers(objectNode, o);
-                o.readLinks(objectNode);
-
                 objects.Add(o);
             }
+
+            //foreach (Object o in objects)
+            //{
+            //    session.addObject(o);
+            //}
+
+            //// Load predicates later, after adding all objects
+            //foreach (XmlNode objectNode in xmlNode.SelectNodes(OBJECT))
+            //{
+            //    string id = objectNode.Attributes[ID].Value;
+
+            //    var ob = objects.Where(o => o.id == id).First();
+            //    if (ob != null)
+            //        ob.readLinks(objectNode);
+            //}
 
             int performerCount = 1;
             // Add performer names to RigObject
@@ -486,7 +549,7 @@ namespace Annotator
         /**
          * 
          * WHen generate 3d points for glyph, you only need to generate for frame or faces that don't yet have corresponding 3d data
-         */ 
+         */
         internal virtual bool generate3dForGlyph(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], Microsoft.Kinect.CameraSpacePoint[]> mappingFunction)
         {
             if (videoReader == null)
@@ -517,7 +580,8 @@ namespace Annotator
                 if (!object3DMarks.ContainsKey(frameNo))
                 {
                     locationMarkers2dToProjected[frameNo] = faces2d;
-                } else
+                }
+                else
                 {
                     var faces3d = ((GlyphBoxLocationMark3D)object3DMarks[frameNo]).faces;
                     List<GlyphFace> toBeProjected = faces2d.Except(faces3d).ToList();
@@ -533,7 +597,7 @@ namespace Annotator
 
             foreach (var key in locationMarkers2dToProjected.Keys)
             {
-                Console.Write("Frame " + key + " : " );
+                Console.Write("Frame " + key + " : ");
                 foreach (var item in locationMarkers2dToProjected[key])
                 {
                     Console.Write("{0}, ", item);
@@ -605,7 +669,8 @@ namespace Annotator
                     GlyphBoxLocationMark3D objectMark3D = new GlyphBoxLocationMark3D(frameNo, objectMark.glyphSize, boundingPolygons3D, objectMark.faces);
 
                     set3DBounding(frameNo, objectMark3D);
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine(e);
                 }
@@ -614,7 +679,7 @@ namespace Annotator
             return true;
         }
 
-        
+
 
         /// <summary>
         /// 
@@ -675,7 +740,7 @@ namespace Annotator
                             int recordedTimeForRgbFrame = (int)(videoReader.totalMiliTime * frameNo / (videoReader.frameCount - 1));
                             ushort[] depthValues = depthReader.readFrameAtTime(recordedTimeForRgbFrame);
                             mappingFunction(depthValues, csps);
-                            
+
                             //Point3[,] colorSpaceToCameraSpacePoint = mappingHelper.projectDepthImageToColor(depthReader.readFrame(frameNo),
                             //    depthReader.getWidth(),
                             //    depthReader.getHeight(),
@@ -698,7 +763,7 @@ namespace Annotator
                             else if (this is PolygonObject)
                             {
                                 boundary.AddRange(((PolygonLocationMark2D)objectMark).boundingPolygon);
-                            } 
+                            }
 
                             // Using flat information if possible
                             if (voxMLType.HasValue && voxMLType.Value.concavity == "Flat")
@@ -837,7 +902,8 @@ namespace Annotator
             return true;
         }
 
-        private Point3 getCameraSpacePoint(PointF p, Point3[,] colorSpaceToCameraSpacePoint)
+
+        private Point3 getCameraSpacePoint(Point3[,] colorSpaceToCameraSpacePoint, PointF p)
         {
             int x = (int)p.X;
             int y = (int)p.Y;
@@ -871,30 +937,12 @@ namespace Annotator
                                                                    csps[x + y * videoReader.frameWidth].Z) : new Point3();
         }
 
-        private void readLinks(XmlNode objectNode)
-        {
-            XmlNode linksNode = objectNode.SelectSingleNode(LINKS);
-
-            if (linksNode == null) return;
-            foreach (XmlNode linkNode in linksNode.SelectNodes(LINK))
-            {
-
-                int frame = int.Parse(linkNode.Attributes[FRAME].Value);
-
-                if (!linkMarks.ContainsKey(frame))
-                {
-                    linkMarks[frame] = new LinkMark(id, frame);
-                }
-
-                linkMarks[frame].loadFromHtml(linkNode);
-            }
-        }
-
         public String queryTooltip(int frameNo)
         {
-            if (linkMarks.ContainsKey(frameNo))
+            var l = getLink(frameNo);
+            if (l != null)
             {
-                return linkMarks[frameNo].ToString();
+                return l.ToString();
             }
             return "";
         }
@@ -905,5 +953,59 @@ namespace Annotator
         protected virtual void loadObjectAdditionalFromXml(XmlNode objectNode)
         {
         }
+
+        internal HashSet<PredicateMark> getHoldingPredicates(int frame)
+        {
+            HashSet<PredicateMark> holdingPredicates = new HashSet<PredicateMark>();
+            SortedList<int, LinkMark> linkMarks = this.session.queryLinkMarks(this);
+
+            foreach (int frameNo in linkMarks.Keys)
+            {
+                if (frameNo <= frame)
+                    foreach (var predicateMark in linkMarks[frameNo].predicateMarks)
+                    {
+                        // Only add predicateMark if it is POSITIVE
+                        // Otherwise remove its negation
+                        if (predicateMark.qualified)
+                        {
+                            holdingPredicates.RemoveWhere(m => Options.getOption().predicateConstraints.Any(constraint => constraint.isConflict(m, predicateMark)));
+
+                            //Except from IDENTITY relationship
+                            // Other relationship only hold when all objects in relationship appears
+                            // We still need to consider predicate mark to remove nullified predicates before it
+                            // However we don't add it if some object disappears
+                            if (!predicateMark.predicate.Equals(Predicate.IdentityPredicate))
+                            {
+                                bool allExist = true;
+                                foreach (var o in predicateMark.objects)
+                                {
+                                    // This object o still appear in the move
+                                    if (!o.hasMark(frame))
+                                    {
+                                        allExist = false;
+                                        break;
+                                    }
+                                }
+
+                                if (allExist)
+                                {
+                                    holdingPredicates.Add(predicateMark);
+                                }
+                            }
+                            else
+                            {
+                                holdingPredicates.Add(predicateMark);
+                            }
+                        }
+                        else
+                        {
+                            holdingPredicates.RemoveWhere(m => m.isNegateOf(predicateMark));
+                        }
+                    }
+            }
+
+            return holdingPredicates;
+        }
+
     }
 }

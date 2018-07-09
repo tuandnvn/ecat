@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="man" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">-47.85923,351.3783,957.1848,467.3314</marker>
+        <marker type="LOCATION" frame="18">554.6041,168.3871,1052.903,624.9854</marker>
+        <marker type="LOCATION" frame="46">554.6041,168.3871,312.4927,380.0587</marker>
+        <marker type="LOCATION" frame="58">575.7184,321.8182,312.4927,380.0587</marker>
+      </markers>
+    </object>
+    <object id="o2" name="4 man" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">230.8504,154.3109,1556.833,619.3548</marker>
+        <marker type="DELETE" frame="18" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="66" />
+      <text>Everett, just finishing his speech, flips forward in turn, smashes his chin onto the floor and is sucked out the open doorway, his clawing fingernails leaving parallel grooves on the boxcar floorboards.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="5" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

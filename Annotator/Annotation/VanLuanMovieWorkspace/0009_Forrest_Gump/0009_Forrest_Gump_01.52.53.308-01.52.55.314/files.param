@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.52.53.308-01.52.55.314" length="49">
+  <files>
+    <file>0009_Forrest_Gump_01.52.53.308-01.52.55.314.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.52.53.308-01.52.55.314.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.347506E-05,125.6408,1915.897,820.5121</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.52.53.308-01.52.55.314.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">438.9744,396.4102,283.0769,504.6154</marker>
+        <marker type="LOCATION" frame="12">434.8718,433.3329,180.5128,416.4096</marker>
+        <marker type="LOCATION" frame="24">430.7691,470.2564,184.6155,328.2045</marker>
+        <marker type="LOCATION" frame="36">545.641,464.1022,197.9483,283.0767</marker>
+        <marker type="LOCATION" frame="48">730.2564,457.9487,141.5377,237.9483</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest runs through the main street of town.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.52.51.470-01.52.53.308/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.52.51.470-01.52.53.308/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

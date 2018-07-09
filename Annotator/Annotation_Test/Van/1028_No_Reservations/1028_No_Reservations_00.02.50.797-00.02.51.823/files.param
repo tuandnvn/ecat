@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.02.50.797-00.02.51.823" length="0">
+  <files>
+    <file>1028_No_Reservations_00.02.50.797-00.02.51.823.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="women" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">281.3793,251.0345,375.1717,573.7922</marker>
+        <marker type="LOCATION" frame="8">281.3793,251.0345,355.862,573.7922</marker>
+        <marker type="LOCATION" frame="9">212.4138,135.1724,717.2409,711.7236</marker>
+        <marker type="LOCATION" frame="47">441.3792,137.931,747.5858,659.3093</marker>
+      </markers>
+    </object>
+    <object id="o2" name="apron" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">463.4482,675.5179,186.2066,149.3096</marker>
+        <marker type="LOCATION" frame="8">441.3792,675.5179,193.1035,149.3096</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+    </object>
+    <object id="o3" name="shelf" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,135.1724,325.5171,758.6207</marker>
+        <marker type="LOCATION" frame="8">0,140.6896,339.3103,787.4303</marker>
+        <marker type="LOCATION" frame="9">0,799.9999,1911.724,132.4126</marker>
+      </markers>
+    </object>
+    <object id="o4" name="order" filename="1028_No_Reservations_00.02.50.797-00.02.51.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">168.2758,394.4827,143.4483,110.3447</marker>
+        <marker type="LOCATION" frame="8">168.2758,394.4827,195.8621,110.3447</marker>
+        <marker type="DELETE" frame="9" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>She checks some orders attached to a shelf.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,1028_No_Reservations_00.02.36.843-00.02.45.689/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

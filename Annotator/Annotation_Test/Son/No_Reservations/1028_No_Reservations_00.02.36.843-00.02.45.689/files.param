@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.02.36.843-00.02.45.689" length="0">
+  <files>
+    <file>1028_No_Reservations_00.02.36.843-00.02.45.689.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="girl" filename="1028_No_Reservations_00.02.36.843-00.02.45.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">649.422,140.4624,736.6473,791.2717</marker>
+        <marker type="LOCATION" frame="134">756.3295,230.9827,541.5607,699.1907</marker>
+        <marker type="LOCATION" frame="212">756.3295,230.9827,376.9075,699.1907</marker>
+      </markers>
+    </object>
+    <object id="o2" name="hand1" filename="1028_No_Reservations_00.02.36.843-00.02.45.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">118.7861,310.578,207.5723,346.474</marker>
+        <marker type="LOCATION" frame="5">342.7457,491.6185,207.5723,255.9538</marker>
+        <marker type="LOCATION" frame="8">484.3786,497.8612,189.6243,209.133</marker>
+        <marker type="LOCATION" frame="27">595.1879,405.7803,189.6243,209.133</marker>
+        <marker type="LOCATION" frame="35">453.1648,516.5895,189.6243,209.133</marker>
+        <marker type="LOCATION" frame="41">301.7775,588.3815,189.6243,209.133</marker>
+        <marker type="LOCATION" frame="47">170.6792,546.2427,189.6243,209.133</marker>
+        <marker type="LOCATION" frame="54">98.8873,438.5549,189.6243,209.133</marker>
+        <marker type="LOCATION" frame="58">53.62719,580.578,280.5347,209.133</marker>
+        <marker type="LOCATION" frame="61">498.2298,675.7803,280.5347,209.1329</marker>
+        <marker type="LOCATION" frame="64">751.0621,564.9711,400.9032,246.5895</marker>
+        <marker type="LOCATION" frame="66">697.1207,360.5202,400.9032,246.5896</marker>
+        <marker type="LOCATION" frame="75">392.7854,408.9017,400.9032,246.5896</marker>
+        <marker type="LOCATION" frame="79">2.612011,307.4567,56.86777,246.5896</marker>
+        <marker type="LOCATION" frame="84">317.6039,435.4335,136.1217,246.5896</marker>
+        <marker type="LOCATION" frame="86">600.0894,391.7341,136.1217,246.5896</marker>
+        <marker type="LOCATION" frame="92">1350.783,511.9075,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="104">1317.704,478.3526,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="109">1508.108,504.8844,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="115">1476.894,660.9537,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="125">1277.126,451.8208,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="130">1289.611,479.9133,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="132">1425.391,564.1907,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="133">1548.686,665.6359,230.373,235.6647</marker>
+        <marker type="LOCATION" frame="134">983.5628,725.3324,65.24431,104.9566</marker>
+        <marker type="LOCATION" frame="137">971.0773,652.9552,65.24431,104.9566</marker>
+        <marker type="LOCATION" frame="149">925.8171,662.3193,54.47187,52.47837</marker>
+        <marker type="LOCATION" frame="157">909.3536,671.3909,54.47187,52.47832</marker>
+        <marker type="LOCATION" frame="163">853.1687,682.3157,54.47187,52.47832</marker>
+        <marker type="LOCATION" frame="167">887.504,688.5585,54.47187,52.47832</marker>
+        <marker type="LOCATION" frame="171">896.8681,644.8591,54.47187,52.47832</marker>
+        <marker type="LOCATION" frame="187">843.8046,601.1597,54.47187,52.47832</marker>
+        <marker type="LOCATION" frame="190">779.8161,635.4949,77.17813,104.2738</marker>
+        <marker type="LOCATION" frame="193">841.8156,639.2504,77.17813,104.2738</marker>
+        <marker type="LOCATION" frame="201">835.5728,590.8688,77.17813,104.2738</marker>
+        <marker type="LOCATION" frame="209">882.3936,593.9902,77.17813,104.2738</marker>
+        <marker type="LOCATION" frame="212">837.1335,583.0654,77.17813,104.2738</marker>
+      </markers>
+    </object>
+    <object id="o3" name="hand2" filename="1028_No_Reservations_00.02.36.843-00.02.45.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1665.433,307.4567,201.3295,270</marker>
+        <marker type="LOCATION" frame="5">1496.098,448.6994,201.3295,270</marker>
+        <marker type="LOCATION" frame="8">1354.075,462.3555,201.3295,214.5954</marker>
+        <marker type="LOCATION" frame="27">1176.156,395.2457,201.3295,214.5954</marker>
+        <marker type="LOCATION" frame="35">1216.734,484.2052,201.3295,214.5954</marker>
+        <marker type="LOCATION" frame="41">1293.208,627.789,201.3295,214.5954</marker>
+        <marker type="LOCATION" frame="47">1391.532,574.7255,201.3295,214.5954</marker>
+        <marker type="LOCATION" frame="54">1399.335,460.7948,201.3295,214.5954</marker>
+        <marker type="LOCATION" frame="58">1174.595,438.9451,201.3295,214.5954</marker>
+        <marker type="LOCATION" frame="61">698.5838,438.9451,344.1329,214.5954</marker>
+        <marker type="LOCATION" frame="64">677.1243,599.6965,344.1329,214.5954</marker>
+        <marker type="LOCATION" frame="66">848.8006,635.5925,344.1329,214.5954</marker>
+        <marker type="LOCATION" frame="75">795.737,546.6329,344.1329,214.5954</marker>
+        <marker type="LOCATION" frame="79">956.4885,488.8873,344.1329,214.5954</marker>
+        <marker type="LOCATION" frame="83">1309.205,484.2052,344.1329,214.5954</marker>
+        <marker type="LOCATION" frame="92">1157.233,439.5304,273.5116,204.0607</marker>
+        <marker type="LOCATION" frame="97">1310.181,609.6459,273.5116,204.0607</marker>
+        <marker type="LOCATION" frame="104">1238.389,640.8598,273.5116,204.0607</marker>
+        <marker type="LOCATION" frame="109">1094.805,606.5246,273.5116,204.0607</marker>
+        <marker type="LOCATION" frame="115">1113.533,536.2933,273.5116,204.0607</marker>
+        <marker type="LOCATION" frame="125">1018.331,548.7789,273.5116,204.0607</marker>
+        <marker type="LOCATION" frame="133">904.4003,545.6575,273.5116,204.0607</marker>
+        <marker type="LOCATION" frame="134">896.5968,647.1026,88.37428,73.93786</marker>
+        <marker type="LOCATION" frame="149">881.4776,652.0773,47.79624,72.37717</marker>
+        <marker type="LOCATION" frame="157">939.2233,622.4241,47.79624,72.37717</marker>
+        <marker type="LOCATION" frame="187">1065.639,620.8635,47.79624,72.37717</marker>
+        <marker type="LOCATION" frame="190">1080.71,665.4895,80.08309,95.49494</marker>
+        <marker type="LOCATION" frame="193">1016.721,651.4433,80.08309,95.49494</marker>
+        <marker type="LOCATION" frame="201">1007.357,596.819,80.08309,95.49494</marker>
+        <marker type="LOCATION" frame="209">968.34,590.5762,80.08309,95.49494</marker>
+        <marker type="LOCATION" frame="212">1005.797,578.0907,80.08309,95.49494</marker>
+      </markers>
+    </object>
+    <object id="o4" name="white" filename="1028_No_Reservations_00.02.36.843-00.02.45.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">178.0925,413.5838,1679.306,505.6647</marker>
+        <marker type="LOCATION" frame="5">438.7283,413.5838,1076.879,505.6647</marker>
+        <marker type="LOCATION" frame="8">599.4798,413.5838,795.9537,505.6647</marker>
+        <marker type="LOCATION" frame="50">613.0056,503.5837,737.6882,425.5493</marker>
+        <marker type="LOCATION" frame="71">547.0015,499.422,779.1763,423.7284</marker>
+        <marker type="LOCATION" frame="92">608.4538,518.4103,726.1127,421.1272</marker>
+        <marker type="LOCATION" frame="109">613.526,519.711,824.0462,411.6145</marker>
+        <marker type="LOCATION" frame="121">695.1191,529.8369,688.9525,398.014</marker>
+        <marker type="LOCATION" frame="132">708.7283,521.2717,866.1849,399.3004</marker>
+        <marker type="LOCATION" frame="134">1002.139,653.9307,166.9942,265.3181</marker>
+        <marker type="LOCATION" frame="162">932.6879,653.9305,188.0636,282.4856</marker>
+        <marker type="LOCATION" frame="184">830.4625,653.9305,290.289,282.4856</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="212" />
+      <text>In a tidy restaurant kitchen, Kate, a pretty brunette in her late 30s, ties a dazzling white chef's apron around her waist.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.24.10.605-00.24.11.716" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.24.10.605-00.24.11.716.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="inside house" filename="0009_Forrest_Gump_00.24.10.605-00.24.11.716.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">8.205112,132.4787,1898.12,812.3077</marker>
+      </markers>
+    </object>
+    <object id="o2" name="tv" filename="0009_Forrest_Gump_00.24.10.605-00.24.11.716.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">421.1966,140.6838,1383.932,806.8376</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men" filename="0009_Forrest_Gump_00.24.10.605-00.24.11.716.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">809.5726,293.8462,314.5299,648.2051</marker>
+        <marker type="LOCATION" frame="11">850.5983,293.8462,322.735,648.2051</marker>
+        <marker type="LOCATION" frame="22">891.624,293.8462,298.1197,648.2051</marker>
+        <marker type="LOCATION" frame="38">839.1111,293.8462,308.6222,648.2051</marker>
+        <marker type="LOCATION" frame="47">809.5726,293.8462,314.5299,648.2051</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.24.09.473-00.24.10.605/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.24.09.473-00.24.10.605/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

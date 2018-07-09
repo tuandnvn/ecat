@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.11.41.704-00.11.43.294" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.11.41.704-00.11.43.294.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Sidewalk" filename="0009_Forrest_Gump_00.11.41.704-00.11.43.294.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,132.2194,1907.232,812.3691</marker>
+      </markers>
+    </object>
+    <object id="o2" name="woman" filename="0009_Forrest_Gump_00.11.41.704-00.11.43.294.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">863.4414,147.3815,467.631,786.035</marker>
+        <marker type="LOCATION" frame="47">11.97004,180.0997,639.202,756.908</marker>
+      </markers>
+    </object>
+    <object id="o3" name="kid" filename="0009_Forrest_Gump_00.11.41.704-00.11.43.294.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1212.968,518.4539,313.6171,422.1453</marker>
+        <marker type="LOCATION" frame="23">1488.678,533.9765,313.6172,409.4536</marker>
+        <marker type="LOCATION" frame="47">1550.922,547.1821,313.6172,396.2101</marker>
+      </markers>
+    </object>
+    <object id="o4" name="television" filename="0009_Forrest_Gump_00.11.41.704-00.11.43.294.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">153.2169,224.788,593.7158,711.8205</marker>
+        <marker type="LOCATION" frame="23">641.5959,234.3641,593.7159,711.8205</marker>
+        <marker type="LOCATION" frame="47">641.5959,234.3641,628.828,711.8205</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The television reveals Elvis as he thrusts his hips and sings.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.11.40.252-00.11.41.161/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.11.40.252-00.11.41.161/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_00.11.40.252-00.11.41.161/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.11.40.252-00.11.41.161/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="35" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="35" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

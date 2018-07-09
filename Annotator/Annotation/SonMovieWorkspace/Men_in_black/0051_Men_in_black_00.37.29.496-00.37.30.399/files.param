@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.37.29.496-00.37.30.399" length="48">
+  <files>
+    <file>0051_Men_in_black_00.37.29.496-00.37.30.399.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.37.29.496-00.37.30.399.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Edwards" filename="0051_Men_in_black_00.37.29.496-00.37.30.399.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1139.332,14.02586,777.438,1049.936</marker>
+        <marker type="LOCATION" frame="27">1291.614,14.02584,625.1542,1049.936</marker>
+        <marker type="DELETE" frame="28" />
+        <marker type="LOCATION" frame="39">1229.499,14.02579,687.2659,278.5159</marker>
+        <marker type="LOCATION" frame="44">884.8608,14.02574,1031.901,430.798</marker>
+        <marker type="LOCATION" frame="47">940.9647,14.02577,975.7985,378.7015</marker>
+      </markers>
+    </object>
+    <object id="o5" name="vest" filename="0051_Men_in_black_00.37.29.496-00.37.30.399.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="28">476.1039,246.4564,887.6437,817.5139</marker>
+        <marker type="LOCATION" frame="38">374.8638,224.4156,1103.095,839.5525</marker>
+        <marker type="LOCATION" frame="47">283.7477,226.419,1178.182,837.5486</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>ZED'S VOICE comes over.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.37.10.531-00.37.15.245/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.37.10.531-00.37.15.245/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="43" arguments="2" ids="o2,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

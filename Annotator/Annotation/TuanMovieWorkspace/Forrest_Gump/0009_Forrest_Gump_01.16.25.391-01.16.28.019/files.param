@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.16.25.391-01.16.28.019" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.16.25.391-01.16.28.019.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest looks down at Lt. Dan crashes at the bottom of the ramp.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

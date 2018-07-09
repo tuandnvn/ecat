@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.06.770-00.02.11.041" length="0">
+  <files>
+    <file>0017_Pianist_00.02.06.770-00.02.11.041.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="wm1" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">136.7341,21.84972,1139.306,1037.861</marker>
+        <marker type="LOCATION" frame="7">2.514468,21.84972,1273.526,1037.861</marker>
+        <marker type="LOCATION" frame="15">2.514468,170.1156,1120.578,889.5956</marker>
+        <marker type="DELETE" frame="24" />
+      </markers>
+    </object>
+    <object id="o2" name="m1" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">834.3642,187.2832,884.9133,873.9884</marker>
+        <marker type="LOCATION" frame="7">834.3642,418.2659,859.9422,643.0058</marker>
+        <marker type="LOCATION" frame="11">722.7746,472.8902,800.6358,583.6994</marker>
+        <marker type="LOCATION" frame="12">722.7746,461.9653,515.8092,594.6243</marker>
+        <marker type="LOCATION" frame="16">722.7746,675.7803,417.4855,380.8092</marker>
+        <marker type="DELETE" frame="21" />
+      </markers>
+    </object>
+    <object id="o3" name="man2" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="24">695.4625,238.7861,427.63,789.711</marker>
+        <marker type="LOCATION" frame="31">803.1503,238.7861,427.6301,789.711</marker>
+        <marker type="LOCATION" frame="35">803.1503,238.7861,625.8381,789.711</marker>
+        <marker type="LOCATION" frame="56">803.1503,96.76302,997.2832,931.7341</marker>
+        <marker type="LOCATION" frame="63">1029.451,96.76302,770.9827,931.7341</marker>
+        <marker type="LOCATION" frame="70">1029.451,96.76302,878.6704,931.7341</marker>
+        <marker type="DELETE" frame="80" />
+      </markers>
+    </object>
+    <object id="o4" name="wm2" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="80">35.28904,73.35261,819.3641,980.1156</marker>
+      </markers>
+    </object>
+    <object id="o5" name="man3" filename="0017_Pianist_00.02.06.770-00.02.11.041.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="84">1416.503,43.69943,488.497,1008.208</marker>
+        <marker type="LOCATION" frame="89">1018.526,43.69943,886.474,1008.208</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="102" />
+      <text>He turns, to see an extremely pretty young woman gazing adoringly at him while they're jostled and shoved.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="84" arguments="2" ids="o4,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="95" arguments="2" ids="o5,o4" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">665.1554,743.5832,616.0146,77.22121</marker>
+        <marker type="LOCATION" frame="32">657.2578,719.0128,616.0146,77.22121</marker>
+        <marker type="LOCATION" frame="40">629.1774,741.8282,616.0146,77.22121</marker>
+        <marker type="LOCATION" frame="47">520.3657,761.1335,573.0165,77.22115</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Village Roadshow Pictures.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

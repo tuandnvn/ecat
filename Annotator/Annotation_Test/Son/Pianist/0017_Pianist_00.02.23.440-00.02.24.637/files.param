@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.23.440-00.02.24.637" length="0">
+  <files>
+    <file>0017_Pianist_00.02.23.440-00.02.24.637.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="wm2" filename="0017_Pianist_00.02.23.440-00.02.24.637.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">19.35481,294.1935,810.9678,761.0256</marker>
+        <marker type="LOCATION" frame="32">234.1935,294.1935,632.9033,761.0256</marker>
+        <marker type="LOCATION" frame="35">234.1935,460.6452,632.9033,594.574</marker>
+        <marker type="LOCATION" frame="39">383.2258,700.6451,642.5807,354.5739</marker>
+        <marker type="LOCATION" frame="47">284.5161,592.2581,741.2903,462.9611</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man3" filename="0017_Pianist_00.02.23.440-00.02.24.637.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1170.968,19.35482,734.0323,1032.553</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="0017_Pianist_00.02.23.440-00.02.24.637.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">781.9355,462.5807,725.8065,592.2581</marker>
+        <marker type="LOCATION" frame="33">874.8387,586.4516,516.7742,468.3871</marker>
+        <marker type="LOCATION" frame="45">824.5161,394.8387,485.8065,660</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="15" arguments="2" ids="o3,o2" q="False" type="LOOK_AT(X,Y)" />
+    <predicate frame="16" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

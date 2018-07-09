@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.28.32.245-00.28.46.167" length="334">
+  <files>
+    <file>0051_Men_in_black_00.28.32.245-00.28.46.167.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.28.32.245-00.28.46.167.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_00.28.32.245-00.28.46.167.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">512.1005,110.5207,298.5996,952.0287</marker>
+        <marker type="LOCATION" frame="38">512.1005,110.5207,298.5996,952.0287</marker>
+        <marker type="LOCATION" frame="39">1157.774,50.41294,575.87,1012.136</marker>
+        <marker type="LOCATION" frame="64">1221.759,32.96231,694.1472,1029.587</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Zed" filename="0051_Men_in_black_00.28.32.245-00.28.46.167.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">992.9623,781.4003,137.6661,281.149</marker>
+        <marker type="LOCATION" frame="38">863.0521,502.1903,267.5763,560.3591</marker>
+        <marker type="DELETE" frame="39" />
+        <marker type="LOCATION" frame="57">-1.723496,983.0521,56.2298,79.49683</marker>
+        <marker type="LOCATION" frame="58">-1.723496,234.614,113.0136,827.9349</marker>
+        <marker type="LOCATION" frame="64">-1.723496,133.7882,453.7163,928.7612</marker>
+        <marker type="LOCATION" frame="92">-1.723496,118.2765,668.9407,944.2729</marker>
+        <marker type="LOCATION" frame="117">-1.723496,122.1544,730.9874,940.395</marker>
+        <marker type="LOCATION" frame="142">-1.723496,63.98565,731.4363,998.5637</marker>
+        <marker type="LOCATION" frame="333">-1.723496,93.07003,734.8654,969.4793</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Recruits" filename="0051_Men_in_black_00.28.32.245-00.28.46.167.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="39">777.7377,306.3555,562.2981,364.5242</marker>
+        <marker type="LOCATION" frame="117">688.5458,312.2479,651.4899,430.3733</marker>
+        <marker type="LOCATION" frame="193">702.1185,317.9892,637.9172,422.693</marker>
+        <marker type="LOCATION" frame="251">706.1349,326.8253,633.9009,392.5284</marker>
+        <marker type="LOCATION" frame="333">711.8133,339.3178,628.2226,403.3034</marker>
+      </markers>
+    </object>
+    <object id="o6" name="James" filename="0051_Men_in_black_00.28.32.245-00.28.46.167.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="39">954.1831,445.9605,217.1634,411.0592</marker>
+        <marker type="LOCATION" frame="80">965.8169,467.289,211.3465,438.2047</marker>
+        <marker type="LOCATION" frame="132">1023.986,480.8618,192.9264,525.4578</marker>
+        <marker type="LOCATION" frame="165">944.7307,516.7325,212.8007,525.4578</marker>
+        <marker type="LOCATION" frame="220">892.1364,618.5278,224.9192,387.7917</marker>
+        <marker type="LOCATION" frame="246">813.6086,667.0018,282.1185,394.9846</marker>
+        <marker type="LOCATION" frame="282">901.8312,732.9264,285.0269,329.623</marker>
+        <marker type="LOCATION" frame="333">928.9766,756.1939,288.9048,306.3555</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="333" />
+      <text>ZED and KAY stand behind smoked glass, staring at the RECRUITS, who are still in the shooting gallery, waiting for a decision.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.28.22.800-00.28.25.012/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="39" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="39" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="59" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="80" arguments="1" ids="o6" q="True" type="WALK(X)" />
+    <predicate frame="92" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="142" arguments="2" ids="o4,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="282" arguments="1" ids="o6" q="True" type="STAND(X)" />
+  </predicates>
+</session>

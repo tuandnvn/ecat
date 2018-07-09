@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1014.194,417.3608,105.5718,470.4984</marker>
+        <marker type="LOCATION" frame="40">1191.554,504.6335,105.5718,470.4984</marker>
+        <marker type="LOCATION" frame="65">1329.501,555.308,105.5718,470.4984</marker>
+        <marker type="DELETE" frame="76" />
+      </markers>
+    </object>
+    <object id="o2" name="stone statue" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">926.217,145.8651,360.3519,382.8739</marker>
+        <marker type="LOCATION" frame="40">1044.458,148.6804,360.3519,382.8739</marker>
+        <marker type="LOCATION" frame="65">1188.035,280.9971,360.3519,382.8739</marker>
+        <marker type="LOCATION" frame="76">1188.035,280.9971,529.2668,543.3431</marker>
+        <marker type="DELETE" frame="113" />
+      </markers>
+    </object>
+    <object id="o3" name="skeleton" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.48.155-00.00.55.511.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">487.0381,98.00587,419.4721,729.1495</marker>
+        <marker type="LOCATION" frame="76">487.0381,98.00587,667.2141,889.6188</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="176" />
+      <text>The snake slides past a stone statue of a skeleton with huge wings, draped in hooded cloak and holding a scythe.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,1051_Harry_Potter_and_the_goblet_of_fire_00.00.32.744-00.00.44.593/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

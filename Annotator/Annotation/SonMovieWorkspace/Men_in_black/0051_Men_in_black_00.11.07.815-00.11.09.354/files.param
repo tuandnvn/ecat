@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.11.07.815-00.11.09.354" length="48">
+  <files>
+    <file>0051_Men_in_black_00.11.07.815-00.11.09.354.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="man" filename="0051_Men_in_black_00.11.07.815-00.11.09.354.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1238.967,709.3727,141.476,169.3727</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o2" name="James" filename="0051_Men_in_black_00.11.07.815-00.11.09.354.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.4427868,257.048,679.4834,805.9407</marker>
+        <marker type="LOCATION" frame="6">392.1033,350.7011,514.0957,712.2874</marker>
+        <marker type="LOCATION" frame="11">583.3948,422.4354,512.1031,640.5531</marker>
+        <marker type="LOCATION" frame="18">774.6863,541.9926,448.3395,520.0735</marker>
+        <marker type="LOCATION" frame="36">956.0148,514.0959,320.8118,516.0886</marker>
+        <marker type="DELETE" frame="37" />
+        <marker type="LOCATION" frame="45">736.8258,346.715,127.5285,683.4685</marker>
+        <marker type="LOCATION" frame="46">551.5129,347.7118,322.8044,714.3547</marker>
+        <marker type="LOCATION" frame="47">531.5867,348.7085,332.7667,713.3579</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Street" filename="0051_Men_in_black_00.11.07.815-00.11.09.354.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o4" name="car" filename="0051_Men_in_black_00.11.07.815-00.11.09.354.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">328.3395,370.6269,1018.226,545.9778</marker>
+        <marker type="LOCATION" frame="6">314.3911,312.8413,1343.024,633.6531</marker>
+        <marker type="LOCATION" frame="11">370.1845,251.0701,1546.273,691.4391</marker>
+        <marker type="LOCATION" frame="16">423.9853,141.476,1492.472,846.8635</marker>
+        <marker type="LOCATION" frame="27">627.2325,109.6937,1289.224,884.1255</marker>
+        <marker type="LOCATION" frame="36">874.3173,83.69004,1042.139,914.6125</marker>
+        <marker type="LOCATION" frame="37">-0.4427868,23.91144,1916.899,1030.184</marker>
+        <marker type="LOCATION" frame="41">-0.4427868,23.91145,1916.9,1030.184</marker>
+        <marker type="LOCATION" frame="42">-0.4427868,23.91144,1827.232,1030.184</marker>
+        <marker type="LOCATION" frame="43">-0.4427868,23.91144,1364.945,1030.184</marker>
+        <marker type="LOCATION" frame="47">-0.4427868,23.91144,547.9705,1030.184</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Edwards tries to follow, but a bus pulls in front of him.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.11.06.310-00.11.07.026/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.11.06.310-00.11.07.026/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.11.06.310-00.11.07.026/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.11.06.310-00.11.07.026/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="45" arguments="1" ids="o2" q="True" type="STAND(X)" />
+  </predicates>
+</session>

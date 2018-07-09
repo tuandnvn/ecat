@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.10.36.343-02.10.42.145" length="140">
+  <files>
+    <file>0009_Forrest_Gump_02.10.36.343-02.10.42.145.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_02.10.36.343-02.10.42.145.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">714.3226,360.3871,268.3867,443.8709</marker>
+        <marker type="LOCATION" frame="69">557.4189,378.9677,276.6455,474.8387</marker>
+        <marker type="LOCATION" frame="139">427.3549,391.3548,268.3867,482.0645</marker>
+      </markers>
+    </object>
+    <object id="o2" name="River" filename="0009_Forrest_Gump_02.10.36.343-02.10.42.145.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,122.9677,1915.869,821.6774</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Child" filename="0009_Forrest_Gump_02.10.36.343-02.10.42.145.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">993.0322,494.5806,154.8387,243.6129</marker>
+        <marker type="LOCATION" frame="69">850.5806,517.127,169.2903,258.2279</marker>
+        <marker type="LOCATION" frame="139">734.9677,540,173.4193,260.129</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Fishing-rod's Forrest" filename="0009_Forrest_Gump_02.10.36.343-02.10.42.145.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">887.7411,127.0968,99.09721,355.0968</marker>
+        <marker type="LOCATION" frame="69">751.4838,127.0968,149.2686,408.7742</marker>
+        <marker type="LOCATION" frame="139">644.1288,127.0968,169.2906,429.4193</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Fishing-rod's child" filename="0009_Forrest_Gump_02.10.36.343-02.10.42.145.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1069.419,473.9355,78.45161,90.83871</marker>
+        <marker type="LOCATION" frame="69">957.9354,531.7419,120.247,99.09677</marker>
+        <marker type="LOCATION" frame="139">865.0322,552.3871,142.4516,99.09677</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest and Forrest Jr. sit on a log by the river and fish.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.10.34.246-02.10.35.843/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.10.34.246-02.10.35.843/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_02.10.34.246-02.10.35.843/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

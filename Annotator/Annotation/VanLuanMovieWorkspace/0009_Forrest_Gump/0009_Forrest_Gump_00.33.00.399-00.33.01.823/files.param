@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.33.00.399-00.33.01.823" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.33.00.399-00.33.01.823.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="bubba's mom" filename="0009_Forrest_Gump_00.33.00.399-00.33.01.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">778.0692,226.4839,441.6686,713.9929</marker>
+        <marker type="LOCATION" frame="23">732.1543,190.6479,450.9684,749.8289</marker>
+        <marker type="LOCATION" frame="47">684.2432,153.2539,354.7078,787.2228</marker>
+      </markers>
+    </object>
+    <object id="o2" name="inside house" filename="0009_Forrest_Gump_00.33.00.399-00.33.01.823.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.74594E-05,130.3695,1920,821.5494</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+  </predicates>
+</session>

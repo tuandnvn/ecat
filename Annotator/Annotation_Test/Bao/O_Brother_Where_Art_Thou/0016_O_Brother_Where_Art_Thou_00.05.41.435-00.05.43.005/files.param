@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.41.435-00.05.43.005" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.41.435-00.05.43.005.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="train" filename="0016_O_Brother_Where_Art_Thou_00.05.41.435-00.05.43.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1151.437,264.1056,577.1262,394.1349</marker>
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0016_O_Brother_Where_Art_Thou_00.05.41.435-00.05.43.005.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">42.22875,123.3431,965.6305,810.7917</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Its fading clatter leaves the baying of hounds.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

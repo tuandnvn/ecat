@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.40.080-00.02.46.270" length="0">
+  <files>
+    <file>0017_Pianist_00.02.40.080-00.02.46.270.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="women 2" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.685221,106.8714,1087.14,971.0558</marker>
+        <marker type="LOCATION" frame="43">3.685221,22.11132,947.1017,1055.816</marker>
+        <marker type="LOCATION" frame="99">132.6679,22.11132,1046.603,1055.816</marker>
+        <marker type="LOCATION" frame="135">70.0192,224.7985,777.5816,853.1288</marker>
+        <marker type="LOCATION" frame="148">3.685221,331.6699,748.0998,746.2574</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Women 2's Clothes" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">574.8944,851.286,702.035,215.5854</marker>
+        <marker type="LOCATION" frame="43">574.8944,851.286,357.4664,215.5854</marker>
+        <marker type="LOCATION" frame="99">983.9539,740.7294,175.048,314.1651</marker>
+        <marker type="LOCATION" frame="135">497.5048,943.4165,173.2054,111.4779</marker>
+        <marker type="DELETE" frame="143" />
+      </markers>
+    </object>
+    <object id="o3" name="picture" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">961.8426,199.0019,950.7874,866.0269</marker>
+        <marker type="LOCATION" frame="43">626.4875,390.6334,1286.142,674.3954</marker>
+        <marker type="LOCATION" frame="99">1186.641,611.7466,725.989,453.2821</marker>
+        <marker type="LOCATION" frame="135">1186.641,523.3013,578.5797,412.7447</marker>
+        <marker type="LOCATION" frame="148">1072.399,560.1536,501.19,375.8925</marker>
+      </markers>
+    </object>
+    <object id="o4" name="father" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1706.257,412.7447,232.1689,663.3397</marker>
+        <marker type="LOCATION" frame="43">1256.66,471.7083,681.7658,287.4472</marker>
+        <marker type="LOCATION" frame="99">1680.461,740.7294,257.9655,169.5202</marker>
+        <marker type="LOCATION" frame="135">1451.977,47.90787,486.4491,1013.436</marker>
+        <marker type="LOCATION" frame="148">1311.939,18.4261,626.4875,1042.918</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Women 3's Clothes" filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="129">1078.62,22.06878,140.6898,706.207</marker>
+        <marker type="LOCATION" frame="134">892.4136,35.86198,140.6898,706.207</marker>
+        <marker type="LOCATION" frame="148">275.8621,16.55128,251.0345,783.4482</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Women 3 " filename="0017_Pianist_00.02.40.080-00.02.46.270.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="129">1111.724,27.58617,77.2412,115.862</marker>
+        <marker type="LOCATION" frame="134">871.724,16.55172,281.3794,899.3099</marker>
+        <marker type="LOCATION" frame="148">226.2069,13.79309,339.3103,1006.895</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="148" />
+      <text>Father, holding a silver-framed photograph, crosses to Mother.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0017_Pianist_00.02.34.800-00.02.37.122/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="148" arguments="2" ids="o6,o5" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

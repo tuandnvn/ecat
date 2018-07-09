@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.20.54.790-00.20.59.390" length="111">
+  <files>
+    <file>0009_Forrest_Gump_00.20.54.790-00.20.59.390.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="men" filename="0009_Forrest_Gump_00.20.54.790-00.20.59.390.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1114.874,488.3753,64.8055,93.36382</marker>
+        <marker type="LOCATION" frame="35">975.9268,486.7277,64.8055,93.36385</marker>
+        <marker type="LOCATION" frame="58">931.9909,486.7277,64.8055,93.36385</marker>
+        <marker type="LOCATION" frame="76">918.8101,488.9245,64.8055,93.36385</marker>
+        <marker type="LOCATION" frame="110">918.8103,480.6865,60.9609,134.0047</marker>
+      </markers>
+    </object>
+    <object id="o2" name="street" filename="0009_Forrest_Gump_00.20.54.790-00.20.59.390.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-4.190057E-06,129.1991,1911.213,819.4051</marker>
+      </markers>
+    </object>
+    <object id="o4" name="car" filename="0009_Forrest_Gump_00.20.54.790-00.20.59.390.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="53">1247.781,489.4737,43.93579,81.28146</marker>
+        <marker type="LOCATION" frame="54">1232.403,489.4737,59.31377,81.28146</marker>
+        <marker type="LOCATION" frame="62">1157.712,489.4737,134.0055,81.28146</marker>
+        <marker type="LOCATION" frame="77">1042.379,490.5721,146.0874,88.97025</marker>
+        <marker type="LOCATION" frame="87">972.6313,484.5309,146.0875,88.97025</marker>
+        <marker type="LOCATION" frame="110">873.7756,486.7277,119.1764,92.81465</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="110" />
+      <text>Forrest runs along the road in front of the high school.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.20.47.588-00.20.54.222/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.20.47.588-00.20.54.222/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="53" arguments="1" ids="o4" q="True" type="RUN(X)" />
+    <predicate frame="53" arguments="2" ids="o4,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

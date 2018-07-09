@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.37.01.451-00.37.04.200" length="66">
+  <files>
+    <file>0051_Men_in_black_00.37.01.451-00.37.04.200.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.37.01.451-00.37.04.200.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="52">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edwards" filename="0051_Men_in_black_00.37.01.451-00.37.04.200.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+        <marker type="LOCATION" frame="52">710.538,52.09627,1128.086,1011.873</marker>
+        <marker type="LOCATION" frame="65">688.4964,52.09619,1118.071,1011.872</marker>
+      </markers>
+    </object>
+    <object id="o4" name="screen" filename="0051_Men_in_black_00.37.01.451-00.37.04.200.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">13.24675,26.04815,1893.506,1021.892</marker>
+        <marker type="DELETE" frame="52" />
+      </markers>
+    </object>
+    <object id="o5" name="aliens" filename="0051_Men_in_black_00.37.01.451-00.37.04.200.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">604.3414,575.0649,751.3914,462.8571</marker>
+        <marker type="LOCATION" frame="13">472.0965,336.6223,1019.889,629.1662</marker>
+        <marker type="LOCATION" frame="23">349.8701,120.2226,1242.301,759.4064</marker>
+        <marker type="LOCATION" frame="29">347.8647,98.18155,1230.28,719.3323</marker>
+        <marker type="LOCATION" frame="51">379.9258,92.17043,1176.178,677.2544</marker>
+        <marker type="DELETE" frame="52" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="65" />
+      <text>Edwards, stunned, looks at Kay as 4-Eyes boots her onto the screen: Mean face, cat glasses.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.36.21.873-00.36.25.600/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.36.21.873-00.36.25.600/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.36.21.873-00.36.25.600/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.36.21.873-00.36.25.600/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="52" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

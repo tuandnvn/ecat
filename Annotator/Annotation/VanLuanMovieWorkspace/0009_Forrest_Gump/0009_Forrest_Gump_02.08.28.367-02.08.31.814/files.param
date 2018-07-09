@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.08.28.367-02.08.31.814" length="83">
+  <files>
+    <file>0009_Forrest_Gump_02.08.28.367-02.08.31.814.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Forrest" filename="0009_Forrest_Gump_02.08.28.367-02.08.31.814.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">305.5483,630.8387,37.16129,63.99994</marker>
+        <marker type="LOCATION" frame="42">450.0645,621.5483,37.16129,64</marker>
+        <marker type="LOCATION" frame="82">578.0645,617.4193,37.16129,64</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Highway" filename="0009_Forrest_Gump_02.08.28.367-02.08.31.814.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0,131.2258,1920,817.5483</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest runs along a highway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.08.19.466-02.08.27.760/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.08.19.466-02.08.27.760/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

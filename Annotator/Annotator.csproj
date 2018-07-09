@@ -173,7 +173,26 @@
     <Compile Include="InfoForm.Designer.cs">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="learning\EventLearningDataGenerator.cs" />
     <Compile Include="Main.Drawing.Zoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Memento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Object.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.PaintBoardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.PredicateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Session.Kinect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Workspace.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="object\GlyphBoxLocationMark3D.cs" />
@@ -217,6 +236,8 @@
     <Compile Include="OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="object\PredicateConstraint.cs" />
+    <Compile Include="object\PredicateMark.cs" />
     <Compile Include="ProgressForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,12 +359,19 @@
       <DependentUpon>ObjectLinkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ObjectRecognitionAlgorithm\SquareBinaryGlyphRecognizer.cs" />
+    <Compile Include="SessionSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionSelector.Designer.cs">
+      <DependentUpon>SessionSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrainingPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="TrainingPanel.Designer.cs">
       <DependentUpon>TrainingPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="object\Predicate.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="utils\AtomicBoolean.cs" />
     <Compile Include="VideoReader.cs" />
@@ -399,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LinkEventForm.resx">
       <DependentUpon>LinkEventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SessionSelector.resx">
+      <DependentUpon>SessionSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingPanel.resx">
       <DependentUpon>TrainingPanel.cs</DependentUpon>
@@ -457,6 +488,11 @@
     <None Include="Resources\6.glyph" />
     <None Include="Resources\71.glyph" />
     <None Include="Resources\Zoom_in.png" />
+    <None Include="Resources\edit-64.png" />
+    <None Include="Resources\save-64.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\undo.png" />
     <Content Include="zoomout.cur" />
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -486,7 +522,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="option.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="postproc-52.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

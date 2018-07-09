@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.36.27.731-00.36.33.925" length="0">
+  <files>
+    <file>0051_Men_in_black_00.36.27.731-00.36.33.925.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The screen displays a map of the world on which thousands of tiny lights blink in all parts of the globe, log lines of data flashing next to them.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

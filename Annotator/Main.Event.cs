@@ -55,25 +55,21 @@ namespace Annotator
         {
             currentSession.removeEvent(ev);
 
-            mapFromEventToEventAnnotations.Remove(ev);
-
             clearMidleBottomPanel();
-            foreach (EventAnnotation eventAnnotation in mapFromEventToEventAnnotations.Values)
-            {
-                renderEventAnnotation(eventAnnotation);
-            }
+            populateMiddleBottomPanel();
 
             annoRefView.Rows.Clear();
             this.Invalidate();
+            this.logSession($"Event {ev.id} removed");
         }
 
         //Add annotation button
         private void addEventAnnotationBtn_Click(object sender, EventArgs e)
         {
-            Event annotation = new Event(null, frameTrackBar.Minimum, frameTrackBar.Maximum, "");
-            addAnnotation(annotation);
+            Event eventAnnotation = new Event(null, frameTrackBar.Minimum, frameTrackBar.Maximum, "");
+            addAnnotation(eventAnnotation);
+            this.logSession($"Event {eventAnnotation.id} added");
         }
-
 
         public int addRightBottomTableReference(int start, int end, String text, String refID, Color? c = null)
         {
@@ -121,6 +117,19 @@ namespace Annotator
             }
         }
 
+        internal void findObjectForEvent(Event ev)
+        {
+            string annotationText = ev.text;
+            currentSession.resetTempoEmpty(ev);
+            var foundObjects = currentSession.findObjectsByNames(ev);
+
+            foreach (var o in foundObjects)
+            {
+                ev.addTempoReference(o.Item1, o.Item2, o.Item3);
+                addRightBottomTableReference(o.Item1, o.Item2, annotationText.Substring(o.Item1, o.Item2 - o.Item1), o.Item3);
+            }
+            
+        }
 
         private void addEventToolStripMenuItem_Click(object sender, EventArgs e)
         {

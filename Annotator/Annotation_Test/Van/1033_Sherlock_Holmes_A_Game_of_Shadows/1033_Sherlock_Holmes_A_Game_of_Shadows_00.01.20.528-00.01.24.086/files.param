@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="men" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">116.0733,132.8796,1003.665,802.9319</marker>
+        <marker type="LOCATION" frame="85">271.5707,132.8796,209.2152,593.7173</marker>
+      </markers>
+    </object>
+    <object id="o2" name="coat" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">140.1047,159.7382,959.843,760.5236</marker>
+        <marker type="LOCATION" frame="85">274.3979,138.5341,200.733,65.02622</marker>
+      </markers>
+    </object>
+    <object id="o3" name="packet" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">808.7435,290.4972,101.7801,167.5133</marker>
+        <marker type="LOCATION" frame="13">783.2985,119.8036,127.2251,247.7357</marker>
+        <marker type="LOCATION" frame="21">651.8325,339.7971,204.9738,344.3914</marker>
+        <marker type="LOCATION" frame="46">1020.001,359.3227,222.0918,389.892</marker>
+        <marker type="LOCATION" frame="85">1020.785,285.8148,248.796,344.3914</marker>
+      </markers>
+    </object>
+    <object id="o4" name="women" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.20.528-00.01.24.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">862.4608,11.30891,819.8953,918.8482</marker>
+        <marker type="LOCATION" frame="21">619.3194,7.067896,701.1519,918.8485</marker>
+        <marker type="LOCATION" frame="85">458.1676,110.2618,1009.32,815.6554</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="85" />
+      <text>As he passes a woman in a wide-sleeved outfit, he transfers the package to her.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="21" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="21" arguments="2" ids="o1,o3" q="False" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.41.10.138-00.41.11.045" length="48">
+  <files>
+    <file>0051_Men_in_black_00.41.10.138-00.41.11.045.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.41.10.138-00.41.11.045.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.711266E-05,10.65422,1906.542,1058.692</marker>
+        <marker type="LOCATION" frame="3">-1.711266E-05,10.6542,278.1309,1058.692</marker>
+        <marker type="LOCATION" frame="6">-1.711266E-05,10.6542,35.88785,1058.692</marker>
+        <marker type="DELETE" frame="7" />
+      </markers>
+    </object>
+    <object id="o2" name="Taxi" filename="0051_Men_in_black_00.41.10.138-00.41.11.045.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,468.2243,1888.599,587.6636</marker>
+        <marker type="LOCATION" frame="18">-1.711266E-05,559.5043,1275.19,496.3836</marker>
+        <marker type="LOCATION" frame="23">533.8318,584.8598,569.7196,471.028</marker>
+        <marker type="LOCATION" frame="47">426.1682,548.972,771.5888,506.9159</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Rosenberg" filename="0051_Men_in_black_00.41.10.138-00.41.11.045.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">675.1402,405.4206,157.0094,336.4486</marker>
+        <marker type="LOCATION" frame="23">681.3681,551.215,162.4975,336.4486</marker>
+        <marker type="LOCATION" frame="47">473.271,519.8131,168.2243,336.4486</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Van" filename="0051_Men_in_black_00.41.10.138-00.41.11.045.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">412.7103,10.6542,1502.804,1067.664</marker>
+        <marker type="LOCATION" frame="7">-1.711266E-05,10.6542,1915.516,1067.664</marker>
+        <marker type="LOCATION" frame="47">-1.711266E-05,10.6542,1915.516,1067.664</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Driver" filename="0051_Men_in_black_00.41.10.138-00.41.11.045.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">578.6916,578.1309,170.4673,165.9813</marker>
+        <marker type="LOCATION" frame="23">645.9813,712.7103,170.4673,165.9813</marker>
+        <marker type="DELETE" frame="24" />
+      </markers>
+    </object>
+    <object id="o7" name="Edgar" filename="0051_Men_in_black_00.41.10.138-00.41.11.045.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">1691.215,481.6823,224.2991,183.9252</marker>
+        <marker type="LOCATION" frame="7">1623.925,481.6823,291.5891,251.215</marker>
+        <marker type="LOCATION" frame="9">1372.71,176.6355,542.8044,888.2243</marker>
+        <marker type="LOCATION" frame="15">708.785,176.6355,1027.29,888.2243</marker>
+        <marker type="LOCATION" frame="19">505.499,176.6355,979.3609,888.2243</marker>
+        <marker type="LOCATION" frame="24">359.685,203.5514,1039.941,865.7944</marker>
+        <marker type="LOCATION" frame="28">419.439,190.0935,1119.253,888.2243</marker>
+        <marker type="LOCATION" frame="34">466.5421,109.3458,1229.159,968.972</marker>
+        <marker type="LOCATION" frame="37">403.5022,100.3738,1305.657,977.944</marker>
+        <marker type="LOCATION" frame="47">385.7944,118.3178,1377.196,960.0001</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A moment later, the Orkin van pulls to a stop across the street.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.41.06.133-00.41.09.400/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.41.06.133-00.41.09.400/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.41.06.133-00.41.09.400/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.41.06.133-00.41.09.400/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,o7" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="4" arguments="1" ids="o7" q="True" type="SIT(X)" />
+    <predicate frame="33" arguments="1" ids="o6" q="False" type="RUN(X)" />
+  </predicates>
+</session>

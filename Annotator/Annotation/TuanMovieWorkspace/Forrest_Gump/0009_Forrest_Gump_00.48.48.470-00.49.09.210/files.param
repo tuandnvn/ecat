@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.48.48.470-00.49.09.210" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.48.48.470-00.49.09.210.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The Fourth Platoon makes their way through the jungle and rain.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

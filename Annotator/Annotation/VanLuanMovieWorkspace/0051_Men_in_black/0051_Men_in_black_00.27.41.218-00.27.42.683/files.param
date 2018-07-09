@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.27.41.218-00.27.42.683" length="48">
+  <files>
+    <file>0051_Men_in_black_00.27.41.218-00.27.42.683.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Room" filename="0051_Men_in_black_00.27.41.218-00.27.42.683.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.403699,2.752287,1906.789,1065.688</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Beast" filename="0051_Men_in_black_00.27.41.218-00.27.42.683.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">295.0459,29.1743,1056.877,1034.862</marker>
+        <marker type="DELETE" frame="37" />
+      </markers>
+    </object>
+    <object id="o5" name="James" filename="0051_Men_in_black_00.27.41.218-00.27.42.683.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="37">114.4954,51.19265,814.6787,1008.437</marker>
+        <marker type="LOCATION" frame="47">74.86241,51.19265,854.3112,1008.437</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Men" filename="0051_Men_in_black_00.27.41.218-00.27.42.683.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="37">951.1926,112.844,823.4863,942.3845</marker>
+        <marker type="LOCATION" frame="47">951.1926,112.844,801.4679,942.3845</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Most obvious in the frozen tableau of creatures is a lunging, snarling beast, which has three bullet holes in its chest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.27.28.096-00.27.29.609/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="37" arguments="1" ids="o6" q="True" type="STAND(X)" />
+    <predicate frame="37" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="37" arguments="2" ids="o6,0051_Men_in_black_00.27.28.096-00.27.29.609/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="37" arguments="2" ids="o5,0051_Men_in_black_00.27.28.096-00.27.29.609/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="40" arguments="2" ids="o5,o6" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

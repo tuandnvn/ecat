@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.37.54.464-00.38.00.052" length="134">
+  <files>
+    <file>0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="club" filename="0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.770578,129.9567,1911.688,814.5454</marker>
+      </markers>
+    </object>
+    <object id="o2" name="women" filename="0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">754.1909,128.3817,642.6556,815.2688</marker>
+        <marker type="LOCATION" frame="33">908.2157,157.5934,478.0074,786.0563</marker>
+        <marker type="LOCATION" frame="42">921.4937,149.6265,424.8947,794.0219</marker>
+        <marker type="LOCATION" frame="44">871.529,146.9709,477.5166,796.6772</marker>
+        <marker type="LOCATION" frame="45">900.2489,155.0439,437.7491,788.6042</marker>
+        <marker type="LOCATION" frame="46">679.834,163.117,717.0114,780.5312</marker>
+        <marker type="LOCATION" frame="69">246.9709,348.7967,825.8921,594.8532</marker>
+        <marker type="LOCATION" frame="77">687.8007,274.4398,759.4995,669.2095</marker>
+        <marker type="LOCATION" frame="82">863.0705,271.8316,759.5017,671.8177</marker>
+        <marker type="LOCATION" frame="108">844.4811,205.3942,623.7526,738.2549</marker>
+        <marker type="LOCATION" frame="117">929.4605,219.7344,533.7751,723.915</marker>
+        <marker type="LOCATION" frame="133">647.9668,245.2282,671.8672,698.422</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men" filename="0009_Forrest_Gump_00.37.54.464-00.38.00.052.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">15.93362,133.6929,788.7136,809.9556</marker>
+        <marker type="LOCATION" frame="33">2.655617,131.0373,709.0456,812.6099</marker>
+        <marker type="LOCATION" frame="42">58.42325,128.3817,834.522,815.2641</marker>
+        <marker type="LOCATION" frame="44">199.1701,133.6929,770.1245,809.9525</marker>
+        <marker type="LOCATION" frame="45">214.6788,145.0589,773.3111,798.5866</marker>
+        <marker type="LOCATION" frame="46">671.8672,156.4248,621.4095,787.2207</marker>
+        <marker type="LOCATION" frame="55">638.6144,136.3485,710.7759,807.2965</marker>
+        <marker type="LOCATION" frame="69">586.8879,417.8423,849.7903,525.8052</marker>
+        <marker type="LOCATION" frame="77">759.502,253.195,666.5555,690.4518</marker>
+        <marker type="LOCATION" frame="82">812.6141,149.6265,557.9597,794.0198</marker>
+        <marker type="LOCATION" frame="108">448.7967,136.3485,633.2653,807.2986</marker>
+        <marker type="LOCATION" frame="117">485.9751,133.6929,576.2655,809.9544</marker>
+        <marker type="LOCATION" frame="133">15.93362,170.8714,788.7136,772.7778</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.37.51.469-00.37.53.098/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.37.51.469-00.37.53.098/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.37.51.469-00.37.53.098/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

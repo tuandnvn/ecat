@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.10.01.133-01.10.02.944" length="48">
+  <files>
+    <file>0051_Men_in_black_01.10.01.133-01.10.02.944.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Office" filename="0051_Men_in_black_01.10.01.133-01.10.02.944.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Tony" filename="0051_Men_in_black_01.10.01.133-01.10.02.944.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">152.0149,36.26865,1370.15,1021.568</marker>
+        <marker type="LOCATION" frame="8">160.0746,130.9701,1575.673,926.8669</marker>
+        <marker type="LOCATION" frame="11">214.4776,36.26865,1480.97,1021.568</marker>
+        <marker type="LOCATION" frame="25">232.6119,36.26865,1243.209,1021.568</marker>
+      </markers>
+    </object>
+    <object id="o4" name="battledore" filename="0051_Men_in_black_01.10.01.133-01.10.02.944.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">415.9702,147.0897,390.8955,219.6267</marker>
+        <marker type="LOCATION" frame="2">462.7163,129.9627,400.5673,206.5298</marker>
+        <marker type="LOCATION" frame="3">499.7237,81.26867,365.5748,251.194</marker>
+        <marker type="LOCATION" frame="5">522.7612,18.13435,267.9854,441.2686</marker>
+        <marker type="LOCATION" frame="6">645.6717,18.13435,626.6427,435.2239</marker>
+        <marker type="DELETE" frame="7" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>WHACK! Still another fly goes down.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.09.58.610-01.10.00.675/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.09.58.610-01.10.00.675/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.21.12.902-01.21.18.056" length="124">
+  <files>
+    <file>0051_Men_in_black_01.21.12.902-01.21.18.056.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Park" filename="0051_Men_in_black_01.21.12.902-01.21.18.056.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5145563,18.52489,1918.696,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.21.12.902-01.21.18.056.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">436.3636,310.9091,258.1818,749.1572</marker>
+        <marker type="LOCATION" frame="42">456.3636,310.9091,238.1818,749.1572</marker>
+        <marker type="DELETE" frame="61" />
+        <marker type="LOCATION" frame="110">478.1818,18.18183,1103.636,1041.884</marker>
+        <marker type="LOCATION" frame="123">478.1818,18.18183,1063.636,1041.884</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay's gun" filename="0051_Men_in_black_01.21.12.902-01.21.18.056.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">586.2784,552.4148,205.625,291.534</marker>
+        <marker type="LOCATION" frame="60">586.2784,552.7273,235.5398,291.2213</marker>
+        <marker type="DELETE" frame="61" />
+      </markers>
+    </object>
+    <object id="o4" name="Jay" filename="0051_Men_in_black_01.21.12.902-01.21.18.056.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1163.636,303.6363,294.5454,756.3623</marker>
+        <marker type="LOCATION" frame="60">1180,300,296.3636,759.9984</marker>
+        <marker type="LOCATION" frame="61">452.7273,18.18183,1374.545,1041.817</marker>
+        <marker type="LOCATION" frame="94">552.7273,18.18183,1274.545,1041.817</marker>
+        <marker type="LOCATION" frame="109">552.7273,18.18183,1274.545,1041.817</marker>
+        <marker type="DELETE" frame="110" />
+      </markers>
+    </object>
+    <object id="o5" name="Jay's gun" filename="0051_Men_in_black_01.21.12.902-01.21.18.056.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1380.656,696.521,39.34437,54.38809</marker>
+        <marker type="LOCATION" frame="42">1369.255,687.3121,46.94491,65.37586</marker>
+        <marker type="DELETE" frame="61" />
+      </markers>
+    </object>
+    <object id="o6" name="space ship" filename="0051_Men_in_black_01.21.12.902-01.21.18.056.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.859665E-05,18.18183,1918.182,334.5454</marker>
+        <marker type="DELETE" frame="61" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="61" />
+      <text>In front of them, the dust clears.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.21.01.699-01.21.02.922/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.21.01.699-01.21.02.922/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_01.21.01.699-01.21.02.922/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.21.01.699-01.21.02.922/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o6,0051_Men_in_black_01.21.01.699-01.21.02.922/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.21.01.699-01.21.02.922/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o6" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

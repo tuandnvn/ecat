@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.11.03.937-01.11.08.770" length="116">
+  <files>
+    <file>0009_Forrest_Gump_01.11.03.937-01.11.08.770.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Sidewalk" filename="0009_Forrest_Gump_01.11.03.937-01.11.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1.846107,132.9231,1913.538,811.3846</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jenny" filename="0009_Forrest_Gump_01.11.03.937-01.11.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">979.3846,135.6923,437.5385,415.3846</marker>
+        <marker type="LOCATION" frame="9">966.0242,132.9231,434.7211,466.1539</marker>
+        <marker type="LOCATION" frame="27">939.3031,196.9646,429.0861,498.1124</marker>
+        <marker type="LOCATION" frame="59">949.8502,250.7117,419.0689,462.2689</marker>
+        <marker type="LOCATION" frame="115">932.3077,221.5385,401.5385,506.7693</marker>
+      </markers>
+    </object>
+    <object id="o4" name="guitar" filename="0009_Forrest_Gump_01.11.03.937-01.11.08.770.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">975.2308,202.8461,402.9231,284.5385</marker>
+        <marker type="LOCATION" frame="20">945.1003,313.2993,388.7458,337.4699</marker>
+        <marker type="LOCATION" frame="35">947.9512,384.7809,384.0976,321.5151</marker>
+        <marker type="LOCATION" frame="85">914.1596,394.7568,400.3019,364.0125</marker>
+        <marker type="LOCATION" frame="115">952.3846,400.5,359.3077,236.4231</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="115" />
+      <text>Jenny plays the guitar.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.11.02.585-01.11.08.937/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.11.02.585-01.11.08.937/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.11.02.585-01.11.08.937/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

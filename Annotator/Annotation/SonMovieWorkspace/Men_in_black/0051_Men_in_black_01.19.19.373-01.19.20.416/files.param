@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.19.19.373-01.19.20.416" length="48">
+  <files>
+    <file>0051_Men_in_black_01.19.19.373-01.19.20.416.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Park" filename="0051_Men_in_black_01.19.19.373-01.19.20.416.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.514554,18.52489,1917.324,1041.098</marker>
+        <marker type="LOCATION" frame="22">-0.5145563,18.52489,1918.696,1041.098</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.19.19.373-01.19.20.416.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">310.3691,119.5973,1551.141,940.4705</marker>
+        <marker type="LOCATION" frame="19">329.0909,134.5454,1589.091,925.5223</marker>
+        <marker type="LOCATION" frame="31">310.3691,40.00001,1471.449,1020.068</marker>
+        <marker type="LOCATION" frame="47">310.3691,110.9091,1293.267,949.1587</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay's gun" filename="0051_Men_in_black_01.19.19.373-01.19.20.416.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">567.6846,18.12082,1344.565,1041.947</marker>
+        <marker type="LOCATION" frame="5">567.6846,65.45455,1344.565,994.6132</marker>
+        <marker type="LOCATION" frame="7">478.1818,278.1818,1434.068,781.8856</marker>
+        <marker type="LOCATION" frame="11">1180,787.2727,732.2487,272.7945</marker>
+        <marker type="LOCATION" frame="14">1467.273,823.6364,444.976,236.4309</marker>
+        <marker type="LOCATION" frame="19">930.9091,274.5455,981.3397,785.5218</marker>
+        <marker type="LOCATION" frame="22">529.0909,18.18183,1389.091,1041.885</marker>
+        <marker type="LOCATION" frame="31">529.0909,18.18183,1267.273,1041.885</marker>
+        <marker type="LOCATION" frame="32">640,18.18183,1156.362,1041.885</marker>
+        <marker type="LOCATION" frame="47">530.9091,18.18183,1292.727,1041.885</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Three feet long, triple-barreled, over and under and under, plus a pump action reloader on top of a storage clip for a dozen more shells.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.19.18.716-01.19.19.202/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.19.18.716-01.19.19.202/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.19.18.716-01.19.19.202/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="2" arguments="2" ids="o2,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

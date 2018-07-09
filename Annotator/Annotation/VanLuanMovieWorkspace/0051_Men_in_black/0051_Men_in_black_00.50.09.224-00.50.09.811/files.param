@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.50.09.224-00.50.09.811" length="48">
+  <files>
+    <file>0051_Men_in_black_00.50.09.224-00.50.09.811.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Dr" filename="0051_Men_in_black_00.50.09.224-00.50.09.811.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">1847.064,403.614,68.74744,255.0308</marker>
+        <marker type="LOCATION" frame="14">1676.712,341.5195,172.5689,323.5605</marker>
+        <marker type="LOCATION" frame="24">1472.279,352.6078,184.0659,314.9736</marker>
+        <marker type="LOCATION" frame="38">1252.731,339.109,198.4329,383.1024</marker>
+        <marker type="LOCATION" frame="47">1171.786,330.4312,147.4743,426.8994</marker>
+      </markers>
+    </object>
+    <object id="o8" name="House" filename="0051_Men_in_black_00.50.09.224-00.50.09.811.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>It's DR. </text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o8,0051_Men_in_black_00.49.07.536-00.49.08.049/o12" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

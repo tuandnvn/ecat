@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.04.11.832-00.04.12.499" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.04.11.832-00.04.12.499.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="cam1" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">600.9303,448.3721,347.9069,219.5349</marker>
+        <marker type="LOCATION" frame="15">443.7209,465.1163,347.907,219.5349</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o2" name="cam2" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="2">662.3256,137.6744,507.907,293.9535</marker>
+        <marker type="LOCATION" frame="15">542.3256,139.5349,507.907,293.9535</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o3" name="cam3" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="25">857.6744,137.6744,122.7907,238.1395</marker>
+        <marker type="LOCATION" frame="27">827.9069,219.5349,122.7907,238.1395</marker>
+        <marker type="LOCATION" frame="30">855.8139,288.3721,122.7907,238.1395</marker>
+        <marker type="LOCATION" frame="34">932.093,292.093,122.7907,238.1395</marker>
+        <marker type="LOCATION" frame="38">1066.047,275.3488,122.7907,238.1395</marker>
+        <marker type="LOCATION" frame="43">1079.07,156.2791,122.7907,238.1395</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o7" name="flash3" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="26">870.6976,178.6046,80,61.39535</marker>
+        <marker type="LOCATION" frame="27">867.9069,214.8837,80,61.39535</marker>
+        <marker type="LOCATION" frame="28">867.9069,246.5116,80,61.39535</marker>
+        <marker type="LOCATION" frame="30">873.4883,285.5814,80,61.39535</marker>
+        <marker type="LOCATION" frame="33">916.2791,296.7442,80,61.39535</marker>
+        <marker type="LOCATION" frame="36">1033.488,281.8604,80,61.39535</marker>
+        <marker type="LOCATION" frame="38">1081.86,261.3954,80,61.39535</marker>
+        <marker type="LOCATION" frame="41">1104.186,201.8605,80,61.39535</marker>
+        <marker type="LOCATION" frame="42">1122.791,159.0698,80,61.39535</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o5" name="cam4" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">3.72093,532.093,173.0233,199.0698</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o8" name="flash4" filename="1043_Vantage_Point_00.04.11.832-00.04.12.499.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="38">27.90697,526.5116,81.86046,46.51163</marker>
+        <marker type="LOCATION" frame="42">44.65116,546.0465,81.86046,46.51163</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Cameras flash.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="27" arguments="2" ids="o3,o1" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="40" arguments="2" ids="o5,o8" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="41" arguments="2" ids="o5,o8" q="False" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

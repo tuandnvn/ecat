@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.36.35.627-00.36.37.942" length="56">
+  <files>
+    <file>0051_Men_in_black_00.36.35.627-00.36.37.942.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.36.35.627-00.36.37.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.599174E-05,7.598236,1911.616,1064.803</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Screen" filename="0051_Men_in_black_00.36.35.627-00.36.37.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.229067,11.79039,1919.958,1035.699</marker>
+        <marker type="LOCATION" frame="43">4.229067,11.79039,1919.958,1035.699</marker>
+        <marker type="DELETE" frame="44" />
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_00.36.35.627-00.36.37.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">372.1586,62.11455,1065.727,993.8326</marker>
+        <marker type="LOCATION" frame="55">397.5331,62.11455,1061.498,993.8326</marker>
+      </markers>
+    </object>
+    <object id="o4" name="James" filename="0051_Men_in_black_00.36.35.627-00.36.37.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">1839.648,704.934,76.12386,359.4714</marker>
+        <marker type="LOCATION" frame="55">1877.709,852.9515,42.29075,211.4538</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>ON THE SCREENS, we see live images of aliens.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.36.27.731-00.36.33.925/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.36.27.731-00.36.33.925/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="44" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="44" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="44" arguments="2" ids="o3,0051_Men_in_black_00.36.27.731-00.36.33.925/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="44" arguments="2" ids="o4,0051_Men_in_black_00.36.27.731-00.36.33.925/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

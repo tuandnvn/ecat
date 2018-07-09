@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.06.44.099-01.06.45.051" length="48">
+  <files>
+    <file>0051_Men_in_black_01.06.44.099-01.06.45.051.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_01.06.44.099-01.06.45.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1247506,17.92532,1918.008,1040.631</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Jay" filename="0051_Men_in_black_01.06.44.099-01.06.45.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">176.4888,27.88296,1414.595,1029.811</marker>
+        <marker type="LOCATION" frame="18">130.0172,27.88296,1422.031,1029.811</marker>
+        <marker type="LOCATION" frame="34">107.7109,27.88296,1390.43,1029.811</marker>
+        <marker type="DELETE" frame="35" />
+      </markers>
+    </object>
+    <object id="o3" name="dog" filename="0051_Men_in_black_01.06.44.099-01.06.45.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="35">570.568,492.599,321.5835,416.3855</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Kay" filename="0051_Men_in_black_01.06.44.099-01.06.45.051.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="35">812.2202,139.4148,717.5217,918.2788</marker>
+        <marker type="LOCATION" frame="40">817.7969,167.2978,711.9449,890.3951</marker>
+        <marker type="LOCATION" frame="47">895.8692,158.0034,633.8726,899.6897</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="35" />
+      <text>Jay looks down.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.06.40.838-01.06.43.930/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.06.40.838-01.06.43.930/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="35" arguments="1" ids="o4" q="True" type="STAND(X)" />
+  </predicates>
+</session>

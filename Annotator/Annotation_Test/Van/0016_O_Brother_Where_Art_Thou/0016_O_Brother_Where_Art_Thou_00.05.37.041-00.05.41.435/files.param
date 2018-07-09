@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="convict 1" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">100.0002,353.1034,694.4825,589.6539</marker>
+        <marker type="LOCATION" frame="9">301.0346,433.1034,904.4825,512.7579</marker>
+        <marker type="LOCATION" frame="31">8.448359,129.6552,904.4825,816.3782</marker>
+        <marker type="LOCATION" frame="41">204.1379,126.9832,998.4478,816.3782</marker>
+        <marker type="DELETE" frame="42" />
+      </markers>
+    </object>
+    <object id="o2" name="convict 2" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="44">455.1724,891.0344,355.862,55.17241</marker>
+        <marker type="LOCATION" frame="59">2.758621,165.5172,808.2749,780.6886</marker>
+        <marker type="LOCATION" frame="72">430.3448,143.4483,590.3448,802.7574</marker>
+        <marker type="LOCATION" frame="84">430.3448,195.862,849.655,750.3434</marker>
+        <marker type="DELETE" frame="85" />
+      </markers>
+    </object>
+    <object id="o3" name="train" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1111.724,129.6552,788.965,604.1376</marker>
+        <marker type="LOCATION" frame="24">1180.69,171.0345,551.7241,446.8964</marker>
+        <marker type="LOCATION" frame="41">1302.069,237.2414,485.5173,380.6893</marker>
+        <marker type="DELETE" frame="42" />
+      </markers>
+    </object>
+    <object id="o4" name="convict 3" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="59">1484.138,868.9655,234.4827,77.24129</marker>
+        <marker type="LOCATION" frame="72">987.5861,391.7241,597.2406,551.7229</marker>
+        <marker type="LOCATION" frame="84">1282.759,499.3103,535.1724,444.1364</marker>
+        <marker type="DELETE" frame="85" />
+      </markers>
+    </object>
+    <object id="o5" name="convict 1" filename="0016_O_Brother_Where_Art_Thou_00.05.37.041-00.05.41.435.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="85">248.2758,126.8965,973.793,816.5516</marker>
+        <marker type="LOCATION" frame="105">31.72414,137.931,973.793,816.5517</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="105" />
+      <text>They shake their heads clear, then rise to their feet in the muck and watch the train recede.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="24" arguments="2" ids="o1,o3" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

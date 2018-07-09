@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.23.22.220-01.23.24.487" length="55">
+  <files>
+    <file>0051_Men_in_black_01.23.22.220-01.23.24.487.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="intestinal" filename="0051_Men_in_black_01.23.22.220-01.23.24.487.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5145563,18.52489,1918.696,1041.098</marker>
+        <marker type="DELETE" frame="54" />
+      </markers>
+    </object>
+    <object id="o3" name="gun" filename="0051_Men_in_black_01.23.22.220-01.23.24.487.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">226.1804,43.53168,934.8943,512.0153</marker>
+        <marker type="LOCATION" frame="5">506.0269,18.65644,1028.176,528.5988</marker>
+        <marker type="LOCATION" frame="9">752.7063,18.65644,1013.663,580.4222</marker>
+        <marker type="LOCATION" frame="13">1044.99,18.65644,721.3792,609.4434</marker>
+        <marker type="LOCATION" frame="15">1162.111,18.65644,359.6545,623.9539</marker>
+        <marker type="LOCATION" frame="17">1279.232,18.65644,348.2533,576.2764</marker>
+        <marker type="LOCATION" frame="19">1391.689,108.311,309.903,463.3013</marker>
+        <marker type="LOCATION" frame="21">1496.891,55.9693,271.5525,350.3263</marker>
+        <marker type="LOCATION" frame="23">1586.027,19.693,245.6418,314.0498</marker>
+        <marker type="LOCATION" frame="25">1671.017,19.693,205.2183,177.236</marker>
+        <marker type="LOCATION" frame="26">1743.57,19.693,132.6645,98.4644</marker>
+        <marker type="DELETE" frame="27" />
+      </markers>
+    </object>
+    <object id="o4" name="Kay" filename="0051_Men_in_black_01.23.22.220-01.23.24.487.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">510.1727,524.4529,499.5777,404.2227</marker>
+        <marker type="LOCATION" frame="14">1169.367,458.119,541.0328,601.1516</marker>
+        <marker type="LOCATION" frame="27">49.98082,194.856,1482.148,864.4146</marker>
+        <marker type="LOCATION" frame="32">302.8791,18.65644,1374.357,1040.613</marker>
+        <marker type="LOCATION" frame="37">597.2361,18.65644,1079.999,1040.613</marker>
+        <marker type="LOCATION" frame="42">597.2361,18.65644,1154.626,1040.613</marker>
+        <marker type="DELETE" frame="54" />
+      </markers>
+    </object>
+    <object id="o5" name="Jay" filename="0051_Men_in_black_01.23.22.220-01.23.24.487.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="54">574.4338,53.89637,642.6104,1005.374</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Park" filename="0051_Men_in_black_01.23.22.220-01.23.24.487.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="54">0.2303452,18.65644,1917.466,1042.687</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="54" />
+      <text>Kay, swimming in the Bug's intestinal fluid, tries to make his way to the gun, Holding his breath.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

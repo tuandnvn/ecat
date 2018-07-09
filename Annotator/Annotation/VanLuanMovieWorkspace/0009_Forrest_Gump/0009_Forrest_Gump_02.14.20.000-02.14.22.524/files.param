@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.14.20.000-02.14.22.524" length="61">
+  <files>
+    <file>0009_Forrest_Gump_02.14.20.000-02.14.22.524.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Bus stop" filename="0009_Forrest_Gump_02.14.20.000-02.14.22.524.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.38576E-05,122.2755,1916.168,823.9521</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_02.14.20.000-02.14.22.524.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-3.920888E-06,120.6424,1776.103,826.3812</marker>
+        <marker type="LOCATION" frame="6">-4.111353,120.6424,1531.636,826.3812</marker>
+        <marker type="LOCATION" frame="9">-3.920888E-06,120.6424,1403.235,826.3812</marker>
+        <marker type="LOCATION" frame="12">-3.920888E-06,120.6424,1278.946,826.3812</marker>
+        <marker type="LOCATION" frame="13">45.22483,120.6424,1192.291,826.3812</marker>
+        <marker type="LOCATION" frame="29">616.7023,128.591,929.1649,818.4326</marker>
+        <marker type="LOCATION" frame="43">707.152,141.1991,957.9443,805.8244</marker>
+        <marker type="LOCATION" frame="60">719.4861,137.0878,970.2784,809.9358</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest sits down.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.14.14.248-02.14.19.000/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.14.14.248-02.14.19.000/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="18" arguments="1" ids="o2" q="True" type="SIT(X)" />
+  </predicates>
+</session>

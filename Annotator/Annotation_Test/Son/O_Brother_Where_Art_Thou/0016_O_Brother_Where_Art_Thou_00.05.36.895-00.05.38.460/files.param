@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="man" filename="0016_O_Brother_Where_Art_Thou_00.05.36.895-00.05.38.460.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.289236,360.1653,980.2755,576.5289</marker>
+        <marker type="LOCATION" frame="26">5.289236,169.7521,980.2755,766.9431</marker>
+        <marker type="LOCATION" frame="31">5.289236,169.7521,818.0717,766.9431</marker>
+        <marker type="LOCATION" frame="43">5.289236,169.7521,1043.747,766.9431</marker>
+        <marker type="LOCATION" frame="47">130.4683,177.6855,1043.747,766.9431</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates />
+</session>

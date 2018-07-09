@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o2" name="table" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.573316,141.5094,1908.853,799.7678</marker>
+        <marker type="LOCATION" frame="242">5.573316,141.5094,1908.853,799.7678</marker>
+      </markers>
+    </object>
+    <object id="o3" name="paper" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">11.14661,147.0828,1468.563,774.6879</marker>
+        <marker type="LOCATION" frame="181">11.14661,147.0828,1894.92,774.6879</marker>
+        <marker type="LOCATION" frame="242">11.14661,147.0828,1894.92,774.6879</marker>
+      </markers>
+    </object>
+    <object id="o4" name="magnifying glass" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">730.1016,200.029,947.4601,718.955</marker>
+        <marker type="LOCATION" frame="103">730.1016,200.029,947.4601,718.955</marker>
+        <marker type="LOCATION" frame="178">1886.56,470.3338,47.37386,105.8929</marker>
+        <marker type="DELETE" frame="181" />
+      </markers>
+    </object>
+    <object id="o5" name="clock" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.17.545-00.00.27.667.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1173.179,141.5094,601.9157,437.5036</marker>
+        <marker type="LOCATION" frame="100">1878.2,300.3484,36.22659,211.7854</marker>
+        <marker type="DELETE" frame="103" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="242" />
+      <text>A pocket watch on a chain lies on a desk beside typewritten sheets, on top of which rests a magnifying glass.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

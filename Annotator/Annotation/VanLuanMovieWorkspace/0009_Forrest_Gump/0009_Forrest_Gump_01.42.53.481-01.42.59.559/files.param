@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.42.53.481-01.42.59.559" length="146">
+  <files>
+    <file>0009_Forrest_Gump_01.42.53.481-01.42.59.559.avi</file>
+  </files>
+  <objects no="8">
+    <object id="o1" name="Bubba's house" filename="0009_Forrest_Gump_01.42.53.481-01.42.59.559.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-2.854651E-05,125.2116,1911.448,825.3007</marker>
+      </markers>
+    </object>
+    <object id="o3" name="A white women" filename="0009_Forrest_Gump_01.42.53.481-01.42.59.559.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">595.8621,697.2415,49.65517,182.0689</marker>
+        <marker type="LOCATION" frame="6">595.8621,680.6897,121.0345,204.8297</marker>
+        <marker type="LOCATION" frame="7">595.8621,275.1725,144.8276,612.4138</marker>
+        <marker type="LOCATION" frame="13">595.8621,204.8276,335.1724,744.8284</marker>
+        <marker type="LOCATION" frame="27">604.1379,189.38,591.7242,760.2781</marker>
+        <marker type="LOCATION" frame="43">587.5862,171.7243,724.1381,777.9327</marker>
+        <marker type="LOCATION" frame="66">657.931,155.1732,633.1035,794.4858</marker>
+        <marker type="LOCATION" frame="88">616.5521,213.1035,525.5169,736.5546</marker>
+        <marker type="LOCATION" frame="101">583.4485,223.8623,467.586,725.796</marker>
+        <marker type="LOCATION" frame="111">573.7122,232.1382,452.4948,717.5204</marker>
+        <marker type="LOCATION" frame="118">566.8965,237.9312,446.8966,711.7271</marker>
+        <marker type="LOCATION" frame="145">566.8965,237.9312,446.8966,711.7271</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Mrs Blue" filename="0009_Forrest_Gump_01.42.53.481-01.42.59.559.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="40">1862.069,665.7758,49.65631,283.8794</marker>
+        <marker type="LOCATION" frame="48">1526.897,568.9656,384.83,380.6907</marker>
+        <marker type="LOCATION" frame="63">835.1506,461.3795,476.5736,489.1177</marker>
+        <marker type="LOCATION" frame="80">413.7933,424.138,537.9315,525.5175</marker>
+        <marker type="LOCATION" frame="97">248.2758,412.7926,471.7242,536.8639</marker>
+        <marker type="LOCATION" frame="111">227.5863,403.4488,459.3102,546.2078</marker>
+        <marker type="LOCATION" frame="145">211.0345,411.7242,467.5862,537.9323</marker>
+      </markers>
+    </object>
+    <object id="o8" name="Shrimp" filename="0009_Forrest_Gump_01.42.53.481-01.42.59.559.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">595.8621,705.5174,53.79311,173.7931</marker>
+        <marker type="LOCATION" frame="14">595.8621,751.0345,231.7242,157.2416</marker>
+        <marker type="LOCATION" frame="31">849.2167,782.9474,292.8523,167.8999</marker>
+        <marker type="LOCATION" frame="40">1021.757,751.1599,265.4509,173.5426</marker>
+        <marker type="LOCATION" frame="47">1046.897,709.6551,244.1387,177.9312</marker>
+        <marker type="LOCATION" frame="65">1049.125,654.1111,235.5439,160.7434</marker>
+        <marker type="LOCATION" frame="73">1055.172,693.1035,231.7241,153.1041</marker>
+        <marker type="LOCATION" frame="81">1006.345,756.9653,221.793,153.6558</marker>
+        <marker type="LOCATION" frame="97">860.6899,752.6526,198.6205,154.7592</marker>
+        <marker type="LOCATION" frame="103">840.0006,751.0345,194.4825,155.173</marker>
+        <marker type="LOCATION" frame="125">811.0349,751.0345,194.4827,132.4138</marker>
+        <marker type="LOCATION" frame="145">806.8975,751.0345,194.4823,136.5517</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A door opens as a white woman serves Bubba's mom some shrimp.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.42.46.337-01.42.51.547/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="3" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="3" arguments="2" ids="o3,o8" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="11" arguments="2" ids="o3,o8" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="40" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="40" arguments="2" ids="o5,0009_Forrest_Gump_01.42.46.337-01.42.51.547/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="69" arguments="2" ids="o5,o8" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="97" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

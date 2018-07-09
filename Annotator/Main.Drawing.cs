@@ -212,7 +212,13 @@ namespace Annotator
 
                             for (int i = 0; i < polygonPoints.Count; i++)
                             {
-                                double distance = Math.Pow(polygonPoints[i].X - scaledPointerLocation.X, 2) + Math.Pow(polygonPoints[i].Y - scaledPointerLocation.Y, 2);
+                                float x0 = scaledPointerLocation.X, y0 = scaledPointerLocation.Y;
+                                float x1 = polygonPoints[i].X, y1 = polygonPoints[i].Y;
+                                float x2 = polygonPoints[(i + 1) % polygonPoints.Count].X, y2 = polygonPoints[(i + 1) % polygonPoints.Count].Y;
+
+                                //double distance = Math.Abs((y2 - y1)*x0 - (x2 - x1)*y0 + x2*y1 - y2*x1)/Math.Sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+
+                                double distance = Math.Sqrt((y1 - y0) * (y1 - y0) + (x1 - x0) * (x1 - x0)) + Math.Sqrt((y2 - y0) * (y2 - y0) + (x2 - x0) * (x2 - x0));
                                 if (minDistance > distance)
                                 {
                                     minDistance = distance;
@@ -470,16 +476,16 @@ namespace Annotator
             {
                 LocationMark2D lm = null;
 
-                if ( videoReader != null )
+                if (videoReader != null)
                 {
                     lm = o.getScaledLocationMark(frameTrackBar.Value, scale, translation);
                 }
 
-                if ( depthReader != null )
+                if (depthReader != null)
                 {
                     lm = getMark2DFromLocationMark3D(o);
                 }
-                
+
                 if (lm != null)
                 {
                     var score = lm.Score(e.Location);
@@ -911,9 +917,8 @@ namespace Annotator
             }
         }
 
-        private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
+        private void handleKeyDownOnDrawingPolygon(KeyEventArgs e)
         {
-            // While editing a polygon
             if (selectedObject != null && selectedObject is PolygonObject && editingAtAFrame)
             {
                 calculateLinear();
@@ -948,7 +953,6 @@ namespace Annotator
             }
         }
 
-
         private void handleKeyUpOnAnnotatorTab(KeyEventArgs e)
         {
             if (centroidMode == CentroidMode.Rotating && e.KeyCode == Keys.ControlKey)
@@ -978,18 +982,6 @@ namespace Annotator
             float scale = Math.Min((float)pictureBoard.Width / depthReader.depthWidth, (float)pictureBoard.Height / depthReader.depthHeight);
             PointF translation = new PointF((pictureBoard.Width - depthReader.depthWidth * scale) / 2, (pictureBoard.Height - depthReader.depthHeight * scale) / 2);
             return new Tuple<float, PointF>(scale, translation);
-        }
-
-        private void rectangleDrawing_MouseDown(object sender, MouseEventArgs e)
-        {
-            selectButtonDrawing(rectangleDrawing, drawingButtonGroup, !drawingButtonSelected[rectangleDrawing]);
-            cancelDrawing();
-        }
-
-        private void polygonDrawing_MouseDown(object sender, MouseEventArgs e)
-        {
-            selectButtonDrawing(polygonDrawing, drawingButtonGroup, !drawingButtonSelected[polygonDrawing]);
-            cancelDrawing();
         }
 
         private void selectButtonDrawing(Button b, List<Button> buttonGroup, bool select)

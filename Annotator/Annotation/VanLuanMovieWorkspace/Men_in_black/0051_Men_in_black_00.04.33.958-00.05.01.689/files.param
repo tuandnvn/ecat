@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.33.958-00.05.01.689" length="665">
+  <files>
+    <file>0051_Men_in_black_00.04.33.958-00.05.01.689.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Road" filename="0051_Men_in_black_00.04.33.958-00.05.01.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-5.999971,6.00008,1917,1068</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men #1" filename="0051_Men_in_black_00.04.33.958-00.05.01.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">611.8681,-1.860695,905.142,1049.962</marker>
+        <marker type="LOCATION" frame="105">18.04598,628.6154,576.943,362.9011</marker>
+        <marker type="LOCATION" frame="222">18.04598,725.6703,91.66832,185.6703</marker>
+        <marker type="LOCATION" frame="223">586.5494,58.94162,523.2516,962.1127</marker>
+        <marker type="LOCATION" frame="337">696.2637,58.94043,544.3514,962.1127</marker>
+        <marker type="DELETE" frame="338" />
+        <marker type="LOCATION" frame="403">18.98916,20.9655,191.9999,1033.845</marker>
+        <marker type="LOCATION" frame="445">13.39229,-3.152783,834.7835,1044.104</marker>
+        <marker type="LOCATION" frame="470">286.9451,4.241909,1181.538,1050.209</marker>
+        <marker type="LOCATION" frame="498">988.483,12.52745,918.8576,1057.051</marker>
+        <marker type="LOCATION" frame="542">794.1318,15.69435,952.0441,1057.051</marker>
+        <marker type="LOCATION" frame="605">806.5048,-1.185482,999.561,1057.051</marker>
+        <marker type="DELETE" frame="606" />
+      </markers>
+    </object>
+    <object id="o3" name="Refugee's row" filename="0051_Men_in_black_00.04.33.958-00.05.01.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">12.65936,134.9011,1903.117,907.2514</marker>
+        <marker type="LOCATION" frame="213">12.65936,25.18679,1903.117,1016.964</marker>
+        <marker type="LOCATION" frame="223">12.65936,172.8785,1603.516,869.2697</marker>
+        <marker type="LOCATION" frame="337">12.65936,42.06591,1877.802,1004.307</marker>
+        <marker type="DELETE" frame="338" />
+        <marker type="LOCATION" frame="403">12.65936,42.06591,1877.802,1004.307</marker>
+        <marker type="LOCATION" frame="606">139.2528,42.06456,1493.802,1021.188</marker>
+      </markers>
+    </object>
+    <object id="o4" name="polices" filename="0051_Men_in_black_00.04.33.958-00.05.01.689.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="338">236.3077,71.60392,1181.538,983.2087</marker>
+        <marker type="DELETE" frame="403" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="0" />
+      <text>He walks down the row, studying the faces, greeting each one cheerily in Spanish.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.04.27.741-00.04.30.258/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.04.27.741-00.04.30.258/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.04.27.741-00.04.30.258/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

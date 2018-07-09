@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.02.929-00.00.16.559" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.02.929-00.00.16.559.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="row" filename="1060_Yes_man_00.00.02.929-00.00.16.559.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="10">8.359963,461.9739,1903.28,462.584</marker>
+        <marker type="LOCATION" frame="130">8.359963,857.6778,1791.814,66.88107</marker>
+        <marker type="DELETE" frame="131" />
+      </markers>
+    </object>
+    <object id="o2" name="shield" filename="1060_Yes_man_00.00.02.929-00.00.16.559.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="131">11.14661,144.2961,1908.853,785.8345</marker>
+        <marker type="LOCATION" frame="318">660.4354,225.1089,607.4891,540.6096</marker>
+        <marker type="DELETE" frame="320" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="326" />
+      <text>Rows of film studio buildings reflected in the shiny gold surface of a shield with the letters WB in its center.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

@@ -39,7 +39,7 @@ namespace Annotator
                     defaultLocation = Path.Combine(defaultLocation, "AnnotatorWorkspace");
                 } else
                 {
-                    annotationLocation = main.workspace.locationFolder;
+                    annotationLocation = main.workspace.location;
                 }
 
                 workspacePath.Text = annotationLocation;

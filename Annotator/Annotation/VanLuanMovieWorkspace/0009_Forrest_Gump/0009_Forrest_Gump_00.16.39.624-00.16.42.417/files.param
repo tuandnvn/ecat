@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.39.624-00.16.42.417" length="67">
+  <files>
+    <file>0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="boy" filename="0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">233.0636,129.3642,818.4971,790.7514</marker>
+        <marker type="LOCATION" frame="58">233.0636,129.3642,818.4971,790.7514</marker>
+        <marker type="LOCATION" frame="60">338.4971,268.0925,754.6821,679.7688</marker>
+      </markers>
+    </object>
+    <object id="o2" name="pack_1" filename="0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="30">1345.665,556.6474,127.63,163.6994</marker>
+        <marker type="LOCATION" frame="36">1345.665,768.9017,127.6301,163.6994</marker>
+        <marker type="LOCATION" frame="38">1345.665,861.8497,127.6301,70.75144</marker>
+        <marker type="DELETE" frame="39" />
+      </markers>
+    </object>
+    <object id="o3" name="" filename="0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="40">968.3237,390.1734,174.7977,216.4162</marker>
+        <marker type="LOCATION" frame="47">1116.763,542.7746,174.7977,216.4162</marker>
+        <marker type="LOCATION" frame="53">1316.532,723.1214,174.7977,216.4162</marker>
+        <marker type="LOCATION" frame="56">1316.532,884.0463,174.7976,55.49133</marker>
+        <marker type="DELETE" frame="57" />
+      </markers>
+    </object>
+    <object id="o4" name="pack_3" filename="0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="50">810.1734,512.2543,210.8671,233.0636</marker>
+        <marker type="LOCATION" frame="53">935.0289,512.2543,210.8671,233.0636</marker>
+        <marker type="LOCATION" frame="58">1154.22,584.3931,210.8671,183.1214</marker>
+        <marker type="DELETE" frame="59" />
+      </markers>
+    </object>
+    <object id="o5" name="pack_4" filename="0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="51">665.896,573.2948,147.052,210.8671</marker>
+        <marker type="LOCATION" frame="53">667.2833,634.3353,147.052,210.8671</marker>
+        <marker type="LOCATION" frame="56">606.2428,670.4047,147.052,210.8671</marker>
+        <marker type="LOCATION" frame="58">595.1445,659.3064,147.052,210.8671</marker>
+        <marker type="DELETE" frame="59" />
+        <marker type="DELETE" frame="60" />
+      </markers>
+    </object>
+    <object id="o6" name="street" filename="0009_Forrest_Gump_00.16.39.624-00.16.42.417.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.704446E-05,132.1387,1914.451,812.9479</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="66" />
+      <text>Suddenly his braces shatter, sending steel and plastic flying into the air.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.16.31.789-00.16.39.624/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

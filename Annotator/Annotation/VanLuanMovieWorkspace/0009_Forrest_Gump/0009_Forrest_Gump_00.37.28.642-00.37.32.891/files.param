@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.37.28.642-00.37.32.891" length="102">
+  <files>
+    <file>0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="club" filename="0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">6.865333,132.6579,1906.269,819.261</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">9.153771,132.6579,846.7223,819.261</marker>
+        <marker type="LOCATION" frame="101">9.153771,132.6579,846.7223,819.261</marker>
+      </markers>
+    </object>
+    <object id="o5" name="women" filename="0009_Forrest_Gump_00.37.28.642-00.37.32.891.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1327.294,276.8296,254.0167,496.5912</marker>
+        <marker type="LOCATION" frame="101">1327.294,276.8296,254.0167,496.5912</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.36.29.314-00.36.33.105/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.36.29.314-00.36.33.105/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="1" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="101" arguments="1" ids="o5" q="True" type="SIT(X)" />
+  </predicates>
+</session>

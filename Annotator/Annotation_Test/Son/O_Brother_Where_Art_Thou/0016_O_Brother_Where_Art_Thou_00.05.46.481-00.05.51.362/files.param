@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.46.481-00.05.51.362" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.46.481-00.05.51.362.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="man1_return" filename="0016_O_Brother_Where_Art_Thou_00.05.46.481-00.05.51.362.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">290.9089,140.6611,1071.956,812.7824</marker>
+        <marker type="LOCATION" frame="12">290.9089,140.6611,763.4163,812.7824</marker>
+        <marker type="LOCATION" frame="61">290.9089,140.6611,1050.799,812.7824</marker>
+      </markers>
+    </object>
+    <object id="o2" name="train" filename="0016_O_Brother_Where_Art_Thou_00.05.46.481-00.05.51.362.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1399.89,501.2121,232.7271,208.0441</marker>
+        <marker type="LOCATION" frame="117">1449.256,550.5786,144.573,139.2837</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0016_O_Brother_Where_Art_Thou_00.05.41.435-00.05.43.005/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="64" arguments="2" ids="o1,o2" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

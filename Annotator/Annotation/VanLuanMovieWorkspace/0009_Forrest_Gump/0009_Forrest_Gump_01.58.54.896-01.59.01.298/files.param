@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.58.54.896-01.59.01.298" length="154">
+  <files>
+    <file>0009_Forrest_Gump_01.58.54.896-01.59.01.298.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o4" name="President" filename="0009_Forrest_Gump_01.58.54.896-01.59.01.298.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1178.947,241.0527,147.3684,661.0527</marker>
+        <marker type="LOCATION" frame="24">997.8949,203.1579,181.0525,741.0527</marker>
+        <marker type="LOCATION" frame="41">971.2994,245.2632,162.6649,328.4211</marker>
+        <marker type="LOCATION" frame="79">1006.316,207.3684,176.8421,741.0527</marker>
+        <marker type="LOCATION" frame="104">917.895,127.3685,185.2635,517.8947</marker>
+        <marker type="LOCATION" frame="110">981.0529,198.9474,176.8424,749.4739</marker>
+        <marker type="LOCATION" frame="120">985.2632,258.7812,147.3689,272.7978</marker>
+        <marker type="LOCATION" frame="129">774.737,312.6316,181.0525,311.5789</marker>
+        <marker type="LOCATION" frame="136">562.1053,140,242.1052,214.7368</marker>
+        <marker type="DELETE" frame="137" />
+      </markers>
+    </object>
+    <object id="o3" name="TV" filename="0009_Forrest_Gump_01.58.54.896-01.59.01.298.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.954762E-06,125.3132,1915.853,821.0799</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A television shows President Reagan and his staff as they react to gunshots in front of a limo.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.58.35.796-01.58.54.396/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

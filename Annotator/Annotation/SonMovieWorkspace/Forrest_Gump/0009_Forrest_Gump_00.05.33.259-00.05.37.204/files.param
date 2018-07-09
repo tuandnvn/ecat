@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.33.259-00.05.37.204" length="95">
+  <files>
+    <file>0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="kid" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1141.945,508.8778,431.7209,434.1149</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o2" name="woman" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">418.1546,164.1396,609.6758,780.4492</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o3" name="street" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-3.652977E-05,130.6234,1912.02,813.9651</marker>
+        <marker type="DELETE" frame="3" />
+      </markers>
+    </object>
+    <object id="o4" name="man" filename="0009_Forrest_Gump_00.05.33.259-00.05.37.204.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">630.424,135.4115,807.5811,810.7731</marker>
+        <marker type="LOCATION" frame="94">770.8729,135.4115,521.8953,810.7731</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="94" />
+      <text>A black and white photo of General Nathan Bedford Forrest.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.29.340-00.05.32.932/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.29.340-00.05.32.932/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.05.29.340-00.05.32.932/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="2" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

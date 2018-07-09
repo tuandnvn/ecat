@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.30.50.279-01.31.00.196" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.30.50.279-01.31.00.196.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>She slips over the edge, regains her balance, turns and looks back at the intersection below, and begins to get down from the edge.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.00.32.105-00.00.34.990" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.00.32.105-00.00.34.990.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o2" name="v" filename="1043_Vantage_Point_00.00.32.105-00.00.34.990.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1342.197,137.341,1293.815,310.578,1454.566,137.341</marker>
+        <marker type="LOCATION" frame="6">1318.786,123.2948,1276.647,351.1561,1498.266,135.7803</marker>
+        <marker type="LOCATION" frame="14">1318.786,123.2948,1239.191,440.1156,1498.266,135.7803</marker>
+        <marker type="LOCATION" frame="20">1275.087,106.1272,1228.266,471.3295,1562.254,134.2197</marker>
+        <marker type="LOCATION" frame="29">1275.087,106.1272,1195.491,549.3641,1562.254,134.2197</marker>
+        <marker type="LOCATION" frame="38">1248.555,109.2486,1172.081,624.2775,1613.757,110.8092</marker>
+        <marker type="LOCATION" frame="45">1248.555,109.2486,1117.457,728.8439,1648.092,109.2486</marker>
+        <marker type="LOCATION" frame="53">1192.37,99.88439,1101.85,775.6647,1707.399,109.2486</marker>
+        <marker type="LOCATION" frame="65">1192.37,99.88439,1078.439,844.3353,1776.069,103.0058</marker>
+      </markers>
+    </object>
+    <object id="o3" name="city" filename="1043_Vantage_Point_00.00.32.105-00.00.34.990.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1350,143.5838,1310.983,277.8035,1431.156,145.1445</marker>
+        <marker type="LOCATION" frame="6">1332.832,142.0231,1304.74,304.3353,1443.642,143.5838</marker>
+        <marker type="LOCATION" frame="14">1321.907,140.4624,1276.647,369.8844,1467.052,142.0231</marker>
+        <marker type="LOCATION" frame="20">1306.301,137.341,1250.116,429.1907,1484.22,142.0231</marker>
+        <marker type="LOCATION" frame="30">1287.572,149.8266,1217.341,504.104,1512.312,145.1445</marker>
+        <marker type="LOCATION" frame="38">1270.405,137.341,1195.491,558.7283,1548.208,142.0231</marker>
+        <marker type="LOCATION" frame="45">1270.405,137.341,1168.959,622.7167,1593.468,127.9769</marker>
+        <marker type="LOCATION" frame="53">1239.191,134.2197,1137.746,692.948,1615.318,135.7803</marker>
+        <marker type="LOCATION" frame="65">1220.462,140.4624,1119.017,752.2543,1655.896,129.5376</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="69" />
+      <text>Framed within a V shape, a city skyline.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o2" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

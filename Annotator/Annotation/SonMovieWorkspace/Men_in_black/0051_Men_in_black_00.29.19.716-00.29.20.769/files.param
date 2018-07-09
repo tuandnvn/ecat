@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.29.19.716-00.29.20.769" length="48">
+  <files>
+    <file>0051_Men_in_black_00.29.19.716-00.29.20.769.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.29.19.716-00.29.20.769.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_00.29.19.716-00.29.20.769.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1182.98,201.6517,285.0269,860.8976</marker>
+        <marker type="LOCATION" frame="26">1182.98,199.7128,345.1346,862.8366</marker>
+        <marker type="LOCATION" frame="47">1124.812,217.1634,341.2567,845.386</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Edwards" filename="0051_Men_in_black_00.29.19.716-00.29.20.769.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1212.065,222.9803,83.37522,228.7971</marker>
+        <marker type="LOCATION" frame="7">998.7792,197.7738,281.149,738.7432</marker>
+        <marker type="LOCATION" frame="18">715.6912,195.8833,380.5206,866.6661</marker>
+        <marker type="LOCATION" frame="28">543.6086,165.5568,426.0862,896.9926</marker>
+        <marker type="LOCATION" frame="34">440.3591,147.3609,496.3734,915.1885</marker>
+        <marker type="LOCATION" frame="47">492.711,133.7882,475.0449,928.7612</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>EDWARDS is the last one out of the room, but he stops as he steps into the hallway.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.29.16.530-00.29.16.646/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.29.16.530-00.29.16.646/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="26" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="31" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="40" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

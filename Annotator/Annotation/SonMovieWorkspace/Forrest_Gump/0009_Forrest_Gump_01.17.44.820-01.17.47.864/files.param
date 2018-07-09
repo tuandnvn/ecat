@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.17.44.820-01.17.47.864" length="73">
+  <files>
+    <file>0009_Forrest_Gump_01.17.44.820-01.17.47.864.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.17.44.820-01.17.47.864.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9795942,130.0409,1918.946,817.7558</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Dan" filename="0009_Forrest_Gump_01.17.44.820-01.17.47.864.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">500.339,129.9754,781.0176,818.0153</marker>
+      </markers>
+    </object>
+    <object id="o4" name="bottle" filename="0009_Forrest_Gump_01.17.44.820-01.17.47.864.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1635.254,697.6271,174.9153,250.1695</marker>
+        <marker type="LOCATION" frame="3">1622.836,593.1804,203.8203,245.5036</marker>
+        <marker type="LOCATION" frame="5">1613.201,587.7966,255.9519,263.5702</marker>
+        <marker type="LOCATION" frame="7">1603.566,624.7657,242.3606,239.2822</marker>
+        <marker type="LOCATION" frame="11">1372.881,612.4202,419.3135,249.9527</marker>
+        <marker type="LOCATION" frame="17">1372.881,593.8983,338.7107,223.7288</marker>
+        <marker type="LOCATION" frame="20">1348.475,543.0508,351.8655,333.5593</marker>
+        <marker type="LOCATION" frame="26">1396.909,637.4747,326.183,278.949</marker>
+        <marker type="LOCATION" frame="31">1428.863,628.2374,319.223,309.627</marker>
+        <marker type="LOCATION" frame="38">1295.593,595.9323,410.8475,307.1191</marker>
+        <marker type="LOCATION" frame="44">1258.985,551.1865,334.9165,331.5263</marker>
+        <marker type="LOCATION" frame="48">1239.173,380.339,340.6397,479.662</marker>
+        <marker type="LOCATION" frame="53">1258.986,337.6271,347.7938,545.0865</marker>
+        <marker type="LOCATION" frame="58">1312.885,227.796,328.4712,545.0865</marker>
+        <marker type="LOCATION" frame="61">1317.63,132.7113,362.3703,542.543</marker>
+        <marker type="LOCATION" frame="64">1492.542,146.4398,307.4578,600.0009</marker>
+        <marker type="LOCATION" frame="65">1555.904,212.5416,280.7354,559.3237</marker>
+        <marker type="LOCATION" frame="67">1686.102,469.8305,227.2901,477.9677</marker>
+        <marker type="LOCATION" frame="68">1710.509,679.3221,202.8863,268.4775</marker>
+        <marker type="DELETE" frame="69" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="53" />
+      <text>Lt. Dan picks up another bottle of port wine, but it is empty.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.17.39.713-01.17.43.964/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.17.39.713-01.17.43.964/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

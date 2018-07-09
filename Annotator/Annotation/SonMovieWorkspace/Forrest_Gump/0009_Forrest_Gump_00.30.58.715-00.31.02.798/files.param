@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.30.58.715-00.31.02.798" length="98">
+  <files>
+    <file>0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="car" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">477.207,296.6085,1423.642,644.7885</marker>
+        <marker type="LOCATION" frame="58">4.787994,406.7332,1896.062,534.6652</marker>
+        <marker type="LOCATION" frame="88">11.17203,695.611,1889.677,245.7877</marker>
+        <marker type="DELETE" frame="89" />
+      </markers>
+    </object>
+    <object id="o2" name="president" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">718.2045,344.4888,429.3269,287.2818</marker>
+        <marker type="LOCATION" frame="11">675.1122,335.9102,414.1649,358.1048</marker>
+        <marker type="LOCATION" frame="21">589.5484,360.1833,499.9057,428.2618</marker>
+        <marker type="LOCATION" frame="36">665.847,372.7869,628.5172,533.4974</marker>
+        <marker type="LOCATION" frame="45">518.7032,330.1247,683.8901,543.3137</marker>
+        <marker type="LOCATION" frame="58">423.8303,233.2579,646.2048,592.7361</marker>
+        <marker type="LOCATION" frame="75">273.3555,330.1247,792.7792,609.7298</marker>
+        <marker type="LOCATION" frame="88">11.17203,275.8604,670.3244,673.5162</marker>
+        <marker type="DELETE" frame="89" />
+      </markers>
+    </object>
+    <object id="o3" name="Road" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,133.8154,1908.828,813.9651</marker>
+        <marker type="DELETE" frame="89" />
+      </markers>
+    </object>
+    <object id="o4" name="Square" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="89">9.576024,132.2194,1904.04,815.5612</marker>
+      </markers>
+    </object>
+    <object id="o5" name="R Kennedy" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="89">424.5386,213.616,1070.923,730.9726</marker>
+      </markers>
+    </object>
+    <object id="o6" name="people" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="89">9.576024,138.6035,1900.848,799.6011</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>ARCHIVAL FOOTAGE - DAY SLOW MOTION - President Kennedy rises in a convertible and smiles.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.30.45.738-00.30.58.468/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.30.45.738-00.30.58.468/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_00.30.45.738-00.30.58.468/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="89" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="89" arguments="1" ids="o6" q="True" type="STAND(X)" />
+  </predicates>
+</session>

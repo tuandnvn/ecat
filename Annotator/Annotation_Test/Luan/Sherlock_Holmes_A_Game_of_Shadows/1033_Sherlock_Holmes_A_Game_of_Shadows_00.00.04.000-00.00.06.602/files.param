@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="wb" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.04.000-00.00.06.602.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">722.7585,284.1379,521.3793,455.1724</marker>
+        <marker type="LOCATION" frame="20">662.0689,306.2069,532.4136,449.655</marker>
+        <marker type="LOCATION" frame="45">697.931,322.7586,502.069,455.1724</marker>
+        <marker type="LOCATION" frame="62">697.931,322.7586,507.5862,455.1724</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="62" />
+      <text>On a page of parchment, the Warner Brothers shield.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

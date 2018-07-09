@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.41.23.406-01.41.25.750" length="0">
+  <files>
+    <file>0009_Forrest_Gump_01.41.23.406-01.41.25.750.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The woman is crying and wipes her eyes with a hankie.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.54.45.827-00.54.46.433" length="48">
+  <files>
+    <file>0051_Men_in_black_00.54.45.827-00.54.46.433.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Office" filename="0051_Men_in_black_00.54.45.827-00.54.46.433.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5870962,19.02151,1916.947,1038.281</marker>
+      </markers>
+    </object>
+    <object id="o3" name="skull" filename="0051_Men_in_black_00.54.45.827-00.54.46.433.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">304.6058,18.97761,1192.033,1000.524</marker>
+        <marker type="LOCATION" frame="24">152.2407,18.97761,1344.397,944.5078</marker>
+        <marker type="LOCATION" frame="47">136.556,18.97761,1360.081,940.0265</marker>
+      </markers>
+    </object>
+    <object id="o6" name="alien" filename="0051_Men_in_black_00.54.45.827-00.54.46.433.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1057.476,334.6965,96.61343,251.885</marker>
+        <marker type="LOCATION" frame="11">955.687,334.6965,198.4034,336.4218</marker>
+        <marker type="LOCATION" frame="21">945.3355,334.6965,208.755,320.8946</marker>
+        <marker type="LOCATION" frame="47">924.6326,334.6965,229.4579,327.7956</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Though not quite dead, the Tiny Little Green Man is gravely wounded.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o6" q="True" type="LIE(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.54.39.671-00.54.39.968/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o6" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

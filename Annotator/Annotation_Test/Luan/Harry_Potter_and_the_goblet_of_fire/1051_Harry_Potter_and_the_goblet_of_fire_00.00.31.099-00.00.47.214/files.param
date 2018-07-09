@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214" length="0">
+  <files>
+    <file>1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="snake" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">628.5938,457.7344,1284.609,303.75</marker>
+        <marker type="LOCATION" frame="9">693.9844,527.3438,1224.492,303.75</marker>
+        <marker type="LOCATION" frame="26">738.2813,480.9375,1180.195,464.0625</marker>
+        <marker type="LOCATION" frame="44">691.875,434.5313,1226.602,510.4688</marker>
+        <marker type="LOCATION" frame="55">691.875,434.5313,1158.047,510.4688</marker>
+        <marker type="LOCATION" frame="62">643.3594,415.5469,860.625,529.4531</marker>
+        <marker type="LOCATION" frame="72">643.3594,392.3438,554.7656,552.6563</marker>
+        <marker type="LOCATION" frame="82">483.0469,339.6094,715.0781,605.3906</marker>
+        <marker type="LOCATION" frame="94">483.0469,280.5469,841.6406,664.4531</marker>
+        <marker type="LOCATION" frame="101">684.4922,277.3828,874.3359,664.4531</marker>
+        <marker type="LOCATION" frame="109">953.4375,314.2969,966.0938,627.5391</marker>
+        <marker type="LOCATION" frame="121">987.1875,356.4844,932.3438,585.3516</marker>
+        <marker type="LOCATION" frame="137">987.1875,356.4844,740.3906,585.3516</marker>
+        <marker type="LOCATION" frame="170">1077.891,242.5781,415.5469,699.2578</marker>
+        <marker type="LOCATION" frame="186">1056.797,261.5625,487.2656,680.2734</marker>
+        <marker type="LOCATION" frame="195">991.4063,303.75,552.6563,638.0859</marker>
+        <marker type="LOCATION" frame="216">801.5625,354.375,552.6563,589.043</marker>
+        <marker type="LOCATION" frame="224">801.5625,392.3438,575.8594,551.0742</marker>
+        <marker type="LOCATION" frame="236">961.875,413.4375,700.3125,526.5527</marker>
+        <marker type="LOCATION" frame="243">961.875,413.4375,959.7656,526.5527</marker>
+        <marker type="LOCATION" frame="249">877.5,413.4375,1044.141,526.5527</marker>
+        <marker type="LOCATION" frame="265">712.9688,466.1719,1208.672,473.8184</marker>
+        <marker type="LOCATION" frame="282">689.7656,466.1719,1023.047,473.8184</marker>
+        <marker type="LOCATION" frame="298">637.0313,430.3125,1136.953,509.6777</marker>
+        <marker type="LOCATION" frame="310">605.3906,388.125,1312.031,551.8652</marker>
+        <marker type="LOCATION" frame="321">569.5313,396.5625,1347.891,543.4277</marker>
+        <marker type="LOCATION" frame="338">466.1719,396.5625,843.75,543.4277</marker>
+        <marker type="LOCATION" frame="345">291.0938,394.8486,843.75,543.4277</marker>
+        <marker type="LOCATION" frame="355">191.9531,377.5781,930.2344,558.5889</marker>
+        <marker type="LOCATION" frame="367">288.9844,377.5781,896.4844,558.5889</marker>
+        <marker type="LOCATION" frame="375">461.9531,377.5781,723.5156,558.5889</marker>
+        <marker type="LOCATION" frame="385">620.1563,377.5781,744.6094,558.5889</marker>
+      </markers>
+    </object>
+    <object id="o2" name="gravestone1" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="24">246.7969,141.3281,291.0938,61.17188</marker>
+        <marker type="LOCATION" frame="60">196.1719,141.3281,436.6406,156.0938</marker>
+        <marker type="LOCATION" frame="91">84.375,141.3281,512.5781,185.625</marker>
+        <marker type="LOCATION" frame="97">63.28125,141.3281,533.6719,185.625</marker>
+        <marker type="LOCATION" frame="106">0,141.3281,563.2031,185.625</marker>
+        <marker type="LOCATION" frame="115">0,141.3281,523.125,248.9063</marker>
+        <marker type="LOCATION" frame="129">0,141.3281,455.625,447.1875</marker>
+        <marker type="LOCATION" frame="139">0,141.3281,350.1563,447.1875</marker>
+        <marker type="LOCATION" frame="143">0,141.3281,286.875,523.125</marker>
+        <marker type="LOCATION" frame="148">0,141.3281,194.0625,613.8281</marker>
+        <marker type="LOCATION" frame="152">0,525.2344,111.7969,284.7656</marker>
+        <marker type="DELETE" frame="156" />
+      </markers>
+    </object>
+    <object id="o3" name="gravestone2" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="156">1084.219,143.4375,360.7031,92.8125</marker>
+        <marker type="LOCATION" frame="178">1121.133,139.2188,360.7031,149.7656</marker>
+        <marker type="LOCATION" frame="200">1159.102,140.2734,481.9922,214.1016</marker>
+        <marker type="LOCATION" frame="208">1170.703,140.2734,542.1094,214.1016</marker>
+        <marker type="LOCATION" frame="218">1174.922,140.2734,637.0313,266.8359</marker>
+        <marker type="LOCATION" frame="229">1210.781,140.2734,666.5625,330.1172</marker>
+        <marker type="LOCATION" frame="240">1269.844,140.2734,643.3594,414.4922</marker>
+        <marker type="LOCATION" frame="252">1335.234,141.3281,577.9688,533.6719</marker>
+        <marker type="LOCATION" frame="265">1423.828,141.3281,489.375,656.0156</marker>
+        <marker type="LOCATION" frame="272">1541.953,145.5469,371.25,717.1875</marker>
+        <marker type="LOCATION" frame="276">1571.484,238.3594,341.7188,702.4219</marker>
+        <marker type="LOCATION" frame="284">1835.156,402.8906,78.04688,537.8906</marker>
+        <marker type="DELETE" frame="286" />
+      </markers>
+    </object>
+    <object id="o4" name="gravestone3" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="188">314.2969,141.3281,356.4844,103.3594</marker>
+        <marker type="LOCATION" frame="192">288.9844,137.1094,371.25,153.9844</marker>
+        <marker type="LOCATION" frame="199">288.9844,137.1094,356.4844,153.9844</marker>
+        <marker type="LOCATION" frame="208">158.2031,137.1094,453.5156,158.2031</marker>
+        <marker type="LOCATION" frame="218">88.59375,137.1094,487.2656,210.9375</marker>
+        <marker type="LOCATION" frame="229">88.59375,137.1094,438.75,219.375</marker>
+        <marker type="LOCATION" frame="240">4.21875,137.1094,445.0781,288.9844</marker>
+        <marker type="LOCATION" frame="252">4.21875,137.1094,360.7031,396.5625</marker>
+        <marker type="LOCATION" frame="265">4.21875,137.1094,213.0469,423.9844</marker>
+        <marker type="LOCATION" frame="272">4.21875,137.1094,99.14063,630.7031</marker>
+        <marker type="LOCATION" frame="276">4.21875,284.7656,137.1094,202.5</marker>
+        <marker type="LOCATION" frame="284">4.21875,288.9844,107.5781,198.2813</marker>
+        <marker type="LOCATION" frame="291">4.21875,288.9844,86.48438,198.2813</marker>
+        <marker type="LOCATION" frame="302">4.21875,288.9844,33.75,198.2813</marker>
+        <marker type="DELETE" frame="305" />
+      </markers>
+    </object>
+    <object id="o5" name="gravestone4" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="240">477.7734,229.9219,315.3516,208.8281</marker>
+        <marker type="LOCATION" frame="252">447.7148,235.1953,315.3516,208.8281</marker>
+        <marker type="LOCATION" frame="265">413.9648,245.7422,345.4102,208.8281</marker>
+        <marker type="LOCATION" frame="276">379.8193,253.6523,362.5488,222.5391</marker>
+        <marker type="LOCATION" frame="284">369.1406,253.6523,373.2275,222.5391</marker>
+        <marker type="LOCATION" frame="291">358.5938,244.6875,390.2344,231.5039</marker>
+        <marker type="LOCATION" frame="302">324.8438,227.8125,445.0781,248.3789</marker>
+        <marker type="LOCATION" frame="305">324.8438,227.8125,423.9844,248.3789</marker>
+        <marker type="LOCATION" frame="311">303.75,227.8125,445.0781,248.3789</marker>
+        <marker type="LOCATION" frame="328">249.9609,210.9375,500.9766,261.2988</marker>
+        <marker type="LOCATION" frame="347">143.4375,179.2969,634.9219,292.9395</marker>
+        <marker type="LOCATION" frame="356">103.3594,168.75,675,326.9531</marker>
+        <marker type="LOCATION" frame="366">6.328125,165.5859,778.3594,326.9531</marker>
+        <marker type="LOCATION" frame="379">6.328125,183.5156,778.3594,405</marker>
+        <marker type="LOCATION" frame="386">6.328125,208.8281,778.3594,464.0625</marker>
+      </markers>
+    </object>
+    <object id="o6" name="gravestone5" filename="1051_Harry_Potter_and_the_goblet_of_fire_00.00.31.099-00.00.47.214.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="240">904.9219,208.8281,350.1563,265.7813</marker>
+        <marker type="LOCATION" frame="252">919.6875,208.8281,339.6094,261.5625</marker>
+        <marker type="LOCATION" frame="276">909.1406,217.2656,350.1563,253.125</marker>
+        <marker type="LOCATION" frame="284">909.1406,217.2656,394.4531,253.125</marker>
+        <marker type="LOCATION" frame="291">909.1406,217.2656,436.6406,280.5469</marker>
+        <marker type="LOCATION" frame="302">937.6172,189.8438,458.7891,309.0234</marker>
+        <marker type="LOCATION" frame="305">937.6172,189.8438,473.5547,309.0234</marker>
+        <marker type="LOCATION" frame="311">970.3125,177.1875,487.2656,318.5156</marker>
+        <marker type="LOCATION" frame="328">994.5703,145.5469,602.2266,409.2188</marker>
+        <marker type="LOCATION" frame="347">1065.762,137.1094,704.0039,409.2188</marker>
+        <marker type="LOCATION" frame="356">1115.859,137.1094,799.4531,409.2188</marker>
+        <marker type="LOCATION" frame="366">1160.156,137.1094,755.1563,409.2188</marker>
+        <marker type="LOCATION" frame="379">1263.516,137.1094,651.7969,544.2188</marker>
+        <marker type="LOCATION" frame="386">1381.641,137.1094,533.6719,662.3438</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="386" />
+      <text>Flickering its tongue, it slithers down onto a narrow path and moves silently between the gravestones in a dark and overgrown cemetery.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

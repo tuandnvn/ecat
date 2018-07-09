@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.04.50.035-00.04.50.942" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi</file>
+  </files>
+  <objects no="7">
+    <object id="o6" name="Holder" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">358.6207,16.55172,1315.859,910.3447</marker>
+        <marker type="LOCATION" frame="20">422.0689,60.68963,1059.31,910.3448</marker>
+        <marker type="LOCATION" frame="31">529.6552,19.31026,1023.448,935.1722</marker>
+      </markers>
+    </object>
+    <object id="o4" name="fan" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.517241,19.31034,482.7586,1042.759</marker>
+        <marker type="LOCATION" frame="20">5.517241,19.31025,444.1379,1042.759</marker>
+        <marker type="LOCATION" frame="31">5.517241,521.3793,113.1034,540.6884</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+    </object>
+    <object id="o5" name="Comic's fan" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">126.8965,728.2758,358.6207,264.8276</marker>
+        <marker type="LOCATION" frame="20">154.4827,921.3793,493.7929,71.72295</marker>
+        <marker type="LOCATION" frame="31">424.8275,866.2068,452.4138,93.792</marker>
+        <marker type="LOCATION" frame="35">480,866.2068,397.2412,93.792</marker>
+        <marker type="LOCATION" frame="44">562.7586,868.9659,297.931,93.79208</marker>
+        <marker type="LOCATION" frame="46">562.7586,868.9659,383.4482,93.79208</marker>
+      </markers>
+    </object>
+    <object id="o7" name="Pen's Holder" filename="0046_Chasing_Amy_00.04.50.035-00.04.50.942.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">482.7585,855.1724,68.96555,57.93103</marker>
+        <marker type="LOCATION" frame="20">511.7241,657.931,136.5518,161.3793</marker>
+        <marker type="LOCATION" frame="31">620.6896,606.2068,60.68965,161.3794</marker>
+        <marker type="LOCATION" frame="35">659.3103,559.3103,60.68965,161.3793</marker>
+        <marker type="LOCATION" frame="44">675.862,666.8964,154.4828,188.2759</marker>
+        <marker type="LOCATION" frame="46">686.8965,642.4138,110.3448,207.2414</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Holden accepts a comic from another Fan.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o6,o5" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="5" arguments="2" ids="o6,o7" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="47" arguments="2" ids="o6,o5" q="False" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.17.612-00.04.18.181" length="48">
+  <files>
+    <file>0051_Men_in_black_00.04.17.612-00.04.18.181.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.04.17.612-00.04.18.181.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="" filename="0051_Men_in_black_00.04.17.612-00.04.18.181.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">763.6364,265.0909,502.6909,373.0909</marker>
+        <marker type="LOCATION" frame="10">437.6728,237.1866,805.9177,507.0315</marker>
+        <marker type="LOCATION" frame="19">-0.2181296,212.0727,1223.345,761.8909</marker>
+        <marker type="LOCATION" frame="22">-0.2181296,207.8649,1229.236,854.4623</marker>
+        <marker type="LOCATION" frame="47">-0.2181296,172.8,1535.564,889.5272</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The new car pulls a hard right, goes off the road, spins around the INS cars, and SQUEALS to a sideways halt, silhouetted in front of their headlights.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.04.15.786-00.04.17.307/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.04.15.786-00.04.17.307/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="34" arguments="1" ids="o2" q="False" type="RUN(X)" />
+  </predicates>
+</session>

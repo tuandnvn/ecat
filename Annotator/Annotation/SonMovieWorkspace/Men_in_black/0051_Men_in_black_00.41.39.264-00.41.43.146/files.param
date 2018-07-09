@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.41.39.264-00.41.43.146" length="94">
+  <files>
+    <file>0051_Men_in_black_00.41.39.264-00.41.43.146.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Man" filename="0051_Men_in_black_00.41.39.264-00.41.43.146.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">122.2814,332.6236,482.5095,724.7909</marker>
+        <marker type="LOCATION" frame="80">112.0152,297.7186,553.6122,759.6958</marker>
+        <marker type="LOCATION" frame="81">15.5133,24.63878,650.8745,1032.776</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Restaurant" filename="0051_Men_in_black_00.41.39.264-00.41.43.146.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9125566,16.42585,1917.719,1040.989</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Man 1" filename="0051_Men_in_black_00.41.39.264-00.41.43.146.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1311.103,104.7148,585.1711,950.6464</marker>
+        <marker type="LOCATION" frame="48">1267.985,100.6084,636.7668,954.7529</marker>
+        <marker type="LOCATION" frame="80">1323.422,86.23574,586.9814,969.1255</marker>
+        <marker type="LOCATION" frame="81">966.1597,57.49049,944.4205,997.8707</marker>
+        <marker type="LOCATION" frame="93">990.7985,47.22433,921.9011,1008.137</marker>
+      </markers>
+    </object>
+    <object id="o4" name="subtitle" filename="0051_Men_in_black_00.41.39.264-00.41.43.146.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">422.0532,794.6008,1092.319,190.9506</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="94" />
+      <text>They speak in a bizarre alien tongue, which is subtitled.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.41.34.427-00.41.38.296/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.41.34.427-00.41.38.296/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.41.34.427-00.41.38.296/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="48" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

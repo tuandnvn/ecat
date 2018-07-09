@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.06.07.732-01.06.13.106" length="129">
+  <files>
+    <file>0009_Forrest_Gump_01.06.07.732-01.06.13.106.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Stage" filename="0009_Forrest_Gump_01.06.07.732-01.06.13.106.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.7907131,129.8847,1914.465,818.4515</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.06.07.732-01.06.13.106.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1040.956,182.8171,261.5486,456.3756</marker>
+        <marker type="LOCATION" frame="103">939.5388,245.0906,261.5486,662.3229</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Police man" filename="0009_Forrest_Gump_01.06.07.732-01.06.13.106.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">189.5882,167.2488,665.4366,779.3085</marker>
+        <marker type="DELETE" frame="103" />
+      </markers>
+    </object>
+    <object id="o4" name="Audio" filename="0009_Forrest_Gump_01.06.07.732-01.06.13.106.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.768226,613.8386,1772.125,330.9391</marker>
+        <marker type="DELETE" frame="103" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="128" />
+      <text>The policeman pulls the patch cords out of the audio board.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.06.03.153-01.06.07.732/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.06.03.153-01.06.07.732/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.06.03.153-01.06.07.732/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.06.03.153-01.06.07.732/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="5" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

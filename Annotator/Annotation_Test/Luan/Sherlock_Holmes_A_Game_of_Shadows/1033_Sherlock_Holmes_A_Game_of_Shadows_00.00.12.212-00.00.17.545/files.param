@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="L" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.12.212-00.00.17.545.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">965.5171,396.5519,146.207,317.9308</marker>
+        <marker type="LOCATION" frame="29">788.9655,396.5519,339.3103,326.2067</marker>
+        <marker type="LOCATION" frame="58">784.8275,402.7586,339.3103,342.4136</marker>
+        <marker type="LOCATION" frame="93">775.1724,391.7241,366.8965,372.4138</marker>
+        <marker type="LOCATION" frame="106">724.1379,347.5862,387.5862,412.4138</marker>
+        <marker type="LOCATION" frame="109">670.3448,325.5172,402.7586,434.4827</marker>
+        <marker type="LOCATION" frame="114">491.0345,270.3448,369.6552,484.8272</marker>
+        <marker type="LOCATION" frame="116">375.1724,237.2414,339.3103,517.9307</marker>
+        <marker type="LOCATION" frame="117">324.1379,243.1036,263.4483,517.9307</marker>
+        <marker type="LOCATION" frame="118">225.1724,546.2068,89.31036,219.1373</marker>
+        <marker type="DELETE" frame="119" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="127" />
+      <text>Another page turn reveals L shapes and a set of two broken squares with a small square in the center.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="14" arguments="2" ids="o1,1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.10.727-00.00.12.212/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

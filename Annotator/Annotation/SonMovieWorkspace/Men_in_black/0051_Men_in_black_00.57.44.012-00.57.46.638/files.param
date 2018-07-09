@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.57.44.012-00.57.46.638" length="63">
+  <files>
+    <file>0051_Men_in_black_00.57.44.012-00.57.46.638.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.57.44.012-00.57.46.638.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.1252937,20.16598,1915.768,1037.427</marker>
+        <marker type="DELETE" frame="56" />
+      </markers>
+    </object>
+    <object id="o2" name="car" filename="0051_Men_in_black_00.57.44.012-00.57.46.638.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">651.9086,298.0083,613.942,663.2365</marker>
+        <marker type="DELETE" frame="56" />
+      </markers>
+    </object>
+    <object id="o3" name="Car" filename="0051_Men_in_black_00.57.44.012-00.57.46.638.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="56">-0.1247466,17.92532,1918.008,1044.149</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Edgar" filename="0051_Men_in_black_00.57.44.012-00.57.46.638.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="56">754.9792,177.0125,730.4558,885.0622</marker>
+        <marker type="LOCATION" frame="59">495.0622,115.3942,990.3724,946.6796</marker>
+        <marker type="LOCATION" frame="62">409.917,53.77594,1295.101,1008.298</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="62" />
+      <text>From inside, throaty WAILS of frustration can be heard.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.57.43.257-00.57.43.525/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.57.43.257-00.57.43.525/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

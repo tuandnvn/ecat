@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.57.06.484-01.57.10.535" length="98">
+  <files>
+    <file>0009_Forrest_Gump_01.57.06.484-01.57.10.535.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.57.06.484-01.57.10.535.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.811204,130.4151,1919.547,817.1325</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.57.06.484-01.57.10.535.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">557.5494,193.5849,797.7714,753.9651</marker>
+        <marker type="LOCATION" frame="23">721.586,158.9434,539.999,788.6085</marker>
+        <marker type="LOCATION" frame="47">864.2265,203.7736,535.9294,743.7784</marker>
+        <marker type="LOCATION" frame="97">242.718,130.4151,1128.905,817.1364</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="0009_Forrest_Gump_01.57.06.484-01.57.10.535.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1184.151,238.4156,668.3773,709.1315</marker>
+        <marker type="LOCATION" frame="23">1145.436,214.4833,580.7531,733.066</marker>
+        <marker type="LOCATION" frame="47">1271.774,189.5094,515.5909,758.0389</marker>
+        <marker type="LOCATION" frame="97">957.9634,165.0566,760.0744,782.492</marker>
+      </markers>
+    </object>
+    <object id="o4" name="wipes" filename="0009_Forrest_Gump_01.57.06.484-01.57.10.535.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">782.2078,430.4731,495.679,517.0741</marker>
+        <marker type="LOCATION" frame="7">786.7925,365.5093,533.8873,582.0379</marker>
+        <marker type="LOCATION" frame="10">807.1699,277.1321,462.5675,540.0007</marker>
+        <marker type="LOCATION" frame="17">819.3963,195.3876,317.8869,589.1407</marker>
+        <marker type="LOCATION" frame="23">863.0909,217.0188,292.5318,552.2266</marker>
+        <marker type="LOCATION" frame="34">890.675,196.3862,297.5935,569.0389</marker>
+        <marker type="LOCATION" frame="41">997.0644,225.6785,300.8148,579.7374</marker>
+        <marker type="LOCATION" frame="47">1045.632,264.9057,303.5755,588.9057</marker>
+        <marker type="LOCATION" frame="52">951.259,212.2376,298.6898,614.7701</marker>
+        <marker type="LOCATION" frame="54">929.8231,247.035,296.7354,625.116</marker>
+        <marker type="LOCATION" frame="63">1009.614,281.2512,339.5932,631.6545</marker>
+        <marker type="LOCATION" frame="72">856.4559,365.1304,317.1261,545.3619</marker>
+        <marker type="LOCATION" frame="73">869.7267,374.8152,314.6298,572.732</marker>
+        <marker type="LOCATION" frame="79">1049.66,588.9063,283.2475,358.641</marker>
+        <marker type="LOCATION" frame="82">1096.528,696.9063,254.721,250.6409</marker>
+        <marker type="LOCATION" frame="86">1045.585,672.9979,281.2076,274.5493</marker>
+        <marker type="LOCATION" frame="94">1288.076,588.9063,197.6646,358.6426</marker>
+        <marker type="LOCATION" frame="97">1273.811,678.5677,183.3987,268.9826</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="97" />
+      <text>Forrest wipes his face on the towel and hands it back to the man.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.56.51.050-01.56.55.785/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.56.51.050-01.56.55.785/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.56.51.050-01.56.55.785/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.56.51.050-01.56.55.785/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="7" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="69" arguments="2" ids="o3,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="88" arguments="2" ids="o3,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

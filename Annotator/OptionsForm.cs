@@ -84,12 +84,17 @@ namespace Annotator
                 }
 
                 if (options.showMarkerMode)
+                {
                     showMarker.Checked = true;
+                }
                 else
+                {
                     donShowMarker.Checked = true;
+                }
+                    
 
-
-                renderLinkTypeList();
+                showLinkTypeList();
+                showConstraintList();
             }
         }
 
@@ -149,7 +154,8 @@ namespace Annotator
             if (showMarker.Checked)
             {
                 options.showMarkerMode = true;
-            } else
+            }
+            else
             {
                 options.showMarkerMode = false;
             }
@@ -171,29 +177,28 @@ namespace Annotator
             }
         }
 
-        private void addLinkType_Click(object sender, EventArgs e)
+        private void addPredicate_Click(object sender, EventArgs e)
         {
-            Regex rgx = new Regex(@"[a-zA-Z0-9_]+");
-
             try
             {
-                var newType = objectLinkTypeTxtBox.Text;
+                var predicateForm = objectLinkTypeTxtBox.Text;
 
-                if (!rgx.IsMatch(newType))
+                var newPredicate = Predicate.Parse(predicateForm);
+
+                if (newPredicate == null)
                 {
-                    throw new ArgumentException("Type should only be considered of alphanumeric and underscore _");
+                    throw new ArgumentException("new predicate = null. The predicate form has problem!");
                 }
-
-                if (this.options.objectLinkTypes.Contains(newType))
+                if (this.options.objectPredicates.Contains(newPredicate))
                 {
                     throw new ArgumentException("Type exists!");
                 }
 
-                this.options.objectLinkTypes.Add(newType);
+                this.options.objectPredicates.Add(newPredicate);
 
 
-                renderLinkTypeList();
-                this.objectLinkTypeListBox.SelectedIndex = this.objectLinkTypeListBox.Items.Count - 1;
+                showLinkTypeList();
+                this.predicateFormListBox.SelectedIndex = this.predicateFormListBox.Items.Count - 1;
             }
             catch (Exception exc)
             {
@@ -203,11 +208,15 @@ namespace Annotator
 
         private void removeLinkType_Click(object sender, EventArgs e)
         {
-            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            var selectIndex = predicateFormListBox.SelectedIndex;
             try
             {
-                this.options.objectLinkTypes.RemoveAt(selectIndex);
-                renderLinkTypeList();
+                this.options.objectPredicates.RemoveAt(selectIndex);
+                showLinkTypeList();
+
+                upObjLinkTypeBtn.Enabled = false;
+                downObjLinkTypeBtn.Enabled = false;
+                removeLinkTypeBtn.Enabled = false;
             }
             catch
             {
@@ -216,16 +225,16 @@ namespace Annotator
 
         private void upObjLinkTypeBtn_Click(object sender, EventArgs e)
         {
-            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            var selectIndex = predicateFormListBox.SelectedIndex;
             try
             {
                 if ( selectIndex > 0)
                 {
-                    var swapItem = this.options.objectLinkTypes[selectIndex];
-                    this.options.objectLinkTypes.RemoveAt(selectIndex);
-                    this.options.objectLinkTypes.Insert(selectIndex - 1, swapItem);
-                    renderLinkTypeList();
-                    this.objectLinkTypeListBox.SelectedIndex = selectIndex - 1;
+                    var swapItem = this.options.objectPredicates[selectIndex];
+                    this.options.objectPredicates.RemoveAt(selectIndex);
+                    this.options.objectPredicates.Insert(selectIndex - 1, swapItem);
+                    showLinkTypeList();
+                    this.predicateFormListBox.SelectedIndex = selectIndex - 1;
                 }
             }
             catch
@@ -235,16 +244,16 @@ namespace Annotator
 
         private void downObjLinkTypeBtn_Click(object sender, EventArgs e)
         {
-            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            var selectIndex = predicateFormListBox.SelectedIndex;
             try
             {
-                if (selectIndex < this.options.objectLinkTypes.Count - 1)
+                if (selectIndex < this.options.objectPredicates.Count - 1)
                 {
-                    var swapItem = this.options.objectLinkTypes[selectIndex];
-                    this.options.objectLinkTypes.RemoveAt(selectIndex);
-                    this.options.objectLinkTypes.Insert(selectIndex + 1, swapItem);
-                    renderLinkTypeList();
-                    this.objectLinkTypeListBox.SelectedIndex = selectIndex + 1;
+                    var swapItem = this.options.objectPredicates[selectIndex];
+                    this.options.objectPredicates.RemoveAt(selectIndex);
+                    this.options.objectPredicates.Insert(selectIndex + 1, swapItem);
+                    showLinkTypeList();
+                    this.predicateFormListBox.SelectedIndex = selectIndex + 1;
                 }
             }
             catch
@@ -252,15 +261,15 @@ namespace Annotator
             }
         }
 
-        private void renderLinkTypeList()
+        private void showLinkTypeList()
         {
-            this.objectLinkTypeListBox.Items.Clear();
-            this.objectLinkTypeListBox.Items.AddRange(this.options.objectLinkTypes.ToArray());
+            this.predicateFormListBox.Items.Clear();
+            this.predicateFormListBox.Items.AddRange(this.options.objectPredicates.ToArray());
         }
 
         private void objectLinkTypeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectIndex = objectLinkTypeListBox.SelectedIndex;
+            var selectIndex = predicateFormListBox.SelectedIndex;
             if (selectIndex != -1)
             {
                 upObjLinkTypeBtn.Enabled = true;
@@ -274,6 +283,81 @@ namespace Annotator
                 removeLinkTypeBtn.Enabled = false;
             }
         }
-        
+
+        private void addConstraintBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var constraintForm = constraintTxtBox.Text;
+
+                PredicateConstraint newConstraint = null;
+                if (constraintForm.StartsWith("UNIQUE="))
+                {
+                    newConstraint = UniqueConstraint.Parse(constraintForm.Substring("UNIQUE=".Length));
+
+                    if (this.options.predicateConstraints.Contains(newConstraint))
+                    {
+                        throw new ArgumentException("Type exists!");
+                    }
+                }
+
+                if (constraintForm.StartsWith("EXCLUSIVE="))
+                {
+                    newConstraint = ExclusiveConstraint.Parse(constraintForm.Substring("EXCLUSIVE=".Length));
+
+                    if (this.options.predicateConstraints.Contains(newConstraint))
+                    {
+                        throw new ArgumentException("Type exists!");
+                    }
+                }
+
+                if (newConstraint == null)
+                {
+                    throw new ArgumentException("new predicate = null. The predicate form has problem!");
+                }
+
+                this.options.predicateConstraints.Add(newConstraint);
+
+                showConstraintList();
+                this.constraintListBox.SelectedIndex = this.constraintListBox.Items.Count - 1;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+        }
+
+        private void removeConstraintBtn_Click(object sender, EventArgs e)
+        {
+            var selectIndex = constraintListBox.SelectedIndex;
+            try
+            {
+                this.options.predicateConstraints.RemoveAt(selectIndex);
+                showConstraintList();
+                removeConstraintBtn.Enabled = false;
+            }
+            catch
+            {
+            }
+        }
+
+        private void showConstraintList()
+        {
+            this.constraintListBox.Items.Clear();
+            this.constraintListBox.Items.AddRange(this.options.predicateConstraints.ToArray());
+        }
+
+        private void constraintListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectIndex = predicateFormListBox.SelectedIndex;
+            if (selectIndex != -1)
+            {
+                removeConstraintBtn.Enabled = true;
+            }
+            else
+            {
+                removeConstraintBtn.Enabled = false;
+            }
+        }
     }
 }

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.19.056-00.04.19.878" length="0">
+  <files>
+    <file>0051_Men_in_black_00.04.19.056-00.04.19.878.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o4" name="white shirt" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">761.3793,598.6207,140.6895,264.8276</marker>
+        <marker type="LOCATION" frame="25">762.7587,728.2758,260.6895,336.5509</marker>
+        <marker type="LOCATION" frame="32">868.9655,813.793,270.3448,251.0335</marker>
+        <marker type="LOCATION" frame="41">937.931,642.7585,289.6552,416.5507</marker>
+        <marker type="LOCATION" frame="47">891.0344,642.7585,336.5515,416.5507</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men2" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">444.4828,280,267.2413,161.3793</marker>
+        <marker type="LOCATION" frame="12">106.3793,333.1034,384.6552,218.6207</marker>
+        <marker type="LOCATION" frame="20">2.758621,408.2758,220.6896,331.0343</marker>
+        <marker type="LOCATION" frame="21">-8.275821,452.4138,195.862,331.0343</marker>
+        <marker type="LOCATION" frame="23">-12.41377,645.5172,95.17239,239.9991</marker>
+        <marker type="DELETE" frame="25" />
+      </markers>
+    </object>
+    <object id="o3" name="men1" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">761.3793,234.4831,278.6206,187.5859</marker>
+        <marker type="LOCATION" frame="12">485.5172,234.4831,576.5517,347.5858</marker>
+        <marker type="LOCATION" frame="20">362.7591,362.7588,820.6891,588.9653</marker>
+        <marker type="LOCATION" frame="25">362.7591,322.7586,892.4131,739.3098</marker>
+        <marker type="LOCATION" frame="32">362.7591,209.6552,1071.724,852.4129</marker>
+        <marker type="LOCATION" frame="47">488.2758,5.517075,1089.654,1056.55</marker>
+      </markers>
+    </object>
+    <object id="o5" name="black tie" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">794.4827,675.8619,44.13793,129.6552</marker>
+        <marker type="LOCATION" frame="25">808.2758,765.5172,140.689,257.931</marker>
+        <marker type="LOCATION" frame="32">906.2071,852.4138,140.689,203.4481</marker>
+        <marker type="LOCATION" frame="41">994.483,714.4827,140.689,341.7232</marker>
+        <marker type="LOCATION" frame="47">976.5516,736.5517,158.6203,320</marker>
+      </markers>
+    </object>
+    <object id="o6" name="black suit" filename="0051_Men_in_black_00.04.19.056-00.04.19.878.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="20">499.3103,664.8275,562.7586,271.7238</marker>
+        <marker type="LOCATION" frame="25">620.6896,764.1379,593.1032,278.6203</marker>
+        <marker type="LOCATION" frame="32">620.6896,813.793,766.8964,248.2759</marker>
+        <marker type="LOCATION" frame="41">612.4138,634.4827,913.103,427.5832</marker>
+        <marker type="LOCATION" frame="47">513.1034,628.9655,1040,433.1003</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text />
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="20" arguments="2" ids="o4,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="20" arguments="2" ids="o5,o3" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="20" arguments="2" ids="o6,o3" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

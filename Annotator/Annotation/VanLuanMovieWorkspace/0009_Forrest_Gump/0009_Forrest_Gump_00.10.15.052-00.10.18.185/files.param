@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.10.15.052-00.10.18.185" length="76">
+  <files>
+    <file>0009_Forrest_Gump_00.10.15.052-00.10.18.185.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="driver" filename="0009_Forrest_Gump_00.10.15.052-00.10.18.185.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1423.524,127.0023,492.0824,819.4051</marker>
+        <marker type="LOCATION" frame="8">1151.121,131.3959,764.4875,815.0127</marker>
+        <marker type="LOCATION" frame="17">1115.973,225.8581,799.6368,720.5502</marker>
+        <marker type="LOCATION" frame="25">1368.604,146.7735,547.0062,799.6354</marker>
+        <marker type="LOCATION" frame="37">1445.492,129.1991,470.1172,817.2093</marker>
+        <marker type="LOCATION" frame="45">1199.451,133.5927,639.2683,812.8162</marker>
+        <marker type="LOCATION" frame="54">854.5538,214.7007,612.9062,731.7075</marker>
+        <marker type="LOCATION" frame="66">367.4927,340.0916,562.6938,606.317</marker>
+        <marker type="LOCATION" frame="71">101.0526,329.1077,605.27,617.3008</marker>
+        <marker type="LOCATION" frame="75">2.196792,320.3204,525.0344,626.0878</marker>
+      </markers>
+    </object>
+    <object id="o2" name="two women" filename="0009_Forrest_Gump_00.10.15.052-00.10.18.185.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1133.547,447.7346,248.2379,287.7803</marker>
+        <marker type="LOCATION" frame="8">1130.222,455.3343,238.3818,304.3454</marker>
+        <marker type="LOCATION" frame="17">1126.482,463.884,226.9209,287.0085</marker>
+        <marker type="LOCATION" frame="25">1123.157,471.4837,216.8893,280.2875</marker>
+        <marker type="LOCATION" frame="37">1118.169,482.8833,201.8419,270.206</marker>
+        <marker type="LOCATION" frame="45">1109.024,489.1845,202.8223,264.1939</marker>
+        <marker type="DELETE" frame="51" />
+        <marker type="LOCATION" frame="55">1050.069,509.2449,241.6475,241.6479</marker>
+        <marker type="LOCATION" frame="75">1050.069,509.2449,206.4988,241.6479</marker>
+      </markers>
+    </object>
+    <object id="o3" name="house" filename="0009_Forrest_Gump_00.10.15.052-00.10.18.185.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">698.5812,164.3478,746.9108,450.3433</marker>
+        <marker type="LOCATION" frame="40">681.0069,164.3478,764.4854,459.1305</marker>
+        <marker type="LOCATION" frame="66">628.2838,164.3478,817.2086,472.3112</marker>
+        <marker type="LOCATION" frame="75">606.3158,164.3478,839.1765,472.3112</marker>
+      </markers>
+    </object>
+    <object id="o4" name="street" filename="0009_Forrest_Gump_00.10.15.052-00.10.18.185.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-4.190057E-06,127.0023,1920,823.7986</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="75" />
+      <text>A cab driver closes the trunk of the car as two women walk toward the house.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="28" arguments="1" ids="o1" q="True" type="WALK(X)" />
+  </predicates>
+</session>

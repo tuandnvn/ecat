@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.37.204-00.05.44.574" length="177">
+  <files>
+    <file>0009_Forrest_Gump_00.05.37.204-00.05.44.574.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="man" filename="0009_Forrest_Gump_00.05.37.204-00.05.44.574.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">770.8729,135.4115,521.8953,810.7731</marker>
+        <marker type="LOCATION" frame="20">759.7007,146.5835,580.9477,799.42</marker>
+        <marker type="LOCATION" frame="31">748.5287,160.9476,638.4041,784.9564</marker>
+        <marker type="LOCATION" frame="32">295.2618,157.2996,1300.748,784.0969</marker>
+        <marker type="LOCATION" frame="38">111.7207,135.4115,1634.314,810.4291</marker>
+        <marker type="LOCATION" frame="65">230.8581,146.5835,1383.365,799.0128</marker>
+        <marker type="LOCATION" frame="89">336.7581,266.2843,1160.299,679.094</marker>
+        <marker type="LOCATION" frame="119">377.0784,274.2643,1180.628,670.842</marker>
+        <marker type="LOCATION" frame="146">413.3666,205.6359,994.3143,739.2252</marker>
+        <marker type="LOCATION" frame="167">624.04,183.2918,710.2244,761.3787</marker>
+        <marker type="LOCATION" frame="176">550.6235,173.7157,742.1447,770.873</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="176" />
+      <text>The photo turns into live action as the General dons a hooded sheet over his head.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.33.259-00.05.37.204/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

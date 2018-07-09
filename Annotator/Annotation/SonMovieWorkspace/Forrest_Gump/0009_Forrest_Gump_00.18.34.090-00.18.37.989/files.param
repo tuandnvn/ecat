@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.18.34.090-00.18.37.989" length="94">
+  <files>
+    <file>0009_Forrest_Gump_00.18.34.090-00.18.37.989.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Field" filename="0009_Forrest_Gump_00.18.34.090-00.18.37.989.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.191984,135.4115,1908.828,813.9651</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.18.34.090-00.18.37.989.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">558.6035,571.1222,478.8031,375.8403</marker>
+        <marker type="LOCATION" frame="5">445.2868,528.2294,547.2324,418.3098</marker>
+        <marker type="LOCATION" frame="8">239.4014,502.4938,726.1846,443.7915</marker>
+        <marker type="LOCATION" frame="10">159.6009,548.2461,499.5512,397.8696</marker>
+        <marker type="LOCATION" frame="14">-0.0001339425,639.7507,389.4265,306.0256</marker>
+        <marker type="LOCATION" frame="18">-0.0001339425,694.015,269.7258,251.7618</marker>
+        <marker type="LOCATION" frame="21">-0.0001339425,823.2918,113.3168,122.4852</marker>
+        <marker type="DELETE" frame="23" />
+      </markers>
+    </object>
+    <object id="o3" name="man" filename="0009_Forrest_Gump_00.18.34.090-00.18.37.989.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">665.5362,379.601,97.35657,185.1371</marker>
+        <marker type="LOCATION" frame="22">880.1995,385.0483,97.35661,196.5868</marker>
+        <marker type="LOCATION" frame="50">1023.84,400.1063,97.35661,211.159</marker>
+        <marker type="LOCATION" frame="92">1039.801,408.3292,97.35661,233.0175</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="93" />
+      <text>Jenny's DAD drunk, steps out onto the porch and shouts.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.18.32.359-00.18.34.090/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.18.32.359-00.18.34.090/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="19" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

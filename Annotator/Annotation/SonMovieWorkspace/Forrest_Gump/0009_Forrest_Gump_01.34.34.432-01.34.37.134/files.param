@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.34.34.432-01.34.37.134" length="65">
+  <files>
+    <file>0009_Forrest_Gump_01.34.34.432-01.34.37.134.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Deck" filename="0009_Forrest_Gump_01.34.34.432-01.34.37.134.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.6818237,130.9091,1916.591,816.1364</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Trash" filename="0009_Forrest_Gump_01.34.34.432-01.34.37.134.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">370.9091,171.8182,1190.454,775.2268</marker>
+        <marker type="LOCATION" frame="14">420,130.9091,1122.123,816.1355</marker>
+        <marker type="LOCATION" frame="29">414.4773,128.8636,1107.032,818.1808</marker>
+        <marker type="LOCATION" frame="34">412.6364,255.6818,1102.001,691.3624</marker>
+        <marker type="LOCATION" frame="64">401.5909,312.9545,1071.818,634.0905</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Net" filename="0009_Forrest_Gump_01.34.34.432-01.34.37.134.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">829.0909,128.8636,486.8182,278.1818</marker>
+        <marker type="LOCATION" frame="13">829.0909,128.8636,687.2727,253.6364</marker>
+        <marker type="LOCATION" frame="18">769.7727,128.8636,648.4091,220.9091</marker>
+        <marker type="LOCATION" frame="23">1180.909,128.8636,537.9538,253.6362</marker>
+        <marker type="LOCATION" frame="26">1303.636,128.8636,611.5904,253.6362</marker>
+        <marker type="LOCATION" frame="34">1602.273,128.8636,312.9533,159.5455</marker>
+        <marker type="LOCATION" frame="38">1837.5,128.8636,77.72502,137.0455</marker>
+        <marker type="DELETE" frame="40" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="64" />
+      <text>A catch of junk is dumped onto the deck.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

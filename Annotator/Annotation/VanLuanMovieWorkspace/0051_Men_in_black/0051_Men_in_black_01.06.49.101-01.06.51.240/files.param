@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.06.49.101-01.06.51.240" length="52">
+  <files>
+    <file>0051_Men_in_black_01.06.49.101-01.06.51.240.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="dog" filename="0051_Men_in_black_01.06.49.101-01.06.51.240.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">682.2173,263.4146,129.3126,215.5211</marker>
+        <marker type="LOCATION" frame="11">706.1642,289.7561,129.3126,232.2838</marker>
+        <marker type="LOCATION" frame="21">739.6896,286.1641,129.3126,232.2838</marker>
+        <marker type="LOCATION" frame="31">785.1885,310.1109,129.3126,232.2838</marker>
+        <marker type="LOCATION" frame="39">785.1885,318.4922,148.4701,223.9026</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_01.06.49.101-01.06.51.240.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">545.7206,227.4945,234.6786,742.3518</marker>
+        <marker type="LOCATION" frame="21">574.4568,227.4945,205.9426,742.3518</marker>
+        <marker type="LOCATION" frame="31">639.1131,227.4945,208.3373,771.0865</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Street" filename="0051_Men_in_black_01.06.49.101-01.06.51.240.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>PASSERBYS glare at Kay, who appears to be seriously mistreating this poor little dog.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_01.06.47.771-01.06.48.866/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_01.06.47.771-01.06.48.866/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.06.47.771-01.06.48.866/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.39.00.181-00.39.03.268" length="75">
+  <files>
+    <file>0051_Men_in_black_00.39.00.181-00.39.03.268.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Edgar" filename="0051_Men_in_black_00.39.00.181-00.39.03.268.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">309.5327,46.54208,1466.917,1009.346</marker>
+        <marker type="LOCATION" frame="39">322.9907,42.05609,1453.459,1013.833</marker>
+        <marker type="LOCATION" frame="74">412.7103,86.91591,1363.74,968.972</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Van" filename="0051_Men_in_black_00.39.00.181-00.39.03.268.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,19.62619,1911.028,1049.72</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A flap of skin, now getting gray and crusty with age, hangs off EDGAR's neck as he sits in the front of his Orkin van.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

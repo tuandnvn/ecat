@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.18.10.404-00.18.11.921" length="48">
+  <files>
+    <file>0009_Forrest_Gump_00.18.10.404-00.18.11.921.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="street" filename="0009_Forrest_Gump_00.18.10.404-00.18.11.921.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">3.704446E-05,129.3642,1917.225,824.0462</marker>
+      </markers>
+    </object>
+    <object id="o2" name="boy" filename="0009_Forrest_Gump_00.18.10.404-00.18.11.921.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1097.341,440.1156,184.5087,366.2428</marker>
+        <marker type="LOCATION" frame="47">1134.104,442.8902,184.5087,366.2428</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Forrest knocks on Jenny's door.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.17.52.190-00.17.55.395/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.17.52.190-00.17.55.395/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

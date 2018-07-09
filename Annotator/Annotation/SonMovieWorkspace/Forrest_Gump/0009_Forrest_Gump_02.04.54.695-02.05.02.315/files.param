@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_02.04.54.695-02.05.02.315" length="183">
+  <files>
+    <file>0009_Forrest_Gump_02.04.54.695-02.05.02.315.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="House" filename="0009_Forrest_Gump_02.04.54.695-02.05.02.315.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.5607304,131.215,1917.328,817.5703</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_02.04.54.695-02.05.02.315.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">131.6007,140.3487,599.0491,807.8608</marker>
+        <marker type="LOCATION" frame="14">123.0428,139.2789,694.897,808.9305</marker>
+        <marker type="LOCATION" frame="27">30.61809,138.2856,842.0928,809.9238</marker>
+        <marker type="LOCATION" frame="59">30.61812,135.8405,901.9968,812.369</marker>
+        <marker type="LOCATION" frame="71">-0.1901507,134.9236,891.7275,813.286</marker>
+        <marker type="LOCATION" frame="93">-0.1899288,133.2426,700.0315,814.967</marker>
+        <marker type="LOCATION" frame="112">-0.1900463,131.7908,751.3787,816.4188</marker>
+        <marker type="LOCATION" frame="131">153.8511,131.7908,597.3381,816.4188</marker>
+        <marker type="LOCATION" frame="152">182.9477,131.7908,568.2415,816.4188</marker>
+        <marker type="LOCATION" frame="166">-0.1899549,131.7908,617.8762,816.4188</marker>
+        <marker type="LOCATION" frame="182">-0.1901507,131.7908,751.3804,816.4188</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Jenny" filename="0009_Forrest_Gump_02.04.54.695-02.05.02.315.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="11">930.9034,424.4691,42.78912,34.23135</marker>
+        <marker type="LOCATION" frame="28">852.1712,367.9873,121.5214,131.7908</marker>
+        <marker type="LOCATION" frame="41">825.6768,359.0758,106.9382,164.6643</marker>
+        <marker type="LOCATION" frame="51">807.6,366.9837,63.39846,139.6407</marker>
+        <marker type="DELETE" frame="67" />
+        <marker type="LOCATION" frame="89">815.0125,415.6404,60.70449,123.5038</marker>
+        <marker type="LOCATION" frame="92">817.1805,412.1025,64.78127,306.7565</marker>
+        <marker type="LOCATION" frame="104">825.8531,397.951,81.08829,326.0427</marker>
+        <marker type="LOCATION" frame="124">814.5167,395.0931,131.7908,335.0447</marker>
+        <marker type="LOCATION" frame="146">841.9018,391.9493,127.7094,344.9471</marker>
+        <marker type="LOCATION" frame="182">902.6625,415.0555,120.6656,332.9001</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="12" endFrame="182" />
+      <text>Jenny walks out of the house.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_02.03.22.074-02.03.34.757/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_02.03.22.074-02.03.34.757/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="11" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="118" arguments="2" ids="o2,o4" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="134" arguments="1" ids="o4" q="True" type="STAND(X)" />
+    <predicate frame="146" arguments="2" ids="o4,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

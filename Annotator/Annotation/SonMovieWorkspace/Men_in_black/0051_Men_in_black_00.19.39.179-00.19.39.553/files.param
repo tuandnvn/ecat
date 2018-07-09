@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.19.39.179-00.19.39.553" length="48">
+  <files>
+    <file>0051_Men_in_black_00.19.39.179-00.19.39.553.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="James" filename="0051_Men_in_black_00.19.39.179-00.19.39.553.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1153.748,82.4867,656.0568,980.2512</marker>
+        <marker type="LOCATION" frame="5">1203.623,159.2185,702.0959,903.5195</marker>
+        <marker type="LOCATION" frame="47">1422.309,117.016,494.92,945.7222</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Store" filename="0051_Men_in_black_00.19.39.179-00.19.39.553.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-0.9448471,14.8819,1917.638,1048.11</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Kay" filename="0051_Men_in_black_00.19.39.179-00.19.39.553.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">672.2558,235.9503,308.8455,725.1154</marker>
+      </markers>
+    </object>
+    <object id="o4" name="James's Gun" filename="0051_Men_in_black_00.19.39.179-00.19.39.553.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="5">1261.172,506.4298,153.4635,207.1758</marker>
+        <marker type="LOCATION" frame="7">1173.27,330.9059,162.7161,158.2593</marker>
+        <marker type="LOCATION" frame="9">1121.062,252.8952,153.6137,146.4299</marker>
+        <marker type="LOCATION" frame="13">1143.592,264.7247,135.4086,122.7709</marker>
+        <marker type="LOCATION" frame="22">1161.422,260.8881,115.097,122.7709</marker>
+        <marker type="LOCATION" frame="36">1205.542,264.7247,115.097,122.7709</marker>
+        <marker type="LOCATION" frame="47">1186.359,257.0515,115.097,122.7709</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>Edwards is shocked.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.19.38.238-00.19.38.883/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.19.38.238-00.19.38.883/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.19.38.238-00.19.38.883/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="5" arguments="2" ids="o1,o4" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

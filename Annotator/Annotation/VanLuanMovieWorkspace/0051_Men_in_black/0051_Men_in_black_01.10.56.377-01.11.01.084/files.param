@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_01.10.56.377-01.11.01.084" length="113">
+  <files>
+    <file>0051_Men_in_black_01.10.56.377-01.11.01.084.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="alien3" filename="0051_Men_in_black_01.10.56.377-01.11.01.084.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">735.9268,1.05263,976.8428,1056.659</marker>
+        <marker type="LOCATION" frame="12">815.5956,1.052477,822.527,1056.659</marker>
+        <marker type="LOCATION" frame="18">700.0722,1.052389,785.5592,1056.659</marker>
+        <marker type="LOCATION" frame="22">732.4188,1.052314,734.7292,1056.659</marker>
+        <marker type="LOCATION" frame="23">2.310496,-33.38369,720.8664,837.9324</marker>
+        <marker type="LOCATION" frame="27">2.310496,-33.38369,757.8339,837.9323</marker>
+        <marker type="LOCATION" frame="43">2.310496,-33.38369,824.8373,1064.358</marker>
+        <marker type="LOCATION" frame="69">532.5633,6.665578,1366.642,1064.358</marker>
+        <marker type="LOCATION" frame="81">702.3826,6.665521,1196.822,1064.358</marker>
+        <marker type="LOCATION" frame="101">670.0361,6.665494,1229.168,1064.358</marker>
+        <marker type="DELETE" frame="105" />
+      </markers>
+    </object>
+    <object id="o3" name="House" filename="0051_Men_in_black_01.10.56.377-01.11.01.084.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Edgar just starts to turn when they hear the BELL and a VOICE from the corridor outside.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_01.10.55.051-01.10.56.177/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_01.10.55.051-01.10.56.177/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

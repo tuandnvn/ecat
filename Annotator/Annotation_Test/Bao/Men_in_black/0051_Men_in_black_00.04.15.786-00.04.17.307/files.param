@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.04.15.786-00.04.17.307" length="0">
+  <files>
+    <file>0051_Men_in_black_00.04.15.786-00.04.17.307.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="police man" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1030.381,9.325519,664.3988,999.4135</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+    </object>
+    <object id="o2" name="man" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">292.7859,57.18475,689.7361,947.3314</marker>
+        <marker type="DELETE" frame="13" />
+      </markers>
+    </object>
+    <object id="o3" name="police man's hand" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+      </markers>
+    </object>
+    <object id="o4" name="flashlight" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="DELETE" frame="0" />
+      </markers>
+    </object>
+    <object id="o5" name="car" filename="0051_Men_in_black_00.04.15.786-00.04.17.307.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="13">1007.859,328.8563,312.4927,275.8944</marker>
+        <marker type="LOCATION" frame="29">849.5015,255.6598,429.3255,365.9824</marker>
+        <marker type="LOCATION" frame="38">717.1848,244.3988,429.3255,365.9824</marker>
+        <marker type="LOCATION" frame="45">323.7537,244.3988,822.7564,529.2668</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>He stops in the middle of his sentence, as another car is approaching, fast, its engine WHINING as it barrels down the road toward them.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.03.52.700-00.03.53.513/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.03.52.700-00.03.53.513/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0051_Men_in_black_00.03.52.700-00.03.53.513/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.03.52.700-00.03.53.513/o3" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.16.56.058-00.16.58.763" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.16.56.058-00.16.58.763.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The chasing boys ride over the remains of Forrest's braces.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

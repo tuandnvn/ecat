@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.57.37.182-00.57.46.037" length="0">
+  <files>
+    <file>0009_Forrest_Gump_00.57.37.182-00.57.46.037.avi</file>
+  </files>
+  <objects no="0" />
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The male nurse places Lt. Dan's hands on a pull-up bar, then picks up Lt. Dan, whose legs have been amputated.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+</session>

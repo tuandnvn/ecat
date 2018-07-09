@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1028_No_Reservations_00.02.34.793-00.02.36.343" length="0">
+  <files>
+    <file>1028_No_Reservations_00.02.34.793-00.02.36.343.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="women" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">235.8382,174.7977,906.763,755.3757</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+    </object>
+    <object id="o2" name="eye" filename="1028_No_Reservations_00.02.34.793-00.02.36.343.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">602.6011,391.7341,248.1503,71.79191</marker>
+        <marker type="LOCATION" frame="24">598.6994,410.4624,248.1503,71.79191</marker>
+        <marker type="DELETE" frame="46" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="47" />
+      <text>The woman, Kate Armstrong, raises her eyebrows.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

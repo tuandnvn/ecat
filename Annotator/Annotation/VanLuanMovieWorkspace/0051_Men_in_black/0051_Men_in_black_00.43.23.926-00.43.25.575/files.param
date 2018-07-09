@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.43.23.926-00.43.25.575" length="48">
+  <files>
+    <file>0051_Men_in_black_00.43.23.926-00.43.25.575.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Driver" filename="0051_Men_in_black_00.43.23.926-00.43.25.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1080.824,112.7231,788.6498,944.6226</marker>
+        <marker type="LOCATION" frame="8">1080.824,112.7231,751.3043,944.6229</marker>
+        <marker type="LOCATION" frame="18">1043.478,112.7231,709.5658,944.6229</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Document" filename="0051_Men_in_black_00.43.23.926-00.43.25.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">907.2769,152.2654,149.3822,142.7918</marker>
+        <marker type="LOCATION" frame="8">812.8149,254.4165,116.4299,214.1876</marker>
+        <marker type="LOCATION" frame="15">675.5699,441.9681,152.6223,277.0709</marker>
+        <marker type="LOCATION" frame="18">701.8766,536.7048,222.9747,329.5194</marker>
+        <marker type="LOCATION" frame="26">701.8766,639.9542,326.2241,294.3707</marker>
+        <marker type="LOCATION" frame="32">432.2198,426.865,468.4668,338.3066</marker>
+        <marker type="LOCATION" frame="35">24.98856,424.6683,642.8375,406.4073</marker>
+        <marker type="LOCATION" frame="41">-2.8833,604.8057,343.3867,453.6389</marker>
+        <marker type="LOCATION" frame="43">-2.8833,730.0229,209.3822,328.4221</marker>
+        <marker type="LOCATION" frame="46">-2.8833,666.3158,108.3295,392.1294</marker>
+        <marker type="LOCATION" frame="47">-2.8833,666.3158,62.1968,392.1294</marker>
+      </markers>
+    </object>
+    <object id="o6" name="Street" filename="0051_Men_in_black_00.43.23.926-00.43.25.575.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>The Driver hands over some documents.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="SIT(X)" />
+    <predicate frame="4" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o2,o1" q="False" type="PART_OF(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o2,o1" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.24.56.193-01.25.00.988" length="115">
+  <files>
+    <file>0009_Forrest_Gump_01.24.56.193-01.25.00.988.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.24.56.193-01.25.00.988.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">0.5700707,130.8314,1916.294,815.7719</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Tv" filename="0009_Forrest_Gump_01.24.56.193-01.25.00.988.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">133.9667,130.8314,1757.244,815.7715</marker>
+        <marker type="LOCATION" frame="80">100.6176,130.8314,1736.722,815.7715</marker>
+        <marker type="LOCATION" frame="113">100.6176,130.8314,1539.192,815.7715</marker>
+      </markers>
+    </object>
+    <object id="o3" name="President" filename="0009_Forrest_Gump_01.24.56.193-01.25.00.988.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">257.1021,130.8314,1020.998,815.7713</marker>
+        <marker type="LOCATION" frame="2">257.1021,130.8314,1020.998,815.7713</marker>
+        <marker type="LOCATION" frame="3">431.5439,277.0546,430.9738,669.5469</marker>
+        <marker type="LOCATION" frame="113">339.1924,247.5543,297.5772,601.5668</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Air force" filename="0009_Forrest_Gump_01.24.56.193-01.25.00.988.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="3">259.6674,130.8314,1008.17,815.7719</marker>
+        <marker type="LOCATION" frame="113">213.4917,130.8314,949.1686,815.7719</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="114" />
+      <text>The television cuts to a shot of President Nixon standing outside Air Force One with his hands in the peace sign.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o3,0009_Forrest_Gump_01.24.52.571-01.24.56.079/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.24.52.571-01.24.56.079/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.24.52.571-01.24.56.079/o4" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

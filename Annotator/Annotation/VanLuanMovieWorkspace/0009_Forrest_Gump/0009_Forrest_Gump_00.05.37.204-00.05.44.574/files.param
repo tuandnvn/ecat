@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.05.37.204-00.05.44.574" length="177">
+  <files>
+    <file>0009_Forrest_Gump_00.05.37.204-00.05.44.574.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="photo" filename="0009_Forrest_Gump_00.05.37.204-00.05.44.574.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.311218,123.0705,1906.722,823.2365</marker>
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0009_Forrest_Gump_00.05.37.204-00.05.44.574.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">663.9003,128.3817,857.7593,817.9253</marker>
+        <marker type="LOCATION" frame="23">663.9004,147.875,924.0333,798.4312</marker>
+        <marker type="LOCATION" frame="34">323.9834,157.1978,1295.648,789.1078</marker>
+        <marker type="LOCATION" frame="47">217.7593,168.2158,1439.336,778.0898</marker>
+        <marker type="LOCATION" frame="67">267.2501,144.3154,1306.556,801.9892</marker>
+        <marker type="LOCATION" frame="91">326.639,242.5726,1147.219,703.7331</marker>
+        <marker type="LOCATION" frame="116">308.5326,255.8506,1284.828,690.4547</marker>
+        <marker type="LOCATION" frame="135">294.7718,208.0498,1248.131,738.2562</marker>
+        <marker type="LOCATION" frame="149">387.7178,192.6343,1033.029,753.6717</marker>
+        <marker type="LOCATION" frame="159">515.1867,181.6233,894.0291,764.6829</marker>
+        <marker type="LOCATION" frame="176">586.8879,162.9046,743.5674,783.4018</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_00.05.33.259-00.05.37.204/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_00.05.33.259-00.05.37.204/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

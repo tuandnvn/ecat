@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.19.33.489-00.19.45.625" length="291">
+  <files>
+    <file>0009_Forrest_Gump_00.19.33.489-00.19.45.625.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o3" name="house" filename="0009_Forrest_Gump_00.19.33.489-00.19.45.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">250.3321,143.2472,1582.288,805.3134</marker>
+      </markers>
+    </object>
+    <object id="o2" name="girl" filename="0009_Forrest_Gump_00.19.33.489-00.19.45.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1180.812,438.4501,92.10339,151.1439</marker>
+        <marker type="LOCATION" frame="48">1205.609,471.5129,92.10332,151.1439</marker>
+        <marker type="LOCATION" frame="108">1267.011,525.8303,92.10332,174.7601</marker>
+        <marker type="LOCATION" frame="154">884.428,627.3801,92.10332,174.7601</marker>
+        <marker type="LOCATION" frame="184">683.69,639.1882,92.10332,174.7601</marker>
+        <marker type="LOCATION" frame="207">733.2841,672.2509,92.10332,174.7601</marker>
+        <marker type="LOCATION" frame="244">785.2398,655.7195,92.10332,174.7601</marker>
+        <marker type="LOCATION" frame="255">785.2398,655.7195,92.10332,174.7601</marker>
+        <marker type="LOCATION" frame="257">785.2398,655.7195,92.10332,174.7601</marker>
+        <marker type="DELETE" frame="260" />
+      </markers>
+    </object>
+    <object id="o4" name="outside house" filename="0009_Forrest_Gump_00.19.33.489-00.19.45.625.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.72326,136.1624,1894.022,812.3985</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="290" />
+      <text>Jenny climbs over a second-floor railing and enters the house.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="WALK(X)" />
+  </predicates>
+</session>

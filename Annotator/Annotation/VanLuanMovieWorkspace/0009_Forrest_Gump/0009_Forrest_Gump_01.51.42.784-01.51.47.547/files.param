@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.51.42.784-01.51.47.547" length="115">
+  <files>
+    <file>0009_Forrest_Gump_01.51.42.784-01.51.47.547.avi</file>
+  </files>
+  <objects no="2">
+    <object id="o1" name="Room" filename="0009_Forrest_Gump_01.51.42.784-01.51.47.547.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.347506E-05,125.6408,1915.897,820.5121</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.51.42.784-01.51.47.547.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">258.4615,125.6376,250.2564,471.7982</marker>
+        <marker type="LOCATION" frame="29">268.718,125.6358,254.359,471.8</marker>
+        <marker type="LOCATION" frame="58">278.9744,125.6353,258.4615,598.98</marker>
+        <marker type="LOCATION" frame="89">328.9377,125.6348,270.0366,820.519</marker>
+        <marker type="LOCATION" frame="114">369.2308,125.6356,266.6664,820.5181</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Jenny's bed is made.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.51.39.009-01.51.42.728/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.51.39.009-01.51.42.728/o2" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

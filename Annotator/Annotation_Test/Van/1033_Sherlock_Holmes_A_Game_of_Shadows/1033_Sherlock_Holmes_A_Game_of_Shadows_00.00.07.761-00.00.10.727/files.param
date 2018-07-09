@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="parchment" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">5.573316,138.7228,1883.774,794.1945</marker>
+        <marker type="LOCATION" frame="8">5.573316,138.7228,1883.774,794.1945</marker>
+      </markers>
+    </object>
+    <object id="o2" name="shield" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">604.7025,280.8418,445.8635,484.8767</marker>
+        <marker type="LOCATION" frame="7">373.4108,370.0145,158.8389,404.0639</marker>
+        <marker type="DELETE" frame="8" />
+      </markers>
+    </object>
+    <object id="o3" name="name's company" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">635.3556,793.5849,376.1974,61.30633</marker>
+        <marker type="LOCATION" frame="7">388.7374,799.1582,179.7387,61.30624</marker>
+        <marker type="DELETE" frame="8" />
+      </markers>
+    </object>
+    <object id="o4" name="V" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">1111.872,411.8142,89.17271,108.6793</marker>
+        <marker type="LOCATION" frame="17">810.9144,411.3009,387.9314,301.4712</marker>
+        <marker type="LOCATION" frame="71">774.688,402.061,384.5573,305.1379</marker>
+      </markers>
+    </object>
+    <object id="o5" name="word" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.00.07.761-00.00.10.727.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="14">1167.605,737.852,103.1059,69.66618</marker>
+        <marker type="LOCATION" frame="18">755.1815,751.7852,513.7708,47.373</marker>
+        <marker type="LOCATION" frame="71">735.6749,743.4254,509.9565,50.15956</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="71" />
+      <text>The page turns to a set of interlocking V's.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,o2" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="14" arguments="2" ids="o1,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

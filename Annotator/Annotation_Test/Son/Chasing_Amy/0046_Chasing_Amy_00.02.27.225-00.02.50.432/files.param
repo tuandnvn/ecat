@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.02.27.225-00.02.50.432" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi</file>
+  </files>
+  <objects no="9">
+    <object id="o9" name="book" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="406">1441.553,466.0194,208.1553,149.1262</marker>
+        <marker type="LOCATION" frame="417">1147.961,453.5922,208.1553,149.1262</marker>
+        <marker type="LOCATION" frame="467">868.3495,717.6699,237.6699,146.0194</marker>
+        <marker type="LOCATION" frame="496">502.5243,914.9514,289.7087,146.0194</marker>
+      </markers>
+    </object>
+    <object id="o8" name="man's hand" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="391">1752.233,683.4951,105.6311,93.20388</marker>
+        <marker type="LOCATION" frame="423">755.0267,613.6392,130.3349,96.21662</marker>
+        <marker type="LOCATION" frame="448">127.1244,655.9576,149.6346,98.57024</marker>
+        <marker type="LOCATION" frame="459">538.1705,693.9472,166.3774,103.3677</marker>
+        <marker type="LOCATION" frame="497">471.7058,874.2335,224.2165,119.9412</marker>
+        <marker type="LOCATION" frame="556">419.4174,950.6796,233.0097,108.7379</marker>
+      </markers>
+    </object>
+    <object id="o7" name="man" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="384">1792.621,416.3107,130.4854,416.3107</marker>
+        <marker type="LOCATION" frame="395">1388.738,298.2524,447.3786,462.9126</marker>
+        <marker type="LOCATION" frame="408">994.1747,259.4175,447.3786,462.9126</marker>
+        <marker type="LOCATION" frame="419">726.9903,234.5631,447.3786,462.9126</marker>
+        <marker type="LOCATION" frame="497">219.9475,273.398,671.703,718.3728</marker>
+        <marker type="LOCATION" frame="556">201.9417,219.0291,689.7087,852.8155</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="556" />
+      <text>We're at a Comic Book show, specifically at a book- signing.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="391" arguments="2" ids="o8,o7" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

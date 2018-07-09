@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.37.35.321-00.37.36.086" length="48">
+  <files>
+    <file>0051_Men_in_black_00.37.35.321-00.37.36.086.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="Terminal" filename="0051_Men_in_black_00.37.35.321-00.37.36.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.114529,332.7754,1385.022,718.9427</marker>
+        <marker type="LOCATION" frame="7">2.114529,332.7754,1385.022,718.9427</marker>
+        <marker type="LOCATION" frame="8">194.5374,193.216,866.9604,858.5021</marker>
+        <marker type="LOCATION" frame="47">194.5374,193.216,866.9604,858.5021</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_00.37.35.321-00.37.36.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">499.0308,91.71808,960,905.022</marker>
+        <marker type="LOCATION" frame="7">499.0308,91.71808,960,905.022</marker>
+        <marker type="LOCATION" frame="8">1234.89,-5.549858,682.9957,1065.726</marker>
+        <marker type="LOCATION" frame="47">1234.89,-5.549858,682.9957,1065.726</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Room" filename="0051_Men_in_black_00.37.35.321-00.37.36.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.229067,11.36565,1898.855,1044.582</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Certificate's James" filename="0051_Men_in_black_00.37.35.321-00.37.36.086.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="8">431.3656,400.4406,391.1894,236.8282</marker>
+        <marker type="LOCATION" frame="43">431.3656,400.4406,391.1894,236.8282</marker>
+        <marker type="DELETE" frame="44" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>On screen are Edwards's birth certificate, driver's license, social security card, library card, everything.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.37.34.464-00.37.35.165/o8" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.37.34.464-00.37.35.165/o6" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.37.34.464-00.37.35.165/o7" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="8" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

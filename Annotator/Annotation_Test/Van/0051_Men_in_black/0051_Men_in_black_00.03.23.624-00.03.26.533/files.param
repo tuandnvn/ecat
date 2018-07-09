@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.03.23.624-00.03.26.533" length="0">
+  <files>
+    <file>0051_Men_in_black_00.03.23.624-00.03.26.533.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o4" name="cig" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="4">559.9999,264.8276,55.17216,66.20689</marker>
+        <marker type="LOCATION" frame="8">637.2415,289.6551,129.655,41.37935</marker>
+        <marker type="LOCATION" frame="16">664.8275,286.8965,148.9653,44.1377</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o2" name="men" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">224.8277,102.069,1306.207,940.6895</marker>
+        <marker type="LOCATION" frame="16">245.5172,102.069,1302.069,940.6895</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+    <object id="o3" name="glass" filename="0051_Men_in_black_00.03.23.624-00.03.26.533.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1285.517,16.55162,631.7229,910.3448</marker>
+        <marker type="DELETE" frame="17" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="70" />
+      <text>He speaks in Spanish, which is subtitled.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.03.21.626-00.03.23.238/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.03.21.626-00.03.23.238/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="4" arguments="2" ids="o2,o4" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="8" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

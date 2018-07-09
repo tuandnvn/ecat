@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.16.44.230-01.16.47.546" length="80">
+  <files>
+    <file>0009_Forrest_Gump_01.16.44.230-01.16.47.546.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o1" name="Street" filename="0009_Forrest_Gump_01.16.44.230-01.16.47.546.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">7.943838E-06,131.8438,1915.835,807.9826</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Crowd of taxi" filename="0009_Forrest_Gump_01.16.44.230-01.16.47.546.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.245615E-05,191.7007,1162.45,748.8436</marker>
+      </markers>
+    </object>
+    <object id="o4" name="Forrest" filename="0009_Forrest_Gump_01.16.44.230-01.16.47.546.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1237.551,508.4354,70.7483,122.9932</marker>
+        <marker type="LOCATION" frame="37">1171.156,491.6129,89.2517,139.8157</marker>
+        <marker type="LOCATION" frame="79">1055.238,472.517,89.79585,115.3742</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Dan" filename="0009_Forrest_Gump_01.16.44.230-01.16.47.546.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1177.687,553.0612,134.966,171.973</marker>
+        <marker type="LOCATION" frame="37">1145.034,532.6703,102.3129,183.1879</marker>
+        <marker type="LOCATION" frame="79">1025.306,509.5238,115.3742,195.9184</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>A taxi driver honks his horn as Forrest wheels Lt. Dan out in front of the taxi.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="SIT(X)" />
+    <predicate frame="0" arguments="1" ids="o4" q="True" type="WALK(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.16.28.021-01.16.39.448/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,0009_Forrest_Gump_01.16.28.021-01.16.39.448/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.16.28.021-01.16.39.448/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0009_Forrest_Gump_01.16.28.021-01.16.39.448/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o5" q="True" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

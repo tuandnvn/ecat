@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.08.23.476-00.08.27.592" length="99">
+  <files>
+    <file>0051_Men_in_black_00.08.23.476-00.08.27.592.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Street" filename="0051_Men_in_black_00.08.23.476-00.08.27.592.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">-1.607447E-05,15.70912,1916.784,1046.618</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Kay" filename="0051_Men_in_black_00.08.23.476-00.08.27.592.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">107.0334,27.58351,1183.969,1035.441</marker>
+        <marker type="LOCATION" frame="98">145.2259,27.58351,1145.775,1035.441</marker>
+      </markers>
+    </object>
+    <object id="o3" name="neuralyzer" filename="0051_Men_in_black_00.08.23.476-00.08.27.592.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">601.4141,407.387,165.5014,596.2278</marker>
+        <marker type="LOCATION" frame="28">597.1707,357.5246,165.5015,596.2277</marker>
+        <marker type="LOCATION" frame="52">575.9526,370.2554,165.5015,596.2278</marker>
+        <marker type="LOCATION" frame="98">590.8052,355.4028,165.5015,596.2278</marker>
+      </markers>
+    </object>
+    <object id="o4" name="sunglasses" filename="0051_Men_in_black_00.08.23.476-00.08.27.592.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">467.7407,473.1631,403.1434,150.6483</marker>
+        <marker type="LOCATION" frame="11">455.0098,334.1847,403.1434,150.6483</marker>
+        <marker type="LOCATION" frame="15">478.3497,304.4794,403.1434,150.6483</marker>
+        <marker type="LOCATION" frame="98">510.1768,317.2102,403.1434,150.6483</marker>
+      </markers>
+    </object>
+    <object id="o5" name="ins" filename="0051_Men_in_black_00.08.23.476-00.08.27.592.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1053.359,14.85267,863.5756,1048.173</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="98" />
+      <text>Kay reaches into his pocket, puts on his own black sunglasses -- -- and pushes a button on the side of the neuralyzer.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o5" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.07.46.510-00.07.47.409/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.07.46.510-00.07.47.409/o3" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,0051_Men_in_black_00.07.46.510-00.07.47.409/o4" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o4" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o3" q="True" type="SUPPORT(X,Y)" />
+    <predicate frame="22" arguments="2" ids="o2,o4" q="False" type="SUPPORT(X,Y)" />
+  </predicates>
+</session>

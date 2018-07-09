@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1043_Vantage_Point_00.00.32.105-00.00.34.990" length="0">
+  <files>
+    <file>1043_Vantage_Point_00.00.32.105-00.00.34.990.avi</file>
+  </files>
+  <objects no="1">
+    <object id="o1" name="v shape" filename="1043_Vantage_Point_00.00.32.105-00.00.34.990.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.PolygonObject">
+      <markers>
+        <marker type="LOCATION" frame="1">1331.613,140.2346,1297.83,289.4428,1441.408,131.7889</marker>
+        <marker type="LOCATION" frame="18">1311.906,128.9736,1252.786,413.3138,1503.343,137.4194</marker>
+        <marker type="LOCATION" frame="41">1255.601,145.8651,1173.959,607.566,1556.833,137.4194</marker>
+        <marker type="LOCATION" frame="65">1224.633,148.6804,1114.839,765.2199,1641.29,137.4194</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="69" />
+      <text>Framed within a V shape, a city skyline.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

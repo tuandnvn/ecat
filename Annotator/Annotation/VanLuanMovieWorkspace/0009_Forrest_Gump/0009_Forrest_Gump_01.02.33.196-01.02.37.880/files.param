@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_01.02.33.196-01.02.37.880" length="113">
+  <files>
+    <file>0009_Forrest_Gump_01.02.33.196-01.02.37.880.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="Hospital" filename="0009_Forrest_Gump_01.02.33.196-01.02.37.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.146872,125.3132,1911.706,816.933</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Forrest" filename="0009_Forrest_Gump_01.02.33.196-01.02.37.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">184.0523,125.8756,832.4183,815.6915</marker>
+        <marker type="LOCATION" frame="24">184.0523,138.4313,581.4377,803.1342</marker>
+        <marker type="LOCATION" frame="50">184.0523,125.8745,568.8889,815.6915</marker>
+        <marker type="LOCATION" frame="112">184.0523,125.8746,614.9019,815.6914</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Nurse" filename="0009_Forrest_Gump_01.02.33.196-01.02.37.880.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">949.5424,481.4377,409.9332,460.1308</marker>
+        <marker type="LOCATION" frame="24">941.1765,481.4379,404.2445,460.1293</marker>
+        <marker type="LOCATION" frame="50">995.5549,418.6922,334.6411,522.8743</marker>
+        <marker type="LOCATION" frame="85">1002.639,393.5945,340.1063,547.9709</marker>
+        <marker type="LOCATION" frame="112">1008.105,410.3265,338.8235,531.2408</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>Forrest turns and look at the NURSE.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="CROUCH(X)" />
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o1,0009_Forrest_Gump_01.02.30.301-01.02.32.335/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,0009_Forrest_Gump_01.02.30.301-01.02.32.335/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="23" arguments="2" ids="o2,o3" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="50" arguments="2" ids="o3,o2" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="58" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

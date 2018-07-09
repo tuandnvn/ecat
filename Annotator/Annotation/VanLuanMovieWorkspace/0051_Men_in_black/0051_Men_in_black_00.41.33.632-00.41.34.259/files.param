@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0051_Men_in_black_00.41.33.632-00.41.34.259" length="48">
+  <files>
+    <file>0051_Men_in_black_00.41.33.632-00.41.34.259.avi</file>
+  </files>
+  <objects no="5">
+    <object id="o1" name="Alien1" filename="0051_Men_in_black_00.41.33.632-00.41.34.259.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">913.8673,422.4714,340.504,635.9731</marker>
+        <marker type="LOCATION" frame="44">788.6499,423.0203,400.9159,635.9731</marker>
+      </markers>
+    </object>
+    <object id="o2" name="Alien2" filename="0051_Men_in_black_00.41.33.632-00.41.34.259.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">944.6224,60,637.0734,997.347</marker>
+        <marker type="LOCATION" frame="21">935.8353,60,632.2296,997.347</marker>
+        <marker type="LOCATION" frame="44">1142.334,60,410.8009,997.347</marker>
+      </markers>
+    </object>
+    <object id="o5" name="Russian diner" filename="0051_Men_in_black_00.41.33.632-00.41.34.259.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">4.485964,3.925226,1906.542,1067.664</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="1" />
+      <text>They hold on, long and hard, and both seemed choked with emotion.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="1" ids="o1" q="True" type="STAND(X)" />
+    <predicate frame="0" arguments="2" ids="o2,0051_Men_in_black_00.41.33.077-00.41.33.392/o2" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o5,0051_Men_in_black_00.41.33.077-00.41.33.392/o5" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o1,0051_Men_in_black_00.41.33.077-00.41.33.392/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="39" arguments="2" ids="o2,o1" q="True" type="LOOK_AT(X,Y)" />
+    <predicate frame="45" arguments="2" ids="o1,o2" q="True" type="LOOK_AT(X,Y)" />
+  </predicates>
+</session>

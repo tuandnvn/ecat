@@ -285,7 +285,7 @@ namespace Annotator
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                editAnnotation();
+                editEventAnnotation();
             }
         }
 
@@ -293,17 +293,15 @@ namespace Annotator
         {
             if (!selected)
             {
-                editAnnotation();
+                editEventAnnotation();
             }
             else
             {
-                saveAnnotation();
+                saveEventAnnotation();
             }
         }
 
-
-
-        private void saveAnnotation()
+        private void saveEventAnnotation()
         {
             ev.text = main.getAnnotationText();
             textAnnotation.Text = ev.text;
@@ -313,9 +311,10 @@ namespace Annotator
             main.clearRightBottomPanel();
             selected = false;
             deselectDeco();
+            main.logSession($"Event {ev.id} edited");
         }
 
-        private void editAnnotation()
+        private void editEventAnnotation()
         {
             ev.resetTempo();
             // Caution: this call should be before setAnnotationText

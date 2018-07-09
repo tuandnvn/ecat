@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1060_Yes_man_00.00.51.671-00.00.55.006" length="0">
+  <files>
+    <file>1060_Yes_man_00.00.51.671-00.00.55.006.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="men" filename="" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">491.0345,140.6896,863.4474,794.4827</marker>
+      </markers>
+    </object>
+    <object id="o2" name="phone" filename="" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">999.9999,802.7585,135.1722,100.6894</marker>
+        <marker type="LOCATION" frame="3">1019.31,727.5863,135.1722,100.6893</marker>
+        <marker type="LOCATION" frame="6">1019.31,487.5863,135.1722,171.724</marker>
+        <marker type="LOCATION" frame="9">1017.931,424.4828,69.655,121.724</marker>
+      </markers>
+    </object>
+    <object id="o3" name="men's hand" filename="" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">951.724,893.793,234.4824,46.89301</marker>
+        <marker type="LOCATION" frame="3">951.724,822.0689,234.4824,118.6169</marker>
+        <marker type="LOCATION" frame="6">971.0344,507.5862,215.1718,433.0977</marker>
+        <marker type="LOCATION" frame="9">971.0344,424.8275,168.2758,377.9309</marker>
+      </markers>
+    </object>
+    <object id="o4" name="ear" filename="1060_Yes_man_00.00.51.671-00.00.55.006.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">995.862,433.1034,63.44827,115.8621</marker>
+        <marker type="LOCATION" frame="6">995.862,413.7931,63.44827,135.1724</marker>
+        <marker type="LOCATION" frame="9">995.862,413.7931,63.44827,135.1724</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="79" />
+      <text>He holds it to his ear.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,1060_Yes_man_00.00.48.975-00.00.51.922/o1" q="True" type="IDENTITY(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o4,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o2,o1" q="True" type="PART_OF(X,Y)" />
+    <predicate frame="0" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

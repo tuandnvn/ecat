@@ -14,7 +14,7 @@ namespace Annotator
         /// <summary>
         /// project location folder == workspace folder
         /// </summary>
-        public String locationFolder
+        public String path
         {
             get; set;
         }
@@ -29,18 +29,21 @@ namespace Annotator
             get; set;
         } = false;
 
-        //constructor
-        public Project(String locationFolder, String projectName, List<Session> sessions)
+
+        public Project(String path, String projectName)
         {
-            this.locationFolder = locationFolder;
+            this.path = path;
             this.sessions = sessions;
             this.name = projectName;
-            if (this.sessions == null)
-                this.sessions = new List<Session>();
+            this.sessions = new List<Session>();
             this.selected = false;
         }
 
-        //Get project session at given index
+        /// <summary>
+        /// Get project session at given index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Session getSession(int index)
         {
             if (sessions.Count > 0 && index >= 0 && index < sessions.Count)
@@ -53,130 +56,39 @@ namespace Annotator
             }
         }
 
-        ///// <summary>
-        ///// Create a session inside project
-        ///// </summary>
-        ///// <param name="sessionName"> Session name </param>
-        ///// <returns> Created session </returns>
-        //public Session addSession(string sessionName)
-        //{
-        //    Session newSession = new Session(main, sessionName, getProjectName(), getLocation());
-        //    sessions.Add(newSession);
-        //    saveProjectFile(newSession.sessionName);
-
-        //    return newSession;
-        //}
-
-        //Add session to sessions list
+        /// <summary>
+        /// Add session to sessions list
+        /// </summary>
         public void addSession(Session session)
         {
             if (session != null)
             {
                 sessions.Add(session);
-                //MessageBox.Show(session.sessionName);
-                //Update project file
-                saveProjectFile(session.sessionName);
-            }
-            else {
-
             }
         }
-        //Check if session exists in project sessions:
-        public bool checkSessionInProject(String sessionName)
-        {
-            //Check if project file exists:
-            String projectFileName = locationFolder + Path.DirectorySeparatorChar + name + Path.DirectorySeparatorChar + name + ".project";
-            if (File.Exists(projectFileName))
-            {
-                StreamReader file = new StreamReader(projectFileName);
-                String line = "";
-                while ((line = file.ReadLine()) != null)
-                {
-                    if (line.Contains(sessionName))
-                    {
-                        file.Close();
-                        return true;
-                    }
-                }
-                file.Close();
-            }
 
+        /// <summary>
+        /// Remove session from project:
+        /// </summary>
+        /// <param name="sessionName"></param>
+        public Session removeSession(String sessionName)
+        {
             foreach (Session s in sessions)
             {
-                if (s.sessionName.Contains(sessionName))
-                    return true;
-            }
-            return false;
-        }
-        //Save project parameters file
-        public void saveProjectFile(String sessionName)
-        {
-            String projectFileName = locationFolder + Path.DirectorySeparatorChar + name + Path.DirectorySeparatorChar + name + ".project";
-            if (!File.Exists(projectFileName))
-            {
-                TextWriter tw = new StreamWriter(projectFileName);
-                foreach (Session s in sessions)
-                {
-                    tw.WriteLine(s.sessionName);
-                }
-                tw.Close();
-            }
-            else if (File.Exists(projectFileName))
-            {
-                //1)Check if session already exists in project file:
-                bool exists = false;
-                StreamReader file = new StreamReader(projectFileName);
-                String line = "";
-                while ((line = file.ReadLine()) != null)
-                {
-                    if (line.Contains(sessionName))
-                    {
-                        file.Close();
-                        exists = true;
-                        break;
-                    }
-                }
-                file.Close();
-                if (!exists)
-                {
-                    TextWriter tw = new StreamWriter(projectFileName, true);
-                    tw.WriteLine(sessionName);
-                    tw.Close();
-                }
-
-            }
-        }
-
-        //Remove session from project:
-        public void removeSession(String sessionName)
-        {
-            //1)Remove session from sessions list
-            foreach (Session s in sessions)
-            {
-                if (s.sessionName.Contains(sessionName))
+                if (s.sessionName == sessionName)
                 {
                     sessions.Remove(s);
-                    break;
+                    return s;
                 }
             }
-            //2)Update .project file
-            String projectFileName = locationFolder + Path.DirectorySeparatorChar + name + Path.DirectorySeparatorChar + name + ".project";
-            try
-            {
-                TextWriter tw = new StreamWriter(projectFileName);
-                foreach (Session s in sessions)
-                {
-                    tw.WriteLine(s.sessionName);
-                }
-                tw.Close();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            return null;
         }
 
-        //Get session by name
+        /// <summary>
+        /// Get session by name
+        /// </summary>
+        /// <param name="sessionName"></param>
+        /// <returns></returns>
         public Session getSession(String sessionName)
         {
             Session s = sessions.Find(t => t.sessionName.Equals(sessionName));

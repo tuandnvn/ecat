@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916" length="0">
+  <files>
+    <file>0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi</file>
+  </files>
+  <objects no="4">
+    <object id="o1" name="man1" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">12.37887,133.2524,606.8444,113.1553</marker>
+        <marker type="LOCATION" frame="4">12.37887,133.2524,1000.048,787.7184</marker>
+        <marker type="LOCATION" frame="7">12.37887,375.7281,1000.048,545.2427</marker>
+        <marker type="LOCATION" frame="14">12.37887,155.534,1000.048,765.4369</marker>
+        <marker type="LOCATION" frame="18">297.4516,166.0194,1597.5,777.6699</marker>
+        <marker type="LOCATION" frame="32">503.8107,139.8058,1270.558,788.1553</marker>
+        <marker type="LOCATION" frame="39">606.9903,517.2816,623.8835,316.3106</marker>
+        <marker type="LOCATION" frame="41">773.8835,687.67,249.9029,134.5629</marker>
+        <marker type="DELETE" frame="45" />
+      </markers>
+    </object>
+    <object id="o2" name="man1_after" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="46">630.5825,281.3592,210.5825,248.1553</marker>
+        <marker type="LOCATION" frame="53">573.3495,349.5146,273.0583,248.1553</marker>
+        <marker type="LOCATION" frame="55">573.3495,428.1553,273.0583,169.5146</marker>
+        <marker type="LOCATION" frame="59">584.0534,518.1553,273.0583,169.5146</marker>
+        <marker type="LOCATION" frame="64">584.0534,518.1553,442.3544,245.534</marker>
+      </markers>
+    </object>
+    <object id="o3" name="man2" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="46">776.5049,546.9903,155.534,174.7573</marker>
+        <marker type="LOCATION" frame="49">776.5049,546.9903,312.8155,174.7573</marker>
+        <marker type="LOCATION" frame="55">776.5049,546.9903,387.9612,263.8835</marker>
+        <marker type="LOCATION" frame="57">865.631,608.1553,298.8349,202.7184</marker>
+        <marker type="LOCATION" frame="61">938.1553,632.6213,298.8349,202.7184</marker>
+      </markers>
+    </object>
+    <object id="o4" name="man3" filename="0016_O_Brother_Where_Art_Thou_00.05.30.128-00.05.32.916.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="46">949.5146,560.9709,103.1068,148.5437</marker>
+        <marker type="LOCATION" frame="55">1013.301,603.7864,103.1068,148.5437</marker>
+        <marker type="LOCATION" frame="65">1074.466,617.767,103.1068,148.5437</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="66" />
+      <text>Everett, just finishing his speech, flips forward in turn, smashes his chin onto the floor and is sucked out the open doorway, his clawing fingernails leaving parallel grooves on the boxcar floorboards.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o1,0016_O_Brother_Where_Art_Thou_00.05.26.406-00.05.30.128/o1" q="True" type="IDENTITY(X,Y)" />
+  </predicates>
+</session>

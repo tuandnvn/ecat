@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0017_Pianist_00.02.34.800-00.02.37.122" length="0">
+  <files>
+    <file>0017_Pianist_00.02.34.800-00.02.37.122.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="woman 2" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">351.9062,36.07038,596.8328,999.4135</marker>
+        <marker type="LOCATION" frame="17">525.044,43.10851,464.5161,999.4135</marker>
+        <marker type="LOCATION" frame="27">449.0323,40.29326,464.5161,999.4135</marker>
+        <marker type="LOCATION" frame="33">364.5748,60,464.5161,999.4135</marker>
+        <marker type="LOCATION" frame="48">406.8035,43.10851,464.5161,999.4135</marker>
+      </markers>
+    </object>
+    <object id="o2" name="woman 1" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="8">822.0528,95.19062,337.8299,914.956</marker>
+        <marker type="LOCATION" frame="17">1050.088,130.3812,337.8299,914.956</marker>
+        <marker type="LOCATION" frame="27">1224.633,119.1202,337.8299,914.956</marker>
+        <marker type="LOCATION" frame="33">1386.51,69.14957,464.5161,958.5923</marker>
+        <marker type="DELETE" frame="40" />
+      </markers>
+    </object>
+    <object id="o3" name="woman's hand 2" filename="0017_Pianist_00.02.34.800-00.02.37.122.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="33">30.96775,708.9149,123.871,132.3167</marker>
+        <marker type="LOCATION" frame="41">230.8504,518.8856,123.871,132.3167</marker>
+        <marker type="DELETE" frame="48" />
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="55" />
+      <text>He sits by the radio set, ear to the speaker, trying to tune to a station.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="33" arguments="2" ids="o3,o1" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>

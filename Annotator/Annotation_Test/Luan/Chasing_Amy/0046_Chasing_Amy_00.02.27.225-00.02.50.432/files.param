@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0046_Chasing_Amy_00.02.27.225-00.02.50.432" length="0">
+  <files>
+    <file>0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi</file>
+  </files>
+  <objects no="17">
+    <object id="o2" name="Men" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="382">1873.103,540.6896,38.62069,281.3793</marker>
+        <marker type="LOCATION" frame="384">1817.931,427.5862,93.79192,394.4824</marker>
+        <marker type="LOCATION" frame="385">1773.793,380.6896,137.9295,441.3787</marker>
+        <marker type="LOCATION" frame="386">1726.896,358.6207,184.8257,463.4476</marker>
+        <marker type="LOCATION" frame="387">1710.345,358.6207,209.655,463.4476</marker>
+        <marker type="LOCATION" frame="388">1641.379,347.5862,278.6198,474.4821</marker>
+        <marker type="LOCATION" frame="389">1611.034,347.5862,308.9641,474.4821</marker>
+        <marker type="LOCATION" frame="390">1575.172,347.5862,344.826,474.4821</marker>
+        <marker type="LOCATION" frame="391">1533.793,322.7586,386.2049,499.3095</marker>
+        <marker type="LOCATION" frame="392">1503.449,304.828,411.0334,486.8961</marker>
+        <marker type="LOCATION" frame="393">1480,305.5175,423.4479,486.896</marker>
+        <marker type="LOCATION" frame="394">1429.655,297.2416,457.2412,486.896</marker>
+        <marker type="LOCATION" frame="395">1396.207,291.7244,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="396">1363.103,283.4485,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="398">1299.655,261.3795,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="400">1230.69,255.8623,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="401">1203.103,244.8278,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="403">1150.69,250.3451,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="405">1092.759,250.3451,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="408">998.9655,242.0692,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="412">913.4482,228.2761,457.2413,486.896</marker>
+        <marker type="LOCATION" frame="415">833.4482,201.3793,457.2413,499.9995</marker>
+        <marker type="LOCATION" frame="418">756.2068,199.6554,457.2413,499.9995</marker>
+        <marker type="LOCATION" frame="421">687.2413,187.5862,457.2413,528.6202</marker>
+        <marker type="LOCATION" frame="425">607.2413,171.552,457.2413,528.6202</marker>
+        <marker type="LOCATION" frame="428">549.1379,179.8278,479.6552,528.6202</marker>
+        <marker type="LOCATION" frame="431">482.7586,179.8278,546.0339,540.1721</marker>
+        <marker type="LOCATION" frame="435">482.7585,179.8278,637.2414,553.9652</marker>
+        <marker type="LOCATION" frame="440">535.1724,143.4483,702.0677,602.4995</marker>
+        <marker type="LOCATION" frame="447">535.1724,179.3103,604.1379,566.6374</marker>
+        <marker type="LOCATION" frame="456">482.7586,215.1724,656.5511,639.9994</marker>
+        <marker type="LOCATION" frame="463">482.7585,215.1724,656.5511,684.1379</marker>
+        <marker type="LOCATION" frame="468">435.862,215.1724,703.4476,739.3103</marker>
+        <marker type="LOCATION" frame="474">347.5862,295.1724,791.7226,703.4481</marker>
+        <marker type="LOCATION" frame="478">292.4138,295.1724,846.8947,703.4481</marker>
+        <marker type="LOCATION" frame="482">292.4138,295.1724,689.6552,703.4481</marker>
+        <marker type="LOCATION" frame="489">231.7241,295.1724,750.3444,700.6896</marker>
+        <marker type="LOCATION" frame="496">231.7241,262.0689,659.3103,733.7929</marker>
+        <marker type="LOCATION" frame="505">193.1034,226.2069,697.9308,769.6546</marker>
+        <marker type="LOCATION" frame="517">237.2414,226.2069,686.8964,769.6546</marker>
+        <marker type="LOCATION" frame="529">212.4138,251.0345,711.7238,777.9307</marker>
+        <marker type="LOCATION" frame="538">248.276,256.5519,736.5515,797.2411</marker>
+        <marker type="LOCATION" frame="543">248.276,256.5519,755.8619,797.2411</marker>
+        <marker type="LOCATION" frame="556">209.6552,256.5519,670.3446,797.2411</marker>
+      </markers>
+    </object>
+    <object id="o3" name="Women" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1028.965,35.86192,369.6548,1026.207</marker>
+        <marker type="LOCATION" frame="15">1064.828,19.31041,369.6547,1059.31</marker>
+        <marker type="LOCATION" frame="32">1120,24.82772,380.6895,1059.31</marker>
+        <marker type="LOCATION" frame="38">1219.31,8.275985,408.2758,1059.31</marker>
+        <marker type="LOCATION" frame="43">1379.31,11.03465,408.2758,1059.31</marker>
+        <marker type="LOCATION" frame="47">1517.241,22.06913,408.2758,1059.31</marker>
+        <marker type="LOCATION" frame="51">1652.414,22.06907,273.1029,1059.31</marker>
+        <marker type="LOCATION" frame="55">1806.896,22.06896,118.6188,1059.31</marker>
+        <marker type="LOCATION" frame="57">1859.31,22.06893,66.20487,1059.31</marker>
+        <marker type="DELETE" frame="58" />
+      </markers>
+    </object>
+    <object id="o4" name="Men1" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1186.207,46.89651,248.2758,871.724</marker>
+        <marker type="LOCATION" frame="3">1155.862,46.89662,248.2758,871.7239</marker>
+        <marker type="LOCATION" frame="10">1133.793,49.65524,248.2758,871.7239</marker>
+        <marker type="LOCATION" frame="13">1125.517,49.65522,248.2758,913.1033</marker>
+        <marker type="LOCATION" frame="19">1084.138,53.79316,248.2758,913.1032</marker>
+        <marker type="LOCATION" frame="25">1062.069,53.79316,248.2758,913.1032</marker>
+        <marker type="LOCATION" frame="31">979.3103,34.48274,248.2758,1005.517</marker>
+        <marker type="LOCATION" frame="37">871.724,29.65518,300.6897,1005.517</marker>
+        <marker type="LOCATION" frame="43">732.4138,13.10345,379.3103,1043.448</marker>
+        <marker type="LOCATION" frame="46">643.4482,-3.103454,379.3103,1043.448</marker>
+        <marker type="LOCATION" frame="52">511.0345,-0.3448543,407.5862,1059.655</marker>
+        <marker type="LOCATION" frame="53">494.1379,8.103435,407.5862,1059.655</marker>
+        <marker type="LOCATION" frame="57">381.0345,13.62068,407.5862,1059.655</marker>
+        <marker type="DELETE" frame="58" />
+      </markers>
+    </object>
+    <object id="o5" name="Men2" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1070.345,57.93102,110.3449,184.8276</marker>
+        <marker type="LOCATION" frame="5">1070.345,57.93101,93.79318,184.8276</marker>
+        <marker type="LOCATION" frame="11">1056.552,57.93101,107.5859,228.9655</marker>
+        <marker type="LOCATION" frame="16">1049.655,45.51723,107.5859,228.9655</marker>
+        <marker type="LOCATION" frame="20">1049.655,45.51717,166.8964,266.2069</marker>
+        <marker type="LOCATION" frame="24">1008.966,32.41379,166.8964,266.2069</marker>
+        <marker type="LOCATION" frame="31">986.8965,35.17238,202.069,266.2069</marker>
+        <marker type="LOCATION" frame="34">1056.552,35.17238,132.4132,266.2069</marker>
+        <marker type="LOCATION" frame="38">1056.552,35.17238,209.6553,773.1034</marker>
+        <marker type="LOCATION" frame="41">1033.103,21.72408,223.4483,841.7242</marker>
+        <marker type="LOCATION" frame="46">1033.103,21.72403,271.7241,841.7242</marker>
+        <marker type="LOCATION" frame="51">1033.103,21.72394,271.7241,930.0001</marker>
+        <marker type="LOCATION" frame="54">1033.103,21.72391,299.3103,930.0001</marker>
+        <marker type="LOCATION" frame="57">1053.103,17.75853,299.3103,930.0001</marker>
+        <marker type="DELETE" frame="58" />
+      </markers>
+    </object>
+    <object id="o6" name="Women2" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="58">179.3103,253.7931,427.5862,802.7585</marker>
+        <marker type="LOCATION" frame="60">114.4827,268.9656,427.5862,802.7584</marker>
+        <marker type="LOCATION" frame="65">-1.379311,271.7242,427.5862,802.7584</marker>
+        <marker type="LOCATION" frame="68">-1.37931,271.7242,346.2069,802.7584</marker>
+        <marker type="LOCATION" frame="69">-1.37931,271.7242,315.8621,802.7584</marker>
+        <marker type="LOCATION" frame="73">-1.37931,271.7242,158.6207,802.7584</marker>
+        <marker type="DELETE" frame="75" />
+      </markers>
+    </object>
+    <object id="o7" name="Men3" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="58">772.4138,184.8276,457.931,824.8275</marker>
+        <marker type="LOCATION" frame="60">731.0344,188.9657,457.931,824.8272</marker>
+        <marker type="LOCATION" frame="65">626.2068,230.345,457.931,824.8272</marker>
+        <marker type="LOCATION" frame="68">524.1379,235.8622,457.931,824.8272</marker>
+        <marker type="LOCATION" frame="69">480,241.3795,457.931,824.8272</marker>
+        <marker type="LOCATION" frame="73">372.4137,219.3105,496.5517,824.8272</marker>
+        <marker type="LOCATION" frame="75">292.4138,219.3105,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="80">154.4828,244.1381,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="86">107.5863,230.345,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="91">55.17249,246.8967,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="95">82.7587,255.1726,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="101">146.207,249.6553,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="107">267.5863,252.4139,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="111">366.8966,246.8967,551.7239,824.8272</marker>
+        <marker type="LOCATION" frame="115">402.7586,246.8967,717.241,824.8272</marker>
+        <marker type="LOCATION" frame="118">491.0347,263.4484,717.2408,824.8272</marker>
+        <marker type="LOCATION" frame="121">582.0692,249.6553,717.2408,824.8272</marker>
+        <marker type="LOCATION" frame="126">684.1381,200.0002,717.2408,824.8272</marker>
+        <marker type="LOCATION" frame="131">888.2761,115.8621,717.2407,914.4823</marker>
+        <marker type="LOCATION" frame="136">1040,116.5519,717.2407,914.4824</marker>
+        <marker type="LOCATION" frame="143">1373.793,116.5518,557.2415,914.4824</marker>
+        <marker type="LOCATION" frame="147">1497.931,116.5518,433.1032,914.4824</marker>
+        <marker type="LOCATION" frame="150">1760,116.5518,171.0335,421.3792</marker>
+        <marker type="LOCATION" frame="152">1815.172,116.5518,115.8607,421.3792</marker>
+        <marker type="DELETE" frame="153" />
+      </markers>
+    </object>
+    <object id="o8" name="Comic" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="58">557.2413,937.931,364.1379,124.1379</marker>
+        <marker type="LOCATION" frame="60">488.2758,944.8275,364.1379,124.1379</marker>
+        <marker type="LOCATION" frame="65">366.8965,979.3103,259.3104,92.41286</marker>
+        <marker type="LOCATION" frame="68">366.8965,1004.138,182.069,67.58452</marker>
+        <marker type="DELETE" frame="69" />
+      </markers>
+    </object>
+    <object id="o9" name="Men4" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="58">1492.414,140.6896,435.862,915.862</marker>
+        <marker type="LOCATION" frame="60">1467.586,146.2069,435.862,915.862</marker>
+        <marker type="LOCATION" frame="65">1423.448,143.4483,435.862,915.862</marker>
+        <marker type="LOCATION" frame="68">1354.483,151.7241,435.862,915.862</marker>
+        <marker type="LOCATION" frame="69">1321.379,157.2414,435.862,915.862</marker>
+        <marker type="LOCATION" frame="73">1321.379,157.2413,391.7241,915.862</marker>
+        <marker type="LOCATION" frame="75">1255.172,215.1724,391.7241,833.1031</marker>
+        <marker type="LOCATION" frame="84">1255.172,215.1724,253.7931,833.1031</marker>
+        <marker type="LOCATION" frame="86">1255.172,215.1724,223.4483,833.1031</marker>
+        <marker type="LOCATION" frame="93">995.862,215.1724,482.7572,833.1031</marker>
+        <marker type="LOCATION" frame="95">1035.863,217.9311,482.7572,833.1032</marker>
+        <marker type="LOCATION" frame="98">1110.345,223.4483,482.7572,833.1032</marker>
+        <marker type="LOCATION" frame="101">1220.69,237.2414,482.7572,833.1032</marker>
+        <marker type="LOCATION" frame="107">1277.241,237.2414,426.2059,833.1032</marker>
+        <marker type="LOCATION" frame="111">1390.345,237.2414,313.1012,833.1032</marker>
+        <marker type="LOCATION" frame="115">1508.965,237.2414,311.7241,833.1032</marker>
+        <marker type="LOCATION" frame="118">1588.965,237.2414,231.7233,833.1032</marker>
+        <marker type="LOCATION" frame="121">1693.793,253.7932,231.7234,833.1032</marker>
+        <marker type="LOCATION" frame="126">1765.517,253.7932,159.9993,833.1032</marker>
+        <marker type="LOCATION" frame="131">1875.862,253.7932,49.65332,833.1032</marker>
+        <marker type="DELETE" frame="136" />
+      </markers>
+    </object>
+    <object id="o10" name="Comic2" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="68">1828.965,775.1724,93.79327,154.4827</marker>
+        <marker type="LOCATION" frame="69">1828.965,786.2068,93.7931,154.4827</marker>
+        <marker type="LOCATION" frame="73">1735.172,882.7585,182.0685,154.4827</marker>
+        <marker type="LOCATION" frame="75">1710.345,902.0689,182.0683,154.4827</marker>
+        <marker type="LOCATION" frame="77">1641.379,951.724,251.0335,104.8273</marker>
+        <marker type="LOCATION" frame="78">1641.379,995.862,251.0335,60.68906</marker>
+        <marker type="LOCATION" frame="79">1641.379,1051.034,251.0335,16.55155</marker>
+        <marker type="DELETE" frame="80" />
+      </markers>
+    </object>
+    <object id="o11" name="Men4's hand" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="68">1702.069,888.2758,99.31034,171.0345</marker>
+        <marker type="LOCATION" frame="69">1704.828,866.2068,99.31034,171.0345</marker>
+        <marker type="LOCATION" frame="73">1663.448,811.0344,195.8622,151.724</marker>
+        <marker type="LOCATION" frame="75">1646.896,834.4827,110.3448,118.6207</marker>
+        <marker type="LOCATION" frame="80">1555.862,870.3448,162.7586,118.6207</marker>
+        <marker type="LOCATION" frame="82">1513.103,897.931,162.7586,118.6207</marker>
+        <marker type="LOCATION" frame="84">1480,914.4827,162.7586,118.6207</marker>
+        <marker type="LOCATION" frame="86">1433.103,965.5172,139.3103,95.17207</marker>
+        <marker type="LOCATION" frame="88">1433.103,1017.931,89.65517,42.75761</marker>
+        <marker type="DELETE" frame="91" />
+      </markers>
+    </object>
+    <object id="o12" name="Men5" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="186">507.5862,38.62051,557.2411,959.9999</marker>
+        <marker type="LOCATION" frame="189">507.5862,27.5862,557.2411,971.0342</marker>
+        <marker type="LOCATION" frame="192">507.5862,27.58619,543.4482,971.0342</marker>
+        <marker type="LOCATION" frame="197">464.8275,35.86214,543.4482,971.0342</marker>
+        <marker type="LOCATION" frame="200">320,35.86208,688.2754,1037.241</marker>
+        <marker type="LOCATION" frame="204">276.552,22.06896,688.2753,1037.241</marker>
+        <marker type="LOCATION" frame="207">221.3795,27.5862,688.2753,1037.241</marker>
+        <marker type="LOCATION" frame="209">163.4485,27.5862,688.2753,1037.241</marker>
+        <marker type="LOCATION" frame="211">13.7931,27.58604,692.4133,1037.241</marker>
+        <marker type="LOCATION" frame="216">13.7931,27.58597,571.0344,1037.241</marker>
+        <marker type="LOCATION" frame="218">13.7931,27.58589,457.931,1037.241</marker>
+        <marker type="LOCATION" frame="221">13.7931,27.58583,364.1379,1037.241</marker>
+        <marker type="LOCATION" frame="225">13.7931,27.58574,137.931,1037.241</marker>
+        <marker type="DELETE" frame="228" />
+      </markers>
+    </object>
+    <object id="o13" name="Boy" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="186">1329.655,281.3793,366.8966,788.9655</marker>
+        <marker type="LOCATION" frame="189">1350.345,275.8621,366.8965,788.9655</marker>
+        <marker type="LOCATION" frame="192">1372.414,270.3448,366.8965,788.9655</marker>
+        <marker type="LOCATION" frame="194">1372.414,270.3448,398.6208,788.9655</marker>
+        <marker type="LOCATION" frame="197">1340,267.5862,398.6207,788.9655</marker>
+        <marker type="LOCATION" frame="200">1271.034,267.5862,398.6207,788.9655</marker>
+        <marker type="LOCATION" frame="204">1210.345,259.3103,398.6207,788.9655</marker>
+        <marker type="LOCATION" frame="207">1130.345,284.1379,398.6207,788.9655</marker>
+        <marker type="LOCATION" frame="209">1097.241,284.1379,398.6207,788.9655</marker>
+        <marker type="LOCATION" frame="211">967.5861,273.1034,458.6207,783.4482</marker>
+        <marker type="LOCATION" frame="213">882.4138,270.3448,458.6207,783.4482</marker>
+        <marker type="LOCATION" frame="216">686.5517,264.8276,579.6552,824.8275</marker>
+        <marker type="LOCATION" frame="218">496.3793,266.207,579.6552,824.8272</marker>
+        <marker type="LOCATION" frame="221">336.3793,271.7243,579.6552,824.8272</marker>
+        <marker type="LOCATION" frame="225">143.2758,266.207,579.6552,824.8272</marker>
+        <marker type="LOCATION" frame="228">2.586207,257.9312,579.6552,824.8272</marker>
+        <marker type="LOCATION" frame="230">2.586207,303.4482,375.3448,779.3096</marker>
+        <marker type="LOCATION" frame="232">2.586207,391.7241,375.3448,691.0336</marker>
+        <marker type="LOCATION" frame="234">2.586207,857.931,242.931,224.8252</marker>
+        <marker type="DELETE" frame="235" />
+      </markers>
+    </object>
+    <object id="o14" name="Women3" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="186">1128.276,19.31034,342.069,819.3103</marker>
+        <marker type="LOCATION" frame="189">1164.138,26.20689,342.0689,819.3103</marker>
+        <marker type="LOCATION" frame="192">1186.207,23.44827,342.0689,819.3103</marker>
+        <marker type="LOCATION" frame="194">1158.621,23.44827,342.0689,819.3103</marker>
+        <marker type="LOCATION" frame="197">1142.069,23.44827,342.0689,819.3103</marker>
+        <marker type="LOCATION" frame="200">1092.414,28.96551,342.0689,819.3103</marker>
+        <marker type="LOCATION" frame="204">1108.965,28.96551,342.0689,819.3103</marker>
+        <marker type="LOCATION" frame="207">1045.517,4.137922,342.0689,819.3103</marker>
+        <marker type="LOCATION" frame="209">1045.517,4.137865,419.3103,819.3103</marker>
+        <marker type="LOCATION" frame="211">998.6205,9.655068,474.4828,1005.517</marker>
+        <marker type="LOCATION" frame="213">943.4482,10.3449,474.4827,1005.517</marker>
+        <marker type="LOCATION" frame="216">830.3448,7.586193,568.2758,1060</marker>
+        <marker type="LOCATION" frame="218">755.862,10.68972,568.2758,1060</marker>
+        <marker type="LOCATION" frame="221">728.2758,10.68972,568.2758,1060</marker>
+        <marker type="LOCATION" frame="228">662.0689,-0.3447517,568.2758,1060</marker>
+        <marker type="LOCATION" frame="230">612.4138,-0.3447754,617.9307,1060</marker>
+        <marker type="LOCATION" frame="232">612.4138,-0.3448149,758.6207,1060</marker>
+        <marker type="LOCATION" frame="234">602.7586,2.413874,758.6207,1060</marker>
+        <marker type="DELETE" frame="235" />
+      </markers>
+    </object>
+    <object id="o15" name="Comic3" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="186">1129.655,619.3103,267.5862,184.8276</marker>
+        <marker type="LOCATION" frame="189">1157.241,686.8965,252.4138,144.8273</marker>
+        <marker type="LOCATION" frame="192">1167.586,735.8622,252.4138,144.8272</marker>
+        <marker type="LOCATION" frame="194">1148.276,780.0001,252.4138,144.8272</marker>
+        <marker type="LOCATION" frame="196">1115.172,821.3794,252.4138,144.8272</marker>
+        <marker type="LOCATION" frame="200">1082.069,876.5518,252.4138,144.8272</marker>
+        <marker type="LOCATION" frame="204">1015.862,937.2415,252.4138,144.8272</marker>
+        <marker type="LOCATION" frame="207">996.2068,976.2072,164.8276,99.99932</marker>
+        <marker type="LOCATION" frame="209">938.2758,981.7244,164.8276,99.99932</marker>
+        <marker type="LOCATION" frame="211">881.5516,1015,90.68965,49.99932</marker>
+        <marker type="DELETE" frame="213" />
+      </markers>
+    </object>
+    <object id="o16" name="Men5's hand" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="186">1117.241,532.4138,107.5862,104.8276</marker>
+        <marker type="LOCATION" frame="189">1173.793,595.862,107.5862,104.8276</marker>
+        <marker type="LOCATION" frame="192">1182.069,645.5172,107.5862,104.8276</marker>
+        <marker type="LOCATION" frame="194">1184.828,689.6552,107.5862,104.8276</marker>
+        <marker type="LOCATION" frame="196">1137.931,703.4482,107.5862,104.8276</marker>
+        <marker type="LOCATION" frame="197">1137.931,744.8275,107.5862,85.51715</marker>
+        <marker type="LOCATION" frame="200">1121.379,787.5861,107.5862,85.51723</marker>
+        <marker type="LOCATION" frame="204">1082.759,851.0344,107.5862,85.51723</marker>
+        <marker type="LOCATION" frame="207">1039.31,890.3448,78.62068,67.5862</marker>
+        <marker type="LOCATION" frame="209">986.8965,906.8965,78.62068,67.5862</marker>
+        <marker type="LOCATION" frame="211">939.9999,931.7241,78.62068,67.5862</marker>
+        <marker type="LOCATION" frame="213">859.9999,920.6896,78.62068,67.5862</marker>
+        <marker type="DELETE" frame="216" />
+      </markers>
+    </object>
+    <object id="o17" name="People" filename="0046_Chasing_Amy_00.02.27.225-00.02.50.432.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="401">1795.862,168.2758,115.8617,902.0689</marker>
+        <marker type="LOCATION" frame="403">1735.172,168.2758,176.551,902.0689</marker>
+        <marker type="LOCATION" frame="407">1622.069,11.03448,289.6538,1059.309</marker>
+        <marker type="LOCATION" frame="409">1569.655,11.03441,342.0666,1059.309</marker>
+        <marker type="LOCATION" frame="413">1442.759,11.03435,468.9628,1059.309</marker>
+        <marker type="LOCATION" frame="419">1304.828,11.03426,606.8931,1059.309</marker>
+        <marker type="LOCATION" frame="423">1213.793,11.03417,697.9266,1059.309</marker>
+        <marker type="LOCATION" frame="426">1161.379,11.03413,750.3404,1059.309</marker>
+        <marker type="LOCATION" frame="430">1117.241,11.03409,794.478,1059.309</marker>
+        <marker type="LOCATION" frame="440">1219.31,11.03398,692.408,1059.309</marker>
+        <marker type="LOCATION" frame="478">1017.931,11.03386,893.7853,1059.309</marker>
+        <marker type="LOCATION" frame="490">935.1724,11.0338,976.5439,1059.309</marker>
+        <marker type="LOCATION" frame="505">860.6896,11.0337,1051.026,1059.309</marker>
+        <marker type="LOCATION" frame="532">913.1034,11.03364,998.6115,1059.309</marker>
+        <marker type="LOCATION" frame="556">788.9655,11.03353,1122.749,1059.309</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="556" />
+      <text>We're at a Comic Book show, specifically at a book- signing.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates />
+</session>

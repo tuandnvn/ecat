@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="0009_Forrest_Gump_00.30.58.715-00.31.02.798" length="98">
+  <files>
+    <file>0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi</file>
+  </files>
+  <objects no="3">
+    <object id="o1" name="tv" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">2.762563,131.1367,1908.95,814.9641</marker>
+      </markers>
+    </object>
+    <object id="o2" name="car" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">522.1295,377.0072,1389.583,569.0935</marker>
+        <marker type="LOCATION" frame="6">522.1295,377.0072,1389.583,569.0935</marker>
+        <marker type="LOCATION" frame="16">320.4604,377.0072,1591.251,569.0935</marker>
+        <marker type="LOCATION" frame="36">320.4604,377.0072,1591.251,569.0935</marker>
+        <marker type="LOCATION" frame="48">13.81292,377.0072,1897.898,569.0935</marker>
+        <marker type="LOCATION" frame="61">13.81292,377.0072,1897.898,569.0935</marker>
+        <marker type="LOCATION" frame="70">13.81292,495.7985,1897.898,450.3014</marker>
+        <marker type="LOCATION" frame="87">13.81292,658.7913,1897.898,287.3084</marker>
+        <marker type="LOCATION" frame="88">13.81292,658.7913,1897.898,287.3084</marker>
+        <marker type="DELETE" frame="89" />
+      </markers>
+    </object>
+    <object id="o3" name="kenn" filename="0009_Forrest_Gump_00.30.58.715-00.31.02.798.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">809.4388,313.4676,276.259,361.8993</marker>
+        <marker type="LOCATION" frame="6">809.4388,353.5251,276.259,361.8993</marker>
+        <marker type="LOCATION" frame="16">709.9856,394.964,276.259,361.8993</marker>
+        <marker type="LOCATION" frame="36">709.9856,394.964,494.5036,440.6331</marker>
+        <marker type="LOCATION" frame="48">640.9208,302.4172,488.9784,574.6187</marker>
+        <marker type="LOCATION" frame="61">447.5396,227.8273,682.3594,649.2084</marker>
+        <marker type="LOCATION" frame="70">353.6115,305.1798,776.2871,640.9205</marker>
+        <marker type="LOCATION" frame="79">256.9208,305.1797,737.6115,640.9206</marker>
+        <marker type="LOCATION" frame="87">44.20141,305.1797,823.2518,640.9206</marker>
+        <marker type="LOCATION" frame="88">44.20141,305.1797,823.2518,640.9206</marker>
+        <marker type="LOCATION" frame="89">618.8201,189.151,826.0134,756.9492</marker>
+        <marker type="LOCATION" frame="97">618.8201,189.151,826.0134,756.9492</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations />
+  <predicates>
+    <predicate frame="0" arguments="1" ids="o2" q="True" type="RUN(X)" />
+    <predicate frame="0" arguments="1" ids="o3" q="True" type="SIT(X)" />
+    <predicate frame="89" arguments="1" ids="o3" q="True" type="STAND(X)" />
+  </predicates>
+</session>

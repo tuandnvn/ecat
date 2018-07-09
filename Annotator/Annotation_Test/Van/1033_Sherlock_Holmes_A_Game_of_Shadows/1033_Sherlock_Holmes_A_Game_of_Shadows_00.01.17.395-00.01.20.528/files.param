@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session name="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528" length="0">
+  <files>
+    <file>1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi</file>
+  </files>
+  <objects no="6">
+    <object id="o3" name="men" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">311.1519,132.8796,1111.099,802.9319</marker>
+        <marker type="LOCATION" frame="39">203.7173,132.8796,995.1833,802.9319</marker>
+        <marker type="LOCATION" frame="75">130.2094,132.8796,989.5288,802.9319</marker>
+      </markers>
+    </object>
+    <object id="o4" name="coat" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">336.5969,155.4974,1071.518,760.5236</marker>
+        <marker type="LOCATION" frame="39">220.6807,155.4974,958.4293,760.5236</marker>
+        <marker type="LOCATION" frame="75">140.1047,159.7382,959.843,760.5236</marker>
+      </markers>
+    </object>
+    <object id="o5" name="packet" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="0">1148.01,192.2513,169.6335,421.2566</marker>
+        <marker type="LOCATION" frame="39">961.4136,359.0576,169.6335,363.2989</marker>
+        <marker type="LOCATION" frame="75">797.4346,290.4972,118.7435,187.3039</marker>
+      </markers>
+    </object>
+    <object id="o6" name="women" filename="1033_Sherlock_Holmes_A_Game_of_Shadows_00.01.17.395-00.01.20.528.avi" objectType="2D" generate="MANUAL" color="-65536" borderSize="1" semanticType="" shape="Annotator.RectangleObject">
+      <markers>
+        <marker type="LOCATION" frame="75">862.4608,11.30891,819.8953,918.8482</marker>
+      </markers>
+    </object>
+  </objects>
+  <annotations>
+    <annotation id="a1">
+      <duration startFrame="0" endFrame="75" />
+      <text>A man in a frock coat carries a brown paper package under his right arm.</text>
+      <refs />
+      <events />
+      <link />
+    </annotation>
+  </annotations>
+  <predicates>
+    <predicate frame="0" arguments="2" ids="o3,o4" q="True" type="PART_OF(X,Y)" />
+  </predicates>
+</session>
