@@ -339,6 +339,7 @@ namespace Annotator
 
         private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
         {
+            this.recordButton.Enabled = this.kinectSensor.IsAvailable;
             this.cameraStatusLabel.Text = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
                                                             : Properties.Resources.NoSensorStatusText;
         }
@@ -371,7 +372,12 @@ namespace Annotator
             }
         }
 
-
+        /// <summary>
+        /// Select/Deselect a button from a button group
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="buttonGroup"></param>
+        /// <param name="select"></param>
         private void selectButtonDrawing(Button b, List<Button> buttonGroup, bool select)
         {
             toolbarButtonSelected[b] = select;

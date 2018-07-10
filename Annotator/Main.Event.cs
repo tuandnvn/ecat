@@ -207,7 +207,7 @@ namespace Annotator
             }
         }
 
-        private void annoRefView_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        private void annoRefView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             Console.WriteLine("annoRefView_UserDeletedRow");
 

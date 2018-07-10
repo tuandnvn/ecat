@@ -307,6 +307,7 @@ namespace Annotator
             textAnnotation.Text = ev.text;
             ev.save();
             main.unselectAnnotations();
+            main.disableAnnotationText();
             main.selectedEvent = null;
             main.clearRightBottomPanel();
             selected = false;

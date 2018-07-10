@@ -21,6 +21,51 @@ namespace Annotator
             sessionInfo.ShowDialog();
         }
 
+        private void rightClickOnProjectTreeNode(MouseEventArgs e)
+        {
+            if (treeView.SelectedNode == null)
+                return;
+
+            if (currentProject != null && treeView.SelectedNode.Text.Equals(currentProject.name))
+            {
+                selectToolStripMenuItem.Enabled = false;
+                closeToolStripMenuItem.Enabled = true;
+                statisticsToolStripMenuItem.Enabled = true;
+                newSessionToolStripMenuItem.Enabled = true;
+                refreshProjectMenuItem.Enabled = true;
+                recordSessionToolStripMenuItem.Enabled = true;
+                projectDetectToolStripMenuItem.Enabled = true;
+                projectGenerateToolStripMenuItem.Enabled = true;
+            }
+            else if (currentProject != null && !(treeView.SelectedNode.Text.Equals(currentProject.name)))
+            {
+                selectToolStripMenuItem.Enabled = true;
+                closeToolStripMenuItem.Enabled = false;
+                statisticsToolStripMenuItem.Enabled = false;
+                newSessionToolStripMenuItem.Enabled = false;
+                refreshProjectMenuItem.Enabled = false;
+                recordSessionToolStripMenuItem.Enabled = false;
+                projectDetectToolStripMenuItem.Enabled = false;
+                projectGenerateToolStripMenuItem.Enabled = false;
+            }
+
+            if (currentProject == null)
+            {
+                selectToolStripMenuItem.Enabled = true;
+                closeToolStripMenuItem.Enabled = false;
+                statisticsToolStripMenuItem.Enabled = false;
+                newSessionToolStripMenuItem.Enabled = false;
+                refreshProjectMenuItem.Enabled = false;
+                recordSessionToolStripMenuItem.Enabled = false;
+                projectDetectToolStripMenuItem.Enabled = false;
+                projectGenerateToolStripMenuItem.Enabled = false;
+            }
+            Point location = this.Location;
+            location.X += e.Location.X + leftMostPanel.Location.X + 15;
+            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
+            projectRightClickPanel.Show(location);
+        }
+
         /// <summary>
         /// Select project from available projects in workspace
         /// </summary>

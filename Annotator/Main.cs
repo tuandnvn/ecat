@@ -418,5 +418,6 @@ namespace Annotator
         {
             otherWorkspaceToolStripMenuItem_Click(sender, e);
         }
+
     }
 }

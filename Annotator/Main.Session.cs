@@ -380,6 +380,79 @@ namespace Annotator
             }
         }
 
+        private void rightClickOnSessionTreeNode(MouseEventArgs e)
+        {
+            if (treeView.SelectedNode == null)
+                return;
+
+            TreeNode selectedNode = treeView.SelectedNode;
+            Session choosenSession = null;
+
+            // Check if session node is inside currently open project
+            if (selectedNode != null && currentProject != null && selectedNode.Parent.Text.Equals(currentProject.name))
+            {
+                //Check if session is editing:
+                choosenSession = currentProject.getSession(selectedNode.Text);
+                if (choosenSession == null)
+                    choosenSession = currentProject.getSession(selectedNode.Text.Substring(1));
+
+                if (choosenSession != null)
+                {
+                    if (choosenSession.edited)
+                    {
+                        editSessionMenuItem.Enabled = false;
+                        exitWithoutSavingToolStripMenuItem.Enabled = true;
+                        reloadToolStripMenuItem.Enabled = true;
+                        resetToolStripMenuItem.Enabled = true;
+                        saveSessionMenuItem.Enabled = true;
+                        deleteSessionMenuItem.Enabled = true;
+                        addFileToSessionMenuItem.Enabled = true;
+                        refreshSessionMenuItem.Enabled = true;
+                        sessionDetectToolStripMenuItem.Enabled = true;
+                        sessionGenerateToolStripMenuItem.Enabled = true;
+                    }
+                    else
+                    {
+                        editSessionMenuItem.Enabled = true;
+                        exitWithoutSavingToolStripMenuItem.Enabled = false;
+                        reloadToolStripMenuItem.Enabled = false;
+                        resetToolStripMenuItem.Enabled = false;
+                        saveSessionMenuItem.Enabled = false;
+                        deleteSessionMenuItem.Enabled = true;
+                        addFileToSessionMenuItem.Enabled = false;
+                        refreshSessionMenuItem.Enabled = false;
+                        sessionDetectToolStripMenuItem.Enabled = false;
+                        sessionGenerateToolStripMenuItem.Enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                editSessionMenuItem.Enabled = false;
+                exitWithoutSavingToolStripMenuItem.Enabled = false;
+                reloadToolStripMenuItem.Enabled = false;
+                resetToolStripMenuItem.Enabled = false;
+                saveSessionMenuItem.Enabled = false;
+                deleteSessionMenuItem.Enabled = true;
+                addFileToSessionMenuItem.Enabled = false;
+                refreshSessionMenuItem.Enabled = false;
+                sessionDetectToolStripMenuItem.Enabled = false;
+                sessionGenerateToolStripMenuItem.Enabled = false;
+            }
+
+            Point location = this.Location;
+            location.X += e.Location.X + leftMostPanel.Location.X + 15;
+            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
+            sessionRightClickPanel.Show(location);
+        }
+
+
+        private void exitWithoutSavingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeSessionNode();
+            closeWithoutSaveCurrentSession();
+        }
+
         /// <summary>
         /// 
         /// </summary>

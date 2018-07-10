@@ -11,6 +11,18 @@ namespace Annotator
 {
     public partial class Main
     {
+        private void rightClickOnFileTreeNode(MouseEventArgs e)
+        {
+            if (treeView.SelectedNode == null)
+                return;
+
+            TreeNode selectedNode = treeView.SelectedNode;
+            Point location = this.Location;
+            location.X += e.Location.X + leftMostPanel.Location.X + 15;
+            location.Y += e.Location.Y + leftMostPanel.Location.Y + 80;
+            fileRightClickPanel.Show(location);
+        }
+
         private void removeFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Double guard

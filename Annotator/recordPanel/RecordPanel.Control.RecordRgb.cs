@@ -99,12 +99,8 @@ namespace Annotator
 
                 try
                 {
-                    //rgbWriter = new VideoWriter(tempRgbFileName, -1, FRAME_PER_SECOND, new Size(colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo), true);
-                    //Console.WriteLine("Finish create writer");
-
                     writer = new VideoFileWriter();
                     writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo, fps, VideoCodec.MPEG4, quality);
-                    //writer.Open(tempRgbFileName, colorFrameDescription.Width / scaleVideo, colorFrameDescription.Height / scaleVideo);
                 }
                 catch (Exception e)
                 {
