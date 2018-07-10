@@ -320,7 +320,7 @@ namespace Annotator
             // Caution: this call should be before setAnnotationText
             // because it would clear out the textAnnotation.Text
             main.unselectAnnotations();
-            main.setAnnotationText(textAnnotation.Text);
+            main.enableAnnotationText(textAnnotation.Text);
             main.selectedEvent = this.ev;
             selected = true;
             selectDeco();
@@ -435,13 +435,7 @@ namespace Annotator
 
         private void findObjectBtn_Click(object sender, EventArgs e)
         {
-            //Reset right bottom panel
-            main.clearRightBottomPanel();
-            main.setAnnotationText(textAnnotation.Text);
             main.findObjectForEvent(ev);
-
-            populateReferences();
-            populateActions();
         }
     }
 }

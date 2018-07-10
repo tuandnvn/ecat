@@ -54,6 +54,9 @@ namespace Annotator
         internal List<Predicate> objectPredicates;
 
         [DataMember]
+        internal List<Predicate> eventPredicates;
+
+        [DataMember]
         internal List<PredicateConstraint> predicateConstraints;
 
         [DataMember]
@@ -86,6 +89,9 @@ namespace Annotator
 
                     if (singletonOptions.objectPredicates == null)
                         singletonOptions.objectPredicates = tempOptions.objectPredicates;
+
+                    if (singletonOptions.eventPredicates == null)
+                        singletonOptions.eventPredicates = tempOptions.eventPredicates;
 
                     if (singletonOptions.predicateConstraints == null)
                         singletonOptions.predicateConstraints = tempOptions.predicateConstraints;
@@ -131,6 +137,7 @@ namespace Annotator
             options.interpolationModes[RECTANGLE] = InterpolationMode.LEFT_COPY;
             options.interpolationModes[GLYPH] = InterpolationMode.LEFT_COPY;
             options.objectPredicates = new List<Predicate>();
+            options.eventPredicates = new List<Predicate>();
             options.predicateConstraints = new List<PredicateConstraint>();
             options.showMarkerMode = true;
 

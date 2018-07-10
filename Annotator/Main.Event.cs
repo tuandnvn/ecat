@@ -18,9 +18,17 @@ namespace Annotator
             mapFromEventToEventAnnotations = new Dictionary<Event, EventAnnotation>();
         }
 
-        public void setAnnotationText(String txt)
+        public void enableAnnotationText(String txt)
         {
             annotationText.Text = txt;
+            annotationText.Enabled = true;
+            this.Invalidate();
+        }
+
+        public void disableAnnotationText()
+        {
+            annotationText.Text = "";
+            annotationText.Enabled = false;
             this.Invalidate();
         }
 
@@ -57,6 +65,7 @@ namespace Annotator
 
             clearMidleBottomPanel();
             populateMiddleBottomPanel();
+            disableAnnotationText();
 
             annoRefView.Rows.Clear();
             this.Invalidate();
@@ -121,6 +130,8 @@ namespace Annotator
         {
             string annotationText = ev.text;
             currentSession.resetTempoEmpty(ev);
+            annoRefView.Rows.Clear();
+            annoRefView.Refresh();
             var foundObjects = currentSession.findObjectsByNames(ev);
 
             foreach (var o in foundObjects)
@@ -128,7 +139,6 @@ namespace Annotator
                 ev.addTempoReference(o.Item1, o.Item2, o.Item3);
                 addRightBottomTableReference(o.Item1, o.Item2, annotationText.Substring(o.Item1, o.Item2 - o.Item1), o.Item3);
             }
-            
         }
 
         private void addEventToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,7 +153,6 @@ namespace Annotator
                 addRightBottomTableReference(start, end, txt, txt);
             }
         }
-
 
         private void annotationText_MouseDown(object sender, MouseEventArgs e)
         {
@@ -170,12 +179,6 @@ namespace Annotator
             }
         }
 
-        private void annoRefView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            annoRefView.Rows[e.RowIndex].Selected = true;
-            annoRefView.Invalidate();
-        }
-
         private void AnnoRefView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             if (selectedEvent != null && mapFromEventToEventAnnotations.ContainsKey(selectedEvent))
@@ -184,13 +187,29 @@ namespace Annotator
             }
         }
 
-
         internal void linkSubEvent(Event ev)
         {
             LinkEventForm linkEventForm = new LinkEventForm();
             linkEventForm.populate(ev, currentSession.events);
             linkEventForm.StartPosition = FormStartPosition.CenterParent;
             linkEventForm.ShowDialog(this);
+        }
+
+        private void annoRefView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                annoRefView.Rows[e.RowIndex].Selected = true;
+                annoRefView.Invalidate();
+            } catch (System.ArgumentOutOfRangeException exc)
+            {
+                // Click on the header part
+            }
+        }
+
+        private void annoRefView_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            Console.WriteLine("annoRefView_UserDeletedRow");
         }
     }
 }

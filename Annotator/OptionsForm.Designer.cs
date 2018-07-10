@@ -58,6 +58,16 @@
             this.donShowMarker = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.downObjPredTypeBtn = new System.Windows.Forms.Button();
+            this.upObjPredTypeBtn = new System.Windows.Forms.Button();
+            this.removeObjPredTypeBtn = new System.Windows.Forms.Button();
+            this.addObjPredTypeBtn = new System.Windows.Forms.Button();
+            this.objPredTypeTxtBox = new System.Windows.Forms.TextBox();
+            this.objPredTypeListBox = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.removeConstraintBtn = new System.Windows.Forms.Button();
@@ -65,15 +75,17 @@
             this.constraintTxtBox = new System.Windows.Forms.TextBox();
             this.constraintListBox = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.downObjLinkTypeBtn = new System.Windows.Forms.Button();
-            this.upObjLinkTypeBtn = new System.Windows.Forms.Button();
-            this.removeLinkTypeBtn = new System.Windows.Forms.Button();
-            this.addLinkTypeBtn = new System.Windows.Forms.Button();
-            this.objectLinkTypeTxtBox = new System.Windows.Forms.TextBox();
-            this.predicateFormListBox = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.downEventPredTypeBtn = new System.Windows.Forms.Button();
+            this.upEventPredTypeBtn = new System.Windows.Forms.Button();
+            this.removeEventPredTypeBtn = new System.Windows.Forms.Button();
+            this.addEventPredTypeBtn = new System.Windows.Forms.Button();
+            this.eventPredTypeTxtBox = new System.Windows.Forms.TextBox();
+            this.eventPredTypeListBox = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -88,8 +100,12 @@
             this.groupBox2.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,11 +115,12 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(652, 545);
+            this.tabControl1.Size = new System.Drawing.Size(652, 561);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -113,7 +130,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(644, 519);
+            this.tabPage1.Size = new System.Drawing.Size(644, 535);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detection";
             // 
@@ -208,7 +225,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(644, 519);
+            this.tabPage2.Size = new System.Drawing.Size(644, 535);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "View";
             // 
@@ -414,15 +431,124 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.groupBox9);
-            this.tabPage4.Controls.Add(this.groupBox7);
+            this.tabPage4.Controls.Add(this.flowLayoutPanel1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage4.Size = new System.Drawing.Size(644, 519);
+            this.tabPage4.Size = new System.Drawing.Size(644, 535);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Predicate";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.groupBox7);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox9);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(639, 528);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.richTextBox1);
+            this.groupBox7.Controls.Add(this.downObjPredTypeBtn);
+            this.groupBox7.Controls.Add(this.upObjPredTypeBtn);
+            this.groupBox7.Controls.Add(this.removeObjPredTypeBtn);
+            this.groupBox7.Controls.Add(this.addObjPredTypeBtn);
+            this.groupBox7.Controls.Add(this.objPredTypeTxtBox);
+            this.groupBox7.Controls.Add(this.objPredTypeListBox);
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Location = new System.Drawing.Point(4, 5);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox7.Size = new System.Drawing.Size(632, 264);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Predicates";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox1.Location = new System.Drawing.Point(9, 183);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(613, 67);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "Predicates\n\'PREDICATE\'(X,Y)   (for binary)\n\'PREDICATE\'(X)    (for unary)\nX stands" +
+    " for the object selected, Y stands for the object linked to";
+            // 
+            // downObjPredTypeBtn
+            // 
+            this.downObjPredTypeBtn.Enabled = false;
+            this.downObjPredTypeBtn.Location = new System.Drawing.Point(510, 151);
+            this.downObjPredTypeBtn.Name = "downObjPredTypeBtn";
+            this.downObjPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.downObjPredTypeBtn.TabIndex = 6;
+            this.downObjPredTypeBtn.Text = "Down";
+            this.downObjPredTypeBtn.UseVisualStyleBackColor = true;
+            this.downObjPredTypeBtn.Click += new System.EventHandler(this.downObjLinkTypeBtn_Click);
+            // 
+            // upObjPredTypeBtn
+            // 
+            this.upObjPredTypeBtn.Enabled = false;
+            this.upObjPredTypeBtn.Location = new System.Drawing.Point(510, 123);
+            this.upObjPredTypeBtn.Name = "upObjPredTypeBtn";
+            this.upObjPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.upObjPredTypeBtn.TabIndex = 5;
+            this.upObjPredTypeBtn.Text = "Up";
+            this.upObjPredTypeBtn.UseVisualStyleBackColor = true;
+            this.upObjPredTypeBtn.Click += new System.EventHandler(this.upObjLinkTypeBtn_Click);
+            // 
+            // removeObjPredTypeBtn
+            // 
+            this.removeObjPredTypeBtn.Enabled = false;
+            this.removeObjPredTypeBtn.Location = new System.Drawing.Point(510, 95);
+            this.removeObjPredTypeBtn.Name = "removeObjPredTypeBtn";
+            this.removeObjPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.removeObjPredTypeBtn.TabIndex = 4;
+            this.removeObjPredTypeBtn.Text = "Remove";
+            this.removeObjPredTypeBtn.UseVisualStyleBackColor = true;
+            this.removeObjPredTypeBtn.Click += new System.EventHandler(this.removeObjPredType_Click);
+            // 
+            // addObjPredTypeBtn
+            // 
+            this.addObjPredTypeBtn.Location = new System.Drawing.Point(510, 59);
+            this.addObjPredTypeBtn.Name = "addObjPredTypeBtn";
+            this.addObjPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.addObjPredTypeBtn.TabIndex = 3;
+            this.addObjPredTypeBtn.Text = "Add";
+            this.addObjPredTypeBtn.UseVisualStyleBackColor = true;
+            this.addObjPredTypeBtn.Click += new System.EventHandler(this.addObjPredType_Click);
+            // 
+            // objPredTypeTxtBox
+            // 
+            this.objPredTypeTxtBox.Location = new System.Drawing.Point(9, 60);
+            this.objPredTypeTxtBox.Name = "objPredTypeTxtBox";
+            this.objPredTypeTxtBox.Size = new System.Drawing.Size(494, 20);
+            this.objPredTypeTxtBox.TabIndex = 2;
+            // 
+            // objPredTypeListBox
+            // 
+            this.objPredTypeListBox.FormattingEnabled = true;
+            this.objPredTypeListBox.Items.AddRange(new object[] {
+            "ON",
+            "IN",
+            "ATTACH_TO"});
+            this.objPredTypeListBox.Location = new System.Drawing.Point(9, 95);
+            this.objPredTypeListBox.Name = "objPredTypeListBox";
+            this.objPredTypeListBox.Size = new System.Drawing.Size(494, 82);
+            this.objPredTypeListBox.TabIndex = 1;
+            this.objPredTypeListBox.SelectedIndexChanged += new System.EventHandler(this.objectLinkTypeListBox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Define predicates";
             // 
             // groupBox9
             // 
@@ -432,9 +558,9 @@
             this.groupBox9.Controls.Add(this.constraintTxtBox);
             this.groupBox9.Controls.Add(this.constraintListBox);
             this.groupBox9.Controls.Add(this.label6);
-            this.groupBox9.Location = new System.Drawing.Point(6, 268);
+            this.groupBox9.Location = new System.Drawing.Point(3, 277);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(628, 246);
+            this.groupBox9.Size = new System.Drawing.Size(632, 246);
             this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Constraints";
@@ -495,110 +621,129 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 27);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.Size = new System.Drawing.Size(92, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Add constraints";
+            this.label6.Text = "Define constraints";
             // 
-            // groupBox7
+            // tabPage3
             // 
-            this.groupBox7.Controls.Add(this.richTextBox1);
-            this.groupBox7.Controls.Add(this.downObjLinkTypeBtn);
-            this.groupBox7.Controls.Add(this.upObjLinkTypeBtn);
-            this.groupBox7.Controls.Add(this.removeLinkTypeBtn);
-            this.groupBox7.Controls.Add(this.addLinkTypeBtn);
-            this.groupBox7.Controls.Add(this.objectLinkTypeTxtBox);
-            this.groupBox7.Controls.Add(this.predicateFormListBox);
-            this.groupBox7.Controls.Add(this.label3);
-            this.groupBox7.Location = new System.Drawing.Point(9, 9);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox7.Size = new System.Drawing.Size(625, 302);
-            this.groupBox7.TabIndex = 2;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Predicates";
+            this.tabPage3.Controls.Add(this.flowLayoutPanel2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(644, 535);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Event";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // flowLayoutPanel2
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(9, 183);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(613, 67);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "Predicates\n\'PREDICATE\'(X,Y)   (for binary)\n\'PREDICATE\'(X)    (for unary)\nX stands" +
-    " for the object selected, Y stands for the object linked to";
+            this.flowLayoutPanel2.Controls.Add(this.groupBox10);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(639, 528);
+            this.flowLayoutPanel2.TabIndex = 9;
             // 
-            // downObjLinkTypeBtn
+            // groupBox10
             // 
-            this.downObjLinkTypeBtn.Enabled = false;
-            this.downObjLinkTypeBtn.Location = new System.Drawing.Point(510, 151);
-            this.downObjLinkTypeBtn.Name = "downObjLinkTypeBtn";
-            this.downObjLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
-            this.downObjLinkTypeBtn.TabIndex = 6;
-            this.downObjLinkTypeBtn.Text = "Down";
-            this.downObjLinkTypeBtn.UseVisualStyleBackColor = true;
-            this.downObjLinkTypeBtn.Click += new System.EventHandler(this.downObjLinkTypeBtn_Click);
+            this.groupBox10.Controls.Add(this.richTextBox3);
+            this.groupBox10.Controls.Add(this.downEventPredTypeBtn);
+            this.groupBox10.Controls.Add(this.upEventPredTypeBtn);
+            this.groupBox10.Controls.Add(this.removeEventPredTypeBtn);
+            this.groupBox10.Controls.Add(this.addEventPredTypeBtn);
+            this.groupBox10.Controls.Add(this.eventPredTypeTxtBox);
+            this.groupBox10.Controls.Add(this.eventPredTypeListBox);
+            this.groupBox10.Controls.Add(this.label7);
+            this.groupBox10.Location = new System.Drawing.Point(4, 5);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox10.Size = new System.Drawing.Size(632, 248);
+            this.groupBox10.TabIndex = 2;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Predicates";
             // 
-            // upObjLinkTypeBtn
+            // richTextBox3
             // 
-            this.upObjLinkTypeBtn.Enabled = false;
-            this.upObjLinkTypeBtn.Location = new System.Drawing.Point(510, 123);
-            this.upObjLinkTypeBtn.Name = "upObjLinkTypeBtn";
-            this.upObjLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
-            this.upObjLinkTypeBtn.TabIndex = 5;
-            this.upObjLinkTypeBtn.Text = "Up";
-            this.upObjLinkTypeBtn.UseVisualStyleBackColor = true;
-            this.upObjLinkTypeBtn.Click += new System.EventHandler(this.upObjLinkTypeBtn_Click);
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox3.Location = new System.Drawing.Point(9, 183);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(613, 57);
+            this.richTextBox3.TabIndex = 7;
+            this.richTextBox3.Text = "Predicates\n\'PREDICATE\'(X,Y)   (for binary)\n\'PREDICATE\'(X)    (for unary)\nX stands" +
+    " for the event selected, Y stands for the event linked to";
             // 
-            // removeLinkTypeBtn
+            // downEventPredTypeBtn
             // 
-            this.removeLinkTypeBtn.Enabled = false;
-            this.removeLinkTypeBtn.Location = new System.Drawing.Point(510, 95);
-            this.removeLinkTypeBtn.Name = "removeLinkTypeBtn";
-            this.removeLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
-            this.removeLinkTypeBtn.TabIndex = 4;
-            this.removeLinkTypeBtn.Text = "Remove";
-            this.removeLinkTypeBtn.UseVisualStyleBackColor = true;
-            this.removeLinkTypeBtn.Click += new System.EventHandler(this.removeLinkType_Click);
+            this.downEventPredTypeBtn.Enabled = false;
+            this.downEventPredTypeBtn.Location = new System.Drawing.Point(510, 151);
+            this.downEventPredTypeBtn.Name = "downEventPredTypeBtn";
+            this.downEventPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.downEventPredTypeBtn.TabIndex = 6;
+            this.downEventPredTypeBtn.Text = "Down";
+            this.downEventPredTypeBtn.UseVisualStyleBackColor = true;
+            this.downEventPredTypeBtn.Click += new System.EventHandler(this.downEventPredTypeBtn_Click);
             // 
-            // addLinkTypeBtn
+            // upEventPredTypeBtn
             // 
-            this.addLinkTypeBtn.Location = new System.Drawing.Point(510, 59);
-            this.addLinkTypeBtn.Name = "addLinkTypeBtn";
-            this.addLinkTypeBtn.Size = new System.Drawing.Size(112, 22);
-            this.addLinkTypeBtn.TabIndex = 3;
-            this.addLinkTypeBtn.Text = "Add";
-            this.addLinkTypeBtn.UseVisualStyleBackColor = true;
-            this.addLinkTypeBtn.Click += new System.EventHandler(this.addPredicate_Click);
+            this.upEventPredTypeBtn.Enabled = false;
+            this.upEventPredTypeBtn.Location = new System.Drawing.Point(510, 123);
+            this.upEventPredTypeBtn.Name = "upEventPredTypeBtn";
+            this.upEventPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.upEventPredTypeBtn.TabIndex = 5;
+            this.upEventPredTypeBtn.Text = "Up";
+            this.upEventPredTypeBtn.UseVisualStyleBackColor = true;
+            this.upEventPredTypeBtn.Click += new System.EventHandler(this.upEventPredTypeBtn_Click);
             // 
-            // objectLinkTypeTxtBox
+            // removeEventPredTypeBtn
             // 
-            this.objectLinkTypeTxtBox.Location = new System.Drawing.Point(9, 60);
-            this.objectLinkTypeTxtBox.Name = "objectLinkTypeTxtBox";
-            this.objectLinkTypeTxtBox.Size = new System.Drawing.Size(494, 20);
-            this.objectLinkTypeTxtBox.TabIndex = 2;
+            this.removeEventPredTypeBtn.Enabled = false;
+            this.removeEventPredTypeBtn.Location = new System.Drawing.Point(510, 95);
+            this.removeEventPredTypeBtn.Name = "removeEventPredTypeBtn";
+            this.removeEventPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.removeEventPredTypeBtn.TabIndex = 4;
+            this.removeEventPredTypeBtn.Text = "Remove";
+            this.removeEventPredTypeBtn.UseVisualStyleBackColor = true;
+            this.removeEventPredTypeBtn.Click += new System.EventHandler(this.removeEventPredTypeBtn_Click);
             // 
-            // predicateFormListBox
+            // addEventPredTypeBtn
             // 
-            this.predicateFormListBox.FormattingEnabled = true;
-            this.predicateFormListBox.Items.AddRange(new object[] {
+            this.addEventPredTypeBtn.Location = new System.Drawing.Point(510, 59);
+            this.addEventPredTypeBtn.Name = "addEventPredTypeBtn";
+            this.addEventPredTypeBtn.Size = new System.Drawing.Size(112, 22);
+            this.addEventPredTypeBtn.TabIndex = 3;
+            this.addEventPredTypeBtn.Text = "Add";
+            this.addEventPredTypeBtn.UseVisualStyleBackColor = true;
+            this.addEventPredTypeBtn.Click += new System.EventHandler(this.addEventPredTypeBtn_Click);
+            // 
+            // eventPredTypeTxtBox
+            // 
+            this.eventPredTypeTxtBox.Location = new System.Drawing.Point(9, 60);
+            this.eventPredTypeTxtBox.Name = "eventPredTypeTxtBox";
+            this.eventPredTypeTxtBox.Size = new System.Drawing.Size(494, 20);
+            this.eventPredTypeTxtBox.TabIndex = 2;
+            // 
+            // eventPredTypeListBox
+            // 
+            this.eventPredTypeListBox.FormattingEnabled = true;
+            this.eventPredTypeListBox.Items.AddRange(new object[] {
             "ON",
             "IN",
             "ATTACH_TO"});
-            this.predicateFormListBox.Location = new System.Drawing.Point(9, 95);
-            this.predicateFormListBox.Name = "predicateFormListBox";
-            this.predicateFormListBox.Size = new System.Drawing.Size(494, 82);
-            this.predicateFormListBox.TabIndex = 1;
-            this.predicateFormListBox.SelectedIndexChanged += new System.EventHandler(this.objectLinkTypeListBox_SelectedIndexChanged);
+            this.eventPredTypeListBox.Location = new System.Drawing.Point(9, 95);
+            this.eventPredTypeListBox.Name = "eventPredTypeListBox";
+            this.eventPredTypeListBox.Size = new System.Drawing.Size(494, 82);
+            this.eventPredTypeListBox.TabIndex = 1;
+            this.eventPredTypeListBox.SelectedIndexChanged += new System.EventHandler(this.eventPredTypeListBox_SelectedIndexChanged);
             // 
-            // label3
+            // label7
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Add either predicate form or constraint";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Define event predicates";
             // 
             // tableLayoutPanel1
             // 
@@ -615,13 +760,13 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(658, 587);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(658, 603);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // cancelBtn
             // 
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Location = new System.Drawing.Point(582, 556);
+            this.cancelBtn.Location = new System.Drawing.Point(582, 572);
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(72, 23);
@@ -631,7 +776,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(502, 556);
+            this.saveBtn.Location = new System.Drawing.Point(502, 572);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(72, 23);
@@ -646,7 +791,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelBtn;
-            this.ClientSize = new System.Drawing.Size(658, 587);
+            this.ClientSize = new System.Drawing.Size(658, 603);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "OptionsForm";
@@ -668,10 +813,15 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -695,12 +845,12 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button removeLinkTypeBtn;
-        private System.Windows.Forms.Button addLinkTypeBtn;
-        private System.Windows.Forms.TextBox objectLinkTypeTxtBox;
-        private System.Windows.Forms.ListBox predicateFormListBox;
-        private System.Windows.Forms.Button downObjLinkTypeBtn;
-        private System.Windows.Forms.Button upObjLinkTypeBtn;
+        private System.Windows.Forms.Button removeObjPredTypeBtn;
+        private System.Windows.Forms.Button addObjPredTypeBtn;
+        private System.Windows.Forms.TextBox objPredTypeTxtBox;
+        private System.Windows.Forms.ListBox objPredTypeListBox;
+        private System.Windows.Forms.Button downObjPredTypeBtn;
+        private System.Windows.Forms.Button upObjPredTypeBtn;
         private System.Windows.Forms.RichTextBox richTextBox1;
 
         private System.Windows.Forms.GroupBox groupBox9;
@@ -729,5 +879,17 @@
         private System.Windows.Forms.RadioButton showMarker;
         private System.Windows.Forms.RadioButton donShowMarker;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Button downEventPredTypeBtn;
+        private System.Windows.Forms.Button upEventPredTypeBtn;
+        private System.Windows.Forms.Button removeEventPredTypeBtn;
+        private System.Windows.Forms.Button addEventPredTypeBtn;
+        private System.Windows.Forms.TextBox eventPredTypeTxtBox;
+        private System.Windows.Forms.ListBox eventPredTypeListBox;
+        private System.Windows.Forms.Label label7;
     }
 }

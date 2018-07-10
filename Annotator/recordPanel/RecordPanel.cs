@@ -46,7 +46,6 @@ namespace Annotator
         {
             this.options = options;
             InitializeComponent();
-            InitializeObjectRecognizers();
             InitializeOptionsTable();
             InitializeButtons();
         }
