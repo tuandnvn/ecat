@@ -38,7 +38,7 @@ namespace Annotator
 
         private void addLinkEventBtn_Click(object sender, EventArgs e)
         {
-            Event selectedEvent = allEvents.Find(x => x.id == (string)linkToEventIdComboBox.SelectedItem);
+            Event selectedEvent = allEvents.Find(x => x.id == (string) linkToEventIdComboBox.SelectedItem);
             var selectedLinkType = linkEventTypeComboBox.SelectedItem;
             if (selectedEvent != null && linkEventTypeComboBox.SelectedItem != null)
             {

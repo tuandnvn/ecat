@@ -139,6 +139,8 @@ namespace Annotator
                 ev.addTempoReference(o.Item1, o.Item2, o.Item3);
                 addRightBottomTableReference(o.Item1, o.Item2, annotationText.Substring(o.Item1, o.Item2 - o.Item1), o.Item3);
             }
+
+            this.logSession($"{foundObjects.Count} event references are added.");
         }
 
         private void addEventToolStripMenuItem_Click(object sender, EventArgs e)
@@ -179,20 +181,18 @@ namespace Annotator
             }
         }
 
-        private void AnnoRefView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            if (selectedEvent != null && mapFromEventToEventAnnotations.ContainsKey(selectedEvent))
-            {
-                mapFromEventToEventAnnotations[selectedEvent].deleteTempoEventParticipantByRowIndex(e.Row.Index);
-            }
-        }
-
         internal void linkSubEvent(Event ev)
         {
             LinkEventForm linkEventForm = new LinkEventForm();
             linkEventForm.populate(ev, currentSession.events);
             linkEventForm.StartPosition = FormStartPosition.CenterParent;
-            linkEventForm.ShowDialog(this);
+            DialogResult result = linkEventForm.ShowDialog(this);
+
+            // We bind DialogResult = OK to Add button
+            if (result == DialogResult.OK)
+            {
+                logSession($"Add a link for event {ev.id}");
+            }
         }
 
         private void annoRefView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -210,6 +210,11 @@ namespace Annotator
         private void annoRefView_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
             Console.WriteLine("annoRefView_UserDeletedRow");
+
+            if (selectedEvent != null && mapFromEventToEventAnnotations.ContainsKey(selectedEvent))
+            {
+                mapFromEventToEventAnnotations[selectedEvent].deleteTempoEventParticipantByRowIndex(e.Row.Index);
+            }
         }
     }
 }

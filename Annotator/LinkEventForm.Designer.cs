@@ -108,6 +108,7 @@
             // addLinkEventBtn
             // 
             this.addLinkEventBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.addLinkEventBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.addLinkEventBtn.Location = new System.Drawing.Point(510, 51);
             this.addLinkEventBtn.Name = "addLinkEventBtn";
             this.addLinkEventBtn.Size = new System.Drawing.Size(75, 20);
