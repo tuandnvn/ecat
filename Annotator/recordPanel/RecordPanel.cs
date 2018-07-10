@@ -26,8 +26,6 @@ namespace Annotator
         private TrackBar playBar;
         private GroupBox optionBox;
         private DataGridView optionsTable;
-        private DataGridViewTextBoxColumn PropertyName;
-        private DataGridViewTextBoxColumn Value;
         private Label label1;
         private Label rgbLabel;
         private Label startTimeLabel;
@@ -36,11 +34,12 @@ namespace Annotator
         private Label videoNameLabel;
         private Label recordTimeLbl;
         private Label endTimeLabel;
-        private Button calibrateButton;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         internal Main main;
+        private DataGridViewTextBoxColumn PropertyName;
+        private DataGridViewTextBoxColumn Value;
         private Options options;
 
         public RecordPanel(Options options)
@@ -60,12 +59,11 @@ namespace Annotator
             this.playButton = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.recordButton = new System.Windows.Forms.Button();
-            this.calibrateButton = new System.Windows.Forms.Button();
             this.recordedBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.playBar = new System.Windows.Forms.TrackBar();
             this.endTimeLabel = new System.Windows.Forms.Label();
             this.startTimeLabel = new System.Windows.Forms.Label();
+            this.playBar = new System.Windows.Forms.TrackBar();
             this.saveRecordedSession = new System.Windows.Forms.Button();
             this.videoNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,10 +79,10 @@ namespace Annotator
             this.label1 = new System.Windows.Forms.Label();
             this.viewBox = new System.Windows.Forms.GroupBox();
             this.optionsTable = new System.Windows.Forms.DataGridView();
-            this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cameraStatusLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recordingButtonGroup.SuspendLayout();
             this.recordedBox.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -106,10 +104,9 @@ namespace Annotator
             this.tableLayoutPanel1.SetColumnSpan(this.recordingButtonGroup, 2);
             this.recordingButtonGroup.Controls.Add(this.playButton);
             this.recordingButtonGroup.Controls.Add(this.recordButton);
-            this.recordingButtonGroup.Controls.Add(this.calibrateButton);
             this.recordingButtonGroup.Location = new System.Drawing.Point(3, 8);
             this.recordingButtonGroup.Name = "recordingButtonGroup";
-            this.recordingButtonGroup.Size = new System.Drawing.Size(349, 43);
+            this.recordingButtonGroup.Size = new System.Drawing.Size(234, 43);
             this.recordingButtonGroup.TabIndex = 1;
             // 
             // playButton
@@ -117,7 +114,7 @@ namespace Annotator
             this.playButton.Enabled = false;
             this.playButton.ImageIndex = 2;
             this.playButton.ImageList = this.imageList2;
-            this.playButton.Location = new System.Drawing.Point(232, 2);
+            this.playButton.Location = new System.Drawing.Point(117, 1);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(108, 37);
             this.playButton.TabIndex = 2;
@@ -141,7 +138,7 @@ namespace Annotator
             this.recordButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.recordButton.ImageIndex = 0;
             this.recordButton.ImageList = this.imageList2;
-            this.recordButton.Location = new System.Drawing.Point(118, 2);
+            this.recordButton.Location = new System.Drawing.Point(3, 1);
             this.recordButton.Name = "recordButton";
             this.recordButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.recordButton.Size = new System.Drawing.Size(108, 37);
@@ -151,17 +148,6 @@ namespace Annotator
             this.recordButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.recordButton.UseVisualStyleBackColor = true;
             this.recordButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.recordButton_MouseDown);
-            // 
-            // calibrateButton
-            // 
-            this.calibrateButton.Enabled = false;
-            this.calibrateButton.Location = new System.Drawing.Point(4, 2);
-            this.calibrateButton.Name = "calibrateButton";
-            this.calibrateButton.Size = new System.Drawing.Size(108, 37);
-            this.calibrateButton.TabIndex = 0;
-            this.calibrateButton.Text = "Calibrate";
-            this.calibrateButton.UseVisualStyleBackColor = true;
-            this.calibrateButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.calibrateButton_MouseDown);
             // 
             // recordedBox
             // 
@@ -198,18 +184,6 @@ namespace Annotator
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1138, 295);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
-            // playBar
-            // 
-            this.tableLayoutPanel3.SetColumnSpan(this.playBar, 3);
-            this.playBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playBar.Enabled = false;
-            this.playBar.Location = new System.Drawing.Point(3, 3);
-            this.playBar.Maximum = 100;
-            this.playBar.Name = "playBar";
-            this.playBar.Size = new System.Drawing.Size(1132, 29);
-            this.playBar.TabIndex = 1;
-            this.playBar.ValueChanged += new System.EventHandler(this.playBar_ValueChanged);
-            // 
             // endTimeLabel
             // 
             this.endTimeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -230,6 +204,18 @@ namespace Annotator
             this.startTimeLabel.TabIndex = 5;
             this.startTimeLabel.Text = "00:00.000";
             // 
+            // playBar
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.playBar, 3);
+            this.playBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playBar.Enabled = false;
+            this.playBar.Location = new System.Drawing.Point(3, 3);
+            this.playBar.Maximum = 100;
+            this.playBar.Name = "playBar";
+            this.playBar.Size = new System.Drawing.Size(1132, 29);
+            this.playBar.TabIndex = 1;
+            this.playBar.ValueChanged += new System.EventHandler(this.playBar_ValueChanged);
+            // 
             // saveRecordedSession
             // 
             this.saveRecordedSession.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -249,7 +235,7 @@ namespace Annotator
             this.videoNameLabel.Size = new System.Drawing.Size(0, 13);
             this.videoNameLabel.TabIndex = 7;
             // 
-            // infoLbl
+            // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 21);
@@ -391,6 +377,7 @@ namespace Annotator
             // 
             // optionsTable
             // 
+            this.optionsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.optionsTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.optionsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.optionsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -403,19 +390,6 @@ namespace Annotator
             this.optionsTable.Size = new System.Drawing.Size(264, 314);
             this.optionsTable.TabIndex = 0;
             this.optionsTable.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.optionsTable_CellValueChanged);
-            // 
-            // PropertyName
-            // 
-            this.PropertyName.Frozen = true;
-            this.PropertyName.HeaderText = "Property";
-            this.PropertyName.Name = "PropertyName";
-            this.PropertyName.ReadOnly = true;
-            // 
-            // Value
-            // 
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
-            this.Value.Width = 150;
             // 
             // cameraStatusLabel
             // 
@@ -448,6 +422,17 @@ namespace Annotator
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1420, 860);
             this.tableLayoutPanel1.TabIndex = 12;
+            // 
+            // PropertyName
+            // 
+            this.PropertyName.HeaderText = "Property";
+            this.PropertyName.Name = "PropertyName";
+            this.PropertyName.ReadOnly = true;
+            // 
+            // Value
+            // 
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
             // 
             // RecordPanel
             // 

@@ -207,11 +207,10 @@ namespace Annotator
 
         protected void InitializeButtons()
         {
-            toolbarButtonGroup.Add(calibrateButton);
             toolbarButtonGroup.Add(recordButton);
             toolbarButtonGroup.Add(playButton);
 
-            toolbarButtonSelected[calibrateButton] = toolbarButtonSelected[recordButton] = toolbarButtonSelected[playButton] = false;
+            toolbarButtonSelected[recordButton] = toolbarButtonSelected[playButton] = false;
         }
 
         public void initiateKinectViewers()
@@ -352,12 +351,6 @@ namespace Annotator
         {
             this.cameraStatusLabel.Text = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
                                                             : Properties.Resources.NoSensorStatusText;
-        }
-
-
-        private void calibrateButton_MouseDown(object sender, MouseEventArgs e)
-        {
-            selectButtonDrawing(calibrateButton, toolbarButtonGroup, !toolbarButtonSelected[calibrateButton]);
         }
 
         private void recordButton_MouseDown(object sender, MouseEventArgs e)
