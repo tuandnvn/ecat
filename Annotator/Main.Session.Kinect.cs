@@ -20,8 +20,6 @@ namespace Annotator
         internal CoordinateMapper coordinateMapper;
         DepthCoordinateMappingReader mappingReader;
 
-
-
         private void sessionOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try

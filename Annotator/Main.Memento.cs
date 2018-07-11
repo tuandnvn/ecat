@@ -92,17 +92,6 @@ namespace Annotator
         }
 
         /// <summary>
-        /// Log a message only
-        /// </summary>
-        /// <param name="log"></param>
-        internal void logMessage(String log)
-        {
-            logs.Add(log);
-
-            logGridView.Rows.Add(logs.Count.ToString(), log);
-        }
-
-        /// <summary>
         /// Load an image of the current session given the index in the image list
         /// </summary>
         /// <param name="index">Position of memento point in the list</param>

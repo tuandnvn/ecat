@@ -409,15 +409,81 @@ namespace Annotator
             saveParameters();
         }
 
-        private void middleCenterPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
             otherWorkspaceToolStripMenuItem_Click(sender, e);
         }
 
+        /// <summary>
+        /// Log a message only
+        /// </summary>
+        /// <param name="log"></param>
+        internal void logMessage(String log)
+        {
+            logs.Add(log);
+
+            logGridView.Rows.Add(logs.Count.ToString(), log);
+        }
+
+        private void handleKeyDownOnAnnotatorTab(KeyEventArgs e)
+        {
+            // Click on rectangle
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.R)
+            {
+                if (rectangleDrawing.Enabled)
+                {
+                    rectangleDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Click on polygon
+            if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.P)
+            {
+                if (polygonDrawing.Enabled)
+                {
+                    polygonDrawing_MouseDown(null, null);
+                }
+                return;
+            }
+
+            // Save down session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
+            {
+                if (currentSession != null)
+                    saveCurrentSession();
+            }
+
+            // Edit session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            {
+                if (currentProject != null)
+                    editSessionMenuItem_Click(null, null);
+            }
+
+            // Add a file into session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            {
+                if (currentSession != null)
+                    addFileToSessionMenuItem_Click(null, null);
+            }
+
+            // Undo in session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Z)
+            {
+                if (currentSession != null)
+                    undoBtn_Click(null, null);
+            }
+
+            // Redo in session
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Y)
+            {
+                if (currentSession != null)
+                    redoBtn_Click(null, null);
+            }
+
+            // While editing a polygon
+            handleKeyDownOnDrawingPolygon(e);
+        }
     }
 }
