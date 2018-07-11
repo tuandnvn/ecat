@@ -12,6 +12,7 @@ using AForge.Imaging.Filters;
 using AForge.Math.Geometry;
 using Accord.Math;
 using System.Diagnostics;
+using static Annotator.Object;
 
 namespace Annotator
 {
@@ -50,6 +51,14 @@ namespace Annotator
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="videoReader">Main reader to get RGB video. If it is null, return an empty list</param>
+        /// <param name="depthReader">Main reader to get depth field. If it is null, return an empty list</param>
+        /// <param name="mappingFunction">Map from RGB to depth. Only needed if depthReader!=null</param>
+        /// <param name="progress"></param>
+        /// <returns></returns>
         public List<Object> findObjects(VideoReader videoReader, IDepthReader depthReader, Action<ushort[], CameraSpacePoint[]> mappingFunction, IProgress<int> progress)
         {
             var shapeOptimizer = new FlatAnglesOptimizer(160);
@@ -259,12 +268,6 @@ namespace Annotator
                         originalCorners.Add(p);
                     }
 
-                    //Console.WriteLine("Corner points");
-                    //foreach (var corner in originalCorners)
-                    //{
-                    //    Console.WriteLine(corner);
-                    //}
-
                     for (int boxPrototypeIndex = 0; boxPrototypeIndex < boxPrototypes.Count; boxPrototypeIndex++)
                     {
                         var boxPrototype = boxPrototypes[boxPrototypeIndex];
@@ -330,7 +333,18 @@ namespace Annotator
                     Console.WriteLine("For boxPrototypeIndex = " + boxPrototypeIndex + " Found glyph box at " + recognizedGlyphs[boxPrototypeIndex].Keys.Count + " frames");
                     GlyphBoxObject oneBox = null;
                     var boxPrototype = boxPrototypes[boxPrototypeIndex];
+
+
                     oneBox = new GlyphBoxObject(currentSession, "", Color.Black, 1, videoReader.fileName);
+                    if (depthReader != null)
+                    {
+                        // 3d mode
+                        oneBox.objectType = ObjectType._3D;
+                    } else
+                    {
+                        oneBox.objectType = ObjectType._2D;
+                    }
+
                     oneBox.boxPrototype = boxPrototype;
                     foreach (int frameNo in recognizedGlyphs[boxPrototypeIndex].Keys)
                     {
@@ -348,12 +362,11 @@ namespace Annotator
                         }
 
                         oneBox.setBounding(frameNo, glyphSize, glyphBounds, faces);
-                        oneBox.set3DBounding(frameNo, glyphSize, glyph3DBounds, faces);
 
-                        //Point3 center = new Point3();
-                        //Quaternions quaternions = new Quaternions();
-
-                        //oneBox.set3DBounding(frameNo, new CubeLocationMark(frameNo, center, quaternions));
+                        if (oneBox.objectType == ObjectType._3D)
+                        {
+                            oneBox.set3DBounding(frameNo, glyphSize, glyph3DBounds, faces);
+                        }
                     }
 
                     objects.Add(oneBox);

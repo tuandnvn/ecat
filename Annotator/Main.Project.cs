@@ -34,7 +34,6 @@ namespace Annotator
                 newSessionToolStripMenuItem.Enabled = true;
                 refreshProjectMenuItem.Enabled = true;
                 recordSessionToolStripMenuItem.Enabled = true;
-                projectDetectToolStripMenuItem.Enabled = true;
                 projectGenerateToolStripMenuItem.Enabled = true;
             }
             else if (currentProject != null && !(treeView.SelectedNode.Text.Equals(currentProject.name)))
@@ -45,7 +44,6 @@ namespace Annotator
                 newSessionToolStripMenuItem.Enabled = false;
                 refreshProjectMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
-                projectDetectToolStripMenuItem.Enabled = false;
                 projectGenerateToolStripMenuItem.Enabled = false;
             }
 
@@ -57,7 +55,6 @@ namespace Annotator
                 newSessionToolStripMenuItem.Enabled = false;
                 refreshProjectMenuItem.Enabled = false;
                 recordSessionToolStripMenuItem.Enabled = false;
-                projectDetectToolStripMenuItem.Enabled = false;
                 projectGenerateToolStripMenuItem.Enabled = false;
             }
             Point location = this.Location;
@@ -96,7 +93,6 @@ namespace Annotator
             currentProject = workspace.getProject(prjName);
             currentProject.selected = true;
 
-            this.simpleEventDataCreateMenuItem.Enabled = true;
             this.Text = "Project " + currentProject.name + " selected";
 
             foreach (TreeNode node in treeView.Nodes)
@@ -225,7 +221,6 @@ namespace Annotator
 
         private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             int numberOfSessions = 0;
             int numberOfObjects = 0;
             int numberOfLocationMarks = 0;
@@ -285,6 +280,36 @@ namespace Annotator
             this.Text = "No project selected";
         }
 
+        private void projectEventTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentProject != null)
+            {
+                EventTemplateGenerator etg = new EventTemplateGenerator(this, true);
+                etg.StartPosition = FormStartPosition.CenterParent;
+                etg.ShowDialog();
+            }
+        }
+
+        private void objectReferencesByNameMatchingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var session in currentProject.sessions)
+            {
+                currentSession = session;
+                currentSession.loadIfNotLoaded();
+                currentSession.findObjectsByNames();
+                currentSession.saveSession();
+            }
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////This part is used to detect objects for sessions of a same project. Remove this function from GUI//////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        /// <summary>
+        /// Setup Kinect, then loop through all sessions and do object detection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void projectOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
@@ -312,7 +337,7 @@ namespace Annotator
                             new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
                             coordinateMapper.MapColorFrameToCameraSpace
                         );
-                        AddObjectsIntoSession(detectedObjects);
+                        addObjectsIntoSession(detectedObjects);
                         currentSession.saveSession();
                     }
                 }
@@ -323,6 +348,11 @@ namespace Annotator
             });
         }
 
+        /// <summary>
+        /// Loop through all sessions and do object detection with offline mode (no Kinect is needed)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void projectOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var session in currentProject.sessions)
@@ -334,25 +364,5 @@ namespace Annotator
             }
         }
 
-        private void projectEventTemplateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (currentProject != null)
-            {
-                EventTemplateGenerator etg = new EventTemplateGenerator(this, true);
-                etg.StartPosition = FormStartPosition.CenterParent;
-                etg.ShowDialog();
-            }
-        }
-
-        private void objectReferencesByNameMatchingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var session in currentProject.sessions)
-            {
-                currentSession = session;
-                currentSession.loadIfNotLoaded();
-                currentSession.findObjectsByNames();
-                currentSession.saveSession();
-            }
-        }
     }
 }

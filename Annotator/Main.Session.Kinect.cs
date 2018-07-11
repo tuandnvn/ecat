@@ -20,64 +20,6 @@ namespace Annotator
         internal CoordinateMapper coordinateMapper;
         DepthCoordinateMappingReader mappingReader;
 
-        private void sessionOnlineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
-                var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-                objectRecognizerIncluded[objectRecognizer] = true;
-                setupKinectIfNeeded();
-
-                Task t = Task.Run(async () =>
-                {
-
-                    if (currentlySetupKinect)
-                    {
-                        Console.WriteLine("Await");
-                        isAvailable.Wait();
-                        currentlySetupKinect = false;
-                    }
-
-                    List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
-                    currentSession.getDepth(0),
-                    new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                    coordinateMapper.MapColorFrameToCameraSpace
-                        );
-
-                    // Run on UI thread
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        AddDetectedObjects(detectedObjects);
-                    });
-                });
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc);
-            }
-        }
-
-        internal void setupKinectIfNeeded()
-        {
-            if (kinectSensor == null)
-            {
-                isAvailable = new CountdownEvent(3);
-                sensorAvailabel = false;
-                colorFrameArrived = false;
-                depthFrameArrived = false;
-                kinectSensor = KinectSensor.GetDefault();
-                coordinateMapper = kinectSensor.CoordinateMapper;
-                var colorFrameReader = this.kinectSensor.ColorFrameSource.OpenReader();
-                var depthFrameReader = this.kinectSensor.DepthFrameSource.OpenReader();
-                colorFrameReader.FrameArrived += this.Reader_ColorFrameArrived;
-                depthFrameReader.FrameArrived += this.Reader_DepthFrameArrived;
-                kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
-                kinectSensor.Open();
-                currentlySetupKinect = true;
-            }
-        }
-
 
         private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
         {
@@ -106,45 +48,112 @@ namespace Annotator
             }
         }
 
-        private void sessionOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void detectGlyphBox2dToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
-            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
-            objectRecognizerIncluded[objectRecognizer] = true;
-
-            if (mappingReader == null)
+            try
             {
-                mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
-            }
+                IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
+                var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
+                objectRecognizerIncluded[objectRecognizer] = true;
 
-            Task t = Task.Run(async () =>
-            {
-                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
-                currentSession.getDepth(0),
-                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
-                (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,
-                    currentSession.getDepth(0).depthWidth,
-                    currentSession.getDepth(0).depthHeight,
-                    currentSession.getVideo(0).frameWidth,
-                    currentSession.getVideo(0).frameHeight, result)
-                    );
-
-                // Run on UI thread
-                this.Invoke((MethodInvoker)delegate
+                Task t = Task.Run(async () =>
                 {
-                    AddDetectedObjects(detectedObjects);
+                    List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                    null,
+                    new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                    null);
+
+                    // Run on UI thread
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        addDetectedObjects(detectedObjects);
+                    });
                 });
-
-            });
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
         }
 
-        private void AddDetectedObjects(List<Object> detectedObjects)
+        private void detectGlyphBox3dToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddObjectsIntoSession(detectedObjects);
-            RefreshUI(detectedObjects);
+            try
+            {
+                IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
+                var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
+                objectRecognizerIncluded[objectRecognizer] = true;
+                setupKinectIfNeeded();
+
+                Task t = Task.Run(async () =>
+                {
+                    if (currentlySetupKinect)
+                    {
+                        Console.WriteLine("Await");
+                        isAvailable.Wait(5000);
+                        
+                        currentlySetupKinect = false;
+                    }
+
+                    if (isAvailable.IsSet)
+                    {
+                        List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                            currentSession.getDepth(0),
+                            new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                            coordinateMapper.MapColorFrameToCameraSpace
+                        );
+
+                        // Run on UI thread
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            addDetectedObjects(detectedObjects);
+                        });
+                    } else
+                    {
+                        // Run on UI thread
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            MessageBox.Show("Waiting for a Kinect sensor in 5 seconds. There is no  Kinect sensor available.",
+                            "Generation error",
+                            MessageBoxButtons.OK);
+                        });
+                    }
+                });
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
         }
 
-        private void RefreshUI(List<Object> detectedObjects)
+        internal void setupKinectIfNeeded()
+        {
+            if (kinectSensor == null || !kinectSensor.IsAvailable)
+            {
+                isAvailable = new CountdownEvent(3);
+                sensorAvailabel = false;
+                colorFrameArrived = false;
+                depthFrameArrived = false;
+                kinectSensor = KinectSensor.GetDefault();
+                coordinateMapper = kinectSensor.CoordinateMapper;
+                var colorFrameReader = this.kinectSensor.ColorFrameSource.OpenReader();
+                var depthFrameReader = this.kinectSensor.DepthFrameSource.OpenReader();
+                colorFrameReader.FrameArrived += this.Reader_ColorFrameArrived;
+                depthFrameReader.FrameArrived += this.Reader_DepthFrameArrived;
+                kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
+                kinectSensor.Open();
+                currentlySetupKinect = true;
+            }
+        }
+
+        private void addDetectedObjects(List<Object> detectedObjects)
+        {
+            addObjectsIntoSession(detectedObjects);
+            refreshUI(detectedObjects);
+        }
+
+        private void refreshUI(List<Object> detectedObjects)
         {
             // Redraw object annotation panel
             if (detectedObjects.Count != 0)
@@ -157,7 +166,7 @@ namespace Annotator
             }
         }
 
-        private void AddObjectsIntoSession(List<Object> detectedObjects)
+        private void addObjectsIntoSession(List<Object> detectedObjects)
         {
             // Handle adding identical objects or not
             switch (options.detectionMode)
@@ -211,6 +220,15 @@ namespace Annotator
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///This part is used to generate some data from session, but not it is better to generate directly from param files.///////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Deprecated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void simpleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (currentProject != null)
@@ -227,6 +245,11 @@ namespace Annotator
             }
         }
 
+        /// <summary>
+        /// Deprecated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void eventToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (currentProject != null)
@@ -242,5 +265,52 @@ namespace Annotator
                 }
             }
         }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////This part is used to generate objects without using Kinect camera.//////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+        private void sessionOfflineModeGlyphDetectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IObjectRecogAlgo objectRecognizer = new GlyphBoxObjectRecognition(currentSession, options.prototypeList, 5);
+            var objectRecognizerIncluded = new Dictionary<IObjectRecogAlgo, bool>();
+            objectRecognizerIncluded[objectRecognizer] = true;
+
+            if (mappingReader == null)
+            {
+                try
+                {
+                    mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("3D coordinations of this object could not be generated. It is very likely that there is no depth file, or the depth file is corrupted or not of the correct format",
+                        "Generation error",
+                        MessageBoxButtons.OK);
+                    return;
+                }
+            }
+
+            Task t = Task.Run(async () =>
+            {
+                List<Object> detectedObjects = await Utils.DetectObjects("Progress on " + currentSession.sessionName, currentSession.getVideo(0),
+                currentSession.getDepth(0),
+                new List<IObjectRecogAlgo> { objectRecognizer }, objectRecognizerIncluded,
+                (depthImage, result) => mappingReader.projectDepthImageToCameraSpacePoint(depthImage,
+                    currentSession.getDepth(0).depthWidth,
+                    currentSession.getDepth(0).depthHeight,
+                    currentSession.getVideo(0).frameWidth,
+                    currentSession.getVideo(0).frameHeight, result)
+                    );
+
+                // Run on UI thread
+                this.Invoke((MethodInvoker)delegate
+                {
+                    addDetectedObjects(detectedObjects);
+                });
+
+            });
+        }
+
     }
 }

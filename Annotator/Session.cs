@@ -443,9 +443,7 @@ namespace Annotator
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception in loading annotation");
-                Console.WriteLine(e);
-                throw e;
+                MessageBox.Show(e.StackTrace, "Exceptions in object loading", System.Windows.Forms.MessageBoxButtons.OK);
             }
         }
 

@@ -432,24 +432,6 @@ namespace Annotator
             xmlWriter.WriteEndElement();
         }
 
-        //protected virtual void writeLinks(XmlWriter xmlWriter)
-        //{
-        //    if (linkMarks.Count == 0) return;
-        //    xmlWriter.WriteStartElement(LINKS);
-        //    foreach (int frame in linkMarks.Keys)
-        //    {
-        //        if (!linkMarks[frame].isEmpty())
-        //        {
-        //            xmlWriter.WriteStartElement(LINK);
-        //            xmlWriter.WriteAttributeString(FRAME, "" + frame);
-        //            linkMarks[frame].writeToXml(xmlWriter);
-
-        //            xmlWriter.WriteEndElement();
-        //        }
-        //    }
-        //    xmlWriter.WriteEndElement();
-        //}
-
         public static List<Object> readObjectsFromXml(Session session, XmlNode xmlNode)
         {
             List<Object> objects = new List<Object>();

@@ -485,5 +485,6 @@ namespace Annotator
             // While editing a polygon
             handleKeyDownOnDrawingPolygon(e);
         }
+
     }
 }

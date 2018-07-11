@@ -296,11 +296,6 @@ namespace Annotator
                     result[x * colorHeight + y] = new CameraSpacePoint { X = -1, Y = -1, Z = -1 };
                 }
 
-            //Console.WriteLine("xsmallest " + xsmallest);
-            //Console.WriteLine("xlargest " + xlargest);
-            //Console.WriteLine("ysmallest " + ysmallest);
-            //Console.WriteLine("ylargest " + ylargest);
-
             for (int x = xsmallest; x < xlargest; x++)
             {
                 for (int y = ysmallest; y < ylargest; y++)

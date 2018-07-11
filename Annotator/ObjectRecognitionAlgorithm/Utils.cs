@@ -47,7 +47,6 @@ namespace Annotator
             {
                 int recognizerCounter = 0;
 
-                Console.WriteLine(objectRecognizerIncluded);
                 foreach (var objectRecognizer in objectRecognizers)
                 {   
                     if (objectRecognizerIncluded[objectRecognizer])
@@ -57,7 +56,7 @@ namespace Annotator
                             (progress2 as IProgress<int>).Report(recognizerCounter * (videoReader.frameCount + 1) + v);
                         });
 
-                        if (videoReader != null && depthReader != null)
+                        if (videoReader != null)
                         {
                             var objects = objectRecognizer.findObjects(videoReader, depthReader, mappingFunction, progress);
                             detectedObjects.AddRange(objects);
