@@ -40,8 +40,6 @@ namespace Annotator
         //Add annotation 
         internal void addAnnotation(Event ev)
         {
-            //Console.WriteLine("Event " + ev.startFrame + " " + ev.endFrame);
-            //Console.WriteLine("Session " + sessionStart  + " " + sessionEnd);
             EventAnnotation annotation = new EventAnnotation(ev, this, sessionStart, sessionEnd);
             this.mapFromEventToEventAnnotations[ev] = annotation;
             currentSession.addEvent(ev);
@@ -132,7 +130,7 @@ namespace Annotator
             currentSession.resetTempoEmpty(ev);
             annoRefView.Rows.Clear();
             annoRefView.Refresh();
-            var foundObjects = currentSession.findObjectsByNames(ev);
+            var foundObjects = currentSession.findObjectsByNames(ev, getAnnotationText());
 
             foreach (var o in foundObjects)
             {

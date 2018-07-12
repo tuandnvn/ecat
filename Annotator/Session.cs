@@ -31,7 +31,12 @@ namespace Annotator
         /// <summary>
         /// Id for next object added into this session
         /// </summary>
-        public int nextObjectId { get; set; } = 0;          
+        public int nextObjectId { get; set; } = 0;
+        /// <summary>
+        /// Id for next event added into this session
+        /// </summary>
+        private int nextEventID { get; set; } = 0;
+
         private Dictionary<string, Object> objects;  // list of objects in videos
         public String sessionName { get; private set; }     //session name
         public String workspacePath { get; private set; }     //workspace path
@@ -45,7 +50,7 @@ namespace Annotator
         public SortedSet<PredicateMark> predicates { get; private set;  }
         private String metadataFile;      //parameters file name
         private String tempMetadataFile;
-        private int annotationID;      // annotation ID
+        
         private Lazy<int> _sessionLength;
         internal string path;
 
@@ -117,6 +122,7 @@ namespace Annotator
         {
             // Start counting object from 0
             this.nextObjectId = 0;
+            this.nextEventID = 0;
             this.events = new List<Event>();
             this.objects = new Dictionary<string, Object>();
             this.predicates = new SortedSet<PredicateMark>(new PredicateMarkComparer());
@@ -309,6 +315,7 @@ namespace Annotator
 
             {
                 writer.WriteStartElement(ANNOTATIONS);
+                writer.WriteAttributeString("no", nextEventID + "");
                 foreach (Event a in events)
                 {
                     a.writeToXml(writer);
@@ -438,7 +445,10 @@ namespace Annotator
                     events = new List<Event>();
 
                     if (annotationsNode != null)
+                    {
+                        nextEventID = int.Parse(annotationsNode.Attributes["no"].Value);
                         events = Event.readFromXml(this, annotationsNode);
+                    }
                 }
             }
             catch (Exception e)
@@ -694,7 +704,7 @@ namespace Annotator
                 return;
 
             events.Add(e);
-            e.id = "a" + ++annotationID;
+            e.id = "a" + ++nextEventID;
         }
 
         /// <summary>
@@ -702,10 +712,15 @@ namespace Annotator
         /// </summary>
         /// <param name="e"></param>
         /// <returns>(startRef, endRef, redId)</returns>
-        internal List<Tuple<int, int, string>> findObjectsByNames(Event e)
+        internal List<Tuple<int, int, string>> findObjectsByNames(Event e, string tempoEventText = null)
         {
             if (events.Find(ev => ev.id == e.id) == null)
                 return null;
+
+            if (tempoEventText == null)
+            {
+                tempoEventText = e.text;
+            }
 
             var foundObjects = new List<Tuple<int, int, string>>();
 
@@ -714,7 +729,7 @@ namespace Annotator
             {
                 if (o.name != "")
                 {
-                    int findLoc = e.text.ToLowerInvariant().IndexOf(o.name.ToLowerInvariant());
+                    int findLoc = tempoEventText.ToLowerInvariant().IndexOf(o.name.ToLowerInvariant());
                     if (findLoc != -1)
                     {
                         int startRef = findLoc;

@@ -76,6 +76,10 @@ namespace Annotator
 
         Dictionary<int, object> rowIndexToObjs;
 
+        ToolTip tt = new ToolTip();
+        int TOOLTIP_TIME = 5000;
+
+
         public EventAnnotation(Event ev, Main mainGUI, int start, int end)
         {
 
@@ -100,8 +104,7 @@ namespace Annotator
 
             rowIndexToObjs = new Dictionary<int, object>();
 
-            //MessageBox.Show("minimum = " + minimum + ", maximum = " + maximum + " stepX = " + frameStepX);
-            intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
+            setIntervalLbl();
         }
 
         private void Rendering()
@@ -237,7 +240,7 @@ namespace Annotator
                     ev.startFrame = (int)((leftMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
                 }
 
-                intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
+                setIntervalLbl();
                 // Console.WriteLine(this.ev.id + "leftMarker_Move " + intervalLbl.Text);
                 main.Invalidate();
             }
@@ -256,10 +259,15 @@ namespace Annotator
                     ev.endFrame = (int)((rightMarker.X1 - minLeftPosition) / frameStepX) + start + 1;
                 }
 
-                intervalLbl.Text = "Start: " + ev.startFrame + ", Stop: " + ev.endFrame;
+                setIntervalLbl();
                 // Console.WriteLine(this.ev.id + "rightMarker_Move " + intervalLbl.Text);
                 main.Invalidate();
             }
+        }
+
+        private void setIntervalLbl()
+        {
+            intervalLbl.Text = $"Event {ev.id}, Start: {ev.startFrame}, Stop: {ev.endFrame}";
         }
 
         private void lineShape1_Paint(object sender, PaintEventArgs e)
@@ -272,12 +280,26 @@ namespace Annotator
             ShowToolTipMouseAt(e.Location);
         }
 
-        ToolTip tt = new ToolTip();
-        int TOOLTIP_TIME = 5000;
-
+        
         private void ShowToolTipMouseAt(Point location)
         {
-            string tooltip = string.Join("\n", this.ev.linkToEvents.Select(t => t.Item1 + "( " + this.ev.id + ", " + t.Item2 + " )"));
+            string tooltip = "";
+
+            foreach (var t in this.ev.linkToEvents)
+            {
+                tooltip += "\n";
+                string otherId = t.Item1;
+                Predicate predicate = t.Item2;
+
+                string[] objects = new string[] { ev.id, otherId  };
+
+                String q = predicate.predicate + "( " + String.Join(",", predicate.combination.values.Select(v =>
+                     objects[v - 1] )) + " )";
+
+                tooltip += q;
+            }
+            
+
             tt.Show(tooltip, this, location, TOOLTIP_TIME);
         }
 

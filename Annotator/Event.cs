@@ -27,17 +27,11 @@ namespace Annotator
         private const string LINK = "link";
         private const string LINKTO = "linkTo";
 
-        public enum EventLinkType
-        {
-            SUBEVENT,
-            CAUSE
-        }
-
         public List<Reference> references { get; private set; }
         public List<Action> actions { get; private set; }
         private List<Reference> tempoReferences;
         private List<Action> tempoActions;
-        public HashSet<Tuple<EventLinkType, string>> linkToEvents { get; }
+        public HashSet<Tuple<string, Predicate>> linkToEvents { get; }
         public String id { get; set; } //anottation ID
         public int startFrame { get; set; }
         public int endFrame { get; set; }
@@ -53,7 +47,7 @@ namespace Annotator
             actions = new List<Action>();
             tempoReferences = new List<Reference>();
             tempoActions = new List<Action>();
-            linkToEvents = new HashSet<Tuple<EventLinkType, string>>();
+            linkToEvents = new HashSet<Tuple<string, Predicate>>();
         }
 
         public class Reference
@@ -98,9 +92,9 @@ namespace Annotator
             actions = new List<Action>();
         }
 
-        public void addLinkTo(string evId, EventLinkType type)
+        public void addLinkTo(string evId, Predicate type)
         {
-            linkToEvents.Add(new Tuple<EventLinkType, string>(type, evId));
+            linkToEvents.Add(new Tuple<string, Predicate>(evId, type));
         }
 
         public void addReference(Reference reference)
@@ -250,8 +244,8 @@ namespace Annotator
             foreach (var item in linkToEvents)
             {
                 xmlWriter.WriteStartElement(LINKTO);
-                xmlWriter.WriteAttributeString(ID, "" + item.Item2);
-                xmlWriter.WriteAttributeString(TYPE, "" + item.Item1);
+                xmlWriter.WriteAttributeString(ID, "" + item.Item1);
+                xmlWriter.WriteAttributeString(TYPE, "" + item.Item2);
                 xmlWriter.WriteEndElement();
             }
             xmlWriter.WriteEndElement();
@@ -293,12 +287,12 @@ namespace Annotator
                 }
 
                 XmlNode links = node.SelectSingleNode(LINK);
-                foreach (XmlNode link in events.SelectNodes(LINKTO))
+                foreach (XmlNode link in links.SelectNodes(LINKTO))
                 {
                     string linkId = link.Attributes[ID].Value;
-                    var linkType = (EventLinkType) Enum.Parse( typeof(EventLinkType), link.Attributes[TYPE].Value);
+                    Predicate pred = Predicate.Parse(link.Attributes[TYPE].Value);
 
-                    a.addLinkTo(linkId, linkType);
+                    a.addLinkTo(linkId, pred);
                 }
 
                 annotations.Add(a);

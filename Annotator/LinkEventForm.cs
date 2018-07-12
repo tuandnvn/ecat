@@ -26,7 +26,9 @@ namespace Annotator
             this.allEvents = allEvents;
             eventId.Text = ev.id;
             eventTxt.Text = ev.text;
-            linkEventTypeComboBox.Items.AddRange(Enum.GetValues(typeof(Event.EventLinkType)).Cast<object>().ToArray());
+            linkEventTypeComboBox.Items.AddRange(Options.getOption().eventPredicates.ToArray());
+            linkEventTypeComboBox.SelectedIndex = 0;
+
             linkToEventIdComboBox.Items.AddRange(allEvents.FindAll(x => x.id != ev.id).Select(e => e.id).ToArray());
         }
 
@@ -42,7 +44,7 @@ namespace Annotator
             var selectedLinkType = linkEventTypeComboBox.SelectedItem;
             if (selectedEvent != null && linkEventTypeComboBox.SelectedItem != null)
             {
-                ev.addLinkTo(selectedEvent.id, (Event.EventLinkType)selectedLinkType);
+                ev.addLinkTo(selectedEvent.id, (Predicate) selectedLinkType);
                 this.Dispose();
             }
         }
