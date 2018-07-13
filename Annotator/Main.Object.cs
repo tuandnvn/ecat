@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Kinect;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -116,6 +117,87 @@ namespace Annotator
             //if (lastObjectCell.Y >= 0) return;
 
             renderObjectAnnotation(objectAnnotation);
+        }
+
+        public delegate void Map(ushort[] depthImage, CameraSpacePoint[] result);
+
+        internal void generate3D(Object o)
+        {
+            try
+            {
+                // Current assumption is that the depth field is the first one
+                var videoReader = o.session.getVideo(0);
+                var depthReader = o.session.getDepth(0);
+
+                setupKinectIfNeeded();
+
+                if (videoReader != null && depthReader != null)
+                {
+                    // To run some lazy evaluation
+                    depthReader.getWidth();
+
+                    Task t = Task.Run(async () =>
+                    {
+                        waitForKinect(1000);
+
+                        if (isAvailable.IsSet)
+                        {
+                            if (o is GlyphBoxObject)
+                            {
+                                o.generate3dForGlyph(videoReader, depthReader, coordinateMapper.MapColorFrameToCameraSpace);
+                            }
+                            else
+                            {
+                                o.generate3d(videoReader, depthReader, coordinateMapper.MapColorFrameToCameraSpace);
+                            }
+                        }
+                        else
+                        {
+                            // Run on UI thread
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                            MessageBox.Show("Waiting for a Kinect sensor in 1 seconds. Because there is no Kinect sensor, we will use the default mapping method.",
+                            "Generation warning",
+                            MessageBoxButtons.OK);
+
+                            try
+                            {
+                                var mappingReader = new DepthCoordinateMappingReader("coordinateMapping.dat");
+
+                                Action<ushort[], CameraSpacePoint[]> mappingFunction = delegate (ushort[] depthImage, CameraSpacePoint[] result)
+                                {
+                                    mappingReader.projectDepthImageToCameraSpacePoint(depthImage,
+                                    currentSession.getDepth(0).depthWidth,
+                                    currentSession.getDepth(0).depthHeight,
+                                    currentSession.getVideo(0).frameWidth,
+                                    currentSession.getVideo(0).frameHeight, result);
+                                };
+
+                                if (o is GlyphBoxObject)
+                                {
+                                    o.generate3dForGlyph(videoReader, depthReader, mappingFunction );
+                                }
+                                else
+                                {
+                                    o.generate3d(videoReader, depthReader, mappingFunction);
+                                }
+                            }
+                            catch (Exception exc)
+                            {
+                                MessageBox.Show("Mapping file (coordinateMapping.dat) is not available", "Generation error",
+                                    MessageBoxButtons.OK);
+                            }
+                        });
+                        }
+                    });
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("3D coordinations of this object could not be generated. It is very likely that there is no depth file, or the depth file is corrupted or not of the correct format",
+                    "Generation error",
+                    MessageBoxButtons.OK);
+            }
         }
     }
 }

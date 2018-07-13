@@ -88,13 +88,7 @@ namespace Annotator
 
                 Task t = Task.Run(async () =>
                 {
-                    if (currentlySetupKinect)
-                    {
-                        Console.WriteLine("Await");
-                        isAvailable.Wait(5000);
-                        
-                        currentlySetupKinect = false;
-                    }
+                    waitForKinect(5000);
 
                     if (isAvailable.IsSet)
                     {
@@ -109,7 +103,8 @@ namespace Annotator
                         {
                             addDetectedObjects(detectedObjects);
                         });
-                    } else
+                    }
+                    else
                     {
                         // Run on UI thread
                         this.Invoke((MethodInvoker)delegate
@@ -124,6 +119,17 @@ namespace Annotator
             catch (Exception exc)
             {
                 Console.WriteLine(exc);
+            }
+        }
+
+        private void waitForKinect(int mili)
+        {
+            if (currentlySetupKinect)
+            {
+                Console.WriteLine("Await");
+                isAvailable.Wait(mili);
+
+                currentlySetupKinect = false;
             }
         }
 
